@@ -1,0 +1,178 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss3-BossBeast/anims/Boss3-Anim-AttackRaw" itemID="55ec6b95-00001077" lastModified="1464361321">
+  <timeline>
+    <DOMTimeline name="Boss3-Anim-AttackRaw" currentFrame="122">
+      <layers>
+        <DOMLayer name="label" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="18" name="a1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="21" name="a2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="29" name="a3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="62" name="a4" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var attackNum:Number = 1;
+var _parent:MovieClip = MovieClip(parent);
+var forceFlinch:Boolean;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent) _parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="21" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackNum = 2;
+if (_parent) _parent.xSpeed = 8 * _parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="28" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent) _parent.xSpeed = 14 * _parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="67" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent) _parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).antiFlinchOn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="88" duration="41" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent.life > _parent.lifeOrig *.3) _parent.antiFlinchOn = false;
+if (_parent) _parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="hit" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="8.697998046875" d="8.86175537109375" tx="-3.3" ty="-135.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="26" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2">
+                  <matrix>
+                    <Matrix a="8.697998046875" d="8.86175537109375" tx="-48.8" ty="-136.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" duration="21" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2">
+                  <matrix>
+                    <Matrix a="8.697998046875" d="8.86175537109375" tx="-11.8" ty="-132.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="19" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="26" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="94" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit5" selected="true">
+                  <matrix>
+                    <Matrix a="11.3743133544922" d="12.5207977294922" tx="-85.7" ty="-208.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="95" duration="35" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="68" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Attack" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix tx="-59.05" ty="0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-92.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="62" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Attack" symbolType="graphic" firstFrame="68" centerPoint3DX="-99.95" centerPoint3DY="-138.55" loop="play once">
+                  <matrix>
+                    <Matrix tx="-59.05" ty="0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-92.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

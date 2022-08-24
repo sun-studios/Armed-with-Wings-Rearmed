@@ -1,0 +1,49 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q03/LVLQ03-Fade2" itemID="561bcb01-00000d5c" lastModified="1444662017">
+  <timeline>
+    <DOMTimeline name="LVLQ03-Fade2">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var go:Boolean;
+
+init();
+
+function init ():void {
+	go = false;
+	visible = false;
+	alpha = 0;
+}
+function update ():void {
+	if (go) {
+		visible = true;
+		if (alpha < 1) alpha += .05;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMBitmapInstance libraryItemName="Levels/Level-Q03/LVLQ03-Fade">
+                      <matrix>
+                        <Matrix tx="-682.6" ty="-215.65"/>
+                      </matrix>
+                    </DOMBitmapInstance>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

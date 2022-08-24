@@ -1,0 +1,108 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/_Lyeet/Lyeet Follow" itemID="58aef839-0000245e" lastModified="1488034141" lastUniqueIdentifier="5">
+  <timeline>
+    <DOMTimeline name="Lyeet Follow">
+      <layers>
+        <DOMLayer name="Layer 10" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var X:Number = 0;
+var Y:Number = 0;
+var hero:MovieClip;
+var convo:MovieClip;
+var go:Boolean;
+
+function init():void {
+	hero = MovieClip(parent).hero;
+	convo = MovieClip(parent).convo2;
+	gotoAndStop("apear");
+	go = true;
+}
+
+function update ():void {
+	if (go) {
+	
+		X = hero.x + 240 + (hero.xSpeed * 2);
+		Y = hero.y - 160;
+		
+		x += (X - x)/10;
+		y += (Y - y)/12;
+		
+		if (convo.complete) {
+			gotoAndStop("disapear");
+			go = false;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="apear" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="disapear" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 9" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/_Lyeet/Symbol 32">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/_Lyeet/Symbol 33">
+                  <matrix>
+                    <Matrix tx="10.45" ty="-6.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/_Lyeet/Symbol 32">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/_Lyeet/Symbol 33 copy" name="disapear" centerPoint3DX="10.45" centerPoint3DY="-6.6">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

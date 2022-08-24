@@ -1,0 +1,115 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-BG/MountainsScrolling/ScrollingMountains" itemID="553cae24-00000668" lastModified="1508844010">
+  <timeline>
+    <DOMTimeline name="ScrollingMountains">
+      <layers>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var i:Number;
+
+var back:MovieClip;
+var front:MovieClip;
+
+var vcam:MovieClip;
+
+init();
+
+function init():void {
+	i = 0;
+}
+
+function update():void {
+	if (MovieClip(root).game.vcam) {
+		vcam = MovieClip(root).game.vcam;
+	}
+	
+	if (vcam) {
+		
+		front.x += ((vcam.x * -.125) - front.x)/4;
+		front.y += ((vcam.y * .1 + 150) - front.y)/4;
+		
+		back.x += ((vcam.x * -.08) - back.x)/4;
+		back.y += ((vcam.y * .15 + 150) - back.y)/4;
+		
+		if (front.y > 319.15) front.y = 319.15;
+		if (front.y < -2.1) front.y = -2.1;
+		
+		if (back.y > 443.55) back.y = 443.55;
+		if (back.y < -80.1) back.y = -80.1;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="front" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/Mountrains-Front" name="front" cacheAsBitmap="true">
+                  <matrix>
+                    <Matrix ty="211.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="960" y="163.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="back" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/Mountains-Back" name="back" cacheAsBitmap="true">
+                  <matrix>
+                    <Matrix ty="223.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="960" y="163.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.32958984375" c="-0.5859375" d="0" tx="480" ty="270"/>
+                        </matrix>
+                        <GradientEntry color="#D5D5D5" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!19200 10800|0 10800!0 10800|0 0!0 0|19200 0!19200 0|19200 10800"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

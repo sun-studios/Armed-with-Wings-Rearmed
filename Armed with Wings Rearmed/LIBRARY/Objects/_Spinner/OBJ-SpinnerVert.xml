@@ -1,0 +1,106 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Spinner/OBJ-SpinnerVert" itemID="54d34ed9-00000f1f" lastModified="1485440794" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-SpinnerVert">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ySpeed:Number;
+var hero:MovieClip;
+var eagle:MovieClip;
+
+//component
+var dir:Number;
+var moveSpeed:Number;
+
+init();
+
+function init ():void {
+	ySpeed = 0;
+	hero = MovieClip(parent).hero;
+	eagle = MovieClip(parent).eagle;
+}
+
+function update ():void {
+	ySpeed = moveSpeed * -dir;
+	y += ySpeed;
+	
+	damageEnemies();
+}
+
+
+function damageEnemies():void {
+	
+	var dir:int;
+	
+	if (hero) 
+	{
+		if (hero.x < x) dir = -1;
+		else dir = 1;
+		
+		if (bound.hitTestObject(hero.bound) && hero.currentFrameLabel != "hurt") {
+			//(from, X, Y, damage, unblockable, canParry, enemyBlockBounce)
+			hero.takeDamage(this, 6*dir, 0, .5);
+			hero.scaleX = -dir;
+		}
+			
+	}
+	
+	if (eagle) {
+		if (bound.hitTestObject(eagle.bound) && eagle.moveable) {
+			eagle.takeDamage(this, .5);
+		}
+	}
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/OBJ-Spinner-Anim">
+                  <matrix>
+                    <Matrix tx="1.25" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="1.38441467285156" d="0.615264892578125" tx="1.25" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="dir">
+      <Inspectable name="dir" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="moveSpeed">
+      <Inspectable name="moveSpeed" variable="moveSpeed" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

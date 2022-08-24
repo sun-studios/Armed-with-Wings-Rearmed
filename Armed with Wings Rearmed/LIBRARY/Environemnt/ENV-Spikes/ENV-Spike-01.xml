@@ -1,0 +1,43 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-Spikes/ENV-Spike-01" itemID="54b221c5-00001241" lastModified="1440190221">
+  <timeline>
+    <DOMTimeline name="ENV-Spike-01" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Environemnt/ENV-Spikes/assets/ENV-Spike-Bitmap-02">
+                  <matrix>
+                    <Matrix a="0.781021118164063" d="0.780929565429688" tx="-25.4" ty="-110.1"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/assets/ENV-Spike-01-Shape" symbolType="graphic" centerPoint3DX="28.3" centerPoint3DY="-58.8" loop="loop">
+                  <matrix>
+                    <Matrix tx="28.3" ty="-58.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

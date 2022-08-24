@@ -1,0 +1,67 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q/LVL-Q-RockSaver" itemID="5649dab4-000010c2" lastModified="1481200491">
+  <timeline>
+    <DOMTimeline name="LVL-Q-RockSaver">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var rock:MovieClip;
+
+init();
+
+function init():void {
+	rock = MovieClip(parent).rock;
+	visible = false;
+}
+
+function update ():void {
+	if (rock.y > y) {
+		
+		rock.x = 9131;
+		rock.y = 151;
+		
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="9.05" width="78.1" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Object&#xD;Saver</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

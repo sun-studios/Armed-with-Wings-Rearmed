@@ -1,0 +1,108 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-StoryMenu/DifficultyPanel/Difficulty-panel-shape2" itemID="55570149-00001f32" symbolType="graphic" lastModified="1435023504">
+  <timeline>
+    <DOMTimeline name="Difficulty-panel-shape2" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-313&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="44.4" width="55.2" height="30" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="9.7" ty="138"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>FUTILE</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="30" size="20" bitmapSize="400" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="2" strength="0.31"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#CCCCCC"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!3074 2468|3074 3634!3074 3634|0 3634!0 3634|0 2468!0 2468|3074 2468"/>
+                    <Edge cubics="!0 0(;0,0 3074,0 3074,0q0 0 3074 0);"/>
+                    <Edge cubics="!0 3634(;0,3634 3074,3634 3074,3634q0 3634 3074 3634);"/>
+                    <Edge cubics="!0 3634(;0,3634 0,2468 0,2468q0 3634 0 2468);"/>
+                    <Edge cubics="!0 2468(;0,2468 0,0 0,0q0 2468 0 0);"/>
+                    <Edge cubics="!0 2468(;0,2468 3074,2468 3074,2468q0 2468 3074 2468);"/>
+                    <Edge cubics="!3074 3634(;3074,3634 3074,2468 3074,2468q3074 3634 3074 2468);"/>
+                    <Edge cubics="!3074 2468(;3074,2468 3074,0 3074,0q3074 2468 3074 0);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#009999" autoNamed="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 2468|0 0!0 0|3074 0!3074 0|3074 2468!3074 2468|0 2468"/>
+                    <Edge cubics="!0 0(;0,0 3074,0 3074,0q0 0 3074 0);"/>
+                    <Edge cubics="!0 2468(;0,2468 0,0 0,0q0 2468 0 0);"/>
+                    <Edge cubics="!0 2468(;0,2468 3074,2468 3074,2468q0 2468 3074 2468);"/>
+                    <Edge cubics="!3074 2468(;3074,2468 3074,0 3074,0q3074 2468 3074 0);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" parentLayerIndex="2">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="static" color="#FF4FFF" parentLayerIndex="2" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 2468|0 0!0 0|3074 0!3074 0|3074 2468!3074 2468|0 2468"/>
+                    <Edge cubics="!0 0(;0,0 3074,0 3074,0q0 0 3074 0);"/>
+                    <Edge cubics="!0 2468(;0,2468 0,0 0,0q0 2468 0 0);"/>
+                    <Edge cubics="!0 2468(;0,2468 3074,2468 3074,2468q0 2468 3074 2468);"/>
+                    <Edge cubics="!3074 2468(;3074,2468 3074,0 3074,0q3074 2468 3074 0);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,104 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Tutorial2/Symbol 1" itemID="581985aa-000010f6" lastModified="1492354578">
+  <timeline>
+    <DOMTimeline name="Symbol 1">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var ctrl:PlayerControl;
+var gameData:MovieClip;
+var _parent:MovieClip;
+
+var ready:Boolean;
+var done:Boolean;
+var val:Number;
+
+init();
+
+function init ():void {
+	ctrl = MovieClip(root).player1Control;
+	gameData = MovieClip(root);
+	_parent = MovieClip(parent);
+	
+	val = 0;
+	
+	alpha = 0;
+	TweenMax.delayedCall(200, fadeIn, null, true);
+}
+
+function fadeIn():void {
+	TweenMax.to(this, 80, {alpha:1, useFrames:true});
+	ready = true;
+}
+
+function update ():void {
+	//if holding down key
+	//fill bar
+	if (!done && ready) {
+		if (ctrl.ctrl_char_booster2) {
+			val += .02;
+			if (val > 1) val = 1;
+		} else {
+			val -= .05;
+			if (val < 0) val = 0;
+		}
+		
+		if (val >= 1) {
+			end();
+			done = true;
+		}
+		bar.scaleX = val;
+	}
+}
+
+function end ():void {
+	_parent.end();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Tutorial2/Symbol 2">
+                  <matrix>
+                    <Matrix tx="-98.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Tutorial2/Symbol 3" name="bar">
+                  <matrix>
+                    <Matrix tx="-186" ty="0.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

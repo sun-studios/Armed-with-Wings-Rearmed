@@ -1,0 +1,152 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss1-Beast/anims/Boss1-Anim-Hurt" itemID="54ba149d-000004d9" lastModified="1491239649" lastUniqueIdentifier="7">
+  <timeline>
+    <DOMTimeline name="Boss1-Anim-Hurt" currentFrame="59">
+      <layers>
+        <DOMLayer name="goto-actions" color="#FFFF00" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[var sliding:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="35" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sliding = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sliding = false;
+stop ();
+MovieClip(parent).decell = .5;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="19" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//_parent.gotoAndStop(4);
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Label Layer" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" duration="17" name="hurt" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" duration="7" name="toIdle" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="35" name="slide" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" name="pant" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="20" name="spin" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="59" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" duration="59" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" duration="24" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/anims/Boss1-Hurt" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-52.35" ty="7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="51.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="35" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/anims/Boss1-Hurt-Slow" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-52.35" ty="7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="51.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/anims/Boss1-Pant" centerPoint3DX="-8.4" centerPoint3DY="25.5">
+                  <matrix>
+                    <Matrix tx="-44.85" ty="9.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="36.45" y="16.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/anims/Boss1-Hurt" symbolType="graphic" firstFrame="9" loop="loop">
+                  <matrix>
+                    <Matrix tx="-52.35" ty="7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="51.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/anims/Boss1-Pant" centerPoint3DX="-8.4" centerPoint3DY="24.5">
+                  <matrix>
+                    <Matrix tx="-44.85" ty="8.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="36.45" y="16.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

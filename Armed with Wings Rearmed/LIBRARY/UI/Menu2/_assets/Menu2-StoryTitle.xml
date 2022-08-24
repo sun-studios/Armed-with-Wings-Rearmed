@@ -1,0 +1,61 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_assets/Menu2-StoryTitle" itemID="567aa744-00000845" symbolType="graphic" lastModified="1451489722" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="Menu2-StoryTitle">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/UI-Title-Style">
+                  <matrix>
+                    <Matrix ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.25"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/UI-Title-Style">
+                  <matrix>
+                    <Matrix a="-0.999954223632813" ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.25"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="-51.4" width="440.65" height="81.5" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-168.9" ty="-32.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>STORY</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="81.5" size="60" bitmapSize="1200" face="RETURNTOCASTLE" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.25"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

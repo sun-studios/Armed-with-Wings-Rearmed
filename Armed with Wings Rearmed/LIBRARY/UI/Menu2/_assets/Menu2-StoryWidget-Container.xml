@@ -1,0 +1,148 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_assets/Menu2-StoryWidget-Container" itemID="567aa75d-00000848" lastModified="1497267514" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Menu2-StoryWidget-Container" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-413&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="guides" color="#FF4FFF" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-5027 2401|-5027 -2400!-5027 -2400|5028 -2400!5028 -2400|5028 2401!5028 2401|5028 3401!5028 8202|5028 9202!5028 14003|5028 15003!5028 15003|-5027 15003!-5027 15003|-5027 14003!5028 9202|5028 14003!5028 3401|5028 8202!-5027 3401|-5027
+ 2401!-5027 9202|-5027 8202!-5027 14003|-5027 9202!-5027 8202|-5027 3401!5028 14003|-5027 14003!5028 9202|-5027 9202!5028 8202|-5027 8202!5028 3401|-5027 3401!5028 2401|-5027 2401"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_StoryWidget/Menu2-StoryWidget-Shade">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_StoryWidget/Menu2-StoryWidget-Shade">
+                  <matrix>
+                    <Matrix ty="580.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText left="-82.85" width="365.05" height="48.5" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-146.9" ty="-107.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Bring the tyrant King Vandheer&#xD;to justice!</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" alpha="0.901960784313726" lineHeight="23.25" size="26" bitmapSize="520" face="Font 7*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMStaticText left="-82.85" width="303.35" height="23.25" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-146.9" ty="472.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Start from a desired level.</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" alpha="0.901960784313726" lineHeight="23.25" size="26" bitmapSize="520" face="Font 7*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_StoryWidget/Menu2-StoryEidget-Stats">
+                  <matrix>
+                    <Matrix tx="-88" ty="63"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_StoryWidget/Symbol 26" name="hardClip">
+                  <matrix>
+                    <Matrix tx="-231.75" ty="-59.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="184.5" y="26.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clips" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-StoryPreview">
+                  <matrix>
+                    <Matrix a="0.820510864257813" d="0.820510864257813"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-ScorePanel-Data2" name="dataClip">
+                  <matrix>
+                    <Matrix a="1.4569091796875" d="1.4569091796875" tx="-172.5" ty="290.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="2" strength="0.15"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_StoryWidget/Menu2-StoryWidget-Levels">
+                  <matrix>
+                    <Matrix tx="0.55" ty="580.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-0.3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.32" tintColor="#CCCCCC"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

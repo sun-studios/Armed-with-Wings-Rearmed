@@ -1,0 +1,157 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MainMenu/UI-MainMenu-Control2" itemID="55603ea8-00000778" lastModified="1483535539">
+  <timeline>
+    <DOMTimeline name="UI-MainMenu-Control2">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+if (MovieClip(root).numOfDevices() > 0) {
+	gotoAndStop(2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#FFFFFF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                    <FillStyle index="3">
+                      <SolidColor color="#424242" alpha="0.498039215686275"/>
+                    </FillStyle>
+                    <FillStyle index="4">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="4" edges="!-350 -327|-293 -383!-293 -383|-1937 -383!-1937 -383|-2358 37!-2358 37|-2245 37"/>
+                    <Edge fillStyle1="3" edges="!-350 -327|-237 -327!-237 -327|-658 94!-658 94|-2301 94!-2301 94|-2245 37"/>
+                    <Edge fillStyle0="1" edges="!2245 -334|2302 -390!2302 -390|-26 -390!-26 -390|-634 217!-634 217|-521 217"/>
+                    <Edge fillStyle0="2" edges="!-521 217|-577 274!-577 274|1750 274!1750 274|2358 -334!2358 -334|2245 -334"/>
+                    <Edge fillStyle0="4" fillStyle1="3" edges="!-2245 37|-714 37!-714 37|-350 -327"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!-521 217|1694 217!1694 217|2245 -334"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="56.2" height="24" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="28.05" ty="-16.55"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>CONFIRM</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" lineHeight="24" size="16" bitmapSize="320" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText width="18.95" height="15" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-69.85" ty="-15.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>quit</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Key-Q">
+                  <matrix>
+                    <Matrix a="0.724365234375" d="0.724365234375" tx="-100.4" ty="-19.65"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Key-A">
+                  <matrix>
+                    <Matrix tx="-12.15" ty="-20"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#FFFFFF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                    <FillStyle index="3">
+                      <SolidColor color="#424242" alpha="0.498039215686275"/>
+                    </FillStyle>
+                    <FillStyle index="4">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="3" edges="!-350 -327|-237 -327!-237 -327|-658 94!-658 94|-2301 94!-2301 94|-2245 37"/>
+                    <Edge fillStyle0="4" edges="!-350 -327|-293 -383!-293 -383|-1937 -383!-1937 -383|-2358 37!-2358 37|-2245 37"/>
+                    <Edge fillStyle0="1" edges="!2245 -334|2302 -390!2302 -390|-26 -390!-26 -390|-634 217!-634 217|-521 217"/>
+                    <Edge fillStyle0="2" edges="!-521 217|-577 274!-577 274|1750 274!1750 274|2358 -334!2358 -334|2245 -334"/>
+                    <Edge fillStyle0="4" fillStyle1="3" edges="!-2245 37|-714 37!-714 37|-350 -327"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!-521 217|1694 217!1694 217|2245 -334"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="56.2" height="24" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="28.05" ty="-16.55"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>CONFIRM</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" lineHeight="24" size="16" bitmapSize="320" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText width="18.95" height="15" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-69.85" ty="-15.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>quit</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Pad/Pad-A-Size1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="4" ty="-4.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Key-Q">
+                  <matrix>
+                    <Matrix a="0.724365234375" d="0.724365234375" tx="-100" ty="-20"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

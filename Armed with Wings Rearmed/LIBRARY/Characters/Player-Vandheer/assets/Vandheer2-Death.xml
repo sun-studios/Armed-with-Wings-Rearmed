@@ -1,0 +1,207 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Vandheer/assets/Vandheer2-Death" itemID="56816337-00000b2a" lastModified="1478612833" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Vandheer2-Death" currentFrame="87">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="87" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var impaled:Boolean = false;
+if (MovieClip(parent).firstDeath) {
+	
+} else {
+	if (MovieClip(root).dataIsGearEquipt(MovieClip(root).data_gear10_name, MovieClip(parent).playerID)) {
+		MovieClip(parent).gotoAndStop("death2");
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="87" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).deaddead = true;
+stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="88" duration="32" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[impaled = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="120" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" centerPoint3DX="15.8" centerPoint3DY="-26.15">
+                  <matrix>
+                    <Matrix a="-0.407211303710938" b="0.913330078125" c="-0.913330078125" d="-0.407211303710938" tx="14.9" ty="-25.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="22.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" centerPoint3DX="14.55" centerPoint3DY="-19.45">
+                  <matrix>
+                    <Matrix a="-0.518478393554688" b="0.855087280273438" c="-0.855087280273438" d="-0.518478393554688" tx="13.65" ty="-19.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="22.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" centerPoint3DX="12.75" centerPoint3DY="-9.65">
+                  <matrix>
+                    <Matrix a="-0.648666381835938" b="0.761062622070313" c="-0.761062622070313" d="-0.648666381835938" tx="11.6" ty="-9.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="22.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" centerPoint3DX="9.25" centerPoint3DY="-10.25">
+                  <matrix>
+                    <Matrix a="-0.37481689453125" b="0.927093505859375" c="-0.927093505859375" d="-0.37481689453125" tx="9.05" ty="-9.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="22.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" selected="true" centerPoint3DX="6.2" centerPoint3DY="-6.35">
+                  <matrix>
+                    <Matrix a="0.110977172851563" b="0.993820190429688" c="-0.993820190429688" d="0.110977172851563" tx="6.45" ty="-5.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="22.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" selected="true" centerPoint3DX="6.4" centerPoint3DY="-7.35">
+                  <matrix>
+                    <Matrix a="0.0636444091796875" b="0.997955322265625" c="-0.997955322265625" d="0.0636444091796875" tx="6.6" ty="-6.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="22.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" selected="true" centerPoint3DX="6.85" centerPoint3DY="-6.8">
+                  <matrix>
+                    <Matrix a="-0.01446533203125" b="0.9998779296875" c="-0.9998779296875" d="-0.01446533203125" tx="6.7" ty="-5.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="22.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" selected="true" centerPoint3DX="6.8" centerPoint3DY="-3.15">
+                  <matrix>
+                    <Matrix a="-0.109161376953125" b="0.994003295898438" c="-0.994003295898438" d="-0.109161376953125" tx="6.6" ty="-2.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="22.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" selected="true" centerPoint3DX="6.55" centerPoint3DY="-3.6">
+                  <matrix>
+                    <Matrix a="0.0601654052734375" b="0.9981689453125" c="-0.9981689453125" d="0.0601654052734375" tx="6.7" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="22.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" duration="62" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" centerPoint3DX="6.6" centerPoint3DY="-3.35">
+                  <matrix>
+                    <Matrix a="0.03045654296875" b="0.999496459960938" c="-0.999496459960938" d="0.03045654296875" tx="6.7" ty="-2.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="22.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="88" duration="33" name="impale" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="88" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandeer2-Anim-Death" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.934356689453125" d="0.934356689453125" tx="9.45" ty="-1.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-10.85" y="-41.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="88" duration="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandeer2-Anim-Death" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.934356689453125" d="0.934356689453125" tx="9.45" ty="-1.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-10.85" y="-41.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" centerPoint3DX="14.65" centerPoint3DY="-27.5">
+                  <matrix>
+                    <Matrix a="-0.438140869140625" b="0.89886474609375" c="-0.89886474609375" d="-0.438140869140625" tx="14.3" ty="-26.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="22.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

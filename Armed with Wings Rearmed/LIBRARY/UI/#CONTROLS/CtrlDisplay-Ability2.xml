@@ -1,0 +1,58 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/#CONTROLS/CtrlDisplay-Ability2" itemID="579777aa-00001ff4" lastModified="1488208251">
+  <timeline>
+    <DOMTimeline name="CtrlDisplay-Ability2" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (MovieClip(root)) {
+	if (MovieClip(root).numOfDevices() > 0) {
+		gotoAndStop(2);
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Misc/2017/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.81463623046875" d="0.81463623046875" tx="-17" ty="-18"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMStaticText fontRenderingMode="standard" left="-1.8" width="18" height="21.35" autoExpand="true">
+                  <matrix>
+                    <Matrix a="1.1363525390625" d="1.1363525390625" tx="-8.95" ty="-15.45"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>W</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="21.35" size="19" bitmapSize="380" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Pad-Y.png">
+                  <matrix>
+                    <Matrix a="0.649810791015625" d="0.649810791015625" tx="-22" ty="-20"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

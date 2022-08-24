@@ -1,0 +1,94 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-M/LVL-M-SwitchFunction" itemID="55024c06-00000c3f" lastModified="1492354221">
+  <timeline>
+    <DOMTimeline name="LVL-M-SwitchFunction">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+visible = false;
+
+var flag1:Boolean;
+var flag2:Boolean;
+
+var hero:MovieClip;
+var vcam:MovieClip;
+var totum:MovieClip;
+var door1:MovieClip;
+var gateCam:MovieClip;
+
+init();
+
+function init():void {
+	flag1 = false;
+	flag2 = false;
+	
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	totum = MovieClip(parent).totum;
+	door1 = MovieClip(parent).ground.gate1;
+	gateCam = MovieClip(parent).gateCam;
+	
+}
+
+function update():void {
+	if (!flag1) {
+		if (totum.switchState == "ON") {
+			hero.switchToHero(false);
+			hero.active = false;
+			vcam.target = gateCam;
+			door1.gotoAndPlay(2);
+			TweenMax.delayedCall(60, resume, null, true);
+			flag1 = true;
+		}
+	}
+}
+
+function resume ():void {
+	hero.switchToHero();
+	hero.active = true;
+	vcam.target = hero;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Switch&#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

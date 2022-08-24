@@ -1,0 +1,97 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-Player-Cursor" itemID="555c9e60-00002aed" lastModified="1483543947">
+  <timeline>
+    <DOMTimeline name="UI-Player-Cursor">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var p:MovieClip;
+var X:Number;
+var Y:Number;
+
+
+init();
+
+function init():void {
+	p = MovieClip(parent);
+	X = 0;
+	Y = 0;
+}
+
+function update():void {
+	if (p.equiptPanelOpen) {
+		
+	} else {
+		if (p.currentPanel) {
+			X = p.currentPanel.x - (p.currentPanel.width*.45); 
+			Y = p.currentPanel.y + (p.currentPanel.height*.45);
+		}
+	}
+	
+	switch (p.currentPanel) {
+		case p.panelCharacter:
+			X = p.panelCharacter.x - 80;
+			break;
+		case p.panelEquiptment0:
+			
+			break;
+		case p.panelEquiptment1:
+			
+			break
+	}
+	
+	x += (X - x)/2;
+	y += (Y - y)/2;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-41 190[-41 198 -41 206!-41 206[-41 223 -43 238!-43 238[-47 258 -55 275!-55 275|62 392!62 392|62 447!62 447|-74 447!-74 447|-152 369!-152 369[-166 374 -182 377!-182 377[-198 379 -214 379!-214 379[-222 379 -230 379!-230 379[-257 377 -280
+ 367!-280 367|-361 447!-361 447|-416 447!-416 447|-513 544!-513 544|-549 544!-549 544|-549 509!-549 509|-452 412!-452 412|-452 352!-452 352|-373 273!-373 273[-384 250 -386 223!-386 223[-387 215 -387 206!-387 206[-387 173 -376 145!-376
+ 145|-452 69!-452 69|-452 -68!-452 -68|-397.5 -68!-397.5 -68|-283 47!-283 47[-251 33 -214 33!-214 33[-205 33 -197 34!-197 34[-170 37 -146 47!-146 47[-138 50 -130 55!-130 55[-110 66 -92 84!-92 84[-89 88 -85 91!-85 91[-64 114 -53 140!-53
+ 140|-53 141!-53 141[-43 164 -41 190"/>
+                        <Edge fillStyle0="1" edges="
+!-147 206[-147 233 -165 252!-165 252|-168 255!-168 255[-187 273 -214 273!-214 273[-236 273 -253 259!-253 259[-256 256 -259 254!-259 254|-260 253!-260 253[-279 234 -279 206!-279 206[-279 180 -261 162!-261 162|-260 160!-260 160[-257 157
+ -254 155!-254 155[-237 141 -214 141!-214 141[-195 141 -180 150!-180 150[-173 154 -167 160!-167 160[-164 163 -161 167!-161 167[-158 170 -156 173!-156 173[-156 174 -155 175!-155 175[-147 189 -147 206"/>
+                      </edges>
+                    </DOMShape>
+                    <DOMSymbolInstance libraryItemName="Misc/2016/UI-Cursor-Tip">
+                      <matrix>
+                        <Matrix tx="6.35" ty="-6.4"/>
+                      </matrix>
+                      <transformationPoint>
+                        <Point/>
+                      </transformationPoint>
+                      <filters>
+                        <GlowFilter blurX="4" blurY="4" color="#FFFFFF" quality="3" strength="0.6"/>
+                      </filters>
+                    </DOMSymbolInstance>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

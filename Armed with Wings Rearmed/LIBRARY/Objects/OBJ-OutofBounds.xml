@@ -1,0 +1,83 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-OutofBounds" itemID="585540e7-00002ba1" lastModified="1485440794" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-OutofBounds">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var game:MovieClip;
+var maxHeight:Number;
+var spawnPoints:Array;
+
+init();
+
+function init ():void {
+	visible = false;
+	game = MovieClip(parent);
+}
+
+function update ():void {
+	for (var i:int = 0; i < game.enemiesArr.length; i ++) {
+		var en:MovieClip = game.enemiesArr[i];
+		
+		if (en) {
+			
+			if (en.y < maxHeight) {
+				var r:Number = Math.floor(Math.random()*spawnPoints.length);
+				var obj:MovieClip = MovieClip(parent)[spawnPoints[r]];
+				
+				en.x = obj.x;
+				en.y = obj.y;
+			}
+			
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="2.88690185546875" d="0.453399658203125" tx="0.1" ty="-9.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="7.3" width="129.4" height="33" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.429733276367188" d="0.429733276367188" tx="-29.6" ty="-15.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>OUT OF BOUNDS</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="33" size="22" bitmapSize="440" face="Font 1*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="maxHeight">
+      <Inspectable name="maxHeight" variable="maxHeight" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="spawnPoints">
+      <Inspectable name="spawnPoints" variable="spawnPoints" category="" verbose="0" defaultValue="" type="Array"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

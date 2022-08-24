@@ -1,0 +1,142 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-A/LVL-A-ElevatorFunction" itemID="558584bd-0000256e" lastModified="1490688157">
+  <timeline>
+    <DOMTimeline name="LVL-A-ElevatorFunction">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Expo;
+
+var flag1:Boolean;
+var flag2:Boolean;
+
+var ySpeed:Number = 0;
+
+var sndCtrl:MovieClip;
+var rockSwitch2:MovieClip;
+var plat:MovieClip;
+var rock:MovieClip;
+var ground:MovieClip;
+
+var cog0:MovieClip;
+var cog1:MovieClip;
+var cog2:MovieClip;
+var cog3:MovieClip;
+
+init ();
+
+function init():void {
+	visible = false;
+	
+	sndCtrl = MovieClip(root);
+	rockSwitch2 = MovieClip(parent).rockSwitch2;
+	plat = MovieClip(parent).ground.elevator;
+	rock = MovieClip(parent).rock;
+	ground = MovieClip(parent).ground;
+	
+	cog0 = MovieClip(parent).cog0;
+	cog1 = MovieClip(parent).cog1;
+	cog2 = MovieClip(parent).cog2;
+	cog3 = MovieClip(parent).cog3;
+}
+
+function update():void {
+	
+	
+	if (rockSwitch2.isOn) {
+		if (!flag1) {
+			//Anit Grav
+			ySpeed += .5;
+			if (ySpeed > 15) ySpeed = 15;
+			plat.y -= ySpeed;
+			
+			if (flag2) {
+				sndCtrl.playContinuous("sndStoneDrag");
+				flag2 = false;
+			}
+			
+			//Hit top Hault
+			if (plat.y < 42) {
+				sndCtrl.stopContinuous("sndStoneDrag");
+				ySpeed = -4;
+				flag1 = true;
+			}
+		} else {
+			//Hold in place
+			if (ySpeed < 0)
+				ySpeed += .5;
+			plat.y -= ySpeed;
+		}
+	} else {
+		if (flag1) {
+			sndCtrl.playContinuous("sndStoneDrag");
+			flag1 = false;
+		}		
+			
+		if (plat.y < 494) {
+			//Gravity
+			ySpeed -= .5;
+			plat.y -= ySpeed;
+		} else {
+			//Hit botom Hault
+			if (!flag2) {
+				sndCtrl.stopContinuous("sndStoneDrag");
+				flag2 = true;
+			}
+			ySpeed = 0;
+			plat.y = 494;
+		}
+	}
+	
+	cog0.rotation = plat.y;
+	cog1.rotation = -plat.y;
+	cog2.rotation = plat.y;
+	cog3.rotation = -plat.y;
+	
+	//stick switch to floor
+	rockSwitch2.y = ground.y + plat.y - 28;
+	if (rockSwitch2.isOn) rock.y = rockSwitch2.y - 28;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-6" width="108.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>elevator &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

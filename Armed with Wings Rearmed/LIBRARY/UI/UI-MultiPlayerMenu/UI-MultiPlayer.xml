@@ -1,0 +1,88 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MultiPlayerMenu/UI-MultiPlayer" itemID="572e2e92-0000150b" linkageExportForAS="true" linkageBaseClass="UIMultiPlayer" linkageClassName="UI_MultiPlayerLeft" lastModified="1500990078" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="UI-MultiPlayer">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MultiPlayerMenu/Symbol 1" name="readyClip">
+                  <matrix>
+                    <Matrix tx="27"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="equiptGearPanel" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-EquiptGear2" name="equiptGearPanel" selected="true">
+                  <matrix>
+                    <Matrix tx="-228.15" ty="-272.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="250.75" y="269"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="equiptWeaponPanel" color="#FF800A" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-EquiptWeapon2" name="equiptWeaponPanel" selected="true">
+                  <matrix>
+                    <Matrix tx="-228.15" ty="-272.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="250.75" y="269"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="panelCharacter" color="#FF4FFF" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-Character-Container" name="panelCharacter">
+                  <matrix>
+                    <Matrix tx="20.15" ty="-0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mainPanel" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MultiPlayerMenu/UI-MultiPlayer-container" name="mainPanel">
+                  <matrix>
+                    <Matrix tx="-50.95" ty="-10.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-3.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

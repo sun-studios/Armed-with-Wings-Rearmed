@@ -1,0 +1,92 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/#CONTROLS/CtrlDisplay-Conversation" itemID="57663321-00000c81" lastModified="1492865336">
+  <timeline>
+    <DOMTimeline name="CtrlDisplay-Conversation">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Confirm">
+                  <matrix>
+                    <Matrix a="0.814376831054688" d="0.814376831054688" tx="22.35" ty="-1.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-0.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText left="53.9" width="36.2" height="21" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-85.9" ty="-10.25"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NEXT</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" letterSpacing="2" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup selected="true">
+                  <members>
+                    <DOMShape selected="true">
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor alpha="0.898039215686275"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1071 -272S2|1070 -272!1070 -272|1343 1!1343 1|1070 272!1070 272|-1071 272!-1071 272|-1343 0!-1343 0|-1071 -272"/>
+                      </edges>
+                    </DOMShape>
+                    <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-LineEdge2">
+                      <matrix>
+                        <Matrix tx="-67.15"/>
+                      </matrix>
+                      <transformationPoint>
+                        <Point x="67.15" y="6.8"/>
+                      </transformationPoint>
+                      <filters>
+                        <GlowFilter blurX="6" blurY="6" color="#FFFFFF"/>
+                      </filters>
+                      <color>
+                        <Color alphaMultiplier="0.5"/>
+                      </color>
+                    </DOMSymbolInstance>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

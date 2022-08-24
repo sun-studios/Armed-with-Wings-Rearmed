@@ -1,0 +1,146 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-R/LVL-R-SwitchFunction" itemID="54d6d967-00000b05" lastModified="1492354134">
+  <timeline>
+    <DOMTimeline name="LVL-R-SwitchFunction">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var flag1:Boolean;
+var flag2:Boolean;
+
+var stepSwitch:MovieClip;
+var stepSwitch2:MovieClip;
+var gate1:MovieClip;
+var gate2:MovieClip;
+var hero:MovieClip;
+var vcam:MovieClip;
+var rockSwitch:MovieClip;
+var door1:MovieClip;
+var door2:MovieClip;
+var door3:MovieClip;
+var door1Cam:MovieClip;
+var door2Cam:MovieClip;
+
+init();
+
+function init():void {
+	visible = false;
+	
+	flag1 = false;
+	flag2 = false;
+	
+	stepSwitch = MovieClip(parent).stepSwitch;
+	stepSwitch2 = MovieClip(parent).stepSwitch2;
+	gate1 = MovieClip(parent).gate1;
+	gate2 = MovieClip(parent).gate2;
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	rockSwitch = MovieClip(parent).rockSwitch;
+	door1 = MovieClip(parent).ground.door1;
+	door2 = MovieClip(parent).ground.door2;
+	door3 = MovieClip(parent).ground.door3;
+	door1Cam = MovieClip(parent).door1Cam;
+	door2Cam = MovieClip(parent).door2Cam;
+	
+}
+	
+function update():void {
+	//stepPad gate toggle
+	if (stepSwitch2.isOn) {
+		if (gate1.currentFrameLabel == "isClosed") {
+			gate1.gotoAndPlay("open");
+		}
+		if (gate2.currentFrameLabel == "isOpen") {
+			gate2.gotoAndPlay("close");
+		}
+	} else {
+		if (gate1.currentFrameLabel == "isOpen") {
+			gate1.gotoAndPlay("close");
+		}
+		if (gate2.currentFrameLabel == "isClosed") {
+			gate2.gotoAndPlay("open");
+		}
+	}
+	
+	//rock on switch
+	if (!flag1) {
+		if (rockSwitch.isOn) {
+			TweenMax.delayedCall(8, openDoor1, null, true);
+			flag1 = true;
+		}
+	}
+	
+	//stepSwitch
+	if (!flag2) {
+		if (stepSwitch.isOn) {
+			TweenMax.delayedCall(20, openDoor2, null, true);
+			flag2 = true;
+		}
+	}
+}
+function openDoor1():void {
+	hero.switchToHero(false);
+	hero.active = false;
+	vcam.target = door1Cam;
+	door1.gotoAndPlay(2);
+	TweenMax.delayedCall(80, resume, null, true);
+}
+
+function openDoor2():void {
+	hero.switchToHero(false);
+	hero.active = false;
+	vcam.target = door2Cam;
+	door2.gotoAndPlay(2);
+	door3.gotoAndPlay(2);
+	TweenMax.delayedCall(80, resume, null, true);
+}
+
+function resume ():void {
+	hero.switchToHero();
+	hero.active = true;
+	vcam.target = hero;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>switch &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

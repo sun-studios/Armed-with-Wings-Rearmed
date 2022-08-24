@@ -1,0 +1,128 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/assets/UI-HUD-InfoPanel-Item" itemID="58281877-00000c7f" lastModified="1493034968" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="UI-HUD-InfoPanel-Item">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var _type:String;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var gameData:MovieClip;
+
+init();
+
+function init ():void {
+	gameData = MovieClip(root).gameData;
+	
+	switch (_type) {
+		case "score":
+			label_tf.text = "score";
+			break;
+		case "wave":
+			label_tf.text = "wave";
+			break;
+		case "mode":
+			label_tf.text = "mode";
+	}
+}
+
+function update ():void {
+	if (gameData) {
+		switch (_type) {
+			case "score":
+				val_tf.text = ""+gameData.sessionScore;
+				break;
+			case "wave":
+				val_tf.text = ""+gameData.sessionWave;
+				break;
+			case "mode":
+				val_tf.text = ""+gameData.gameDifficulty;
+				break;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" locked="true" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="val_tf" fontRenderingMode="standard" top="-2.8" left="47.1" width="59.65" height="21" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-114.9" ty="7.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>123456</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineSpacing="0" lineHeight="19.55" size="13" bitmapSize="260" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="2" blurY="2" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMDynamicText name="label_tf" fontRenderingMode="standard" top="-2.8" left="4.8" width="54.2" height="14.35" includeOutlines="true" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="-150.7" ty="8.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>score</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="14.35" size="16" bitmapSize="320" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.8"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#424242" alpha="0.8" colorReferenceID="1"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!-1627 91|-305 91!-305 91|-106 290!-106 290|-104 290!-104 290|-104 292!-104 292|-104.5 291.5!-104.5 291.5|-297 484!-297 484|-1627 484"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!-1627 484|-1627 91"/>
+                    <Edge fillStyle1="1" edges="!-1627 484|-2677 484!-2677 484|-2870 290!-2870 290|-2871 290!-2871 290|-2672.5 91!-2672.5 91|-1627 91"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="_type">
+      <Inspectable name="type" variable="_type" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

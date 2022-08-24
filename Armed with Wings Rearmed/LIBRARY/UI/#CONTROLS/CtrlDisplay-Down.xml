@@ -1,0 +1,91 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/#CONTROLS/CtrlDisplay-Down" itemID="57663405-00000ca9" lastModified="1466315789" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="CtrlDisplay-Down" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+if (MovieClip(root).numOfDevices() > 0) {
+	gotoAndStop(2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Keyboard">
+                  <matrix>
+                    <Matrix a="0.60992431640625" d="0.60992431640625" tx="-45.75" ty="-43.25"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Gamepad">
+                  <matrix>
+                    <Matrix a="0.691253662109375" d="0.691253662109375" tx="-27.35" ty="-42.85"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Key-Down">
+                  <matrix>
+                    <Matrix tx="-18.4" ty="4.1"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="-0.02716064453125" c="0.0179443359375" d="0" tx="-0.8" ty="44.1"/>
+                            </matrix>
+                            <GradientEntry color="#333333" ratio="0"/>
+                            <GradientEntry color="#333333" alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle0="1" edges="!-16 1135|278 944!278 944|278 808!278 808|-16 999!-16 999|-310 808!-310 808|-310 944!-310 944|-16 1135!-16 955|278 764!278 764|278 628!278 628|-16 819!-16 819|-310 628!-310 628|-310 764!-310 764|-16 955"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Pad-Stick-01">
+                  <matrix>
+                    <Matrix tx="-21" ty="-3.45"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Pad-Joystick">
+                  <matrix>
+                    <Matrix tx="-21.25" ty="3.05"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

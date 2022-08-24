@@ -1,0 +1,62 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_PillerGate/assets/piller-shape" itemID="56dd4996-00000a9a" lastModified="1457342870">
+  <timeline>
+    <DOMTimeline name="piller-shape">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var Y:Number;
+var collisionClip:MovieClip;
+var pully:MovieClip;
+var ground:MovieClip;
+
+init();
+
+function init ():void {
+	Y = y;
+	
+	pully = MovieClip(parent).pully;
+	ground = MovieClip(parent).ground;
+	
+	collisionClip = new BolderBound2();
+	collisionClip.x = x - ground.x;
+	collisionClip.y = y - ground.y;
+	collisionClip.width = 50;
+	collisionClip.height = 292;
+	ground.addChild(collisionClip);
+}
+
+function update ():void {
+	var _y:Number = Y - (pully.value * 200);
+	y += (_y - y)/4;
+	
+	collisionClip.y = y - ground.y + 240;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DY="95.5">
+                  <matrix>
+                    <Matrix ty="241.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

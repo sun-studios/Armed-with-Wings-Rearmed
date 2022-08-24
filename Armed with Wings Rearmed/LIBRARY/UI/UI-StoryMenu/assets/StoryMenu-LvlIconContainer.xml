@@ -1,0 +1,71 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-StoryMenu/assets/StoryMenu-LvlIconContainer" itemID="5554aeca-00000615" lastModified="1431616920">
+  <timeline>
+    <DOMTimeline name="StoryMenu-LvlIconContainer">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var startX:Number;
+var startY:Number;
+var xGap:Number;
+var yGap:Number;
+
+var iconsArr:Array;
+
+var gameData:MovieClip;
+
+init();
+
+function init():void {
+	startX = -95.65;
+	startY = -75.15;
+	xGap = 32;
+	yGap = 38;
+	iconsArr = new Array();
+	
+	gameData = MovieClip(root);
+	
+	for (var i:int = 0; i < 5; i ++) {
+		for (var i2:int= 0; i2 < 7; i2 ++) {
+			var clip:MovieClip = new LvlIcon();
+			addChild(clip);
+			clip.x = startX + (i2*xGap);
+			clip.y = startY + (i*yGap);
+			iconsArr.push(clip);
+		}
+	}
+	
+	for (i = 0; i < iconsArr.length; i ++) {
+		clip = iconsArr[i];
+		if (gameData.isLevelUnlocked(i)) {
+			clip.isUnlocked = true;
+			if (gameData.isLevelUnlocked(i+1)) {
+				clip.isComplete = true;
+			}
+		}
+	}
+}
+
+function update():void {
+	
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

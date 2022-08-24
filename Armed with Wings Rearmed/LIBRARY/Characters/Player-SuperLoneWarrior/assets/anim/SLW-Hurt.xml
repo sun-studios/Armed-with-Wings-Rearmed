@@ -1,0 +1,240 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Hurt" itemID="587a4d00-00000d78" lastModified="1484410117">
+  <timeline>
+    <DOMTimeline name="SLW-Hurt">
+      <layers>
+        <DOMLayer name="goto-actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip = MovieClip(parent);
+var spinning:Boolean = false;
+
+var hurt1:Boolean = false;
+var hurt2:Boolean = false;
+var hurt3:Boolean = false;
+var recovering:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hurt1 = true;
+hurt2 = false;
+hurt3 = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="13" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = true;
+hurt1 = false;
+hurt2 = false;
+hurt3 = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("spin");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" duration="29" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[recovering = true;
+spinning = false;
+hurt1 = false;
+hurt2 = false;
+hurt3 = false;
+
+_parent.xSpeed *= .6;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="63" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" duration="55" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hurt1 = false;
+hurt2 = false;
+hurt3 = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="131" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="132" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hurt1 = false;
+hurt2 = true;
+hurt3 = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="147" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="148" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hurt1 = false;
+hurt2 = false;
+hurt3 = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="166" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="12" name="hurt" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="13" duration="21" name="spin" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" duration="30" name="recover" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" duration="56" name="stun" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="132" duration="16" name="hurt2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="148" duration="19" name="hurt3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="13" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="13" duration="21" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" duration="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Recover" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.795623779296875" d="0.79571533203125" tx="16.95" ty="4.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" duration="56" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Stunned" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.899368286132813" d="0.8604736328125" tx="-0.75" ty="38.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="132" duration="16" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-hurt3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="16.4" ty="0.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="148" duration="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-hurt4" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="5.05" ty="-3.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="13" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Hurt" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.91009521484375" d="0.86468505859375" tx="-0.6" ty="38.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-HurtSpin" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.780029296875" d="0.779571533203125" tx="8.75" ty="-0.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

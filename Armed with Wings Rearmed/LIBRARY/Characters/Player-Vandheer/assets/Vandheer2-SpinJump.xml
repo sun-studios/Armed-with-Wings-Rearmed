@@ -1,0 +1,49 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Vandheer/assets/Vandheer2-SpinJump" itemID="56816728-00000b4a" lastModified="1451321143">
+  <timeline>
+    <DOMTimeline name="Vandheer2-SpinJump">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clips" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Leap" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.968704223632813" d="0.968704223632813" tx="29.05" ty="-31.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-33.4" y="-3.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Fall">
+                  <matrix>
+                    <Matrix a="0.941070556640625" d="0.941070556640625" tx="-13.3" ty="-7.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-48.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

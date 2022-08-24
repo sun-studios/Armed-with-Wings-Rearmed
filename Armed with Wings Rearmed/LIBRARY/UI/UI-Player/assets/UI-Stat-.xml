@@ -1,0 +1,101 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/assets/UI-Stat-" itemID="593e7c08-00000d57" lastModified="1497267208">
+  <timeline>
+    <DOMTimeline name="UI-Stat-">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(root).sessionInGameHook && !MovieClip(root)._pause) {
+	gotoAndStop(2);
+} else {
+	stop();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-70 -215|70 -215!70 -215|70 216!70 216|-70 216!-70 216|-70 -215"/>
+                    <Edge cubics="!-70 -215(-70,-215;-70,-215 70,-215 70,-215q-70 -215 70 -215);"/>
+                    <Edge cubics="!70 216(;70,216 -70,216 -70,216q70 216 -70 216);"/>
+                    <Edge cubics="!70 -215(;70,-215 70,216 70,216q70 -215 70 216);"/>
+                    <Edge cubics="!-70 216(;-70,216 -70,-215 -70,-215q-70 216 -70 -215);"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FF0000"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-44 -19|43 -19!43 -19|43 19!43 19|-44 19!-44 19|-44 -19"/>
+                        <Edge cubics="!-44 19(;-44,19 -44,-19 -44,-19q-44 19 -44 -19);"/>
+                        <Edge cubics="!43 19(;43,19 -44,19 -44,19q43 19 -44 19);"/>
+                        <Edge cubics="!43 -19(43,-19;43,-19 43,19 43,19q43 -19 43 19);"/>
+                        <Edge cubics="!-44 -19(;-44,-19 43,-19 43,-19q-44 -19 43 -19);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-70 -215|70 -215!70 -215|70 216!70 216|-70 216!-70 216|-70 -215"/>
+                    <Edge cubics="!-70 -215(-70,-215;-70,-215 70,-215 70,-215q-70 -215 70 -215);"/>
+                    <Edge cubics="!70 216(;70,216 -70,216 -70,216q70 216 -70 216);"/>
+                    <Edge cubics="!70 -215(;70,-215 70,216 70,216q70 -215 70 216);"/>
+                    <Edge cubics="!-70 216(;-70,216 -70,-215 -70,-215q-70 216 -70 -215);"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FF0000"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-44 -19|43 -19!43 -19|43 19!43 19|-44 19!-44 19|-44 -19"/>
+                        <Edge cubics="!-44 19(;-44,19 -44,-19 -44,-19q-44 19 -44 -19);"/>
+                        <Edge cubics="!43 19(;43,19 -44,19 -44,19q43 19 -44 19);"/>
+                        <Edge cubics="!43 -19(43,-19;43,-19 43,19 43,19q43 -19 43 19);"/>
+                        <Edge cubics="!-44 -19(;-44,-19 43,-19 43,-19q-44 -19 43 -19);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

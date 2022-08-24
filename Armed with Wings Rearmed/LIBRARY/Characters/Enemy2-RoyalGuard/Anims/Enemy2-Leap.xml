@@ -1,0 +1,98 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Leap" itemID="54cb1f36-0000104b" lastModified="1472392232">
+  <timeline>
+    <DOMTimeline name="Enemy2-Leap" currentFrame="34">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip = MovieClip(parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dodging = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="14" duration="14" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dodging = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[//_parent.leaping = false;
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" duration="4" name="leapForward" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="33" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = 14 * _parent.scaleX;
+_parent.dodging = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="53" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .3;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dodging = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="67" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[//_parent.leaping = false;
+
+_parent.gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Raw/Enemy2-Leap" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.647796630859375" d="0.647796630859375" tx="26.5" ty="-10.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10.05" y="-56.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="39" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Dodge2" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="1.0914306640625" d="1.0914306640625" tx="0.75" ty="-24.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

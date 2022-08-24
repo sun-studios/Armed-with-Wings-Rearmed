@@ -1,0 +1,424 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-SurvivalMenu/UI-SurvivalMenu" itemID="56a4b36a-000009c3" lastModified="1501750751" lastUniqueIdentifier="5">
+  <timeline>
+    <DOMTimeline name="UI-SurvivalMenu" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;316&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[//hook1
+import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Strong;
+
+visible = false;
+
+var ready:Boolean;
+var go:Boolean;
+
+var selectIndex:Number;
+var selectMax:Number;
+var currentSelClip:MovieClip;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+
+var arenaSelected:Boolean;
+var difficultySelected:Boolean;
+var waveSelected:Boolean;
+var selectingWave:Boolean;
+
+var container:MovieClip;
+var readyBtn:MovieClip;
+var ctrl:MovieClip;
+var sndCtrl:MovieClip;
+var _parent:MovieClip;
+var _root:MovieClip;
+var cursor:MovieClip;
+//break peroid of no input.
+var breakIndex:int = 15;
+var breakIndexOrig:int = 15;
+
+function init ():void {
+	visible = true;
+	x = 0;
+	y = 0;
+	
+	ready = true;
+	go = true;
+	
+	selectIndex = 0;
+	selectMax = 4;
+	currentSelClip = container.b0;
+	breakIndex = breakIndexOrig;
+	
+	titleClip.x = -480;
+	titleClip.y = 68;
+	container.x = -960;
+	container.y = 316.5;
+	readyBtn.visible = false;
+	
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	_parent = MovieClip(parent);
+	_root = MovieClip(root);
+	
+	menu1.survival = true;
+	selectButton(false);
+}
+
+function update ():void {
+	if (go) {
+		cursor.update();
+		if (breakIndex > 0) {
+			breakIndex --;
+		} else {
+			//ctrl back
+			if (ctrl.ctrl_cancel) {
+				if (!keyFilter0) {
+					if (confirming()) {
+						sndCtrl.playUISound(sndCtrl.sndButton2);
+						readyBtn.visible = false;
+						difficultySelected = true;
+						selectingWave = true;
+						waveSelected = false;
+						menu2.init(true);
+						cursor.currentMenu = menu2;
+					} else {
+						if (arenaSelected) {
+							arenaSelected = false;
+						} else {
+							sndCtrl.playUISound(sndCtrl.sndButton2);
+							cursor.currentMenu = null;
+							_parent.closeSurvival();
+							go = false;
+						}
+						/*if (arenaSelected) {
+							if (!waveSelected && difficultySelected) {
+								sndCtrl.playUISound(sndCtrl.sndButton2);
+								difficultySelected = false;
+								cursor.scaleX = 1;
+								selectingWave = false;
+								menu1.init();
+								cursor.currentMenu = menu1;
+							}
+						} else {*/
+							//sndCtrl.playUISound(sndCtrl.sndButton2);
+							//cursor.currentMenu = null;
+							//_parent.closeSurvival();
+							//go = false;
+						//}
+					}
+					
+					keyFilter0 = true;
+				}
+			} else {
+				keyFilter0 = false;
+			}
+			
+			//ctrl left
+			if (!arenaSelected) {
+				if (ctrl.ctrl_right) {
+					if (!keyFilter1) {
+						if (selectIndex < selectMax) {
+							selectIndex ++;
+							selectButton();
+						}
+						keyFilter1 = true;
+					}
+				} else {
+					keyFilter1 = false;
+				}
+				//ctrl right
+				if (ctrl.ctrl_left) {
+					if (!keyFilter2) {
+						if (selectIndex > 0) {
+							selectIndex --;
+							selectButton();
+						}
+						keyFilter2 = true;
+					}
+				} else {
+					keyFilter2 = false;
+				}
+			}
+			
+			//ctrl confirm
+			if (ctrl.ctrl_confirmStart) {
+				if (!keyFilter3) {
+					if (confirming()) {
+						sndCtrl.playUISound(sndCtrl.sndButton3);
+						_root.gameMode = _root.SURVIVAL;
+						_root.sessionSurvivalArena = selectIndex;
+						
+						switch (selectIndex) {
+							case 0: _root.sessionSurvivalArenaName = "Gods Dagger";
+								break;
+							case 1: _root.sessionSurvivalArenaName = "The Slope";
+								break;
+							case 2:_root.sessionSurvivalArenaName = "Boss";
+								break;
+							case 3: _root.sessionSurvivalArenaName = "Holy Grounds";
+								break;
+							case 4: _root.sessionSurvivalArenaName = "Rearmed Trials";
+								break;
+						}
+						_parent.transition.gotoAndPlay(2);
+						
+
+						//find a better place for this
+						if (selectIndex == 4) {
+							_root.sessionBaseSword = true;
+							_root.data_equiptedWeapon = 0;
+						}
+						
+						go = false;
+					} else {
+						//if (arenaSelected) {
+							//if (!waveSelected && !selectingWave) {
+							if (!arenaSelected) {
+								sndCtrl.playUISound(sndCtrl.sndButton3);
+								openWaveSelect();
+								arenaSelected = true;
+								difficultySelected = true;
+							}
+							//}
+						/*} else {
+							trace("GLAP");
+							sndCtrl.playUISound(sndCtrl.sndButton3);
+							arenaSelected = true;
+							menu1.init();
+							cursor.currentMenu = menu1;
+							currentSelClip.gotoAndPlay("hit");
+							_root.sessionSurvivalArena = selectIndex;
+						}*/
+					}
+					keyFilter3 = true;
+				}
+			} else {
+				keyFilter3 = false;
+			}
+		}
+		
+		//scroll container
+		if (arenaSelected) {
+			if (difficultySelected) {
+				container.y += (170 - container.y)/6;
+				container.x += ((480 + (-selectIndex*500)) - container.x)/4;
+				
+				menu1.x += (760 - menu1.x)/4;
+				menu1.y += ((container.y -65) - menu1.y)/4;
+				menu1.update();
+				
+				if (menu2) {
+					menu2.x += (480 - menu2.x)/4;
+					menu2.y += ((container.y+215) - menu2.y)/4;//45
+					menu2.visible = true;
+					menu2.update();
+				}
+			} else {
+				container.y += (299 - container.y)/6;
+				container.x += ((480 + (-selectIndex*500)-160) - container.x)/4;
+			
+				menu1.x += (760 - menu1.x)/4;
+				menu1.y = container.y;	
+				menu1.visible = true;
+				container.updateVisibility(true, currentSelClip);
+				
+				menu1.update();
+				
+				menu2.visible = false;
+				menu2.x = 1546;
+				
+			}
+		} else {
+			container.y += (316 - container.y)/6;
+			container.x += ((480 + (-selectIndex*500)) - container.x)/10;
+			container.updateVisibility(false, currentSelClip);
+			menu1.x += (1200 - menu1.x)/4;
+			menu1.y += (280 - menu1.y)/4;
+			
+			menu2.x += (1546.45-menu2.x)/4;
+			menu2.y += (280-menu2.y)/4;
+		}
+		
+		titleClip.x += ((((container.x-480)*.1) + 480) - titleClip.x)/5;
+		titleClip.y = 68 + ((container.y-316.5)*1.2);
+		
+	}	
+}
+
+function confirming():Boolean {
+	return readyBtn.visible;
+}
+
+function selectButton(doSound:Boolean = true):void {
+	if (currentSelClip) {
+		currentSelClip.gotoAndPlay("out");
+	}
+	currentSelClip = container["b"+selectIndex]
+	currentSelClip.gotoAndPlay("over");
+	container.addChild(currentSelClip);
+	
+	if (doSound) sndCtrl.playUISound(sndCtrl.sndButton1);
+}
+
+function closeDifficulty():void {
+	menu1.go = false;
+	arenaSelected = false;
+	keyFilter0 = true;	
+	keyFilter1 = true;	
+	keyFilter2 = true;	
+	keyFilter3 = true;	
+}
+
+function selectDifficulty(id:Number):void {
+	//readyBtn.visible = true;
+	//readyBtn.gotoAndPlay("over");
+	difficultySelected = true;
+	menu1.go = false;
+	keyFilter0 = true;	
+	keyFilter1 = true;	
+	keyFilter2 = true;	
+	keyFilter3 = true;	
+	
+}
+
+function openWaveSelect():void {
+	selectingWave = true;
+	//sndCtrl.playUISound(sndCtrl.sndButton3);
+	menu2.visible = true;
+	menu2.init();
+	cursor.currentMenu = menu2;
+}
+function confirmWaveSelect():void {
+	breakIndex = 8;
+	selectingWave = false;
+	//sndCtrl.playUISound(sndCtrl.sndButton3);
+	readyBtn.visible = true;
+	waveSelected = true;
+	difficultySelected = true;
+	arenaSelected = true;
+	cursor.currentMenu = readyBtn;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#9933CC" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-CursorSurvivalDiff" name="cursor">
+                  <matrix>
+                    <Matrix tx="492.9" ty="273.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.45" y="2.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" quality="2" strength="0.83"/>
+                    <GlowFilter color="#FFFFFF" quality="3" strength="0.44"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="title" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-SurvivalMenu/Symbol 6" name="titleClip">
+                  <matrix>
+                    <Matrix tx="480" ty="68.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-DifficultySelect" name="menu1">
+                  <matrix>
+                    <Matrix tx="1200" ty="280"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.4" y="2.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 76" name="menu2">
+                  <matrix>
+                    <Matrix tx="1546.45" ty="280"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-SurvivalMenu/assets/UI-SurvivalMenu-Container" name="container">
+                  <matrix>
+                    <Matrix tx="320" ty="316.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin" name="readyBtn" uniqueID="5">
+                  <matrix>
+                    <Matrix tx="480" ty="477.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.4"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="READY" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,1549 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-S04/RockPlat/LVLS04-RockPlat" itemID="57adee2d-00003e57" lastModified="1492845214">
+  <timeline>
+    <DOMTimeline name="LVLS04-RockPlat" currentFrame="37">
+      <layers>
+        <DOMLayer name="Layer 14" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="95" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var ground:MovieClip;
+var sndCtrl:MovieClip;
+
+stop();
+
+init();
+
+function init():void {
+	hero = MovieClip(parent).hero;
+	ground = MovieClip(parent).ground;
+	sndCtrl = MovieClip(root);
+}
+
+function update():void {
+	if (this.currentFrame == 1) {
+		if (hero.bound.hitTestObject(this)) {
+			this.gotoAndPlay(2);
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndCavein);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="86" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).ground.pitFall.scaleX = 0;
+MovieClip(parent).ground.pitFall.scaleY = 0;
+MovieClip(parent).ground.pitFall.x = -1000;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="95" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-14" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="92.1" ty="3.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-14" symbolType="graphic" centerPoint3DX="91.15" centerPoint3DY="522.3" loop="loop">
+                  <matrix>
+                    <Matrix a="0.297210693359375" b="-0.954803466796875" c="0.954803466796875" d="0.297210693359375" tx="92.1" ty="521"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="69" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-13" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-88.55" ty="17.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="16" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.563" y="0.1"/>
+                  <Point x="0.6667" y="0.3333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-13" symbolType="graphic" centerPoint3DX="-83.3" centerPoint3DY="29.85" loop="loop">
+                  <matrix>
+                    <Matrix a="0.843612670898438" b="-0.536941528320313" c="0.536941528320313" d="0.843612670898438" tx="-83.55" ty="30.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-13" symbolType="graphic" centerPoint3DX="-72.4" centerPoint3DY="439.9" loop="loop">
+                  <matrix>
+                    <Matrix a="0.652801513671875" b="0.75750732421875" c="-0.75750732421875" d="0.652801513671875" tx="-73.45" ty="438.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="69" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="22" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-4.75" ty="-14.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" symbolType="graphic" centerPoint3DX="-4.95" centerPoint3DY="398.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.97650146484375" b="-0.215499877929688" c="0.215499877929688" d="0.97650146484375" tx="-4.7" ty="398.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" symbolType="graphic" centerPoint3DX="116.3" centerPoint3DY="408.9" loop="loop">
+                  <matrix>
+                    <Matrix a="0.595413208007813" b="0.801437377929688" c="-0.801437377929688" d="0.595413208007813" tx="116.2" ty="409.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="32" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" symbolType="graphic" centerPoint3DX="257.4" centerPoint3DY="433.95" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.486328125" b="0.873748779296875" c="-0.873748779296875" d="-0.486328125" tx="257.15" ty="433.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="36" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" symbolType="graphic" centerPoint3DX="347.35" centerPoint3DY="480.2" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.999710083007813" b="0.018035888671875" c="-0.018035888671875" d="-0.999710083007813" tx="347.45" ty="479.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" symbolType="graphic" centerPoint3DX="428.15" centerPoint3DY="526.6" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.5206298828125" b="-0.853729248046875" c="0.853729248046875" d="-0.5206298828125" tx="428" ty="526"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" symbolType="graphic" centerPoint3DX="481.85" centerPoint3DY="604.9" loop="loop">
+                  <matrix>
+                    <Matrix a="0.374664306640625" b="-0.925857543945313" c="0.925857543945313" d="0.374664306640625" tx="482.2" ty="604.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" selected="true" symbolType="graphic" centerPoint3DX="518.1" centerPoint3DY="709.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.967742919921875" b="-0.251724243164063" c="0.251724243164063" d="0.967742919921875" tx="518.4" ty="708.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-12" selected="true" symbolType="graphic" centerPoint3DX="538.1" centerPoint3DY="769.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.967742919921875" b="-0.251724243164063" c="0.251724243164063" d="0.967742919921875" tx="538.4" ty="768.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="45" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-11" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="24.05" ty="-24.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.563" y="0.1"/>
+                  <Point x="0.6667" y="0.3333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-11" symbolType="graphic" centerPoint3DX="23.65" centerPoint3DY="85.75" loop="loop">
+                  <matrix>
+                    <Matrix a="0.920562744140625" b="-0.390594482421875" c="0.390594482421875" d="0.920562744140625" tx="24.05" ty="85.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-11" symbolType="graphic" centerPoint3DX="23.75" centerPoint3DY="417.15" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.530532836914063" b="-0.847625732421875" c="0.847625732421875" d="-0.530532836914063" tx="24.1" ty="418.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-11" selected="true" symbolType="graphic" centerPoint3DX="130.8" centerPoint3DY="488.4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.902481079101563" b="0.43060302734375" c="-0.43060302734375" d="0.902481079101563" tx="129.05" ty="488.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="43" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-11" selected="true" symbolType="graphic" centerPoint3DX="219.4" centerPoint3DY="547.9" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.999786376953125" b="-0.017608642578125" c="0.017608642578125" d="-0.999786376953125" tx="220.95" ty="547.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-11" selected="true" symbolType="graphic" centerPoint3DX="312.35" centerPoint3DY="616.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.948455810546875" b="-0.316680908203125" c="0.316680908203125" d="0.948455810546875" tx="310.75" ty="616.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-11" selected="true" symbolType="graphic" centerPoint3DX="395.6" centerPoint3DY="743.7" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.791412353515625" b="0.611129760742188" c="-0.611129760742188" d="-0.791412353515625" tx="396.4" ty="742.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" duration="36" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="25" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-34.9" ty="-11.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" symbolType="graphic" centerPoint3DX="-34.6" centerPoint3DY="129.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.2471923828125" b="0.968963623046875" c="-0.968963623046875" d="0.2471923828125" tx="-34.9" ty="128.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" symbolType="graphic" centerPoint3DX="-35.8" centerPoint3DY="340.95" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.998382568359375" b="-0.056640625" c="0.056640625" d="-0.998382568359375" tx="-34.95" ty="341.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" symbolType="graphic" centerPoint3DX="156.7" centerPoint3DY="391.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.936874389648438" b="-0.349594116210938" c="0.349594116210938" d="0.936874389648438" tx="155.2" ty="391.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" symbolType="graphic" centerPoint3DX="313.5" centerPoint3DY="462.4" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.493240356445313" b="0.869842529296875" c="-0.869842529296875" d="-0.493240356445313" tx="315" ty="461.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="43" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" selected="true" symbolType="graphic" centerPoint3DX="368.4" centerPoint3DY="546.15" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.983306884765625" b="-0.178192138671875" c="0.178192138671875" d="-0.983306884765625" tx="370" ty="547.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" selected="true" symbolType="graphic" centerPoint3DX="405.25" centerPoint3DY="649.65" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.155319213867188" b="-0.987808227539063" c="0.987808227539063" d="-0.155319213867188" tx="405.2" ty="651.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" selected="true" symbolType="graphic" centerPoint3DX="506.1" centerPoint3DY="612.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.6513671875" b="0.7586669921875" c="-0.7586669921875" d="0.6513671875" tx="505.15" ty="611.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="57" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" selected="true" symbolType="graphic" centerPoint3DX="633.7" centerPoint3DY="650.35" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.975601196289063" b="-0.219146728515625" c="0.219146728515625" d="-0.975601196289063" tx="635.2" ty="651.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" selected="true" symbolType="graphic" centerPoint3DX="716.95" centerPoint3DY="750.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.773452758789063" b="-0.633682250976563" c="0.633682250976563" d="0.773452758789063" tx="715.4" ty="751.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" selected="true" symbolType="graphic" centerPoint3DX="815.85" centerPoint3DY="862.4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.602508544921875" b="0.797958374023438" c="-0.797958374023438" d="0.602508544921875" tx="815.2" ty="861.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="73" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" selected="true" symbolType="graphic" centerPoint3DX="854.1" centerPoint3DY="1001.6" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.852432250976563" b="0.522567749023438" c="-0.522567749023438" d="-0.852432250976563" tx="855.15" ty="1001.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="82" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-10" selected="true" symbolType="graphic" centerPoint3DX="875.45" centerPoint3DY="1198.95" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.6160888671875" b="-0.787490844726563" c="0.787490844726563" d="-0.6160888671875" tx="875.3" ty="1201"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="83" duration="16" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 7" color="#669900">
+          <frames>
+            <DOMFrame index="0" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-67.35" ty="-3.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.563" y="0.1"/>
+                  <Point x="0.6667" y="0.3333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" symbolType="graphic" centerPoint3DX="-66.1" centerPoint3DY="1.1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.99505615234375" b="-0.09930419921875" c="0.09930419921875" d="0.99505615234375" tx="-66.35" ty="1.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" symbolType="graphic" centerPoint3DX="-63.95" centerPoint3DY="12.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.999832153320313" b="0.018157958984375" c="-0.018157958984375" d="0.999832153320313" tx="-64.35" ty="12.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" symbolType="graphic" centerPoint3DX="-43.3" centerPoint3DY="103.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.933181762695313" b="0.35931396484375" c="-0.35931396484375" d="0.933181762695313" tx="-44.3" ty="102.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" symbolType="graphic" centerPoint3DX="-45.05" centerPoint3DY="352.7" loop="loop">
+                  <matrix>
+                    <Matrix a="0.295608520507813" b="0.95526123046875" c="-0.95526123046875" d="0.295608520507813" tx="-45.45" ty="351.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" symbolType="graphic" centerPoint3DX="94.25" centerPoint3DY="391.7" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.833847045898438" b="0.5518798828125" c="-0.5518798828125" d="-0.833847045898438" tx="94.35" ty="391.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="43" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" selected="true" symbolType="graphic" centerPoint3DX="205.3" centerPoint3DY="481.2" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.547988891601563" b="-0.836380004882813" c="0.836380004882813" d="-0.547988891601563" tx="204.45" ty="481.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" selected="true" symbolType="graphic" centerPoint3DX="284.95" centerPoint3DY="572.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.964920043945313" b="-0.262176513671875" c="0.262176513671875" d="0.964920043945313" tx="284.6" ty="571.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" selected="true" symbolType="graphic" centerPoint3DX="392.9" centerPoint3DY="661.1" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.463027954101563" b="0.886215209960938" c="-0.886215209960938" d="-0.463027954101563" tx="394.35" ty="661.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-09" selected="true" symbolType="graphic" centerPoint3DX="485.35" centerPoint3DY="779.65" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.967849731445313" b="-0.251022338867188" c="0.251022338867188" d="-0.967849731445313" tx="484.25" ty="781.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 8" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="20" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-08" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-113.95" ty="31.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-08" symbolType="graphic" centerPoint3DX="-107.1" centerPoint3DY="39.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.970550537109375" b="0.240890502929688" c="-0.240890502929688" d="0.970550537109375" tx="-107.45" ty="38.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-08" symbolType="graphic" centerPoint3DX="-76.65" centerPoint3DY="107.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.360137939453125" b="0.932876586914063" c="-0.932876586914063" d="0.360137939453125" tx="-76.25" ty="105.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="36" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-08" symbolType="graphic" centerPoint3DX="34.7" centerPoint3DY="413.7" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.897659301757813" b="-0.44061279296875" c="0.44061279296875" d="-0.897659301757813" tx="35" ty="414.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="43" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-08" selected="true" symbolType="graphic" centerPoint3DX="180.25" centerPoint3DY="441.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.376358032226563" b="-0.926422119140625" c="0.926422119140625" d="0.376358032226563" tx="179.55" ty="441.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-08" selected="true" symbolType="graphic" centerPoint3DX="271.6" centerPoint3DY="512.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.99102783203125" b="-0.133148193359375" c="0.133148193359375" d="0.99102783203125" tx="270.95" ty="511.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-08" selected="true" symbolType="graphic" centerPoint3DX="309.35" centerPoint3DY="607.75" loop="loop">
+                  <matrix>
+                    <Matrix a="0.600692749023438" b="0.79937744140625" c="-0.79937744140625" d="0.600692749023438" tx="309.15" ty="606.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-08" selected="true" symbolType="graphic" centerPoint3DX="348.95" centerPoint3DY="707.45" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.650238037109375" b="0.759597778320313" c="-0.759597778320313" d="-0.650238037109375" tx="349.2" ty="706.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 9" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="70.5" ty="-17.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.563" y="0.1"/>
+                  <Point x="0.6667" y="0.3333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" symbolType="graphic" centerPoint3DX="70.35" centerPoint3DY="-3.1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.987152099609375" b="0.159774780273438" c="-0.159774780273438" d="0.987152099609375" tx="70.45" ty="-2.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" symbolType="graphic" centerPoint3DX="69.75" centerPoint3DY="436.7" loop="loop">
+                  <matrix>
+                    <Matrix a="0.719268798828125" b="-0.6947021484375" c="0.6947021484375" d="0.719268798828125" tx="70.55" ty="435.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" symbolType="graphic" centerPoint3DX="224.1" centerPoint3DY="503.7" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.313522338867188" b="0.949554443359375" c="-0.949554443359375" d="-0.313522338867188" tx="224.15" ty="504.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" symbolType="graphic" centerPoint3DX="354.8" centerPoint3DY="625.5" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.382080078125" b="-0.924087524414063" c="0.924087524414063" d="-0.382080078125" tx="354.3" ty="624.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" selected="true" symbolType="graphic" centerPoint3DX="512.9" centerPoint3DY="663.95" loop="loop">
+                  <matrix>
+                    <Matrix a="0.861114501953125" b="0.508316040039063" c="-0.508316040039063" d="0.861114501953125" tx="514" ty="664.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="57" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" selected="true" symbolType="graphic" centerPoint3DX="595.35" centerPoint3DY="724.8" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.918228149414063" b="-0.395904541015625" c="0.395904541015625" d="-0.918228149414063" tx="594.25" ty="724.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" selected="true" symbolType="graphic" centerPoint3DX="723.25" centerPoint3DY="734.75" loop="loop">
+                  <matrix>
+                    <Matrix a="0.997299194335938" b="-0.07244873046875" c="0.07244873046875" d="0.997299194335938" tx="724" ty="734.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="71" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" selected="true" symbolType="graphic" centerPoint3DX="835.6" centerPoint3DY="833.6" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.79705810546875" b="0.603759765625" c="-0.603759765625" d="-0.79705810546875" tx="834.3" ty="834.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="78" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" selected="true" symbolType="graphic" centerPoint3DX="893.45" centerPoint3DY="996.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.479110717773438" b="-0.877639770507813" c="0.877639770507813" d="0.479110717773438" tx="894.1" ty="994.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="88" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-07" selected="true" symbolType="graphic" centerPoint3DX="934.1" centerPoint3DY="1282.65" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.0814208984375" b="0.996566772460938" c="-0.996566772460938" d="-0.0814208984375" tx="934.15" ty="1284.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="89" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 10" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="106.7" ty="14"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.563" y="0.1"/>
+                  <Point x="0.6667" y="0.3333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" symbolType="graphic" centerPoint3DX="102.6" centerPoint3DY="20" loop="loop">
+                  <matrix>
+                    <Matrix a="0.980087280273438" b="-0.198562622070313" c="0.198562622070313" d="0.980087280273438" tx="102.7" ty="19.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" symbolType="graphic" centerPoint3DX="102.55" centerPoint3DY="220.75" loop="loop">
+                  <matrix>
+                    <Matrix a="0.0190582275390625" b="-0.999801635742188" c="0.999801635742188" d="0.0190582275390625" tx="102.7" ty="220.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" symbolType="graphic" centerPoint3DX="102.8" centerPoint3DY="459.1" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.812606811523438" b="-0.582748413085938" c="0.582748413085938" d="-0.812606811523438" tx="102.7" ty="458.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" selected="true" symbolType="graphic" centerPoint3DX="262.8" centerPoint3DY="498.6" loop="loop">
+                  <matrix>
+                    <Matrix a="0.424789428710938" b="-0.905242919921875" c="0.905242919921875" d="0.424789428710938" tx="262.75" ty="498.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" selected="true" symbolType="graphic" centerPoint3DX="363.1" centerPoint3DY="578.45" loop="loop">
+                  <matrix>
+                    <Matrix a="0.71734619140625" b="0.696640014648438" c="-0.696640014648438" d="0.71734619140625" tx="362.9" ty="578.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="47">
+              <tweens>
+                <Ease target="all" intensity="47"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" selected="true" symbolType="graphic" centerPoint3DX="443.3" centerPoint3DY="668" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.440292358398438" b="0.89776611328125" c="-0.89776611328125" d="-0.440292358398438" tx="442.85" ty="668.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" selected="true" symbolType="graphic" centerPoint3DX="683.6" centerPoint3DY="769.25" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.319869995117188" b="0.947372436523438" c="-0.947372436523438" d="-0.319869995117188" tx="682.85" ty="768.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="71" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" selected="true" symbolType="graphic" centerPoint3DX="832.55" centerPoint3DY="869.2" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.9996337890625" b="-0.0235595703125" c="0.0235595703125" d="-0.9996337890625" tx="832.8" ty="868.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="78" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" selected="true" symbolType="graphic" centerPoint3DX="942.35" centerPoint3DY="1048.25" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.453323364257813" b="-0.8912353515625" c="0.8912353515625" d="-0.453323364257813" tx="942.9" ty="1048.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-06" symbolType="graphic" centerPoint3DX="957.45" centerPoint3DY="1300.8" loop="loop">
+                  <matrix>
+                    <Matrix a="0.994949340820313" b="-0.099273681640625" c="0.099273681640625" d="0.994949340820313" tx="957.05" ty="1301.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="87" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 11" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="9" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-05" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="93.25" ty="-30.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-05" symbolType="graphic" centerPoint3DX="93.95" centerPoint3DY="-23.6" loop="loop">
+                  <matrix>
+                    <Matrix a="0.994613647460938" b="-0.1036376953125" c="0.1036376953125" d="0.994613647460938" tx="93.25" ty="-24.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-05" symbolType="graphic" centerPoint3DX="86.3" centerPoint3DY="-1.5" loop="loop">
+                  <matrix>
+                    <Matrix a="0.930892944335938" b="-0.365249633789063" c="0.365249633789063" d="0.930892944335938" tx="85.3" ty="-2.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-05" symbolType="graphic" centerPoint3DX="85.95" centerPoint3DY="198.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.192367553710938" b="-0.981292724609375" c="0.981292724609375" d="0.192367553710938" tx="85.35" ty="198"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-05" symbolType="graphic" centerPoint3DX="86.25" centerPoint3DY="418.2" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.364273071289063" b="-0.931243896484375" c="0.931243896484375" d="-0.364273071289063" tx="85.4" ty="417"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-05" symbolType="graphic" centerPoint3DX="145.65" centerPoint3DY="428.1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.419891357421875" b="-0.907501220703125" c="0.907501220703125" d="0.419891357421875" tx="145.25" ty="426.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-05" symbolType="graphic" centerPoint3DX="185.6" centerPoint3DY="477.9" loop="loop">
+                  <matrix>
+                    <Matrix a="0.879043579101563" b="-0.476577758789063" c="0.476577758789063" d="0.879043579101563" tx="185.2" ty="476.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-05" selected="true" symbolType="graphic" centerPoint3DX="215.7" centerPoint3DY="617.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.917037963867188" b="0.3985595703125" c="-0.3985595703125" d="0.917037963867188" tx="215.4" ty="616.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" duration="50" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 12" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-04" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-19.75" ty="-35.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="16" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="66">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.563" y="0.1"/>
+                  <Point x="0.6667" y="0.3333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-04" symbolType="graphic" centerPoint3DX="-19.65" centerPoint3DY="-26.65" loop="loop">
+                  <matrix>
+                    <Matrix a="0.994979858398438" b="-0.100067138671875" c="0.100067138671875" d="0.994979858398438" tx="-19.75" ty="-26.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-04" symbolType="graphic" centerPoint3DX="-20.5" centerPoint3DY="350.8" loop="loop">
+                  <matrix>
+                    <Matrix a="0.395431518554688" b="-0.918472290039063" c="0.918472290039063" d="0.395431518554688" tx="-19.75" ty="351.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-04" selected="true" symbolType="graphic" centerPoint3DX="81.7" centerPoint3DY="370.45" loop="loop">
+                  <matrix>
+                    <Matrix a="0.989593505859375" b="-0.143600463867188" c="0.143600463867188" d="0.989593505859375" tx="80.25" ty="371.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-04" symbolType="graphic" centerPoint3DX="133.1" centerPoint3DY="432" loop="loop">
+                  <matrix>
+                    <Matrix a="0.7138671875" b="0.7001953125" c="-0.7001953125" d="0.7138671875" tx="130.2" ty="431.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-04" selected="true" symbolType="graphic" centerPoint3DX="142.3" centerPoint3DY="623.15" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.0336151123046875" b="0.999359130859375" c="-0.999359130859375" d="-0.0336151123046875" tx="140.15" ty="621.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="53" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 13" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-03" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="35.75" ty="-39.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.563" y="0.1"/>
+                  <Point x="0.6667" y="0.3333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-03" symbolType="graphic" centerPoint3DX="35.7" centerPoint3DY="-30.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.999069213867188" b="0.043121337890625" c="-0.043121337890625" d="0.999069213867188" tx="35.75" ty="-30.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-03" symbolType="graphic" centerPoint3DX="35.65" centerPoint3DY="60.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.94683837890625" b="-0.3216552734375" c="0.3216552734375" d="0.94683837890625" tx="35.75" ty="59.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="36" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-03" symbolType="graphic" centerPoint3DX="35.4" centerPoint3DY="399.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.23345947265625" b="-0.972335815429688" c="0.972335815429688" d="0.23345947265625" tx="35.8" ty="397.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-03" selected="true" symbolType="graphic" centerPoint3DX="244.85" centerPoint3DY="506.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.0522003173828125" b="0.99859619140625" c="-0.99859619140625" d="0.0522003173828125" tx="245.7" ty="507.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-03" selected="true" symbolType="graphic" centerPoint3DX="436.35" centerPoint3DY="648.9" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.2921142578125" b="-0.956329345703125" c="0.956329345703125" d="-0.2921142578125" tx="435.7" ty="647.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-03" selected="true" symbolType="graphic" centerPoint3DX="595.3" centerPoint3DY="788.3" loop="loop">
+                  <matrix>
+                    <Matrix a="0.997543334960938" b="-0.06890869140625" c="0.06890869140625" d="0.997543334960938" tx="595.45" ty="787.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" duration="32" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 2" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6768"/>
+                  <Point x="0.8963" y="0.7295"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-90.5" ty="-20.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-02" symbolType="graphic" centerPoint3DX="-86.8" centerPoint3DY="-15.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.99542236328125" b="0.0955657958984375" c="-0.0955657958984375" d="0.99542236328125" tx="-86.95" ty="-15.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-02" symbolType="graphic" centerPoint3DX="-78.55" centerPoint3DY="297.8" loop="loop">
+                  <matrix>
+                    <Matrix a="0.370864868164063" b="0.928665161132813" c="-0.928665161132813" d="0.370864868164063" tx="-78" ty="297.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-02" selected="true" symbolType="graphic" centerPoint3DX="18.65" centerPoint3DY="356.55" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.50714111328125" b="0.86181640625" c="-0.86181640625" d="-0.50714111328125" tx="19.1" ty="356.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-02" symbolType="graphic" centerPoint3DX="101.8" centerPoint3DY="425.65" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.956832885742188" b="-0.290390014648438" c="0.290390014648438" d="-0.956832885742188" tx="101.3" ty="425.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-02" selected="true" symbolType="graphic" centerPoint3DX="241.5" centerPoint3DY="627.05" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.8514404296875" b="-0.524276733398438" c="0.524276733398438" d="-0.8514404296875" tx="241" ty="626.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S04/RockPlat/LVLS04-RockPlat-Rock-02" selected="true" symbolType="graphic" centerPoint3DX="261.55" centerPoint3DY="787.1" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.815780639648438" b="-0.578201293945313" c="0.578201293945313" d="-0.815780639648438" tx="261.05" ty="786.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" duration="36" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

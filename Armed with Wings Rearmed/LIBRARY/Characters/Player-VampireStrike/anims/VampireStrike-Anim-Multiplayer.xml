@@ -1,0 +1,79 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-VampireStrike/anims/VampireStrike-Anim-Multiplayer" itemID="58e10216-0000175c" lastModified="1491141153">
+  <timeline>
+    <DOMTimeline name="VampireStrike-Anim-Multiplayer" currentFrame="135">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="37" name="getup" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="37" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="20" name="teleport" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 3);
+stop();
+MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" duration="22" name="winPose" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="88" duration="50" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndThunder9);
+MovieClip(parent.parent).vcam.shakeCamera(30);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="139" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" centerPoint3DX="-0.05" centerPoint3DY="-74.5">
+                  <matrix>
+                    <Matrix tx="51.65" ty="-8.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-69.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

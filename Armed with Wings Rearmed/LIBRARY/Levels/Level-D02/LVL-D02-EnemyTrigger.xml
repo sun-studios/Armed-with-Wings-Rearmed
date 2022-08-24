@@ -1,0 +1,78 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-D02/LVL-D02-EnemyTrigger" itemID="550047ce-000005a3" lastModified="1426081977">
+  <timeline>
+    <DOMTimeline name="LVL-D02-EnemyTrigger">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+visible = false;
+
+var en2:MovieClip = MovieClip(parent).en2;
+var en3:MovieClip = MovieClip(parent).en3;
+var en4:MovieClip = MovieClip(parent).en4;
+
+var ground:MovieClip = MovieClip(parent).ground;
+var hero:MovieClip = MovieClip(parent).hero;
+var eagle:MovieClip = MovieClip(parent).eagle;
+var vcam:MovieClip = MovieClip(parent).vcam;
+var doOnce:Boolean = false;
+
+function update():void {
+	if (en2.dead && en3.dead && en4.dead) {
+		if (!doOnce) {
+			openGate();
+			doOnce = true;
+		}
+	}
+}
+
+function openGate():void {
+	
+	ground.gate4.gotoAndPlay(2);
+
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>enemy&#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

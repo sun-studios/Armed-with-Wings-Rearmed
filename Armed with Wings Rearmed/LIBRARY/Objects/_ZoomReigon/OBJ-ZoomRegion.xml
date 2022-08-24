@@ -1,0 +1,134 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_ZoomReigon/OBJ-ZoomRegion" itemID="54bfa18d-000004dc" lastModified="1470243003" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-ZoomRegion">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+visible = false;
+
+var hero:MovieClip;
+var eagle:MovieClip;
+var vcam:MovieClip;
+var isTouching:Boolean;
+var noHero:Boolean;
+
+var timeBuffer:int;
+var timeBufferOrig:int;
+
+//component
+var zoomIn:Number;
+var zoomOut:Number;
+var stay:Boolean;
+var doEagle:Boolean;
+
+init();
+
+function  init ():void {
+	hero = MovieClip(parent).hero;
+	eagle = MovieClip(parent).eagle;
+	vcam = MovieClip(parent).vcam;
+	isTouching = false;
+	
+	timeBuffer = 5;
+	timeBufferOrig = 5;
+}
+
+function  update ():void {
+	if (timeBuffer > 0) {
+		timeBuffer --;
+	} else {
+
+		if (isHeroTouching()) {	
+			if (!isTouching) {
+				vcam.zoom = zoomIn;
+				isTouching = true;
+			}
+		} else {
+			if (!stay) {
+				if (isTouching) {
+					vcam.zoom = zoomOut;
+					isTouching = false;
+				}
+			}
+		}
+		
+		timeBuffer = timeBufferOrig;
+	}
+}
+
+function isHeroTouching():Boolean {
+	if (noHero) {
+		if (hero.bound.hitTestObject(this) && hero.life > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	} else {
+		if (vcam.target == eagle && doEagle) {
+			if (eagle.bound.hitTestObject(this)) {
+				return true;
+			}
+		} else {
+			if (vcam.target == hero && hero.bound.hitTestObject(this) && hero.life > 0) {
+				return true;
+			} else {
+				
+			}
+		}
+	}
+	return false;
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_ZoomReigon/OBJ-ZoomRegion-Shape">
+                  <matrix>
+                    <Matrix tx="0.35" ty="-0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="zoomIn">
+      <Inspectable name="zoomIn" variable="zoomIn" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="zoomOut">
+      <Inspectable name="zoomOut" variable="zoomOut" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="stay">
+      <Inspectable name="stay" variable="stay" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="noHero">
+      <Inspectable name="noHero" variable="noHero" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="doEagle">
+      <Inspectable name="eagle" variable="doEagle" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

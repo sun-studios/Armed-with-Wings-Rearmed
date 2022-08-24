@@ -1,0 +1,360 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_FloorSwitch/FloorSwitch" itemID="54b23acb-00001910" lastModified="1485440795" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="FloorSwitch">
+      <layers>
+        <DOMLayer name="Label" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="11" name="off" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" duration="5" name="on" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Action Layer" color="#FFFF00" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+var objectNames:Array;
+var objects:Array;
+var isOn:Boolean = false;
+var stayLit:Boolean;
+var sndCtrl:MovieClip;
+
+init();
+
+function init():void {
+	sndCtrl = MovieClip(root);
+	
+	if (objectNames) {
+	objects = new Array();		
+		for (var i:int = 0; i < objectNames.length; i ++) {
+			var obj:MovieClip = MovieClip(parent)[objectNames[i]];
+			objects.push(obj);
+		}
+	} else {
+		throw new Error("object array is empty");
+	}
+}
+
+function update():void {
+	var contact:Boolean = false;
+	
+	for (var i:int = 0; i < objects.length; i ++) {
+		var obj:MovieClip = objects[i];
+		
+		if (obj.bound.hitTestObject(this.bound)) {
+			if (distanceBetweenX(this, obj) < 24) {
+				contact = true;
+			}
+		}
+	}
+	
+	if (contact) {
+		if (currentFrameLabel == "off") play();
+		if (!isOn) {
+			this.dispatchEvent(new Event("ISON"));
+			isOn = true;
+		}
+	} else {
+		if (!stayLit) {
+			if (currentFrameLabel == "on") play();
+			isOn = false;
+		}
+	}
+}
+
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = Math.abs(obj1.x - obj2.x);
+    return X;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="10" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndStepSwitch);
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="13" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="16" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" duration="17" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound" centerPoint3DX="0.2">
+                  <matrix>
+                    <Matrix a="1.48117065429688" d="0.07220458984375" tx="0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_switchStepBG/SwitchStepBG-anim-shape1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.9" ty="9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_switchStepBG/SwitchStepBG-anim-shape1" symbolType="graphic" centerPoint3DX="1.9" centerPoint3DY="9" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.9" ty="9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_switchStepBG/SwitchStepBG-anim-shape1" symbolType="graphic" centerPoint3DX="1.9" centerPoint3DY="9" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.9" ty="9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_switchStepBG/SwitchStepBG-anim-shape1" symbolType="graphic" centerPoint3DX="1.9" centerPoint3DY="9" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.9" ty="9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_switchStepBG/SwitchStepBG-anim-shape2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.9" ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_switchStepBG/SwitchStepBG-anim-shape2" symbolType="graphic" centerPoint3DX="1.9" centerPoint3DY="15" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.9" ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_switchStepBG/SwitchStepBG-anim-shape2" symbolType="graphic" centerPoint3DX="1.9" centerPoint3DY="15" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.9" ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_switchStepBG/SwitchStepBG-anim-shape2" symbolType="graphic" centerPoint3DX="1.9" centerPoint3DY="15" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.9" ty="15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FloorSwitch/assets/FloowSwitch-graphic" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FloorSwitch/assets/FloowSwitch-graphic" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FloorSwitch/assets/FloowSwitch-graphic" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redMultiplier="0" blueMultiplier="0" greenMultiplier="0" redOffset="255" blueOffset="255" greenOffset="255"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FloorSwitch/assets/FloowSwitch-graphic" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FloorSwitch/assets/FloorSwitch-glow" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-2.15" ty="16.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FloorSwitch/assets/FloorSwitch-glow" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-2.15" ty="16.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FloorSwitch/assets/FloorSwitch-glow" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-2.15" ty="16.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="objectNames">
+      <Inspectable name="objects" variable="objectNames" category="" verbose="0" defaultValue="" type="Array"/>
+   </property>
+   <property id="stayLit">
+      <Inspectable name="stayLit" variable="stayLit" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

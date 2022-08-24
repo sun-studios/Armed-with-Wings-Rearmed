@@ -1,0 +1,89 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PRT-EnergySlash/PRT-EnergySlashSpawner" itemID="56c5e1f5-00000a50" lastModified="1455883845">
+  <timeline>
+    <DOMTimeline name="PRT-EnergySlashSpawner">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var particleLayer:MovieClip;
+
+var spawnRate:Number;
+var spawnRateOrig:Number;
+
+var intensity:Number = 0;
+var intensityOrig:Number = 0;
+var go:Boolean;
+
+init();
+
+
+function init ():void {
+	particleLayer = MovieClip(parent).particleLayer;
+	spawnRate = 2;
+	spawnRateOrig = 2;
+	ball.visible = false;
+}
+
+function update ():void {
+	if (go) {
+		if (spawnRate > 0) {
+			spawnRate --;
+			if (intensity > 0) intensity -= .7;
+		} else {
+			var _x:Number = x + ((Math.random()-Math.random())*intensity*2);
+			var _y:Number = y + ((Math.random()-Math.random())*intensity*2);
+			var _life:Number = 20+(intensity);
+			var _rSpeed:Number = (104 - intensity)*.5;
+			var _scaleX:Number = (.5 + Math.random());
+			var _scaleY:Number = (.5 + Math.random());
+			
+			var slash:MovieClip = particleLayer.addEnergySlash(_x, _y, 1, _life, -_rSpeed, _scaleX, _scaleY);
+			spawnRate = 2 + Math.ceil(intensity*.3);
+			
+			if (intensity > intensityOrig*.7) {
+				slash.clip.gotoAndStop(5);
+			} else {
+				if (intensity > intensityOrig*.3) {
+					if (Math.random() >= .5) {
+						slash.clip.gotoAndStop(5);
+					}
+				}
+			}
+		}
+	}
+}
+
+function goCool():void {
+	intensity = 100;
+	intensityOrig = intensity;
+	go = true;
+	
+}
+ //addEnergySlash(X:Number, Y:Number, dir:Number, 
+				//_life:Number = 20, _rSpeed:Number = 10, _scaleX:Number = 1; _scaleY:Number = 1):void {
+	]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-EnergySlash/assets/EnergyPulseBall" name="ball">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

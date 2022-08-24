@@ -1,0 +1,85 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-SurvivalMenu/Symbol 11" itemID="56a51630-00003aee" lastModified="1485794914">
+  <timeline>
+    <DOMTimeline name="Symbol 11" currentFrame="4">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" locked="true" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-4976 -2177S2|4977 -2177!4977 -2177|4977 2177!4977 2177|-4976 2177!-4976 2177|-4976 -2177"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="1" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/UI-SurvivalMenu/assets/UI-Survival-icon_0.png">
+                  <matrix>
+                    <Matrix a="0.90966796875" d="0.90966796875" tx="-272.9" ty="-118.7"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/UI-SurvivalMenu/assets/UI-Survival-icon_1.png">
+                  <matrix>
+                    <Matrix a="0.931503295898438" d="0.931503295898438" tx="-279.45" ty="-121.55"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/UI-SurvivalMenu/assets/UI-Survival-icon_2.png">
+                  <matrix>
+                    <Matrix tx="-279.45" ty="-121.55"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/UI-SurvivalMenu/assets/UI-Survival-icon_3.png">
+                  <matrix>
+                    <Matrix tx="-279.45" ty="-121.55"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Misc/2017/Bitmap 351">
+                  <matrix>
+                    <Matrix a="-1" tx="284" ty="-122"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

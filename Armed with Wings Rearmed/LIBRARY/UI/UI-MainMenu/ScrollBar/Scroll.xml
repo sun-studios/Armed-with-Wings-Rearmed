@@ -1,0 +1,64 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MainMenu/ScrollBar/Scroll" itemID="5587cd6e-000007e8" lastModified="1451489037">
+  <timeline>
+    <DOMTimeline name="Scroll">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var pin:MovieClip;
+
+init();
+
+function init():void {
+	alpha = 0;
+}
+
+function update(min:Number, max:Number):void {
+	if (alpha < 1) {
+		alpha += .2;
+	}
+	
+	var X:Number = (min/max)*762;
+	pin.x += (X - pin.x)/4;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="pin" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/ScrollBar/Scroll-Pin" name="pin">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="line" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/ScrollBar/Scroll-Bar" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.01051330566406" d="0.459762573242188" tx="381.4" ty="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

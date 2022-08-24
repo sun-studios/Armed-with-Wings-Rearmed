@@ -1,0 +1,910 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-VampireStrike/anims/VampireStrike-Anim-attack" itemID="58e0c5f6-00000e88" lastModified="1491669978" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="VampireStrike-Anim-attack">
+      <layers>
+        <DOMLayer name="labels" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="11" name="a1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="28" name="aPowerWave" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="57" name="ultimateStrike" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="96" duration="5" name="ANYENEMIES" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="101" name="ULTIGO" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" duration="9" name="ULTIATTACK0" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" duration="9" name="ULTIATTACK1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="120" duration="9" name="ULTIATTACK2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" duration="9" name="ULTIATTACK3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" duration="9" name="ULTIATTACK4" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="147" duration="11" name="ULTIATTACK5" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="158" duration="29" name="ULTIEND" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var charging = false;
+var powerStrike = true;
+var attackStart = false;
+var airborn = false;
+var airAttack = false;
+
+var sndCtrl:MovieClip = MovieClip(root);
+var vcam:MovieClip = MovieClip(parent.parent).vcam;
+var particleLayer:MovieClip = MovieClip(parent).particles;
+var _parent:MovieClip = MovieClip(parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[charging = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addPowerStrike("HOR", _parent.x+(90*_parent.scaleX), _parent.y, _parent.scaleX);
+vcam.shakeCamera(50);
+sndCtrl.powerStrikeChannel.stop();
+sndCtrl.playSwingSound();
+sndCtrl.playSound(sndCtrl.sndBlast2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="63" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="104" duration="6" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(16, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="110" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="113" duration="6" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(19, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="119" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="120" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="122" duration="6" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(2, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="128" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="130" duration="7" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(12, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="137" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="139" duration="7" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(18, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="146" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="147" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" duration="2" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();
+sndCtrl.playSound(sndCtrl.sndBlast1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="159" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.ySpeed = 10;
+_parent.xSpeed =  7*-_parent.scaleX;
+
+particleLayer.addPowerStrike("AIR", _parent.x+(40*_parent.scaleX), _parent.y, _parent.scaleX);
+vcam.shakeCamera(20);
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="162" duration="24" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+airAttack = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="186" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="hitBox" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="121.35" centerPoint3DY="-48.9">
+                  <matrix>
+                    <Matrix a="5.11451721191406" d="7.69316101074219" tx="52.05" ty="-99.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="-0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="91" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="104" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="105" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="113" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="114" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="120" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="122" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="123" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="130" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="131" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="132" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="139" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="140" duration="7" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="147" duration="12" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="159" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" duration="27" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clips" color="#666666" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle">
+                  <matrix>
+                    <Matrix a="0.956405639648438" d="1.04693603515625" tx="8.1" ty="-92.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Strike">
+                  <matrix>
+                    <Matrix a="0.931854248046875" d="0.931854248046875" tx="8.45" ty="-60.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Strike" centerPoint3DX="30" centerPoint3DY="-48.9">
+                  <matrix>
+                    <Matrix a="0.91864013671875" d="0.96160888671875" tx="10" ty="-62.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle">
+                  <matrix>
+                    <Matrix a="0.956405639648438" d="1.04693603515625" tx="8.1" ty="-92.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle" centerPoint3DX="14.75" centerPoint3DY="-91.7">
+                  <matrix>
+                    <Matrix tx="7.8" ty="-91.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle">
+                  <matrix>
+                    <Matrix a="0.956405639648438" d="1.04693603515625" tx="8.1" ty="-92.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle" centerPoint3DX="14.75" centerPoint3DY="-91.65">
+                  <matrix>
+                    <Matrix a="0.912918090820313" c="0.0149078369140625" d="1.14115905761719" tx="4.2" ty="-98.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="-0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Strike">
+                  <matrix>
+                    <Matrix a="0.931854248046875" d="0.931854248046875" tx="8.45" ty="-60.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" duration="11" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Strike" centerPoint3DX="30" centerPoint3DY="-48.9">
+                  <matrix>
+                    <Matrix a="0.91864013671875" d="0.96160888671875" tx="10" ty="-62.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="32" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Strike">
+                  <matrix>
+                    <Matrix a="0.931854248046875" d="0.931854248046875" tx="8.45" ty="-60.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle">
+                  <matrix>
+                    <Matrix a="0.956405639648438" d="1.04693603515625" tx="8.1" ty="-92.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle" centerPoint3DX="14.75" centerPoint3DY="-91.7">
+                  <matrix>
+                    <Matrix tx="7.8" ty="-91.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="62" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-anim-preulti" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.8563232421875" d="0.8563232421875" tx="-4" ty="35.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="101" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack4" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.89794921875" d="0.89794921875" tx="10.45" ty="34.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-7.7" y="-40.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="106" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-00">
+                  <matrix>
+                    <Matrix tx="9.3" ty="-7.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="22"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="108" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-00" centerPoint3DX="9.3" centerPoint3DY="-31.6">
+                  <matrix>
+                    <Matrix d="1.24673461914063" tx="9.3" ty="-24.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="59"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="111" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack6" symbolType="graphic" firstFrame="5" loop="loop">
+                  <matrix>
+                    <Matrix tx="-15.45" ty="-54.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="115" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-01">
+                  <matrix>
+                    <Matrix tx="-1.7" ty="-2.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-8.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="22" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="117" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-01" centerPoint3DX="-1.8" centerPoint3DY="-2.65">
+                  <matrix>
+                    <Matrix a="1.40196228027344" tx="-18.1" ty="-2.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-8.35"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="66" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="120" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack8" symbolType="graphic" firstFrame="12" loop="loop">
+                  <matrix>
+                    <Matrix tx="-2.5" ty="-7.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="124" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-02">
+                  <matrix>
+                    <Matrix d="1.10020446777344" tx="-25.9" ty="-18.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="27"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="126" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-02" centerPoint3DX="-25.9" centerPoint3DY="-17.4">
+                  <matrix>
+                    <Matrix d="1.25273132324219" tx="-25.9" ty="-6.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="60"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="129" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack" symbolType="graphic" firstFrame="7" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="27.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="133" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-03">
+                  <matrix>
+                    <Matrix tx="-9.1" ty="-13.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="26" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="135" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-03" centerPoint3DX="-8.6" centerPoint3DY="-13.45">
+                  <matrix>
+                    <Matrix a="1.33609008789063" tx="3.55" ty="-13.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="81" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="138" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack5" symbolType="graphic" firstFrame="15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.789825439453125" d="0.789825439453125" tx="-20.65" ty="-16.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="143" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-04">
+                  <matrix>
+                    <Matrix tx="-11.25" ty="-3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="27"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="145" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-Ulti-Blur-04" centerPoint3DX="-11.3" centerPoint3DY="-2.7">
+                  <matrix>
+                    <Matrix d="1.42689514160156" tx="-11.25" ty="15.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="59"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="147" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack9" symbolType="graphic" firstFrame="5" loop="loop">
+                  <matrix>
+                    <Matrix tx="-4.5" ty="-13.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-11.1" ty="-88.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-10.3" ty="-101.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-10.3" ty="-101.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-2.3" ty="-84.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-11.1" ty="-88.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-11.1" ty="-88.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-10.3" ty="-101.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" duration="11" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-10.3" ty="-101.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="32" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-10.3" ty="-101.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-2.3" ty="-84.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim">
+                  <matrix>
+                    <Matrix tx="-11.1" ty="-88.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="63" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="120" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="147" duration="40" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

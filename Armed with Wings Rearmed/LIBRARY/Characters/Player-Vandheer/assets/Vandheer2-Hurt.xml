@@ -1,0 +1,230 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Vandheer/assets/Vandheer2-Hurt" itemID="56571fc8-000025ed" lastModified="1491665842" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Vandheer2-Hurt" currentFrame="37">
+      <layers>
+        <DOMLayer name="goto-actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip = MovieClip(parent);
+var spinning:Boolean = false;
+
+var hurt1:Boolean = false;
+var hurt2:Boolean = false;
+var hurt3:Boolean = false;
+var recovering:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hurt1 = true;
+hurt2 = false;
+hurt3 = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="16" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = true;
+hurt1 = false;
+hurt2 = false;
+hurt3 = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="37" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("spin");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="29" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = false;
+hurt1 = false;
+hurt2 = false;
+hurt3 = false;
+recovering = true;
+
+_parent.xSpeed *= .6;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="67" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="80" duration="55" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hurt1 = false;
+hurt2 = false;
+hurt3 = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="135" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="136" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hurt1 = false;
+hurt2 = true;
+hurt3 = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="151" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="152" duration="24" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hurt1 = false;
+hurt2 = false;
+hurt3 = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="176" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="16" name="hurt" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" duration="21" name="spin" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="30" name="recover" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="80" duration="56" name="stun" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="136" duration="16" name="hurt2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="152" duration="25" name="hurt3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Hurt" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.952804565429688" d="0.952804565429688" tx="4.35" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.15" y="-45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-HurtSpin2">
+                  <matrix>
+                    <Matrix tx="-1.05" ty="-46.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" duration="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Recover" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="0.9053955078125" d="0.9053955078125" tx="-4.6" ty="-0.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="17.4" y="-22.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="80" duration="56" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Hurt" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.955520629882813" d="0.955520629882813" tx="4.4" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.15" y="-45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="136" duration="16" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Hurt" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.9287109375" d="0.9287109375" tx="3.7" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.2" y="-45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="152" duration="25" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Hurt" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="0.91143798828125" d="0.91143798828125" tx="1.35" ty="-0.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-41.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,663 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss2-Vandheer/assets/anims/Boss/VDL-BossAnim-Attack" itemID="54d48057-000013bd" lastModified="1473520636">
+  <timeline>
+    <DOMTimeline name="VDL-BossAnim-Attack" currentFrame="231">
+      <layers>
+        <DOMLayer name="thrust actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="102" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = 4 * _parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" duration="12" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = 4 * _parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="123" duration="16" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = 3 * _parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="139" duration="221" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = 7 * _parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="360" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="367" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = 4 * _parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="378" duration="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = 8 * _parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip = MovieClip(parent);
+var sndCtrl:MovieClip = MovieClip(root);
+var particleLayer:MovieClip = MovieClip(parent.parent).particleLayer;
+
+var charging:Boolean = false;
+var quickTeleporting:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="34" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="35" duration="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);
+_parent.antiFlinchOn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);
+_parent.goTeleportAttack();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.antiFlinchOn = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="74" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndIceShot);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="75" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer)
+	particleLayer.addIceShot(_parent.x+(50 * _parent.scaleX), _parent.y-58, _parent.scaleX);
+//addIceShot(X:Number, Y:Number, dir:int):void {]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="94" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" duration="12" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="123" duration="16" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="139" duration="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="158" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="159" duration="48" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="207" duration="59" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndIceBlast);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="266" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="267" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[charging = true;
+sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="273" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="282" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="291" duration="10" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="301" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="305" duration="39" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[charging = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="344" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="345" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);
+quickTeleporting = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.x = _parent.teleportX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="359" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[quickTeleporting = false;
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="360" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="367" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="378" duration="21" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="399" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="35" name="teleport" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="35" duration="24" name="fastTeleport" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" duration="35" name="shoot" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="94" duration="65" name="melee" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="159" duration="108" name="ulti" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="267" duration="38" name="run" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="305" duration="40" name="slam" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="345" duration="15" name="quickTeleport" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="360" duration="40" name="melee2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="hitbox" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="104" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="104" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" selected="true">
+                  <matrix>
+                    <Matrix a="-2.46934509277344" d="5.17726135253906" tx="-23" ty="-85.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="105" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="113" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="-2.46934509277344" d="5.17726135253906" tx="-23" ty="-85.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="114" duration="13" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="127" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="-2.86509704589844" d="5.17726135253906" tx="-26.05" ty="-85.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="128" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="142" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2">
+                  <matrix>
+                    <Matrix a="-3.12220764160156" d="5.17726135253906" tx="-7.3" ty="-85.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="143" duration="67" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="210" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-6.50155639648438" d="15.4653778076172" tx="-85.9" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="211" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="214" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-11.4610595703125" d="15.4653778076172" tx="-220.2" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.85" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="215" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="218" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-12.0654144287109" d="15.4653778076172" tx="-228.4" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="219" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="222" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-11.4610595703125" d="15.4653778076172" tx="-387.1" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.85" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="223" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="226" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-19.0283813476563" d="15.4653778076172" tx="-269.05" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="227" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="229" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-11.4610595703125" d="15.4653778076172" tx="-212.05" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.85" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="230" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="232" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-23.302490234375" d="15.4653778076172" tx="-354.75" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="233" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-11.4610595703125" d="15.4653778076172" tx="-107.55" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.85" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="236" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="238" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4">
+                  <matrix>
+                    <Matrix a="-23.5125427246094" d="15.4653778076172" tx="-239.15" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.9" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="239" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="241" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3">
+                  <matrix>
+                    <Matrix a="-35.3211212158203" d="15.4653778076172" tx="-222.95" ty="-224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.85" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="242" duration="68" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="310" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" selected="true">
+                  <matrix>
+                    <Matrix a="-3.12220764160156" d="5.17726135253906" tx="-7.3" ty="-85.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="311" duration="49" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="360" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="369" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="-2.92839050292969" d="5.17726135253906" tx="-11.4" ty="-78.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.85" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="370" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="380" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2">
+                  <matrix>
+                    <Matrix a="-4.66957092285156" d="5.17726135253906" tx="-4.75" ty="-83.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.85" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="381" duration="19" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="42" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Teleport" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.980239868164063" d="0.980239868164063" tx="-0.4" ty="-36.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.5" y="-64.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="42" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-TeleportQuick" symbolType="graphic" firstFrame="8" centerPoint3DX="0.65" centerPoint3DY="-93.4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.884201049804688" d="0.884201049804688" tx="-0.65" ty="-36.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-9.1" y="-47"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="35" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Shoot" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.915328979492188" d="0.915328979492188" tx="2.4" ty="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-9.1" y="-46.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" duration="65" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-AttackMelee" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.965179443359375" d="0.965179443359375" tx="0.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-9.2" y="-46.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="159" duration="108" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Ulti" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.92877197265625" d="0.92877197265625" tx="-11.1" ty="-40.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.55" y="43.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="267" duration="38" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Run" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.908828735351563" d="0.908828735351563" tx="-3.45" ty="-0.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.05" y="-0.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="305" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-AttackMelee2" symbolType="graphic" firstFrame="2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.9547119140625" d="0.9547119140625" tx="0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-9.15" y="-46.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="345" duration="15" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-TeleportQuick" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.884201049804688" d="0.884201049804688" tx="-0.65" ty="-36.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-9.1" y="-47"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="360" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-AttackMelee3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" tx="-4.15" ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-33.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

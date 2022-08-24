@@ -1,0 +1,137 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_KeySpecial/OBJ-Relic" itemID="584bfb43-00003a41" lastModified="1485617425" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="OBJ-Relic" currentFrame="1">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+stop();
+var hero:MovieClip;
+var eagle:MovieClip;
+var particles:MovieClip;
+var gameData:MovieClip;
+
+var collected:Boolean;
+
+var dustIndex:Number;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	eagle = MovieClip(parent).eagle;
+	particles = MovieClip(parent).particleLayer;
+	gameData = MovieClip(root);
+	
+	if (gameData.isKeyCollected(gameData.sessionLevel)) {
+		visible = false;
+	} else {
+		clip.clip.gotoAndStop(gameData.sessionLevel);
+		MovieClip(parent).objectsArr.push(this);
+	}
+	
+}
+
+function update ():void {
+	if (!collected) {
+		if (CameraDistCheck.inRange(this, true)) {
+			if (hero.bound.hitTestObject(this.bound) || eagle.bound.hitTestObject(this.bound)) {
+				gotoAndStop(3);
+				//visible = false;
+				particles.addBonus(x, y+80, 1, BonusPoints.COLLECTED_KEY);
+				gameData.collectKey(gameData.sessionLevel);
+				MovieClip(root).hud.infoClip.keysPanel.keyCollected();
+				collected = true;
+			}
+			addHolyDust();
+		}
+	} else {
+		if (currentFrame == 3) {
+			if (alpha > 0) {
+				alpha -= .005;
+			}
+		}
+	}
+}
+
+function addHolyDust():void {
+	if (dustIndex > 0) {
+		dustIndex --;
+	} else {
+		var X:Number = (Math.random()-Math.random())* width;
+		var Y:Number = (Math.random()-Math.random())* height;
+		particles.addHolyDust(x+X,y+Y,Math.random()*.65);
+		dustIndex = Math.random()*8;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_KeySpecial/assets/Relic-PulseAnim" name="clip" selected="true">
+                  <matrix>
+                    <Matrix a="0.742431640625" d="0.742431640625" tx="0.2" ty="0.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_KeySpecial/assets/Relic-PulseClip">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="1.26036071777344" d="0.519485473632813" tx="0.2" ty="0.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

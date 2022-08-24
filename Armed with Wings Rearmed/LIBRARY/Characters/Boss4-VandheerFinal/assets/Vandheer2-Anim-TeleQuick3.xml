@@ -1,0 +1,199 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick3" itemID="572dea0b-0000186c" lastModified="1462626827">
+  <timeline>
+    <DOMTimeline name="Vandheer2-Anim-TeleQuick3" currentFrame="185">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="133" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);
+sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="133" duration="52" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="117" name="teleport1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="117" duration="20" name="teleport2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="137" duration="37" name="slide" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="174" duration="12" name="end" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="186" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="186" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-anim-cinemaShape2">
+                  <matrix>
+                    <Matrix tx="1.95" ty="-44.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="19"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-anim-cinemaShape2" centerPoint3DX="2.15" centerPoint3DY="-44.15">
+                  <matrix>
+                    <Matrix a="0.10101318359375" d="2.40447998046875" tx="1.95" ty="-44.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="218"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="128" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="134" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="7" centerPoint3DX="2.9" centerPoint3DY="-81.6" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.763641357421875" d="1.16851806640625" tx="3.95" ty="-61.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="8" y="0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="135" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="8" centerPoint3DX="2.9" centerPoint3DY="-81.6" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.763641357421875" d="0.763641357421875" tx="3.95" ty="-32.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="8" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="136" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="6" centerPoint3DX="2.9" centerPoint3DY="-81.6" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.763641357421875" d="0.763641357421875" tx="3.95" ty="-32.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="8" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="137" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-anim-cinema2" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.853775024414063" d="0.853775024414063" tx="10.7" ty="0.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="141" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-anim-cinema2" symbolType="graphic" firstFrame="3" centerPoint3DX="-4.85" centerPoint3DY="-36.3" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.811935424804688" d="0.811935424804688" tx="31.65" ty="1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="147" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-anim-cinema2" symbolType="graphic" firstFrame="7" centerPoint3DX="11.35" centerPoint3DY="-36.3" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.811935424804688" d="0.811935424804688" tx="47.65" ty="1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="154" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-anim-cinema2" symbolType="graphic" firstFrame="12" centerPoint3DX="15.3" centerPoint3DY="-36.3" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.811935424804688" d="0.811935424804688" tx="51.7" ty="1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" duration="26" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-PoseIdle" name="convo1">
+                  <matrix>
+                    <Matrix a="0.983139038085938" d="0.983139038085938" tx="15.35" ty="0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-37.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

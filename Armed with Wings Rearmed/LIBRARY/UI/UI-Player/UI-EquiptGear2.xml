@@ -1,0 +1,494 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-EquiptGear2" itemID="572e2088-00002728" lastModified="1500990157" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-EquiptGear2" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-257&lt;/guideline&gt;&lt;guideline direction="h"&gt;-261&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="icon actions" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _root:MovieClip = MovieClip(root);
+var slotArr:Array = new Array();
+
+var passiveSort:Array = new Array();
+passiveSort = _root.sortBoosterPassive;
+var abilitySort:Array = new Array();
+abilitySort = _root.sortBoosterAbility;
+var targetSort:Array = passiveSort;
+
+var slotSword:MovieClip;
+var i:int;
+
+container.init();
+slotArr = container.slotArr;
+//refreshSlots();
+
+function refreshSlots(_playerID:Number = 0):void {
+	for (i = 0; i < slotArr.length; i ++) {
+		slotSword = slotArr[i];
+		slotSword.clip.gotoAndStop(""+_root.dataGetGearName(targetSort[i]));
+		slotSword.newClip.visible = false;
+	}
+
+	for (i = 0; i < slotArr.length; i ++) {	
+		slotSword = slotArr[i];
+		
+		//is unlocked
+		if (_root.isGearUnlocked(targetSort[i]-1)) {
+			slotSword.lockClip.visible = false;
+		} else {
+			slotSword.clip.visible = true;
+			slotSword.lockClip.visible = true;
+			slotSword.lockClip.gotoAndStop(1);
+		}
+		
+		//is already equipt
+		if (_root.dataIsGearEquipt(_root.dataGetGearName(targetSort[i]), _playerID)) {
+			slotSword.lockClip.visible = true;
+			slotSword.lockClip.gotoAndStop(2);
+		}
+		
+		//end
+		if (i >= targetSort.length) {
+			slotSword.lockClip.visible = false;
+			slotSword.clip.gotoAndStop("none");
+		}
+		
+		//first one always unlocked - casue its 'none'.
+		if (i == 0) slotSword.lockClip.visible = false;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#808080" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var currentIcon:MovieClip;
+var currentIconID:Number;
+var verticalIndex:Number;
+var horizontalIndex:Number;
+var verticalIndexMax:Number;
+var gearSlotID:int;
+
+var infoPanel:MovieClip;
+
+//reference
+var ctrl:PlayerControl;
+var menuRoot:UIMultiPlayer;
+var _parent:MovieClip;
+var panelGear:MovieClip;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+
+//key filters
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+var keyFilter5:Boolean;
+var keyFilter6:Boolean;
+var keyFilter7:Boolean;
+
+var pString:String;
+var playerID:int;
+
+function init (_gearSlotID:Number, _menuRoot:UIMultiPlayer, _playerID:int, _abilitySort:Boolean = false):void {
+	targetSort = passiveSort;
+	if (_abilitySort) targetSort = abilitySort;
+	
+	
+	gearSlotID = _gearSlotID;
+	menuRoot = _menuRoot;
+	ctrl = MovieClip(root).player1Control;
+	_root = MovieClip(root);
+	_parent = MovieClip(parent);
+	panelGear = MovieClip(parent).mainPanel["panelEquiptment"+gearSlotID].clip;
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	playerID = _playerID;
+	
+	pString = "";
+	if (playerID == 2) {
+		pString = "_p2";
+	}
+	
+	verticalIndex = 0;
+	horizontalIndex = 0;
+	verticalIndexMax = Math.floor(gameData.data_numofWeapons/3);
+	
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	keyFilter5 = true;
+	keyFilter6 = true;
+	keyFilter7 = true;
+	
+	selectIconByID(menuRoot["local_equiptedGear"+gearSlotID]);
+	infoPanel.update(currentIconID);
+	
+	refreshSlots(playerID);
+	
+	if (_abilitySort) {
+		inputClip.visible = true;
+		if (gearSlotID == 1) {
+			inputClip.update("Y");
+		} else {
+			inputClip.update("X");
+		}
+	} else {
+		inputClip.visible = false;
+	}
+}
+
+function update ():void {
+	var input:Boolean = false;
+	//UP control//-----------------------------------------//
+	if (ctrl.ctrl_up) {
+		if (!keyFilter1) {
+			if (verticalIndex > 0) {
+				verticalIndex--;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			input = true;
+			keyFilter1 = true;
+		}
+	} else { keyFilter1 = false; }
+	//DOWN control//-----------------------------------------//
+	if (ctrl.ctrl_down) {
+		if (!keyFilter2) {
+			if (verticalIndex < 5) {
+				verticalIndex ++;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			input = true;
+			keyFilter2 = true;
+		}
+	} else { keyFilter2 = false; };
+	//LEFT control//-----------------------------------------//
+	if (ctrl.ctrl_left) {
+		if (!keyFilter3) {
+			if (horizontalIndex > 0) {
+				horizontalIndex --;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			input = true;
+			keyFilter3 = true;
+		}
+	} else { keyFilter3 = false; };
+	//RIGHT control//-----------------------------------------//
+	if (ctrl.ctrl_right) {
+		if (!keyFilter4) {
+			if (horizontalIndex < 2) {
+				horizontalIndex ++;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			input = true;
+			keyFilter4 = true;
+		}
+	} else { keyFilter4 = false; };
+
+	//execute input
+	if (input) {
+		selectIcon();
+	}
+	
+	//Equipt weapon
+	if (ctrl.ctrl_confirmStart) {
+		if (!keyFilter5) {
+			if ((gameData.isGearUnlocked(targetSort[currentIconID]-1) || currentIconID == 0)) {
+				if (_root.dataIsGearEquipt(_root.dataGetGearName(targetSort[currentIconID]), playerID) && currentIconID != 0) {
+					sndCtrl.playUISound(sndCtrl.sndButton2);
+				} else {
+					sndCtrl.playUISound(sndCtrl.sndButton3);
+					currentIcon.gotoAndStop(1);
+					currentIcon = null;
+					menuRoot["local_equiptedGear"+gearSlotID] = targetSort[currentIconID];
+					panelGear.displayGear(menuRoot["local_equiptedGear"+gearSlotID]);
+					gameData["data_weap"+(menuRoot["local_equiptedWeapon"])+"_assignedBoosters"][0][gearSlotID] = targetSort[currentIconID];
+					trace("OK :"+targetSort[currentIconID]);
+					
+					menuRoot.displayPanel(menuRoot.mainPanel);
+					//_parent.closeGearPanel();
+				}
+			} else {
+				sndCtrl.playUISound(sndCtrl.sndButton2);
+			}
+			keyFilter5 = true;
+		}
+	} else {
+		keyFilter5 = false;
+	}
+	
+	//cancel
+	if (ctrl.ctrl_cancel) {
+		if (!keyFilter6) {
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			currentIcon.gotoAndStop(1);
+			currentIcon = null;
+			panelGear.displayGear(menuRoot["local_equiptedGear"+gearSlotID]);
+			//_parent.closeGearPanel();
+			menuRoot.displayPanel(menuRoot.mainPanel);
+			keyFilter6 = true;
+		}
+	} else {
+		keyFilter6 = false;
+	}
+	
+	scroll();
+	
+	if (currentIcon) {
+		cursor.X = container.x + currentIcon.x - 40;
+		cursor.Y = container.y + currentIcon.y + 40;
+		cursor.x += (cursor.X - cursor.x)/2;
+		cursor.y += (cursor.Y - cursor.y)/2;
+	}
+}
+
+function scroll():void {
+	var i:int = verticalIndex-1;
+	if (i < 0) i = 0;
+	if (i > 3) i = 3;
+	
+	var Y:Number = 130 - (90*i);
+	container.y += (Y - container.y)/4;
+	
+	//scroll visibility
+	for (i = 0; i < container.slotArr.length; i ++) {
+		var slotSword = container.slotArr[i];
+		if ((slotSword.y + container.y) < 45) {
+			slotSword.visible = false;
+		} else {
+			if ((slotSword.y + container.y) > 560) {
+				slotSword.visible = false;
+			} else {
+				slotSword.visible = true;
+			}
+		}
+	}
+}
+
+function selectIcon ():void {
+	if (currentIcon) currentIcon.gotoAndPlay("out");
+	
+	if (verticalIndex == 0) {
+		if (horizontalIndex == 0) currentIconID = 0;
+		if (horizontalIndex == 1) currentIconID = 1;
+		if (horizontalIndex == 2) currentIconID = 2;
+	}
+	if (verticalIndex == 1) {
+		if (horizontalIndex == 0) currentIconID = 3;
+		if (horizontalIndex == 1) currentIconID = 4;
+		if (horizontalIndex == 2) currentIconID = 5;
+	}
+	if (verticalIndex == 2) {
+		if (horizontalIndex == 0) currentIconID = 6;
+		if (horizontalIndex == 1) currentIconID = 7;
+		if (horizontalIndex == 2) currentIconID = 8;
+	}
+	if (verticalIndex == 3) {
+		if (horizontalIndex == 0) currentIconID = 9;
+		if (horizontalIndex == 1) currentIconID = 10;
+		if (horizontalIndex == 2) currentIconID = 11;
+	}
+	if (verticalIndex == 4) {
+		if (horizontalIndex == 0) currentIconID = 12;
+		if (horizontalIndex == 1) currentIconID = 13;
+		if (horizontalIndex == 2) currentIconID = 14;
+	}
+	if (verticalIndex == 5) {
+		if (horizontalIndex == 0) currentIconID = 15;
+		if (horizontalIndex == 1) currentIconID = 16;
+		if (horizontalIndex == 2) currentIconID = 17;
+	}
+	
+	currentIcon = container["slotSword"+currentIconID];
+	currentIcon.gotoAndPlay("over");
+	if (currentIconID < targetSort.length) 
+	panelGear.displayGear(targetSort[currentIconID]);
+	
+	
+	if (currentIconID > targetSort.length-1) { //change this when developming new perks
+		infoPanel.update(targetSort[currentIconID], true);
+	} else {
+		infoPanel.update(targetSort[currentIconID]);
+	}
+}
+
+function selectIconByID (id:Number):void {
+	
+	for (var i:int = 0; i < targetSort.length; i ++) {
+		if (targetSort[i] == id) {
+			break;
+		}
+	}
+	if (currentIcon) currentIcon.gotoAndPlay("out");	
+	currentIconID = i;
+	
+	switch (i) {
+		
+		case 0:verticalIndex = 0;horizontalIndex = 0;break;
+		case 1:verticalIndex = 0;horizontalIndex = 1;break;
+		case 2:verticalIndex = 0;horizontalIndex = 2;break;
+		
+		case 3:verticalIndex = 1;horizontalIndex = 0;break;
+		case 4:verticalIndex = 1;horizontalIndex = 1;break;
+		case 5:verticalIndex = 1;horizontalIndex = 2;break;
+		
+		case 6:verticalIndex = 2;horizontalIndex = 0;break;
+		case 7:verticalIndex = 2;horizontalIndex = 1;break;
+		case 8:verticalIndex = 2;horizontalIndex = 2;break;
+		
+		case 9:verticalIndex = 3;horizontalIndex = 0;break;
+		case 10:verticalIndex = 3;horizontalIndex = 1;break;
+		case 11:verticalIndex = 3;horizontalIndex = 2;break;
+		
+		case 12:verticalIndex = 4;horizontalIndex = 0;break;
+		case 13:verticalIndex = 4;horizontalIndex = 1;break;
+		case 14:verticalIndex = 4;horizontalIndex = 2;break;
+		
+		case 15:verticalIndex = 5;horizontalIndex = 0;break;
+		case 16:verticalIndex = 5;horizontalIndex = 1;break;
+		case 17:verticalIndex = 5;horizontalIndex = 2;break;
+		
+	}
+	
+	currentIcon = container["slotSword"+i];
+	currentIcon.gotoAndPlay("over");
+	panelGear.displayGear(id);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="infoPanel" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Gear-InfoPanel" name="infoPanel">
+                  <matrix>
+                    <Matrix tx="250.95" ty="448.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-Cursor" name="cursor">
+                  <matrix>
+                    <Matrix tx="121.45" ty="217"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.45" y="2.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" quality="2" strength="0.83"/>
+                    <GlowFilter color="#FFFFFF" quality="3" strength="0.44"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="text" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="-26" width="261.05" height="42" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="146.65" ty="46.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>select     BOOSTER</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="42" size="28" bitmapSize="560" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Symbol 7" name="inputClip">
+                  <matrix>
+                    <Matrix a="0.868072509765625" d="0.868072509765625" tx="251.95" ty="104.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.5"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="2" blurY="2" distance="2" strength="0.4"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#FF4FFF" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0099CC"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2277 2420|7777 2420!7777 2420|7777 7662!7777 7662|2277 7662!2277 7662|2277 2420"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="icons" color="#FF800A" parentLayerIndex="4" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/GearIcons-Container" name="container">
+                  <matrix>
+                    <Matrix tx="121.5" ty="130.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="130.05" y="130"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="panel" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Animate">
+                  <matrix>
+                    <Matrix tx="250.95" ty="269"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.41"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,32 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_FireStick/OBJ-FireStick-Idle" itemID="54d47565-000003cf" lastModified="1488638291">
+  <timeline>
+    <DOMTimeline name="OBJ-FireStick-Idle">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-FireStick-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.229690551757813" b="-0.973281860351563" c="0.973281860351563" d="0.229690551757813" tx="-42.05" ty="8.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-Flame-Anim" name="fire" centerPoint3DX="-46.05" centerPoint3DY="9">
+                  <matrix>
+                    <Matrix a="-0.9998779296875" b="0.0166168212890625" c="-0.0166168212890625" d="-0.9998779296875" tx="-45.75" ty="9.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

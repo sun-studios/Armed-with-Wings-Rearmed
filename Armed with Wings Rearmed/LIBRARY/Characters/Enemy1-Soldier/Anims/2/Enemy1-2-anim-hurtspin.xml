@@ -1,0 +1,36 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy1-Soldier/Anims/2/Enemy1-2-anim-hurtspin" itemID="55162899-00001e93" lastModified="1427515545" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Enemy1-2-anim-hurtspin">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="24" tweenType="motion" motionTweenRotate="clockwise" motionTweenRotateTimes="1" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy1-Soldier/Anims/2/Enemy1-2-hurtspin-shape">
+                  <matrix>
+                    <Matrix tx="8.3" ty="9.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy1-Soldier/Anims/2/Enemy1-2-hurtspin-shape" centerPoint3DX="-0.05">
+                  <matrix>
+                    <Matrix tx="8.3" ty="9.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,46 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MultiPlayerKeyView/MultiPlayerKeyView-Text" itemID="574af481-00000bf5" symbolType="graphic" lastModified="1464530049">
+  <timeline>
+    <DOMTimeline name="MultiPlayerKeyView-Text">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(root).numOfDevices() == 0) {
+	visible = true;
+} else {
+	visible = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="289.5" height="19.75" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-184.05" ty="-9.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>[Tab] to view controls</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" letterSpacing="2" lineSpacing="-3" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="16" blurY="17.9200000762939" color="#FFFFFF" distance="4" quality="2"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

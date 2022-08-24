@@ -1,0 +1,38 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-WingPowerUp/assets/shape 1090" itemID="51d679ba-00000445" symbolType="graphic" lastModified="1426682606">
+  <timeline>
+    <DOMTimeline name="shape 1090">
+      <layers>
+        <DOMLayer name="Layer 1" color="#FFFF00" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-WingPowerUp/assets/wingpowerup" centerPoint3DX="18.05" centerPoint3DY="-6.65">
+                  <matrix>
+                    <Matrix tx="1.65" ty="-7.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.15" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="16" blurY="16" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-WingPowerUp/assets/wingpowerup" selected="true" centerPoint3DX="-16.95" centerPoint3DY="-6.65">
+                  <matrix>
+                    <Matrix a="-1" tx="-0.55" ty="-7.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.15" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="16" blurY="16" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

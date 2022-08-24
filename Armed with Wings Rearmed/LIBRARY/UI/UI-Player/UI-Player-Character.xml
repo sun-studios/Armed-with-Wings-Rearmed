@@ -1,0 +1,445 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-Player-Character" itemID="54ded541-00000560" lastModified="1572445600" lastUniqueIdentifier="7">
+  <timeline>
+    <DOMTimeline name="UI-Player-Character">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+stop();
+
+var playerID:int;
+var isOpen:Boolean = false;
+var selectIndex:int = 0;
+var maxIndex:int = 3;
+var unlocked:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+var go:Boolean;
+
+var heroName:String;
+var X2:Number
+var currentIndex:Number;
+
+var character:MovieClip;
+var btnConfirm:MovieClip;
+var name_tf:TextField;
+var menuRoot:MovieClip;
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var _root:MovieClip = MovieClip(root);
+var _parent:MovieClip = MovieClip(parent.parent);
+
+_parent.local_heroName = _root.heroName;
+
+if ((_root.gameMode == _root.STORY) && _root.storySessionData.length > 0) {
+	if (_root.sessionInGameHook) {
+		_parent.local_heroName = _root.heroName;
+	} else {
+		_parent.local_heroName = _root.storySessionData[7];
+	}
+	
+}
+
+//auto select last hero
+if (_parent.local_heroName == "LONEWARRIOR") selectIndex = 0;
+if (_parent.local_heroName == "VANDHEER") selectIndex = 1;
+if (_parent.local_heroName == "SUPERLONEWARRIOR") selectIndex = 2;
+if (_parent.local_heroName == "VAMPIRESTRIKE") selectIndex = 3;
+
+//default to LW if last use hero is locked
+if (selectIndex == 1 && !_root.char_vandheer_unlocked) { selectIndex = 0; _parent.local_heroName = "LONEWARRIOR"; }
+if (selectIndex == 2 && !_root.char_SuperLoneWarrior_unlocked) { selectIndex = 0; _parent.local_heroName = "LONEWARRIOR"; }
+if (selectIndex == 3 && !_root.char_eivana_unlocked) { selectIndex = 0; _parent.local_heroName = "LONEWARRIOR"; }
+
+arrow_left.alpha = 0;
+arrow_right.alpha = 0;
+
+currentIndex = selectIndex;
+scroll(true);
+btnConfirm.visible = false;
+
+function init(_playerID:int = 1):void {
+	playerID = _playerID;
+	isOpen = true;
+	
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	
+	switch (playerID) {
+		case 2:
+			ctrl = MovieClip(root).player2Control;
+			break;
+		default:
+			ctrl = MovieClip(root).player1Control;
+		break;
+	}
+	
+	menuRoot = MovieClip(parent.parent);
+	sndCtrl = MovieClip(root);
+	_root = MovieClip(root);
+	
+	X2 = character.x;
+	selectIndex = currentIndex;
+	
+	scroll();
+}
+
+function update():void {
+	arrowDisplay();
+	scroll();
+	
+	if (isOpen) {
+		btnChange.visible = false;
+		btnConfirm.visible = true;
+	} else {
+		btnChange.visible = true;
+		btnConfirm.visible = false;
+	}
+	
+	if (go) control();
+}
+
+function arrowDisplay():void {
+	if (isOpen) {
+		if (selectIndex == 0) {
+			if (arrow_left.alpha > 0) arrow_left.alpha -= .1;
+			if (arrow_right.alpha < 1) arrow_right.alpha += .1;
+		} else {
+			if (selectIndex == maxIndex) {
+				if (arrow_left.alpha < 1) arrow_left.alpha += .1;
+				if (arrow_right.alpha > 0) arrow_right.alpha -= .1;
+			} else {
+				if (arrow_left.alpha < 1) arrow_left.alpha += .1;
+				if (arrow_right.alpha < 1) arrow_right.alpha += .1;
+			}
+		}
+	} else {
+		if (arrow_left.alpha > 0) arrow_left.alpha -= .1;
+		if (arrow_right.alpha > 0) arrow_right.alpha -= .1;
+	}
+}
+
+function scroll(snap:Boolean = false):void {
+	var X:Number = selectIndex * 274;
+	if (snap) character.x = -X; 
+	else character.x += (-X - character.x)/4;
+	unlocked = false;
+	
+	switch (selectIndex) {
+		case 0:
+			name_tf.text = "Lone Warrior";
+			heroName = "LONEWARRIOR";
+			btnConfirm.visible = true;
+		
+			if (_root.char_loneWarrior_unlocked) unlocked = true;
+			break;
+		case 1: 
+			name_tf.text = "Vandheer Lorde";
+			heroName = "VANDHEER";
+			btnConfirm.visible = true;
+		
+			if (_root.char_vandheer_unlocked) unlocked = true;
+			break;
+		case 2: 
+			name_tf.text = "Armed with Wings";
+			heroName = "SUPERLONEWARRIOR";
+			btnConfirm.visible = true;
+		
+			if (_root.char_SuperLoneWarrior_unlocked) unlocked = true;
+			break;
+		case 3: 
+			name_tf.text = "Vampire Strike";
+			heroName = "VAMPIRESTRIKE";
+			btnConfirm.visible = true;
+		
+			if (_root.char_VampireStrike_unlocked) unlocked = true;
+			break;
+	}
+	
+	if (unlocked) {
+		//lockClip.visible = false;
+		if (go) btnConfirm.visible = true;
+	} else {
+		name_tf.text = "????";
+		//lockClip.visible = true;
+		btnConfirm.visible = false;
+	}
+}
+
+function control():void {
+	//Highlight
+	if (ctrl.ctrl_left) {
+		if (!keyFilter1) {
+			if (selectIndex > 0) {
+				selectIndex --;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			
+			keyFilter1 = true;
+		}
+	} else {
+		keyFilter1 = false;
+	}
+	
+	if (ctrl.ctrl_right) {
+		if (!keyFilter2) {
+			if (selectIndex < maxIndex) {
+				selectIndex ++;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			
+			keyFilter2 = true;
+		}
+	} else {
+		keyFilter2 = false;
+	}
+	
+	//Confirm
+	if (btnConfirm.visible) {
+		if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+			if (!keyFilter3) {
+				if (unlocked) {
+					switch (playerID) {
+						case 1:
+							_parent.local_heroName = heroName;
+							break;
+						case 2:
+							_parent.local_heroName = heroName;
+							//_root.heroName_p2 = heroName;
+							break;
+						default:
+							_parent.local_heroName = heroName;
+							break;
+					}
+					
+					currentIndex = selectIndex;
+					isOpen = false;
+					menuRoot.closeCharacterPanel();
+					sndCtrl.playUISound(sndCtrl.sndButton3);
+					btnConfirm.visible = false;
+					arrow_left.alpha = 0;
+					arrow_right.alpha = 0;
+				} else {
+					sndCtrl.playUISound(sndCtrl.sndButton2);
+				}
+				keyFilter3 = true;
+			}
+		} else {
+			keyFilter3 = false;
+		}
+	}
+	
+	//Cancel
+	if (ctrl.ctrl_cancel) {
+		if (!keyFilter4) {
+			isOpen = false;
+			if (_root.gameMode == "MULTIPLAYER") {
+				menuRoot.backtoMenu();
+			} else {
+				menuRoot.closeCharacterPanel();
+			}
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			//character.x = X2;
+			//lockClip.visible = false;
+			selectIndex = currentIndex;
+			btnConfirm.visible = false;
+			arrow_left.alpha = 0;
+			arrow_right.alpha = 0;
+			keyFilter4 = true;
+		}
+	} else {
+		keyFilter4 = false;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-short" name="btnConfirm" uniqueID="3">
+                  <matrix>
+                    <Matrix a="0.8756103515625" d="0.8756103515625" tx="-0.05" ty="177.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.7"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.35"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CONFIRM" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin" name="btnChange" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.8756103515625" d="0.8756103515625" tx="-0.05" ty="178"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.7"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.35"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CHANGE CHARACTER" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="text" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="name_tf" fontRenderingMode="standard" left="-26" width="261.05" height="45" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-105.2" ty="-228.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Lone Warrior</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" letterSpacing="3" lineHeight="45" size="30" bitmapSize="600" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Arrow2" name="arrow_right">
+                  <matrix>
+                    <Matrix tx="117.5" ty="-25.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Arrow2" name="arrow_left">
+                  <matrix>
+                    <Matrix a="-1" tx="-117.5" ty="-25.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#009999" locked="true" outline="true" useOutlineView="true" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-2748 -4813S2|2748 -4813!2748 -4813|2748 4614!2748 4614|-2748 4614!-2748 4614|-2748 -4813"/>
+                    <Edge cubics="!2748 4614(;2748,4614 -2748,4614 -2748,4614q2748 4614 -2748 4614);"/>
+                    <Edge cubics="!-2748 4614(;-2748,4614 -2748,-4813 -2748,-4813q-2748 4614 -2748 -4813);"/>
+                    <Edge cubics="!2748 -4813(;2748,-4813 2748,4614 2748,4614q2748 -4813 2748 4614);"/>
+                    <Edge cubics="!-2748 -4813(;-2748,-4813 2748,-4813 2748,-4813q-2748 -4813 2748 -4813);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#9933CC" parentLayerIndex="4" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-Player" name="character">
+                  <matrix>
+                    <Matrix ty="-35.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#666666"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!2648 2572|-2648 2572!-2648 2572|-2648 -3501!-2648 -3501|2648 -3501!2648 -3501|2648 2572"/>
+                        <Edge cubics="!2648 2572(;2648,2572 -2648,2572 -2648,2572q2648 2572 -2648 2572);"/>
+                        <Edge cubics="!2648 -3501(;2648,-3501 2648,2572 2648,2572q2648 -3501 2648 2572);"/>
+                        <Edge cubics="!-2648 2572(;-2648,2572 -2648,-3501 -2648,-3501q-2648 2572 -2648 -3501);"/>
+                        <Edge cubics="!-2648 -3501(;-2648,-3501 2648,-3501 2648,-3501q-2648 -3501 2648 -3501);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="panel" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Animate">
+                  <matrix>
+                    <Matrix ty="-4.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.41"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

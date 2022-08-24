@@ -1,0 +1,160 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" itemID="58e0cabd-00000efc" symbolType="graphic" lastModified="1491140157">
+  <timeline>
+    <DOMTimeline name="VampireStrike-Anim-idle">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="16" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.274501940773194" y="0.39133355245118"/>
+                  <Point x="0.520205771130208" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle" symbolType="graphic" firstFrame="7" centerPoint3DY="-72.5" loop="loop">
+                  <matrix>
+                    <Matrix tx="-6.95" ty="-71.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3699"/>
+                  <Point x="0.5081" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle" symbolType="graphic" firstFrame="11" centerPoint3DY="-78.95" loop="loop">
+                  <matrix>
+                    <Matrix tx="-6.95" ty="-77.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle" symbolType="graphic" firstFrame="7" centerPoint3DY="-70.45" loop="loop">
+                  <matrix>
+                    <Matrix tx="-6.95" ty="-69.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="41" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.383505799536785"/>
+                  <Point x="0.702039835188414" y="0.406657790513968"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-6.95" ty="-69.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.337127602642425" y="0.315974550107065"/>
+                  <Point x="0.669865483747987" y="0.650696445927477"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-Idle" symbolType="graphic" firstFrame="6" centerPoint3DY="-72" loop="loop">
+                  <matrix>
+                    <Matrix tx="-6.95" ty="-70.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="23" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3699"/>
+                  <Point x="0.5081" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-27.5" ty="-67.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3699"/>
+                  <Point x="0.5081" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim" symbolType="graphic" firstFrame="11" centerPoint3DX="-85.85" centerPoint3DY="-75.9" loop="loop">
+                  <matrix>
+                    <Matrix tx="-27.5" ty="-75.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/assets/VampHand-SmokeAnim" symbolType="graphic" firstFrame="23" centerPoint3DX="-85.85" centerPoint3DY="-67.4" loop="loop">
+                  <matrix>
+                    <Matrix tx="-27.5" ty="-67.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

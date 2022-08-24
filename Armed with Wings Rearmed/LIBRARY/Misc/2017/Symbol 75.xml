@@ -1,0 +1,90 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 75" itemID="580c5f5d-00005335" lastModified="1492878138">
+  <timeline>
+    <DOMTimeline name="Symbol 75">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var gameData:MovieClip;
+
+init();
+
+function init ():void  {
+	lockClip.visible = false;
+	
+	gameData = MovieClip(root);
+}
+
+function update ():void {
+	
+}
+
+function _display(_id:int, isLocked:Boolean = false):void {
+	var isLocked:Boolean;
+	
+	tf_text.text = ""+(_id+1);
+	
+	if (isLocked) {
+		lockClip.visible = true;
+		tf_text.visible = false;
+	} else {
+		lockClip.visible = false;
+		tf_text.visible = true;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LockIcon/lock" name="lockClip">
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="tf_text" fontRenderingMode="standard" left="-22.7" width="154.3" height="54" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="0.633499145507813" d="0.633499145507813" tx="-34.5" ty="-17.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>1</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="54" size="36" bitmapSize="720" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

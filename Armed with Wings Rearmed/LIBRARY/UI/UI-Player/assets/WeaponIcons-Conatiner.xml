@@ -1,0 +1,85 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/assets/WeaponIcons-Conatiner" itemID="55575d33-00004186" lastModified="1500453432">
+  <timeline>
+    <DOMTimeline name="WeaponIcons-Conatiner">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+var slotArr:Array;
+
+var numOfWeapons:int = MovieClip(root).data_numofWeapons;
+if (MovieClip(root).PAX) numOfWeapons = 12;
+
+function init():void {
+	trace("DISPLAYING WEAPONS PLEASE DO ONCE");
+
+	slotArr = new Array();
+	
+	var X:Number = 40;
+	var Y:Number = 40;
+	for (var i:int = 0; i < numOfWeapons; i ++) {
+	//for (var i:int = 0; i < 15; i ++) {
+		var slot:MovieClip = new UIWeaponSlot();
+		addChild(slot);
+		slot.x = X;
+		slot.y = Y;
+		slot.name = "slotSword"+i;
+		slotArr.push(slot);
+		
+		X += 90;
+		if (X >= 240) {
+			X = 40;
+			Y += 90;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Weapon">
+                  <matrix>
+                    <Matrix tx="42.65" ty="40.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Weapon">
+                  <matrix>
+                    <Matrix tx="132.65" ty="40.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Weapon">
+                  <matrix>
+                    <Matrix tx="222.65" ty="40.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

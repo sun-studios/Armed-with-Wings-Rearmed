@@ -1,0 +1,3487 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-W/Cavin/Cavein-Anim" itemID="561bcad5-00000d57" lastModified="1491412099" lastUniqueIdentifier="70">
+  <timeline>
+    <DOMTimeline name="Cavein-Anim">
+      <layers>
+        <DOMLayer name="label" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="172" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var sndCtrl:MovieClip;
+
+var active:Boolean;
+
+visible = false;
+
+init ();
+
+function init ():void {
+	stop();
+	hero = MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	sndCtrl = MovieClip(root);
+	
+	active = true;
+}
+
+function update ():void {
+	if (active) {
+		if (this.currentFrame == 1) {
+			if (distanceBetween(this, hero) < 300 || distanceBetween(this, boss) < 300) {
+				play();
+			}
+		}
+		
+		if (boss.x > x-110) {
+			boss.x = x-110;
+			boss.stopMoving();
+			boss.moveable = false;
+			boss.gotoAndStop("idle");
+		}
+		
+		hitEnemies();
+		
+		if (this.currentFrame > 100) {
+			if (hero.x > x+267) MovieClip(parent).ground.gotoAndStop(2);
+			
+			if (boss.currentFrameLabel != "idle") {
+				boss.stopMoving();
+				boss.moveable = false;
+				boss.gotoAndStop("idle");
+			}
+		}
+	}
+}
+
+
+function hitEnemies ():void {
+	var hitStandard:MovieClip = this.hit;
+	var hitHard:MovieClip = this.hit2;
+	var hitKill:MovieClip = this.hit3;
+	
+	if (hero) 
+	{
+		if (hitStandard && hitStandard.hitTestObject(hero.bound)) {
+			hero.firstDeath = true;
+			hero.takeDamage(this, 0);
+		}
+		
+		if (hitHard && hitHard.hitTestObject(hero.bound)) {
+			hero.firstDeath = true;
+			hero.takeDamage(this, 0, 0, 1);
+		}
+		
+		if (hitKill && hitKill.hitTestObject(hero.bound)) {
+			hero.firstDeath = true;
+			hero.takeDamage(this, 0, 0, 20);
+			hero.life = 0;
+		}
+			
+	}
+	
+	/////////////////
+	
+	var enemiesArr:Array = MovieClip(parent).enemiesArr;
+	for (var i:int = 0; i < enemiesArr.length; i ++) {
+		var en:MovieClip = enemiesArr[i];
+		if (hitStandard && hitStandard.hitTestObject(en.bound)) {
+			en.takeDamage(this, 6, 0, 1, false);
+		}
+		if (hitHard && hitHard.hitTestObject(en.bound)) {
+			en.takeDamage(this, 6, 0, 1, false);
+		}
+		if (hitKill && hitKill.hitTestObject(en.bound)) {
+			en.takeDamage(this, 6, 0, 1, false);
+		}
+	}
+	
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="67" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;
+sndCtrl.playSound(sndCtrl.sndCavein);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3">
+                  <matrix>
+                    <Matrix a="21.0075225830078" d="9.18203735351563" tx="-102.8" ty="129.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="74" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3">
+                  <matrix>
+                    <Matrix a="46.3193969726563" d="9.18203735351563" tx="-450.45" ty="129.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.75" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="21" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="97" duration="74" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).shade.go = true;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="171" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var gameData:MovieClip = MovieClip(root);
+
+if (hero.life > 0) {
+	gameData.sessionCheckPointReached = true;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="hitbox" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="34" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="4.69235229492188" d="4.80128479003906" tx="-207.6" ty="183.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="36" duration="15" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="4.69235229492188" d="4.80128479003906" tx="-9.6" ty="187.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="4.69235229492188" d="4.80128479003906" tx="-129.6" ty="187.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2">
+                  <matrix>
+                    <Matrix a="6.60491943359375" d="8.65962219238281" tx="61.5" ty="131.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="63" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2">
+                  <matrix>
+                    <Matrix a="7.2791748046875" d="6.55009460449219" tx="-119.8" ty="162.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2">
+                  <matrix>
+                    <Matrix a="6.60491943359375" d="8.65962219238281" tx="121.5" ty="130.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="4.69235229492188" d="4.80128479003906" tx="-205.6" ty="193.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="77" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2">
+                  <matrix>
+                    <Matrix a="12.1218872070313" d="8.77584838867188" tx="39.45" ty="54.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="86" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3">
+                  <matrix>
+                    <Matrix a="61.7750854492188" d="13.6419677734375" tx="-708.15" ty="49.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.7" y="7.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="88" duration="84" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 46" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="172" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.037872314453125" c="-0.376068115234375" d="0" tx="19.85" ty="-3.45"/>
+                        </matrix>
+                        <GradientEntry ratio="0.227450980392157"/>
+                        <GradientEntry alpha="0" ratio="0.905882352941176"/>
+                      </LinearGradient>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!-5765 -773|-5765 -5034!-5765 -5034|6558 -5034!6558 -5034|6558 -773"/>
+                    <Edge fillStyle0="1" edges="!-5765 -773|-5765 547!-5765 547|6558 547!6558 547|6558 -773"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!-5765 -773|6558 -773"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="dust" color="#FF4FFF" autoNamed="false" open="false" layerType="folder"/>
+        <DOMLayer name="Layer 42" color="#9933CC" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" duration="64" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" duration="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-007" symbolType="graphic" centerPoint3DX="-52.6" centerPoint3DY="207.2" loop="loop">
+                  <matrix>
+                    <Matrix a="-1.62020874023438" d="3.53245544433594" tx="-13.9" ty="212.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="36.6" y="-2.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" duration="78" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 41" color="#4F80FF" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" duration="58" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" duration="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-008" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.51266479492188" b="-0.504776000976563" c="0.861907958984375" d="2.58285522460938" tx="86.9" ty="167.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="14.55" y="11.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="89" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="101" duration="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-008" symbolType="graphic" centerPoint3DX="250.2" centerPoint3DY="39.3" loop="loop">
+                  <matrix>
+                    <Matrix a="1.58580017089844" b="0.167861938476563" c="-0.286590576171875" d="2.70774841308594" tx="205.1" ty="6.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="14.55" y="11.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="132" duration="40" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 40" color="#FF4F4F" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" duration="75" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="75" duration="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-007" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.97093200683594" d="2.34086608886719" tx="131.35" ty="213.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="36.55" y="-2.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="104" duration="68" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 39" color="#669900" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" duration="53" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="53" duration="42" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-006" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.37786865234375" d="1.37786865234375" tx="98.25" ty="235.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="20.1" y="10.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="95" duration="41" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-006" symbolType="graphic" centerPoint3DX="222.8" centerPoint3DY="118.8" loop="loop">
+                  <matrix>
+                    <Matrix a="1.93902587890625" b="0.3577880859375" c="-0.340682983398438" d="1.84629821777344" tx="164.8" ty="89.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="20.1" y="10.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="136" duration="36" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" duration="66" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" duration="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-007" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.58755493164063" d="3.08567810058594" tx="187.85" ty="249.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="36.6" y="-2.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="75" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="rocks" color="#009999" autoNamed="false" open="false" layerType="folder"/>
+        <DOMLayer name="Symbol 15" color="#4F80FF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="100" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="100" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="169.9" centerPoint3DY="-80.05">
+                  <matrix>
+                    <Matrix a="1.24931335449219" d="1.0919189453125" tx="177.4" ty="-81.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6.05" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="106" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="169.85" centerPoint3DY="71.95">
+                  <matrix>
+                    <Matrix a="0.860427856445313" b="-0.905776977539063" c="0.791671752929688" d="0.752029418945313" tx="174.25" ty="65.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="114" duration="58" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="169.4" centerPoint3DY="67.2">
+                  <matrix>
+                    <Matrix a="0.743698120117188" b="-1.00382995605469" c="0.87738037109375" d="0.650009155273438" tx="172.65" ty="60.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 12" color="#9933CC" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="99" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="99" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="205.95" centerPoint3DY="-45.35">
+                  <matrix>
+                    <Matrix tx="203.15" ty="-38.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="103" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="205.55" centerPoint3DY="43">
+                  <matrix>
+                    <Matrix a="0.918853759765625" b="0.39459228515625" c="-0.39459228515625" d="0.918853759765625" tx="200.55" ty="48.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.85" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="111" duration="61" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="200.05" centerPoint3DY="41.85">
+                  <matrix>
+                    <Matrix a="0.992523193359375" b="0.122039794921875" c="-0.122039794921875" d="0.992523193359375" tx="196.7" ty="47.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 11" color="#FF800A" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="90" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="125.5" centerPoint3DY="-133.1">
+                  <matrix>
+                    <Matrix a="1.16825866699219" b="0.442489624023438" c="-0.396865844726563" d="1.04779052734375" tx="121.3" ty="-135.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.85" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="125.3" centerPoint3DY="29.1">
+                  <matrix>
+                    <Matrix a="0.844650268554688" b="0.920425415039063" c="-0.825515747070313" d="0.757553100585938" tx="122.85" ty="24.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="132.6" centerPoint3DY="28.8">
+                  <matrix>
+                    <Matrix a="0.713821411132813" b="1.02522277832031" c="-0.919509887695313" d="0.640213012695313" tx="131.4" ty="23.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="109" duration="63" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="133.4" centerPoint3DY="32">
+                  <matrix>
+                    <Matrix a="0.713821411132813" b="1.02522277832031" c="-0.919509887695313" d="0.640213012695313" tx="132.2" ty="26.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 10" color="#FF4FFF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="88" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="88" duration="11" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="219.2" centerPoint3DY="-90.5">
+                  <matrix>
+                    <Matrix a="1.074462890625" b="0.112442016601563" c="-0.118942260742188" d="1.13664245605469" tx="219.35" ty="-89.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="219.25" centerPoint3DY="79.65">
+                  <matrix>
+                    <Matrix a="1.05677795410156" b="-0.224319458007813" c="0.2373046875" d="1.11793518066406" tx="219.7" ty="80.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="105" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="228" centerPoint3DY="77.4">
+                  <matrix>
+                    <Matrix a="0.994705200195313" b="-0.4215087890625" c="0.445892333984375" d="1.05226135253906" tx="228.7" ty="77.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="110" duration="62" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="228.6" centerPoint3DY="78.15">
+                  <matrix>
+                    <Matrix a="1.03852844238281" b="-0.297607421875" c="0.3148193359375" d="1.09861755371094" tx="229.35" ty="78.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 9" color="#009999" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="90" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="190.9" centerPoint3DY="-110.95">
+                  <matrix>
+                    <Matrix tx="194.1" ty="-110.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="190.6" centerPoint3DY="83.05">
+                  <matrix>
+                    <Matrix a="0.2037353515625" b="0.979019165039063" c="-0.979019165039063" d="0.2037353515625" tx="191.4" ty="85.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="107" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="194.45" centerPoint3DY="74.05">
+                  <matrix>
+                    <Matrix a="-0.177627563476563" b="0.984085083007813" c="-0.984085083007813" d="-0.177627563476563" tx="194.2" ty="77"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="112" duration="60" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="196.05" centerPoint3DY="82.75">
+                  <matrix>
+                    <Matrix a="-0.539825439453125" b="0.841751098632813" c="-0.841751098632813" d="-0.539825439453125" tx="194.65" ty="85.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 7" color="#808080" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="89" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="89" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="159.35" centerPoint3DY="-33.2">
+                  <matrix>
+                    <Matrix a="0.54229736328125" d="1.04557800292969" tx="159.45" ty="-29"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="159.15" centerPoint3DY="87.5">
+                  <matrix>
+                    <Matrix a="0.35955810546875" b="0.405960083007813" c="-0.782699584960938" d="0.693267822265625" tx="156.25" ty="90.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="98" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="183.3" centerPoint3DY="96">
+                  <matrix>
+                    <Matrix a="-0.032806396484375" b="0.541305541992188" c="-1.04364013671875" d="-0.0632171630859375" tx="179.2" ty="96.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="101" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="199.45" centerPoint3DY="120.25">
+                  <matrix>
+                    <Matrix a="-0.266571044921875" b="0.472259521484375" c="-0.9105224609375" d="-0.513931274414063" tx="195.7" ty="118.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="107" duration="65" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="197.15" centerPoint3DY="117.9">
+                  <matrix>
+                    <Matrix a="-0.213973999023438" b="0.498306274414063" c="-0.960739135742188" d="-0.412506103515625" tx="193.1" ty="116.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 15" color="#9933CC" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="86" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="86" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="225.2" centerPoint3DY="-68.3">
+                  <matrix>
+                    <Matrix a="1.4876708984375" d="1.4876708984375" tx="234.1" ty="-69.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="220.65" centerPoint3DY="133.1">
+                  <matrix>
+                    <Matrix a="1.4876708984375" d="1.4876708984375" tx="229.55" ty="131.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" duration="70" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="223.1" centerPoint3DY="123.4">
+                  <matrix>
+                    <Matrix a="1.3917236328125" b="0.525619506835938" c="-0.525619506835938" d="1.3917236328125" tx="231.95" ty="125.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6.05" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 14" color="#FF800A" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="78" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" duration="11" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="75.7" centerPoint3DY="-67.55">
+                  <matrix>
+                    <Matrix a="1.3240966796875" d="1.70407104492188" tx="55.85" ty="-68.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.05" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="89" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="75.6" centerPoint3DY="70.3">
+                  <matrix>
+                    <Matrix a="1.32283020019531" b="0.0576019287109375" c="-0.0741424560546875" d="1.70245361328125" tx="55.9" ty="68.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.05" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="75.55" centerPoint3DY="63.2">
+                  <matrix>
+                    <Matrix a="1.32363891601563" b="-0.0346221923828125" c="0.0445556640625" d="1.70347595214844" tx="55.8" ty="62.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.1" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="106" duration="66" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="75.75" centerPoint3DY="67.3">
+                  <matrix>
+                    <Matrix a="1.32389831542969" b="0.0229644775390625" c="-0.029571533203125" d="1.70379638671875" tx="55.85" ty="65.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.1" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 12" color="#FF4FFF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="78" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-59.1" centerPoint3DY="-114.95">
+                  <matrix>
+                    <Matrix a="1.4876708984375" d="1.4876708984375" tx="-63.3" ty="-104.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="92" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-59" centerPoint3DY="72.8">
+                  <matrix>
+                    <Matrix a="1.07931518554688" b="1.02381896972656" c="-1.02381896972656" d="1.07931518554688" tx="-69.35" ty="77.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-51.15" centerPoint3DY="88.75">
+                  <matrix>
+                    <Matrix a="0.0392608642578125" b="1.48712158203125" c="-1.48712158203125" d="0.0392608642578125" tx="-61.75" ty="84.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="104" duration="68" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-58.9" centerPoint3DY="89">
+                  <matrix>
+                    <Matrix a="0.264602661132813" b="1.46391296386719" c="-1.46391296386719" d="0.264602661132813" tx="-70.25" ty="86.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 11" color="#009999" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="85" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="85" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-14.3" centerPoint3DY="-4.3">
+                  <matrix>
+                    <Matrix a="1.4876708984375" d="1.4876708984375" tx="-20" ty="-5.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="93" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-22.65" centerPoint3DY="99.6">
+                  <matrix>
+                    <Matrix a="0.906417846679688" b="1.17962646484375" c="-1.17962646484375" d="0.906417846679688" tx="-24.95" ty="94.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-22.65" centerPoint3DY="90.7">
+                  <matrix>
+                    <Matrix a="0.727737426757813" b="1.29510498046875" c="-1.29510498046875" d="0.727737426757813" tx="-24.2" ty="85.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" duration="70" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-22.65" centerPoint3DY="99.4">
+                  <matrix>
+                    <Matrix a="0.588363647460938" b="1.3663330078125" c="-1.3663330078125" d="0.588363647460938" tx="-23.6" ty="94.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 10" color="#808080" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="75" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="75" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="121.65" centerPoint3DY="-20.6">
+                  <matrix>
+                    <Matrix a="0.5997314453125" b="-1.36141967773438" c="1.36141967773438" d="0.5997314453125" tx="123.4" ty="-20.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-1.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="89" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="135.45" centerPoint3DY="130.8">
+                  <matrix>
+                    <Matrix a="1.076904296875" b="-0.717391967773438" c="0.894668579101563" d="1.34303283691406" tx="136.75" ty="132.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="135.55" centerPoint3DY="114.9">
+                  <matrix>
+                    <Matrix a="1.16107177734375" b="-0.571182250976563" c="0.71234130859375" d="1.44801330566406" tx="136.55" ty="116.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="103" duration="69" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="135.9" centerPoint3DY="117.1">
+                  <matrix>
+                    <Matrix a="1.21818542480469" b="-0.436294555664063" c="0.54412841796875" d="1.51924133300781" tx="136.3" ty="119.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 9" color="#669900" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="67" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="67" duration="11" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="23.95" centerPoint3DY="-0.95">
+                  <matrix>
+                    <Matrix a="1.4876708984375" d="1.4876708984375" tx="28.7" ty="-0.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="78" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="24.2" centerPoint3DY="129.65">
+                  <matrix>
+                    <Matrix a="1.12333679199219" b="0.975326538085938" c="-0.975326538085938" d="1.12333679199219" tx="27.35" ty="132.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="81" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="30.5" centerPoint3DY="105.65">
+                  <matrix>
+                    <Matrix a="0.756057739257813" b="1.28120422363281" c="-1.28120422363281" d="0.756057739257813" tx="32.55" ty="109.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="84" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="32.05" centerPoint3DY="109.6">
+                  <matrix>
+                    <Matrix a="0.5645751953125" b="1.37635803222656" c="-1.37635803222656" d="0.5645751953125" tx="33.5" ty="113.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="87" duration="85" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="32.05" centerPoint3DY="127.25">
+                  <matrix>
+                    <Matrix a="0.349761962890625" b="1.44595336914063" c="-1.44595336914063" d="0.349761962890625" tx="32.75" ty="131.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.15" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 7" color="#FF4F4F" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-42.35" centerPoint3DY="-65.85">
+                  <matrix>
+                    <Matrix a="1.4876708984375" d="1.4876708984375" tx="-42.15" ty="-59.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-55">
+              <tweens>
+                <Ease target="all" intensity="-55"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-42.15" centerPoint3DY="115.4">
+                  <matrix>
+                    <Matrix a="1.36045837402344" b="0.601852416992188" c="-0.601852416992188" d="1.36045837402344" tx="-44.5" ty="121.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="83" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-48.7" centerPoint3DY="107.35">
+                  <matrix>
+                    <Matrix a="1.41143798828125" b="0.470001220703125" c="-0.470001220703125" d="1.41143798828125" tx="-50.35" ty="113.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="88" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-56.05" centerPoint3DY="146.45">
+                  <matrix>
+                    <Matrix a="1.48367309570313" b="0.108428955078125" c="-0.108428955078125" d="1.48367309570313" tx="-56.1" ty="152.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-3.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="75" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-58.2" centerPoint3DY="147.95">
+                  <matrix>
+                    <Matrix a="1.48651123046875" b="0.0572052001953125" c="-0.0572052001953125" d="1.48651123046875" tx="-58.3" ty="154.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-3.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 10" color="#9933CC" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="30" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="30" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04">
+                  <matrix>
+                    <Matrix a="0.545578002929688" d="0.545578002929688" tx="-230.4" ty="1.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-231.3" centerPoint3DY="236.95">
+                  <matrix>
+                    <Matrix a="-0.057159423828125" b="0.542572021484375" c="-0.542572021484375" d="-0.057159423828125" tx="-231.2" ty="237.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.4" y="-1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-229.6" centerPoint3DY="219.8">
+                  <matrix>
+                    <Matrix a="-0.352279663085938" b="0.416580200195313" c="-0.416580200195313" d="-0.352279663085938" tx="-229.6" ty="219.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.5" y="-1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-228.4" centerPoint3DY="223.65">
+                  <matrix>
+                    <Matrix a="-0.405166625976563" b="0.365341186523438" c="-0.365341186523438" d="-0.405166625976563" tx="-228.75" ty="223.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.5" y="-0.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-228.3" centerPoint3DY="241.25">
+                  <matrix>
+                    <Matrix a="-0.484817504882813" b="0.250167846679688" c="-0.250167846679688" d="-0.484817504882813" tx="-228.65" ty="241.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.45" y="-0.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" duration="108" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-224.1" centerPoint3DY="243.15">
+                  <matrix>
+                    <Matrix a="-0.512374877929688" b="0.187347412109375" c="-0.187347412109375" d="-0.512374877929688" tx="-224.6" ty="242.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.45" y="-0.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 15" color="#FF800A" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08">
+                  <matrix>
+                    <Matrix a="1.25149536132813" d="1.25149536132813" tx="186.1" ty="-60.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="81" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="179" centerPoint3DY="148.8">
+                  <matrix>
+                    <Matrix a="0.88494873046875" b="0.884918212890625" c="-0.884918212890625" d="0.88494873046875" tx="184.8" ty="153.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="178.45" centerPoint3DY="131.3">
+                  <matrix>
+                    <Matrix a="0.4444580078125" b="1.16990661621094" c="-1.16990661621094" d="0.4444580078125" tx="182.4" ty="137.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.95" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="92" duration="80" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="178.05" centerPoint3DY="147.45">
+                  <matrix>
+                    <Matrix a="0.304244995117188" b="1.21394348144531" c="-1.21394348144531" d="0.304244995117188" tx="181.6" ty="154"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.95" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 12" color="#FF4FFF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="56" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="56" duration="17" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06">
+                  <matrix>
+                    <Matrix a="1.66740417480469" d="1.66740417480469" tx="26.3" ty="-99.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.85" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="73" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="35.4" centerPoint3DY="203.1">
+                  <matrix>
+                    <Matrix a="0.473861694335938" b="-1.5986328125" c="1.5986328125" d="0.473861694335938" tx="45.85" ty="210.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.85" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="80" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="33.05" centerPoint3DY="194.65">
+                  <matrix>
+                    <Matrix a="0.361724853515625" b="-1.6256103515625" c="1.6256103515625" d="0.361724853515625" tx="44" ty="201.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.85" y="-7.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="88" duration="84" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="33.65" centerPoint3DY="195.95">
+                  <matrix>
+                    <Matrix a="0.297149658203125" b="-1.64068603515625" c="1.64068603515625" d="0.297149658203125" tx="45.05" ty="202.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.85" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 11" color="#009999" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="71" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="71" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05">
+                  <matrix>
+                    <Matrix a="1.38714599609375" d="1.38714599609375" tx="81.4" ty="-34.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="85" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="86.65" centerPoint3DY="126.2">
+                  <matrix>
+                    <Matrix a="0.882568359375" b="1.07015991210938" c="-1.07015991210938" d="0.882568359375" tx="84" ty="122.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="90" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="83.2" centerPoint3DY="130.25">
+                  <matrix>
+                    <Matrix a="0.967941284179688" b="0.993606567382813" c="-0.993606567382813" d="0.967941284179688" tx="80.45" ty="126.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="98" duration="74" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="83.15" centerPoint3DY="128.5">
+                  <matrix>
+                    <Matrix a="0.882568359375" b="1.07014465332031" c="-1.07014465332031" d="0.882568359375" tx="80.85" ty="124.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 10" color="#808080" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04">
+                  <matrix>
+                    <Matrix a="1.18142700195313" d="1.18142700195313" tx="-38.25" ty="-67.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.232053659025346" y="0.493000414409575"/>
+                  <Point x="0.619274900024592" y="0.807097758451"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-46.2" centerPoint3DY="133.3">
+                  <matrix>
+                    <Matrix a="0.608901977539063" b="-1.01242065429688" c="1.01242065429688" d="0.608901977539063" tx="-45.25" ty="133.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="81" duration="16" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2561" y="0.8767"/>
+                  <Point x="0.8049" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-77.15" centerPoint3DY="151.45">
+                  <matrix>
+                    <Matrix a="-0.665252685546875" b="-0.974090576171875" c="0.974090576171875" d="-0.665252685546875" tx="-76.9" ty="150.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-1.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="75" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-113.45" centerPoint3DY="180.9">
+                  <matrix>
+                    <Matrix a="-0.791244506835938" b="0.877288818359375" c="-0.877288818359375" d="-0.791244506835938" tx="-114.05" ty="180.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 9" color="#669900" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="60" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03">
+                  <matrix>
+                    <Matrix a="1.629638671875" d="1.629638671875" tx="-132.5" ty="-59.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="74" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="-137.45" centerPoint3DY="188.4">
+                  <matrix>
+                    <Matrix a="1.31881713867188" b="-0.957305908203125" c="0.957305908203125" d="1.31881713867188" tx="-133.3" ty="185.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="77" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="-168.35" centerPoint3DY="220.25">
+                  <matrix>
+                    <Matrix a="-0.0053863525390625" b="-1.62960815429688" c="1.62960815429688" d="-0.0053863525390625" tx="-167.9" ty="215.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="85" duration="87" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="-164.25" centerPoint3DY="223.3">
+                  <matrix>
+                    <Matrix a="0.192123413085938" b="-1.61825561523438" c="1.61825561523438" d="0.192123413085938" tx="-163.3" ty="218.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 8" color="#FF4F4F" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="51" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02">
+                  <matrix>
+                    <Matrix a="0.928207397460938" b="-1.03080749511719" c="1.03080749511719" d="0.928207397460938" tx="-63.7" ty="-14.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.25" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-62.2" centerPoint3DY="128.65">
+                  <matrix>
+                    <Matrix a="0.128143310546875" b="-1.38119506835938" c="1.38119506835938" d="0.128143310546875" tx="-62.85" ty="129.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.25" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-26.5" centerPoint3DY="191.7">
+                  <matrix>
+                    <Matrix a="1.11212158203125" b="-0.828994750976563" c="0.828994750976563" d="1.11212158203125" tx="-27.65" ty="192.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.25" y="0.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" duration="97" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-27.25" centerPoint3DY="190.1">
+                  <matrix>
+                    <Matrix a="1.1612548828125" b="-0.758636474609375" c="0.758636474609375" d="1.1612548828125" tx="-28.45" ty="190.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.25" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 7" color="#4F80FF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="56" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="56" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00">
+                  <matrix>
+                    <Matrix tx="-179.35" ty="-12.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-179.45" centerPoint3DY="236">
+                  <matrix>
+                    <Matrix a="0.790863037109375" b="0.611984252929688" c="-0.611984252929688" d="0.790863037109375" tx="-181.85" ty="239.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-4.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="74" duration="14" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-66">
+              <tweens>
+                <Ease target="all" intensity="-66"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-203.35" centerPoint3DY="235.8">
+                  <matrix>
+                    <Matrix a="0.908462524414063" b="-0.417953491210938" c="0.417953491210938" d="0.908462524414063" tx="-201.65" ty="239.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="88" duration="84" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-194.75" centerPoint3DY="241.25">
+                  <matrix>
+                    <Matrix a="0.996170043945313" b="0.087158203125" c="-0.087158203125" d="0.996170043945313" tx="-194.95" ty="245.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-3.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 14" color="#FF800A" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="64" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" duration="16" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07">
+                  <matrix>
+                    <Matrix a="-0.415313720703125" b="-0.740463256835938" c="1.13224792480469" d="-0.635055541992188" tx="171.55" ty="-9.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.1" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="80" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="165.45" centerPoint3DY="114.45">
+                  <matrix>
+                    <Matrix a="0.0284576416015625" b="-0.848495483398438" c="1.29745483398438" d="0.04351806640625" tx="164.75" ty="127.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.1" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="85" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="228.05" centerPoint3DY="181">
+                  <matrix>
+                    <Matrix a="0.84283447265625" b="-0.101837158203125" c="0.155731201171875" d="1.28880310058594" tx="215.45" ty="182.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.1" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="87" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="221.95" centerPoint3DY="185.25">
+                  <matrix>
+                    <Matrix a="0.823379516601563" b="-0.206878662109375" c="0.316360473632813" d="1.259033203125" tx="209.25" ty="188.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.15" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="98" duration="74" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="222.6" centerPoint3DY="182.1">
+                  <matrix>
+                    <Matrix a="0.833770751953125" b="-0.159957885742188" c="0.244613647460938" d="1.27490234375" tx="209.9" ty="184.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.2" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 11" color="#009999" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="50" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="50" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05">
+                  <matrix>
+                    <Matrix tx="-51.15" ty="15.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.9" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-47.25" centerPoint3DY="231.7">
+                  <matrix>
+                    <Matrix a="0.0312042236328125" b="0.999496459960938" c="-0.999496459960938" d="0.0312042236328125" tx="-46.75" ty="227.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.9" y="0.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="67" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-21.1" centerPoint3DY="219.1">
+                  <matrix>
+                    <Matrix a="-0.789459228515625" b="0.61376953125" c="-0.61376953125" d="-0.789459228515625" tx="-17.45" ty="216.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.85" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-14.15" centerPoint3DY="227.9">
+                  <matrix>
+                    <Matrix a="-0.919647216796875" b="0.3927001953125" c="-0.3927001953125" d="-0.919647216796875" tx="-9.95" ty="226.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-4.75" centerPoint3DY="237.55">
+                  <matrix>
+                    <Matrix a="-0.981124877929688" b="0.19329833984375" c="-0.19329833984375" d="-0.981124877929688" tx="-0.25" ty="237.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="96" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-0.3" centerPoint3DY="238.8">
+                  <matrix>
+                    <Matrix a="-0.999618530273438" b="-0.0272674560546875" c="0.0272674560546875" d="-0.999618530273438" tx="4.45" ty="239.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.75" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 9" color="#669900" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="27" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03">
+                  <matrix>
+                    <Matrix a="0.54302978515625" b="1.02976989746094" c="-1.02976989746094" d="0.54302978515625" tx="3.7" ty="-3.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="41" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="1.7" centerPoint3DY="243">
+                  <matrix>
+                    <Matrix a="1.1409912109375" b="0.231124877929688" c="-0.231124877929688" d="1.1409912109375" tx="5.9" ty="243.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="10.4" centerPoint3DY="223.7">
+                  <matrix>
+                    <Matrix a="1.06607055664063" b="0.467788696289063" c="-0.467788696289063" d="1.06607055664063" tx="14.4" ty="224.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="15.85" centerPoint3DY="237.1">
+                  <matrix>
+                    <Matrix a="0.915359497070313" b="0.719329833984375" c="-0.719329833984375" d="0.915359497070313" tx="19.45" ty="239.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" duration="116" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="16" centerPoint3DY="239.65">
+                  <matrix>
+                    <Matrix a="0.971298217773438" b="0.641799926757813" c="-0.641799926757813" d="0.971298217773438" tx="19.65" ty="241.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 8" color="#FF4F4F" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="19" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" duration="16" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="50.2" centerPoint3DY="-23.4">
+                  <matrix>
+                    <Matrix a="0.835281372070313" b="0.207931518554688" c="-0.207931518554688" d="0.835281372070313" tx="49.25" ty="-24.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.25" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="49.25" centerPoint3DY="232.35">
+                  <matrix>
+                    <Matrix a="0.03485107421875" b="0.860061645507813" c="-0.860061645507813" d="0.03485107421875" tx="50.55" ty="231.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.3" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-74">
+              <tweens>
+                <Ease target="all" intensity="-74"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="76.9" centerPoint3DY="243.1">
+                  <matrix>
+                    <Matrix a="-0.8536376953125" b="0.110549926757813" c="-0.110549926757813" d="-0.8536376953125" tx="77.7" ty="244"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.3" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="43" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="40">
+              <tweens>
+                <Ease target="all" intensity="40"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="93.1" centerPoint3DY="227.15">
+                  <matrix>
+                    <Matrix a="-0.855072021484375" b="-0.09881591796875" c="0.09881591796875" d="-0.855072021484375" tx="93.6" ty="228.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.3" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" duration="124" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="100.85" centerPoint3DY="240.85">
+                  <matrix>
+                    <Matrix a="-0.850509643554688" b="0.132415771484375" c="-0.132415771484375" d="-0.850509643554688" tx="101.7" ty="241.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.3" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 7" color="#4F80FF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="62" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="62" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00">
+                  <matrix>
+                    <Matrix tx="109.5" ty="-21.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="106.55" centerPoint3DY="151.65">
+                  <matrix>
+                    <Matrix a="0.669723510742188" b="-0.742599487304688" c="0.742599487304688" d="0.669723510742188" tx="109.5" ty="154.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="81" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="107.85" centerPoint3DY="141.35">
+                  <matrix>
+                    <Matrix a="0.967269897460938" b="-0.253692626953125" c="0.253692626953125" d="0.967269897460938" tx="108.7" ty="145.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" duration="86" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="107.15" centerPoint3DY="163">
+                  <matrix>
+                    <Matrix a="0.924072265625" b="-0.382186889648438" c="0.382186889648438" d="0.924072265625" tx="108.7" ty="167.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 15" color="#9933CC" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="52" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08">
+                  <matrix>
+                    <Matrix a="0.459396362304688" b="-1.14970397949219" c="1.14970397949219" d="0.459396362304688" tx="212.8" ty="31.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" duration="16" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="211.25" centerPoint3DY="230.9">
+                  <matrix>
+                    <Matrix a="0.9273681640625" b="-0.820266723632813" c="0.820266723632813" d="0.9273681640625" tx="215.95" ty="225.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="82" duration="90" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="244.05" centerPoint3DY="230.7">
+                  <matrix>
+                    <Matrix a="1.23796081542969" b="-0.0173797607421875" c="0.0173797607421875" d="1.23796081542969" tx="251.45" ty="229.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 14" color="#FF800A" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="62" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="62" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07">
+                  <matrix>
+                    <Matrix a="1.23809814453125" d="1.23809814453125" tx="136.7" ty="36.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-52">
+              <tweens>
+                <Ease target="all" intensity="-52"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="155.7" centerPoint3DY="204.6">
+                  <matrix>
+                    <Matrix a="1.11782836914063" b="0.532272338867188" c="-0.532272338867188" d="1.11782836914063" tx="138.7" ty="197"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="34">
+              <tweens>
+                <Ease target="all" intensity="34"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="163.65" centerPoint3DY="197.75">
+                  <matrix>
+                    <Matrix a="1.09146118164063" b="0.58441162109375" c="-0.58441162109375" d="1.09146118164063" tx="147.1" ty="189.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15" y="0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="84" duration="88" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="163.7" centerPoint3DY="208.25">
+                  <matrix>
+                    <Matrix a="1.04856872558594" b="0.658279418945313" c="-0.658279418945313" d="1.04856872558594" tx="147.75" ty="198.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15" y="0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 12" color="#FF4FFF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="43" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="43" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06">
+                  <matrix>
+                    <Matrix a="1.12535095214844" d="1.12535095214844" tx="110.8" ty="16.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="57" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="113.65" centerPoint3DY="152.75">
+                  <matrix>
+                    <Matrix a="0.795745849609375" b="0.795730590820313" c="-0.795730590820313" d="0.795745849609375" tx="106.1" ty="156.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.75" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="137.65" centerPoint3DY="231.15">
+                  <matrix>
+                    <Matrix a="3.0517578125e-05" b="1.12533569335938" c="-1.12533569335938" d="3.0517578125e-05" tx="129.9" ty="227.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.75" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="151.4" centerPoint3DY="221.9">
+                  <matrix>
+                    <Matrix a="-0.215911865234375" b="1.10369873046875" c="-1.10369873046875" d="-0.215911865234375" tx="144.4" ty="217.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.75" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="161.75" centerPoint3DY="227.45">
+                  <matrix>
+                    <Matrix a="-0.324783325195313" b="1.07670593261719" c="-1.07670593261719" d="-0.324783325195313" tx="155.3" ty="222.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.75" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="96" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="167.05" centerPoint3DY="227.75">
+                  <matrix>
+                    <Matrix a="-0.434951782226563" b="1.03712463378906" c="-1.03712463378906" d="-0.434951782226563" tx="161.5" ty="222.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.7" y="-7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 11" color="#009999" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="40" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05">
+                  <matrix>
+                    <Matrix a="1.23809814453125" d="1.23809814453125" tx="61.35" ty="49.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="66.1" centerPoint3DY="186.75">
+                  <matrix>
+                    <Matrix a="1.23809814453125" d="1.23809814453125" tx="61.35" ty="185.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="65.9" centerPoint3DY="170">
+                  <matrix>
+                    <Matrix a="1.15396118164063" b="0.4486083984375" c="-0.4486083984375" d="1.15396118164063" tx="61.95" ty="167.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="65.6" centerPoint3DY="179.4">
+                  <matrix>
+                    <Matrix a="1.02365112304688" b="0.696426391601563" c="-0.696426391601563" d="1.02365112304688" tx="62.6" ty="176.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.85" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="67" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="65.5" centerPoint3DY="197.55">
+                  <matrix>
+                    <Matrix a="0.808914184570313" b="0.937301635742188" c="-0.937301635742188" d="0.808914184570313" tx="63.55" ty="193.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.85" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="73" duration="99" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="63.9" centerPoint3DY="196.9">
+                  <matrix>
+                    <Matrix a="0.840744018554688" b="0.908843994140625" c="-0.908843994140625" d="0.840744018554688" tx="61.85" ty="193.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.85" y="0.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 10" color="#808080" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="38" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04">
+                  <matrix>
+                    <Matrix a="0.987747192382813" d="0.987747192382813" tx="44.5" ty="4.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="44.05" centerPoint3DY="234.95">
+                  <matrix>
+                    <Matrix a="0.563674926757813" b="0.811126708984375" c="-0.811126708984375" d="0.563674926757813" tx="43.5" ty="235.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="77.15" centerPoint3DY="228.5">
+                  <matrix>
+                    <Matrix a="-0.4586181640625" b="0.87481689453125" c="-0.87481689453125" d="-0.4586181640625" tx="76.7" ty="228.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="95.05" centerPoint3DY="238.85">
+                  <matrix>
+                    <Matrix a="-0.964813232421875" b="0.211563110351563" c="-0.211563110351563" d="-0.964813232421875" tx="94.9" ty="238.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="71" duration="101" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="100" centerPoint3DY="237.9">
+                  <matrix>
+                    <Matrix a="-0.981552124023438" b="0.110275268554688" c="-0.110275268554688" d="-0.981552124023438" tx="99.8" ty="237.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 9" color="#669900" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="35" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="35" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03">
+                  <matrix>
+                    <Matrix a="1.23809814453125" d="1.23809814453125" tx="-0.35" ty="37.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="-4.7" centerPoint3DY="229.6">
+                  <matrix>
+                    <Matrix a="-0.0978546142578125" b="1.23420715332031" c="-1.23420715332031" d="-0.0978546142578125" tx="-4.85" ty="233.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="13.1" centerPoint3DY="214.2">
+                  <matrix>
+                    <Matrix a="-0.633346557617188" b="1.06381225585938" c="-1.06381225585938" d="-0.633346557617188" tx="11.05" ty="217.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="16.6" centerPoint3DY="218.15">
+                  <matrix>
+                    <Matrix a="-0.727859497070313" b="1.00152587890625" c="-1.00152587890625" d="-0.727859497070313" tx="13.95" ty="221.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="20.6" centerPoint3DY="234.8">
+                  <matrix>
+                    <Matrix a="-1.04067993164063" b="0.670669555664063" c="-0.670669555664063" d="-1.04067993164063" tx="17" ty="237.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="71" duration="101" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="52.65" centerPoint3DY="240.05">
+                  <matrix>
+                    <Matrix a="-1.15235900878906" b="-0.452621459960938" c="0.452621459960938" d="-1.15235900878906" tx="48.85" ty="238.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 8" color="#FF4F4F" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="40" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02">
+                  <matrix>
+                    <Matrix a="1.23809814453125" d="1.23809814453125" tx="-100.95" ty="31.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.25" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-101" centerPoint3DY="201.9">
+                  <matrix>
+                    <Matrix a="0.989166259765625" b="0.744598388671875" c="-0.744598388671875" d="0.989166259765625" tx="-101.95" ty="200.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.25" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-97.65" centerPoint3DY="194.8">
+                  <matrix>
+                    <Matrix a="0.9376220703125" b="0.806472778320313" c="-0.806472778320313" d="0.9376220703125" tx="-98.65" ty="193.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.2" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-91.25" centerPoint3DY="177.7">
+                  <matrix>
+                    <Matrix a="0.64483642578125" b="1.05690002441406" c="-1.05690002441406" d="0.64483642578125" tx="-91.85" ty="176.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.2" y="0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="104" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-79.6" centerPoint3DY="221.7">
+                  <matrix>
+                    <Matrix a="0.456649780273438" b="1.15078735351563" c="-1.15078735351563" d="0.456649780273438" tx="-79.65" ty="220.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.15" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 15" color="#9933CC" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08">
+                  <matrix>
+                    <Matrix a="0.74896240234375" d="0.74896240234375" tx="-135.25" ty="1.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.95" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="-140.35" centerPoint3DY="242.25">
+                  <matrix>
+                    <Matrix a="0.510848999023438" b="-0.547683715820313" c="0.547683715820313" d="0.510848999023438" tx="-137.2" ty="238.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.95" y="0.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="42" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="-122.6" centerPoint3DY="221.15">
+                  <matrix>
+                    <Matrix a="0.742919921875" b="-0.0947265625" c="0.0947265625" d="0.742919921875" tx="-117.75" ty="220.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="-103.1" centerPoint3DY="224.1">
+                  <matrix>
+                    <Matrix a="0.586441040039063" b="0.4658203125" c="-0.4658203125" d="0.586441040039063" tx="-98.9" ty="227.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.95" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-19">
+              <tweens>
+                <Ease target="all" intensity="-19"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="-86.6" centerPoint3DY="239.85">
+                  <matrix>
+                    <Matrix a="0.185546875" b="0.7255859375" c="-0.7255859375" d="0.185546875" tx="-85.1" ty="245.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.9" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="43">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333" y="0.19"/>
+                  <Point x="0.4167" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="-61" centerPoint3DY="239.85">
+                  <matrix>
+                    <Matrix a="-0.484878540039063" b="0.570770263671875" c="-0.570770263671875" d="-0.484878540039063" tx="-64.45" ty="244.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.9" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="104" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="-38.3" centerPoint3DY="248.7">
+                  <matrix>
+                    <Matrix a="-0.680038452148438" b="-0.313751220703125" c="0.313751220703125" d="-0.680038452148438" tx="-43.25" ty="246.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.85" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 7" color="#4F80FF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00">
+                  <matrix>
+                    <Matrix a="0.986343383789063" d="0.986343383789063" tx="-173.6" ty="31.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-175.2" centerPoint3DY="234.55">
+                  <matrix>
+                    <Matrix a="0.911346435546875" b="-0.377243041992188" c="0.377243041992188" d="0.911346435546875" tx="-173.6" ty="238.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-122.35" centerPoint3DY="204.4">
+                  <matrix>
+                    <Matrix a="0.978424072265625" b="0.124588012695313" c="-0.124588012695313" d="0.978424072265625" tx="-123.2" ty="208.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-105.1" centerPoint3DY="234.9">
+                  <matrix>
+                    <Matrix a="0.761428833007813" b="0.626953125" c="-0.626953125" d="0.761428833007813" tx="-108" ty="238.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="57" duration="115" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-106.6" centerPoint3DY="234.5">
+                  <matrix>
+                    <Matrix a="0.69573974609375" b="0.6990966796875" c="-0.6990966796875" d="0.69573974609375" tx="-110.4" ty="237.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 12" color="#FF4FFF" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-284.65" centerPoint3DY="238.85">
+                  <matrix>
+                    <Matrix a="-0.458206176757813" b="0.296142578125" c="-0.296142578125" d="-0.458206176757813" tx="-285.05" ty="237.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-1.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-132.35" centerPoint3DY="243.35">
+                  <matrix>
+                    <Matrix a="-0.43450927734375" b="0.377532958984375" c="-0.377532958984375" d="-0.43450927734375" tx="-133.8" ty="238.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.9" y="-7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-106.6" centerPoint3DY="234.5">
+                  <matrix>
+                    <Matrix a="0.69573974609375" b="0.6990966796875" c="-0.6990966796875" d="0.69573974609375" tx="-110.4" ty="237.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="-38.3" centerPoint3DY="248.7">
+                  <matrix>
+                    <Matrix a="-0.680038452148438" b="-0.313751220703125" c="0.313751220703125" d="-0.680038452148438" tx="-43.25" ty="246.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.85" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-79.6" centerPoint3DY="221.7">
+                  <matrix>
+                    <Matrix a="0.456649780273438" b="1.15078735351563" c="-1.15078735351563" d="0.456649780273438" tx="-79.65" ty="220.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.15" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="52.65" centerPoint3DY="240.05">
+                  <matrix>
+                    <Matrix a="-1.15235900878906" b="-0.452621459960938" c="0.452621459960938" d="-1.15235900878906" tx="48.85" ty="238.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="100" centerPoint3DY="237.9">
+                  <matrix>
+                    <Matrix a="-0.981552124023438" b="0.110275268554688" c="-0.110275268554688" d="-0.981552124023438" tx="99.8" ty="237.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="63.9" centerPoint3DY="196.9">
+                  <matrix>
+                    <Matrix a="0.840744018554688" b="0.908843994140625" c="-0.908843994140625" d="0.840744018554688" tx="61.85" ty="193.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.85" y="0.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="167.05" centerPoint3DY="227.75">
+                  <matrix>
+                    <Matrix a="-0.434951782226563" b="1.03712463378906" c="-1.03712463378906" d="-0.434951782226563" tx="161.5" ty="222.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.7" y="-7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="163.7" centerPoint3DY="208.25">
+                  <matrix>
+                    <Matrix a="1.04856872558594" b="0.658279418945313" c="-0.658279418945313" d="1.04856872558594" tx="147.75" ty="198.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15" y="0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="244.05" centerPoint3DY="230.7">
+                  <matrix>
+                    <Matrix a="1.23796081542969" b="-0.0173797607421875" c="0.0173797607421875" d="1.23796081542969" tx="251.45" ty="229.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="107.15" centerPoint3DY="163">
+                  <matrix>
+                    <Matrix a="0.924072265625" b="-0.382186889648438" c="0.382186889648438" d="0.924072265625" tx="108.7" ty="167.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="100.85" centerPoint3DY="240.85">
+                  <matrix>
+                    <Matrix a="-0.850509643554688" b="0.132415771484375" c="-0.132415771484375" d="-0.850509643554688" tx="101.7" ty="241.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.3" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="16" centerPoint3DY="239.65">
+                  <matrix>
+                    <Matrix a="0.971298217773438" b="0.641799926757813" c="-0.641799926757813" d="0.971298217773438" tx="19.65" ty="241.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-0.3" centerPoint3DY="238.8">
+                  <matrix>
+                    <Matrix a="-0.999618530273438" b="-0.0272674560546875" c="0.0272674560546875" d="-0.999618530273438" tx="4.45" ty="239.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.75" y="0.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="222.6" centerPoint3DY="182.1">
+                  <matrix>
+                    <Matrix a="0.833770751953125" b="-0.159957885742188" c="0.244613647460938" d="1.27490234375" tx="209.9" ty="184.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.2" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-194.75" centerPoint3DY="241.25">
+                  <matrix>
+                    <Matrix a="0.996170043945313" b="0.087158203125" c="-0.087158203125" d="0.996170043945313" tx="-194.95" ty="245.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-3.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-02" centerPoint3DX="-27.25" centerPoint3DY="190.1">
+                  <matrix>
+                    <Matrix a="1.1612548828125" b="-0.758636474609375" c="0.758636474609375" d="1.1612548828125" tx="-28.45" ty="190.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.25" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="-164.25" centerPoint3DY="223.3">
+                  <matrix>
+                    <Matrix a="0.192123413085938" b="-1.61825561523438" c="1.61825561523438" d="0.192123413085938" tx="-163.3" ty="218.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.2" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-113.45" centerPoint3DY="180.9">
+                  <matrix>
+                    <Matrix a="-0.791244506835938" b="0.877288818359375" c="-0.877288818359375" d="-0.791244506835938" tx="-114.05" ty="180.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="83.15" centerPoint3DY="128.5">
+                  <matrix>
+                    <Matrix a="0.882568359375" b="1.07014465332031" c="-1.07014465332031" d="0.882568359375" tx="80.85" ty="124.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="33.65" centerPoint3DY="195.95">
+                  <matrix>
+                    <Matrix a="0.297149658203125" b="-1.64068603515625" c="1.64068603515625" d="0.297149658203125" tx="45.05" ty="202.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.85" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="178.05" centerPoint3DY="147.45">
+                  <matrix>
+                    <Matrix a="0.304244995117188" b="1.21394348144531" c="-1.21394348144531" d="0.304244995117188" tx="181.6" ty="154"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.95" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-224.1" centerPoint3DY="243.15">
+                  <matrix>
+                    <Matrix a="-0.512374877929688" b="0.187347412109375" c="-0.187347412109375" d="-0.512374877929688" tx="-224.6" ty="242.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.45" y="-0.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="-58.2" centerPoint3DY="147.95">
+                  <matrix>
+                    <Matrix a="1.48651123046875" b="0.0572052001953125" c="-0.0572052001953125" d="1.48651123046875" tx="-58.3" ty="154.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-3.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="32.05" centerPoint3DY="127.25">
+                  <matrix>
+                    <Matrix a="0.349761962890625" b="1.44595336914063" c="-1.44595336914063" d="0.349761962890625" tx="32.75" ty="131.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.15" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="135.9" centerPoint3DY="117.1">
+                  <matrix>
+                    <Matrix a="1.21818542480469" b="-0.436294555664063" c="0.54412841796875" d="1.51924133300781" tx="136.3" ty="119.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="-22.65" centerPoint3DY="99.4">
+                  <matrix>
+                    <Matrix a="0.588363647460938" b="1.3663330078125" c="-1.3663330078125" d="0.588363647460938" tx="-23.6" ty="94.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-58.9" centerPoint3DY="89">
+                  <matrix>
+                    <Matrix a="0.264602661132813" b="1.46391296386719" c="-1.46391296386719" d="0.264602661132813" tx="-70.25" ty="86.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-07" centerPoint3DX="75.75" centerPoint3DY="67.3">
+                  <matrix>
+                    <Matrix a="1.32389831542969" b="0.0229644775390625" c="-0.029571533203125" d="1.70379638671875" tx="55.85" ty="65.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="15.1" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="223.1" centerPoint3DY="123.4">
+                  <matrix>
+                    <Matrix a="1.3917236328125" b="0.525619506835938" c="-0.525619506835938" d="1.3917236328125" tx="231.95" ty="125.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6.05" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-00" centerPoint3DX="197.15" centerPoint3DY="117.9">
+                  <matrix>
+                    <Matrix a="-0.213973999023438" b="0.498306274414063" c="-0.960739135742188" d="-0.412506103515625" tx="193.1" ty="116.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-03" centerPoint3DX="196.05" centerPoint3DY="82.75">
+                  <matrix>
+                    <Matrix a="-0.539825439453125" b="0.841751098632813" c="-0.841751098632813" d="-0.539825439453125" tx="194.65" ty="85.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.25" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="228.6" centerPoint3DY="78.15">
+                  <matrix>
+                    <Matrix a="1.03852844238281" b="-0.297607421875" c="0.3148193359375" d="1.09861755371094" tx="229.35" ty="78.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-05" centerPoint3DX="133.4" centerPoint3DY="32">
+                  <matrix>
+                    <Matrix a="0.713821411132813" b="1.02522277832031" c="-0.919509887695313" d="0.640213012695313" tx="132.2" ty="26.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="200.05" centerPoint3DY="41.85">
+                  <matrix>
+                    <Matrix a="0.992523193359375" b="0.122039794921875" c="-0.122039794921875" d="0.992523193359375" tx="196.7" ty="47.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-08" centerPoint3DX="169.4" centerPoint3DY="67.2">
+                  <matrix>
+                    <Matrix a="0.743698120117188" b="-1.00382995605469" c="0.87738037109375" d="0.650009155273438" tx="172.65" ty="60.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6" y="1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06">
+                  <matrix>
+                    <Matrix a="0.575607299804688" d="0.575607299804688" tx="-213.95" ty="47.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8" y="-7.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-212.8" centerPoint3DY="236.8">
+                  <matrix>
+                    <Matrix a="0.209014892578125" b="-0.53631591796875" c="0.53631591796875" d="0.209014892578125" tx="-209.15" ty="240.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.85" y="-7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-196.2" centerPoint3DY="228.4">
+                  <matrix>
+                    <Matrix a="0.575241088867188" b="-0.020263671875" c="0.020263671875" d="0.575241088867188" tx="-197.9" ty="233.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.85" y="-7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="14" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-171.75" centerPoint3DY="238.35">
+                  <matrix>
+                    <Matrix a="0.377944946289063" b="0.43414306640625" c="-0.43414306640625" d="0.377944946289063" tx="-176.55" ty="240"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.9" y="-7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="127" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-06" centerPoint3DX="-132.35" centerPoint3DY="243.35">
+                  <matrix>
+                    <Matrix a="-0.43450927734375" b="0.377532958984375" c="-0.377532958984375" d="-0.43450927734375" tx="-133.8" ty="238.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.9" y="-7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 10" color="#808080" parentLayerIndex="10" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6768" y="0.0445"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-239.05" centerPoint3DY="5">
+                  <matrix>
+                    <Matrix a="-0.504837036132813" b="-0.206817626953125" c="0.206817626953125" d="-0.504837036132813" tx="-238.85" ty="5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.4" y="-1.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-238.85" centerPoint3DY="247.5">
+                  <matrix>
+                    <Matrix a="-0.18914794921875" b="-0.511734008789063" c="0.511734008789063" d="-0.18914794921875" tx="-238.3" ty="247.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="-1.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-263.15" centerPoint3DY="231.55">
+                  <matrix>
+                    <Matrix a="-0.521041870117188" b="-0.1617431640625" c="0.1617431640625" d="-0.521041870117188" tx="-262.85" ty="231.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-1.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-272.65" centerPoint3DY="234.9">
+                  <matrix>
+                    <Matrix a="-0.545562744140625" b="0.002044677734375" c="-0.002044677734375" d="-0.545562744140625" tx="-272.6" ty="234.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-81">
+              <tweens>
+                <Ease target="all" intensity="-81"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-280.45" centerPoint3DY="247.2">
+                  <matrix>
+                    <Matrix a="-0.479934692382813" b="0.25946044921875" c="-0.25946044921875" d="-0.479934692382813" tx="-280.95" ty="246.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" duration="146" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-W/Cavin/assets/Cavein-Boulder-04" centerPoint3DX="-284.65" centerPoint3DY="248.85">
+                  <matrix>
+                    <Matrix a="-0.458206176757813" b="0.296142578125" c="-0.296142578125" d="-0.458206176757813" tx="-285.05" ty="247.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-1.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,131 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-ResetPos" itemID="550ec0d5-0000060b" lastModified="1484911088" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-ResetPos">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var spawnPoint:MovieClip;
+var hero:MovieClip;
+var vcam:MovieClip;
+var particleLayer:MovieClip;
+var sndCtrl:MovieClip;
+
+var spawnPointName:String;
+var respawnTimer:int;
+var dustIndex:Number;
+
+init();
+
+function init():void {
+	visible = false;
+	spawnPoint = MovieClip(parent)[spawnPointName];
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	particleLayer = MovieClip(parent).particleLayer;
+	sndCtrl = MovieClip(root);
+	
+	respawnTimer = 0;
+	dustIndex = 0;
+}
+
+function update():void {
+	if (respawnTimer == 0) {
+		if (hero.bound.hitTestObject(this)) {
+			respawnTimer = 40;
+		}
+	}
+	
+	if (respawnTimer > 0) {
+		respawnTimer --;
+		
+		if (hero.ySpeed < -2)
+		hero.ySpeed += 1.5;
+		else hero.ySpeed -= .75;
+		
+		
+		vcam.shakeCamera(40-respawnTimer);
+		addHolyDust();
+		
+		if (respawnTimer == 1) {
+			resetHeroPosition();
+		}
+	}
+}
+
+function resetHeroPosition():void {
+	sndCtrl.playSound(sndCtrl.sndEpicSpawn);
+	MovieClip(root).sky.hudFlash.gotoAndPlay(2);
+	hero.ySpeed = 0;
+	hero.x = spawnPoint.x;
+	hero.y = spawnPoint.y;
+}
+
+function addHolyDust():void {
+	if (dustIndex > 0) {
+		dustIndex --;
+	} else {
+		var X:Number = hero.x + (Math.random()-Math.random())* 100;
+		var Y:Number = hero.y + (Math.random()-Math.random())* 100;
+		particleLayer.addHolyDust(X, Y, .2+(Math.random()*.5));
+		dustIndex = Math.round(5-((respawnTimer/40)*5));
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!10106 0|10794 -771!10794 -771|10794 771!10794 771|10106 0!11206 0|11894 -771!11894 -771|11894 771!11894 771|11206 0!9006 0|9694 -771!9694 -771|9694 771!9694 771|9006 0!6806 0|7494 -771!7494 -771|7494 771!7494 771|6806 0!7906 0|8594 -771
+!8594 -771|8594 771!8594 771|7906 0!5706 0|6394 -771!6394 -771|6394 771!6394 771|5706 0!3506 0|4194 -771!4194 -771|4194 771!4194 771|3506 0!4606 0|5294 -771!5294 -771|5294 771!5294 771|4606 0!2406 0|3094 -771!3094 -771|3094 771!3094 771
+|2406 0!206 0|894 -771!894 -771|894 771!894 771|206 0!1306 0|1994 -771!1994 -771|1994 771!1994 771|1306 0!-894 0|-206 -771!-206 -771|-206 771!-206 771|-894 0!-3094 0|-2406 -771!-2406 -771|-2406 771!-2406 771|-3094 0!-1994 0|-1306 -771
+!-1306 -771|-1306 771!-1306 771|-1994 0!-4194 0|-3506 -771!-3506 -771|-3506 771!-3506 771|-4194 0!-6394 0|-5706 -771!-5706 -771|-5706 771!-5706 771|-6394 0!-5294 0|-4606 -771!-4606 -771|-4606 771!-4606 771|-5294 0!-7494 0|-6806 -771!-6806
+ -771|-6806 771!-6806 771|-7494 0!-9694 0|-9006 -771!-9006 -771|-9006 771!-9006 771|-9694 0!-8594 0|-7906 -771!-7906 -771|-7906 771!-7906 771|-8594 0!-10794 0|-10106 -771!-10106 -771|-10106 771!-10106 771|-10794 0!-11894 0|-11206 -771
+!-11206 -771|-11206 771!-11206 771|-11894 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF6600" alpha="0.8"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="
+!-12320 -1017|12696 -1017!12696 -1017|12696 1017!12696 1017|-12320 1017!-12320 1017|-12320 -1017"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="spawnPointName">
+      <Inspectable name="spawnPoint" variable="spawnPointName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

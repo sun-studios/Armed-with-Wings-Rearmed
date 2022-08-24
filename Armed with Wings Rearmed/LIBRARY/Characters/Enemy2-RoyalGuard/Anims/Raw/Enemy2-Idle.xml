@@ -1,0 +1,77 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy2-RoyalGuard/Anims/Raw/Enemy2-Idle" itemID="54cb073a-00000209" lastModified="1422591802">
+  <timeline>
+    <DOMTimeline name="Enemy2-Idle">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Assets/Enemy2-Head" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="7.05" ty="-49.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Assets/Enemy2-Sword">
+                  <matrix>
+                    <Matrix a="0.99359130859375" b="-0.113128662109375" c="0.113128662109375" d="0.99359130859375" tx="-35.55" ty="3.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Assets/Enemy2-Sword">
+                  <matrix>
+                    <Matrix a="0.750396728515625" b="-0.660980224609375" c="0.6317138671875" d="0.7171630859375" tx="11.95" ty="3.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!78 -775[#4D.9D #FFFCFB.B4 76.5 -771.5!76.5 -771.5[#98.FE #FFFD72.DF 155.5 -613.5!155.5 -613.5[#9E.2E #FFFDC7.59 158.5 -565!158.5 -565[#9B.E2 -554.09375 147 -536.5!147 -536.5[#86.34 #FFFE01.5B 140.5 -466!140.5 -466[#92.CC #FFFE5A.93 156.5
+ -358!156.5 -358[#A6.11 #FFFED9.45 183 -255!183 -255[#C9.6F #FFFF7F.57 206.5 -88!206.5 -88[#CF.6E #FFFFA8.EB 208.5 -85!208.5 -85[#D6.A9 #FFFFB7.19 249.5 -12.5!249.5 -12.5[#11C.7D #2F.B8 272 76!272 76|237 72!237 72|200 84!200 84[#A3.83
+ #36.5B 148 -36!148 -36[#28.39 -207.5 45 -246!45 -246[#31.D5 -284.375 39 -321.5!39 -321.5[#1C.0E -358.875 18 -391!18 -391[7 -294 8 -193!8 -193[8 -165 15 -139!15 -139[22 -112 36 -87!36 -87[#73.ED #33.01 183.5 168.5!183.5 168.5[#FB.39 #11D.FC
+ 267 355!267 355[#11A.B4 #1A8.05 257 525!257 525|285.5 530!285.5 530[#11A.51 #22A.07 278 587.5!278 587.5[#FC.07 #314.D4 249 855.5!249 855.5[#F5.FD #39A.0E 261 971!261 971[268 996 289 1016!289 1016[352 1078 444 1097!444 1097|378 1121.5
+!378 1121.5[#157.1F #45E.A6 244 1116!244 1116[#F7.E #45F.F5 225 1101!225 1101[#E0.1E #451.0F 209.5 1111!209.5 1111[#C2.E2 #45C.F1 150 1117!150 1117[170 1001 156 882!156 882[150 828 133 778!133 778[116 725 96 675!96 675[90 660 89 646!89
+ 646[88 631 88 616!88 616[88 603 79 587!79 587[67 583 57 577!57 577[48 570 38 566!38 566[-17 575 -72 585!-72 585[-121 589 -169 593!-169 593|-174 603!-174 603|-160 729!-160 729[-274 691 -398 705!-398 705[-425 708 -452 711!-452 711[#FFFE02.FA
+ #334.E6 -546 917!-546 917[#FFFDB9.03 #3F5.16 -570.5 1083.5!-570.5 1083.5[#FFFDD1.FD #481.E2 -538 1164!-538 1164|-542 1188!-542 1188|-718 1186.5!-718 1186.5[#FFFD40.77 #439.89 -696.5 1020!-696.5 1020[#FFFD4D.EC #3E9.8E -682.5 979.5!-682.5
+ 979.5[#FFFDA8.7D #2E2.43 -575 654!-575 654|-591 647!-591 647[-570 555 -536 466!-536 466[-520 425 -508 383!-508 383[-483 291 -462 199!-462 199[-435 83 -442 -36!-442 -36[-423 -106 -404 -176!-404 -176[-426 -209 -420 -246!-420 -246[-408
+ -321 -397 -398!-397 -398[-391 -444 -391 -490!-391 -490[-447 -433 -491 -366!-491 -366[-504 -345 -526 -338!-526 -338[-535 -336 -540 -329!-540 -329[-545 -321 -548 -312!-548 -312|-551.5 -277.5!-551.5 -277.5[#FFFDCF.15 -256 -610.5 -182.5
+!-610.5 -182.5[#FFFD6B.DE #FFFF92.D6 -652.5 -50!-652.5 -50[#FFFD7B.22 #9.49 -647 72!-647 72|-667 75!-667 75|-680 58!-680 58|-760 87!-760 87|-792 70!-792 70[-779 0 -760 -63!-760 -63[-755 -80 -746 -95!-746 -95[-740 -106 -737 -117!-737 -117
+[-706 -242 -675 -366!-675 -366[-646 -385 -633 -420!-633 -420[-622 -451 -610 -482!-610 -482[-578 -559 -543 -636!-543 -636|-557 -658!-557 -658[-525 -702 -493 -746!-493 -746|-486 -760!-486 -760[#FFFE62.95 #FFFCB7.54 -326 -862!-326 -862[#FFFF2F.49
+ #FFFC8D.44 -103 -886.5!-103 -886.5[-90.8125 #FFFC82.4E -68.5 -905!-68.5 -905[#FFFFEE.1D #FFFC5D.13 -8 -949!-8 -949[35 -950 71 -938!71 -938[101 -926 114 -897!114 -897[#73.E1 #FFFC83.45 134 -843.5!134 -843.5[#51.DD #FFFCD7.04 78 -775"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

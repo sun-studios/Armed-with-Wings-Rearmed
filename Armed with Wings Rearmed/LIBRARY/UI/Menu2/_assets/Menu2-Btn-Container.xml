@@ -1,0 +1,311 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_assets/Menu2-Btn-Container" itemID="562b9343-00000e16" lastModified="1572273218" lastUniqueIdentifier="11">
+  <timeline>
+    <DOMTimeline name="Menu2-Btn-Container">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var _root:MovieClip = MovieClip(root);
+var ctrl:PlayerControl = _root.player1Control;
+var sndCtrl:MovieClip = _root;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var confirmed:Boolean = false;
+var currentClip:MovieClip;
+var selectIndex:Number = 0;
+//break peroid of no input.
+var breakIndex:int = 15;
+var breakIndexOrig:int = 15;
+
+var max:Number = 4;
+var min:Number = -3;
+
+b0.init();
+b1.gotoAndStop("over");
+b2.gotoAndStop("over");
+b3.gotoAndStop("over");
+max = 3;
+
+if (!CONFIG::SECRET) {
+	max = 2;
+	relic.visible = false;
+}
+
+
+selectClip();
+
+function update ():void {
+	if (currentClip) currentClip.update();
+	
+	if (!confirmed) {
+		//right
+		if (_root.ONLYSURVIVAL){
+			max = 0;
+			b1.visible = false;
+		}	
+		if (breakIndex > 0) {
+			breakIndex --;
+		} else {
+			if (ctrl.ctrl_right) {
+				if (!keyFilter1) {
+					if (selectIndex < max) {
+						selectIndex ++;
+						selectClip();
+					} else if (CONFIG::SECRET) {
+						if (selectIndex < max+1) {
+							selectIndex ++;
+							 selectRelic();
+						}
+					}
+					keyFilter1 = true;
+				}
+			} else {
+				keyFilter1 = false;
+			}
+			//left
+			if (ctrl.ctrl_left) {
+				if (!keyFilter2) {
+					if (selectIndex > min) {
+						selectIndex --;
+						selectClip();
+					}
+					keyFilter2 = true;
+				}
+			} else {
+				keyFilter2 = false;
+			}
+			//confirm
+			if (ctrl.ctrl_confirmStart) {
+				if (!keyFilter3) {
+					if (canConfirm()) {
+						confirm();
+					}
+					keyFilter3 = true;
+				}
+			} else {
+				keyFilter3 = false;
+			}
+		}
+	}
+	
+	if (currentClip.name == "relic") {
+		x += ((-selectIndex*360 + 480-360) - x)/6;
+	} else {
+		x += ((-selectIndex*360 + 480) - x)/6;
+	}
+	
+}
+
+function selectClip():void {
+	if (currentClip) {
+		if (currentClip == relic) MovieClip(parent).bg.gotoAndPlay("light");
+		currentClip.unselect();
+	}
+	if (selectIndex >= 0)
+		currentClip = this["b"+selectIndex];
+	else currentClip = this["c"+Math.abs(selectIndex)];
+	currentClip.select();
+	addChild(currentClip);
+	sndCtrl.playUISound(sndCtrl.sndButton1);
+}
+function selectRelic():void {
+	if (currentClip) {
+		currentClip.unselect();
+	}
+	currentClip = relic;
+	sndCtrl.playUISound(sndCtrl.sndButton1);
+	MovieClip(parent).bg.gotoAndPlay("dark");
+	relic.select();
+}
+
+function canConfirm():Boolean {
+	if (currentClip.id == 7) {
+		if (_root.allKeysCollected()) {
+			return true;
+		} else {
+			_root.playUISound(_root.sndButton2);
+			return false;
+		}
+	} else {
+		return true;
+	}
+}
+
+function confirm():void {
+	currentClip.gotoAndPlay("hit");
+	
+	sndCtrl.playUISound(sndCtrl.sndButton3);
+	switch (currentClip.id) {
+		case 0:
+			_root.gameMode = _root.STORY;
+			MovieClip(parent).openStory();
+			confirmed = true;
+			break;
+		case 1:
+			_root.gameMode = _root.LEVELSELECT;
+			MovieClip(parent).transition.gotoAndPlay(2);
+			confirmed = true;
+			break;
+		case 2:
+			_root.gameMode = _root.SURVIVAL;
+			MovieClip(parent).openSurvival();
+			//MovieClip(parent).transition.gotoAndPlay(2);
+			confirmed = true;
+			break;
+		case 3:
+			MovieClip(parent).openSettings();
+			//confirmed = true;
+			break;
+		case 4:
+			_root.resetMultiSessionData();
+			MovieClip(parent).openMultiplayer();
+			confirmed = true;
+		break;
+		case 5:
+			_root.gameMode = _root.JUGGLE;
+			MovieClip(parent).transition.gotoAndPlay(2);
+			confirmed = true;
+		break;
+		case 6:
+			MovieClip(parent).openAchieveMenu();
+			confirmed = true;
+			break;
+		case 7:
+			_root.gameMode = _root.SLW_BONUSSTAGE;
+			MovieClip(parent).transition.gotoAndPlay(2);
+			confirmed = true;
+		break;
+		case 8:
+			_root.closeApplication();
+		break;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/RingButton" name="b0" uniqueID="1">
+                  <matrix>
+                    <Matrix a="0.894744873046875" d="0.894744873046875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_IconButton/IconButton" name="c1" uniqueID="6">
+                  <matrix>
+                    <Matrix tx="-360"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_IconButton/IconButton" name="c2" uniqueID="8">
+                  <matrix>
+                    <Matrix tx="-720"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="6" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/RingButton" name="b1" uniqueID="10">
+                  <matrix>
+                    <Matrix a="0.894744873046875" d="0.894744873046875" tx="360"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/RingButton" name="b2" uniqueID="11">
+                  <matrix>
+                    <Matrix a="0.894744873046875" d="0.894744873046875" tx="720"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/Menu2/Menu2-Relic" name="relic" uniqueID="12">
+                  <matrix>
+                    <Matrix tx="1800" ty="-63.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="11" blurY="11" color="#333333" distance="4" strength="0.3"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="7" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_IconButton/IconButton" name="c3" uniqueID="10">
+                  <matrix>
+                    <Matrix tx="-1080"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="8" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/RingButton" name="b3" uniqueID="11">
+                  <matrix>
+                    <Matrix a="0.894744873046875" d="0.894744873046875" tx="1080"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

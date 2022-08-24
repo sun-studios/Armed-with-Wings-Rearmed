@@ -1,0 +1,563 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q04/OBJ-Teleporter/OBJ-Teleporter" itemID="556ac1e5-000007a0" lastModified="1433059821" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="OBJ-Teleporter">
+      <layers>
+        <DOMLayer name="Layer 15" color="#669900" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+visible = false;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var vcam:MovieClip = MovieClip(parent).vcam;
+var sndCtrl:MovieClip = MovieClip(root);
+
+var doCamShake:Boolean;
+
+function init():void {
+	gotoAndPlay(2);
+	hero.gotoAndStop("kneel");
+	x = hero.x;
+	doCamShake = true;
+}
+
+function update():void {
+	if (doCamShake) {
+		vcam.cameraShake = this.currentFrame *.5;
+	}
+}
+
+function end():void {
+	doCamShake = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="43" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="44" duration="73" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndWindWirl);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="117" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 17" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="118" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 16" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="118" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Objects/OBJ-Colorer-EasyInvert" uniqueID="3">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="disable">
+      <Inspectable name="disable" variable="disable" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 14" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="70" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-LghtRing">
+                  <matrix>
+                    <Matrix a="1.61888122558594" d="1.61888122558594" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="9" blurY="9" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 13" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="95" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.967117309570313" d="0.825637817382813" tx="27.45" ty="-4.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 12" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="21" duration="97" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.967117309570313" d="1.00706481933594" tx="7.7" ty="-7.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 11" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" duration="99" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="2.90130615234375" d="0.734939575195313" tx="2.95" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 10" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="16" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" duration="101" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.45065307617188" d="0.511138916015625" tx="22.4" ty="-5.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 9" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="15" duration="103" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.83749389648438" d="0.767288208007813" tx="-19.2" ty="-2.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 8" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="13" duration="105" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.725326538085938" d="0.76226806640625" tx="15.5" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 7" color="#669900">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="107" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.45065307617188" d="0.595794677734375" tx="-13.05" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="109" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.45065307617188" d="0.899871826171875" tx="-28.95" ty="-5.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" duration="111" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.83749389648438" d="0.559951782226563" tx="-2.85" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="113" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.30558776855469" d="0.72052001953125" tx="23.6" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="115" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.918746948242188" d="1.13533020019531" tx="8.05" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="117" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.83749389648438" d="0.767288208007813" tx="-21.25" ty="-5.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/Teleporter-light-anim" centerPoint3DY="-149.8">
+                  <matrix>
+                    <Matrix d="1.0294189453125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="7" centerPoint3DX="-21.25" centerPoint3DY="-118.8" loop="loop">
+                  <matrix>
+                    <Matrix a="1.83749389648438" d="0.767288208007813" tx="-21.25" ty="-5.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="5" centerPoint3DX="8.05" centerPoint3DY="-170.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.918746948242188" d="1.13533020019531" tx="8.05" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="3" centerPoint3DX="23.6" centerPoint3DY="-108.85" loop="loop">
+                  <matrix>
+                    <Matrix a="1.30558776855469" d="0.72052001953125" tx="23.6" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="1" centerPoint3DX="-2.85" centerPoint3DY="-85.15" loop="loop">
+                  <matrix>
+                    <Matrix a="1.83749389648438" d="0.559951782226563" tx="-2.85" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="14" centerPoint3DX="-28.95" centerPoint3DY="-138.4" loop="loop">
+                  <matrix>
+                    <Matrix a="1.45065307617188" d="0.899871826171875" tx="-28.95" ty="-5.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="12" centerPoint3DX="-13.05" centerPoint3DY="-90.45" loop="loop">
+                  <matrix>
+                    <Matrix a="1.45065307617188" d="0.595794677734375" tx="-13.05" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="10" centerPoint3DX="15.5" centerPoint3DY="-115" loop="loop">
+                  <matrix>
+                    <Matrix a="0.725326538085938" d="0.76226806640625" tx="15.5" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="8" centerPoint3DX="-19.2" centerPoint3DY="-115.95" loop="loop">
+                  <matrix>
+                    <Matrix a="1.83749389648438" d="0.767288208007813" tx="-19.2" ty="-2.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="6" centerPoint3DX="22.4" centerPoint3DY="-80.95" loop="loop">
+                  <matrix>
+                    <Matrix a="1.45065307617188" d="0.511138916015625" tx="22.4" ty="-5.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="4" centerPoint3DX="2.95" centerPoint3DY="-111" loop="loop">
+                  <matrix>
+                    <Matrix a="2.90130615234375" d="0.734939575195313" tx="2.95" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" firstFrame="2" centerPoint3DX="7.7" centerPoint3DY="-156.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.967117309570313" d="1.00706481933594" tx="7.7" ty="-7.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.967117309570313" d="0.825637817382813" tx="27.45" ty="-4.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-13.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/Teleporter-light-anim">
+                  <matrix>
+                    <Matrix d="0.0467376708984375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF" quality="2"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" duration="55" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/Teleporter-light-anim" centerPoint3DY="-145.5">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="17.8821048736572" blurY="137" color="#FFFFFF" quality="2"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="47" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.5106" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/Teleporter-light-anim" centerPoint3DY="-145.45">
+                  <matrix>
+                    <Matrix d="0.8218994140625"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="21" blurY="47" color="#FFFFFF" quality="2" strength="1.03"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.37109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="117" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/Teleporter-light-anim" centerPoint3DY="-145.45">
+                  <matrix>
+                    <Matrix d="1.04507446289063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="21" blurY="47" color="#FFFFFF" quality="2" strength="1.03"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.66015625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

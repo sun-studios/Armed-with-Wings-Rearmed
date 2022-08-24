@@ -1,0 +1,153 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Pause/UI-Timer" itemID="54dd85e8-00000383" lastModified="1491307978">
+  <timeline>
+    <DOMTimeline name="UI-Timer">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+import flash.display.MovieClip;
+
+var timer_tf:TextField;
+
+var fps:Number;
+
+var counter:Number;
+
+var hours:Number;
+var min:Number;
+var sec:Number;
+
+var hours_s:String;
+var min_s:String;
+var sec_s:String;
+
+var gameData:MovieClip;
+
+init();
+
+function init():void {
+	gameData = MovieClip(root);
+	var timeString:String;
+	var timeInt:int = 0;
+	
+	if (gameData.gameMode == gameData.STORY) {
+		if (gameData.fromCutscenetoGame) {
+			//like, mid boss cutscene to next level
+			timeString = gameData.sessionTimeString;
+			timeInt = gameData.sessionTimeInt;
+		} else {
+			if (gameData.sessionContinuedGame) {
+				timeString = gameData.sessionTimeString;
+				timeInt = gameData.sessionTimeInt;
+			} else {
+				timeString = "00:00";
+				timeInt = 0;
+			}
+		}
+	}
+	
+	//timeString = "00:00";
+	
+	counter = 0;
+	fps = 40;
+	
+	
+	
+	hours = Math.floor((timeInt/60)/60);
+	timeInt -= ((hours*60)*60)
+	min = Math.floor(timeInt/60);
+	timeInt -= (min*60);
+	sec = timeInt;
+	
+	//min = parseInt(timeString.charAt(0)+timeString.charAt(1));
+	//sec = parseInt(timeString.charAt(3)+timeString.charAt(4));
+}
+
+function update ():void {
+	if (counter < fps) {
+		counter ++;
+	} else {
+		//if (gameData.gameDifficulty == "FUTILE") {
+			//if (sec > 0) sec --;
+		//} else {
+			sec ++;
+		//}
+		counter = 0;
+	}
+	
+	/*if (gameData.gameDifficulty == "FUTILE") {
+		if (sec <= 0) {
+			if (min > 0) {
+				min --;
+				sec = 59;
+			}
+		}
+	} else {
+	*/
+		if (sec >= 60) {
+			min ++;
+			sec = 0;
+		}
+	//}
+	
+	if (min >= 60) {
+		hours ++;
+		min = 0;
+	}
+		
+	hours_s = String(hours);
+	min_s = String(min);
+	sec_s = String(sec);
+	
+	if (hours_s.length <2) hours_s = "0"+hours_s;
+	if (min_s.length <2) min_s = "0"+min_s;
+	if (sec_s.length <2) sec_s = "0"+sec_s;
+	if (hours > 0) {
+		timer_tf.text = hours_s+":"+min_s+":"+sec_s;
+	} else {
+		timer_tf.text = min_s+":"+sec_s;
+	}
+	
+	gameData.sessionTimeString = timer_tf.text;
+	gameData.sessionTimeInt = (((hours*60)+min)*60) + sec;
+}
+
+function getTimeString():String {
+	return timer_tf.text;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="textfield" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="timer_tf" fontRenderingMode="standard" top="-2.8" left="12.25" width="67.1" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-38.65" ty="-10.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00:00:00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

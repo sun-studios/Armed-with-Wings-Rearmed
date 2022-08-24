@@ -1,0 +1,49 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy6-Razor/Anims/Enemy6-Anim-HurtSpin" itemID="55dddb24-00000acf" lastModified="1440608388">
+  <timeline>
+    <DOMTimeline name="Enemy6-Anim-HurtSpin">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="29" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="30" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="30" tweenType="motion" motionTweenRotate="clockwise" motionTweenRotateTimes="1" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Misc/Enemy6-Shape-HurtSpin" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-7.8" ty="9.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.5" y="-9.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Misc/Enemy6-Shape-HurtSpin" symbolType="graphic" centerPoint3DX="-18" centerPoint3DY="-1.5" loop="loop">
+                  <matrix>
+                    <Matrix tx="-7.8" ty="9.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.5" y="-9.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

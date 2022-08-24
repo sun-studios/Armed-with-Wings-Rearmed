@@ -1,0 +1,1071 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-Player" itemID="54ded459-00000504" lastModified="1572445421" lastUniqueIdentifier="11">
+  <timeline>
+    <DOMTimeline name="UI-Player">
+      <layers>
+        <DOMLayer name="actions" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.geom.ColorTransform;
+
+var currentPanel:MovieClip;
+var currentPanels:Array = new Array();
+var verticalIndex:int;
+var horizontalIndex:int;
+var activeBoosterSlots:int;
+
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+var keyFilter5:Boolean;
+var keyFilter6:Boolean;
+var keyFilter7:Boolean;
+
+var equiptPanelOpen:Boolean;
+var exiting:Boolean;
+var inGame:Boolean;
+
+var linkedBoosters:Array = new Array();
+
+//objects present on stage
+var panelCharacter:MovieClip;
+var panelWeapons:MovieClip;
+var gearLockedPanel:MovieClip;
+var panelEquiptment0:MovieClip;
+var panelEquiptment1:MovieClip;
+var panelEquiptment2:MovieClip;
+var panelEquiptment3:MovieClip;
+var startButton:MovieClip;
+var equiptWeaponPanel:MovieClip;
+var equiptGearPanel:MovieClip;
+var cancelButton:MovieClip;
+var transition:MovieClip;
+var shade:MovieClip;
+
+//reference
+var ctrl:PlayerControl;
+var _root:MovieClip;
+var sndCtrl:MovieClip;
+
+var local_heroName:String;
+var local_equiptedWeapon:int;
+var local_equiptedGear0:int;
+var local_equiptedGear1:int;
+var local_equiptedGear2:int;
+var local_equiptedGear3:int;
+
+//dataGetWeaponBoosters
+function init(_inGame:Boolean = false):void {
+	inGame = _inGame;
+	
+	verticalIndex = 0;
+	horizontalIndex = 1;
+	
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	keyFilter5 = true;
+	keyFilter6 = true;
+	keyFilter7 = true;
+	
+	equiptPanelOpen = false;
+	exiting = false;
+	
+	ctrl = MovieClip(root).player1Control;
+	_root = MovieClip(root);
+	sndCtrl = MovieClip(root);
+
+	
+	//Set weapon defaults
+	local_heroName = _root.heroName;
+	local_equiptedWeapon = _root.data_equiptedWeapon;
+	local_equiptedGear0 = _root.data_equiptedGear0;
+	local_equiptedGear1 = _root.data_equiptedGear1;
+	local_equiptedGear2 = _root.data_equiptedGear2;
+	local_equiptedGear3 = _root.data_equiptedGear3;
+	
+	if (_root.sessionBaseSword || (!_root.isWeaponUnlocked(local_equiptedWeapon) && !_inGame)) {
+		local_equiptedWeapon = 0;
+		local_equiptedGear0 = 0;
+		local_equiptedGear1 = 0;
+		local_equiptedGear2 = 0;
+		local_equiptedGear3 = 0;
+	}
+	
+	
+	selectPanel(panelWeapons);
+	equiptWeaponPanel.visible = false;
+	equiptGearPanel.visible = false;
+	gearLockedPanel.visible = false;
+	transition.gotoAndPlay(1);
+	shade.visible = false;
+	
+	
+	panelWeapons.clip.init(1);
+	updateBoosterSlots();
+	
+	
+	if (inGame) {
+		startButton.label_tf.text = startButton.label = "CONFIRM";
+	}
+	
+	//Darken and Disable Weapon Select on Futile and 
+	var darken:ColorTransform = new ColorTransform(.26, .26, .26, 1);
+	if (_root.sessionBaseSword) {
+		selectPanel(panelCharacter);
+		horizontalIndex = 0;
+		
+		panelWeapons.transform.colorTransform = darken;
+		
+		panelEquiptment0.transform.colorTransform = darken;
+		panelEquiptment1.transform.colorTransform = darken;
+		panelEquiptment2.transform.colorTransform = darken;
+		panelEquiptment3.transform.colorTransform = darken;
+		
+		chain0.transform.colorTransform = darken;
+		chain1.transform.colorTransform = darken;
+		chain2.transform.colorTransform = darken;
+		chain3.transform.colorTransform = darken;
+		
+		weaponTitleClip.transform.colorTransform = darken;
+	}
+	if (_root.sessionInGameHook) {
+		panelCharacter.transform.colorTransform = darken;
+	}
+}
+
+function update():void {
+	if (!exiting) {
+		if (inGame) {
+			
+		} else {
+			var Y:Number = y + (((-cursor.y+300)*.12) - y)/15;
+			var X:Number = x + (((-cursor.x+300)*.12) - x)/15;
+			if (horizontalIndex == 0) {
+				Y += 2;
+				X += 3;
+			}
+			y = Y;
+			x = X;
+			clouds.x = 1575.4 - X;
+			clouds.y = 319.85 - Y;
+			shade.x = transition.x = 480 - X;
+			shade.y = transition.y = 270 - Y;
+		}
+		
+		if (cursor && cursor.update) cursor.update();
+		if (!equiptPanelOpen) {
+			control();
+		} else {
+			if (equiptWeaponPanel.visible) equiptWeaponPanel.update();
+			if (equiptGearPanel.visible) equiptGearPanel.update();
+			
+			if (gearLockedPanel.visible) gearLockedPanel.update();
+		}
+		panelCharacter.clip.update();
+	}
+}
+
+function updateBoosterSlots(doAssigned:Boolean = false):void {
+	linkedBoosters = [];
+	chain0.visible = false;
+	chain1.visible = false;
+	chain2.visible = false;
+	chain3.visible = false;
+	
+	var weapBoostersArr:Array = _root.dataGetWeapBoosterFromID(local_equiptedWeapon);
+	activeBoosterSlots = weapBoostersArr.length;
+	trace("This Weapon has :: "+activeBoosterSlots+" slots");
+	for (var i:int = 0; i < 4; i ++) {
+		var panel:MovieClip = MovieClip(this["panelEquiptment"+i]);
+		if (i >= activeBoosterSlots) {
+			//turn off
+			panel.clip.gearIcon.gotoAndStop(1);
+			panel.visible = false;
+			this["local_equiptedGear"+i] = 0;
+			panel.clip.unchangable = false;
+		} else {
+			//choose ability booster frame
+			if (weapBoostersArr[i][1]) {
+				panel.clip.gotoAndStop(2+i);
+				panel.clip.displayNewEquippedListing("ABILITY");
+			} else {
+				panel.clip.gotoAndStop(1);
+				panel.clip.displayNewEquippedListing("PASSIVE");
+			}
+			//if weapon booster is open
+			if (weapBoostersArr[i][0] == 0) {
+				panel.clip.unchangable = false;
+				panel.visible = true;
+				panel.clip.displayGear(this["local_equiptedGear"+i]);
+				
+				if (doAssigned) {
+					var assignedBoosters:Array = _root["data_weap"+local_equiptedWeapon+"_assignedBoosters"][0];
+					panel.clip.gearIcon.gotoAndStop(1+assignedBoosters[i]);
+					panel.clip.updateName(assignedBoosters[i]);
+					this["local_equiptedGear"+i] = assignedBoosters[i];
+				}
+				//clear stacking boosters
+				/*
+				var currID:int = _root.dataGetWeaponBoosters(0)[i][0];
+				for (var i2:int = 0; i2 < activeBoosterSlots; i2 ++) {
+					if (i2 != i) {
+						if (_root.dataGetWeaponBoosters(0)[i2][0] == currID) {
+							panel.clip.gearIcon.gotoAndStop(1);
+							_root["data_equiptedGear"+i] = 0;
+							panel.clip.unchangable = false;
+							break;
+						}
+					}
+				}
+				*/
+			//if weapon booster is defined
+			} else {
+				panel.visible = true;
+				this["local_equiptedGear"+i] = weapBoostersArr[i][0];
+				panel.clip.gearIcon.gotoAndStop(1+weapBoostersArr[i][0]);
+				panel.clip.updateName(this["local_equiptedGear"+i]);
+				panel.clip.unchangable = true;
+				panel.clip.displayNewEquippedListing("NONE");
+				this["chain"+i].visible = true;
+				linkedBoosters.push(panel);
+			}
+			
+		}
+	}
+	
+	selectPanel(panelWeapons, true);
+}
+
+function control():void {
+	var input:Boolean = false;
+	var openWeapons:Boolean = false;
+	var openGear:Boolean = false;
+	var openCharacter:Boolean = false;
+	
+	//Index controls/////////////////////////////////////////////////////
+		//UP control//--------------------------------------------------//
+		if (ctrl.ctrl_up) {
+			if (!keyFilter1) {
+				if (verticalIndex > 0 && horizontalIndex >= 1) {
+					verticalIndex--;
+					
+					/*handle booster arrangment*/
+					if (activeBoosterSlots == 0) {
+						verticalIndex = 0;
+					} else {
+						if (verticalIndex == 1 && horizontalIndex > activeBoosterSlots) horizontalIndex = activeBoosterSlots;
+					}
+					
+					sndCtrl.playUISound(sndCtrl.sndButton1);
+					input = true;
+				}
+				antiweaponSelect();
+				keyFilter1 = true;
+			}
+		} else { keyFilter1 = false; }
+		//DOWN control//--------------------------------------------------//
+		if (ctrl.ctrl_down) {
+			if (!keyFilter2) {
+				if (verticalIndex < 2 && horizontalIndex >= 1) {
+					verticalIndex ++;
+					/*handle booster arrangment*/
+					if (activeBoosterSlots == 0) {
+						verticalIndex = 2;
+					} else {
+						if (verticalIndex == 1 && horizontalIndex > activeBoosterSlots) horizontalIndex = activeBoosterSlots;
+					}
+					
+					sndCtrl.playUISound(sndCtrl.sndButton1);
+					input = true;
+				}
+				if (verticalIndex == 2 && horizontalIndex > 2){
+					horizontalIndex = 2;
+				}
+				antiweaponSelect();
+				keyFilter2 = true;
+			}
+		} else { keyFilter2 = false; };
+		//LEFT control//--------------------------------------------------//
+		if (ctrl.ctrl_left) {
+			if (!keyFilter3) {
+				if (verticalIndex == 1) {
+					if (horizontalIndex > 0) {
+						horizontalIndex --;
+						if (horizontalIndex > activeBoosterSlots) 
+							horizontalIndex = activeBoosterSlots;
+						sndCtrl.playUISound(sndCtrl.sndButton1);
+						input = true;
+					}
+				} else {
+					if (verticalIndex == 2) {
+						if (horizontalIndex > 0) {
+							horizontalIndex --;
+							sndCtrl.playUISound(sndCtrl.sndButton1);
+							input = true;
+						}
+					} else {
+						if (horizontalIndex > 0) {
+							horizontalIndex = 0;
+							sndCtrl.playUISound(sndCtrl.sndButton1);
+							input = true;
+						}
+					}
+				}
+				antiweaponSelect();
+				keyFilter3 = true;
+			}
+		} else { keyFilter3 = false; };
+		//RIGHT control//--------------------------------------------------//
+		if (ctrl.ctrl_right) {
+			if (!keyFilter4) {
+				if (verticalIndex == 1) {
+					if (horizontalIndex < activeBoosterSlots) {
+						horizontalIndex ++;
+						sndCtrl.playUISound(sndCtrl.sndButton1);
+						input = true;
+					}
+				} else {
+					if (verticalIndex == 2) {
+						if (horizontalIndex < 2) {
+							horizontalIndex ++;
+							sndCtrl.playUISound(sndCtrl.sndButton1);
+							input = true;
+						}
+					} else {
+						if (horizontalIndex < 1) {
+							horizontalIndex ++;
+							if (verticalIndex == 1 && activeBoosterSlots == 0) verticalIndex = 0;
+							sndCtrl.playUISound(sndCtrl.sndButton1);
+							input = true;
+						}
+					}
+				}
+				antiweaponSelect();
+				keyFilter4 = true;
+			}
+		} else { keyFilter4 = false; };
+	//////////////////////////////////////////////////////////////////////
+	
+	//////////////////////////////////////////////////////////////////////
+	//HIGHLIGHT PANEL//--------------------------------------------------//
+	if (input && !equiptPanelOpen) {
+		if (horizontalIndex > 0) {
+			//RIGHT HALF
+			switch (verticalIndex) {
+				case 0:
+					selectPanel(panelWeapons);
+					break;
+				case 1:
+					if (horizontalIndex == 1) selectPanel(panelEquiptment0);
+					if (horizontalIndex == 2) selectPanel(panelEquiptment1);
+					if (horizontalIndex == 3) selectPanel(panelEquiptment2);
+					if (horizontalIndex == 4) selectPanel(panelEquiptment3);
+					break;
+				case 2:
+					if (horizontalIndex == 1) selectPanel(cancelButton);
+					if (horizontalIndex == 2) selectPanel(startButton);
+					break;
+			}
+		} else if (horizontalIndex == 0) {
+			//LEFT HALF (AKA CHARACTER SLOT)
+			switch (horizontalIndex) {
+				case 0:
+					selectPanel(panelCharacter);
+					break;
+				case 1:
+					if (verticalIndex == 0) selectPanel(panelWeapons);
+					if (verticalIndex == 1) selectPanel(panelEquiptment0);
+					if (verticalIndex == 2) selectPanel(startButton);
+					break;
+			}
+		}
+	}
+	
+	//////////////////////////////////////////////////////////////////////
+	//CONFIRM SELECTION//-----------------------------------------------//
+		if (ctrl.ctrl_confirm) {
+			if (!keyFilter5) {
+				if (horizontalIndex == 2 && verticalIndex == 2) {
+					if (inGame) {
+						exit(2);
+					} else {
+						exit(0);
+					}
+				} 
+				if (horizontalIndex == 1 && verticalIndex == 2) {
+					if (inGame) {
+						exit(3);
+					} else {
+						exit(1);
+					}
+				} 
+				if (horizontalIndex >= 1 && verticalIndex == 0) {
+					if (!equiptPanelOpen) openWeaponsPanel();
+					openWeapons = true;
+				}
+				if (horizontalIndex >= 1 && verticalIndex == 1) {
+					if (!equiptPanelOpen) {
+						if (MovieClip(this["panelEquiptment"+(horizontalIndex-1)]).clip.unchangable) {
+							openGearLockedPanel(horizontalIndex-1);
+							sndCtrl.playSound(sndCtrl.sndButton1);
+						} else {
+							openGearPanel(horizontalIndex-1);
+							openGear = true;
+						}
+					}
+				}
+				if (horizontalIndex == 0) {
+					if (_root.sessionInGameHook) {
+						sndCtrl.playSound(sndCtrl.sndButton3);
+					} else {
+						if (!equiptPanelOpen) openCharacterPanel();
+						openCharacter = true;
+					}
+				}
+				keyFilter5 = true;
+			}
+		} else {
+			keyFilter5 = false;
+		}	
+	
+	//////////////////////////////////////////////////////////////////////
+	//CANEL BUTTON//----------------------------------------------------//
+	if (ctrl.ctrl_cancel) {
+		if (!keyFilter6) {
+			if (currentPanel == cancelButton) {
+				if (inGame) {
+						exit(3);
+					} else {
+						exit(1);
+					}
+			} else {
+				verticalIndex = 2;
+				horizontalIndex = 1;
+				selectPanel(cancelButton);
+				sndCtrl.playUISound(sndCtrl.sndButton2);
+			}
+			keyFilter6 = true;
+		}
+	} else {
+		keyFilter6 = false;
+	}
+	//////////////////////////////////////////////////////////////////////
+	
+	//////////////////////////////////////////////////////////////////////
+	//START BUTTON//----------------------------------------------------//
+	if (ctrl.ctrl_start) {
+		if (!keyFilter7) {
+			if (currentPanel == startButton) {
+				if (inGame) {
+					exit(2);
+				} else {
+					exit(0);
+				}
+			} else {
+				verticalIndex = 2;
+				horizontalIndex = 2;
+				selectPanel(startButton);
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			keyFilter7 = true;
+		}
+	} else {
+		keyFilter7 = false;
+	}
+	
+}
+function antiweaponSelect() {
+	if (_root.sessionBaseSword) {
+		verticalIndex = 2; 
+	}
+}
+function selectPanel(panel:MovieClip, fix:Boolean = false):void {
+	if (isInChain(panel)) {
+		if (currentPanel && !isInChain(currentPanel)) {
+			currentPanel.gotoAndPlay("out");
+		}
+		currentPanel = panel;
+		for (var i = 0; i < currentPanels.length; i ++) {
+			if (currentPanels[i].currentFrame == 1 || currentPanels[i].currentFrame >= 11)
+				currentPanels[i].gotoAndPlay("over");
+		}
+		for (i = 0; i < activeBoosterSlots; i ++) {
+			var clip:MovieClip = this["panelEquiptment"+i];
+			if (isInChain(clip)) {
+				
+			} else {
+				if (clip.currentFrame != 1)
+				clip.gotoAndPlay("out")
+			}
+		}
+	} else {
+		for (i = 0; i < currentPanels.length; i ++) {
+			if (currentPanels[i].currentFrame != 1)
+				currentPanels[i].gotoAndPlay("out");
+		}
+		if (currentPanel) {
+			currentPanel.gotoAndPlay("out");
+		}
+		currentPanel = panel;
+		currentPanel.gotoAndPlay("over");
+	}
+}
+function isInChain(panel:MovieClip):Boolean {
+	currentPanels = [];
+	currentPanels.push(panelWeapons);
+	if (linkedBoosters) {
+		for (var i:int = 0; i < linkedBoosters.length; i ++) {
+			currentPanels.push(linkedBoosters[i]);
+		}
+		for (i = 0; i < currentPanels.length; i ++) {
+			if (panel == currentPanels[i]) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+function openWeaponsPanel():void {
+	equiptWeaponPanel.visible = true;
+	equiptPanelOpen = true;
+	equiptWeaponPanel.init();
+	shade.visible = true;
+	addChild(shade);
+	addChild(equiptWeaponPanel);
+	addChild(currentPanel);
+	addChild(cursor);
+	addChild(instruct2);
+	sndCtrl.playUISound(sndCtrl.sndButton3);
+}
+
+function closeWeaponsPanel():void {
+	resetKeyFilters();
+	
+	panelCharacter.clip.play();
+	equiptWeaponPanel.visible = false;
+	equiptPanelOpen = false;
+	shade.visible = false;
+	
+	panelCharacter.clip.character.play();
+}
+
+function openGearPanel(gearID:Number):void {
+	var _ability:Boolean;
+	var weapBoostersArr:Array = _root.dataGetWeapBoosterFromID(local_equiptedWeapon);
+	
+	if (weapBoostersArr[gearID][1]) _ability = true;
+	
+	equiptGearPanel.visible = true;
+	equiptPanelOpen = true;
+	equiptGearPanel.init(gearID, _ability);
+	shade.visible = true;
+	addChild(shade);
+	addChild(equiptGearPanel);
+	addChild(currentPanel);
+	addChild(cursor);
+	addChild(instruct2);
+	sndCtrl.playUISound(sndCtrl.sndButton3);
+}
+
+function closeGearPanel():void {
+	resetKeyFilters();
+	
+	equiptGearPanel.visible = false;
+	equiptPanelOpen = false;
+	shade.visible = false;
+}
+
+function openCharacterPanel():void {
+	equiptPanelOpen = true;
+	panelCharacter.clip.go = true;
+	panelCharacter.clip.init();
+	shade.visible = true;
+	addChild(shade);
+	addChild(panelCharacter);
+	addChild(cursor);
+	addChild(instruct2);
+	sndCtrl.playUISound(sndCtrl.sndButton3);
+}
+function closeCharacterPanel():void {
+	resetKeyFilters();
+	panelCharacter.clip.go = false;
+	equiptPanelOpen = false;
+	shade.visible = false;
+}
+
+function openGearLockedPanel(slotID:Number):void {
+	equiptPanelOpen = true;
+	shade.visible = true;
+	addChild(shade);
+	addChild(gearLockedPanel);
+	addChild(instruct2);
+	gearLockedPanel.visible = true;
+	//addChild(cursor);
+	gearLockedPanel.init(slotID, _root["data_gear"+this["local_equiptedGear"+slotID]+"_passive"]);
+	sndCtrl.playUISound(sndCtrl.sndButton3);
+}
+function closeGearLockedPanel():void {
+	resetKeyFilters();
+	gearLockedPanel.visible = false;
+	equiptPanelOpen = false;
+	shade.visible = false;
+}
+
+function updateNewGearDisplay():void {
+	var panel:MovieClip;
+	for (var i:int = 0; i < 4; i ++) {
+		panel = this["panelEquiptment"+i];
+		panel.clip.displayNewEquippedListing(panel.clip.setType);
+	}
+	
+}
+
+function resetKeyFilters():void {
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	keyFilter5 = true;
+	keyFilter6 = true;
+	keyFilter7 = true;
+}
+
+function exit(id:int):void {
+	exiting = true;
+	var backToMenu:Boolean = false;
+	var toGame:Boolean = false;
+	var confirmToPasue:Boolean = false;
+	
+	switch (id) {
+		case 0:
+			//confirm from menu to game
+			sndCtrl.playUISound(sndCtrl.sndButton3);
+			toGame = true;
+			applyLocalToData();
+			//force unpause
+			if (MovieClip(root).sessionInGameHook)
+			MovieClip(parent.parent).closePauseUI();
+			break;
+		case 1:
+			//not in game, cancel back to menu
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			backToMenu = true;
+			break;
+		case 2:
+			//in game, confirm to pause menu
+			_root.sessionGearChanged = true;
+			applyLocalToData();
+			if (_root.gameMode == "STORY")
+				_root.saveStoryData();
+			sndCtrl.playUISound(sndCtrl.sndButton3);
+			confirmToPasue = true;
+			//force unpause
+			if (MovieClip(root).sessionInGameHook)
+			MovieClip(parent.parent).closePauseUI();
+			break;
+		case 3:
+			//in game, cancel to pause menu
+			_root.sessionGearChanged = false;
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			confirmToPasue = true;
+			//force unpause
+			if (MovieClip(root).sessionInGameHook)
+			MovieClip(parent.parent).closePauseUI();
+			break;
+	}
+	
+	
+	_root.saveData();
+	
+	transition.toGame = toGame;
+	transition.backToMenu = backToMenu;
+	transition.backToPasue = confirmToPasue;
+	transition.gotoAndPlay("out");
+	addChild(transition);
+	
+}
+
+function applyLocalToData():void {
+	_root.heroName = local_heroName;
+	_root.data_equiptedWeapon = local_equiptedWeapon;
+	_root.data_equiptedGear0 = local_equiptedGear0;
+	_root.data_equiptedGear1 = local_equiptedGear1;
+	_root.data_equiptedGear2 = local_equiptedGear2;
+	_root.data_equiptedGear3 = local_equiptedGear3;
+	
+	var weapBoostersArr:Array = _root.dataGetWeapBoosterFromID(_root.data_equiptedWeapon);
+	_root["data_weap"+local_equiptedWeapon+"_assignedBoosters"][0][0] = local_equiptedGear0;
+	_root["data_weap"+local_equiptedWeapon+"_assignedBoosters"][0][1] = local_equiptedGear1;
+	_root["data_weap"+local_equiptedWeapon+"_assignedBoosters"][0][2] = local_equiptedGear2;
+	_root["data_weap"+local_equiptedWeapon+"_assignedBoosters"][0][3] = local_equiptedGear3;
+	
+	_root.saveStoryData();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#4FFF4F" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!19200 10800|0 10800!0 10800|0 0!0 0|19200 0!19200 0|19200 10800"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-Cursor" name="cursor">
+                  <matrix>
+                    <Matrix tx="1008.3" ty="47.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.45" y="2.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" quality="2" strength="0.83"/>
+                    <GlowFilter color="#FFFFFF" quality="3" strength="0.44"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="transition" color="#4F80FF" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equip-Transition" name="transition" selected="true">
+                  <matrix>
+                    <Matrix a="0.960006713867188" d="0.937759399414063" tx="480" ty="269.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UIControls-Display" name="instruct2" centerPoint3DX="127.75" centerPoint3DY="518.5" uniqueID="11">
+                  <matrix>
+                    <Matrix tx="8.6" ty="535.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="119.15" y="-16.6"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_frame">
+      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-AttachedBoosterScreen" name="gearLockedPanel" selected="true">
+                  <matrix>
+                    <Matrix tx="480" ty="270"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="25" blurY="12" color="#333333" distance="4" quality="2"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-KeyUnlock">
+                  <matrix>
+                    <Matrix tx="480" ty="-325.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="25" blurY="12" color="#333333" distance="4" quality="2"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="gearPanel" color="#FF4F4F" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-EquiptGear" name="equiptGearPanel" matrix3D="0.99619472026825 0 0.087155744433403 0 0 1 0 0 -0.087155744433403 0 0.99619472026825 0 239.5302734375 -87 -836.695129394531 1" rotationY="-5" centerPoint3DX="490.15" centerPoint3DY="265.65">
+                  <transformationPoint>
+                    <Point x="490.15" y="265.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="weaponsPanel" color="#808080" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-EquiptWeapon" name="equiptWeaponPanel" selected="true" matrix3D="0.99619472026825 0 0.087155744433403 0 0 1 0 0 -0.087155744433403 0 0.99619472026825 0 239.5302734375 -87 -836.695129394531 1" rotationY="-5" centerPoint3DX="490.15" centerPoint3DY="265.65">
+                  <transformationPoint>
+                    <Point x="490.15" y="265.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="shade" color="#FF800A" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-BG" name="shade" selected="true">
+                  <matrix>
+                    <Matrix tx="480" ty="270"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="playerpanel" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-Character-Container" name="panelCharacter" selected="true" matrix3D="0.99619472026825 0 0.087155744433403 0 0 1 0 0 -0.087155744433403 0 0.99619472026825 0 36.5302734375 0 -836.695129394531 1" rotationY="-5" centerPoint3DX="252.1" centerPoint3DY="268.7" centerPoint3DZ="-19.9">
+                  <matrix>
+                    <Matrix tx="251.25" ty="268.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="text" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Label1" matrix3D="0.97029572725296 0 -0.241921901702881 0 0 1 0 0 0.241921901702881 0 0.97029572725296 0 1318.0263671875 7361 3382.4892578125 1" rotationY="14" centerPoint3DX="679.7" centerPoint3DY="650.4" centerPoint3DZ="16.05">
+                  <matrix>
+                    <Matrix tx="632.6" ty="282.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="39.05" y="368.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Label2" name="weaponTitleClip" matrix3D="0.97029572725296 0 -0.241921901702881 0 0 1 0 0 0.241921901702881 0 0.97029572725296 0 537.0263671875 -461 3382.4892578125 1" rotationY="14" centerPoint3DX="641" centerPoint3DY="46" centerPoint3DZ="16">
+                  <matrix>
+                    <Matrix tx="632.95" ty="69.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-20"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="panels" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-WeaponStats-Container" name="panelWeapons" matrix3D="0.965925812721252 0 -0.258819073438644 0 0 1 0 0 0.258819073438644 0 0.965925812721252 0 562.970703125 -300 3273.54370117188 1" rotationY="15" centerPoint3DX="639" centerPoint3DY="160.7">
+                  <matrix>
+                    <Matrix tx="632.4" ty="146.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container" name="panelEquiptment0" matrix3D="0.933580458164215 0 -0.358367741107941 0 0 1 0 0 0.358367741107941 0 0.933580458164215 0 588.2109375 -820 5882.24853515625 1" rotationY="-339" centerPoint3DX="493.1" centerPoint3DY="324" centerPoint3DZ="116.05" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="496.7" ty="367.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-25.1" y="-43.5"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin" name="startButton" matrix3D="0.933580458164215 0 -0.358367800712585 0 0 1 0 0 0.358367800712585 0 0.933580458164215 0 1400.8955078125 9 4322.013671875 1" rotationY="-339" centerPoint3DX="732" centerPoint3DY="467" centerPoint3DZ="-38" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.853607177734375" tx="698.95" ty="466.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="28.95" y="3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.21"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="start game" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container" name="panelEquiptment1" matrix3D="0.933580458164215 0 -0.358367741107941 0 0 1 0 0 0.358367741107941 0 0.933580458164215 0 628.2109375 -820 5882.24853515625 1" rotationY="-339" centerPoint3DX="595.9" centerPoint3DY="324" centerPoint3DZ="77.3" uniqueID="4">
+                  <matrix>
+                    <Matrix tx="604.7" ty="367.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-23.1" y="-43.5"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container" name="panelEquiptment2" matrix3D="0.933580458164215 0 -0.358367741107941 0 0 1 0 0 0.358367741107941 0 0.933580458164215 0 668.2109375 -820 5882.24853515625 1" rotationY="-339" centerPoint3DX="698.7" centerPoint3DY="324" centerPoint3DZ="38.6" uniqueID="5">
+                  <matrix>
+                    <Matrix tx="712.7" ty="367.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-21.1" y="-43.5"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container" name="panelEquiptment3" matrix3D="0.933580458164215 0 -0.358367741107941 0 0 1 0 0 0.358367741107941 0 0.933580458164215 0 708.2109375 -820 5882.24853515625 1" rotationY="-339" centerPoint3DX="801.6" centerPoint3DY="324" uniqueID="6">
+                  <matrix>
+                    <Matrix tx="820.7" ty="367.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.1" y="-43.5"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-short-Black" name="cancelButton" matrix3D="0.933580458164215 0 -0.358367800712585 0 0 1 0 0 0.358367800712585 0 0.933580458164215 0 681.8955078125 60 5082.013671875 1" rotationY="-339" centerPoint3DX="493.95" centerPoint3DY="469.55" centerPoint3DZ="77.55" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.853607177734375" tx="512.25" ty="466.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.25" y="3"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="back" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Chained" name="chain0" centerPoint3DX="490.8" centerPoint3DY="259.45">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="491.75" ty="259.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="13" blurY="13" color="#FFFFFF" strength="0.69"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Chained" name="chain1" centerPoint3DX="589.8" centerPoint3DY="256.95">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="590.75" ty="256.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="13" blurY="13" color="#FFFFFF" strength="0.69"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Chained" name="chain2" centerPoint3DX="693.8" centerPoint3DY="254.95">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="694.75" ty="254.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="13" blurY="13" color="#FFFFFF" strength="0.69"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Chained" name="chain3" centerPoint3DX="801.85" centerPoint3DY="252.95">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="802.8" ty="252.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="13" blurY="13" color="#FFFFFF" strength="0.69"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-588 -610|19788 -610!19788 -610|19788 11410!19788 11410|-588 11410!-588 11410|-588 -610"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Clouds-Animated" name="clouds" centerPoint3DX="1575.4" centerPoint3DY="319.85">
+                  <matrix>
+                    <Matrix tx="1575.4" ty="319.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.5"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

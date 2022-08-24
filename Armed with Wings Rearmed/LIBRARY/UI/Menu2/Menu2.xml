@@ -1,0 +1,581 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/Menu2" itemID="562b91ad-00000d94" lastModified="1572353375" lastUniqueIdentifier="7">
+  <timeline>
+    <DOMTimeline name="Menu2" currentFrame="2">
+      <layers>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="3" name="_gotoGame_" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Quad;
+import com.greensock.easing.Strong;
+import flash.system.System;
+
+stop();
+
+var menuID:int = 2;
+
+var transition:MovieClip;
+var container:MovieClip;
+var storyMenu:MovieClip;
+var survivalMenu:MovieClip;
+var playerOptions:MovieClip;
+var playerOptions2:MovieClip;
+var vsArenaMenu:MovieClip;
+var _root:MovieClip = MovieClip(root);
+var ctrl:PlayerControl = _root.player1Control;
+
+var instruct2:MovieClip;
+
+var currentMenu:String;
+var menuMAIN:String = "MAIN";
+var menuSTORY:String = "STORY";
+var menuLEVELS:String = "LEVELS";
+var menuSURVIVAL:String = "SURVIVAL";
+var menuSETTINGS:String = "SETTINGS";
+var menuVSARENA:String = "VSARENA";
+var menuACHIEVE:String = "ACHIEVE";
+
+init();
+
+function init ():void {
+
+	System.pauseForGCIfCollectionImminent(.25);
+	
+	this.addEventListener(Event.ENTER_FRAME, update);
+	transition.gotoAndPlay("in");
+	currentMenu = menuMAIN;
+	
+	storyMenu.x = storyMenu.y = 0;
+	tf_version.text = "v"+MovieClip(root).gameVersion;
+	
+	instruct2.visible = false;
+	_root.sessionInGameHook = false;
+	_root.resetSessionData();
+	//_root.sessionBaseSword = false;
+	_root.sessionStartingWave = 0;
+	
+	if (_root.fromVSToLoadout) {
+		gotoAndStop(5);
+		_root.fromVSToLoadout = false;
+	}
+	
+	_root.killMultiPlayerControl();
+}
+
+function update (e:Event):void {
+	_root.controlUpdate();
+	_root.soundUpdate();
+	
+	if (currentFrame == 1) {
+		titleClip.visible = false;
+		switch (currentMenu) {
+			case menuMAIN:
+				titleClip.visible = true;
+				if (!_root.settingsOpen) container.update();
+				break;
+			case menuSTORY:
+				if (storyMenu.ready) storyMenu.update();
+				break;
+			case menuSURVIVAL:
+				if (survivalMenu.ready) survivalMenu.update();
+				break;
+			case menuVSARENA:
+				if (vsArenaMenu.ready) vsArenaMenu.update();
+				break;
+			case menuACHIEVE:
+				if (achieveMenu.ready) achieveMenu.update();
+				break;
+		}
+		transition.update();
+		
+		if (container.currentClip.name == "relic") {
+			titleClip.x += ((((container.x-480)*.5) + 480) - titleClip.x)/4;
+		} else {
+			titleClip.x += ((((container.x-480)*.1) + 480) - titleClip.x)/4;
+		}
+		
+	}
+
+	if (playerOptions) playerOptions.update();
+	if (playerOptions2) playerOptions2.update();
+	
+	if (currentMenu == menuMAIN) {
+		if (ctrl.ctrl_quit && !_root.settingsOpen) {
+			_root.closeApplication();
+		}
+	}
+}
+function gotoControllerScreen():void {
+	//controllerScreen.init();
+	//MovieClip(root).musicChannel.stop();
+}
+
+function mainMenuOut(menuString:String, menuClip:MovieClip):void {
+	TweenMax.delayedCall(14, 
+		function () {
+			//TweenMax.to(titleClip, .3, {x:1500, ease:Strong.easeIn});
+		}, null, true);
+	
+	TweenMax.delayedCall(16, 
+		function () {
+			TweenMax.to(container, 26, {x:9000, ease:Strong.easeIn, useFrames:true});
+		}, null, true);
+	
+	TweenMax.delayedCall(35,
+		function () {
+			currentMenu = menuString;
+			//storyMenu.colorInvert.disable = false;
+			//storyMenu.colorInvert.init();
+			instruct2.visible = true;			
+			menuClip.init();
+			
+		}, null, true);
+}
+function mainMenuIn(menuClip:MovieClip):void {
+	var currentMenuClip:MovieClip = menuClip;
+	TweenMax.delayedCall(27, 
+		function () {
+			currentMenuClip.gotoAndStop(1);
+			currentMenuClip.ready = false;
+			currentMenuClip.visible = false;
+			instruct2.visible = false;
+			//TweenMax.to(titleClip, .3, {x:2.95, ease:Quad.easeOut});
+			//TweenMax.to(container, .3, {x:0, ease:Quad.easeOut});
+		}, null, true);
+	TweenMax.delayedCall(35,
+		function () {
+			
+		}, null, true);
+	TweenMax.delayedCall(35,
+		function () {
+			container.breakIndex = container.breakIndexOrig;
+			container.confirmed = false;
+			currentMenu = menuMAIN;
+			instruct1.visible = true;
+		}, null, true);
+}
+
+function openStory():void {
+	transition.gotoAndPlay("hit");
+	instruct1.visible = false;
+	
+	mainMenuOut(menuSTORY, storyMenu);
+	
+}
+function closeStory():void {
+	transition.gotoAndPlay("hit");
+	instruct1.visible = false;
+	
+	mainMenuIn(storyMenu);
+}
+function openSurvival():void {
+	transition.gotoAndPlay("hit");
+	instruct1.visible = false;
+	
+	mainMenuOut(menuSURVIVAL, survivalMenu);
+}
+function closeSurvival():void {
+	transition.gotoAndPlay("hit");
+	instruct1.visible = false;
+	
+	mainMenuIn(survivalMenu);
+}
+function startGame():void {
+	_root.sessionNewGame = true;
+	_root.gameMode = _root.STORY;
+	transition.gotoAndPlay(2);
+}
+function continueGame():void {
+	_root.sessionNewGame = false;
+	_root.gameMode = _root.STORY;
+		
+	
+	
+	transition.gotoAndPlay(2);
+}
+function startLevel():void {
+	_root.gameMode = _root.LEVELSELECT;
+	transition.gotoAndPlay(2);
+}
+
+function openSettings():void {
+	_root.displaySettings();
+}
+
+function openMultiplayer():void {
+	
+	_root.sessionNewGame = true;
+	_root.gameMode = _root.MULTIPLAYER;
+	//transition.gotoAndPlay(2);
+	
+	transition.gotoAndPlay("hit");
+	instruct1.visible = false;
+	
+	mainMenuOut(menuVSARENA, vsArenaMenu);
+}
+function closeVSArena():void {
+	transition.gotoAndPlay("hit");
+	instruct1.visible = false;
+	
+	mainMenuIn(vsArenaMenu);
+}
+function openAchieveMenu():void {
+	
+	transition.gotoAndPlay("hit");
+	instruct1.visible = false;
+	instruct2.visible = false;
+	
+	mainMenuOut(menuACHIEVE, achieveMenu);
+}
+function closeAchieveMenu ():void {
+	transition.gotoAndPlay("hit");
+	instruct1.visible = false;
+	
+	mainMenuIn(achieveMenu);
+}
+
+//exiting scene function
+function gotoGame():void {
+	if (_root.gameMode == _root.MULTIPLAYER) {
+		gotoAndStop(5);
+	} else {
+		if (_root.gameMode == _root.SLW_BONUSSTAGE) {
+			gotoAndStop(3);
+		} else {
+			if ((_root.gameMode == _root.STORY && _root.sessionNewGame) || 
+				_root.gameMode == _root.LEVELSELECT || _root.gameMode == _root.SURVIVAL || _root.gameMode == _root.JUGGLE) {
+				nextFrame();
+			} else {
+				//skip equipment for continue
+				gotoAndStop(3);
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[trace("GAME MODE :: "+_root.gameMode);
+
+playerOptions.init();
+
+
+
+	]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[this.removeEventListener(Event.ENTER_FRAME, update);
+	switch (_root.gameMode) {
+		case _root.STORY:
+			if (_root.sessionNewGame) {
+				_root.dataStartNewGame();
+				_root.gotoAndStop("cutscene1", "Cinematics");
+				
+			} else {
+				_root.dataContinueGame();
+				_root.gotoAndStop(1, "Game");
+			}
+			break;
+		case _root.LEVELSELECT:
+			_root.dataLevelSelect();
+			_root.gotoAndStop(1, "Game");
+			break;
+		case _root.SURVIVAL:
+			_root.gotoAndStop(1, "Game");
+			break;
+		case _root.MULTIPLAYER:
+			_root.gotoAndStop(1, "Game");
+			break;
+		case _root.JUGGLE:
+			_root.gotoAndStop(1, "Game");
+			break;
+		case _root.SLW_BONUSSTAGE:
+			_root.dataSLW_BonusStage();
+			_root.gotoAndStop(1, "Game");
+			break;
+	}
+	
+	trace("GSAME MODE :: "+_root.gameMode);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[playerOptions2.init();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="versionNumber" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="tf_version" fontRenderingMode="standard" left="214.35" width="78.35" height="30" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="657.8" ty="513.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>v0.0</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="1" lineHeight="24" size="16" bitmapSize="320" face="Font 1*" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="4" strength="0.08"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="transition" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/Menu2-Transition" name="transition">
+                  <matrix>
+                    <Matrix tx="479.9" ty="270.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="instuctions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UIControls-Display" name="instruct2" centerPoint3DX="114.25" centerPoint3DY="519.7" uniqueID="7">
+                  <matrix>
+                    <Matrix tx="-4.9" ty="536.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="119.15" y="-16.6"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_frame">
+      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-Control2" name="instruct1">
+                  <matrix>
+                    <Matrix tx="115.9" ty="522.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="submenus" color="#FF800A" autoNamed="false" layerType="folder"/>
+        <DOMLayer name="equiptScreen" color="#9933CC" parentLayerIndex="5" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player" name="playerOptions">
+                  <transformationPoint>
+                    <Point x="1252.25" y="332.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-PlayerMulti" name="playerOptions2">
+                  <transformationPoint>
+                    <Point x="1252.25" y="332.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="acheivments" color="#9933CC" parentLayerIndex="5" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheivments" name="achieveMenu">
+                  <matrix>
+                    <Matrix tx="1695.55" ty="1185.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="406" y="233"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="survivalScreen" color="#FF800A" parentLayerIndex="5" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-SurvivalMenu/UI-SurvivalMenu" name="survivalMenu">
+                  <matrix>
+                    <Matrix ty="600"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="400" y="225"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-VSArenaMenu/UI-VSArenaMenu" name="vsArenaMenu">
+                  <matrix>
+                    <Matrix tx="24.35" ty="1239.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="480" y="270"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="storyScreen" color="#9933CC" parentLayerIndex="5" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/StoryMenu 2" name="storyMenu" selected="true" centerPoint3DX="-243.7" centerPoint3DY="54.6">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="button container" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Btn-Container" name="container" centerPoint3DX="840" centerPoint3DY="340">
+                  <matrix>
+                    <Matrix tx="480" ty="340"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="cloud" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Clouds-Animated" cacheAsBitmap="true" centerPoint3DX="1600.15" centerPoint3DY="323.55">
+                  <matrix>
+                    <Matrix tx="1600.15" ty="323.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.41"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Title" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Title" name="titleClip">
+                  <matrix>
+                    <Matrix tx="482.85" ty="93.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.25"/>
+                    <GlowFilter color="#FFFFFF" inner="true" strength="1.17"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#3C3C3C"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Background" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BackgroundClip" name="bg">
+                  <matrix>
+                    <Matrix tx="480" ty="270"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

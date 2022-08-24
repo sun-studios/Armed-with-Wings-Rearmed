@@ -1,0 +1,338 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Tutorial-GUI/TutorialGUI" itemID="581889d9-000019ff" lastModified="1492354485" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="TutorialGUI" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-159&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import flash.events.Event;
+
+var hero:MovieClip;
+var vcam:MovieClip;
+var camHelper:MovieClip;
+var _parent:MovieClip;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+
+var itaskComplete:Number;
+var itaskCompleteOrig:Number;
+
+var tasksCompleted:Number;
+var tasksCompletedGoal:Number;
+
+var currentTask:String;
+var taskMOVE:String = "MOVE";
+var taskBLOCK:String = "BLOCK";
+var taskDODGE:String = "DODGE";
+var taskATTACK:String = "ATTACK";
+var taskPOWERSTRIKE:String = "POWERSTRIKE";
+var taskITEMS:String = "ITEMS";
+var taskCOMPLETING:String = "COMPLETING";
+
+init();
+
+function init ():void {
+	_parent = MovieClip(parent);
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	hero = _parent.hero;
+	camHelper = _parent.camHelper;
+	vcam = _parent.vcam;
+	
+	currentTask = taskMOVE;
+	
+	itaskComplete = 0;
+	itaskCompleteOrig = 1;
+	
+	tasksCompleted = 0;
+	tasksCompletedGoal = 5;
+	
+	mainClip.alpha = 0;
+	TweenMax.to(mainClip, 20, {alpha:1, useFrames:true});
+}
+
+function update ():void {
+	completeClip.update();
+	updatePosition();
+	
+	switch (currentTask) {
+		case taskMOVE:
+			absorbMovement();
+			break;
+		case taskBLOCK:
+			absorbBlock();
+			break;
+		case taskDODGE:
+			absorbDodge();
+			break;
+		case taskATTACK:
+			absorbAttack();
+			break;
+		case taskPOWERSTRIKE:
+			
+		break;
+		case taskCOMPLETING:
+			completeClip.visible = false;
+			break;
+	}
+	
+	updateBar();
+	
+	if (bar.scaleX >= .98) {
+		currentTask = taskCOMPLETING;
+		mainClip.gotoAndStop(currentTask);
+	}
+}
+
+function absorbMovement():void {
+	if (hero.currentFrameLabel == "walk" && hero.walk.walking) {
+		itaskComplete += .01;
+	}
+}
+function absorbBlock():void {
+	if (hero.currentFrameLabel == "block" && hero.block.currentFrameLabel == "blocking") {
+		 itaskComplete += .02;
+	}
+}
+function absorbDodge():void {
+	if (hero.currentFrameLabel == "dodge") {
+		switch (hero.dodge.currentFrameLabel) {
+			case "dodgeForward":
+				itaskComplete += .2;
+				break;
+			case "dodgeForward2":
+				itaskComplete += .2;
+				break;
+			case "dodgeForward3":
+				itaskComplete += .2;
+				break;
+			case "dodgeBack":
+				itaskComplete += .2;
+				break;
+			case "dodgeBack2":
+				itaskComplete += .2;
+				break;
+			case "dodgeBack3":
+				itaskComplete += .2;
+				break;
+		}
+	}
+}
+function absorbAttack():void {
+	//in enemy hit function
+}
+function absorbPowerStrike():void {
+	//in enemy hit function
+}
+
+function updateBar():void {
+	bar.scaleX += ((itaskComplete/itaskCompleteOrig)-bar.scaleX)/3;
+	if (bar.scaleX > 1) bar.scaleX =1;
+	skipClip.update();
+}
+
+function updatePosition ():void {
+	x += (camHelper.x - x)/10;
+	y += ((camHelper.y - 200) - y)/10;
+}
+
+//called on mainclip complete frame script
+function taskComplete():void {
+	itaskComplete = 0;
+	
+	tasksCompleted ++;
+	
+	switch (tasksCompleted) {
+		case 1:
+			currentTask = taskBLOCK;
+			completeClip.visible = true;
+			break;
+		case 2:
+			currentTask = this.taskDODGE;
+			completeClip.visible = true;
+			break;
+		case 3:
+			currentTask = this.taskATTACK;
+			completeClip.visible = true;
+			break;
+		case 4:
+			currentTask = this.taskPOWERSTRIKE;
+			completeClip.visible = true;
+			break;
+		case 5:
+			currentTask = this.taskITEMS;
+			//done
+			break;
+	}
+	
+	
+	startNextTask();
+}
+
+function startNextTask():void {
+	mainClip.gotoAndStop(currentTask);
+	mainClip.alpha = 0;
+	TweenMax.to(mainClip, 20, {alpha:1, useFrames:true});
+	
+	switch (currentTask) {
+		case taskMOVE:
+			
+		break;
+		case taskBLOCK:
+			
+		break;
+		case taskDODGE:
+			
+		break;
+		case taskATTACK:
+			_parent.enemiesArr.push(_parent.en0);
+			_parent.en0.x = 280;
+			_parent.en0.y = -320;
+			_parent.en0.dummy = true;
+			_parent.en0.addEventListener("HIT", enemyHit);
+		break;
+		case taskPOWERSTRIKE:
+			
+		break;
+		case taskITEMS:
+			end();
+			
+		break;
+		/////////////////////////////////////////////////////
+		case taskCOMPLETING:
+			
+		break;
+	}
+}
+
+function enemyHit(e:Event):void {
+	switch (currentTask) {
+		case taskATTACK:
+			itaskComplete += .2;
+		break;
+		case taskPOWERSTRIKE:
+			if (hero.currentFrameLabel == "attack") {
+				if (hero.attack.currentFrame >= 130 && hero.attack.currentFrame < 164) {
+					itaskComplete += .5;
+					if (itaskComplete >= itaskCompleteOrig) {
+						currentTask = this.taskPOWERSTRIKE;
+						_parent.en0.dummy = false;
+						_parent.en0.life = 0;
+					}
+				}
+			}
+		break;
+	}
+}
+
+function end():void {
+	gameData.playedTutorial = true;
+	gameData.saveData();
+	
+	_parent.transitionScreen.gotoAndPlay("open2");
+	hero.moveable = false;
+	hero.active = false;
+	_parent.en0.removeEventListener("HIT", enemyHit);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-Title" name="titleClip">
+                  <matrix>
+                    <Matrix ty="-107.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-ObjectiveInstruct" name="mainClip" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="6.1" ty="-28.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Tutorial2/Symbol 1" name="skipClip" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="-0.7" ty="65.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-Bar2" name="barB">
+                  <matrix>
+                    <Matrix tx="0.35" ty="32.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-Bar" name="bar">
+                  <matrix>
+                    <Matrix tx="-185.85" ty="32.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-CompletedCounter" name="completeClip">
+                  <matrix>
+                    <Matrix tx="122.15" ty="-47.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,404 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-logo/UI-Logo-Animation" itemID="54cc99f5-00000ecc" lastModified="1485086158" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="UI-Logo-Animation" currentFrame="179">
+      <layers>
+        <DOMLayer name="Layer 8" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="82" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = true;
+var sndCtrl:MovieClip = MovieClip(root);
+
+sndCtrl.playUISound(sndCtrl.sndDust);
+sndCtrl.playUISound(sndCtrl.sndSwordShingk);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="83" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playUISound(sndCtrl.sndEpicSpawn, 0, 1.2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="92" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow" centerPoint3DX="-38.55" centerPoint3DY="78.65">
+                  <matrix>
+                    <Matrix a="1.078369140625" d="2.61119079589844" tx="-38.5" ty="-10.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="30" blurY="4" quality="3"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="93" duration="134" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="227" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/Rearmed_text_animation" symbolType="graphic" firstFrame="70" loop="loop">
+                  <matrix>
+                    <Matrix a="0.775177001953125" d="0.5826416015625" tx="-27.7" ty="130.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/LOGO_text_animated" symbolType="graphic" firstFrame="74" loop="loop">
+                  <matrix>
+                    <Matrix tx="-48.25" ty="20.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="89" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="138" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/LOGO_text_animated" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix tx="-48.25" ty="20.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" duration="103" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="103" duration="125" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/Rearmed_text_animation" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="0.775177001953125" d="0.5826416015625" tx="-27.7" ty="130.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#4FFFFF">
+          <frames>
+            <DOMFrame index="0" duration="103" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="103" duration="31" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.333333333333333" y="0.666666666666667"/>
+                  <Point x="0.666666666666667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow2" centerPoint3DX="-49.6" centerPoint3DY="132.25">
+                  <matrix>
+                    <Matrix a="0.062286376953125" d="0.647064208984375" tx="-49.6" ty="132.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="12" blurY="12" quality="3"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="134" duration="94" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow2" centerPoint3DX="-49.6" centerPoint3DY="132.25">
+                  <matrix>
+                    <Matrix a="0.658798217773438" d="0.647064208984375" tx="-49.55" ty="132.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="12" blurY="12" quality="3"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.51171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="57" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2456" y="0.9"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/Glowing_sword_tip" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="273.45" ty="98.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="17" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.333333333333333"/>
+                  <Point x="0.666666666666667" y="0.333333333333333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/Glowing_sword_tip" symbolType="graphic" firstFrame="9" loop="loop">
+                  <matrix>
+                    <Matrix tx="-402.5" ty="99"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/Glowing_sword_tip" symbolType="graphic" firstFrame="10" loop="loop">
+                  <matrix>
+                    <Matrix a="0.632980346679688" d="0.632980346679688" tx="-402.5" ty="99"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="152" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="58" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/UI-Logo-Animation-Sword" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix tx="-42.7" ty="98.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="32" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.333333333333333"/>
+                  <Point x="0.666666666666667" y="0.333333333333333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/sword" centerPoint3DX="-42.75" centerPoint3DY="98.05">
+                  <matrix>
+                    <Matrix tx="-42.7" ty="98.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="90" duration="138" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/sword" centerPoint3DX="-42.75" centerPoint3DY="98.05">
+                  <matrix>
+                    <Matrix tx="-42.7" ty="98.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 7" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="90" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="0.119110107421875" tx="-44.25" ty="94.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="92" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-44.25" ty="-12.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="107" duration="121" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="0.672103881835938" tx="-44.25" ty="34.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.48828125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 9" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="90" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="81" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="171" duration="57" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="89" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow" centerPoint3DX="-38.55" centerPoint3DY="58.65">
+                  <matrix>
+                    <Matrix a="1.078369140625" d="0.461990356445313" tx="-38.5" ty="88.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="30" blurY="4" quality="3"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="92" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.333333333333333" y="0.666666666666667"/>
+                  <Point x="0.666666666666667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow" centerPoint3DX="-38.55" centerPoint3DY="78.65">
+                  <matrix>
+                    <Matrix a="1.078369140625" d="2.61119079589844" tx="-38.5" ty="-10.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="30" blurY="4" quality="3"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="107" duration="121" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/assets/UI-Logo-Glow" centerPoint3DX="-38.55" centerPoint3DY="58.65">
+                  <matrix>
+                    <Matrix a="1.078369140625" d="1.59469604492188" tx="-38.5" ty="25.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="135" blurY="18" quality="3"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.48828125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

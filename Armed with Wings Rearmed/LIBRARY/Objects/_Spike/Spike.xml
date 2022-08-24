@@ -1,0 +1,244 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Spike/Spike" itemID="55f59d2b-000008bf" lastModified="1485440795" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="Spike" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var hero:MovieClip;
+var ground:MovieClip;
+var sndCtrl:MovieClip;
+var particleLayer:MovieClip;
+
+var ySpeed:Number;
+var xSpeed:Number;
+var X:Number;
+var Y:Number;
+
+//component
+var range:Number;
+var shakeTime:Number;
+
+var onGround:Boolean;
+var hitGround:Boolean;
+var startShaking:Boolean;
+var state:String;
+//hack to stop beast boss from flipping
+var dontSpinEnemies:Boolean = true;
+
+init();
+
+function init ():void {
+	MovieClip(parent).objectsArr.push(this);
+	
+	hero = MovieClip(parent).hero;
+	ground = MovieClip(parent).ground;
+	sndCtrl = MovieClip(root);
+	particleLayer = MovieClip(parent).particleLayer;
+	
+	xSpeed = 0;
+	ySpeed = 0;
+	X = x;
+	Y = y;
+	
+	if (!range) range = 300;
+	if (!shakeTime) shakeTime = 20;
+	
+	onGround = false;
+	startShaking = false;
+	state = "on";
+}
+
+function update ():void {
+	switch (state) {
+		case "on":
+			seek();
+			break;
+		case "off":
+			physics();
+			hitEnemies();
+		break;
+			
+	}
+}
+
+function hitEnemies ():void {
+	if (!hitGround) {
+		if (hero.currentFrameLabel == "dodge" && hero.dodge.dodging) {
+			
+		} else {
+			if (hero.bound.hitTestObject(this.bound)) {
+				hero.takeDamage(this, 6, 0, 1, false, false, true);
+				hitGround = true;
+				state = null;
+				impact();
+			}
+		}
+		
+		var enemiesArr:Array = MovieClip(parent).enemiesArr;
+		for (var i:int = 0; i < enemiesArr.length; i ++) {
+			var en:MovieClip = enemiesArr[i];
+			if (this.bound.hitTestObject(en.bound)) {
+				en.takeDamage(this, 6, 0, 1, false);
+				hitGround = true;
+				state = null;
+				impact();
+			}
+		}
+	}
+}
+
+function seek():void {
+	if (distanceBetweenX(this, hero) < range) {
+		
+		startShaking = true;
+	}
+	
+	if (startShaking) {
+		if (shakeTime > 0) {
+			shakeTime --;
+			
+			x = X + (Math.random()*5 - Math.random()*5);
+			y = Y + (Math.random()*5 - Math.random()*5);
+			
+		} else {
+			particleLayer.addDust(1, x, y, 1);
+			state = "off";
+		}
+	}
+}
+
+function physics():void {
+	ySpeed -= .65;
+	y -= ySpeed;
+	
+	if (xSpeed > 0) {
+		xSpeed -= .25;
+		if (xSpeed < 0) xSpeed = 0;
+	}
+	if (xSpeed < 0) {
+		xSpeed += .25;
+		if (xSpeed > 0) xSpeed = 0;
+	}
+	
+	x += xSpeed;
+	
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true)){
+		ySpeed = 0;
+		y -= 1;
+	}
+	
+	if (ground.hitTestPoint(getGlobalX(), getGlobalY()+4, true)) {
+		if (!onGround) {
+			
+		}
+		onGround = true;
+	} else {
+		onGround = false;
+	}
+	
+	if (onGround) {
+		if (!hitGround) {
+			impact();
+			hitGround = true;
+		}
+	}
+}
+
+function impact():void {
+	sndCtrl.playSound(sndCtrl.sndRockThud);
+	for (var i:int = 0; i < 4; i ++) {
+		particleLayer.addStone(x, y, 15,15);
+	}
+	visible = false;
+}
+
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = Math.abs(obj1.x - obj2.x);
+    return X;
+}
+function distanceBetweenY(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var Y:Number = Math.abs(obj1.y - obj2.y);
+    return Y;
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0.308517456054688" d="0.308517456054688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!-38 -137[-42 -134 -45 -129!-45 -129[-50 -119 -60 -129!-60 -129[-80 -151 -97 -177!-97 -177[-100 -181 -105 -184!-105 -184[-146 -204 -147 -254!-147 -254[-147 -259 -150 -264!-150 -264[-160 -282 -158 -304!-158 -304[-157 -312 -153 -319!-153
+ -319[-147 -327 -140 -335!-140 -335[-91 -387 -25 -394!-25 -394[-18 -395 -10 -397!-10 -397[-7 -397 -5 -397!-5 -397[-2 -397 -1 -394!-1 -394[25 -342 44 -284!44 -284[56 -246 44 -210!44 -210[43 -206 41 -204!41 -204[#22.CA #FFFF3E.83 29 -182
+!29 -182[-10.171875 #FFFF61.89 -38 -137"/>
+                    <Edge fillStyle1="1" edges="
+!-110 158[-113 141 -107 121!-107 121[-82 42 -93 -3!-93 -3[-97 -19 -98 -38!-98 -38[-98 -75 -130 -122!-130 -122[-148 -149 -167 -174!-167 -174[-178 -189 -187 -205!-187 -205[-199 -229 -202 -259!-202 -259[-203 -299 -204 -339!-204 -339[-7.8359375
+ #FFFDA4.02 -5.5 -604!-5.5 -604[-2.953125 #FFFDA3.CA 101.5 -523.5!101.5 -523.5[#CD.DD #FFFE45.3D 188.5 -336!188.5 -336[#AB.0D #FFFF1A.EB 159 -179!159 -179[98 91 17 360!17 360[17 361 -3 364!-3 364[-15 366 -26 366!-26 366[-88 271 -110 158"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="
+!34 157[35 154 40 150!40 150[43 149 45 146!45 146[54 150 52 166!52 166[50 199 49 231!49 231[49 252 36 263!36 263[33 266 29 270!29 270[28 271 25 271!25 271[23 269 21 266!21 266[20 264 19 262!19 262[#12.AE #105.81 18.5 261!18.5 261[#18.2F
+ #CF.96 34 157!-66 217|-82 166!-82 166[-43 112 -48 47!-48 47[-50 27 -51 8!-51 8|5 -140!5 -140[45 -55 47 81!47 81[-3 201 -8 334!-8 334|-66 217"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="shakeTime">
+      <Inspectable name="shakeTime" variable="shakeTime" category="" verbose="0" defaultValue="20" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

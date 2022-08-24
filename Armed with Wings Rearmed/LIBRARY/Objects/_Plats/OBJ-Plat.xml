@@ -1,0 +1,200 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Plats/OBJ-Plat" itemID="57a1fff2-0001ee8b" lastModified="1499958593" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Plat">
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var moveSpeed:Number;
+var maxMoveSpeed:Number;
+var accelSpeed:Number;
+var dir:int;
+
+var minPos:Number;
+var maxPos:Number;
+var X:Boolean;
+var Y:Boolean;
+
+var hero:MovieClip;
+var ground:MovieClip;
+var _parent:MovieClip;
+
+init();
+
+function init ():void {
+	moveSpeed = 0;
+	maxMoveSpeed = 5;
+	accelSpeed = .2;
+	dir = 1;
+	
+	if (!minPos) minPos = 0;
+	if (!maxPos) minPos = 0;
+	
+	hero = MovieClip(parent.parent).hero;
+	ground = MovieClip(parent);
+	_parent = MovieClip(parent.parent);
+	
+}
+
+function update ():void {
+	if (moveSpeed > 0) {
+		moveSpeed -= .1;
+		
+		if (X) updateX();
+		if (Y) updateY();
+	}
+	
+	if (withinRange()) {
+		//if (ground.hitTestPoint(hero.getGlobalX(), hero.getGlobalY(3), true)) {
+			hero.y = ground.y + y+1;
+			hero.ySpeed = -5;
+			
+			if (X) {
+				hero.x += moveSpeed*dir;
+			}
+		//}
+	}
+	
+	if (hero.y > ground.y + y+1) {
+		
+	}
+	
+	/*
+	if (withinRange()) {
+		var go:Boolean = true;
+		if (hero.currentFrameLabel == "walk" && (hero.walk.jumping || hero.walk.falling)) go = false;
+		if (hero.currentFrameLabel == "attack" && hero.attack.jumpAttack) go = false;
+		if (hero.currentFrameLabel == "jump") go = false;
+		if (hero.currentFrameLabel == "dodge" && hero.dodge.airborn) go = false;
+		
+		if (go) {
+			hero.y = y + ground.y;
+			
+			if (X) {
+				if (hero.bound.hitTestObject(bound)) {
+					hero.x += moveSpeed*dir;
+				}		
+			}
+		}
+	}
+	*/
+}
+
+function updateX():void {
+	if (dir == 1) {
+		x += moveSpeed;
+		if (x >= maxPos) {
+			dir = -1;
+		}
+	} else if (dir == -1) {
+		x -= moveSpeed;
+		if (x <= minPos) {
+			dir = 1;
+		}
+	}
+}
+function updateY():void {
+	if (dir == 1) {
+		y += moveSpeed;
+		if (y >= maxPos) {
+			dir = -1;
+		}
+	} else if (dir == -1) {
+		y -= moveSpeed;
+		if (y <= minPos) {
+			dir = 1;
+		}
+	}
+}
+
+function withinRange():Boolean {
+	if (hero.x > (x + ground.x) -(bound.width*.5) && 
+		hero.x < (x + ground.x) +(bound.width*.5) &&
+		hero.y > (y + ground.y) -15 && 
+		hero.y < (y + ground.y) +30) {
+		
+		return true;
+	} else {
+		return false;
+	}
+}
+function heroIsUnder():void {
+	
+}
+
+function applyForce ():void {
+	if (moveSpeed < maxMoveSpeed) {
+		moveSpeed += accelSpeed;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-2471 -35|2472 -35!2472 -35|2403 278!2403 278|1378 278!1378 278|1257 157!1257 157|-1241 157!-1241 157|-1362 278!-1362 278|-2414 278!-2414 278|-2471 -35!-1127 202|1125 202!1125 202|1238 342!1238 342|-1230 342!-1230 342|-1127 202"/>
+                    <Edge cubics="!-2471 -35(-2471,-35;-2471,-35 2472,-35 2472,-35q-2471 -35 2472 -35)2472,-35;"/>
+                    <Edge cubics="!-1230 342(;-1230,342 -1127,202 -1127,202q-1230 342 -1127 202);"/>
+                    <Edge cubics="!-1362 278(;-1362,278 -2414,278 -2414,278q-1362 278 -2414 278);"/>
+                    <Edge cubics="!1125 202(;1125,202 1238,342 1238,342q1125 202 1238 342);"/>
+                    <Edge cubics="!2403 278(2403,278;2403,278 1378,278 1378,278q2403 278 1378 278)1378,278;"/>
+                    <Edge cubics="!1238 342(;1238,342 -1230,342 -1230,342q1238 342 -1230 342);"/>
+                    <Edge cubics="!-1127 202(-1127,202;-1127,202 1125,202 1125,202q-1127 202 1125 202)1125,202;"/>
+                    <Edge cubics="!-1241 157(-1241,157;-1241,157 -1362,278 -1362,278q-1241 157 -1362 278)-1362,278;"/>
+                    <Edge cubics="!1378 278(;1378,278 1257,157 1257,157q1378 278 1257 157);"/>
+                    <Edge cubics="!-1241 157(;-1241,157 1257,157 1257,157q-1241 157 1257 157);"/>
+                    <Edge cubics="!2472 -35(;2472,-35 2403,278 2403,278q2472 -35 2403 278);"/>
+                    <Edge cubics="!-2414 278(;-2414,278 -2471,-35 -2471,-35q-2414 278 -2471 -35);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0" b="-0.660995483398438" c="2.63096618652344" d="0" ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="minPos">
+      <Inspectable name="minPos" variable="minPos" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="maxPos">
+      <Inspectable name="maxPos" variable="maxPos" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="X">
+      <Inspectable name="X" variable="X" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="Y">
+      <Inspectable name="Y" variable="Y" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

@@ -1,0 +1,189 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-LootBarr/UI-LootBar" itemID="5800d672-000031d8" lastModified="1497082756" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-LootBar">
+      <layers>
+        <DOMLayer name="Lootbar actions" color="#9933CC" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var gameData:MovieClip;
+var game:MovieClip;
+
+var oldTarget:Number;
+var target:Number;
+var waiting:Boolean;
+var exhausted:Boolean;
+
+init();
+
+function init():void {
+	visible = false;
+	gameData = MovieClip(root);
+	game = gameData.game;
+}
+
+function updateValues(_oldTarget:Number, _target:Number, _waiting:Boolean, _exhausted:Boolean):void {
+	oldTarget = _oldTarget
+	target = _target;
+	waiting = _waiting;
+	exhausted = _exhausted;
+}
+
+function update ():void {
+
+	if (waiting) {
+		textClip.visible = true;
+		bar2.scaleX = 1;
+		tfClip.tf_complete.text = "ARRIVING";
+		if (bar.currentFrame == 1) bar.play();
+	} else if (exhausted) {
+		textClip.visible = false;
+		bar2.scaleX = 0;
+		tfClip.tf_complete.text = "WEAPONS EXHAUSTED";
+		bar.gotoAndStop(1);
+	} else {
+		textClip.visible = true;
+		var barVal:Number = ((gameData.sessionScore - oldTarget)/(target - oldTarget))
+		bar2.scaleX = barVal;
+		if (bar2.scaleX > 1) bar.scaleX = 1;
+		if (bar2.scaleX < 0) bar.scaleX = 0;
+		bar.gotoAndStop(1);
+		tfClip.tf_complete.text = ""+Math.round(barVal*100)+"%";
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FFFFFF" alpha="0.498039215686275"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!201 200|1 0!1 0|201 -200!201 -200|5224 -200!5224 -200|5424 0!5424 0|5424 1!5424 1|5225 200!5225 200|201 200"/>
+                    <Edge cubics="!1 0(;1,0 201,-200 201,-200q1 0 201 -200);"/>
+                    <Edge cubics="!5424 0(;5424,0 5424,1 5424,1q5424 0 5424 1);"/>
+                    <Edge cubics="!5424 0(;5424,0 5224,-200 5224,-200q5424 0 5224 -200);"/>
+                    <Edge cubics="!201 -200(;201,-200 5224,-200 5224,-200q201 -200 5224 -200);"/>
+                    <Edge cubics="!5225 200(;5225,200 201,200 201,200q5225 200 201 200);"/>
+                    <Edge cubics="!5424 1(;5424,1 5225,200 5225,200q5424 1 5225 200);"/>
+                    <Edge cubics="!201 200(;201,200 1,0 1,0q201 200 1 0);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="txt" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 55" name="textClip" blendMode="invert">
+                  <matrix>
+                    <Matrix tx="11.05" ty="2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="40.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-LootBarr/UI-LootBar-Text" name="tfClip" blendMode="invert">
+                  <matrix>
+                    <Matrix tx="135.55" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#669900" current="true" isSelected="true" autoNamed="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LootBarr/UI-LootBar-Mask" name="bar2">
+                  <matrix>
+                    <Matrix ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bar" color="#9933CC" parentLayerIndex="3" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-BossBar/UI-BossBar-Bar" name="bar" centerPoint3DX="326.35">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!21 20|1 0!1 0|201 -200!201 -200|5224 -200!5224 -200|5424 0!5424 0|5424 1!5424 1|5370 57"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!5370 57|5225 200!5225 200|201 200!201 200|21 20"/>
+                    <Edge fillStyle1="2" edges="!5370 57|5385 42!5385 42|5404 61!5404 61|5205 260!5205 260[5193 259 5182 259!5182 259|1627 259!1627 259[#64F.04 #103.7F 1603 260!1603 260|1602 259!1602 259|181 259!181 259|-19 60!-19 60|21 20"/>
+                    <Edge cubics="!1 0(;1,0 201,-200 201,-200q1 0 201 -200);"/>
+                    <Edge cubics="!1603 260(;1603,260 1602,259 1602,259q1603 260 1602 259);"/>
+                    <Edge cubics="!1 0(;1,0 21,20 21,20q1 0 21 20);"/>
+                    <Edge cubics="!21 20(;21,20 201,200 201,200q21 20 201 200);"/>
+                    <Edge cubics="!1602 259(;1602,259 181,259 181,259q1602 259 181 259);"/>
+                    <Edge cubics="!-19 60(;-19,60 181,259 181,259q-19 60 181 259);"/>
+                    <Edge cubics="!-19 60(;-19,60 21,20 21,20q-19 60 21 20);"/>
+                    <Edge cubics="!5424 0(;5424,0 5424,1 5424,1q5424 0 5424 1);"/>
+                    <Edge cubics="!5424 0(;5424,0 5224,-200 5224,-200q5424 0 5224 -200);"/>
+                    <Edge cubics="!5385 42(;5385,42 5404,61 5404,61q5385 42 5404 61);"/>
+                    <Edge cubics="!5404 61(;5404,61 5205,260 5205,260q5404 61 5205 260);"/>
+                    <Edge cubics="!5370 57(;5370,57 5385,42 5385,42q5370 57 5385 42);"/>
+                    <Edge cubics="!5424 1(;5424,1 5370,57 5370,57q5424 1 5370 57);"/>
+                    <Edge cubics="!5370 57(;5370,57 5225,200 5225,200q5370 57 5225 200);"/>
+                    <Edge cubics="!5205 260(;5197,259 5189,259 5182,259q5205 260Q5193 259q5182 259);"/>
+                    <Edge cubics="!1627 259(;1619,259 1611,259 1603,260q1627 259Q1615 259q1603 260);"/>
+                    <Edge cubics="!201 -200(;201,-200 5224,-200 5224,-200q201 -200 5224 -200);"/>
+                    <Edge cubics="!5225 200(;5225,200 201,200 201,200q5225 200 201 200);"/>
+                    <Edge cubics="!5182 259(;5182,259 1627,259 1627,259q5182 259 1627 259);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

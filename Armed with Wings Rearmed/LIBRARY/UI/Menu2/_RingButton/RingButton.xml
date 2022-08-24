@@ -1,0 +1,1387 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_RingButton/RingButton" itemID="562bd360-0000137e" lastModified="1572441422" lastUniqueIdentifier="10" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="RingButton" currentFrame="2">
+      <layers>
+        <DOMLayer name="actions" color="#669900" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+var id:Number;
+if (!id) id = 0;
+var textClip:MovieClip;
+
+stop();
+
+function init ():void {
+	gotoAndPlay("over");
+}
+
+function update ():void {
+	for (var i:int = 0; i < 4; i ++) {
+		if (this["ring"+i]) this["ring"+i].update();
+	}
+}
+
+function select ():void {
+	if (textClip) {
+		gotoAndPlay("over");
+		textClip.gotoAndPlay("over");
+	}
+}
+function unselect ():void {
+	if (textClip) {
+		gotoAndPlay("out");
+		textClip.gotoAndPlay("out");
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" name="over" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+
+visible = true;
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" duration="51" name="loop" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("loop");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" duration="7" name="out" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="67" duration="27" name="hit" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="94" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="94" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Body" name="textClip" selected="true">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="15" blurY="15" color="#FFFFFF" strength="0.53"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring0" uniqueID="6">
+                  <matrix>
+                    <Matrix a="0.178054809570313" d="0.178054809570313"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3478"/>
+                  <Point x="0.6362" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring0" uniqueID="6">
+                  <matrix>
+                    <Matrix a="0.372711181640625" d="0.372711181640625"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6944" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring0" uniqueID="6">
+                  <matrix>
+                    <Matrix a="0.348342895507813" d="0.348342895507813"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2073" y="0.9"/>
+                  <Point x="0.6524" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring0" uniqueID="6">
+                  <matrix>
+                    <Matrix a="0.372711181640625" d="0.372711181640625"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring0" uniqueID="6">
+                  <matrix>
+                    <Matrix a="0.178054809570313" d="0.178054809570313"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="67" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333" y="0.6667"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring0" uniqueID="6">
+                  <matrix>
+                    <Matrix a="0.247482299804688" d="0.247482299804688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73" tintColor="#FFFFFF"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="22" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3182" y="0.1"/>
+                  <Point x="0.2012" y="0.9589"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring0" centerPoint3DX="-0.05" uniqueID="6">
+                  <matrix>
+                    <Matrix a="0.4317626953125" d="0.4317626953125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62" tintColor="#FFFFFF"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring0" centerPoint3DX="-0.05" uniqueID="6">
+                  <matrix>
+                    <Matrix a="0.372711181640625" d="0.372711181640625"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring1" uniqueID="7">
+                  <matrix>
+                    <Matrix a="0.160079956054688" d="0.160079956054688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.37"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3478"/>
+                  <Point x="0.6362" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring1" uniqueID="7">
+                  <matrix>
+                    <Matrix a="0.334457397460938" d="0.334457397460938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.37"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6944" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring1" uniqueID="7">
+                  <matrix>
+                    <Matrix a="0.3245849609375" d="0.3245849609375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.37"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2073" y="0.9"/>
+                  <Point x="0.6524" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring1" uniqueID="7">
+                  <matrix>
+                    <Matrix a="0.334457397460938" d="0.334457397460938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.37"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring1" uniqueID="7">
+                  <matrix>
+                    <Matrix a="0.160079956054688" d="0.160079956054688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.37"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="67" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333" y="0.6667"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring1" uniqueID="7">
+                  <matrix>
+                    <Matrix a="0.222091674804688" d="0.222091674804688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73" tintColor="#FFFFFF"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="22" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3182" y="0.1"/>
+                  <Point x="0.2012" y="0.9589"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring1" uniqueID="7">
+                  <matrix>
+                    <Matrix a="0.360321044921875" d="0.360321044921875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62" tintColor="#FFFFFF"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring1" uniqueID="7">
+                  <matrix>
+                    <Matrix a="0.334457397460938" d="0.334457397460938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.37"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring2" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.143722534179688" d="0.143722534179688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3478"/>
+                  <Point x="0.6362" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring2" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.29962158203125" d="0.29962158203125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6944" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring2" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.303085327148438" d="0.303085327148438"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2073" y="0.9"/>
+                  <Point x="0.6524" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring2" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.29962158203125" d="0.29962158203125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring2" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.143722534179688" d="0.143722534179688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="67" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333" y="0.6667"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring2" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.198959350585938" d="0.198959350585938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73" tintColor="#FFFFFF"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="22" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3182" y="0.1"/>
+                  <Point x="0.2012" y="0.9589"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring2" centerPoint3DX="-0.05" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.310195922851563" d="0.310195922851563"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62" tintColor="#FFFFFF"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring2" centerPoint3DX="-0.05" uniqueID="8">
+                  <matrix>
+                    <Matrix a="0.29962158203125" d="0.29962158203125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.62"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring3" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.128662109375" d="0.128662109375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3478"/>
+                  <Point x="0.6362" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring3" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.267593383789063" d="0.267593383789063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6944" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring3" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.283279418945313" d="0.283279418945313"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2073" y="0.9"/>
+                  <Point x="0.6524" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring3" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.267593383789063" d="0.267593383789063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring3" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.128662109375" d="0.128662109375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="67" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333" y="0.6667"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring3" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.177688598632813" d="0.177688598632813"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73" tintColor="#FFFFFF"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="22" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3182" y="0.1"/>
+                  <Point x="0.2012" y="0.9589"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring3" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.268630981445313" d="0.268630981445313"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73" tintColor="#FFFFFF"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-00" name="ring3" uniqueID="9">
+                  <matrix>
+                    <Matrix a="0.267593383789063" d="0.267593383789063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="speed">
+      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="background" color="#808080" locked="true" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.477706909179688" d="0.477706909179688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3478"/>
+                  <Point x="0.6362" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6944" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.943099975585938" d="0.943099975585938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2073" y="0.9"/>
+                  <Point x="0.6524" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.477706909179688" d="0.477706909179688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="67" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333" y="0.6667"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.664016723632813" d="0.664016723632813"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="22" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3182" y="0.1"/>
+                  <Point x="0.2012" y="0.9589"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.15843200683594" d="1.15843200683594"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.73" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Background" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="gradiant" color="#4F80FF" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix a="0.341400146484375" d="0.341400146484375" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="3" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.339764675027054"/>
+                  <Point x="0.672443470757346" y="0.362874219176281"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow">
+                  <matrix>
+                    <Matrix a="0.714645385742188" d="0.714645385742188"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="21" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.336409793543106" y="0.196286313596633"/>
+                  <Point x="0.634999288907764" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow">
+                  <matrix>
+                    <Matrix a="0.712905883789063" d="0.712905883789063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6944" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow">
+                  <matrix>
+                    <Matrix a="0.672134399414063" d="0.672134399414063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2073" y="0.9"/>
+                  <Point x="0.6524" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow">
+                  <matrix>
+                    <Matrix a="0.714645385742188" d="0.714645385742188"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319581780022386" y="0.463645299684088"/>
+                  <Point x="0.63852217605254" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix a="0.341400146484375" d="0.341400146484375" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="67" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333" y="0.6667"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow">
+                  <matrix>
+                    <Matrix a="0.474533081054688" d="0.474533081054688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="22" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3182" y="0.1"/>
+                  <Point x="0.2012" y="0.9589"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow">
+                  <matrix>
+                    <Matrix a="0.827865600585938" d="0.827865600585938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Glow">
+                  <matrix>
+                    <Matrix a="0.714645385742188" d="0.714645385742188"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="-100" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

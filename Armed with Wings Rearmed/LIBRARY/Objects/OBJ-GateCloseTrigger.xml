@@ -1,0 +1,56 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-GateCloseTrigger" itemID="5889f4ab-00001aaf" lastModified="1485440796">
+  <timeline>
+    <DOMTimeline name="OBJ-GateCloseTrigger">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var gate:MovieClip;
+var done:Boolean;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	gate = MovieClip(parent).ground.gate3;
+}
+
+function update ():void {
+	if (CameraDistCheck.inRange(this)) {
+		if (!done) {
+			if (hero.bound.hitTestObject(this)) {
+				gate.gotoAndPlay("close");
+				done = true;
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="3.319580078125" d="5.84286499023438" tx="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

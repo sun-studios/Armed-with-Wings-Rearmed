@@ -1,0 +1,55 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/HollyDust/PRT-HolyDust" itemID="57adf219-000051bd" linkageExportForAS="true" linkageClassName="HolyDust" lastModified="1471070977" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="PRT-HolyDust">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[//var speed:Number = 3;
+
+function init ():void {
+	//speed = (Math.random()*6);
+}
+
+function update ():void {
+	//y += speed;
+}
+
+function kill():void {
+	MovieClip(parent).removeFromHolyDustArr(this);
+	MovieClip(parent).removeChild(this);
+}
+
+gotoAndStop(1+Math.round(Math.random()));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/HollyDust/Part1-BitmapFill-small-OPTIMIZED">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/HollyDust/Part2-BitmapFill-small-OPTIMIZED">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

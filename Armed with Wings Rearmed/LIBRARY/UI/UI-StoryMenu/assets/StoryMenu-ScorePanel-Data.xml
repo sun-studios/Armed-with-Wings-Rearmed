@@ -1,0 +1,417 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-StoryMenu/assets/StoryMenu-ScorePanel-Data" itemID="5554afac-00000643" lastModified="1485440789" lastUniqueIdentifier="5">
+  <timeline>
+    <DOMTimeline name="StoryMenu-ScorePanel-Data">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+import flash.text.TextField;
+import flash.display.MovieClip;
+
+var score_tf:TextField;
+var level_tf:TextField;
+var time_tf:TextField;
+var combo_tf:TextField;
+var lives_tf:TextField;
+
+var weaponIcon:MovieClip;
+var gearIcon0:MovieClip;
+var gearIcon1:MovieClip;
+var gearIcon2:MovieClip;
+var gearIcon3:MovieClip;
+
+var gameData:MovieClip;
+var bestRun:Array;
+
+init();
+
+function init():void {
+	gameData = MovieClip(root);
+	if (gameData && gameData.bestRun)
+		bestRun = gameData.bestRun;
+	
+	if (bestRun && bestRun[0]) {
+	
+		score_tf.text = ""+bestRun[0];
+		level_tf.text = ""+bestRun[1];
+		time_tf.text = ""+bestRun[2]
+		combo_tf.text = ""+bestRun[3];
+		lives_tf.text = ""+(bestRun[4]-1);
+		
+		weaponIcon.gotoAndStop(1+(bestRun[5]));
+		gearIcon0.gotoAndStop(1+(bestRun[6]));
+		gearIcon1.gotoAndStop(1+(bestRun[7]));
+		gearIcon2.gotoAndStop(1+(bestRun[8]));
+		gearIcon3.gotoAndStop(1+(bestRun[9]));
+		
+	} else {
+		gotoAndStop(2);
+	}
+}
+
+function update():void {
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#666666"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#999999"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!602 -1532|2092 -1532!2092 -1532|2092 -42!2092 -42|602 -42!602 -42|602 -1532"/>
+                    <Edge fillStyle1="2" edges="!1385 30|2110 30!2110 30|2110 756!2110 756|1385 756!1385 756|1385 30!1385 807|2110 807!2110 807|2110 1532!2110 1532|1385 1532!1385 1532|1385 807!602 27|1328 27!1328 27|1328 753!1328 753|602 753!602 753|602 27!602 803|1328 803!1328 803
+|1328 1529!1328 1529|602 1529!602 1529|602 803"/>
+                    <Edge cubics="!602 -42(602,-42;602,-42 602,-1532 602,-1532q602 -42 602 -1532);"/>
+                    <Edge cubics="!2092 -42(;2092,-42 602,-42 602,-42q2092 -42 602 -42);"/>
+                    <Edge cubics="!2092 -1532(2092,-1532;2092,-1532 2092,-42 2092,-42q2092 -1532 2092 -42)2092,-42;"/>
+                    <Edge cubics="!602 -1532(602,-1532;602,-1532 2092,-1532 2092,-1532q602 -1532 2092 -1532)2092,-1532;"/>
+                    <Edge cubics="!602 753(602,753;602,753 602,27 602,27q602 753 602 27);"/>
+                    <Edge cubics="!1328 753(;1328,753 602,753 602,753q1328 753 602 753);"/>
+                    <Edge cubics="!1328 27(1328,27;1328,27 1328,753 1328,753q1328 27 1328 753)1328,753;"/>
+                    <Edge cubics="!602 27(602,27;602,27 1328,27 1328,27q602 27 1328 27)1328,27;"/>
+                    <Edge cubics="!602 1529(602,1529;602,1529 602,803 602,803q602 1529 602 803);"/>
+                    <Edge cubics="!1328 1529(;1328,1529 602,1529 602,1529q1328 1529 602 1529);"/>
+                    <Edge cubics="!1328 803(1328,803;1328,803 1328,1529 1328,1529q1328 803 1328 1529)1328,1529;"/>
+                    <Edge cubics="!602 803(602,803;602,803 1328,803 1328,803q602 803 1328 803)1328,803;"/>
+                    <Edge cubics="!1385 756(1385,756;1385,756 1385,30 1385,30q1385 756 1385 30);"/>
+                    <Edge cubics="!2110 756(;2110,756 1385,756 1385,756q2110 756 1385 756);"/>
+                    <Edge cubics="!2110 30(2110,30;2110,30 2110,756 2110,756q2110 30 2110 756)2110,756;"/>
+                    <Edge cubics="!1385 30(1385,30;1385,30 2110,30 2110,30q1385 30 2110 30)2110,30;"/>
+                    <Edge cubics="!1385 1532(1385,1532;1385,1532 1385,807 1385,807q1385 1532 1385 807);"/>
+                    <Edge cubics="!2110 1532(;2110,1532 1385,1532 1385,1532q2110 1532 1385 1532);"/>
+                    <Edge cubics="!2110 807(2110,807;2110,807 2110,1532 2110,1532q2110 807 2110 1532)2110,1532;"/>
+                    <Edge cubics="!1385 807(1385,807;1385,807 2110,807 2110,807q1385 807 2110 807)2110,807;"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" width="45.2" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-88.85" ty="-73.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>SCORE:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" width="45.2" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-88.85" ty="-50.45"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>LEVEL:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" width="37.2" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-88.85" ty="-27.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>TIME:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" width="48.2" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-88.85" ty="-3.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>COMBO:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FFFFFF"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-2110 -1298|-2022 -1385!-2022 -1385|-1934 -1297!-1934 -1297|-2022 -1210!-2022 -1210|-2110 -1298"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FFFFFF"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-2110 -830|-2022 -917!-2022 -917|-1934 -829!-1934 -829|-2022 -742!-2022 -742|-2110 -830"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FFFFFF"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-2110 -362|-2022 -449!-2022 -449|-1934 -361!-1934 -361|-2022 -274!-2022 -274|-2110 -362"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FFFFFF"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-2110 106|-2022 19!-2022 19|-1934 107!-1934 107|-2022 194!-2022 194|-2110 106"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMDynamicText name="score_tf" fontRenderingMode="standard" width="54.15" height="18" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-32.3" ty="-73.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>12</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="level_tf" fontRenderingMode="standard" width="53.85" height="18" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-32.3" ty="-50.45"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>30002</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="time_tf" fontRenderingMode="standard" width="54.15" height="18" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-32.3" ty="-27.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>10:45</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="combo_tf" fontRenderingMode="standard" width="54.45" height="18" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-32.3" ty="-3.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>18</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" width="42.2" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-88.85" ty="19.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>lives:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FFFFFF"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-2110 574|-2022 487!-2022 487|-1934 575!-1934 575|-2022 662!-2022 662|-2110 574"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMDynamicText name="lives_tf" fontRenderingMode="standard" width="54.45" height="18" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-32.3" ty="19.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>3/4</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" bitmapSize="240" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon0">
+                  <matrix>
+                    <Matrix a="0.233428955078125" d="0.233428955078125" tx="48.25" ty="19.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon1">
+                  <matrix>
+                    <Matrix a="0.233428955078125" d="0.233428955078125" tx="87.25" ty="19.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon2">
+                  <matrix>
+                    <Matrix a="0.233428955078125" d="0.233428955078125" tx="48.25" ty="58.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon3">
+                  <matrix>
+                    <Matrix a="0.233428955078125" d="0.233428955078125" tx="87.25" ty="58.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Weapons/UI-Player-WeaponIcon" name="weaponIcon">
+                  <matrix>
+                    <Matrix a="0.529876708984375" d="0.529876708984375" tx="67.6" ty="-39.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="37.9999988616352" blurX="0" blurY="0" distance="4" strength="0.22"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="192.2" height="38" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-101.75" ty="-42.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Go ahead and set your best &#xD;run!</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="18" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="2" strength="0.15"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" width="118.7" height="27" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-100.75" ty="-72.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NO SCORE SET</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="2" strength="0.15"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

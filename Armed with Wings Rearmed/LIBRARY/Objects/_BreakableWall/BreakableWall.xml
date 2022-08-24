@@ -1,0 +1,243 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_BreakableWall/BreakableWall" itemID="5523c741-00000533" lastModified="1493230750" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="BreakableWall">
+      <layers>
+        <DOMLayer name="actons" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop ();
+
+
+var life:Number = 13;
+var lifeOrig:Number = 13;
+var shake:Number = 0;
+var fallen:Boolean = false;
+var collisionClip:MovieClip;
+var dead:Boolean;
+var disableRocks:Boolean;
+
+var enemyType:String = "BOULDER";
+
+var clip:MovieClip;
+var hero:MovieClip = MovieClip(parent).hero;
+var particleLayer:MovieClip = MovieClip(parent).particleLayer;
+var ground:MovieClip = MovieClip(parent).ground;
+var sndCtrl:MovieClip = MovieClip(root);
+
+init();
+
+function init():void {
+	collisionClip = new BolderBound();
+	collisionClip.x = x - ground.x;
+	collisionClip.y = y - ground.y;
+	ground.addChild(collisionClip);
+	dead = false;
+	
+}
+	
+function update():void {
+	if (life <= 0) {
+		
+		dead = true;
+		if (this.currentFrame == 1) {
+			if (collisionClip.stage)
+			ground.removeChild(collisionClip);
+			
+			gotoAndPlay(2);
+			
+		}
+		life = 0;
+	} else {
+		//blockHero();
+		//blockEnemies();
+		
+		if (life < lifeOrig && life > 0) {
+			life += .25; 
+		}
+		clip.x += (0 - clip.x)/6;
+		clip.y += (0 - clip.y)/6;
+		if (shake > 0) {
+			shake --;
+			clip.x += (Math.random()*shake) - (Math.random()*shake);
+			clip.y += (Math.random()*shake) - (Math.random()*shake);
+		}
+	}
+}
+
+function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1, combo:Boolean = true):void {
+	if ( life > 0) {
+		if (from.enemyType == "ICESPIKE") life -= damage * 3;
+		else life -= damage;
+		shake = damage*5;
+		if (shake > 25) shake = 25;
+		
+		if (from.overdrive) {
+			life = 0;
+		}
+		
+		if (life > 0) {
+			for (var i:int = 0; i < 7; i ++) {
+				particleLayer.addStone(x + (Math.random()*90) - (Math.random()*90), hero.y-(Math.random()*40));
+			}
+		}
+		
+		particleLayer.addHitSplash(hero, this);
+		if (life <= 0 && !dead) {
+			if (collisionClip.stage)
+			ground.removeChild(collisionClip);
+			
+			var _yS:Number;
+			var _xS:Number;
+			if (!disableRocks) {
+				for (i = 0; i < 3; i++) {
+					_xS = Math.random()*40+Math.random()*40;
+					_yS = 8 + Math.random()*20;
+					particleLayer.addRock2(x, y, _xS, _yS, 1);
+				}
+			}
+		}
+	}
+}
+
+function blockHero():void {
+	if (hero.bound.hitTestObject(this.bound)) {
+		if (hero.x < x) {
+			hero.x --;
+			hero.xSpeed = 0;
+		} else 
+		if (hero.x > x) {
+			hero.x ++;
+			hero.xSpeed = 0;
+		}
+	}
+}
+
+function blockEnemies():void {
+	var enemiesArr:Array = MovieClip(parent).enemiesArr;
+	for (var i:int = 0; i < enemiesArr.length; i ++) {
+		var en:MovieClip = enemiesArr[i];
+		
+		if (en.bound.hitTestObject(this.bound)) {
+		//if (distanceBetweenX(this, en) < 90) {
+			if (en.x < x) {
+				en.x --;
+				en.xSpeed = 0;
+			} else 
+			if (en.x > x) {
+				en.x ++;
+				en.xSpeed = 0;
+			}
+		}
+		
+	}
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = Math.abs(obj1.x - obj2.x);
+    return X;
+}
+function distanceBetweenY(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var Y:Number = Math.abs(obj1.y - obj2.y);
+    return Y;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="75" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndExplode, 0 , 2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[
+stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BigExplosion" symbolType="graphic" firstFrame="3" loop="loop">
+                  <matrix>
+                    <Matrix a="2.18170166015625" d="2.18170166015625" tx="-64.25" ty="89.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="30.4" y="-22.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="70" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BigExplosion" symbolType="graphic" firstFrame="5" centerPoint3DX="66.55" centerPoint3DY="94.7" loop="loop">
+                  <matrix>
+                    <Matrix a="1.06988525390625" d="1.06988525390625" tx="-30.45" ty="64.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="30.4" y="-22.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="74" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BreakableWall/BreakableWall-Shape" name="clip">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="73" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="77" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="4.74365234375" d="2.73985290527344" tx="11.75" ty="-1.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="disableRocks">
+      <Inspectable name="disableRocks" variable="disableRocks" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

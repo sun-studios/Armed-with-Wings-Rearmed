@@ -1,0 +1,73 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-walk2" itemID="56dd474d-00000a62" symbolType="graphic" lastModified="1457342285">
+  <timeline>
+    <DOMTimeline name="Vandheer2-anim-walk2" currentFrame="65">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="73" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="73" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("walk");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="41" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-walk3" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point y="-46.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="41" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-walk3" symbolType="graphic" firstFrame="10" centerPoint3DX="5.95" centerPoint3DY="-46.75" loop="single frame">
+                  <transformationPoint>
+                    <Point y="-46.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-walk3" symbolType="graphic" firstFrame="12" centerPoint3DX="5.95" centerPoint3DY="-46.75" loop="single frame">
+                  <transformationPoint>
+                    <Point y="-46.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" duration="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-walk3" symbolType="graphic" firstFrame="16" centerPoint3DX="5.95" centerPoint3DY="-46.75" loop="single frame">
+                  <transformationPoint>
+                    <Point y="-46.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="15" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-runEase" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="-0.916946411132813" d="0.916946411132813" tx="-15" ty="-66.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.1" y="26.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

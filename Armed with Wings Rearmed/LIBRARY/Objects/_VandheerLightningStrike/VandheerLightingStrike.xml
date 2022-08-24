@@ -1,0 +1,184 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_VandheerLightningStrike/VandheerLightingStrike" itemID="567bfb63-00000a18" linkageExportForAS="true" linkageClassName="VandheerLightingStrike" lastModified="1491681447" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="VandheerLightingStrike">
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip;
+var ground:MovieClip;
+var vcam:MovieClip;
+var hero:MovieClip;
+var master:MovieClip;
+var Y:Number;
+var damage:Number;
+var fromBoss:Boolean;
+var gameData:MovieClip;
+
+
+function init (_fromBoss:Boolean = false, _master:MovieClip = null):void {
+	sndCtrl = MovieClip(root);
+	ground = MovieClip(parent).ground;
+	vcam = MovieClip(parent).vcam;
+	hero = MovieClip(parent).hero;
+	gameData = MovieClip(root);
+	
+	Y = y;
+	damage = 1;
+	getDistToGround();
+	sndCtrl.playSound(sndCtrl.sndThunder3);
+	vcam.shakeCamera(10);
+	fromBoss = _fromBoss;
+	
+	master = _master;
+	if (master == null) master = hero;
+	
+	damageEnemies();
+}
+
+function getDistToGround():void {
+	var i:Number = 0;
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true) == false && i < 60) {
+		y += 20;
+		i ++;
+	}
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY(-4), true)) {
+		y -= .5;
+	}
+	lightningClip.height = y - Y + 40;
+	bound.height = lightningClip.height;
+}
+
+function update ():void {
+	physics();
+}
+
+function physics ():void {
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true)) {
+		y -= .5;
+	}
+}
+function damageEnemies ():void {
+	var arr:Array = MovieClip(parent).enemiesArr;
+	
+	if (fromBoss) {
+		if (this.bound.hitTestObject(hero.bound)) {
+			if (hero.onGround) {
+				hero.takeDamage(this, 10, 17, damage);
+			} else {
+				hero.takeDamage(this, 12, 8, damage);
+			}
+		}
+	} else {
+		for (var i:int = 0; i < arr.length; i ++) {
+			var go:Boolean = false;
+			var en:MovieClip = arr[i];
+			
+			if ((en.enemyType == "ENEMY1" || en.enemyType == "ENEMY2" || 
+				en.enemyType == "ENEMY3" || en.enemyType == "ENEMY4" || 
+				en.enemyType == "ENEMY5" || en.enemyType == "ENEMY6" ||
+				en.enemyType == "ENEMY7" || en.enemyType == "BOSS1" || 
+				en.enemyType == "BOSS3" || en.enemyType == "BOSS" || 
+				en.enemyType == "BOSS2" || en.enemyType == "BOSS4")
+				&& en.life > 0) {
+					go = true;
+			}
+			if (en.hasOwnProperty("heroName") && en != master) {
+				go = true;
+			}
+			
+			if (go) {
+				if (this.bound.hitTestObject(en.bound)) {
+					if (en.onGround) {
+						en.takeDamage(this, 6, 14 + (gameData.dataGetWeaponPower()*.4), damage);
+					} else {
+						en.takeDamage(this, 6, 14 + (gameData.dataGetWeaponPower()*.4), damage);
+					}
+				}
+			}
+		}
+	}
+}
+
+function kill():void {
+	MovieClip(parent).removeChild(this);
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}
+/*
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return x *(_root.zoom.scaleX)+(_root.gameWidth*.5) + _parent.x *(_root.zoom.scaleX) + (offset * _root.zoom.scaleX);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return y*(_root.zoom.scaleX)+(_root.gameHeight*.5)  + _parent.y *(_root.zoom.scaleX) + (offset * _root.zoom.scaleX);
+}
+*/]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="dust" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_VandheerLightningStrike/assets/VndLightning_00">
+                  <transformationPoint>
+                    <Point x="5.25" y="-44.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="lightning" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_VandheerLightningStrike/assets/VndLightning_02" name="lightningClip">
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_VandheerLightningStrike/assets/VndLightning_01" name="bound" selected="true">
+                  <matrix>
+                    <Matrix a="2.56385803222656" tx="7.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-45.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

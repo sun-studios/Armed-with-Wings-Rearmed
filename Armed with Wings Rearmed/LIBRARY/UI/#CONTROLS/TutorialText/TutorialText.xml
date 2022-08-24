@@ -1,0 +1,403 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/#CONTROLS/TutorialText/TutorialText" itemID="55081980-000004a3" lastModified="1434941702" lastUniqueIdentifier="2" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="TutorialText">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+import flash.display.MovieClip;
+
+var active:Boolean;
+var invert:Boolean;
+var cLabelID:Number;
+var cDelay:Number;
+var startInactive:Boolean;
+var eagleActivate:Boolean;
+
+var inRange:Boolean;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var eagle:MovieClip = MovieClip(parent).eagle;
+
+if (!cDelay) cDelay = 0;
+
+init();
+
+function init():void {
+	if (startInactive) {
+		active = false;
+	} else {
+		active = true;
+	}
+
+	gotoAndStop(1);
+	visible = false;
+	
+	inRange = false;
+	
+	clip.gotoAndStop(cLabelID);
+}
+
+function update():void {
+	if (active) {
+		if (!eagleActivate) {
+			if (distanceBetween(this, hero) < 350) {
+				if (!inRange) {
+					TweenMax.delayedCall(cDelay, appear);
+					clip.gotoAndStop(cLabelID);
+					inRange = true;
+				}
+			}
+		} else {
+			if (distanceBetween(this, eagle) < 350) {
+				if (!inRange) {
+					TweenMax.delayedCall(cDelay, appear);
+					clip.gotoAndStop(cLabelID);
+					inRange = true;
+				}
+			}
+		}
+	} else {
+		//do nothing
+	}
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+function appear():void {
+	visible = true;
+	gotoAndPlay(2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="31" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="34" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" locked="true" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-glow" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.04116821289063" d="0.807235717773438" tx="-0.45" ty="-0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.44921875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-glow" symbolType="graphic" centerPoint3DX="-0.45" centerPoint3DY="-0.6" loop="loop">
+                  <matrix>
+                    <Matrix a="1.70248413085938" d="2.68162536621094" tx="-0.45" ty="-0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-glow" symbolType="graphic" centerPoint3DX="-0.4" centerPoint3DY="-0.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.856491088867188" d="2.15177917480469" tx="-0.55" ty="-0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.9296875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-glow" symbolType="graphic" centerPoint3DX="-0.4" centerPoint3DY="-0.6" loop="loop">
+                  <matrix>
+                    <Matrix a="1.06227111816406" d="3.06950378417969" tx="-0.55" ty="-0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip" selected="true" centerPoint3DY="-1">
+                  <matrix>
+                    <Matrix ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="1" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip">
+                  <matrix>
+                    <Matrix a="0.495071411132813" d="0.0677947998046875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip">
+                  <matrix>
+                    <Matrix a="0.525054931640625" d="0.0677947998046875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="8"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip">
+                  <matrix>
+                    <Matrix a="0.631332397460938" d="0.0677947998046875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="12"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip">
+                  <matrix>
+                    <Matrix a="1.34796142578125" d="0.135269165039063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="8"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.85"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip">
+                  <matrix>
+                    <Matrix a="1.42877197265625" d="0.0127410888671875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="29" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip" centerPoint3DY="-1">
+                  <matrix>
+                    <Matrix ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="1" blurY="1"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip" centerPoint3DY="-1">
+                  <matrix>
+                    <Matrix ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="1" blurY="28"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip" centerPoint3DY="-1">
+                  <matrix>
+                    <Matrix ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="1" blurY="11"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip" centerPoint3DY="-1">
+                  <matrix>
+                    <Matrix ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="1" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip" centerPoint3DY="-1">
+                  <matrix>
+                    <Matrix ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="1" blurY="9"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip" centerPoint3DY="-1">
+                  <matrix>
+                    <Matrix ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="1" blurY="9"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" name="clip" selected="true" centerPoint3DY="-1">
+                  <matrix>
+                    <Matrix ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="cLabelID">
+      <Inspectable name="labelID" variable="cLabelID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="cDelay">
+      <Inspectable name="delay" variable="cDelay" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="startInactive">
+      <Inspectable name="startInactive" variable="startInactive" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="eagleActivate">
+      <Inspectable name="eagleActivate" variable="eagleActivate" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="invert">
+      <Inspectable name="invert" variable="invert" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

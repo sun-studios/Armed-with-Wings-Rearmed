@@ -1,0 +1,184 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Anim-Hurt" itemID="54cb07d3-0000023c" lastModified="1492133413">
+  <timeline>
+    <DOMTimeline name="Enemy2-Anim-Hurt" currentFrame="78">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip = MovieClip(parent);
+
+var spinning:Boolean = false;
+var bouncing:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" duration="18" name="loop" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("loop");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="57" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[bouncing = true;
+spinning = false; 
+
+play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[bouncing = false;
+if (MovieClip(parent)) {
+	if (_parent.life > 0) {
+		if (_parent.checkStep(true, 4)) {
+			_parent.xSpeed = 13 * -_parent.scaleX;
+		}
+	} else {
+		_parent.gotoDeath();
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="96" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="97" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="20" name="hurt" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" duration="19" name="spin" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="19" name="recover" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" duration="39" name="bounce" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="97" duration="15" name="rockHit" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Raw/Enemy2-Hurt" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-35.05" ty="-18.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="36.3" y="-30.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Raw/Enemy2-HurtSpin">
+                  <matrix>
+                    <Matrix tx="-3.3" ty="-44.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Raw/Enemy2-Hurt" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix tx="-35.05" ty="-18.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="36.3" y="-30.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="39" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Assets/Enemy2-Bounce" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.65" ty="-29.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="15" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Assets/Enemy2-Rockhit" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-33.55" ty="-16.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="34.05" y="-41.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

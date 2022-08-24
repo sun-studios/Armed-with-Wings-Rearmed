@@ -1,0 +1,109 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="WarMode/WarMode-Container" itemID="5557e06f-0000604b" lastModified="1434812494" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="WarMode-Container">
+      <layers>
+        <DOMLayer name="actions" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var yPos:int;
+var positions:Array;
+
+var keyFilters1:Boolean;
+var keyFilters2:Boolean;
+
+var hero:MovieClip;
+var ctrl:PlayerControl;
+
+init();
+
+function init():void {
+	yPos = 4;
+	positions = new Array();
+	//top to bottom
+	positions = [[-177.15, 220],[-147.15, 172],[-115,110],[-82.45, 52],[-49.95, 0],[-20.05,-60],[10.9, -115],[43.4, -175],[70.45, -220]];
+	
+	keyFilters1 = true;
+	keyFilters2 = true;
+	
+	ctrl = MovieClip(root).player1Control;
+}
+
+function update ():void {
+	if (ctrl.ctrl_left) {
+		hero.x -= 5;
+	} 
+	if (ctrl.ctrl_right) {
+		hero.x += 5;
+	}
+	
+	if (ctrl.ctrl_down) {
+		if (!keyFilters1) {
+			
+			keyFilters1 = true;
+		}
+	} else {
+		keyFilters1 = false;
+	}
+	if (ctrl.ctrl_up) {
+		if (!keyFilters2) {
+			
+			keyFilters2 = true;
+		}
+	} else {
+		keyFilters2 = false;
+	}
+	
+	if (hero.hitTestObject(obj1)) {
+		MovieClip(root).gotoWarArena();
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="test objects" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="WarMode/WarMode-Object" name="hero" selected="true" centerPoint3DX="-191.95" centerPoint3DY="-52.75">
+                  <matrix>
+                    <Matrix tx="-191.95" ty="-52.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="WarMode/WarMode-Object" name="obj1">
+                  <matrix>
+                    <Matrix tx="127.35" ty="-54.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-29.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ground" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="WarMode/WarMode-Ground">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

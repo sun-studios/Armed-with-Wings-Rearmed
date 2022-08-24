@@ -1,0 +1,115 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-jumpTrigger&amp;#062" itemID="54b93a20-000005d1" lastModified="1489690354" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-jumpTrigger&amp;#062">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var ground:MovieClip = MovieClip(parent).ground;
+var disableGrab:Boolean;//component
+var heros:Array = new Array();
+var gameData:MovieClip = MovieClip(root);
+
+heros.push(hero);
+if (gameData.gameMode == gameData.MULTIPLAYER) {
+	heros.push(MovieClip(parent).hero_p2);
+}
+
+function update():void {
+	for (var i:int = 0; i < heros.length; i ++) {
+		var _hero:MovieClip = heros[i];
+		if (_hero.onGround) {
+			scaleX = 1;
+			jump();
+		} else {
+			scaleX = 2;
+			climb();
+		}
+	}
+}
+
+function jump():void {
+	for (var i:int = 0; i < heros.length; i ++) {
+		var _hero:MovieClip = heros[i];
+		
+		if (_hero.bound.hitTestObject(this) && _hero.xSpeed >= hero.maxMoveSpeed*.5) {
+		
+			if (ground.hitTestPoint(_hero.getGlobalX()+50, _hero.getGlobalY()+10, true)) {
+				
+			} else {
+			
+				if (_hero.currentFrameLabel == "walk") {
+					if (_hero.walk.walking && !_hero.walk.skidding) {
+						_hero.ySpeed = 8;
+						_hero.xSpeed = 14;
+						if (_hero.xSpeed > 14) _hero.xSpeed = 14;
+						_hero.walk.gotoAndPlay("jump");
+					}
+				}
+				if (_hero.currentFrameLabel == "dodge") {
+					if (_hero.dodge.forwardRoll) {
+						_hero.ySpeed = 8;
+						_hero.xSpeed = 14;
+						if (_hero.xSpeed > 14) _hero.xSpeed = 14;
+						_hero.gotoAndStop("walk");
+						_hero.walk.gotoAndPlay("jump");
+					}
+				}
+			}
+			
+		}
+	}
+}
+
+function climb ():void {
+	for (var i:int = 0; i < heros.length; i ++) {
+		var _hero:MovieClip = heros[i];
+		if (_hero.canClimb() && !disableGrab) {
+			if (_hero.bound.hitTestObject(this) && _hero.ySpeed <= 0 && _hero.y > y && _hero.scaleX == -1) {
+				_hero.gotoAndStop("edge");
+				_hero.x = x;
+				_hero.y = y;
+				_hero.xSpeed = 0;
+				_hero.ySpeed = 0;
+				_hero.scaleX = -1;
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066CC"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!171 170|-172 170!-172 170|-172 -170!-172 -170|171 -170!171 -170|171 170"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="disableGrab">
+      <Inspectable name="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

@@ -1,0 +1,520 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-BG/ENV-BG" itemID="54ae6455-00000dc7" lastModified="1508844038" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="ENV-BG" currentFrame="7">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+function update():void {
+	if (this.currentFrame == 1) {
+		normal.update();
+	}
+	if (this.currentFrame == 2) {
+		night.update();
+	}
+	if (this.currentFrame == 7) {
+		normal2.update();
+	}
+	if (this.currentFrame == 8) {
+		normal2Night.update();
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" name="normal" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="night" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="castle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="invert" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="normalCloud" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" name="whitemist" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" name="normal2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" name="normal2Night" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="colorer" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Colorer-Game" name="colorer">
+                  <matrix>
+                    <Matrix tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="hudFlash" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/Hud-flash" name="hudFlash">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#FF800A" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#006699"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!8000 4500S2|-8000 4500!-8000 4500|-8000 -4500!-8000 -4500|8000 -4500!8000 -4500|8000 4500"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4FFF4F" parentLayerIndex="4" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/ScrollingMountains" name="normal">
+                  <matrix>
+                    <Matrix a="0.833328247070313" d="0.833328247070313" tx="-398.85" ty="-225.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/ScrollingMountain2" name="night">
+                  <matrix>
+                    <Matrix a="0.833328247070313" d="0.833328247070313" tx="-398.85" ty="-225.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.289276123046875" c="-27.9674377441406" d="0" tx="22498.45" ty="0.05"/>
+                        </matrix>
+                        <GradientEntry color="#383838" ratio="0"/>
+                        <GradientEntry color="#AFAFAF" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-8249 4740|-8249 -4739!-8249 -4739|8249 -4739!8249 -4739|8249 4740!8249 4740|-8249 4740"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-405.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-380.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-356.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-331.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-307.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-282.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-258.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-234.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-209.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-185.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-160.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-136.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-111.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-87.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-87.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-63.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-38.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="-14.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="10.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="34.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="59.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="83.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="107.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="132.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="156.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="181.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="205.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="230.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="230.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="254.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="278.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="303.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="327.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="352.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="376.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-Piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.42486572265625" tx="401.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.3602294921875" c="-0.50347900390625" d="0" tx="-4.75" ty="148.75"/>
+                        </matrix>
+                        <GradientEntry ratio="0"/>
+                        <GradientEntry color="#6D6D6D" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-8249 4739|-8249 -4740!-8249 -4740|8249 -4740!8249 -4740|8249 4739!8249 4739|-8249 4739"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Clouds-Animated" cacheAsBitmap="true" centerPoint3DX="914.45" centerPoint3DY="71.2">
+                  <matrix>
+                    <Matrix a="0.833328247070313" d="0.833328247070313" tx="914.45" ty="71.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/ScrollingMountains" name="normal">
+                  <matrix>
+                    <Matrix a="0.833328247070313" d="0.833328247070313" tx="-398.85" ty="-225.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/ENV-BG-CloudyVoid" name="whitemist">
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG2/BG2-Day" name="normal2">
+                  <matrix>
+                    <Matrix a="0.84375" d="0.843704223632813" tx="-405" ty="-225.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG2/BG2-Night" name="normal2Night" selected="true" centerPoint3DX="397.6" centerPoint3DY="41">
+                  <matrix>
+                    <Matrix a="0.84375" d="0.843704223632813" tx="-405" ty="-225.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

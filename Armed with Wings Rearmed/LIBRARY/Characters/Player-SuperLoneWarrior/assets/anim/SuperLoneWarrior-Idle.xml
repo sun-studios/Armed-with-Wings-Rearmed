@@ -1,0 +1,71 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-SuperLoneWarrior/assets/anim/SuperLoneWarrior-Idle" itemID="585a8e8a-00001ad4" lastModified="1482493442">
+  <timeline>
+    <DOMTimeline name="SuperLoneWarrior-Idle">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="slideB" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="slideF" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle">
+                  <matrix>
+                    <Matrix tx="-5.6" ty="-0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-4.85" y="-59.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-SlideBack" name="slideB">
+                  <matrix>
+                    <Matrix a="0.838287353515625" d="0.838180541992188" tx="10.55" ty="-2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-SlideForward" name="slideF">
+                  <matrix>
+                    <Matrix a="0.7833251953125" d="0.82989501953125" tx="13.6" ty="-1.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

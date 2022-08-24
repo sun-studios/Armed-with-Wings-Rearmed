@@ -1,0 +1,89 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/assets/UI-HUD-InfoPanel-Level" itemID="582818d7-00000c81" lastModified="1479022807">
+  <timeline>
+    <DOMTimeline name="UI-HUD-InfoPanel-Level">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var gameData:MovieClip = MovieClip(root);
+
+function update ():void {
+	lvlnum_tf.text = ""+gameData.sessionLevel;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#999999" alpha="0.8"/>
+                        </FillStyle>
+                        <FillStyle index="2">
+                          <SolidColor color="#333333" alpha="0.8"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-113 319|-622 319!-622 319|-622 -317!-622 -317|-113 -317"/>
+                        <Edge fillStyle1="2" edges="!-113 -317|621 -317!621 -317|621 319!621 319|-113 319"/>
+                        <Edge fillStyle0="2" fillStyle1="1" edges="!-113 -317|-113 319"/>
+                        <Edge cubics="!-113 -362(-113,-362;-113,-362 -113,-317 -113,-317q-113 -362 -113 -317);"/>
+                        <Edge cubics="!-113 -317(;-113,-317 -113,319 -113,319q-113 -317 -113 319);"/>
+                        <Edge cubics="!-113 319(;-113,319 -113,461 -113,461q-113 319 -113 461);"/>
+                        <Edge cubics="!-113 -317(;-113,-317 621,-317 621,-317q-113 -317 621 -317);"/>
+                        <Edge cubics="!-622 -317(;-622,-317 -113,-317 -113,-317q-622 -317 -113 -317)-113,-317;"/>
+                        <Edge cubics="!621 319(;621,319 -113,319 -113,319q621 319 -113 319);"/>
+                        <Edge cubics="!-113 319(;-113,319 -622,319 -622,319q-113 319 -622 319);"/>
+                        <Edge cubics="!621 -317(;621,-317 621,319 621,319q621 -317 621 319);"/>
+                        <Edge cubics="!-622 319(;-622,319 -622,-317 -622,-317q-622 319 -622 -317);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMStaticText fontRenderingMode="standard" left="84.75" width="19.9" height="18" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-112.9" ty="-9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>LVL</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMDynamicText name="lvlnum_tf" fontRenderingMode="standard" width="29.25" height="27" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="-1.95" ty="-14"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>12</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" letterSpacing="1" lineSpacing="0" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

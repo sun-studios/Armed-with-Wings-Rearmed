@@ -1,0 +1,665 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-NewRecord/UI-NewRecord" itemID="58186d3b-0000167e" lastModified="1492841548" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="UI-NewRecord">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="186" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                    <Edge cubics="!19200 0(19200,0;19200,0 19200,10800 19200,10800q19200 0 19200 10800)19200,10800;"/>
+                    <Edge cubics="!0 10800(0,10800;0,10800 0,0 0,0q0 10800 0 0)0,0;"/>
+                    <Edge cubics="!0 0(0,0;0,0 19200,0 19200,0q0 0 19200 0)19200,0;"/>
+                    <Edge cubics="!19200 10800(;19200,10800 0,10800 0,10800q19200 10800 0 10800);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 7" color="#669900" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+import flash.display.MovieClip;
+
+stop();
+
+var gameData:MovieClip;
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var go:Boolean;
+var done:Boolean;
+var input:Boolean;
+var keyFilter:Boolean;
+
+function init ():void {
+	gameData = MovieClip(root);
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	
+	this.addEventListener(Event.ENTER_FRAME, update);
+	go = true;
+	done = true;
+	
+	
+	sndCtrl.playSound(sndCtrl.sndThunder1);
+	gotoAndPlay(2);
+}
+
+function update (e:Event):void {
+	
+	if (proceed_btn && go) { 
+		
+		if (done) {
+			proceed_btn.visible = true;
+		}
+		if (proceed_btn.visible) {
+			if (proceed_btn.alpha < 1) proceed_btn.alpha += .05;
+		}
+		inputUpdate();
+		sndCtrl.soundUpdate();
+		
+	}
+	
+}
+
+function inputUpdate():void {
+	
+		gameData.controlUpdate();
+		
+		if (!input) {
+			if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+				
+				if (!keyFilter) {
+					if (done) {
+						closeMenu();
+						input = true;
+					} else {
+					
+					}
+					sndCtrl.playSound(sndCtrl.sndButton3);
+					
+					keyFilter = true;
+				}
+			} else {
+				keyFilter = false;
+			}
+		}
+		
+	
+}
+
+function closeMenu():void {
+	go = false;
+	gotoAndPlay("out");
+}
+function gotoUnlocks2():void {
+	this.removeEventListener(Event.ENTER_FRAME, update);
+	gameData.gotoAndStop(1, "Unlocks");
+}
+function gotoMainMenu():void {
+	this.removeEventListener(Event.ENTER_FRAME, update);
+	gameData.resetSessionData();
+	gameData.gotoAndStop(1, "Menu");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="73" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndItem3);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="84" duration="49" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[statClip.init(gameData);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="133" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="134" duration="51" name="out" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+gotoUnlocks2();
+//gotoMainMenu();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 8" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="134" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="134" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-BG" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="480" ty="270"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="164" duration="22" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-BG" symbolType="graphic" centerPoint3DX="480" centerPoint3DY="270" loop="loop">
+                  <matrix>
+                    <Matrix tx="480" ty="270"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="133" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="133" duration="53" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin" name="proceed_btn" centerPoint3DX="480.35" centerPoint3DY="430.15" uniqueID="4">
+                  <matrix>
+                    <Matrix tx="480.35" ty="430.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="PROCEED" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="84" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="84" duration="38" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2297"/>
+                  <Point x="0.3509" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-stats" name="statClip" selected="true">
+                  <matrix>
+                    <Matrix tx="482" ty="233.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="40" blurY="71" quality="3"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="122" duration="64" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-stats" name="statClip" centerPoint3DX="482" centerPoint3DY="233.6">
+                  <matrix>
+                    <Matrix tx="482" ty="233.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0" quality="3"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.266889017304936"/>
+                  <Point x="0.676294523497497"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text">
+                  <matrix>
+                    <Matrix a="1.56637573242188" d="0.013824462890625" tx="480" ty="274.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="99" blurY="11" color="#FFFFFF" quality="3" strength="6.99"/>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="3" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.404313972532198" y="0.216238343142651"/>
+                  <Point x="0.758491949107574" y="0.533758781286919"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="271.95">
+                  <matrix>
+                    <Matrix a="1.48020935058594" d="0.1715087890625" tx="480" ty="271.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="84.5490875244141" blurY="22" color="#FFFFFF" quality="2" strength="6.07"/>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.626278072463408" y="0.256200209291935"/>
+                  <Point x="1" y="0.583041088577962"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480.5" centerPoint3DY="259.9">
+                  <matrix>
+                    <Matrix a="0.9864501953125" d="1.11076354980469" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="23" blurY="15" color="#FFFFFF" quality="3" strength="3.3"/>
+                    <BlurFilter blurX="0" blurY="75"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="259.5">
+                  <matrix>
+                    <Matrix d="1.11076354980469" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <BlurFilter blurX="0" blurY="22"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="259.9">
+                  <matrix>
+                    <Matrix d="0.519607543945313" tx="480" ty="310.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="37.6661529541016" blurY="7.66661071777344" color="#FFFFFF" strength="1.15"/>
+                    <BlurFilter blurX="0" blurY="47.9996032714844"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480.5" centerPoint3DY="259.9">
+                  <matrix>
+                    <Matrix a="0.9864501953125" d="1.11076354980469" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="23" blurY="15" color="#FFFFFF" quality="3" strength="3.3"/>
+                    <BlurFilter blurX="0" blurY="75"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="259.65">
+                  <matrix>
+                    <Matrix d="0.954605102539063" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="105" blurY="15" color="#FFFFFF" strength="1.46"/>
+                    <BlurFilter blurX="0" blurY="100"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="259.5">
+                  <matrix>
+                    <Matrix d="1.02825927734375" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="32" blurY="4" color="#FFFFFF"/>
+                    <BlurFilter blurX="0" blurY="42"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="259.7">
+                  <matrix>
+                    <Matrix d="0.945037841796875" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="21" blurY="4" color="#FFFFFF"/>
+                    <BlurFilter blurX="0" blurY="51"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="259.7">
+                  <matrix>
+                    <Matrix d="0.98175048828125" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="89" blurY="4" color="#FFFFFF" strength="2.04"/>
+                    <BlurFilter blurX="0" blurY="59"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" duration="31" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="259.7">
+                  <matrix>
+                    <Matrix d="0.945114135742188" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="33" blurY="49" color="#FFFFFF" strength="1.79"/>
+                    <BlurFilter blurX="0" blurY="32"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" duration="56" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.7053"/>
+                  <Point x="0.2308" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480" centerPoint3DY="259.7">
+                  <matrix>
+                    <Matrix d="0.945114135742188" tx="480" ty="260.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="109" duration="77" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-NewRecord/UI-NewRecord-text" centerPoint3DX="480.25" centerPoint3DY="108.75">
+                  <matrix>
+                    <Matrix a="0.61993408203125" d="0.585906982421875" tx="480" ty="108.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.15"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="25" blurY="25" color="#FFFFFF" quality="2"/>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="175" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="11" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                    <Edge cubics="!19200 0(19200,0;19200,0 19200,10800 19200,10800q19200 0 19200 10800)19200,10800;"/>
+                    <Edge cubics="!0 10800(0,10800;0,10800 0,0 0,0q0 10800 0 0)0,0;"/>
+                    <Edge cubics="!0 0(0,0;0,0 19200,0 19200,0q0 0 19200 0)19200,0;"/>
+                    <Edge cubics="!19200 10800(;19200,10800 0,10800 0,10800q19200 10800 0 10800);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="3" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="37.5, 0" anchorPointA="75, 0" controlPointB="37.5, 0" anchorPointB="75, 0" isLine="true"/>
+                    <MorphCurves controlPointA="75, #15.18" anchorPointA="75, #2A.3" controlPointB="75, #15.18" anchorPointB="75, #2A.3" isLine="true"/>
+                    <MorphCurves controlPointA="37.5, #2A.3" anchorPointA="0, #2A.3" controlPointB="37.5, #2A.3" anchorPointB="0, #2A.3" isLine="true"/>
+                    <MorphCurves controlPointA="0, #15.18" controlPointB="0, #15.18" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.6722412109375" d="0.6722412109375" tx="480" ty="270"/>
+                        </matrix>
+                        <GradientEntry color="#FFFFFF" ratio="0"/>
+                        <GradientEntry color="#1A1A1A" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                    <Edge cubics="!19200 0(19200,0;19200,0 19200,10800 19200,10800q19200 0 19200 10800)19200,10800;"/>
+                    <Edge cubics="!0 10800(0,10800;0,10800 0,0 0,0q0 10800 0 0)0,0;"/>
+                    <Edge cubics="!0 0(0,0;0,0 19200,0 19200,0q0 0 19200 0)19200,0;"/>
+                    <Edge cubics="!19200 10800(;19200,10800 0,10800 0,10800q19200 10800 0 10800);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="31" tweenType="shape" keyMode="17922" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="37.5, 0" anchorPointA="75, 0" controlPointB="37.5, 0" anchorPointB="75, 0" isLine="true"/>
+                    <MorphCurves controlPointA="75, #15.18" anchorPointA="75, #2A.3" controlPointB="75, #15.18" anchorPointB="75, #2A.3" isLine="true"/>
+                    <MorphCurves controlPointA="37.5, #2A.3" anchorPointA="0, #2A.3" controlPointB="37.5, #2A.3" anchorPointB="0, #2A.3" isLine="true"/>
+                    <MorphCurves controlPointA="0, #15.18" controlPointB="0, #15.18" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.6722412109375" d="0.6722412109375" tx="480" ty="270"/>
+                        </matrix>
+                        <GradientEntry color="#878787" ratio="0"/>
+                        <GradientEntry color="#1A1A1A" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                    <Edge cubics="!19200 0(19200,0;19200,0 19200,10800 19200,10800q19200 0 19200 10800)19200,10800;"/>
+                    <Edge cubics="!0 10800(0,10800;0,10800 0,0 0,0q0 10800 0 0)0,0;"/>
+                    <Edge cubics="!0 0(0,0;0,0 19200,0 19200,0q0 0 19200 0)19200,0;"/>
+                    <Edge cubics="!19200 10800(;19200,10800 0,10800 0,10800q19200 10800 0 10800);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="37.5, 0" anchorPointA="75, 0" controlPointB="37.5, 0" anchorPointB="75, 0" isLine="true"/>
+                    <MorphCurves controlPointA="75, #15.18" anchorPointA="75, #2A.3" controlPointB="75, #15.18" anchorPointB="75, #2A.3" isLine="true"/>
+                    <MorphCurves controlPointA="37.5, #2A.3" anchorPointA="0, #2A.3" controlPointB="37.5, #2A.3" anchorPointB="0, #2A.3" isLine="true"/>
+                    <MorphCurves controlPointA="0, #15.18" controlPointB="0, #15.18" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.6722412109375" d="0.6722412109375" tx="480" ty="270"/>
+                        </matrix>
+                        <GradientEntry ratio="0"/>
+                        <GradientEntry ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                    <Edge cubics="!19200 0(19200,0;19200,0 19200,10800 19200,10800q19200 0 19200 10800)19200,10800;"/>
+                    <Edge cubics="!0 10800(0,10800;0,10800 0,0 0,0q0 10800 0 0)0,0;"/>
+                    <Edge cubics="!0 0(0,0;0,0 19200,0 19200,0q0 0 19200 0)19200,0;"/>
+                    <Edge cubics="!19200 10800(;19200,10800 0,10800 0,10800q19200 10800 0 10800);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" duration="140" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                    <Edge cubics="!19200 0(19200,0;19200,0 19200,10800 19200,10800q19200 0 19200 10800)19200,10800;"/>
+                    <Edge cubics="!0 10800(0,10800;0,10800 0,0 0,0q0 10800 0 0)0,0;"/>
+                    <Edge cubics="!0 0(0,0;0,0 19200,0 19200,0q0 0 19200 0)19200,0;"/>
+                    <Edge cubics="!19200 10800(;19200,10800 0,10800 0,10800q19200 10800 0 10800);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

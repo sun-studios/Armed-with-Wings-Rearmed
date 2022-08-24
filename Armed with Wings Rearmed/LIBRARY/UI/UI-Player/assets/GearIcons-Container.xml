@@ -1,0 +1,177 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/assets/GearIcons-Container" itemID="55575d3c-00004187" lastModified="1496296390">
+  <timeline>
+    <DOMTimeline name="GearIcons-Container">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var slotArr:Array;
+var boosterEquip:Boolean = true;
+
+function init():void {
+	slotArr = new Array();
+	slotArr = [slotSword0,slotSword1,slotSword2,slotSword3,slotSword4,slotSword5,slotSword6,slotSword7,slotSword8,
+				slotSword9,slotSword10,slotSword11,slotSword12,slotSword13,slotSword14,slotSword15,slotSword16,slotSword17];
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword0" selected="true" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="39.15" ty="39.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword1" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="129.15" ty="39.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword2" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="219.15" ty="39.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword3" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="39.15" ty="129.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword4" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="129.15" ty="129.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword5" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="219.15" ty="129.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword6" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="39.15" ty="219.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword7" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="129.15" ty="219.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword8" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="219.15" ty="219.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword9" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="39.15" ty="309.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword10" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="129.15" ty="309.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword11" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="219.15" ty="309.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword12" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="39.15" ty="399.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword13" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="129.15" ty="399.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword14" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="219.15" ty="399.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword15" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="39.15" ty="489.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword16" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="129.15" ty="489.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Slot-Gear" name="slotSword17" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="219.15" ty="489.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,50 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-BG/MountainsScrolling/Mountrains-Front" itemID="553cae4e-00000673" lastModified="1453673430">
+  <timeline>
+    <DOMTimeline name="Mountrains-Front">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#686868"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-19200 6425|57600 6425!57600 6425|57600 12965!57600 12965|-19200 12965!-19200 12965|-19200 6425"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/mountain-front.png"/>
+                <DOMBitmapInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/mountain-front.png">
+                  <matrix>
+                    <Matrix tx="960"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/mountain-front.png">
+                  <matrix>
+                    <Matrix tx="-960"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="Environemnt/ENV-BG/MountainsScrolling/mountain-front.png">
+                  <matrix>
+                    <Matrix tx="1920"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

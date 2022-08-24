@@ -1,0 +1,849 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-displayWave/UI-DisplayWave" itemID="54e82420-00000439" lastModified="1463750939" lastUniqueIdentifier="9">
+  <timeline>
+    <DOMTimeline name="UI-DisplayWave" currentFrame="59">
+      <layers>
+        <DOMLayer name="actions" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+
+stop();
+
+var num_tf:TextField;
+
+function init(waveNum:int):void {
+	num_tf.text = String(waveNum);
+	gotoAndPlay(2);
+}
+
+visible = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="63" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" duration="3" name="FIGHT" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="88" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(root).sky) {
+	MovieClip(root).sky.hudFlash.gotoAndPlay(2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="156" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" duration="64" name="finalround" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="221" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" duration="31" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2473" y="0.0753"/>
+                  <Point x="0.3618" y="0.5151"/>
+                  <Point x="0.4512" y="0.7"/>
+                  <Point x="0.5658" y="0.8603"/>
+                  <Point x="0.5833" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/flash">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/flash" selected="true">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="60" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="number" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" duration="31" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.1828" y="1"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Fight-Anim2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.92559814453125" d="1.92559814453125" tx="-0.1" ty="16.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Fight-Anim2" symbolType="graphic" firstFrame="31" loop="play once">
+                  <matrix>
+                    <Matrix a="1.37724304199219" d="1.37724304199219" tx="-0.1" ty="16.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="124" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Fight-Anim2" symbolType="graphic" firstFrame="50" centerPoint3DX="0.15" centerPoint3DY="20.95" loop="play once">
+                  <matrix>
+                    <Matrix a="1.50151062011719" d="1.50151062011719" tx="-0.1" ty="16.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="125" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Fight-Blur" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="2.95" ty="22.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="133" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Fight-Blur" symbolType="graphic" centerPoint3DX="2.95" centerPoint3DY="22.9" loop="loop">
+                  <matrix>
+                    <Matrix tx="2.95" ty="22.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="134" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="wave" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" duration="59" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Gradiant-anim">
+                  <matrix>
+                    <Matrix ty="10.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="124" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Gradiant-anim" centerPoint3DY="10.95">
+                  <matrix>
+                    <Matrix d="1.17982482910156" ty="10.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="125" duration="32" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" duration="92" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="number" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Wave-Container" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" tx="53.85" ty="484.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Wave-Container" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" tx="53.85" ty="484.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.9126" y="0.0651"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Wave-Container" symbolType="graphic" centerPoint3DX="87" centerPoint3DY="-0.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.21893310546875" d="0.21893310546875" tx="86.75" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="35" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2622" y="0.9863"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Wave-Container" symbolType="graphic" centerPoint3DX="86.75" centerPoint3DY="-0.15" loop="loop">
+                  <matrix>
+                    <Matrix a="1.61830139160156" d="1.61830139160156" tx="86.75" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="14" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Wave-Container" symbolType="graphic" centerPoint3DX="86.75" centerPoint3DY="-0.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="86.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Wave-Container" selected="true" symbolType="graphic" centerPoint3DX="86.75" centerPoint3DY="-0.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="86.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Wave-Container" symbolType="graphic" centerPoint3DX="466.9" centerPoint3DY="-0.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="466.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="91" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/Wave-Container" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" tx="53.85" ty="484.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="156" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="wave" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" tx="-28.5" ty="498.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip" centerPoint3DX="-500.7" centerPoint3DY="1.05">
+                  <matrix>
+                    <Matrix c="0.5645751953125" tx="-519.5" ty="22.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip" centerPoint3DX="-60.2" centerPoint3DY="1.05">
+                  <matrix>
+                    <Matrix c="0.868637084960938" tx="-92.9" ty="22.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip" centerPoint3DX="-53.05" centerPoint3DY="1.05">
+                  <matrix>
+                    <Matrix tx="-45.95" ty="22.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="39" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip" selected="true" centerPoint3DX="-52.05" centerPoint3DY="1.05">
+                  <matrix>
+                    <Matrix tx="-44.95" ty="22.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip" centerPoint3DX="-45.95" centerPoint3DY="1.05">
+                  <matrix>
+                    <Matrix tx="-38.85" ty="22.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip" centerPoint3DX="-45.95" centerPoint3DY="1.05">
+                  <matrix>
+                    <Matrix tx="-38.85" ty="22.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip" centerPoint3DX="-508.55" centerPoint3DY="1.05">
+                  <matrix>
+                    <Matrix tx="-501.45" ty="22.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="91" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/text-wave" name="waveClip">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" tx="-28.5" ty="498.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="156" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/FinalRound" name="waveClip">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" tx="8.15" ty="473.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="158" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/FinalRound" name="waveClip" centerPoint3DX="-464.05" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix c="0.5645751953125" tx="-482.85" ty="-2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="163" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/FinalRound" name="waveClip" centerPoint3DX="-23.55" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix c="0.868637084960938" tx="-56.25" ty="-2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="164" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/FinalRound" name="waveClip" centerPoint3DX="-16.4" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix tx="-9.3" ty="-2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="22" color="#FFFFFF" strength="1.8"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="167" duration="39" tweenType="motion" useSingleEaseCurve="false" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="position">
+                  <Point/>
+                  <Point x="0.3333" y="0.3333"/>
+                  <Point x="0.6667" y="0.6667"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="scale">
+                  <Point/>
+                  <Point x="0.3333" y="0.3333"/>
+                  <Point x="0.6667" y="0.6667"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="color">
+                  <Point/>
+                  <Point x="0.1795" y="0.7"/>
+                  <Point x="0.5955" y="0.9315"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="filters">
+                  <Point/>
+                  <Point y="0.7842"/>
+                  <Point x="0.622" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/FinalRound" name="waveClip" centerPoint3DX="-15.4" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix tx="-8.3" ty="-2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="16" color="#FFFFFF" strength="1.29"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="206" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/FinalRound" name="waveClip" centerPoint3DX="-9.3" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix tx="-2.2" ty="-2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" color="#666666" strength="0.59"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="216" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/FinalRound" name="waveClip" centerPoint3DX="-9.3" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix tx="-2.2" ty="-2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="221" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/FinalRound" name="waveClip" centerPoint3DX="-471.9" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix tx="-464.8" ty="-2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" ty="494.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="16.4" loop="loop">
+                  <matrix>
+                    <Matrix d="-0.0548858642578125" ty="17"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="17" loop="loop">
+                  <matrix>
+                    <Matrix d="1.31388854980469" ty="17"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="42" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="17" loop="loop">
+                  <matrix>
+                    <Matrix ty="17"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="18" loop="loop">
+                  <matrix>
+                    <Matrix ty="18"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="17.1" loop="loop">
+                  <matrix>
+                    <Matrix a="1.65858459472656" d="0.0703277587890625" ty="17"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="91" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" ty="494.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="156" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="157" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.620651245117188" d="0.620651245117188" ty="494.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="158" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="16.4" loop="loop">
+                  <matrix>
+                    <Matrix d="-0.0548858642578125" ty="17"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="163" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="17" loop="loop">
+                  <matrix>
+                    <Matrix d="1.31388854980469" ty="17"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="164" duration="21" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="17" loop="loop">
+                  <matrix>
+                    <Matrix d="1.2593994140625" ty="17"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="185" duration="31" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="17.25" loop="loop">
+                  <matrix>
+                    <Matrix ty="17.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="216" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="17.95" loop="loop">
+                  <matrix>
+                    <Matrix d="1.18182373046875" ty="18"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="221" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DY="17.1" loop="loop">
+                  <matrix>
+                    <Matrix a="1.65858459472656" d="0.0703277587890625" ty="17"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

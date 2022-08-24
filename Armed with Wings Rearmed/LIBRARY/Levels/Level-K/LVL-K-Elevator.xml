@@ -1,0 +1,109 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-K/LVL-K-Elevator" itemID="54cb39c7-00002241" lastModified="1432776150">
+  <timeline>
+    <DOMTimeline name="LVL-K-Elevator">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var Y:Number = y;
+var X:Number = x;
+
+var minY:Number = y + 431;
+var halfY:Number = y + (431*.5);
+var halfWay:Boolean = false;
+var onGround:Boolean = false;
+
+
+function goDown():void {
+	if (y < minY) {
+		y += 2;
+		if (y > halfY) halfWay = true;
+		if (y > minY) y = minY;
+	}
+	
+	if (y >= minY) {
+		onGround = true;
+	}
+}
+
+function goUp():void {
+	y -= 2;
+	
+}
+
+function setPositionAtBottom():void {
+	x = X;
+	y = minY;
+}
+
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="3">
+                        <fill>
+                          <SolidColor/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!1360 232|-1336 232!-1336 232|-1336 116!-1336 116|-1336 -122!-1336 -122|-1336 -232!-1336 -232|1360 -232!1360 -232|1360 -122!1360 -122|1360 116!1360 116|1360 232"/>
+                    <Edge strokeStyle="1" edges="!-1336 116|-1508 116!-1508 116|-1508 -122!-1508 -122|-1336 -122!1360 -122|1509 -122!1509 -122|1509 116!1509 116|1360 116"/>
+                    <Edge cubics="!1360 -232(1360,-232;1360,-232 1360,-122 1360,-122q1360 -232 1360 -122)1360,-122;"/>
+                    <Edge cubics="!1360 -122(;1360,-122 1509,-122 1509,-122q1360 -122 1509 -122);"/>
+                    <Edge cubics="!1360 116(;1360,116 1360,232 1360,232q1360 116 1360 232);"/>
+                    <Edge cubics="!1509 116(1509,116;1509,116 1360,116 1360,116q1509 116 1360 116);"/>
+                    <Edge cubics="!1360 -122(;1360,-122 1360,116 1360,116q1360 -122 1360 116);"/>
+                    <Edge cubics="!1509 -122(;1509,-122 1509,116 1509,116q1509 -122 1509 116);"/>
+                    <Edge cubics="!-1336 -122(;-1336,-122 -1336,-232 -1336,-232q-1336 -122 -1336 -232);"/>
+                    <Edge cubics="!-1508 -122(;-1508,-122 -1336,-122 -1336,-122q-1508 -122 -1336 -122);"/>
+                    <Edge cubics="!-1336 232(;-1336,232 -1336,116 -1336,116q-1336 232 -1336 116)-1336,116;"/>
+                    <Edge cubics="!-1336 116(;-1336,116 -1508,116 -1508,116q-1336 116 -1508 116);"/>
+                    <Edge cubics="!-1336 116(;-1336,116 -1336,-122 -1336,-122q-1336 116 -1336 -122);"/>
+                    <Edge cubics="!-1508 116(;-1508,116 -1508,-122 -1508,-122q-1508 116 -1508 -122);"/>
+                    <Edge cubics="!1360 232(;1360,232 -1336,232 -1336,232q1360 232 -1336 232);"/>
+                    <Edge cubics="!-1336 -232(;-1336,-232 1360,-232 1360,-232q-1336 -232 1360 -232);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

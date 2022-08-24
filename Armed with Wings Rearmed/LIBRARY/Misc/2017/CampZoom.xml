@@ -1,0 +1,120 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/CampZoom" itemID="592d483b-000014c0" lastModified="1496145086" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="CampZoom">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var heroString:String;
+var bossString:String;
+var camHelperString:String;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var camHelper:MovieClip;
+var vcam:MovieClip;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+var forceLockIndex:int;
+var forceLockIndexOrig:int;
+
+var flag0:Boolean;
+
+visible = false;
+
+init ();
+
+function init ():void {
+	hero = MovieClip(parent)[heroString];
+	boss = MovieClip(parent)[bossString];
+	camHelper = MovieClip(parent)[camHelperString];
+	vcam = MovieClip(parent).vcam;
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	
+	forceLockIndex = 0;
+	forceLockIndexOrig = 80;
+}
+
+function update ():void {
+	if (!flag0) {
+		if (boss.life <= 0) {
+			if (distanceBetween(boss, hero) < 140) {
+				if (hero.currentFrameLabel == "attack") {
+					if (hero.attack.charging) {
+						if (camHelper) camHelper.doBossKill();
+						vcam.doBossKillZoom();
+						MovieClip(root).hud.fadeoutUI();
+						sndCtrl.playSound(sndCtrl.sndWoosh);
+						sndCtrl.fadeOutMusicTo();
+						forceLockIndex = forceLockIndexOrig;
+						flag0 = true;
+					}
+				}
+			}
+		}
+	} else {
+		if (hero.currentFrameLabel != "attack") {
+			if (camHelper) camHelper.endBossKill();
+			vcam.endBosSKillZoom();
+			MovieClip(root).hud.fadeinUI();
+			sndCtrl.fadeInMusic();
+			flag0 = false;
+		}
+	}
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" caps="none" weight="2" joints="miter">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!-446 -190|446 -190!446 -190|446 189!446 189|-446 189!-446 189|-446 -190"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="heroString">
+      <Inspectable name="heroString" variable="heroString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+   <property id="bossString">
+      <Inspectable name="bossString" variable="bossString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+   <property id="camHelperString">
+      <Inspectable name="camHelperString" variable="camHelperString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

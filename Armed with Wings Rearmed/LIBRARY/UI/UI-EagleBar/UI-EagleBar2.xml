@@ -1,0 +1,82 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EagleBar/UI-EagleBar2" itemID="58b3ca92-0000190a" lastModified="1501417829">
+  <timeline>
+    <DOMTimeline name="UI-EagleBar2">
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var eagle:MovieClip;
+var bar:MovieClip;
+
+init();
+
+function init ():void {
+	eagle = MovieClip(parent).eagle;
+	
+	visible = false;
+	alpha = 0;
+}
+
+function update ():void {
+	if (alpha > 0) updateBar();
+	visibility();
+}
+
+function updateBar():void {
+	var val:Number;
+	
+	val = Math.floor((eagle.flightTime/eagle.flightTimeOrig)*500);
+	bar.gotoAndStop(1+(500-val));
+	
+	x += ((eagle.x-1) - x)/2;
+	//y = eagle.y - 40;
+	y += ((eagle.y-4.6) - y)/2;
+	
+}
+
+function visibility ():void {
+	if (eagle.moveable) {
+		if (alpha < 1) {
+			alpha += .1;
+			visible = true;
+		}
+	} else {
+		if (alpha > 0) {
+			alpha -= .1;
+			
+		} else {
+			visible = false;
+		}
+	}
+}
+//var isFollowingHero:Boolean;
+//var hault:Boolean;
+//var moveable:Boolean;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bar" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EagleBar/UI-EagleBar-Round" name="bar">
+                  <matrix>
+                    <Matrix tx="24.75" ty="-125.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

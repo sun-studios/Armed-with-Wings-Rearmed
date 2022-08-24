@@ -1,0 +1,1767 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MainMenu/UI-MainMenu" itemID="54cc9b75-00000fda" lastModified="1464973142" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="UI-MainMenu" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-368&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Label" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="MENU" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="68" name="GOTOSTART" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="28" name="GOTOLEVELSEL" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="98" duration="62" name="GOTOLEVELSTART" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="160" duration="20" name="LEVELSELTOMAIN" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" duration="69" name="GOTOSURVIVAL" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="249" duration="28" name="GOTOBONUS" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenSCORES;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="277" duration="27" name="GOTOSTORY" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenSTORY;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="304" duration="64" name="GOTOSTART2" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenSTARTING;
+_root.gameMode = _root.STORY;
+play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="368" duration="20" name="STORYTOMAIN" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" duration="4" name="EQUIPTMENT" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+stop();
+
+var menuID:int = 1;
+
+var screenMAIN:String = "MAIN";
+var screenLEVELS:String = "LEVELS";
+var screenSURVIVAL:String = "SURVIVAL";
+var screenBONUS:String = "BONUS";
+var screenSTARTING:String = "STARTING";
+var screenSCORES:String = "SCORES";
+var screenSTORY:String = "STORY";
+
+var currentMenuScreen:String = screenMAIN;
+var selectedLevelNum:Number = 0;
+
+var wheel0:MovieClip;
+var wheel1:MovieClip;
+var wheel2:MovieClip;
+var wheel3:MovieClip;
+
+var _root:MovieClip = MovieClip(root);
+var ctrl:PlayerControl = _root.player1Control;
+var sndCtrl:MovieClip = _root;
+
+this.addEventListener(Event.ENTER_FRAME, update);
+
+function update (e:Event):void {
+	
+	_root.controlUpdate();
+	if (musicFade) musicFade.update();
+	if (playerOptions) playerOptions.update();
+	
+	if (wheel0) {
+		if (currentMenuScreen == screenLEVELS || currentMenuScreen == screenBONUS ||
+			currentMenuScreen == screenSTARTING || currentMenuScreen == screenSURVIVAL || 
+			currentMenuScreen == screenSCORES || currentMenuScreen == screenSTORY) wheel0.updateUnfocused();
+		else wheel0.update();
+	}
+	if (wheel1) wheel1.update();
+	if (wheel2) wheel2.update();
+	if (wheel3) wheel3.update();
+	if (levelSelectMenu && levelSelectMenu.update) levelSelectMenu.update();
+	if (leaderBoards && leaderBoards.update) leaderBoards.update();
+	if (storyMenu && storyMenu.update) storyMenu.update();
+	
+	//rough
+	//if (!_root.settingsOpen) {
+		if (currentMenuScreen == screenLEVELS) {
+			if (ctrl.ctrl_cancel) {
+				sndCtrl.playSound(sndCtrl.sndButton2);
+				gotoAndPlay("LEVELSELTOMAIN");
+			}
+		} else 
+		if (currentMenuScreen == screenBONUS) {
+			if (ctrl.ctrl_cancel) {
+				sndCtrl.playSound(sndCtrl.sndButton2);
+				gotoAndPlay("LEVELSELTOMAIN");
+			}
+		} else
+		if (currentMenuScreen == screenSCORES) {
+			if (ctrl.ctrl_cancel) {
+				sndCtrl.playSound(sndCtrl.sndButton2);
+				gotoAndPlay("LEVELSELTOMAIN");
+			}
+		}else
+		if (currentMenuScreen == screenSTORY) {
+			if (ctrl.ctrl_cancel) {
+				//sndCtrl.playSound(sndCtrl.sndButton2);
+				//gotoAndPlay("STORYTOMAIN");
+			}
+		}  
+		
+	//}
+		
+	if (ctrl.ctrl_quit) {
+		_root.closeApplication();
+	}
+		
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="67" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenSTARTING;
+_root.gameMode = _root.STORY;
+play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="69" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+//MovieClip(root).gotoAndStop(1, "Game");
+//MovieClip(root).gotoAndStop("cutscene1", "Cinematics");
+gotoAndPlay("EQUIPTMENT");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="27" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenLEVELS;
+play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="97" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="98" duration="29" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenSTARTING;
+_root.gameMode = _root.LEVELSELECT;
+play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="127" duration="32" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[levelSelectMenu.visible = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="159" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+//MovieClip(root).gotoAndStop(1, "Game");
+gotoAndPlay("EQUIPTMENT");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="160" duration="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenMAIN;
+play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="179" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[wheel0.confirmed = false;
+gotoAndStop(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" duration="68" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenSURVIVAL;
+_root.gameMode = _root.SURVIVAL;
+play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="248" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+//MovieClip(root).gotoAndStop(1, "Game");
+gotoAndPlay("EQUIPTMENT");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="249" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="276" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="277" duration="26" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="303" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+storyMenu.init();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="304" duration="63" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="367" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+//MovieClip(root).gotoAndStop(1, "Game");
+//MovieClip(root).gotoAndStop("cutscene1", "Cinematics");
+gotoAndPlay("EQUIPTMENT");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="368" duration="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[currentMenuScreen = screenMAIN;
+play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[wheel0.confirmed = false;
+gotoAndStop(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(root).fromGametoMenu = true;
+playerOptions.init();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="391" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+switch (_root.gameMode) {
+	case _root.STORY:
+		MovieClip(root).gotoAndStop("cutscene1", "Cinematics");
+		break;
+	case _root.LEVELSELECT:
+		MovieClip(root).gotoAndStop(1, "Game");
+		break;
+	case _root.SURVIVAL:
+		MovieClip(root).gotoAndStop(1, "Game");
+		break;	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="70" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="90" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="160" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" duration="69" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="249" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="277" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="304" duration="64" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="368" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sound fader" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="68" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-SoundCtrl" name="musicFade" centerPoint3DX="990.95" centerPoint3DY="373.3">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="990.95" ty="373.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="98" duration="62" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-SoundCtrl" name="musicFade" centerPoint3DX="1081" centerPoint3DY="430.65">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="1081" ty="430.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" duration="69" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="249" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="276" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScoreTable" name="leaderBoards">
+                  <matrix>
+                    <Matrix tx="400" ty="225"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="277" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="304" duration="64" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-SoundCtrl" name="musicFade" centerPoint3DX="972.55" centerPoint3DY="425.9">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="972.55" ty="425.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="368" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="transition-init" color="#FF4FFF" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="387" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-Transition" selected="true" centerPoint3DX="84" centerPoint3DY="-37">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="397.8" ty="207.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-410.65" y="-220.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="crappy instructions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-Control2">
+                  <matrix>
+                    <Matrix tx="681.7" ty="16.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="214.35" width="78.35" height="17.7" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="505.75" ty="431.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>v0.7.10</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" alpha="0.694117647058824" lineHeight="17.7" size="16" bitmapSize="320" face="TimesNewRomanPSMT" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="68" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="214.35" width="78.35" height="17.7" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="505.75" ty="431.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>v0.7.10</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" alpha="0.694117647058824" lineHeight="17.7" size="16" face="TimesNewRomanPSMT" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="28" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="214.35" width="78.35" height="17.7" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="505.75" ty="431.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>v0.7.10</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" alpha="0.694117647058824" lineHeight="17.7" size="16" bitmapSize="320" face="TimesNewRomanPSMT" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="98" duration="290" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="214.35" width="78.35" height="17.7" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="505.75" ty="431.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>v0.7.10</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" alpha="0.694117647058824" lineHeight="17.7" size="16" bitmapSize="320" face="TimesNewRomanPSMT" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="388" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="transition" color="#4FFFFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="29" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.7927"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="32" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2602"/>
+                  <Point x="0.3439" y="0.4762"/>
+                  <Point x="0.5305" y="0.7363"/>
+                  <Point x="0.7019" y="0.9753"/>
+                  <Point x="0.8404" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" selected="true" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="98" duration="29" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.7927"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="127" duration="32" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2602"/>
+                  <Point x="0.3439" y="0.4762"/>
+                  <Point x="0.5305" y="0.7363"/>
+                  <Point x="0.7019" y="0.9753"/>
+                  <Point x="0.8404" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="159" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="187" duration="29" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.7927"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="216" duration="32" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2602"/>
+                  <Point x="0.3439" y="0.4762"/>
+                  <Point x="0.5305" y="0.7363"/>
+                  <Point x="0.7019" y="0.9753"/>
+                  <Point x="0.8404" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="248" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="249" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="277" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="304" duration="29" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.7927"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="333" duration="32" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2602"/>
+                  <Point x="0.3439" y="0.4762"/>
+                  <Point x="0.5305" y="0.7363"/>
+                  <Point x="0.7019" y="0.9753"/>
+                  <Point x="0.8404" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="365" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-TransitionToGame" blendMode="add" centerPoint3DX="402.6" centerPoint3DY="226.05">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="402.6" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="366" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="368" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="logo" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="36" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/UI-Logo" centerPoint3DX="406.4" centerPoint3DY="114.8">
+                  <matrix>
+                    <Matrix a="0.754898071289063" d="0.754898071289063" tx="417.45" ty="82.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-14.85" y="43.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="33" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="98" duration="62" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="160" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" duration="69" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="249" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="277" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="304" duration="64" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="368" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bonus" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="70" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="98" duration="62" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="160" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" duration="69" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="249" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="277" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="304" duration="64" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="368" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="levels" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="70" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="82" duration="45" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-LevelSelect" name="levelSelectMenu">
+                  <matrix>
+                    <Matrix tx="84" ty="257.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="-36.1" width="216.2" height="75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="328" ty="31.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Levels</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" letterSpacing="11" lineHeight="75" size="50" bitmapSize="1000" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#FFFFFF" strength="0.22"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/ScrollBar/Scroll" name="LevelScrollBar">
+                  <matrix>
+                    <Matrix tx="17.35" ty="418.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="127" duration="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-LevelSelect" name="levelSelectMenu" centerPoint3DX="16.9" centerPoint3DY="614.1">
+                  <matrix>
+                    <Matrix a="0.0966033935546875" d="0.0966033935546875" tx="17.15" ty="614.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="2.3" width="139.4" height="76.1" autoExpand="true" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.0966033935546875" d="0.0966033935546875" tx="40.75" ty="591.15"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Levels</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="76.1" size="58" face="Ernest" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" duration="69" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="249" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="277" duration="26" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="303" duration="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/StoryMenu" name="storyMenu">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="333" duration="35" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="368" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="wheel" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="36" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.126754760742188" d="0.126754760742188" tx="149.05" ty="572.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="27" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="39" loop="play once">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="66" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="127" duration="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="66" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.232009887695313" d="0.232009887695313" tx="149.05" ty="620.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" duration="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="66" loop="play once">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="180" duration="38" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="1" centerPoint3DX="-41.85" centerPoint3DY="561.5" loop="play once">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="218" duration="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="66" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.232009887695313" d="0.232009887695313" tx="149.05" ty="620.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="249" duration="28" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="39" loop="play once">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="277" duration="26" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="85" loop="play once">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="303" duration="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="111" centerPoint3DX="87.25" centerPoint3DY="561.5" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="333" duration="35" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="66" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.232009887695313" d="0.232009887695313" tx="149.05" ty="620.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="368" duration="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="112" loop="play once">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="387" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/UI-MainMenu-Wheel" symbolType="graphic" firstFrame="131" centerPoint3DX="87.6" centerPoint3DY="561.5" loop="play once">
+                  <matrix>
+                    <Matrix a="0.999984741210938" d="0.999984741210938" tx="149.05" ty="544.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="388" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player" name="playerOptions">
+                  <matrix>
+                    <Matrix a="0.833358764648438" d="0.833328247070313"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="480" y="270"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="390" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="36" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="33" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="7" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="0">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="77" duration="20" tweenType="shape" keyMode="17922" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="30" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.121856689453125" b="-0.689376831054688" c="1.04904174804688" d="0.185348510742188" tx="70" ty="448.1"/>
+                        </matrix>
+                        <GradientEntry color="#CDCDCD" ratio="0.227450980392157"/>
+                        <GradientEntry color="#666666" ratio="0.454901960784314"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="127" duration="33" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" duration="19" tweenType="shape" keyMode="17922" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.121856689453125" b="-0.689376831054688" c="1.04904174804688" d="0.185348510742188" tx="70" ty="448.1"/>
+                        </matrix>
+                        <GradientEntry color="#CDCDCD" ratio="0.227450980392157"/>
+                        <GradientEntry color="#666666" ratio="0.454901960784314"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="179" duration="39" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="218" duration="31" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="249" duration="8" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="0">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="257" duration="19" tweenType="shape" keyMode="17922" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="276" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.121856689453125" b="-0.689376831054688" c="1.04904174804688" d="0.185348510742188" tx="70" ty="448.1"/>
+                        </matrix>
+                        <GradientEntry color="#CDCDCD" ratio="0.227450980392157"/>
+                        <GradientEntry color="#666666" ratio="0.454901960784314"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="277" duration="7" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="0">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="284" duration="19" tweenType="shape" keyMode="17922" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="303" duration="30" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="-0.0001220703125" b="-0.376815795898438" c="1.71479797363281" d="-0.0006561279296875" ty="448.4"/>
+                        </matrix>
+                        <GradientEntry color="#CDCDCD" ratio="0.227450980392157"/>
+                        <GradientEntry color="#666666" ratio="0.454901960784314"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="333" duration="35" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="368" duration="19" tweenType="shape" keyMode="17922" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="-0.0001220703125" b="-0.376815795898438" c="1.71479797363281" d="-0.0006561279296875" ty="448.4"/>
+                        </matrix>
+                        <GradientEntry color="#CDCDCD" ratio="0.227450980392157"/>
+                        <GradientEntry color="#666666" ratio="0.454901960784314"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="387" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-0.3125, -0.625" startPointB="-0.3125, -0.625" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="#1F.56, -0.625" anchorPointA="#3E.FC, -0.625" controlPointB="#1F.56, -0.625" anchorPointB="#3E.FC, -0.625" isLine="true"/>
+                    <MorphCurves controlPointA="#3E.FC, #11.6E" anchorPointA="#3E.FC, #23.7B" controlPointB="#3E.FC, #11.6E" anchorPointB="#3E.FC, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="#1F.56, #23.7B" anchorPointA="-0.3125, #23.7B" controlPointB="#1F.56, #23.7B" anchorPointB="-0.3125, #23.7B" isLine="true"/>
+                    <MorphCurves controlPointA="-0.3125, #11.6E" anchorPointA="-0.3125, -0.625" controlPointB="-0.3125, #11.6E" anchorPointB="-0.3125, -0.625" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient focalPointRatio="0.0588235294117647">
+                        <matrix>
+                          <Matrix a="0.0002899169921875" b="-0.32476806640625" c="1.16583251953125" d="0.0009613037109375" tx="131" ty="453.1"/>
+                        </matrix>
+                        <GradientEntry color="#666666" ratio="0.286274509803922"/>
+                        <GradientEntry ratio="0.737254901960784"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="388" duration="4" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!16124 -160|-80 -160!-80 -160|-80 9083!-80 9083|16124 9083!16124 9083|16124 -160"/>
+                    <Edge cubics="!-80 -160(;-80,-160 -80,9083 -80,9083q-80 -160 -80 9083);"/>
+                    <Edge cubics="!16124 -160(;16124,-160 -80,-160 -80,-160q16124 -160 -80 -160);"/>
+                    <Edge cubics="!-80 9083(;-80,9083 16124,9083 16124,9083q-80 9083 16124 9083);"/>
+                    <Edge cubics="!16124 9083(;16124,9083 16124,-160 16124,-160q16124 9083 16124 -160);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

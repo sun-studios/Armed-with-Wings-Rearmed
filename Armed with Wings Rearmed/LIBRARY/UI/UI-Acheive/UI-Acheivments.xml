@@ -1,0 +1,226 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Acheive/UI-Acheivments" itemID="574af4cd-00000bfb" lastModified="1493030575" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="UI-Acheivments" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-31&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = false;
+
+var ready:Boolean;
+var go:Boolean;
+var keyFilter0:Boolean;
+
+var sndCtrl:MovieClip;
+var _parent:MovieClip;
+var gameData:MovieClip;
+var ctrl:PlayerControl;
+
+function init ():void {
+	visible = true;
+	x = 0;
+	y = 0;
+	
+	sndCtrl = MovieClip(root);
+	_parent = MovieClip(parent);
+	gameData = MovieClip(root);
+	ctrl = MovieClip(root).player1Control;
+	
+	_parent.instruct1.visible = false;
+	_parent.instruct2.visible = false;
+	
+	ready = true;
+	go = true;	
+	
+	container.init();
+}
+
+function update ():void {	
+	if (go) {
+		
+		container.update();
+		
+		//ctrl back
+		if (ctrl.ctrl_cancel) {
+			if (!keyFilter0) {
+				sndCtrl.playUISound(sndCtrl.sndButton2);
+				_parent.closeAchieveMenu();
+				go = false;
+				
+				keyFilter0 = true;
+			}
+		} else {
+			keyFilter0 = false;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#9933CC" current="true" isSelected="true" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor alpha="0.4"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!7854 1957|11240 1957!11240 1957|11240 2448!11240 2448|7854 2448!7854 2448|7854 1957"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMDynamicText name="tf_unlocked" fontRenderingMode="standard" top="18.9" left="54" width="52.05" height="17.95" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="345.9" ty="82.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>1/20 </characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="17.95" size="20" bitmapSize="400" face="Font 7*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="2" strength="0.51"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" top="18.9" left="59.1" width="78.7" height="17.95" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="399.4" ty="82.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Unlocked</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="17.95" size="20" bitmapSize="400" face="Font 7*" fillColor="#CCCCCC"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="2" strength="0.51"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-MainMenu-Control3">
+                  <matrix>
+                    <Matrix tx="-2.2" ty="534.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="7.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="0.0592193603515625" c="-0.599517822265625" d="0" tx="479.15" ty="529.55"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-240 9622|19405 9622!19405 9622|19405 11563!19405 11563|-240 11563!-240 11563|-240 9622"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="21.7637023925781" d="4.7799072265625" tx="482.65" ty="337.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.85" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Container" name="container">
+                  <matrix>
+                    <Matrix tx="480.2" ty="131.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="231.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-SurvivalMenu/Symbol 6 copy" name="titleClip">
+                  <matrix>
+                    <Matrix tx="480" ty="60.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

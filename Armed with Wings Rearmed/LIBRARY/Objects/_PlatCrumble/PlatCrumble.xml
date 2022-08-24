@@ -1,0 +1,155 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_PlatCrumble/PlatCrumble" itemID="558585af-0000258f" lastModified="1485440794">
+  <timeline>
+    <DOMTimeline name="PlatCrumble" currentFrame="29">
+      <layers>
+        <DOMLayer name="actions" color="#009999" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+//inits on the 2nd frame
+
+var game:MovieClip;
+var ground:MovieClip;
+var sndCtrl:MovieClip;
+var particleLayer:MovieClip;
+var shaking:Boolean;
+var explode:Boolean;
+var done:Boolean;
+var inited:Boolean;
+var shakeFactor:Number;
+var X:Number;
+var Y:Number;
+var scaleXOrig:Number;
+var scaleYOrig:Number;
+
+function init ():void {
+	if (!inited) {
+		game = MovieClip(parent.parent);
+		sndCtrl = MovieClip(root);
+		particleLayer = game.particleLayer;
+		ground = game.ground;
+		game.objectsArr.push(this);
+		shakeFactor = 0;
+		X = x;
+		Y = y;
+		scaleXOrig = scaleX;
+		scaleYOrig = scaleY;
+		inited = true;
+	}
+}
+
+function update ():void {
+	if (!done) {
+		if (shaking) {
+			shakeFactor += .01;
+			var _x:Number;
+			var _y:Number;
+			var _scaleX:Number;
+			var _scaleY:Number;
+			var _rotation:Number;
+			
+			_x = X + ((Math.random()-Math.random())*shakeFactor);
+			_y = Y + (((Math.random()-Math.random())*shakeFactor)*2);
+			_scaleX = scaleXOrig + ((Math.random()-Math.random())*shakeFactor);
+			_scaleY = scaleYOrig + ((Math.random()-Math.random())*shakeFactor);
+			_rotation = ((Math.random()-Math.random())*shakeFactor)*25;
+			
+			y += (_y - y)/2;
+			x += (_x - x)/2;
+			scaleX += (_scaleX - scaleXOrig)/2;
+			scaleY += (_scaleY - scaleYOrig)/2;
+			rotation += _rotation;
+		}
+		
+		if (explode) {
+			visible = false;
+			impact();
+			done = true;
+		}
+	}
+}
+
+function doExplode():void {
+	gotoAndPlay("trigger");
+}
+
+function impact():void {
+	sndCtrl.playSound(sndCtrl.sndRockThud);
+	for (var i:int = 0; i < 4; i ++) {
+		particleLayer.addStone(x+ground.x, y+ground.y, 15,15);
+	}
+	visible = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[init();
+stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="27" name="trigger" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[shaking = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+shaking = false;
+explode = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 28" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-S02/LVL-S02-ExplodingPlat">
+                  <matrix>
+                    <Matrix tx="10.15" ty="-9.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 30" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="28" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="3.0213623046875" d="0.569839477539063" tx="11" ty="-7.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

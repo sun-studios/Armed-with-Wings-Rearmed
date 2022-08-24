@@ -1,0 +1,60 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Difficulty-Title" itemID="569e03ad-000011b0" lastModified="1453196205">
+  <timeline>
+    <DOMTimeline name="UI-Difficulty-Title" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/UI-Title-Style" centerPoint3DX="-228.25" centerPoint3DY="6.05">
+                  <matrix>
+                    <Matrix a="0.645004272460938" d="0.832611083984375" tx="-65" ty="6.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.25"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/UI-Title-Style" centerPoint3DX="228.25" centerPoint3DY="6.05">
+                  <matrix>
+                    <Matrix a="-0.645004272460938" d="0.832611083984375" tx="65.05" ty="6.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.25"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="-51.4" width="440.65" height="81.5" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.832611083984375" d="0.832611083984375" tx="-140.05" ty="-33.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>DIFFICULTY</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="81.5" size="60" bitmapSize="1200" face="RETURNTOCASTLE" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.25"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

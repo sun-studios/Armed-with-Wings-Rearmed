@@ -1,0 +1,65 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/assets/Clouds-Animated" itemID="54e3ddd2-000003b6" lastModified="1508843755" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="Clouds-Animated">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="301" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-9600 -5400|9600 -5400!9600 -5400|9600 5400!9600 5400|-9600 5400!-9600 5400|-9600 -5400"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="300" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Clouds/ENV-Clouds-Shape" selected="true">
+                  <matrix>
+                    <Matrix tx="-803.15" ty="-2.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="803.15" y="2.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="300" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Clouds/ENV-Clouds-Shape" centerPoint3DX="-968.3" centerPoint3DY="77.2">
+                  <matrix>
+                    <Matrix tx="-2088.3" ty="-2.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="803.15" y="2.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="301" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

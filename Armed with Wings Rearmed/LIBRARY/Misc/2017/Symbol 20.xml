@@ -1,0 +1,246 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 20" itemID="58d109bc-00003451" lastModified="1496300723" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="Symbol 20">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+
+var lock:Boolean;
+
+var selectIndex:int;
+var currentClip:MovieClip;
+var gameData:MovieClip;
+var cursor:MovieClip;
+var forSteam:Boolean;
+
+function init (_forSteam:Boolean = false):void {
+	keyFilter0 = true;
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	
+	ctrl = MovieClip(root).player1Control;
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	cursor = MovieClip(parent).cursor;
+	
+	selectIndex = 1;
+	currentClip = btn1;
+	
+	forSteam = _forSteam;
+	
+	if (forSteam) {
+		messageClip.gotoAndStop(2);
+	} else {
+		messageClip.gotoAndStop(1);
+	}
+	
+	highlightButton();
+	gotoAndPlay(2);
+}
+
+function update ():void {
+	
+	if (!lock) {
+		//Up
+		if (ctrl.ctrl_up) {
+			if (!keyFilter0) {
+				if (selectIndex > 0) {
+					selectIndex--;
+					sndCtrl.playUISound(sndCtrl.sndButton1);
+					highlightButton();
+				}
+				keyFilter0 = true;
+			}
+		} else {
+			keyFilter0 = false;
+		}
+		
+		//Down
+		if (ctrl.ctrl_down) {
+			if (!keyFilter1) {
+				if (selectIndex <1) {
+					selectIndex ++;
+					sndCtrl.playUISound(sndCtrl.sndButton1);
+					highlightButton();
+				}
+				keyFilter1 = true;
+			}
+		} else {
+			keyFilter1 = false;
+		}
+		
+		//Cancel
+		if (ctrl.ctrl_cancel) {
+			if (!keyFilter2) {
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+				cancel();
+				keyFilter2 = true;
+			}
+		} else {
+			keyFilter2 = false;
+		}
+		
+		//Confirm
+		if (ctrl.ctrl_confirmStart) {
+			if (!keyFilter3) {
+				confirm();
+				keyFilter3 = true;
+			}
+		} else {
+			keyFilter3 = false;
+		}
+		
+		updateCursor();
+	}
+}
+
+function highlightButton():void {
+	if (currentClip) {
+		currentClip.gotoAndPlay("out");
+	}
+	currentClip = this["btn"+selectIndex];
+	currentClip.gotoAndPlay("over");
+}
+
+function confirm ():void {
+	switch (selectIndex) {
+		case 0:
+			lock = true;
+			cursor.visible = false;
+			bgClip.gotoAndPlay(2);
+			if (forSteam) gameData.clearSteaAchievements();
+			sndCtrl.playUISound(sndCtrl.sndButton3);
+			TweenMax.delayedCall(20, function () {
+				confirmedClip.gotoAndPlay(2);
+			}, null, true);
+			break;
+		case 1:
+			cancel();
+			break;
+	}
+}
+
+function updateCursor():void {
+	cursor.y += ((y + currentClip.y + 20) - cursor.y)/3;
+	cursor.x += ((x + currentClip.x - (currentClip.width*.5)) - cursor.x)/3;
+}
+
+function cancel ():void {
+	
+	sndCtrl.playUISound(sndCtrl.sndButton2);
+	stop();
+	MovieClip(parent).closeResetWindow();
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="58" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 10" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="60" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 23" name="confirmedClip">
+                  <matrix>
+                    <Matrix tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="60" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="btn0" uniqueID="1">
+                  <matrix>
+                    <Matrix a="0.882522583007813" d="0.882522583007813" tx="-1.1" ty="0.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="11" blurY="11" color="#FFFFFF" distance="4" strength="0.46"/>
+                  </filters>
+                  <color>
+                    <Color redMultiplier="-1" blueMultiplier="-1" greenMultiplier="-1" redOffset="255" blueOffset="255" greenOffset="255"/>
+                  </color>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CONFIRM" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="btn1" uniqueID="2">
+                  <matrix>
+                    <Matrix a="0.882522583007813" d="0.882522583007813" tx="-1.1" ty="72.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="11" blurY="11" distance="4" strength="0.46"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CANCEL" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Settings/Symbol 29" name="messageClip">
+                  <matrix>
+                    <Matrix tx="1" ty="-77.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="60" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 21" name="bgClip">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="10" blurY="10" distance="8" quality="2" strength="0.28"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

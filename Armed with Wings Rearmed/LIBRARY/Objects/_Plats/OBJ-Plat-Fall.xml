@@ -1,0 +1,141 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Plats/OBJ-Plat-Fall" itemID="54bfa100-000004d2" lastModified="1485440794" lastUniqueIdentifier="2" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Plat-Fall">
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var fall:Boolean;
+var ySpeed:Number;
+//component
+var maxFall:Number;
+var Y:Number = y;
+
+var hero:MovieClip; 
+var ground:MovieClip;
+
+init();
+
+function init():void {
+	fall = false;
+	ySpeed = 0;
+
+	hero = MovieClip(parent.parent).hero; 
+	ground = MovieClip(parent);
+}
+
+function update():void {
+	if (this.bound.hitTestObject(hero.bound)) {
+		fall = true;
+	}
+	
+	if (fall) {
+		ySpeed += .15;
+		y += ySpeed;
+		
+		if (hero.x > (x+ground.x) -70 && hero.x < (x+ground.x)+70) {
+			if (hero.currentFrameLabel == "walk") {
+				if (hero.walk.jumping) {
+					
+				} else {
+					hero.y = y+ground.y;
+				}
+			} else {
+				hero.y = y+ground.y;
+			}
+		}
+		
+		if (y > maxFall) {
+			fall = false;
+		}
+	}
+	
+	edge1.hero = hero;
+	edge2.hero = hero;
+	
+	edge1.update();
+	edge2.update();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="edges" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Objects/OBJ-jumpTrigger&amp;#060" name="edge1" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="-94.6" ty="-1.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="disableGrab">
+      <Inspectable name="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/OBJ-jumpTrigger&amp;#062" name="edge2" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="93.95" ty="-0.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="disableGrab">
+      <Inspectable name="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!1724 419|1665 786!1665 786|-1708 786!-1708 786|-1754 419!-1754 419|-1849 419!-1849 419|-1911 -35!-1911 -35|1910 -35!1910 -35|1834 419!1834 419|1724 419!508 1444|-508 1444!-508 1444|-530 1199!-530 1199|530 1199!530 1199|508 1444!678 1122
+|-712 1122!-712 1122|-743 877!-743 877|708 877!708 877|678 1122"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0" b="-1.5333251953125" c="2.0538330078125" d="0" ty="25.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="maxFall">
+      <Inspectable name="maxFall" variable="maxFall" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

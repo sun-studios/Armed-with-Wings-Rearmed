@@ -1,0 +1,321 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-LootManagerStory" itemID="593e784d-00000d49" lastModified="1520082965">
+  <timeline>
+    <DOMTimeline name="OBJ-LootManagerStory">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+import flash.display.MovieClip;
+import flash.events.MouseEvent;
+import flash.events.Event;
+import flash.text.TextField;
+
+var game:MovieClip;
+var vcam:MovieClip;
+var spawner:MovieClip;
+var gameData:MovieClip;
+var particles:MovieClip;
+var hudLootBar:MovieClip;
+var hudLootScore:TextField;
+
+var timeInterval:Number;
+var lootReady:Boolean;
+var targetScore:Number;
+var oldTargetScore:Number;
+var lootCount:Number;
+var lootExhausted:Boolean;
+var weaponsAvailable:Number;
+
+var lootEnemies:Array;
+
+visible = false;
+
+function init ():void {
+	visible = false;
+	
+	game = MovieClip(parent);
+	vcam = MovieClip(parent).vcam;
+	gameData = MovieClip(root);
+	spawner = game.spawner;
+	particles = game.particleLayer;
+	//hudLootScore = gameData.hud.topLeft.lootTimer.score_tf;
+	hudLootBar = gameData.hud.lootBar;
+	//hudLootBar.visible = true;
+	
+	lootEnemies = new Array();
+	targetScore = 50;
+	oldTargetScore = 0;
+	lootCount = 0;
+	
+	//now gets called from NextLevel
+	//if (gameData.gameDifficulty == gameData.gameDifficultySuperFutile) 
+		//TweenMax.delayedCall(1, setLootEnemy, null, true);
+}
+
+function update ():void {
+	/////////////////////////////////////////
+	if (gameData == null) init();
+	
+	weaponsAvailable = gameData.numOfWeaponsUnlocked();
+	
+	var _exhausted:Boolean;
+	var _waiting:Boolean;
+	
+	if (!lootExhausted) {
+		if (!lootReady) {
+			if (gameData.sessionScore > targetScore) {
+				oldTargetScore = targetScore;
+				targetScore = (targetScore* 1.75);
+				lootReady = true;
+			}
+			//hudLootScore.text = ""+Math.round(targetScore-gameData.sessionScore);
+			
+		} else {
+			//hudLootScore.text = "ARRIVING";
+			_waiting = true;
+		}
+	} else {
+		//hudLootScore.text = "LOOT EXHAUSTED";
+		_exhausted = true;
+	}
+	
+	hudLootBar.updateValues(oldTargetScore, targetScore, _waiting, _exhausted);
+	////////////////////////////////////////
+	if (lootEnemies.length > 0) {
+		checkforDeath();
+	}
+}
+
+//triggered on 2nd frame
+function setLootEnemy():void {
+	init();
+	
+	//dont loot in: Bonus Stage
+	if (gameData.gameMode == gameData.SLW_BONUSSTAGE || gameData.gameDifficulty == gameData.gameDifficultySuperFutile) {
+		trace("no loot");
+	} else {
+		if (gameData.sessionLevel >= 4) {
+			var arr:Array = MovieClip(parent).enemiesArr;
+			var en1:MovieClip;
+			var en2:MovieClip;
+			
+			//get random enemies
+			var r1:int = Math.floor(Math.random()*arr.length);
+			var r2:int = Math.floor(Math.random()*arr.length);
+			if (r1 == r2 && arr.length > 1) {
+				r2 = Math.floor(Math.random()*arr.length);
+			}
+			en1 = arr[r1];
+			en2 = arr[r2];
+			
+			if (arr.length >= 3) {
+				if (checkEnemy(en1)) {
+					trace("LOOTIFIED:: "+en1);
+					turnEnemyIntoLoot(en1);
+				}
+			}
+			
+			if (arr.length >= 6) {
+				if (checkEnemy(en2)) {
+					turnEnemyIntoLoot(en2);
+					trace("LOOTIFIED:: "+en2);
+				}
+			}
+		} else {
+			trace("Early level no loot");
+		}
+	}
+}
+
+function checkEnemy(obj:MovieClip):Boolean {
+	if (obj) {
+		if (obj.enemyType == "ENEMY1" || obj.enemyType == "ENEMY2" || obj.enemyType == "ENEMY3" || obj.enemyType == "ENEMY4"
+		|| obj.enemyType == "ENEMY5" || obj.enemyType == "ENEMY6" || obj.enemyType == "ENEMY7") {
+			
+			return true;
+			
+		} else {
+			return false;
+		}
+	} else {
+		return false;
+	}
+}
+
+function enemySpawned(e:Event):void {
+	if (!lootExhausted) {
+		if (lootReady) {
+			var en:MovieClip = spawner.lastSpawnedEnemy;
+			
+			if (en && lootReady && lootEnemies.length == 0) {
+				turnEnemyIntoLoot(en);
+				lootReady = false;
+			}
+			
+		}
+	} else {
+		trace("SPAWNED WITH NO LOOT: EXHAUSTED");
+	}
+}
+
+function turnEnemyIntoLoot (enemy:MovieClip = null):void {
+	if (enemy) {
+		var en = enemy;
+	} else {
+		trace("Ummm wat?");
+		//en = getRandomEnemy();
+	}
+	
+	if (en) {
+		//DEFINE THE LOOT DROP 
+		if (gameData.gameMode == "SURVIVAL") {
+			lootCount ++;
+		} else {
+			//
+			var randomLuck:Number = Math.random();
+			
+			if (randomLuck <= .5) randomLuck = Math.ceil(Math.random()*10);
+			else randomLuck = 0;
+			
+			var _base:Number = Math.ceil(gameData.sessionLevel*.2);
+			var finalValue = _base + Math.ceil(Math.random()*gameData.sessionLevel)+randomLuck;
+			if (finalValue > 59) finalValue = 59;
+			lootCount = Math.ceil(finalValue);
+			
+			lootCount = 15; // force to rock sword  -
+			//gameData.sessionStoryLootCount = lootCount;
+		}
+		
+		//turn white
+		if (en.colorer) {
+			en.colorer.changeColor(MovieClip(root).VFXInvert);
+		}
+		en.superEnemy = true;
+		lootEnemies.push([en, lootCount]);
+		
+		if (lootCount >= weaponsAvailable-1) {
+			lootExhausted = true;
+		}
+	}
+}
+
+function checkforDeath():void {
+	for (var i:int = 0; i < lootEnemies.length; i ++) {
+		var en:MovieClip  = lootEnemies[i][0];
+		
+		if (en) {
+			if (en.life <= 0) {
+				
+				trace("GIVE REWARD");
+				dropLoot(en, lootEnemies[i][1]);				
+				
+				if (en.colorer) {
+					trace("change enemy color back to none!!");
+					en.colorer.changeColor("NONE");
+					en.superEnemy = false;
+					FreezeFrame(gameData.freezeFrame).attackFreeze(35);
+					game.vcam.shakeCamera(30);
+					vcam.zoom = .5;
+				}
+				
+				lootEnemies.splice(i,1);
+				break;
+			}
+		}
+	}
+}
+
+function dropLoot(enemy:MovieClip, lootID:Number):void {
+	var loot:MovieClip = particles.addpickupWeapon(enemy.x, enemy.y-(enemy.bound.height*.5), enemy.xSpeed, enemy.ySpeed +10, lootID);
+	var cacheTarget:MovieClip = vcam.target;
+	//game.camHelper.activated = false;
+	vcam.motionOverride = false;
+	vcam.target = loot;
+	
+	
+	TweenMax.delayedCall(36, function () {
+		if (game.camHelper) {
+			game.camHelper.x = game.hero.x;
+			game.camHelper.y = game.hero.y;
+			game.camHelper.activated = true;
+			//vcam.motionOverride = true;
+		}
+		
+		vcam.motionOverride = false;
+		vcam.target = cacheTarget;
+		vcam.zoom = 1;
+		
+		},null, true);
+}
+
+function getRandomEnemy():MovieClip {
+	var enemies:Array = game.enemiesArr;
+	var sortedEnemies:Array = new Array();
+	
+	for (var i:int = 0; i < enemies.length; i ++) {
+		var en:MovieClip = enemies[i];
+		if (en) {
+			if (en.hasOwnProperty("enemyType")) {
+				if (String(en.enemyType).slice(0,5) == "ENEMY") {
+					if (en.life > 0) sortedEnemies.push(en);
+				}				
+			}
+		}
+	}
+		
+	if (sortedEnemies.length > 0) {
+		var r:Number = Math.floor(Math.random()*sortedEnemies.length);
+		en = sortedEnemies[r];
+		
+		return en;
+	} else {
+		trace("NO ENEMIES TO LOOTERIZE");
+		return null;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-872 -567|873 -567!873 -567|873 565!873 565|-872 565!-872 565|-872 -567"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMStaticText left="-10.5" width="117.2" height="79" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.05" ty="-19.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>LOOT&#xD;MANAGER&#xD;STORY</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

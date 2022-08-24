@@ -1,0 +1,411 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Settings/SettingsUI2" itemID="58cbd60b-000011b5" linkageExportForAS="true" linkageClassName="SettingsUI" lastModified="1496300704" lastUniqueIdentifier="6">
+  <timeline>
+    <DOMTimeline name="SettingsUI2" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-107&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+import flash.display.MovieClip;
+
+stop();
+
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+var ctrl:PlayerControl;
+var pauseUI:MovieClip;
+var controlSettingsUI:MovieClip;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+
+var breakIndex:int;
+var breakIndexOrig:int;
+
+var lock:Boolean;
+
+var selectIndex:int;
+var selectIndexMax:int;
+var yOffset:Number;
+var holdCool:Number = 0;
+var soundGap:int = 3;
+
+init();
+
+function init ():void {
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	ctrl = MovieClip(root).player1Control;
+	
+	breakIndex = breakIndexOrig = 15;
+	selectIndex = 0;
+	selectIndexMax = 9;
+	if (gameData.STEAM) selectIndexMax = 10;
+	yOffset = container.y;
+	
+	resetPanel.visible = false;
+	whiteScreen.visible = false;
+	
+	this.addEventListener(Event.ENTER_FRAME, update);
+	gameData.addEventListener("DEFAULTSETTINGSAPPLIED", reset);
+	
+	applyFilters();
+}
+
+function reset(e:Event):void {
+	container.reinit();
+}
+
+function update (e:Event):void {
+	if (breakIndex > 0 ) {
+		breakIndex--;
+	} else {
+		if (!lock) updateDirection();
+		if (!lock) updateInput();
+	}
+	updateScolling();
+	if (!lock) updateCursor();
+	
+	if (resetPanel.visible) resetPanel.update();
+	if (controlSettingsUI && controlSettingsUI.update) controlSettingsUI.update();
+	
+	container.update();
+}
+
+function updateInput():void {
+	//confirm
+	if (ctrl.ctrl_confirmStart) {
+		if (!keyFilter3) {
+			container.input(container["item"+selectIndex]);
+			keyFilter3 = true;
+		}
+	} else {
+		keyFilter3 = false;
+	}
+	
+	//cancel
+	if (ctrl.ctrl_cancel) {
+		if (!keyFilter2) {
+			sndCtrl.playUISound(sndCtrl.sndButton3);
+			kill();
+			keyFilter2 = true;
+		}
+	} else {
+		keyFilter2 = false;
+	}
+}
+
+function updateDirection():void {
+	if (ctrl.ctrl_down) {
+		if (!keyFilter0) {
+			holdCool = 20;
+			scrollDown();
+			keyFilter0 = true;
+		}
+	} else {
+		keyFilter0 = false;
+	}
+
+	if (ctrl.ctrl_up) {
+		if (!keyFilter1) {
+			holdCool = 20;
+			scrollUp();
+			keyFilter1 = true;
+		}
+	} else {
+		keyFilter1 = false;
+	}
+	
+	//hold scroll
+	if (holdCool > 0) {
+		holdCool --;
+	} else {
+		if (soundGap > 0) {
+			soundGap --;
+		} else {
+			if (keyFilter1) {
+				scrollUp();
+			} else if (keyFilter0) {
+				scrollDown();
+			}
+			soundGap = 3;
+		}
+	}
+}
+
+function scrollUp():void {
+	if (selectIndex > 0) {
+		selectIndex --;
+
+		container.select(selectIndex);
+		sndCtrl.playUISound(sndCtrl.sndButton1);
+	}
+}
+function scrollDown():void {
+	if (selectIndex < selectIndexMax) {
+		selectIndex ++;
+		container.select(selectIndex);
+		sndCtrl.playUISound(sndCtrl.sndButton1);
+	}
+}
+
+function updateScolling ():void {
+	var Y:Number = yOffset;
+	if (selectIndex > 2) {
+		Y = (yOffset - (container["item"+(selectIndex-2)].y));
+	}
+	container.y += (Y-container.y)/5;
+	
+	title.y = container.y - 93;
+}
+
+function updateCursor ():void {
+	var X:Number = container.x + container["item"+selectIndex].x - (container["item"+(selectIndex)].width * .5);
+	var Y:Number = container.y + container["item"+selectIndex].y + (cursor.height*.4);
+	
+	cursor.x += (X - cursor.x)/3;
+	cursor.y += (Y - cursor.y)/3;
+}
+
+function openResetWindow(forSteam:Boolean = false):void {
+	sndCtrl.playUISound(sndCtrl.sndButton1);
+	
+	resetPanel.visible = true;
+	whiteScreen.visible = true;
+	
+	resetPanel.x = 480;
+	resetPanel.y = 270;
+	whiteScreen.x = 480;
+	whiteScreen.y = 270;
+	lock = true;
+	
+	addChild(whiteScreen);
+	addChild(resetPanel);
+	addChild(cursor);
+	
+	resetPanel.init(forSteam);
+}
+function closeResetWindow():void {
+	resetPanel.visible = false;
+	whiteScreen.visible = false;
+	applyFilters();
+	
+	lock = false;
+}
+
+function openControlSettings():void {
+	lock = true;
+	controlSettingsUI = new ControlSettings();
+	MovieClip(root).addChild(controlSettingsUI);
+	controlSettingsUI.init(this);
+}
+
+function closeControlSettings():void {
+	applyFilters();
+	lock = false;
+	controlSettingsUI = null;
+}
+
+function kill ():void {
+	this.removeEventListener(Event.ENTER_FRAME, update);
+	this.removeEventListener("DEFAULTSETTINGSAPPLIED", reset);
+
+	gameData.settingsOpen = false;
+	gameData.saveData();
+
+	if (pauseUI) {
+		pauseUI.resetFilters();
+		pauseUI.optionConfirmed = false;
+		pauseUI.keyFilter3 = true;
+	}
+
+	if (gameData.inGame) {
+		gameData.dispatchEvent(new Event("COLORCHANGE"));
+	}
+
+	MovieClip(root).removeChild(this);
+}
+
+function applyFilters():void {
+	keyFilter0 = true;
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#4F80FF" locked="true" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0!0 0|19200 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UIControls-Display2" name="instruct2" centerPoint3DX="129.75" centerPoint3DY="521.2" uniqueID="6">
+                  <matrix>
+                    <Matrix tx="10.6" ty="537.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="119.15" y="-16.6"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_frame">
+      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 20" name="resetPanel">
+                  <matrix>
+                    <Matrix tx="480" ty="-480.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 22" name="whiteScreen">
+                  <matrix>
+                    <Matrix tx="1590.4" ty="-429.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="cursor" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 13" name="cursor">
+                  <matrix>
+                    <Matrix tx="88.5" ty="274.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="9" blurY="9" distance="4" quality="2" strength="0.77"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="fade" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="0.0592193603515625" c="-0.599517822265625" d="0" tx="479.15" ty="492.4"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-240 8879|19405 8879!19405 8879|19405 10820!19405 10820|-240 10820!-240 10820|-240 8879"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="title" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Settings-Title" name="title">
+                  <matrix>
+                    <Matrix tx="480" ty="68.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="menu" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 16" name="container" selected="true" centerPoint3DX="425.5" centerPoint3DY="360.45">
+                  <matrix>
+                    <Matrix tx="500" ty="161.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#CCCCCC"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-299 -259|19525 -259!19525 -259|19525 10984!19525 10984|-299 10984!-299 10984|-299 -259"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

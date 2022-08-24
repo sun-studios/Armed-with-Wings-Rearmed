@@ -1,0 +1,78 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-X02/LVLx2-TestObject" itemID="57adf51d-00005200" lastModified="1485440794">
+  <timeline>
+    <DOMTimeline name="LVLx2-TestObject">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+import flash.display.MovieClip;
+
+var vcam:MovieClip;
+var hero:MovieClip;
+var _parent:MovieClip;
+var go:Boolean;
+
+init();
+
+function init ():void {
+	vcam = MovieClip(parent).vcam;
+	hero = MovieClip(parent).hero;
+	_parent = MovieClip(parent);
+	
+	go = true;
+}
+
+function update ():void {
+	if (hero.bound.hitTestObject(this) && go) {
+		hero.lock();
+		hero.xSpeed *= .5;
+		
+		TweenMax.delayedCall(20, function () {
+			vcam.target = _parent.camHelper0;
+		}, null, true);
+		
+		TweenMax.delayedCall(60, function () {
+			_parent.stairs.gotoAndPlay(2);
+			_parent.ground.gotoAndStop(3);
+			_parent.slope5.y = 252;
+			vcam.zoom = 1.3;
+			vcam.slowZoom = true;
+		}, null, true);
+		
+		TweenMax.delayedCall(180, function () {
+			vcam.zoom = 1;
+			vcam.slowZoom = false;
+			hero.unlock();
+			
+		}, null, true);
+		
+		go = false;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

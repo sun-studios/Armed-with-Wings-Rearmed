@@ -1,0 +1,60 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q02/GotoWarMode" itemID="5557e163-00006058" lastModified="1485440794">
+  <timeline>
+    <DOMTimeline name="GotoWarMode">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var doOnce:Boolean;
+var eagle:MovieClip;
+var ctrl:MovieClip;
+
+init();
+
+function init():void {
+	doOnce = false;
+	eagle = MovieClip(parent).eagle;
+	ctrl = MovieClip(root);
+}
+
+function update():void {
+	if (!doOnce) {
+		if (eagle.bound.hitTestObject(this)) {
+			gotoWarMode();
+			doOnce = true;
+		}
+	}
+}
+
+function gotoWarMode():void {
+	ctrl.hackGotoWarMode();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="1.03457641601563" d="0.457733154296875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

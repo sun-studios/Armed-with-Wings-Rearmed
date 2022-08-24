@@ -1,0 +1,2064 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Core/SurvivalManager" itemID="57c5b99a-0000103f" lastModified="1501752307" lastUniqueIdentifier="74" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0">
+  <timeline>
+    <DOMTimeline name="SurvivalManager" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-479&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="core actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[//this code needs alot of work. Too mesy. Break it down into seperate layers, or objects. 
+//Pooling seperate from spawning. Spawning variations seperate from difficulty ramp
+
+visible = false;
+
+import flash.display.MovieClip;
+import flash.events.Event;
+import com.greensock.TweenMax;
+
+//numbers
+var currentWave:int = MovieClip(root).sessionStartingWave;//default is 0
+//var currentWave:int = 8;//default is 0
+var spawnTimer:Number;
+var spawnTimerDefult:Number;
+var maxEnemies:Number;
+var numOfEnemiesInWave:int;
+var enemiesSpawned:Number;
+var endWave:Number;
+
+//bools
+var firtWaveDisplay:Boolean;
+var flagWaveComplete:Boolean;
+var bossRound:Boolean;
+
+
+//list of enemies to spawn in wave - string names
+var enemyWaveList:Array;
+var bossWaveList:Array;
+
+var enemiesArr:Array; //enemy instance ref
+
+//pool arrays
+var enemy1Pool:Array;
+var enemy2Pool:Array;
+var enemy3Pool:Array;
+var enemy4Pool:Array;
+var enemy5Pool:Array;
+var enemy6Pool:Array;
+var enemy7Pool:Array;
+var boss1Pool:Array;
+var boss2Pool:Array;
+var boss3Pool:Array;
+var boss4Pool:Array;
+
+//reference
+var game:MovieClip;
+var gameData:MovieClip;
+var hud:MovieClip;
+var _root:MovieClip;
+var particleLayer:MovieClip;
+var lastSpawnedEnemy:MovieClip;
+
+//compontend
+var mode:String;
+if (!mode) mode = "Standard";
+trace("MODE :: "+mode);
+var survivalType:Survival;
+var enemyBaseLevel:Number;
+
+//init();
+
+function init():void {
+	endWave = 3;//was 3
+	
+	enemyWaveList = new Array();
+	bossWaveList = new Array();
+	enemiesArr = new Array();
+	
+	game = MovieClip(parent);
+	hud = MovieClip(root).hud;
+	_root = MovieClip(root);
+	particleLayer = game.particleLayer;
+	gameData = MovieClip(root);
+	
+	switch (mode) {
+		case "Standard":
+			survivalType = new SurvivalStandard();
+			break;
+		case "Cliff":
+			survivalType = new SurvivalCliff();
+			break;
+		case "Boss":
+			survivalType = new SurvivalBoss();
+			break;
+		case "Story":
+			survivalType = new SurvivalStory();
+			break;
+		case "Story2":
+			survivalType = new SurvivalStory2();
+			break;
+		case "Test":
+			survivalType = new SurvivalTest();
+			break;
+		case "Soldiers":
+			survivalType = new SurvivalSoldiers();
+			break;
+		case "Web":
+			survivalType = new SurvivalWeb();
+			break;
+	}
+	
+	hud.waveCompleteDisplay.addEventListener("COMPLETE", nextWave);
+	
+	pool();
+	nextWave(null);
+}
+
+function update():void {
+	if (!game.hasLevelBegun) {
+		
+	} else {
+		if (game.hero.life > 0) {
+			//timer and spawn
+			spawnTimeUpdate();
+			//return the dead to pools
+			returnDeadtoPool();
+			//handleWavecomplete
+			waveComplete();
+			
+		}
+	}	
+}
+
+function nextWave(e:Event):void {
+	
+	currentWave ++;
+	if (_root.gameMode != _root.SURVIVAL && currentWave > endWave) {
+		this.dispatchEvent(new Event("STORYEND"));
+	} else {
+		//reset
+		if (_root) _root.sessionWave = currentWave;	
+		enemiesSpawned = 0;
+		flagWaveComplete = false;
+		
+		//update
+		_progression();
+		
+		//display wave
+		//if (_root.gameMode == _root.SURVIVAL) {
+			TweenMax.delayedCall(80, function () {hud.displayWave(currentWave);}, null, true);
+		//}
+		
+		//boss round
+		if (bossRound && survivalType.doBoss) {
+			TweenMax.delayedCall(40, spawnNextBoss, null, true);
+		}
+		
+		this.dispatchEvent(new Event("STARTNEWWAVE"));
+	}
+}
+
+function spawnTimeUpdate():void {
+	if (numOfEnemiesInWave > 0) {
+		if (spawnTimer > 0) {
+			spawnTimer --;
+		} else {
+			trace("curr en: "+getNumOfEnemies()+", max: "+maxEnemies);
+			if (getNumOfEnemies() < maxEnemies) {
+				
+				enemiesSpawned = game.enemiesArr.length;
+				for (var i:int = 0; i < game.enemiesArr.length; i ++) {
+					var enemyType:String = game.enemiesArr[i].enemyType;
+					if (enemyType) {
+						if (enemyType.substring(0, 5) == "ENEMY" || enemyType.substring(0, 4) == "BOSS" ) {
+						} else {
+							enemiesSpawned --;
+						}
+					} else {
+						enemiesSpawned --;
+					}
+				}
+		
+				spawnNextEnemy();
+			
+			}
+			spawnTimer = spawnTimerDefult;
+		}
+	}
+}
+
+function returnDeadtoPool():void {
+	if (enemiesArr.length > 0) {
+		for (var i:int = 0; i < enemiesArr.length; i ++) {
+			var obj:MovieClip = enemiesArr[i];
+			var arr:Array;
+			switch (obj.enemyType) {
+				//determin correct arr
+				case "ENEMY1": arr = enemy1Pool; break;
+				case "ENEMY2": arr = enemy2Pool; break;
+				case "ENEMY3": arr = enemy3Pool; break;
+				case "ENEMY4": arr = enemy4Pool; break;
+				case "ENEMY5": arr = enemy5Pool; break;
+				case "ENEMY6": arr = enemy6Pool; break;
+				case "ENEMY7": arr = enemy7Pool; break;
+				case "BOSS1": arr = boss1Pool; break;
+				case "BOSS2": arr = boss2Pool; break;
+				case "BOSS3": arr = boss3Pool; break;
+				case "BOSS4": arr = boss4Pool; break;
+			}
+			
+			if (arr) {
+				for (var e:int = 0; e < arr.length; e ++) {
+					if (arr[e][0] == obj) {
+						if (obj.dead && obj.currentFrameLabel == "death") {
+							if (obj.death.currentFrame == obj.death.totalFrames) {
+								returnEnemy(obj);
+							}
+						}
+					}
+				}
+			} else {
+				//game.enemiesArr.splice(i, 1);
+				//game.removeChild(obj);
+				trace("Enemy type cannot be returned - Perhaps this enemy is an IceShot or Bomb, or boulder");
+			}
+		}
+	}
+}
+
+function waveComplete():void {
+	if (!flagWaveComplete) {
+		if (numOfEnemiesInWave <= 0) {
+			if (enemiesArr.length == 0) {
+				hud.displayWaveComplete();
+				flagWaveComplete = true;
+				this.dispatchEvent(new Event("WAVECOMPLETE"));
+				trace("Enemies Killed :: "+gameData.sessionSurvivalEnemies);
+				trace("Bosses Killed :: "+gameData.sessionSurvivalBosses);
+			}
+		}
+	}
+}
+
+function spawnNextEnemy():void {
+	for (var i:int = 0 ; i < enemyWaveList.length; i ++) {
+		if (enemyWaveList[i][1]) {
+			spawnEnemy(enemyWaveList[i][0]);
+			enemyWaveList[i][1] = false;
+			break;
+		}
+	}
+}
+function spawnNextBoss():void {
+	for (var i:int = 0; i < bossWaveList.length; i ++) {
+		spawnBoss(bossWaveList[0][0], i+1);
+	}
+}
+
+function spawnEnemy(enemyID:String):void {
+	var arr:Array;
+	switch (enemyID) {
+		case "ENEMY1":
+			arr = enemy1Pool;
+			break;
+		case "ENEMY2":
+			arr = enemy2Pool;
+			break;
+		case "ENEMY3":
+			arr = enemy3Pool;
+			break;
+		case "ENEMY4":
+			arr = enemy4Pool;
+			break;
+		case "ENEMY5":
+			arr = enemy5Pool;
+			break;
+		case "ENEMY6":
+			arr = enemy6Pool;
+			break;
+		case "ENEMY7":
+			arr = enemy7Pool;
+			break;
+		
+	}
+	
+	var enemy:MovieClip = getEnemy(arr);
+	if (enemy) {
+	
+		var spawner:MovieClip;
+		var numOfSpawners:Number = getNumberOfSpawners()-1;
+		var spawnerNum:Number = Math.ceil(Math.random()*numOfSpawners);
+		spawner = game["spawnPoint"+spawnerNum];
+		
+		var r:Number = (Math.random()*100) - (Math.random()*100);
+		enemy.x = spawner.x + r;
+		enemy.y = spawner.y;
+		enemy.aware = true;
+		enemy.angry = true;
+		
+		//ditermin enemy difficulty
+		if (!enemyBaseLevel) enemyBaseLevel = 0;
+		var difMult:Number = 1.25;
+		var _enemyLev:Number;
+		
+		//if (gameData.gameDifficulty == gameData.gameDifficultyfutile) difMult = 1.5;
+		//_enemyLev = Math.round(enemyBaseLevel*difMult) + Math.round(currentWave*.5) + 1;	
+		_enemyLev = 1 + Math.round(currentWave*difMult);	
+		
+		enemy.init(_enemyLev);
+		enemy.aware = true;
+		
+		//super enemy
+		switch (enemyID) {
+			case "ENEMY1":
+				if (currentWave >= 8) enemy.superEnemy = true;
+				break;
+			case "ENEMY2":
+				if (currentWave >= 10) enemy.superEnemy = true;
+				break;
+			case "ENEMY6":
+				if (currentWave >= 6) enemy.superEnemy = true;
+				break;
+			case "ENEMY7":
+				if (currentWave >= 7) enemy.superEnemy = true;
+				break;
+		}
+		
+		enemy.gotoAndStop("SPAWN");
+		if (enemyID == "ENEMY4") {
+			enemy.SPAWN.gotoAndPlay(2);
+		}
+		
+		enemiesArr.push(enemy);
+		game.enemiesArr.push(enemy);
+		numOfEnemiesInWave --;
+		
+		lastSpawnedEnemy = enemy;
+		this.dispatchEvent(new Event("ENEMYSPAWNED"));
+		
+		if (enemyID != "ENEMY4")
+			particleLayer.addLightning(enemy.x, enemy.y);
+	} else {
+		trace("something went wrong in a good way. too few enemies in survival pool? Huge null crash avoided.");
+		numOfEnemiesInWave --;
+	}
+}
+
+function spawnBoss(bossID:String, pos:int = 1):void {
+	var arr:Array;
+	switch (bossID) {
+		case "BOSS1":
+			arr = boss1Pool;
+			break;
+		case "BOSS2":
+			arr = boss2Pool;
+			break;
+		case "BOSS3":
+			arr = boss3Pool;
+			break;
+		case "BOSS4":
+			arr = boss4Pool;
+			break;
+	}
+	
+	
+
+	var enemy:MovieClip = getEnemy(arr);
+	
+	var spawner:MovieClip;
+	if (pos == 1) {
+		spawner = game.spawnPointBoss1;
+	} else if (pos == 2) {
+		spawner = game.spawnPointBoss2;
+	}
+	
+	enemy.x = spawner.x;
+	enemy.y = spawner.y;
+	
+	//ditermin enemy difficulty
+	if (!enemyBaseLevel) enemyBaseLevel = 0;
+	var difMult:Number = 1;
+	var _enemyLev:Number;
+	if (gameData.gameDifficulty == gameData.gameDifficultyfutile) difMult = 1.5;
+	_enemyLev = Math.round(enemyBaseLevel*difMult) + Math.round(currentWave*.5) + 1;	
+	
+	enemy.init(_enemyLev);
+	if (enemy.initSurvival) enemy.initSurvival();
+	enemy.aware = true;
+	//enemy.gotoAndStop("SPAWN");
+	enemiesArr.push(enemy);
+	game.enemiesArr.push(enemy);
+	_root.hud.bossBar.add(enemy);
+	trace(game.enemiesArr);
+}
+
+//POOLING FUNCTIONS//---------------------------------------------//
+////////////////////////////////////////////////////////////////////
+function getEnemy(poolArray:Array):MovieClip {
+	for (var i:int = 0; i < poolArray.length; i ++) {
+		if (!poolArray[i][1]) {
+			var obj:MovieClip = MovieClip(poolArray[i][0]);
+			removeChild(obj);
+			game.addChild(obj);
+			obj.visible = true;
+			poolArray[i][1] = true;
+			return obj;
+		}
+	}
+	return null;
+}
+
+function returnEnemy(obj:MovieClip):void {
+	var poolArray:Array;
+	
+	switch (obj.enemyType) {
+		case "ENEMY1": poolArray = enemy1Pool; break;
+		case "ENEMY2": poolArray = enemy2Pool; break;
+		case "ENEMY3": poolArray = enemy3Pool; break;
+		case "ENEMY4": poolArray = enemy4Pool; break;
+		case "ENEMY5": poolArray = enemy5Pool; break;
+		case "ENEMY6": poolArray = enemy6Pool; break;
+		case "ENEMY7": poolArray = enemy7Pool; break;
+		case "BOSS1": poolArray = boss1Pool; break;
+		case "BOSS2": poolArray = boss2Pool; break;
+		case "BOSS3": poolArray = boss3Pool; break;
+		case "BOSS4": poolArray = boss4Pool; break;
+	}
+	
+	for (var i:int = 0; i < poolArray.length; i ++) {
+		if (poolArray[i][1] && poolArray[i][0] == obj) {
+			for (var e:int = 0; e < game.enemiesArr.length; e++) {
+				if (game.enemiesArr[e] == obj) {
+					game.enemiesArr.splice(e,1);
+				}
+			}
+			for (e = 0; e < enemiesArr.length; e ++) {
+				if (enemiesArr[e] == obj) {
+					enemiesArr.splice(e,1);
+				}
+			}
+			
+			game.removeChild(obj);
+			this.addChild(obj);
+			obj.visible = false;
+			
+			poolArray[i][1] = false;
+			break;
+		}
+	}
+}
+
+function pool():void {
+	enemy1Pool = new Array();
+	enemy1Pool = [[en1, false], [en2, false], [en3, false], [en4, false], [en5, false], [en6, false], [en7, false], [en8, false], [en9, false]];
+	
+	enemy2Pool = new Array();
+	enemy2Pool = [[en2_1, false],[en2_2, false],[en2_3, false],[en2_4, false],[en2_5, false],[en2_6, false],[en2_7, false],[en2_8, false],[en2_9, false]];
+
+	enemy3Pool = new Array();
+	enemy3Pool = [[en3_1, false],[en3_2, false],[en3_3, false],[en3_4, false],[en3_5, false],[en3_6, false],[en3_7, false],[en3_8, false],[en3_9, false]];
+	
+	enemy4Pool = new Array();
+	enemy4Pool = [[en4_1, false],[en4_2, false],[en4_3, false],[en4_4, false],[en4_5, false],[en4_6, false],[en4_7, false],[en4_8, false],[en4_9, false]];
+	
+	enemy5Pool = new Array();
+	enemy5Pool = [[en5_1, false],[en5_2, false],[en5_3, false],[en5_4, false],[en5_5, false],[en5_6, false],[en5_7, false],[en5_8, false],[en5_9, false]];
+	
+	enemy6Pool = new Array();
+	enemy6Pool = [[en6_1, false],[en6_2, false],[en6_3, false],[en6_4, false],[en6_5, false],[en6_6, false],[en6_7, false],[en6_8, false],[en6_9, false]];
+	
+	enemy7Pool = new Array();
+	enemy7Pool = [[en7_1, false],[en7_2, false],[en7_3, false],[en7_4, false],[en7_5, false],[en7_6, false],[en7_7, false],[en7_8, false],[en7_9, false]];
+	
+	boss1Pool = new Array();
+	boss1Pool = [[boss1_1, false], [boss1_2, false]];
+	
+	boss2Pool = new Array();
+	boss2Pool = [[boss2_1, false], [boss2_2, false]];
+	
+	boss3Pool = new Array();
+	boss3Pool = [[boss3_1, false], [boss3_2, false]];
+	
+	boss4Pool = new Array();
+	boss4Pool = [[boss4_1, false], [boss4_2, false]];
+}
+
+function getNumberOfSpawners():Number {
+	for (var i:Number = 1; i < 20; i ++) {
+		if (game["spawnPoint"+i]) {
+			
+		} else {
+			break;
+			
+		}
+	}
+	return i;
+}
+
+function getNumOfEnemies():int {
+	var count:int = 0;
+	
+	for (var i:int = 0; i < MovieClip(parent).enemiesArr.length; i ++) {
+		var en:MovieClip = MovieClip(parent).enemiesArr[i];
+		if (en) {
+			if (en.hasOwnProperty("enemyType")) {
+				if (String(en.enemyType).slice(0,5) == "ENEMY") {
+					count++;
+				}				
+			}
+		}
+	}
+	
+	return count;
+}
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+function kill ():void {
+	if (hud && hud.waveCompleteDisplay) 
+	hud.waveCompleteDisplay.removeEventListener("COMPLETE", nextWave);
+	//game.removeChild(this);
+	survivalType = null;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="logic actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[function _progression ():void {
+	trace("Increasing Difficulty");
+	
+	//determine time between enemy spawn
+	trace("spawn time ::    " +survivalType.spawnTimerDefult);
+	spawnTimerDefult = survivalType.spawnTimerDefult-(currentWave*15);//was 10
+	if (spawnTimerDefult < 40) spawnTimerDefult = 40;//was 40
+	spawnTimer = spawnTimerDefult;
+	
+	
+	
+	_pickEnemies();
+	_pickBoss();
+	
+	
+}
+
+function _pickEnemies(boss:Boolean = false) {
+	//determine amount of enemies per wave
+	numOfEnemiesInWave = 4+(Math.round(currentWave*1.5));
+	//determine max enemies on screen - no greater than 15
+	maxEnemies = 2 + Math.round(currentWave*.6);//was 5
+	if (maxEnemies > 15) maxEnemies = 15;
+	
+	if (bossRound) {
+
+		numOfEnemiesInWave = Math.ceil(numOfEnemiesInWave * .3);
+		maxEnemies = Math.ceil(maxEnemies * .3);
+	}
+	
+	
+	enemyWaveList = [];
+	/*
+	for (var i:int = 0; i < numOfEnemiesInWave; i ++) {
+		
+		var enemyID:String;
+		
+		//defult
+		if (currentWave%3 == 0) enemyID = "ENEMY4";
+		else enemyID = "ENEMY1";
+		
+		//progressive
+		if (currentWave >= 3) {
+			if (i%5 == 0) enemyID = "ENEMY2";
+		}
+		if (currentWave >= 6) {
+			if (i%5 == 0) enemyID = "ENEMY2";
+			if (i%6 == 0) enemyID = "ENEMY3";
+		}
+		if (currentWave >= 9) {
+			if (i%4 == 0) enemyID = "ENEMY2";
+			if (i%5 == 0) enemyID = "ENEMY3";
+		}
+		if (currentWave >= 12) {
+			if (i%3 == 0) enemyID = "ENEMY2";
+			if (i%5 == 0) enemyID = "ENEMY3";
+		}
+		
+		trace(i + ". "+enemyID);
+		enemyWaveList.push([enemyID, true]);
+		
+	}
+	*/
+	if (survivalType)
+	enemyWaveList = survivalType.getEnemyWaveList(this);
+}
+
+
+var randID:Number = Math.round(Math.random()*1000);
+function _pickBoss():void {
+	trace("----------------- PICKING BOSS --- ID::"+randID);
+	if (survivalType) {
+		if (survivalType.doBoss) {
+			//Determin is Boss Wave
+			var bossWaveCount:int = survivalType.bossWaveCount;
+			if (currentWave>survivalType.startBossAfterWave) {
+				if (currentWave%bossWaveCount == 0) bossRound = true;
+				else bossRound = false;
+			} 
+			
+			//If is a Boss Wave
+			if (bossRound) {
+				bossWaveList = [];
+				/*
+				//set default
+				var bossID:String = "BOSS1";
+				
+				//set Vandheer
+				if (currentWave%Number(bossWaveCount*2) == 0) { 
+					bossID = "BOSS2";
+				}
+				
+				bossWaveList.push([bossID, true]);
+				//spawn 2 bosses at once after 2 boss waves
+				if (currentWave > bossWaveCount*2)
+					bossWaveList.push([bossID, true]);
+				//repick fewer for boss round
+				_pickEnemies(true);
+				*/
+				bossWaveList = survivalType.getBossWaveList(this);
+				
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="vandheer" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/Vandheer" name="boss2_1">
+                  <matrix>
+                    <Matrix tx="1601.25" ty="164.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.35" y="-50.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/Vandheer" name="boss2_2">
+                  <matrix>
+                    <Matrix tx="1664.75" ty="164.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.35" y="-50.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/Boss4-Vandheer" name="boss4_1">
+                  <matrix>
+                    <Matrix tx="1602.5" ty="286.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.75" y="-45.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/Boss4-Vandheer" name="boss4_2">
+                  <matrix>
+                    <Matrix tx="1662.5" ty="286.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.75" y="-45.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="beast" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/Boss1" name="boss1_1">
+                  <matrix>
+                    <Matrix tx="1653.5" ty="-141.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.35" y="-67.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/Boss1" name="boss1_2">
+                  <matrix>
+                    <Matrix tx="1742.5" ty="-141.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.35" y="-67.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="Characters/Boss3-BossBeast/Boss3" name="boss3_1" uniqueID="64">
+                  <matrix>
+                    <Matrix tx="1704.7" ty="30.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-43.45" y="-86"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="dir" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Boss3-BossBeast/Boss3" name="boss3_2" uniqueID="65">
+                  <matrix>
+                    <Matrix tx="1834.8" ty="30.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-43.45" y="-86"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="dir" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="enemies" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en1" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="323" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en2" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="352.35" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en3" uniqueID="3">
+                  <matrix>
+                    <Matrix tx="381.7" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en4" uniqueID="4">
+                  <matrix>
+                    <Matrix tx="411.05" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en5" uniqueID="5">
+                  <matrix>
+                    <Matrix tx="440.4" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en6" uniqueID="6">
+                  <matrix>
+                    <Matrix tx="469.75" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en7" uniqueID="7">
+                  <matrix>
+                    <Matrix tx="499.1" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en8" uniqueID="8">
+                  <matrix>
+                    <Matrix tx="528.45" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy1-Soldier/Enemy1" name="en9" uniqueID="9">
+                  <matrix>
+                    <Matrix tx="557.8" ty="-153.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.05" y="-43.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_1" uniqueID="19">
+                  <matrix>
+                    <Matrix tx="318.05" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_2" uniqueID="20">
+                  <matrix>
+                    <Matrix tx="347.2" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_3" uniqueID="21">
+                  <matrix>
+                    <Matrix tx="376.35" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_4" uniqueID="22">
+                  <matrix>
+                    <Matrix tx="405.5" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_5" uniqueID="23">
+                  <matrix>
+                    <Matrix tx="434.65" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_6" uniqueID="24">
+                  <matrix>
+                    <Matrix tx="463.8" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_7" uniqueID="25">
+                  <matrix>
+                    <Matrix tx="492.95" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_8" uniqueID="26">
+                  <matrix>
+                    <Matrix tx="522.1" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy2-RoyalGuard/Enemy2" name="en2_9" uniqueID="27">
+                  <matrix>
+                    <Matrix tx="551.25" ty="-12.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.3" y="-44.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_1" uniqueID="28">
+                  <matrix>
+                    <Matrix tx="743.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_2" uniqueID="29">
+                  <matrix>
+                    <Matrix tx="823.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_3" uniqueID="30">
+                  <matrix>
+                    <Matrix tx="903.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_4" uniqueID="31">
+                  <matrix>
+                    <Matrix tx="993.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_5" uniqueID="32">
+                  <matrix>
+                    <Matrix tx="1073.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_6" uniqueID="33">
+                  <matrix>
+                    <Matrix tx="1153.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_7" uniqueID="34">
+                  <matrix>
+                    <Matrix tx="1243.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_8" uniqueID="35">
+                  <matrix>
+                    <Matrix tx="1323.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy3-Tiger/Tiger" name="en3_9" uniqueID="36">
+                  <matrix>
+                    <Matrix tx="1403.45" ty="118.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15.6" y="-3.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_1" uniqueID="37">
+                  <matrix>
+                    <Matrix tx="722.15" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_2" uniqueID="38">
+                  <matrix>
+                    <Matrix tx="750.15" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_3" uniqueID="39">
+                  <matrix>
+                    <Matrix tx="778.15" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_4" uniqueID="40">
+                  <matrix>
+                    <Matrix tx="800.7" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_5" uniqueID="41">
+                  <matrix>
+                    <Matrix tx="828.7" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_6" uniqueID="42">
+                  <matrix>
+                    <Matrix tx="856.7" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_7" uniqueID="43">
+                  <matrix>
+                    <Matrix tx="879.25" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_8" uniqueID="44">
+                  <matrix>
+                    <Matrix tx="907.25" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy4-Skullvine/SkullVine" name="en4_9" uniqueID="45">
+                  <matrix>
+                    <Matrix tx="935.25" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="inGround">
+      <Inspectable name="inGround" variable="inGround" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="300" type="Number"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="staticposition">
+      <Inspectable name="staticposition" variable="staticposition" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_1" uniqueID="46">
+                  <matrix>
+                    <Matrix tx="715.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_2" uniqueID="47">
+                  <matrix>
+                    <Matrix tx="745.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_3" uniqueID="48">
+                  <matrix>
+                    <Matrix tx="775.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_4" uniqueID="49">
+                  <matrix>
+                    <Matrix tx="805.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_5" uniqueID="50">
+                  <matrix>
+                    <Matrix tx="835.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_6" uniqueID="51">
+                  <matrix>
+                    <Matrix tx="865.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_7" uniqueID="52">
+                  <matrix>
+                    <Matrix tx="895.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_8" uniqueID="53">
+                  <matrix>
+                    <Matrix tx="925.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy5-FlameSkull/Enemy5-FlameSkull" name="en5_9" uniqueID="54">
+                  <matrix>
+                    <Matrix tx="955.15" ty="-136.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.9" y="-31.9"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cEyeSight">
+      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="800" type="Number"/>
+   </property>
+   <property id="forceFocusLoss">
+      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_1" uniqueID="55">
+                  <matrix>
+                    <Matrix tx="317.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_2" uniqueID="56">
+                  <matrix>
+                    <Matrix tx="359.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_3" uniqueID="57">
+                  <matrix>
+                    <Matrix tx="387.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_4" uniqueID="58">
+                  <matrix>
+                    <Matrix tx="415.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_5" uniqueID="59">
+                  <matrix>
+                    <Matrix tx="443.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_6" uniqueID="60">
+                  <matrix>
+                    <Matrix tx="471.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_7" uniqueID="61">
+                  <matrix>
+                    <Matrix tx="499.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_8" uniqueID="62">
+                  <matrix>
+                    <Matrix tx="527.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy6-Razor/Enemy6" name="en6_9" uniqueID="63">
+                  <matrix>
+                    <Matrix tx="569.5" ty="126.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.05" y="-60.25"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_1" uniqueID="66">
+                  <matrix>
+                    <Matrix tx="707.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_2" uniqueID="67">
+                  <matrix>
+                    <Matrix tx="752.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_3" uniqueID="68">
+                  <matrix>
+                    <Matrix tx="797.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_4" uniqueID="69">
+                  <matrix>
+                    <Matrix tx="842.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_5" uniqueID="70">
+                  <matrix>
+                    <Matrix tx="887.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_6" selected="true" uniqueID="71">
+                  <matrix>
+                    <Matrix tx="932.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_7" uniqueID="72">
+                  <matrix>
+                    <Matrix tx="977.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_8" uniqueID="73">
+                  <matrix>
+                    <Matrix tx="1022.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Characters/Enemy7-DarkGrunt/Enemy7" name="en7_9" uniqueID="74">
+                  <matrix>
+                    <Matrix tx="1067.1" ty="240.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-38.7"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superEnemy">
+      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="scouting">
+      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="sightOverride">
+      <Inspectable name="sightOverride" variable="sightOverride" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000" alpha="0.749019607843137"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-2042 -519|2042 -519!2042 -519|2042 520!2042 520|-2042 520!-2042 520|-2042 -519"/>
+                    <Edge cubics="!2042 -519(;2042,-519 2042,520 2042,520q2042 -519 2042 520);"/>
+                    <Edge cubics="!-2042 520(;-2042,520 -2042,-519 -2042,-519q-2042 520 -2042 -519);"/>
+                    <Edge cubics="!2042 520(;2042,520 -2042,520 -2042,520q2042 520 -2042 520)-2042,520;"/>
+                    <Edge cubics="!-2042 -519(-2042,-519;-2042,-519 2042,-519 2042,-519q-2042 -519 2042 -519)2042,-519;"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" width="175.3" height="28.55" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-87.65" ty="-13.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Spawn Enemies</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" alpha="0.705882352941177" lineHeight="28.55" size="29" bitmapSize="580" face="Furmanite" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="-131.85" width="407.7" height="197.8" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-87.1" ty="-553.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>survival convertion kit&#xD;add enemyType var to enemy&#xD;add new array for enemies&#xD;list arrays in switch case funtions&#xD;&#xD;</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="31.3" size="28" bitmapSize="560" face="_sans" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="mode">
+      <Inspectable name="mode" variable="mode" category="" verbose="0" defaultValue="Standard" enumeration="Standard,Web,Soldiers,Story2,Story,Test,Cliff" type="List"/>
+   </property>
+   <property id="enemyBaseLevel">
+      <Inspectable name="enemyBaseLevel" variable="enemyBaseLevel" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

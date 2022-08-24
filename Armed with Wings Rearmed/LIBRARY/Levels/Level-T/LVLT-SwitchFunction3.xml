@@ -1,0 +1,100 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-T/LVLT-SwitchFunction3" itemID="569e0345-000011aa" lastModified="1492353216">
+  <timeline>
+    <DOMTimeline name="LVLT-SwitchFunction3">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var filter0:Boolean;
+
+var checkPointHandle:MovieClip;
+var floorSwitch:MovieClip;
+var vcam:MovieClip;
+var hero:MovieClip;
+var elevator:MovieClip;
+var camPoint2:MovieClip;
+var gate7:MovieClip;
+
+init();
+
+visible = false;
+
+function init ():void {
+	checkPointHandle = MovieClip(parent).checkPointHandle;
+	floorSwitch = MovieClip(parent).stepSwitch2;
+	vcam = MovieClip(parent).vcam;
+	hero = MovieClip(parent).hero;
+	elevator = MovieClip(parent).elevatorFunction;
+	camPoint2 = MovieClip(parent).camPoint2;
+	gate7 = MovieClip(parent).ground.gate7;
+}
+
+function update ():void {
+	if (floorSwitch.isOn) {
+		if (!filter0) {
+			hero.switchToHero(false);
+			hero.xSpeed *= .5;
+			hero.active = false;
+			TweenMax.delayedCall(40, openGate, null, true);
+			filter0 = true;
+		}
+	}
+}
+
+function openGate():void {
+	
+	vcam.target = camPoint2;
+	TweenMax.delayedCall(80, resume, null, true);
+	TweenMax.delayedCall(30, function () { gate7.gotoAndPlay(2); }, null, true);
+	//checkPointHandle.checkPointReached();
+}
+
+function resume ():void {
+	hero.switchToHero();
+	hero.active = true;
+	vcam.target = hero;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="4.5" width="101.8" height="52" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-27.7" ty="-12.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Switch&#xD;Function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

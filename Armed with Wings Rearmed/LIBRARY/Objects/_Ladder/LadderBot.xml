@@ -1,0 +1,85 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Ladder/LadderBot" itemID="54b216a9-0000118d" lastModified="1492332635" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="LadderBot">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+
+var ladderName:String;
+var ladder:MovieClip;
+var hero:MovieClip = MovieClip(parent).hero;
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+
+//Attaches Hero to Ladder
+//Disables Climbing when on ground
+
+if (MovieClip(parent)[ladderName]) {
+	ladder = MovieClip(parent)[ladderName];
+}
+
+function update ():void {
+	//activeate climb
+	if (hero.bound.hitTestObject(this) && hero.life > 0 && !hero.disableLadders) {
+		if (!ladder.climbing && hero.moveable && 
+			(hero.currentFrameLabel == "idle" || 
+			hero.currentFrameLabel == "dodge" || 
+			hero.currentFrameLabel == "jump" ||
+			hero.currentFrameLabel == "spinJump" ||
+			(hero.currentFrameLabel == "walk" && (!hero.walk.jumping || hero.walk.falling)))) {
+			if (ctrl.ctrl_up) {
+				ladder.climbing = true;
+				hero.ySpeed = 0;
+				hero.xSpeed = 0;
+				hero.gotoAndStop("climb");
+			}
+		}
+		//stop climbing at bottom
+		if (ladder.climbing && hero.onGround && hero.moveable) {
+			if (ctrl.ctrl_down) {
+				ladder.climbing = false;
+				//ladder.cool = 5;
+				hero.gotoAndStop("idle");
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF9900" alpha="0.749019607843137"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#FFFFFF" alpha="0.749019607843137"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-376 -911|375 -911!375 -911|375 911!375 911|-376 911!-376 911|-376 -911"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!-288 133|277 133!277 133|-5 -149!-5 -149|-288 133"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="ladderName">
+      <Inspectable name="ladderName" variable="ladderName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

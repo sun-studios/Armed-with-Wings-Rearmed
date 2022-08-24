@@ -1,0 +1,60 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_RollWall/RollWall-Particle" itemID="55ec6b3e-00001068" lastModified="1441557310">
+  <timeline>
+    <DOMTimeline name="RollWall-Particle" currentFrame="39">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/Glow" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.761398315429688" d="1.4342041015625" ty="7.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/Glow" symbolType="graphic" firstFrame="15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.761398315429688" d="-1.4010009765625" tx="-0.7" ty="9.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/Glow" symbolType="graphic" firstFrame="9" loop="loop">
+                  <matrix>
+                    <Matrix a="0.652633666992188" d="1.57717895507813" tx="-0.65" ty="-3.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/Glow" symbolType="graphic" firstFrame="29" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.652633666992188" d="-1.54066467285156" tx="-0.05" ty="-0.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

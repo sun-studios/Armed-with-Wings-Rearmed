@@ -1,0 +1,122 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-H/LVL-H-Ground" itemID="54b92e64-00000dd0" lastModified="1491244387">
+  <timeline>
+    <DOMTimeline name="LVL-H-Ground">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gate2.gotoAndStop("isOpen");
+
+function closeBossGate():void {
+	gate2.gotoAndPlay("close");
+}
+
+function openBossGate():void {
+	gate2.gotoAndPlay("open");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="trapDoor" color="#FFFF00" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/LVL-H-TrapDoor" name="trapDoor" centerPoint3DX="446.4" centerPoint3DY="122.85">
+                  <matrix>
+                    <Matrix tx="326.25" ty="-43.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/LVL-H-TrapDoor2" name="trapDoor2">
+                  <matrix>
+                    <Matrix tx="441.8" ty="694.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ground" color="#FFFF00" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-Ground-Shape-01" centerPoint3DX="-1217.25" centerPoint3DY="-582.4">
+                  <matrix>
+                    <Matrix tx="-1217.2" ty="-582.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-Ground-Shape-02" centerPoint3DX="-494.15" centerPoint3DY="789.8">
+                  <matrix>
+                    <Matrix tx="-494.15" ty="789.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-Ground-Shape-03" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-208.6" ty="-624.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-Ground-Shape-04" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-180" ty="-802.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-Ground-Shape-05" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1349.7" ty="-600.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-Ground-Shape-06" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1322.7" ty="789.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/pillarGateLong" name="gate1">
+                  <matrix>
+                    <Matrix tx="-61.05" ty="-174.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/pillarGate" name="gate2">
+                  <matrix>
+                    <Matrix tx="1253.05" ty="1244.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

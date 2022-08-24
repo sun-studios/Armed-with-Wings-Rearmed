@@ -1,0 +1,502 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-UnlockMenu2/UI-Unlockenu2" itemID="552e5414-00000bfe" lastModified="1492841362" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="UI-Unlockenu2" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-693&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+//////////////
+//////////////
+import flash.display.MovieClip;
+import flash.events.Event;
+import com.greensock.TweenMax;
+import com.greensock.easing.Quad;
+import flash.text.TextField;
+
+stop();
+
+//bools
+var input:Boolean;
+var keyFilter:Boolean;
+var done:Boolean = false;
+var go:Boolean = false;
+
+//clips
+var titleClip:MovieClip;
+var proceed_btn:MovieClip;
+var container:MovieClip;
+var finalScore_tf:TextField;
+var scale_tf:TextField;
+
+//refs
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var gameData:MovieClip;
+
+init();
+
+function init():void {
+	
+	gameData = MovieClip(root);
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	
+	done = false;
+	go = true;
+	proceed_btn.visible = false;
+	proceed_btn.alpha = 0;
+	container.x = -2000;
+	
+	gameData.unlockPoints = gameData.sessionScore;
+	finalScore_tf.text = String(gameData.unlockPoints);
+	
+	this.addEventListener(Event.ENTER_FRAME, update);
+
+}
+
+function update(e:Event):void {
+	if (container)
+	container.updateDisplay();
+	
+	if (go) { 
+		if (done) {
+			proceed_btn.visible = true;
+		}
+		if (proceed_btn.visible) {
+			if (proceed_btn.alpha < 1) proceed_btn.alpha += .05;
+		}
+		inputUpdate();
+		sndCtrl.soundUpdate();
+	}
+}
+
+function updatePointsDisplay(i:int):void {
+	finalScore_tf.text = String(i);
+}
+
+function inputUpdate():void {
+	
+		gameData.controlUpdate();
+		container.update();
+		
+		if (!input) {
+			if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+				
+				if (!keyFilter) {
+					if (done) {
+						sndCtrl.playSound(sndCtrl.sndButton3);
+						closeMenu();
+						input = true;
+					} else {
+						container.skipInput = true;
+						container.doSkip(true);
+					}
+					
+					
+					keyFilter = true;
+				}
+			} else {
+				container.skipInput = false;
+				container.doSkip(false);
+				keyFilter = false;
+			}
+		}
+		
+	
+}
+
+function closeMenu(skip:Boolean = false):void {
+	go = false;
+	titleClip.gotoAndPlay("out");
+	TweenMax.to(proceed_btn, 20, {alpha:0, useFrames:true});
+	TweenMax.to(container, 32, {x:-2000, tint:0x000000, ease:Quad.easeIn, useFrames:true});
+	sndCtrl.playUISound(sndCtrl.sndWoosh);
+	
+	if (skip) {
+		gotoAndPlay("skip");
+	} else {
+		play();
+	}
+}
+
+function gotoMainMenu():void {
+	TweenMax.killAll();
+	this.removeEventListener(Event.ENTER_FRAME, update);
+	gameData.resetSessionData();
+	gameData.gotoAndStop(1, "Menu");
+}
+
+function gotoUnlocks2():void {
+	TweenMax.killAll();
+	this.removeEventListener(Event.ENTER_FRAME, update);
+	gameData.gotoAndStop(1, "Unlocks");
+}
+
+function gotoNewRecord():void {
+	TweenMax.killAll();
+	this.removeEventListener(Event.ENTER_FRAME, update);
+	//gameData.resetSessionData();
+	gameData.gotoAndStop(1, "NewRecords");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="10" name="out" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="52" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (gameData.sessionNewTimeStoryRecord ||
+	gameData.sessionNewScoreSurvival) {
+	play();
+} else {
+	gotoAndPlay("out2");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="63" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+gotoNewRecord();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" duration="31" name="out2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="95" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+gotoUnlocks2();
+//gotoMainMenu();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="96" name="skip" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="97" duration="26" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (gameData.sessionNewTimeStoryRecord ||
+	gameData.sessionNewScoreSurvival) {
+	gotoNewRecord();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="123" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+gotoUnlocks2();
+//gotoMainMenu();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="transition" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.7703"/>
+                  <Point x="0.9231" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Transition-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.001953125" d="0.978744506835938" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="27" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Transition-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.001953125" d="0.978744506835938" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.7703"/>
+                  <Point x="0.9231" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Transition-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.001953125" d="0.978744506835938" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="90" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Transition-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.001953125" d="0.978744506835938" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="97" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.7703"/>
+                  <Point x="0.9231" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Transition-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.001953125" d="0.978744506835938" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="123" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Transition-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.001953125" d="0.978744506835938" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="96" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0.165878295898438" d="0.0430755615234375" tx="-2.4" ty="-180.35"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.749019607843137" ratio="0.513725490196078"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-2766 -4312|2670 -4312!2670 -4312|2670 -2902!2670 -2902|-2766 -2902!-2766 -2902|-2766 -4312"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-UnlockMenu-Title-Animation" name="titleClip" centerPoint3DX="-0.05" centerPoint3DY="-454.8">
+                  <matrix>
+                    <Matrix a="1.19999694824219" d="1.19999694824219" tx="-0.05" ty="-454.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin" name="proceed_btn" centerPoint3DX="-0.05" centerPoint3DY="190.35" uniqueID="1">
+                  <matrix>
+                    <Matrix a="1.19999694824219" d="1.19999694824219" tx="-0.05" ty="190.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="PROCEED" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0.106857299804688" d="0.0127105712890625" tx="-4.5" ty="-229.3"/>
+                            </matrix>
+                            <GradientEntry alpha="0" ratio="0"/>
+                            <GradientEntry alpha="0.749019607843137" ratio="0.513725490196078"/>
+                            <GradientEntry alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1841 -4794|1661 -4794!1661 -4794|1661 -4378!1661 -4378|-1841 -4378!-1841 -4378|-1841 -4794"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMStaticText fontRenderingMode="standard" top="-2.8" left="-153.5" width="272.55" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="16.05" ty="-244.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Score</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#FFFFFF" distance="2" strength="0.49"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMDynamicText name="finalScore_tf" fontRenderingMode="standard" top="-2.8" left="-153.5" width="272.55" height="45" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="16.05" ty="-212.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>20112015</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="45" size="30" bitmapSize="600" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="2" strength="0.49"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMDynamicText name="scale_tf" fontRenderingMode="standard" top="-2.8" left="-153.5" width="272.55" height="25.05" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="17.25" ty="-168.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>9/60</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" letterSpacing="1.5" lineSpacing="0" lineHeight="25.05" size="28" bitmapSize="560" face="Font 7*" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="2" blurY="2" color="#333333" distance="2" quality="3" strength="0.24"/>
+                    <GlowFilter blurX="33" blurY="6" color="#FFFFFF" quality="3" strength="1.09"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="fade" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="96" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="96" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="container" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="96" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem" name="container">
+                  <matrix>
+                    <Matrix ty="5.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#FF800A" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="124" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-9720 -5467|9719 -5467!9719 -5467|9719 5468!9719 5468|-9720 5468!-9720 5468|-9720 -5467"/>
+                    <Edge cubics="!-9720 -5467(;-9720,-5467 9719,-5467 9719,-5467q-9720 -5467 9719 -5467)9719,-5467;"/>
+                    <Edge cubics="!9719 -5467(;9719,-5467 9719,5468 9719,5468q9719 -5467 9719 5468);"/>
+                    <Edge cubics="!9719 5468(9719,5468;9719,5468 -9720,5468 -9720,5468q9719 5468 -9720 5468);"/>
+                    <Edge cubics="!-9720 5468(;-9720,5468 -9720,-5467 -9720,-5467q-9720 5468 -9720 -5467);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

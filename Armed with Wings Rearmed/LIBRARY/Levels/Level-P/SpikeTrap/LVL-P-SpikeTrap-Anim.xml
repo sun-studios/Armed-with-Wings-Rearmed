@@ -1,0 +1,277 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap-Anim" itemID="54d6b1ba-0000075d" lastModified="1423357249" lastUniqueIdentifier="9">
+  <timeline>
+    <DOMTimeline name="LVL-P-SpikeTrap-Anim">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap-Cog">
+                  <matrix>
+                    <Matrix tx="-341.8" ty="-37.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap-Cog">
+                  <matrix>
+                    <Matrix tx="341.35" ty="-37.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap-Cog" selected="true" centerPoint3DX="-341.85" centerPoint3DY="-36">
+                  <matrix>
+                    <Matrix tx="-341.8" ty="-35.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap-Cog" selected="true" centerPoint3DX="341.3" centerPoint3DY="-36">
+                  <matrix>
+                    <Matrix tx="341.35" ty="-35.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap-Cog" centerPoint3DX="-341.85" centerPoint3DY="-36.7">
+                  <matrix>
+                    <Matrix tx="-341.8" ty="-36.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap-Cog" centerPoint3DX="341.3" centerPoint3DY="-36.7">
+                  <matrix>
+                    <Matrix tx="341.35" ty="-36.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-6679 -1177|6677 -1177!6677 -1177|6831 -1331!6831 -1331|7404 -758!7404 -758|6831 -185!6831 -185|6678 -338!6678 -338|-6678 -338!-6678 -338|-6832 -184!-6832 -184|-7405 -757!-7405 -757|-6832 -1330!-6832 -1330|-6679 -1177"/>
+                        <Edge fillStyle0="1" edges="!7210 -758|6832 -380!6832 -380|6454 -758!6454 -758|6832 -1136!6832 -1136|7210 -758!-7211 -757|-6833 -1135!-6833 -1135|-6455 -757!-6455 -757|-6833 -379!-6833 -379|-7211 -757"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-289.5" centerPoint3DY="19.15">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-284.2" ty="-28.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-180.3" centerPoint3DY="19.15">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-175.25" ty="-28.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-70.7" centerPoint3DY="19.15">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-65.35" ty="-28.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="39.6" centerPoint3DY="19.15">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="44.55" ty="-28.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="149.85" centerPoint3DY="19.15">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="155.4" ty="-28.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="261.3" centerPoint3DY="19.15">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="266.7" ty="-28.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-6679 -1149|6677 -1149!6677 -1149|6831 -1303!6831 -1303|7404 -730!7404 -730|6831 -157!6831 -157|6678 -310!6678 -310|-6678 -310!-6678 -310|-6832 -156!-6832 -156|-7405 -729!-7405 -729|-6832 -1302!-6832 -1302|-6679 -1149"/>
+                        <Edge fillStyle0="1" edges="!7210 -730|6832 -352!6832 -352|6454 -730!6454 -730|6832 -1108!6832 -1108|7210 -730!-7211 -729|-6833 -1107!-6833 -1107|-6455 -729!-6455 -729|-6833 -351!-6833 -351|-7211 -729"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-289.5" centerPoint3DY="20.55">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-284.2" ty="-26.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-180.3" centerPoint3DY="20.55">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-175.25" ty="-26.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-70.7" centerPoint3DY="20.55">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-65.35" ty="-26.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="39.6" centerPoint3DY="20.55">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="44.55" ty="-26.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="149.85" centerPoint3DY="20.55">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="155.4" ty="-26.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="261.3" centerPoint3DY="20.55">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="266.7" ty="-26.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-6679 -1163|6677 -1163!6677 -1163|6831 -1317!6831 -1317|7404 -744!7404 -744|6831 -171!6831 -171|6678 -324!6678 -324|-6678 -324!-6678 -324|-6832 -170!-6832 -170|-7405 -743!-7405 -743|-6832 -1316!-6832 -1316|-6679 -1163"/>
+                        <Edge fillStyle0="1" edges="!7210 -744|6832 -366!6832 -366|6454 -744!6454 -744|6832 -1122!6832 -1122|7210 -744!-7211 -743|-6833 -1121!-6833 -1121|-6455 -743!-6455 -743|-6833 -365!-6833 -365|-7211 -743"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-289.5" centerPoint3DY="19.85">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-284.2" ty="-27.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-180.3" centerPoint3DY="19.85">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-175.25" ty="-27.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="-70.7" centerPoint3DY="19.85">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="-65.35" ty="-27.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="39.6" centerPoint3DY="19.85">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="44.55" ty="-27.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="149.85" centerPoint3DY="19.85">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="155.4" ty="-27.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Spikes/ENV-Spike-02" centerPoint3DX="261.3" centerPoint3DY="19.85">
+                  <matrix>
+                    <Matrix a="0.912399291992188" d="-1" tx="266.7" ty="-27.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-47.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

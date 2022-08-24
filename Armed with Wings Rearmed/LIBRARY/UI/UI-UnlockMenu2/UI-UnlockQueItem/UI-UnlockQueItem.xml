@@ -1,0 +1,292 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem" itemID="553caa80-00000630" lastModified="1492354669">
+  <timeline>
+    <DOMTimeline name="UI-UnlockQueItem">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Expo;
+
+var currentIndex:int;
+var weapTotal:int;
+var skipInput:Boolean;
+
+var unlockList:Array;
+var iconArray:Array;
+
+var handler:MovieClip;
+handler.visible = false;
+var gameData:MovieClip;
+var icon:MovieClip;
+
+init();
+
+function init ():void {
+	gameData = MovieClip(root);
+	
+	currentIndex = 0;
+	skipInput = false;
+	
+	unlockList = new Array();
+	
+	var arr:Array = new Array();
+	var counter0:Number = 0;//boosters
+	var counter1:Number = 0;//weapons
+	weapTotal = gameData.data_numofWeapNORMAL+
+							gameData.data_numofWeapHIDDEN+
+							gameData.data_numofWeapRARE+
+							gameData.data_numofBoosters;
+	var _arr:Array = flatten([gameData.data_weapNormal_IDs, 
+							  gameData.data_weapHidden_IDs, 
+							  gameData.data_weapRare_IDs]);
+	
+	for (var i:int = 0; i < weapTotal; i++) {
+		if (i == 0) {
+			unlockList.push(["WEAPON", gameData.data_weapNormal_IDs[counter1]]);
+			counter1 ++;
+		} else {
+			if (counter0 < gameData.data_numofBoosters) {
+				if (i%6 == 0) { 
+					unlockList.push(["GEAR", counter0]);
+					counter0 ++;
+				} else if (i%4 == 0) { 
+					unlockList.push(["GEAR", counter0]);
+					counter0 ++;
+				} else if (i%9 == 0) {
+					unlockList.push(["GEAR", counter0]);
+					counter0 ++;
+				} else {
+					
+					unlockList.push(["WEAPON", _arr[counter1]]);
+					counter1 ++;
+				}
+			} else {
+				
+				unlockList.push(["WEAPON", _arr[counter1]]);
+				counter1 ++;
+				//unlockList.push(["WEAPON", gameData.data_weapNormal_IDs[counter1]]);
+				//counter1 ++;
+			}
+		}
+	}	
+	
+	iconArray = new Array();
+	
+	//add icons
+	var num0:Number = gameData.data_numofWeapUNLOCKED;
+	var num1:Number = 0;
+	for (i = 0; i < unlockList.length; i ++) {
+		var icon:MovieClip = new UIUnlockIcon();
+		addChild(icon);
+		icon.x = i * 140;
+		icon.icon_type = unlockList[i][0];
+		icon.icon_id = unlockList[i][1];
+		icon.numInList = i;
+		if (icon.icon_type == "WEAPON") {
+			icon.slot_id = num0;
+			num0 += 1;
+		} else {
+			icon.slot_id = num1;
+			num1 += 1;
+		}
+		
+		iconArray.push(icon);
+	}
+	
+	//locate current
+	for (i = 0; i < unlockList.length; i ++) {
+		icon = iconArray[i];
+		if (icon.icon_type == "WEAPON") {
+			if (!gameData.isWeaponUnlocked(icon.slot_id)) {
+				break;
+			}
+		} else if (icon.icon_type == "GEAR") {
+			if (!gameData.isGearUnlocked(icon.slot_id)) {
+				break;
+			}
+		}
+		currentIndex ++;
+	}
+	updateScale();
+	
+	//make rest appear unlocked
+	for (i = 0; i < currentIndex; i ++) {
+		icon = iconArray[i];
+		icon.lock_mc.visible = false;
+		icon.bar.visible = false;
+		icon.x -= 80;
+	}
+	
+	
+	for (i = currentIndex; i < unlockList.length; i ++) {
+		icon = iconArray[i];
+		if (icon.icon_type == "WEAPON") {
+			if (gameData.isWeaponUnlocked(icon.slot_id)) {
+				icon.y = 10000;
+			}
+		} else if (icon.icon_type == "GEAR") {
+			if (gameData.isGearUnlocked(icon.slot_id)) {
+				icon.y = 10000;
+			}
+		}
+	}
+	
+	//skip if full
+	if (currentIndex == unlockList.length) {
+		MovieClip(parent).closeMenu(true);
+	} else {
+		nextItem(true);
+	}
+}
+
+function doSkip(_do:Boolean):void {
+	if (icon) {
+		icon.doSkip(_do);
+	}
+}
+
+function update():void {
+	
+	icon = iconArray[currentIndex];
+	if (icon && icon.update) icon.update();
+	if (skipInput) icon.skip();
+	
+	x += ((currentIndex * -140) - x)/6;
+	
+}
+
+function updateDisplay ():void {
+	for (var i:int = 0; i < iconArray.length; i ++) {
+		var icon = iconArray[i];
+		if ((x + icon.x) < (-gameData.gameWidth*.65)) {
+			icon.visible = false;
+		} else {
+			if ((x + icon.x) > (gameData.gameWidth*.65)) {
+				icon.visible = false;
+			} else {
+				icon.visible = true;
+			}
+		}
+	}
+}
+
+function nextItem(first:Boolean = false):void {
+	var icon:MovieClip;
+	var currentIcon:MovieClip = iconArray[currentIndex];
+	currentIndex = 0;
+	var isLocked:Boolean;
+	
+	
+	for (var i:int = 0; i <= iconArray.length; i ++) {
+		currentIndex = i;
+		icon = iconArray[i];
+		if (icon) {
+			if (icon.icon_type == "WEAPON") {
+				if (!gameData.isWeaponUnlocked(icon.slot_id)) {
+					isLocked = true;
+				}
+			} else if (icon.icon_type == "GEAR") {
+				if (!gameData.isGearUnlocked(icon.slot_id)) {
+					isLocked = true;
+				}
+			}
+		}
+		
+		if (i >= iconArray.length) {
+			MovieClip(parent).closeMenu();
+		} else {
+			if (isLocked) {
+				if (first) {
+					TweenMax.delayedCall(28, icon.init, null, true);
+				} else {
+					var X:Number = currentIcon.x - 80;
+					TweenMax.to(currentIcon, 20, {x:X, ease:Expo.easeOut, useFrames:true});
+					currentIcon.scoreCounter.visible = false;
+					currentIcon.bar.visible = false;
+					
+					icon.init();
+					updateScale();
+				}
+				break;
+			}
+		}
+	}
+	/*
+	var icon:MovieClip;
+	var currentIcon:MovieClip = iconArray[currentIndex];
+	if (first) {
+		icon = iconArray[currentIndex];
+		TweenMax.delayedCall(.7, icon.init);
+	} else {
+		
+		if (currentIndex < unlockList.length-1) {
+			icon = iconArray[currentIndex];
+			var X:Number = icon.x - 80;
+			TweenMax.to(icon, .5, {x:X, ease:Expo.easeOut});
+			icon.scoreCounter.visible = false;
+			icon.bar.visible = false;
+			
+			currentIndex ++;
+			icon = iconArray[currentIndex];
+			icon.init();
+			updateScale();
+		} else {
+			MovieClip(parent).closeMenu();
+		}
+		
+	}
+	*/
+}
+
+function flatten(arrays:Array):Array {
+    var result:Array = [];
+    for(var i:int=0;i<arrays.length;i++){
+        result = result.concat(arrays[i]);
+    }
+    return result;
+}
+
+function updateScale():void {
+	MovieClip(parent).scale_tf.text = ""+currentIndex+"/"+weapTotal;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer color="#FF800A" current="true" isSelected="true" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-Icon-Unlock2" selected="true">
+                  <matrix>
+                    <Matrix ty="382.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-37.55" y="16.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ref" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-shape" name="handler">
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

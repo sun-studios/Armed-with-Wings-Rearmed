@@ -1,0 +1,135 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OB-BulkSpawn" itemID="5889f4b5-00001ab1" lastModified="1496348438" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OB-BulkSpawn">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var enemiesStrings:Array;
+var enemiesKillStrings:Array;
+var enemiesArr:Array;
+var enemiesKillArr:Array;
+
+var particleLayer:MovieClip;
+var vcam:MovieClip;
+var triggerFlag0:Boolean;
+var spawningCounter:int;
+
+
+init();
+
+function init ():void {
+	visible = false;
+	particleLayer = MovieClip(parent).particleLayer;
+	vcam = MovieClip(parent).vcam;
+	spawningCounter = 60;
+	
+	enemiesArr = new Array();
+	for (var i:int = 0; i < enemiesStrings.length; i ++) {
+		var en:MovieClip = MovieClip(parent)[enemiesStrings[i]];
+		if (en) {
+			en.visible = false;
+			enemiesArr.push(en);
+		}
+	}
+	
+	enemiesKillArr = new Array();
+	for (i = 0; i < enemiesKillStrings.length; i ++) {
+		en = MovieClip(parent)[enemiesKillStrings[i]];
+		if (en) {
+			enemiesKillArr.push(en);
+		}
+	}
+
+}
+
+function spawn():void {
+	for (var i:int = 0; i < enemiesArr.length; i ++) {
+		var en:MovieClip = enemiesArr[i];
+		if (en) {
+			en.visible = true;
+			en.gotoAndStop("SPAWN");
+			particleLayer.addLightning(en.x, en.y);
+		}
+	}
+	
+}
+
+function update ():void {
+	updateKillList();
+	
+	if (triggerFlag0) {
+		if (spawningCounter > 0) {
+			spawningCounter --;
+			vcam.shakeCamera((60 - spawningCounter));
+			if (spawningCounter == 20) spawn();
+		}
+	}
+}
+
+function updateKillList():void {
+	var go:Boolean = true;
+	for (var i:int = 0; i < enemiesKillArr.length; i ++) {
+		var en:MovieClip = enemiesKillArr[i];
+		if (en) {
+			if (en.life > 0) {
+				go = false;
+				break;
+			}
+		}
+	}
+	
+	if (go) {
+		if (!triggerFlag0) {
+			//spawn();
+			triggerFlag0 = true;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#0033FF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!-699 -262|700 -262!700 -262|700 262!700 262|-699 262!-699 262|-699 -262"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="enemiesStrings">
+      <Inspectable name="enemies" variable="enemiesStrings" category="" verbose="0" defaultValue="" type="Array"/>
+   </property>
+   <property id="enemiesKillStrings">
+      <Inspectable name="kill list for trigger" variable="enemiesKillStrings" category="" verbose="0" defaultValue="" type="Array"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

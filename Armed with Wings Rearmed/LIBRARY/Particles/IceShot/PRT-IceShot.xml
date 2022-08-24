@@ -1,0 +1,242 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/IceShot/PRT-IceShot" itemID="54d56bd4-00000758" linkageExportForAS="true" linkageClassName="IceShot" lastModified="1494137363">
+  <timeline>
+    <DOMTimeline name="PRT-IceShot">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.filters.GlowFilter;
+import flash.display.MovieClip;
+import com.greensock.plugins.VolumePlugin;
+
+stop();
+
+var go:Boolean = true;
+var xSpeed:Number;
+var xSpeed2:Number;
+var ySpeed:Number;
+var maxSpeed:Number;
+var life:Number = 300;
+var beenHit:Boolean;
+
+var playedInited:Boolean;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+var vcam:MovieClip;
+var particleLayer:MovieClip;
+var game:MovieClip;
+var ctrl:PlayerControl;
+var spawni:int = 0;
+var enemyType:String = "BOULDER";
+
+
+init();
+
+function playerInit (dir:int):void {	
+	hero = MovieClip(parent.parent).hero;
+	maxSpeed = 5 + (MovieClip(root).dataGetWeaponSpeed()*.5);
+	xSpeed = 0;
+	xSpeed2 = maxSpeed;
+	ySpeed = 0;
+	beenHit = true;
+	playedInited = true;
+}
+
+function init():void {
+	if (!playedInited) {
+		xSpeed = 2;
+		maxSpeed = 6;
+		xSpeed2 = (maxSpeed *.3);
+		beenHit = false;
+	}
+	
+	hero = MovieClip(parent.parent).hero;
+	boss = MovieClip(parent.parent).boss;
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	vcam = MovieClip(parent.parent).vcam;
+	particleLayer = MovieClip(parent);
+	game = MovieClip(parent.parent);
+	
+	game.enemiesArr.push(this);
+}
+
+function update() {
+	//movement
+	if (xSpeed2 < maxSpeed) {
+		xSpeed2 += .5;
+	}
+	x += xSpeed2*scaleX;
+	//y += ySpeed;
+		
+	if (xSpeed > 0) xSpeed -= .25;
+	if (xSpeed < 0) xSpeed += .25;
+	x += xSpeed;
+	
+	//life
+	if (life > 0) {
+		life --;
+	} else {
+		kill();
+	}
+	
+	//movement();
+
+	var X:Number = (Math.random()*30)-(Math.random()*40);
+	var Y:Number = (Math.random()-Math.random())*35;
+	var S:Number = .5 +(Math.random()*.5);
+	
+	if (spawni > 0) {
+		spawni --;
+	} else {
+		spawni = 1;
+		particleLayer.addWaterPrt(x+X, y+Y,S,S);
+	}
+		
+	//damage hero
+	if (!beenHit) {
+		if (hero.currentFrameLabel == "dodge" && hero.dodge.dodging) {
+			
+		} else {
+			if (hero.bound.hitTestObject(this.bound2)) {
+				hero.takeDamage(this, 4, 13, 1, false, false, true);
+				kill();
+			}
+		}
+	} else {
+		if (boss) {
+			if (boss.bound.hitTestObject(this.bound2)) {
+				boss.takeDamage(this, 4, 0, 1);
+				kill();
+				
+			}
+		}
+		if (gameData.gameMode == gameData.SURVIVAL || playedInited) {
+			for (var i:int = 0; i < game.enemiesArr.length; i ++) {
+				var en:MovieClip = game.enemiesArr[i];
+				if (en.enemyType != "BOULDER" && en.enemyType != "ICESPIKE") {
+					if (en.bound.hitTestObject(this.bound2) && !en.dead && en.visible) {
+						en.takeDamage(this, 4, 13, 1);
+						kill();
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+function movement():void {
+	if (ctrl) {
+		if (ctrl.ctrl_up) {
+			ySpeed -= 1;
+		}
+		if (ctrl.ctrl_down) {
+			ySpeed += 1;
+		}
+		if (ctrl.ctrl_left) {
+			xSpeed -= 1;
+		}
+		if (ctrl.ctrl_right) {
+			xSpeed +=  1;
+		}
+	}
+}
+
+
+function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1, combo:Boolean = false):void {
+	if (currentFrameLabel != "death") {
+		beenHit = true;
+		damage = damage + (gameData.dataGetWeaponPower()*.15);
+		
+		
+		
+		if (from.scaleX == 1) scaleX = 1;
+		else scaleX = -1;
+		
+		xSpeed = (X * 1.5)*scaleX;
+		
+		if (xSpeed > 35) xSpeed = 35;
+		if (xSpeed <- 35) xSpeed = -35;
+		//if (ySpeed > 35) ySpeed = 35;
+		//if (ySpeed < -35) ySpeed = -35;
+		
+		sndCtrl.playHitHardSound();
+		vcam.cameraShake = Math.random()*damage*12;
+		
+		gameData.scoreAttack();
+		//vcam.battleCool = 60;
+		particleLayer.addHitSplash(from, this);
+		if (gameData.sessionCombo > 1) particleLayer.addCombo(x, y, 1);
+	}
+}
+
+function kill():void {
+	for (var i:int = 0; i < game.enemiesArr.length; i ++) {
+		if (this == game.enemiesArr[i]) {
+			game.enemiesArr.splice(i,1);
+		}
+	}
+	
+	MovieClip(parent).removeFromIceShotArr(this);
+	MovieClip(parent).removeChild(this);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/IceShot/IceShot2.0/IceShot2.0-Anim">
+                  <matrix>
+                    <Matrix a="0.737960815429688" d="0.737960815429688" tx="-24.25" ty="15.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="20" y="-32.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound2">
+                  <matrix>
+                    <Matrix a="0.614273071289063" d="0.273757934570313" tx="0.25" ty="0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="1.79582214355469" d="0.800338745117188" tx="0.35" ty="0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

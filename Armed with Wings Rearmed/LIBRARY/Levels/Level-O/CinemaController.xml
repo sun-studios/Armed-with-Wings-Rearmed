@@ -1,0 +1,218 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-O/CinemaController" itemID="56bdd079-00000bc0" lastModified="1493029956">
+  <timeline>
+    <DOMTimeline name="CinemaController">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Power3;
+import com.greensock.easing.Power4;
+import com.greensock.easing.Back;
+import com.greensock.easing.Power2;
+import com.greensock.easing.CustomEase;
+import flash.events.Event;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var convo:MovieClip;
+var vcam:MovieClip;
+var bossCamHelper:MovieClip;
+var energyBall:MovieClip;
+var camMotion:MovieClip;
+var sndCtrl:MovieClip;
+var transition:MovieClip;
+
+var kickDust:Number;
+
+init();
+
+function init ():void {
+	visible = false;
+	
+	hero = MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	convo = MovieClip(parent).convo1;
+	vcam = MovieClip(parent).vcam;
+	bossCamHelper = MovieClip(parent).bossCamHelper;
+	energyBall = MovieClip(parent).energyBall;
+	camMotion = MovieClip(parent).camMotion;
+	sndCtrl = MovieClip(root);
+	transition = MovieClip(root).transition;
+	
+	kickDust = 0;
+	
+	MovieClip(parent).iceBackground2.visible = false;
+	MovieClip(parent).iceFrontground2.visible = false;
+	
+	convo.addEventListener("COMPLETE",  freezeStage);
+	camMotion.addEventListener("COMPLETE1", camMotionComplete);
+	transition.addEventListener("QUICKSKIP", quickSkip);
+	
+}
+
+function initFadein():void {
+	camMotion.start(0);
+	
+	boss.gotoAndStop("convo1");
+
+	TweenMax.delayedCall(160, function () { 
+		camMotion.end(camMotion);
+
+		if (hero.heroName == "VANDHEER") {
+			convo.cID = 7;
+			convo.defineText();
+		}
+		if (hero.heroName == "SUPERLONEWARRIOR") {
+			convo.cID = 8;
+			convo.defineText();
+		}
+		
+		convo.startConvo(); 
+		
+		//if (hero.heroName == "LONEWARRIOR") {
+		//	convo.startConvo(); 
+		//} else {
+			//freezeStage(null);
+		//}
+	}, null, true);
+}
+
+function quickSkip(e:Event):void {
+	var _parent:MovieClip = MovieClip(parent);
+	if (_parent) {
+		hero.x = -720;
+		_parent.iceBackground.gotoAndPlay(_parent.iceBackground.totalFrames);
+		_parent.iceBackground.visible = true;
+		_parent.iceBackground2.visible = true;
+		_parent.iceFrontground.gotoAndPlay(_parent.iceFrontground.totalFrames);
+		_parent.iceFrontground.visible = true;
+		_parent.iceFrontground2.visible = true;
+		boss.gotoAndStop("idle");
+		MovieClip(root).hud.fadeinUI();
+		gotoBattle();
+		sndCtrl.playMusic(sndCtrl.track8);
+	}
+}
+
+function freezeStage(e:Event):void {
+	
+	if (convo.skipped) {
+		transition.gotoAndPlay("quickSkip");
+		
+	} else {
+		vcam.target = boss;
+		vcam.slowZoom = true;
+		vcam.zoom = 2;
+		boss.gotoAndStop("taunt0");
+		energyBall.x = boss.x + 50;
+		energyBall.y = boss.y - 60;
+		energyBall.goCool();
+		TweenMax.to(vcam, 170, {cameraShake:100, ease:Power3.easeIn, useFrames:true});
+		TweenMax.to(vcam, 170, {zoom:.4, ease:Back.easeOut.config(1), useFrames:true});
+		TweenMax.delayedCall(220, function () {//was 220
+			MovieClip(parent).iceBackground2.visible = true;
+			MovieClip(parent).iceFrontground2.visible = true;
+			hero.gotoAndStop("idle");
+			hero.idle.gotoAndStop("slideB");
+			hero.xSpeed =-27;
+			TweenMax.to(hero, 80, {x:-720, ease:Power4.easeOut,useFrames:true});
+			TweenMax.delayedCall(60, stopSkid, null, true);
+			kickDust = 30;
+			sndCtrl.playMusic(sndCtrl.track8);
+		}, null, true);
+		TweenMax.delayedCall(170, function () {
+			energyBall.go = false;
+			camMotion.x = boss.x;
+			camMotion.y = boss.y;
+			camMotion.start(1);
+			MovieClip(parent).iceBackground.gotoAndPlay(2);
+			MovieClip(parent).iceFrontground.gotoAndPlay(2);
+			
+			
+			
+		}, null, true);
+	}
+}
+function stopSkid():void {
+	if (hero.heroName == "LONEWARRIOR") {
+		hero.gotoAndStop("convo0");
+	} else {
+		hero.gotoAndStop("idle");
+	}
+}
+function gotoBattle (e:Event = null):void {
+	hero.unlock();
+	boss.cinemaMode = false;
+	boss.cinema0 = false;
+	vcam.zoom = 1;
+	vcam.slowZoom = false;
+	vcam.target = bossCamHelper;
+	bossCamHelper.cameraFocus();
+	hero.gotoAndStop("idle");
+	vcam.shakeCamera(20);
+	//MovieClip(parent).energyBall.goCool();
+}
+
+function update ():void {
+	//if (hero.moveable) hero.lock();
+	//bossCamHelper.activated = false;
+	if (kickDust > 0) {
+		hero.addAttackDust();
+		kickDust --;
+	}
+}
+
+function camMotionComplete(e:Event):void {
+	bossCamHelper.x = -260;
+	
+	vcam.target = boss;
+	vcam.zoom = .8;
+	vcam.slowZoom = true;
+	boss.gotoAndStop("taunt1");
+	TweenMax.to(boss, 73, {x:304, ease:Power2.easeIn, onComplete:gotoBattle, useFrames:true});
+	MovieClip(root).hud.fadeinUI();
+	//MovieClip(root).hud.bossBar.add(boss);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-873 -367|872 -367!872 -367|872 368!872 368|-873 368!-873 368|-873 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="2.55" width="91.1" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.15" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Cinema&#xD;Control</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

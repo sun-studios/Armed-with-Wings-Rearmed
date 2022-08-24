@@ -1,0 +1,166 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Core/EnemyLifebar" itemID="55d4ae55-0000180d" lastModified="1492834587">
+  <timeline>
+    <DOMTimeline name="EnemyLifebar">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[
+import flash.display.MovieClip;
+
+var stats0:MovieClip;
+var stats1:MovieClip;
+
+var stats1Assigned:Boolean;
+var stats2Assigned:Boolean;
+
+var refreshInt:int;
+var refreshIntOrig:int;
+var r:Array;
+
+var game:MovieClip;
+
+init();
+
+function init():void {
+	stats1Assigned = false;
+	stats2Assigned = false;
+	
+	refreshInt = 40;
+	refreshIntOrig = 40;
+	r = new Array();
+	
+	game = MovieClip(parent);
+}
+
+function update():void {
+	
+	if (refreshInt > 0) {
+		if (MovieClip(root)) {
+			if (MovieClip(root).gameMode == "JUGGLE") {
+				refreshInt = 10;
+			} else {
+				refreshInt --;
+			}
+		}
+	} else {
+		if (game.enemiesArr && game.vcam) {
+			r= [];
+			var e:int = 0;
+			for (var i:int = 0; i < game.enemiesArr.length; i ++) {
+				var en:MovieClip = game.enemiesArr[i];
+				//EXLUDE::
+					var go:Boolean = true;
+					//exlude these
+					if (en.enemyType == "BOSS1" || en.enemyType == "BOSS2" || 
+						en.enemyType == "BOSS3" || en.enemyType == "BOULDER" || 
+						en.enemyType == "BOMB" || en.enemyType == "ROCK" ||
+						en.enemyType == "BOSS4") 
+					{
+						go = false;
+					}
+					//also excluse these
+					if (en.enemyType == "ENEMY4" && en.inGround) go = false;
+					if (en.heroName) go = false;
+					
+				//END of EXLUDE//
+				if (go) {
+					if (en.life > 0 && en.visible) {					
+						var dist:Number = distanceBetween(game.vcam.target, en);	
+						
+						if (e > 0) {
+							//if (e >= 2) r.pop();
+							if (dist < r[0][1]) {
+								r = [[en, dist]];
+								//e ++;
+							}
+						} else {
+							r = [[en, dist]];
+							e ++;
+						}
+					}
+					
+				}
+			}
+			
+			if (r.length > 0) {
+				stats0.init(r[0][0]);
+				stats1Assigned = true;	
+				if (r.length > 1) {
+					//stats1.init(r[1][0]);
+					//stats2Assigned = true;
+				}
+			}
+		}
+		refreshInt = refreshIntOrig;
+	}
+	
+	if (game.enemiesArr && game.enemiesArr.length > 0) {
+		if (stats0.master) {
+			//stats0.x += (stats0.master.x - stats0.x)/4;
+			
+			stats0.x += ((stats0.master.x) - stats0.x)/4;
+			stats0.y += ((stats0.master.y) - stats0.y)/4;
+			
+			stats0.update();
+		}
+		//if (stats1.master) {
+			//stats1.x += (stats1.master.x - stats1.x)/4;
+			//stats1.y += ((stats1.master.y - (stats1.master.height * 1.5)) - stats1.y)/4;
+			//stats1.update();
+		//}
+	}
+	
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+function reset():void {
+	stats0.master = null;
+	stats0.x = stats0.y = 0;
+	stats0.visible = false;
+	stats1.master = null;
+	stats1.x = stats1.y = 0;
+	stats1.visible = false;
+	
+	
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EnemyStats/UI-EnemyStats" name="stats1" selected="true">
+                  <matrix>
+                    <Matrix tx="-790.55" ty="-639.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-EnemyStats/UI-EnemyStats" name="stats0">
+                  <matrix>
+                    <Matrix tx="-789.4" ty="-714.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

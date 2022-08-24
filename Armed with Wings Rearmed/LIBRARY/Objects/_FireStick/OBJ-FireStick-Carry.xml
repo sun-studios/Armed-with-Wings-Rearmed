@@ -1,0 +1,64 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_FireStick/OBJ-FireStick-Carry" itemID="54d3787a-0000138d" lastModified="1423145943">
+  <timeline>
+    <DOMTimeline name="OBJ-FireStick-Carry" currentFrame="39">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="19" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.5789" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-FireStick-Container" symbolType="graphic" centerPoint3DX="-25.5" centerPoint3DY="0.65" loop="loop">
+                  <matrix>
+                    <Matrix a="0.968246459960938" b="-0.246856689453125" c="0.246856689453125" d="0.968246459960938" tx="-25.4" ty="1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="20" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.5789" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-FireStick-Container" symbolType="graphic" centerPoint3DX="-24.3" centerPoint3DY="2.8" loop="loop">
+                  <matrix>
+                    <Matrix a="0.94427490234375" b="-0.329147338867188" c="0.329147338867188" d="0.94427490234375" tx="-24.2" ty="3.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-FireStick-Container" symbolType="graphic" centerPoint3DX="-25.5" centerPoint3DY="0.65" loop="loop">
+                  <matrix>
+                    <Matrix a="0.968246459960938" b="-0.246856689453125" c="0.246856689453125" d="0.968246459960938" tx="-25.4" ty="1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

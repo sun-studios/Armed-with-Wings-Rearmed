@@ -1,0 +1,131 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap" itemID="54d6b1b8-0000075c" lastModified="1490583534" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="LVL-P-SpikeTrap">
+      <layers>
+        <DOMLayer name="actions" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var moveSpeed:Number;
+var active:Boolean;
+
+var X:Boolean;
+var Y:Boolean;
+var dir:Number;
+var max:Number;
+var forceActive:Boolean;
+var cSpeed:Number;
+
+var hero:MovieClip;
+var sndCtrl:MovieClip;
+
+init();
+
+function init():void {
+	moveSpeed = .8;
+	
+	sndCtrl = MovieClip(root);
+	
+	
+	active = false;
+	
+	
+	if (!cSpeed) cSpeed = .8;
+	if (!dir) dir = 1;
+	if (!max) max = 1486;
+	
+	moveSpeed = cSpeed;
+	
+	hero = MovieClip(parent).hero;
+}
+
+function update():void {
+	if (hero.life <= 0) {
+		
+	} else {
+		if (active) {
+			if (Y) {
+				y += moveSpeed;
+				
+				if ((dir == 1 && y > max) || (dir == -1 && y < max)) {
+					active = false;
+					sndCtrl.stopContinuous("sndStoneDrag");
+				}
+			}
+			if (X) {
+				x += moveSpeed;
+				
+				if ((dir == 1 && x > max) || (dir == -1 && x < max)) {
+					active = false;
+					sndCtrl.stopContinuous("sndStoneDrag");
+				}
+			}
+			
+			if (bound.hitTestObject(hero.bound)) {
+				hero.life = 0;
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/SpikeTrap/LVL-P-SpikeTrap-Anim">
+                  <matrix>
+                    <Matrix ty="37.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="20.3815307617188" d="0.7178955078125" tx="-4.3" ty="23.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="X">
+      <Inspectable name="X" variable="X" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="Y">
+      <Inspectable name="Y" variable="Y" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="dir">
+      <Inspectable name="dir" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="max">
+      <Inspectable name="max" variable="max" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="forceActive">
+      <Inspectable name="forceActive" variable="forceActive" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cSpeed">
+      <Inspectable name="speed" variable="cSpeed" category="" verbose="0" defaultValue="0.8" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

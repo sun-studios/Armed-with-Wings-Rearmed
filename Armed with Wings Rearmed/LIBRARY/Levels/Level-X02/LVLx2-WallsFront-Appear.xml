@@ -1,0 +1,296 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-X02/LVLx2-WallsFront-Appear" itemID="57adee99-00003e5d" lastModified="1489685092">
+  <timeline>
+    <DOMTimeline name="LVLx2-WallsFront-Appear" currentFrame="34">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+visible = false;
+
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="74" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;
+sndCtrl.playSound(sndCtrl.sndExplode);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="75" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" duration="51" name="close" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="127" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="75" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/IceExplosion" symbolType="graphic" firstFrame="7" centerPoint3DX="-357.95" centerPoint3DY="64.35" loop="loop">
+                  <matrix>
+                    <Matrix a="-1.05825805664063" d="1.05825805664063" tx="-406.35" ty="149.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-54.35"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/IceExplosion" symbolType="graphic" firstFrame="7" centerPoint3DX="371.65" centerPoint3DY="64.35" loop="loop">
+                  <matrix>
+                    <Matrix a="1.05825805664063" d="1.05825805664063" tx="420.05" ty="149.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-54.35"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="51" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="75" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.922866821289063" d="1.24346923828125" tx="-463.45" ty="62.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.922866821289063" d="1.24346923828125" tx="493.55" ty="62.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="51" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" locked="true" layerType="mask">
+          <frames>
+            <DOMFrame index="0" duration="127" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#993300"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-11220 -6095|-8148 -6095!-8148 -6095|-8148 -1595!-8148 -1595|8236 -1595!8236 -1595|8236 -6304!8236 -6304|11445 -6304!11445 -6304|11445 2831!11445 2831|8236 2831!8236 2831|8236 -605!8236 -605|-8148 -605!-8148 -605|-8148 2981!-8148 2981
+|-11220 2981!-11220 2981|-11220 -6095"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="3" locked="true">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="261" loop="loop">
+                  <matrix>
+                    <Matrix ty="261"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="-4.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="8.7" loop="loop">
+                  <matrix>
+                    <Matrix ty="8.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="1.45" loop="loop">
+                  <matrix>
+                    <Matrix ty="1.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="5.8" loop="loop">
+                  <matrix>
+                    <Matrix ty="5.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="2.9" loop="loop">
+                  <matrix>
+                    <Matrix ty="2.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="5.8" loop="loop">
+                  <matrix>
+                    <Matrix ty="5.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" duration="17" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="-1.45" loop="loop">
+                  <matrix>
+                    <Matrix ty="-1.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="36" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="4.35" loop="loop">
+                  <matrix>
+                    <Matrix ty="4.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Shape" symbolType="graphic" centerPoint3DY="4.35" loop="loop">
+                  <matrix>
+                    <Matrix ty="4.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="50" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Appear2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="4.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="126" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-WallsFront-Appear2" symbolType="graphic" centerPoint3DX="-0.85" centerPoint3DY="258.95" loop="loop">
+                  <matrix>
+                    <Matrix ty="259.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

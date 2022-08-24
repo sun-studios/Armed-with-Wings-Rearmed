@@ -1,0 +1,222 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Tutorial-GUI/assets/TutorialGUI-ObjectiveInstruct" itemID="581889fe-00001a01" lastModified="1478067619" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="TutorialGUI-ObjectiveInstruct">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" name="MOVE" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="BLOCK" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="DODGE" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="ATTACK" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="POWERSTRIKE" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" name="ITEMS" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" name="COMPLETING" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="469.5" height="78.4">
+                  <matrix>
+                    <Matrix tx="-141.15" ty="-37.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>USE&#xD;       TO MOVE</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="-4" lineHeight="41.2" size="46" bitmapSize="920" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-Arrows">
+                  <matrix>
+                    <Matrix tx="-108" ty="19.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="469.5" height="78.4">
+                  <matrix>
+                    <Matrix tx="-141.15" ty="-37.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>HOLD&#xD;   TO DEFEND</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="-4" lineHeight="41.2" size="46" bitmapSize="920" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Block2">
+                  <matrix>
+                    <Matrix tx="-127.2" ty="4.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.7" y="29.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="469.5" height="78.4">
+                  <matrix>
+                    <Matrix tx="-175.25" ty="-37.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>HOLD&#xD;    +       TO DODGE</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="-4" lineHeight="41.2" size="46" bitmapSize="920" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Block2">
+                  <matrix>
+                    <Matrix tx="-154.75" ty="2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.7" y="29.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-Arrows">
+                  <matrix>
+                    <Matrix tx="-61.05" ty="20.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="469.5" height="78.4">
+                  <matrix>
+                    <Matrix tx="-175.25" ty="-37.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>USE&#xD;    TO ATTACK</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="-4" lineHeight="41.2" size="46" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Confirm-Invert">
+                  <matrix>
+                    <Matrix tx="-154.9" ty="-3.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.9" y="23.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="486.8" height="78.4">
+                  <matrix>
+                    <Matrix tx="-203.65" ty="-37.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>HOLD&#xD;    +    POWER STRIKE</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="-4" lineHeight="41.2" size="46" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Cancel-Invert" selected="true">
+                  <matrix>
+                    <Matrix tx="-109.05" ty="-4.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.9" y="23.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-ArrowDown">
+                  <matrix>
+                    <Matrix tx="-178.25" ty="20.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-YoureReady">
+                  <matrix>
+                    <Matrix ty="-13.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Tutorial-GUI/assets/TutorialGUI-WellDoneAnime">
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

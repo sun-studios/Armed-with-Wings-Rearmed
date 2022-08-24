@@ -1,0 +1,59 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Rock/Rock-Graphic" itemID="54b2272e-00001361" lastModified="1439285212">
+  <timeline>
+    <DOMTimeline name="Rock-Graphic" currentFrame="1">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Rock/Rock-Anim-Idle">
+                  <matrix>
+                    <Matrix tx="1.95" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="0.0155029296875" c="-0.0078125" d="0" tx="-0.3" ty="-0.2"/>
+                        </matrix>
+                        <GradientEntry ratio="0"/>
+                        <GradientEntry color="#666666" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!116 -89S2[174 -15 158 59!158 59[142 133 114 138!114 138|-71 152!-71 152[-108 148 -139 130!-139 130|-162 47!-162 47|-158 15!-158 15|-121 -71!-121 -71|-50 -129!-50 -129[16 -169 93 -137!93 -137|116 -89"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!13 -63S3|-42 -23!-42 -23|-67 8!-67 8|-73 72!-73 72[-82 40 -90 20!-90 20|-123 20!-123 20|-132 43!-132 43|-117 95!-117 95|-107 107!-107 107|-91 122!-91 122[-42 133 56 121!56 121[83 92 95 80!95 80[105 61 117 23!117 23|97 -28!97 -28|13 -63
+!96 -67|110 -75!110 -75|90 -94!90 -94[78 -101 82 -89!82 -89[87 -78 96 -67!128 83|124 59!124 59|102 115!102 115|119 114!119 114|128 83!5 -127|-95 -64!-95 -64|-119 -4!-119 -4|-92 -6!-92 -6[-43 -67 -2 -95!-2 -95|5 -127"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

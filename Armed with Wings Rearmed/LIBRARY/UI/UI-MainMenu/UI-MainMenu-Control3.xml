@@ -1,0 +1,52 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MainMenu/UI-MainMenu-Control3" itemID="587a4488-00004b24" lastModified="1492375962">
+  <timeline>
+    <DOMTimeline name="UI-MainMenu-Control3">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#424242" alpha="0.498039215686275"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2058 -601|2171 -601!2171 -601|1750 -180!1750 -180|107 -180!107 -180|163 -237"/>
+                    <Edge fillStyle0="2" edges="!2058 -601|2115 -657!2115 -657|471 -657!471 -657|50 -237!50 -237|163 -237"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!163 -237|1694 -237!1694 -237|2058 -601"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="20.2" height="15" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="50.55" ty="-29.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>BACK</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Esc">
+                  <matrix>
+                    <Matrix a="0.767562866210938" d="0.767562866210938" tx="32" ty="-22.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.35" y="23.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

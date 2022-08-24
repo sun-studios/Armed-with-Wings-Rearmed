@@ -1,0 +1,107 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/HitSplash/PRT-HitSplash" itemID="54b961fe-00000c58" linkageExportForAS="true" linkageClassName="HitSplash" lastModified="1421437889" lastUniqueIdentifier="5">
+  <timeline>
+    <DOMTimeline name="PRT-HitSplash" currentFrame="4">
+      <layers>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="SPLASH1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="SPLASH2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="SPLASH3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="SPLASH4" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="action" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+init();
+
+function init():void {
+	gotoAndStop(Math.ceil(Math.random()*4)+1);
+}
+
+function update ():void {
+	var clip:MovieClip = this[currentFrameLabel];
+	if (clip) {
+		if (clip.currentFrame == clip.totalFrames) {
+			clip.stop();
+			
+			MovieClip(parent).removeHitSplash(this);
+			MovieClip(parent).removeChild(this);
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="main" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/HitSplash/splash1" name="SPLASH1">
+                  <matrix>
+                    <Matrix tx="49.75" ty="-21.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/HitSplash/splash2" name="SPLASH2" selected="true" centerPoint3DX="11.5" centerPoint3DY="9">
+                  <matrix>
+                    <Matrix tx="11.5" ty="9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/HitSplash/splash3" name="SPLASH3" centerPoint3DX="-9.8" centerPoint3DY="-6.5">
+                  <matrix>
+                    <Matrix a="0.6964111328125" d="0.6964111328125" tx="-2.35" ty="-10.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-10.7" y="6.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/HitSplash/splash4" name="SPLASH4" centerPoint3DX="8.5" centerPoint3DY="-16">
+                  <matrix>
+                    <Matrix tx="8.5" ty="-16"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

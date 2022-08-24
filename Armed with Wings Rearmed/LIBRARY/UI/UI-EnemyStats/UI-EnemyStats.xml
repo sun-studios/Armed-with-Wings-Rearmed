@@ -1,0 +1,528 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EnemyStats/UI-EnemyStats" itemID="55858562-00002582" lastModified="1501756439" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="UI-EnemyStats" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-115&lt;/guideline&gt;&lt;guideline direction="v"&gt;-128&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+var master:MovieClip;
+var bar:MovieClip;
+var lvl_tf:TextField;
+var lvl_tf2:TextField;
+
+var name_tf:TextField;
+var name_tf2:TextField;
+
+var nextMaster:MovieClip;
+
+stop();
+//init();
+
+visible = false;
+
+function init (_master:MovieClip):void {
+	
+	if (master == null && _master != null) {
+		master = _master;
+		setMaster(master);
+	} else {
+		if (_master != master) {
+			if (master.life > 0 && !master.dead) {
+				nextMaster = _master;
+			} else {
+				master = _master;
+				setMaster(master);
+			}
+		}
+			
+	}
+	visible = true;
+	visible = false;
+	
+}
+
+function setMaster(m:MovieClip) {
+	master = m;
+	
+	if (master.enemyLevel) {
+		lvl_mc.visible = true;
+		lvl_tf.text = "" + master.enemyLevel;
+		lvl_tf2.text = lvl_tf.text;
+	} else {
+		lvl_mc.visible = false;
+		lvl_tf.text = "";
+		lvl_tf2.text = "";
+	}
+	guardBar.visible = false;
+	var _name:String;
+	switch (master.enemyType) {
+		case "ENEMY1":
+			_name = "SOLDIER";
+			guardBar.visible = true;
+			break;
+		case "ENEMY2":
+			_name = "ELITE";
+			guardBar.visible = true;
+			break;
+		case "ENEMY3":
+			_name = "BEAST";
+			break;
+		case "ENEMY4":
+			_name = "SKULL";
+			break;
+		case "ENEMY5":
+			_name = "BOMB";
+			break;
+		case "ENEMY6":
+			_name = "RAZOR";
+			guardBar.visible = true;
+			break;
+		case "ENEMY7":
+			_name = "GRUNT";
+			guardBar.visible = true;
+			break;
+		default:
+			_name = "??";
+	}
+	
+	name_tf.text = _name;
+	name_tf2.text = name_tf.text;
+	x = master.x;
+	y = master.y - master.height;
+	
+	if (_name == "??") {
+		master = null;
+		nextMaster = null;
+	}
+}
+
+function update ():void {
+	if (nextMaster) {
+		if (alpha > 0) {
+			alpha -= .1;
+		} else {
+			master = nextMaster;
+			nextMaster = null;
+			setMaster(master);
+		}
+		
+	} else {
+		if (master) {
+			if (master.life <= 0 || master.dead) {
+				if (alpha > 0) alpha -= .1;
+				if (alpha <= 0) {
+					visible = false;
+					master = null;
+				}
+			} else {
+				if (alpha < 1) alpha += .1;
+				visible = true;
+				
+				if (bar) {
+					bar.bar.scaleX = master.life/master.lifeOrig;
+					if (bar.bar.scaleX <0) bar.bar.scaleX = 0; 
+				}
+				if (bar2) {
+					bar2.gotoAndStop(Math.ceil((master.life/master.lifeOrig)*50));
+				}
+				
+				if (guardBar) {
+					if (master.breakDamageIndex && master.superEnemy) {
+						guardBar.scaleX = 1;
+						guardBar.bar.scaleX = master.breakDamageIndex/master.breakDamageIndexOrig;
+					} else {
+						guardBar.scaleX = 0;
+					}
+				}
+			}
+		} else {
+			visible = false;
+		}
+	}
+	
+	if (MovieClip(root).data_hideHud) {
+		visible = false;
+		alpha = 0;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="name_tf2" fontRenderingMode="standard" width="74.25" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix b="-0.3594970703125" tx="-68.25" ty="-41.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="2" lineHeight="15" size="10" bitmapSize="200" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="name_tf" fontRenderingMode="standard" width="74.4" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix b="-0.3594970703125" tx="-69" ty="-41.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="2" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="text" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="lvl_tf" fontRenderingMode="standard" left="67.9" width="18.85" height="12" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.87681579589844" d="1.881103515625" tx="-97.9" ty="19.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="12" size="8" bitmapSize="160" face="Font 1*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="name_tf" fontRenderingMode="standard" width="74.4" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-43.65" ty="20.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="9" size="10" bitmapSize="200" face="Font 7*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="UI/UI-EnemyStats/UI-EnemyStats-Lvl" name="lvl_mc" centerPoint3DX="23.35" centerPoint3DY="27.25">
+                  <matrix>
+                    <Matrix tx="23.35" ty="27.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="3.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="lvl_tf2" fontRenderingMode="standard" left="67.9" width="13.7" height="12" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.881103515625" d="1.881103515625" tx="-99.4" ty="-5.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="12" size="8" bitmapSize="160" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="name_tf2" fontRenderingMode="standard" width="74.25" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-1.35" ty="-20.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="2" lineHeight="15" size="10" bitmapSize="200" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="lvl_tf" fontRenderingMode="standard" left="67.9" width="13.7" height="12" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.881103515625" d="1.881103515625" tx="-100.45" ty="-7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="12" size="8" bitmapSize="160" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="name_tf" fontRenderingMode="standard" width="74.4" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-2.1" ty="-21.15"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="2" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="UI/UI-EnemyStats/UI-EnemyStats-Lvl" name="lvl_mc" centerPoint3DX="20.7" centerPoint3DY="0.35">
+                  <matrix>
+                    <Matrix tx="20.7" ty="0.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="3.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="lvl_tf2" fontRenderingMode="standard" left="67.9" width="13.7" height="12" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.881103515625" d="1.881103515625" tx="-182" ty="-5.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="12" size="8" bitmapSize="160" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="name_tf2" fontRenderingMode="standard" width="74.25" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-71.35" ty="-20.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="15" size="10" bitmapSize="200" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="lvl_tf" fontRenderingMode="standard" left="67.9" width="13.7" height="12" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.881103515625" d="1.881103515625" tx="-183.05" ty="-7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="12" size="8" bitmapSize="160" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="name_tf" fontRenderingMode="standard" width="74.4" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-72.1" ty="-21.15"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" letterSpacing="2" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="UI/UI-EnemyStats/UI-EnemyStats-Lvl" name="lvl_mc" centerPoint3DX="-19.9" centerPoint3DY="0.35">
+                  <matrix>
+                    <Matrix tx="-19.9" ty="0.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="3.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!622 -771|1285 -518!1285 -518|1123 -461!1123 -461|808 -588!808 -588[725 -691 622 -771!850 -534|1166 -405!1166 -405|1105 -391!1105 -391|886 -483!886 -483[870 -509 850 -534!909 -448|1120 -360!1120 -360|1089 -354!1089 -354|923 -424!923 -424
+[916 -438 909 -448"/>
+                    <Edge fillStyle0="1" edges="
+!-905 -448|-1116 -360!-1116 -360|-1085 -354!-1085 -354|-919 -424!-919 -424[-912 -438 -905 -448!-846 -534|-1162 -405!-1162 -405|-1101 -391!-1101 -391|-882 -483!-882 -483[-866 -509 -846 -534!-618 -771|-1281 -518!-1281 -518|-1119 -461!-1119
+ -461|-804 -588!-804 -588[-721 -691 -618 -771"/>
+                  </edges>
+                </DOMShape>
+                <DOMDynamicText name="lvl_tf" fontRenderingMode="standard" left="67.9" width="13.7" height="12" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.881103515625" b="0.70050048828125" d="1.881103515625" tx="-74" ty="-101.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="12" size="8" bitmapSize="160" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="UI/UI-EnemyStats/UI-EnemyStats-Lvl" name="lvl_mc">
+                  <matrix>
+                    <Matrix b="0.372390747070313" tx="45.55" ty="-40.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="3.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-EagleBar/UI-EagleBar-Round" name="bar2">
+                  <matrix>
+                    <Matrix tx="0.1" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="shaow" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="lvl_tf2" fontRenderingMode="standard" left="67.9" width="18.85" height="12" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.87681579589844" d="1.881103515625" tx="-96.85" ty="20.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="12" size="8" bitmapSize="160" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="name_tf2" fontRenderingMode="standard" width="74.25" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-42.9" ty="21.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="9" size="10" bitmapSize="200" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2016/UI-UglyBar" name="bar2">
+                  <matrix>
+                    <Matrix tx="5.35" ty="51.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-27.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2016/UI-UglyBar" name="bar2" centerPoint3DX="-6.15" centerPoint3DY="23.8">
+                  <matrix>
+                    <Matrix a="-1" tx="-6.55" ty="51.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-27.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="lvl_tf2" fontRenderingMode="standard" left="67.9" width="13.7" height="12" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.881103515625" b="0.70050048828125" d="1.881103515625" tx="-72.95" ty="-99.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="12" size="8" bitmapSize="160" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bar" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EnemyStats/UI-EnemyStats-Bar" name="bar" centerPoint3DX="-0.05" centerPoint3DY="18.1">
+                  <matrix>
+                    <Matrix a="0.805557250976563" tx="-0.05" ty="18.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Symbol 1" name="guardBar">
+                  <matrix>
+                    <Matrix tx="-43.4" ty="11.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="43"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

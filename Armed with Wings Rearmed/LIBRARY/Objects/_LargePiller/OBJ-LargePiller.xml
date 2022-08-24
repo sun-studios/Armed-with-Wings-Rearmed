@@ -1,0 +1,255 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_LargePiller/OBJ-LargePiller" itemID="54b27e30-000003e2" lastModified="1485440794">
+  <timeline>
+    <DOMTimeline name="OBJ-LargePiller">
+      <layers>
+        <DOMLayer name="Action Layer" color="#FFFF00" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop ();
+
+
+var life:Number = 5;
+var lifeMax:Number = 5;
+var fallen:Boolean = false;
+var hero:MovieClip = MovieClip(parent).hero;
+	
+var enemyType:String = "BOULDER";
+
+function update():void {
+	if (life <= 0) {
+		if (this.currentFrame == 1) {
+			gotoAndPlay(2);
+		}
+	} else {
+		life = lifeMax; 
+	}
+}
+
+function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1):void {
+	life -= damage;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="28" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-1" ty="-186"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-1" ty="-186"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.999984741210938" b="0.0005340576171875" c="-0.0005340576171875" d="0.999984741210938" tx="-0.9" ty="-186"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.999969482421875" b="0.005401611328125" c="-0.005401611328125" d="0.999969482421875" tx="0.1" ty="-185.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.9993896484375" b="0.0314178466796875" c="-0.0314178466796875" d="0.9993896484375" tx="5.6" ty="-185.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.996917724609375" b="0.074737548828125" c="-0.074737548828125" d="0.996917724609375" tx="14.65" ty="-184.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.990341186523438" b="0.135101318359375" c="-0.135101318359375" d="0.990341186523438" tx="27.2" ty="-182.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.984832763671875" b="0.169906616210938" c="-0.169906616210938" d="0.984832763671875" tx="34.4" ty="-180.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.952529907226563" b="0.30096435546875" c="-0.30096435546875" d="0.952529907226563" tx="61.7" ty="-172.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.85479736328125" b="0.515823364257813" c="-0.515823364257813" d="0.85479736328125" tx="106.8" ty="-150.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.769256591796875" b="0.63604736328125" c="-0.63604736328125" d="0.769256591796875" tx="132.15" ty="-132.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.588272094726563" b="0.80633544921875" c="-0.80633544921875" d="0.588272094726563" tx="168.65" ty="-95.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.334564208984375" b="0.940841674804688" c="-0.940841674804688" d="0.334564208984375" tx="199.75" ty="-44.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LargePiller/piller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.018310546875" b="0.999298095703125" c="-0.999298095703125" d="0.018310546875" tx="219" ty="14"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 8" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound" centerPoint3DX="-5.45" centerPoint3DY="-203.45">
+                  <matrix>
+                    <Matrix a="1.46495056152344" d="3.94960021972656" tx="-1" ty="-193.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound" centerPoint3DX="-5.45" centerPoint3DY="-190.5">
+                  <matrix>
+                    <Matrix a="1.46495056152344" d="-0.286148071289063" tx="-1" ty="9.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

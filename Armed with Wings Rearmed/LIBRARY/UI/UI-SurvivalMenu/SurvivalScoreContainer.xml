@@ -1,0 +1,370 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-SurvivalMenu/SurvivalScoreContainer" itemID="57dcf160-00000c4c" lastModified="1501750336">
+  <timeline>
+    <DOMTimeline name="SurvivalScoreContainer" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-820&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var _root:MovieClip = MovieClip(root);
+
+
+var score:Number;
+var wave:Number;
+var heroName:String;
+var swordID:Number;
+var gear0:Number;
+var gear1:Number;
+var gear2:Number;
+var gear3:Number;
+var difficulty:String;
+
+function init (arenaID:Number):void {
+	
+	
+	if (_root.survivalScoreData[arenaID][0] > 0) {
+		score = _root.survivalScoreData[arenaID][0];
+		wave = _root.survivalScoreData[arenaID][1];
+		heroName = _root.survivalScoreData[arenaID][2];
+		swordID = _root.survivalScoreData[arenaID][3];
+		gear0 = _root.survivalScoreData[arenaID][4];
+		gear1 = _root.survivalScoreData[arenaID][5];
+		gear2 = _root.survivalScoreData[arenaID][6];
+		gear3 = _root.survivalScoreData[arenaID][7];
+		difficulty = _root.survivalScoreData[arenaID][8]
+		
+		//tf_difficulty.text = difficulty;
+		tf_score.text = ""+score;
+		tf_wave.text = ""+wave;
+		
+		switch (heroName) {
+			case "LONEWARRIOR": characterClip.gotoAndStop(1); break;
+			case "VANDHEER": characterClip.gotoAndStop(2); break;
+		}
+		
+		weaponIcon.gotoAndStop(_root["data_weap"+swordID+"_graphic"]);
+		gearIcon0.gotoAndStop(1+gear0);
+		gearIcon1.gotoAndStop(1+gear1);
+		gearIcon2.gotoAndStop(1+gear2);
+		gearIcon3.gotoAndStop(1+gear3);
+	} else {
+		visible = false;
+	}
+}
+
+//#0 Score, #1 Wave, #2 HeroName, #3 Weapons, #4 Gear1, #5 Gear2, #6 Gear3, #7 Gear4, #8 Diffulcty]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#666666"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!84 2701|805 2701!805 2701|805 4254!805 4254|84 4254!84 4254|84 2701"/>
+                    <Edge cubics="!84 2701(;84,2701 805,2701 805,2701q84 2701 805 2701);"/>
+                    <Edge cubics="!805 4254(;805,4254 84,4254 84,4254q805 4254 84 4254);"/>
+                    <Edge cubics="!805 2701(805,2701;805,2701 805,4254 805,4254q805 2701 805 4254)805,4254;"/>
+                    <Edge cubics="!84 4254(84,4254;84,4254 84,2701 84,2701q84 4254 84 2701)84,2701;"/>
+                  </edges>
+                </DOMShape>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="2.53590393066406" d="1.34867858886719" tx="-271.65" ty="190.65"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2176 -1310|3738 -1310!3738 -1310|3738 -885!3738 -885|2176 -885!2176 -885|2176 -1310"/>
+                    <Edge cubics="!2176 -885(2176,-885;2176,-885 2176,-1310 2176,-1310q2176 -885 2176 -1310);"/>
+                    <Edge cubics="!3738 -1310(3738,-1310;3738,-1310 3738,-885 3738,-885q3738 -1310 3738 -885)3738,-885;"/>
+                    <Edge cubics="!3738 -885(;3738,-885 2176,-885 2176,-885q3738 -885 2176 -885);"/>
+                    <Edge cubics="!2176 -1310(;2176,-1310 3738,-1310 3738,-1310q2176 -1310 3738 -1310);"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-HeroContainer" name="characterClip">
+                  <matrix>
+                    <Matrix a="0.50738525390625" d="0.50738525390625" tx="22.3" ty="176.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="1.28459167480469" d="1.57882690429688" tx="-31.9" ty="120.95"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2176 -1310|3738 -1310!3738 -1310|3738 -885!3738 -885|2176 -885!2176 -885|2176 -1310"/>
+                    <Edge cubics="!2176 -885(2176,-885;2176,-885 2176,-1310 2176,-1310q2176 -885 2176 -1310);"/>
+                    <Edge cubics="!3738 -1310(3738,-1310;3738,-1310 3738,-885 3738,-885q3738 -1310 3738 -885)3738,-885;"/>
+                    <Edge cubics="!3738 -885(;3738,-885 2176,-885 2176,-885q3738 -885 2176 -885);"/>
+                    <Edge cubics="!2176 -1310(;2176,-1310 3738,-1310 3738,-1310q2176 -1310 3738 -1310);"/>
+                  </edges>
+                </DOMShape>
+                <DOMDynamicText name="tf_score" fontRenderingMode="standard" width="85.1" height="36" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="114.9" ty="18.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>1000</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="30" size="20" bitmapSize="400" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" width="50.2" height="27" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="12.55" ty="103.45"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>WAVE:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="27" size="18" bitmapSize="360" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMDynamicText name="tf_wave" fontRenderingMode="standard" width="53.4" height="27" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="108.1" ty="103.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>10</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#666666"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!875 2701|2442 2701!2442 2701|2442 4254!2442 4254|875 4254!875 4254|875 2701"/>
+                        <Edge cubics="!2442 4254(;2442,4254 875,4254 875,4254q2442 4254 875 4254);"/>
+                        <Edge cubics="!2442 2701(2442,2701;2442,2701 2442,4254 2442,4254q2442 2701 2442 4254)2442,4254;"/>
+                        <Edge cubics="!875 2701(875,2701;875,2701 2442,2701 2442,2701q875 2701 2442 2701)2442,2701;"/>
+                        <Edge cubics="!875 4254(875,4254;875,4254 875,2701 875,2701q875 4254 875 2701);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/UI-Weapons/UI-Player-WeaponIcon" name="weaponIcon">
+                  <matrix>
+                    <Matrix a="0.55194091796875" d="0.552261352539063" tx="82.7" ty="174.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="37.9999988616352" blurX="0" blurY="0" distance="4" strength="0.22"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#999999"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!3320 2704|4068 2704!4068 2704|4068 3453!4068 3453|3320 3453!3320 3453|3320 2704"/>
+                        <Edge cubics="!3320 3453(3320,3453;3320,3453 3320,2704 3320,2704q3320 3453 3320 2704);"/>
+                        <Edge cubics="!4068 3453(;4068,3453 3320,3453 3320,3453q4068 3453 3320 3453);"/>
+                        <Edge cubics="!4068 2704(4068,2704;4068,2704 4068,3453 4068,3453q4068 2704 4068 3453)4068,3453;"/>
+                        <Edge cubics="!3320 2704(3320,2704;3320,2704 4068,2704 4068,2704q3320 2704 4068 2704)4068,2704;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#999999"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!2512 3502|3261 3502!3261 3502|3261 4251!3261 4251|2512 4251!2512 4251|2512 3502"/>
+                        <Edge cubics="!2512 4251(2512,4251;2512,4251 2512,3502 2512,3502q2512 4251 2512 3502);"/>
+                        <Edge cubics="!3261 4251(;3261,4251 2512,4251 2512,4251q3261 4251 2512 4251);"/>
+                        <Edge cubics="!3261 3502(3261,3502;3261,3502 3261,4251 3261,4251q3261 3502 3261 4251)3261,4251;"/>
+                        <Edge cubics="!2512 3502(2512,3502;2512,3502 3261,3502 3261,3502q2512 3502 3261 3502)3261,3502;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#999999"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!3320 3506|4068 3506!4068 3506|4068 4254!4068 4254|3320 4254!3320 4254|3320 3506"/>
+                        <Edge cubics="!3320 4254(3320,4254;3320,4254 3320,3506 3320,3506q3320 4254 3320 3506);"/>
+                        <Edge cubics="!4068 4254(;4068,4254 3320,4254 3320,4254q4068 4254 3320 4254);"/>
+                        <Edge cubics="!4068 3506(4068,3506;4068,3506 4068,4254 4068,4254q4068 3506 4068 4254)4068,4254;"/>
+                        <Edge cubics="!3320 3506(3320,3506;3320,3506 4068,3506 4068,3506q3320 3506 4068 3506)4068,3506;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#999999"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!2512 2701|3261 2701!3261 2701|3261 3450!3261 3450|2512 3450!2512 3450|2512 2701"/>
+                        <Edge cubics="!2512 3450(2512,3450;2512,3450 2512,2701 2512,2701q2512 3450 2512 2701);"/>
+                        <Edge cubics="!3261 3450(;3261,3450 2512,3450 2512,3450q3261 3450 2512 3450);"/>
+                        <Edge cubics="!3261 2701(3261,2701;3261,2701 3261,3450 3261,3450q3261 2701 3261 3450)3261,3450;"/>
+                        <Edge cubics="!2512 2701(2512,2701;2512,2701 3261,2701 3261,2701q2512 2701 3261 2701)3261,2701;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon0">
+                  <matrix>
+                    <Matrix a="0.2408447265625" d="0.240859985351563" tx="143.5" ty="154.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="0.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon1">
+                  <matrix>
+                    <Matrix a="0.2408447265625" d="0.240859985351563" tx="183.75" ty="154.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="0.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon2">
+                  <matrix>
+                    <Matrix a="0.2408447265625" d="0.240859985351563" tx="143.5" ty="194.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="0.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon3">
+                  <matrix>
+                    <Matrix a="0.2408447265625" d="0.240859985351563" tx="183.75" ty="194.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="0.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" width="99" height="30" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="6.8" ty="18.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>TOP SCORE</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="30" size="20" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="-0.270660400390625" d="-0.13287353515625" tx="153.85" ty="105.7"/>
+                        </matrix>
+                        <GradientEntry alpha="0" ratio="0"/>
+                        <GradientEntry ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 4354|0 0!0 0|4161 0!4161 0|4161 4354!4161 4354|0 4354"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

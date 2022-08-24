@@ -1,0 +1,785 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MainMenu/UI-LevelSelect" itemID="54cc98e2-00000e3e" lastModified="1492881220" lastUniqueIdentifier="27">
+  <timeline>
+    <DOMTimeline name="UI-LevelSelect" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-274&lt;/guideline&gt;&lt;guideline direction="h"&gt;-279&lt;/guideline&gt;&lt;guideline direction="h"&gt;-289&lt;/guideline&gt;&lt;guideline direction="h"&gt;-289&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var btnArray:Array;
+var currentSelMc:MovieClip;
+var currentSelIndex:Number = 0;
+var xposOrig:Number = x;
+
+var keyFilter1:Boolean = true;
+var keyFilter2:Boolean = true;
+var keyFilter3:Boolean = true;
+var keyFilter4:Boolean = true;
+var keyFilter5:Boolean = true;
+
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+var sndCtrl:MovieClip = MovieClip(root);
+var menuRoot:MovieClip = MovieClip(parent);
+var wheel0:MovieClip = MovieClip(parent).wheel0;
+var storyMenu:MovieClip = MovieClip(parent.parent.parent);
+
+//break peroid of no input.
+var breakIndex:int = 8;
+var breakIndexOrig:int = 8;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="32" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("skip");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="33" name="skip" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import fl.motion.Color;
+import com.greensock.TweenMax;
+
+stop();
+
+var menu1:MovieClip;
+
+var displayMenu1:Boolean;
+var levelConfirmed:Boolean = false;
+var holdCool:Number = 0;
+var soundGap:int = 3;
+
+btnArray = [b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, 
+			b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, 
+			b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, 
+			b30, b31, b32, b33, b34, b35, b36, b37, b38, b39];
+selectButton(0);
+xposOrig = x;
+
+function update ():void {
+	if (!levelConfirmed && btnArray != null) {
+		updateColor();
+	if (breakIndex > 0) {
+		breakIndex--;
+	} else {
+		//Scroll Right
+		if (ctrl.ctrl_right) {
+			if (!keyFilter1) {
+				scrollRight();
+				holdCool = 20;
+				keyFilter1 = true;
+			}
+		} else {
+			keyFilter1 = false;
+		}
+		
+		//Scroll Left
+		if (ctrl.ctrl_left) {
+			if (!keyFilter2) {
+				scrollLeft();
+				holdCool = 20;
+				keyFilter2 = true;
+			}
+		} else {
+			keyFilter2 = false;
+		}
+	
+	
+		//hold scroll
+		if (holdCool > 0) {
+			holdCool --;
+		} else {
+			if (soundGap > 0) {
+				soundGap --;
+			} else {
+				if (keyFilter2) {
+					scrollLeft();
+				} else if (keyFilter1) {
+					scrollRight();
+				}
+				soundGap = 3;
+			}
+		}
+		
+		if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+			if (!keyFilter4) {
+				if (currentSelMc.unlocked) {
+					sndCtrl.playSound(sndCtrl.sndButton3);
+					//input();
+					displayDifficulty();
+					levelConfirmed = true;
+				} else {
+					sndCtrl.playSound(sndCtrl.sndButton2);
+				}
+				keyFilter4 = true;
+			}
+		} else {
+			keyFilter4 = false;
+		}
+	
+		if (ctrl.ctrl_cancel) {
+			if (!keyFilter5) {
+				
+				MovieClip(parent.parent).closeLevelSelect();
+				
+				keyFilter5 = true;
+			}
+		} else {
+			keyFilter5 = false;
+		}
+	
+	}
+}
+	
+	//scoll
+	var scrollIndex:Number = currentSelIndex;
+	if (scrollIndex >= 0) {
+		if (scrollIndex < 2) scrollIndex = 2;
+		if (scrollIndex > 37) scrollIndex = 37;//total -1
+		
+		//ScrollBar
+		if (menuRoot.LevelScrollBar && currentSelIndex) {
+			if (displayMenu1) {
+				menuRoot.LevelScrollBar.visible = false;
+			} else {
+				menuRoot.LevelScrollBar.update(currentSelIndex, btnArray.length - 1);
+				menuRoot.LevelScrollBar.visible = true;
+			}
+			
+		}
+		
+		var val:Number = 160; //this value is weird, based on the btn width + the gap 
+		var xpos:Number = xposOrig + ((scrollIndex-3) * 160);
+		if (displayMenu1) xpos = currentSelMc.x - 150;
+		
+		x += (-xpos - x)/6;
+	}
+	
+	if (displayMenu1) {
+		menu1.update();
+	}
+}
+
+function updateColor():void {
+
+
+}
+
+function displayDifficulty():void {
+	for (var i:int = 0; i < btnArray.length; i ++) {
+		var clip:MovieClip = btnArray[i];
+		if (clip != currentSelMc) {
+			//clip.visible = false;
+			TweenMax.to(clip, 20, {alpha:0, useFrames:true});
+		}
+	}
+	
+	menu1.init();
+	menu1.x = currentSelMc.x + 330;
+	menu1.y = -33;
+	
+	displayMenu1 = true;
+}
+function closeDifficulty():void {
+	if (menu1.confirmIndex == 0) {
+		for (var i:int = 0; i < btnArray.length; i ++) {
+			var clip:MovieClip = btnArray[i];
+			if (clip) {
+				TweenMax.to(clip, 20, {alpha:1, useFrames:true});
+			}
+			
+		}
+		menu1.x = -1000;
+		levelConfirmed = false;
+		displayMenu1 = false;
+		sndCtrl.playSound(sndCtrl.sndButton2);
+		
+		keyFilter5 = true;
+	}
+}
+
+function scrollLeft():void {
+	if (currentSelIndex > 0) {
+		sndCtrl.playSound(sndCtrl.sndButton1);
+		currentSelIndex --;
+		if (wheel0) wheel0.rSpeed = -10;
+		selectButton(currentSelIndex);
+	}
+}
+function scrollRight():void {
+	if (currentSelIndex < btnArray.length-1) {
+		sndCtrl.playSound(sndCtrl.sndButton1);
+		currentSelIndex ++;
+		if (wheel0) wheel0.rSpeed = 10;
+		selectButton(currentSelIndex);
+	}
+}
+
+function selectButton(id:Number) {
+	if (currentSelMc) currentSelMc.gotoAndPlay("OUT");
+	
+	currentSelMc = btnArray[id];
+	currentSelMc.gotoAndPlay("OVER");
+}
+
+function input() {
+	//menuRoot.gotoAndPlay("GOTOLEVELSTART");
+	storyMenu.startLevel();
+	MovieClip(root).startingLevel = currentSelIndex+1;
+	
+	var btn:MovieClip;
+	for (var i:Number = 0; i < btnArray.length; i ++) {
+		btn = btnArray[i];
+		if (i == currentSelIndex) {
+			btn.gotoAndPlay("SELECTED");
+		} else {
+			//btn.gotoAndPlay("CLOSE");
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 21" color="#009999" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="35" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/Menu2-DifficultySelect" name="menu1" selected="true">
+                  <matrix>
+                    <Matrix tx="-261.8" ty="-33.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 19" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b17" centerPoint3DX="2646">
+                  <matrix>
+                    <Matrix tx="2646"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b18" centerPoint3DX="2806">
+                  <matrix>
+                    <Matrix tx="2806"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b19" centerPoint3DX="2966">
+                  <matrix>
+                    <Matrix tx="2966"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b20" centerPoint3DX="3126">
+                  <matrix>
+                    <Matrix tx="3126"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b21" centerPoint3DX="3286">
+                  <matrix>
+                    <Matrix tx="3286"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b22" centerPoint3DX="3446">
+                  <matrix>
+                    <Matrix tx="3446"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b23" centerPoint3DX="3606">
+                  <matrix>
+                    <Matrix tx="3606"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b24" centerPoint3DX="3766">
+                  <matrix>
+                    <Matrix tx="3766"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b25" centerPoint3DX="3926">
+                  <matrix>
+                    <Matrix tx="3926"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b26" centerPoint3DX="4086">
+                  <matrix>
+                    <Matrix tx="4086"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b27" centerPoint3DX="4246">
+                  <matrix>
+                    <Matrix tx="4246"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b28" centerPoint3DX="4406">
+                  <matrix>
+                    <Matrix tx="4406"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b29" centerPoint3DX="4566">
+                  <matrix>
+                    <Matrix tx="4566"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b30" centerPoint3DX="4726">
+                  <matrix>
+                    <Matrix tx="4726"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b31" centerPoint3DX="4886">
+                  <matrix>
+                    <Matrix tx="4886"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b32" centerPoint3DX="5046">
+                  <matrix>
+                    <Matrix tx="5046"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b33" centerPoint3DX="5206">
+                  <matrix>
+                    <Matrix tx="5206"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b34" centerPoint3DX="5366">
+                  <matrix>
+                    <Matrix tx="5366"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b35" centerPoint3DX="5526">
+                  <matrix>
+                    <Matrix tx="5526"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b36" centerPoint3DX="5686">
+                  <matrix>
+                    <Matrix tx="5686"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b37" centerPoint3DX="5846">
+                  <matrix>
+                    <Matrix tx="5846"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b38" centerPoint3DX="6006">
+                  <matrix>
+                    <Matrix tx="6006"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b39" centerPoint3DX="6166">
+                  <matrix>
+                    <Matrix tx="6166"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 18" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b16" centerPoint3DX="2486">
+                  <matrix>
+                    <Matrix tx="2486"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 17" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b15" centerPoint3DX="2326">
+                  <matrix>
+                    <Matrix tx="2326"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 16" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b14" centerPoint3DX="2166">
+                  <matrix>
+                    <Matrix tx="2166"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 15" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b13" centerPoint3DX="2006">
+                  <matrix>
+                    <Matrix tx="2006"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 14" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b12" centerPoint3DX="1846">
+                  <matrix>
+                    <Matrix tx="1846"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 13" color="#4FFFFF">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b11" centerPoint3DX="1686">
+                  <matrix>
+                    <Matrix tx="1686"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 12" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b10" centerPoint3DX="1526">
+                  <matrix>
+                    <Matrix tx="1526"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 11" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b9" centerPoint3DX="1366">
+                  <matrix>
+                    <Matrix tx="1366"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 10" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="16" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="16" duration="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b8" centerPoint3DX="1206">
+                  <matrix>
+                    <Matrix tx="1206"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 9" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="14" duration="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b7" centerPoint3DX="1046">
+                  <matrix>
+                    <Matrix tx="1046"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 8" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" duration="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b6" centerPoint3DX="886">
+                  <matrix>
+                    <Matrix tx="886"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" duration="25" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b5" centerPoint3DX="726">
+                  <matrix>
+                    <Matrix tx="726"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#4FFFFF">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="27" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b4" centerPoint3DX="566">
+                  <matrix>
+                    <Matrix tx="566"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="6" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b3" centerPoint3DX="406">
+                  <matrix>
+                    <Matrix tx="406"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" duration="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b2" centerPoint3DX="246">
+                  <matrix>
+                    <Matrix tx="246"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b1" centerPoint3DX="86">
+                  <matrix>
+                    <Matrix tx="86"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" duration="35" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/UI-Btn-LevelSelect" name="b0" centerPoint3DX="-74.05">
+                  <matrix>
+                    <Matrix tx="-74"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

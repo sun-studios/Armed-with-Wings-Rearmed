@@ -1,0 +1,247 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Credits/UI-Credits" itemID="552e53ec-00000bd4" lastModified="1500448171" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="UI-Credits" currentFrame="2">
+      <layers>
+        <DOMLayer name="border" color="#FF4FFF" locked="true" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-9600 -5400S4|9600 -5400!9600 -5400|9600 5400!9600 5400|-9600 5400!-9600 5400|-9600 -5400"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="47" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+import com.greensock.TweenMax;
+
+stop();
+
+//bools
+var input:Boolean;
+var keyFilter:Boolean;
+var ctrlAllowIndex:int;
+
+//clips
+
+//refs
+var ctrl:PlayerControl;
+var _root:MovieClip;
+var sndCtrl:MovieClip;
+var gameData:MovieClip;
+
+init();
+
+function init():void {
+	gameData = MovieClip(root);
+	ctrl = MovieClip(root).player1Control;
+	_root = MovieClip(root);
+	sndCtrl = _root;
+	
+	instruct2.visible = false;
+	keyFilter = true;
+	this.addEventListener(Event.ENTER_FRAME, update);
+	ctrlAllowIndex = 80;
+}
+
+function update(e:Event):void {
+	inputUpdate();
+	sndCtrl.soundUpdate();
+}
+
+function inputUpdate():void {
+	if (ctrlAllowIndex > 0) {
+		ctrlAllowIndex--;
+	} else {
+		_root.controlUpdate();
+	}
+	
+	if (!input) {
+		if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+			
+			if (!keyFilter) {
+				if (content.finished) {
+					closeMenu();
+					sndCtrl.playSound(sndCtrl.sndButton3);
+					input = true;
+				} else {
+					trace("KLAAA");
+					content.skip();
+				}
+				keyFilter = true;
+			}
+		} else {
+			keyFilter = false;
+		}
+	}
+}
+
+function closeMenu():void {
+	this.removeEventListener(Event.ENTER_FRAME, update);
+
+	play();
+}
+
+function gotoMainMenu():void {
+	TweenMax.killAll();
+	MovieClip(root).gotoAndStop(1, "UnlocksQue");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+gotoMainMenu();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="fade" color="#FF800A" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_fade" selected="true">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2016/Shape-FullscreenBlack" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2016/Shape-FullscreenBlack" symbolType="graphic" centerPoint3DX="-0.05" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="objects" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UIControls-Display" name="instruct2" centerPoint3DX="-353.35" centerPoint3DY="245.85" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="-472.5" ty="262.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="119.15" y="-16.6"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_frame">
+      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="maskBox" color="#009999" locked="true" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 1" name="box2">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="content" color="#9933CC" parentLayerIndex="4" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/UI-Credits-Text" name="content" centerPoint3DX="-0.05">
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="box" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 1" name="box">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="44" blurY="44" color="#FFFFFF" quality="2"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Clouds-Animated" centerPoint3DX="929.7" centerPoint3DY="52.4">
+                  <matrix>
+                    <Matrix tx="929.6" ty="52.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.51953125"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Clouds-Animated" centerPoint3DX="-1040.05" centerPoint3DY="-52.5">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="-1039.95" ty="-52.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.21875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

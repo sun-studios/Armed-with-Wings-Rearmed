@@ -1,0 +1,69 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_IceShard/iceShard" itemID="574a1ae8-00000c9f" linkageExportForAS="true" linkageClassName="IceShard" lastModified="1492882032">
+  <timeline>
+    <DOMTimeline name="iceShard">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var xSpeed:Number;
+var ySpeed:Number;
+var life:Number;
+
+var particleLayer:MovieClip;
+
+
+function init(_xSpeed:Number = 9, _ySpeed:Number = 24):void {
+
+	xSpeed = (Math.random()*_xSpeed) - (Math.random()*_xSpeed);
+	ySpeed = (Math.random()*_ySpeed);
+	life = 80;
+		
+	
+	particleLayer = MovieClip(parent);
+}
+
+function update():void {
+	if (life > 0) {
+		life --;
+		
+		ySpeed -= 1;
+		
+		x += xSpeed;
+		y -= ySpeed;
+		rotation += xSpeed + ySpeed;
+	} else {
+		particleLayer.removeFromIceShard(this);
+		particleLayer.removeChild(this);
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceShard/IceShard-Container">
+                  <matrix>
+                    <Matrix a="0.659088134765625" d="0.659088134765625" tx="-0.1" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.55" y="3.65"/>
+                  </transformationPoint>
+                  <color>
+                    <Color redMultiplier="0.8984375" blueMultiplier="0.8984375" greenMultiplier="0.8984375" blueOffset="30" greenOffset="20"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

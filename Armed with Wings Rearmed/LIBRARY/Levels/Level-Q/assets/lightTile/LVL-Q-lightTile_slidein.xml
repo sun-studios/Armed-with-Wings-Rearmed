@@ -1,0 +1,529 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q/assets/lightTile/LVL-Q-lightTile_slidein" itemID="54cc7a0b-00001c42" lastModified="1432025913">
+  <timeline>
+    <DOMTimeline name="LVL-Q-lightTile_slidein" currentFrame="35">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip = MovieClip(parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="39" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(root).playSound) MovieClip(root).playSound(MovieClip(root).sndHoly1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="40" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.gotoAndStop(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 18" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="1.54374694824219" d="0.349273681640625" tx="-7.3" ty="182.7"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="1.54374694824219" d="1.09027099609375" tx="-7.3" ty="85.35"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="0.349273681640625" tx="-36.7" ty="182.7"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.881637573242188" d="1.41976928710938" tx="-35.85" ty="48.1"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.881637573242188" d="1.41976928710938" tx="-35.85" ty="48.1"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance selected="true" libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="2.38958740234375" d="0.349273681640625" tx="-74.75" ty="181.35"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.881637573242188" d="1.41976928710938" tx="-35.85" ty="-31.95"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="2.38958740234375" d="1.7166748046875" tx="-74.75" ty="26.9"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="2.38958740234375" d="0.95135498046875" tx="-73.4" ty="34.35"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance selected="true" libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="2.38958740234375" d="0.349273681640625" tx="11.9" ty="181.4"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="2.38958740234375" d="1.50238037109375" tx="11.9" ty="51.15"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="2.38958740234375" d="1.3453369140625" tx="11.9" ty="-26.05"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="0.349273681640625" tx="-81.85" ty="181.8"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="2.17790222167969" tx="-81.85" ty="-24.75"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="0.975234985351563" tx="-81.85" ty="1.1"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="0.349273681640625" tx="-22.55" ty="181.95"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="1.34756469726563" d="1.60952758789063" tx="-26.3" ty="39.6"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="0.349273681640625" tx="61.05" ty="181.45"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="1.55990600585938" tx="61.05" ty="44.7"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="0.349273681640625" tx="47.45" ty="181.45"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="2.02961730957031" tx="47.45" ty="-8.35"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="Levels/Level-Q/assets/lightTile/Bitmap 1">
+                  <matrix>
+                    <Matrix a="0.922393798828125" d="1.43673706054688" tx="47.45" ty="-29.75"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="40" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 10" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" duration="28" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2358" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="0.108123779296875" tx="70.75" ty="201.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="0.930191040039063" tx="70.75" ty="-3.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 11" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="14" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2358" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.32608032226563" d="0.125747680664063" tx="57.05" ty="201.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.32608032226563" d="1.081787109375" tx="57.05" ty="2.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 12" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="35" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2358" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-03" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.10903930664063" d="0.1064453125" tx="36.4" ty="201.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-03" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.10903930664063" d="0.915664672851563" tx="36.4" ty="-3.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 13" color="#4FFFFF">
+          <frames>
+            <DOMFrame index="0" duration="40" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2358" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-04" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.06329345703125" d="0.122467041015625" tx="8.5" ty="201.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-04" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.06329345703125" d="1.05355834960938" tx="8.5" ty="1.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 14" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" duration="30" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2358" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-05" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.10470581054688" d="0.121994018554688" tx="-12.85" ty="201.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-05" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.10470581054688" d="1.04949951171875" tx="-12.85" ty="1.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 15" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="39" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2358" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-06" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.19999694824219" d="0.126495361328125" tx="-27.3" ty="201.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-06" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.19999694824219" d="1.08824157714844" tx="-27.3" ty="2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 16" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="32" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2358" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-08" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.1717529296875" d="0.118789672851563" tx="-72.15" ty="201.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-08" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.1717529296875" d="1.02189636230469" tx="-72.15" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 17" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="37" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2358" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-09" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="0.1290283203125" tx="-49.5" ty="201.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/lightTile/LVL-Q-Block-09" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="1.10997009277344" tx="-49.5" ty="-3.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

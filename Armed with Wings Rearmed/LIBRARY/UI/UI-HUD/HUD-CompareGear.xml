@@ -1,0 +1,123 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-CompareGear" itemID="593ab1fd-00000d9a" lastModified="1501415998">
+  <timeline>
+    <DOMTimeline name="HUD-CompareGear">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var currentPickup:MovieClip;
+var currentID:int;
+
+var displayState:String;
+var X:Number;
+
+function init ():void {
+	displayState = "off";
+	X = 9.65;
+}
+
+function update ():void {
+	if (currentPickup) {
+		if (!currentPickup.bound.hitTestObject(currentPickup.hero.bound)) {
+			displayState = "off";
+			currentPickup = null;
+		}
+	} else {
+		if (displayState == "on") {
+			displayState = "off";
+			currentPickup = null;
+		}
+	}
+	
+	if (displayState == "on") {
+		x += (X - x)/6;
+	} else if (displayState == "off") {
+		x += ((X-width-20) - x)/6;
+	}
+	swapButton.x = (X-(x*.5));
+}
+
+function isTouching(obj:MovieClip):void {
+	if (displayState == "off") {
+		currentPickup = obj;
+		displayState = "on";
+		currentID = obj.id;
+		
+		heroCtrl.init(0);
+		boosterCtrl.init(0);
+		
+		if (heroCtrl.currID != currentID) heroCtrl.displayWeapon(currentID);
+		boosterCtrl.displayByID(currentID);
+		boosterCtrl.hideCoolDowns();
+	}
+}
+
+function release(obj:MovieClip):void {
+	if (currentPickup == obj) {
+		displayState = "off";
+		currentPickup = null;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-SurvivalRouge" name="heroCtrl" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="-9.65" ty="42.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-BoostersMain" name="boosterCtrl" blendMode="layer">
+                  <matrix>
+                    <Matrix a="1.11386108398438" d="1.11386108398438" tx="134.35" ty="2.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-SwapWeapon" name="swapButton">
+                  <matrix>
+                    <Matrix ty="42.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="44.6" y="10.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/Symbol 22" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="1.50163269042969" tx="133" ty="30.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.65" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

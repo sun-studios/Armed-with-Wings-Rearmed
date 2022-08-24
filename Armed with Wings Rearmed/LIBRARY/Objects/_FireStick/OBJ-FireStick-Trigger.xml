@@ -1,0 +1,120 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_FireStick/OBJ-FireStick-Trigger" itemID="54d37681-00001332" lastModified="1488639186" lastUniqueIdentifier="2" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-FireStick-Trigger">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var fireStick:MovieClip;
+var particleLayer:MovieClip;
+
+var flameSpawn:Number;
+var flameSpawnOrig:Number;
+
+//component def
+var _on:Boolean;
+
+init();
+
+function init ():void {
+	fireStick = MovieClip(parent).fireStick;
+	particleLayer = MovieClip(parent).particleLayer;
+	
+	flameSpawn = 2;
+	flameSpawnOrig = 2;
+	
+	if (_on) {
+		fireClip.visible = true;
+	} else {
+		fireClip.visible = false;
+	}
+}
+
+function update():void {
+	if (CameraDistCheck.inRange(this)) {
+		if (_on) {
+			if (!fireStick.onFire) {
+				if (this.bound.hitTestObject(fireStick.boundFire)) {
+					fireStick.onFire = true;
+				}
+			}
+			handleFlames();
+		} else {
+			if (fireStick.onFire) {
+				if (this.bound.hitTestObject(fireStick.boundFire)) {
+					fireStick.onFire = true;
+					fireClip.visible = true;
+					_on = true;
+				}
+			}
+		}
+	}
+}
+function handleFlames ():void {
+	
+	if (flameSpawn > 0) {
+		flameSpawn --;
+	} else {
+		particleLayer.addFlames((x)+((Math.random()-Math.random())*10), 
+									(y-26)+((Math.random()-Math.random())*10), 
+									.5+Math.random(), 
+									.5+Math.random());
+		flameSpawn = flameSpawnOrig;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clips" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-FireStick-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.8" ty="-26.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-Flame-Anim" name="fireClip" centerPoint3DX="-1.55" centerPoint3DY="-26.85">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="-1.5" ty="-26.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bounds" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0.906158447265625" d="0.330398559570313" tx="0.1" ty="-38.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="_on">
+      <Inspectable name="on" variable="_on" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

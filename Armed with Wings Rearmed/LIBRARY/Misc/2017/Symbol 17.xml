@@ -1,0 +1,249 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 17" itemID="58ce88d8-00000e40" lastModified="1490258049">
+  <timeline>
+    <DOMTimeline name="Symbol 17">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var gameData:MovieClip;
+var cursor:MovieClip;
+
+var selectIndex:int;
+var selectIndexMax:int;
+var cacheIndex:int;
+var holdCool:Number = 0;
+var soundGap:int = 3;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+
+var isOpen:Boolean;
+
+init();
+
+function init():void {
+	if (MovieClip(root)) {
+		ctrl = MovieClip(root).player1Control;
+		sndCtrl = MovieClip(root);
+		gameData = MovieClip(root);
+		
+		selectIndex = gameData.VFXID;
+		selectIndexMax = 8;
+		cacheIndex = selectIndex;
+		
+		colorClip.gotoAndStop(1+gameData.VFXID);
+		
+		cursor = MovieClip(parent.parent).cursor;
+	}
+}
+
+function updateFilters():void {
+	keyFilter0 = true;
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+}
+
+function update ():void {
+	if (isOpen) {
+		cursorUpdate();
+		
+		
+		//---------------------------------
+		if (ctrl.ctrl_left) {
+			if (!keyFilter1) {
+				holdCool = 20;
+				scrollLeft();
+				keyFilter1 = true;
+			}
+		} else {keyFilter1 = false;}
+		
+		
+		//---------------------------------
+		if (ctrl.ctrl_right) {
+			if (!keyFilter2) {
+				holdCool = 20;
+				scrollRight();
+				keyFilter2 = true;
+			}
+		} else {keyFilter2 = false;}
+		
+		
+		//hold scroll
+		if (holdCool > 0) {
+			holdCool --;
+		} else {
+			if (soundGap > 0) {
+				soundGap --;
+			} else {
+				if (keyFilter1) {
+					scrollLeft();
+				} else if (keyFilter2) {
+					scrollRight();
+				}
+				soundGap = 3;
+			}
+		}
+		
+		//---------------------------------
+		if (ctrl.ctrl_confirmStart) {
+			if (!keyFilter0) {
+				close();
+				keyFilter0 = true;
+			}
+		} else { keyFilter0 = false; }
+		
+		//
+		if (ctrl.ctrl_cancel) {
+			if (!keyFilter4) {
+				close(false);
+				keyFilter4 = true;
+			}
+		} else {
+			keyFilter4 = false;
+		}
+		
+	}
+}
+
+function scrollLeft():void {
+	if (selectIndex > 0) {
+		selectIndex --;
+		selectIcon();
+	}
+}
+function scrollRight():void {
+	if (selectIndex < selectIndexMax) {
+		selectIndex ++;
+		selectIcon();
+	}
+}
+
+function cursorUpdate():void {
+	var X:Number = MovieClip(parent).x + (selectIndex*30) - 20;
+	var Y:Number = y + MovieClip(parent).y + 20;
+	cursor.x += (X - cursor.x)/3;
+	cursor.y += (Y - cursor.y)/3;
+}
+
+function selectIcon():void {
+	sndCtrl.playUISound(sndCtrl.sndButton1);
+	colorClip.gotoAndStop(1+selectIndex);
+}
+
+function open():void {
+	updateFilters();
+	isOpen = true;
+	gotoAndStop(3);
+}
+function close(apply:Boolean = true):void {
+	if (apply) {
+		sndCtrl.playUISound(sndCtrl.sndButton3);
+	} else {
+		selectIndex = cacheIndex;
+		selectIcon();
+		sndCtrl.playUISound(sndCtrl.sndButton2);
+	}	
+	
+	
+	switch (selectIndex) {
+		case 0 :
+			gameData.VFXStyle = gameData.VFXNone;
+			break;
+		case 1 :
+			gameData.VFXStyle = gameData.VFXInvert;
+			break;
+		case 2 :
+			gameData.VFXStyle = gameData.VFXDark;
+			break;
+		case 3 :
+			gameData.VFXStyle = gameData.VFXGold;
+			break;
+		case 4 :
+			gameData.VFXStyle = gameData.VFXRed;
+			break;
+		case 5 :
+			gameData.VFXStyle = gameData.VFXYellow;
+			break;
+		case 6 :
+			gameData.VFXStyle = gameData.VFXAqua;
+			break;
+		case 7 :
+			gameData.VFXStyle = gameData.VFXBlue;
+			break;
+		case 8 :
+			gameData.VFXStyle = gameData.VFXPurple;
+			break;
+	}
+	
+	gameData.VFXID = selectIndex;
+	isOpen = false;
+
+	gotoAndStop(2);
+	MovieClip(parent).whiteScreen.visible = false;
+	MovieClip(parent.parent).lock = false;
+	MovieClip(parent.parent).applyFilters();
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 14" name="colorClip">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 18" name="colorContainer">
+                  <matrix>
+                    <Matrix tx="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="126.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

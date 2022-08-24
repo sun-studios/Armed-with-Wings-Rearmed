@@ -1,0 +1,140 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_PointTarget/PointTaret" itemID="574eb65d-00000b42" linkageExportForAS="true" linkageClassName="PointTarget" lastModified="1492473397">
+  <timeline>
+    <DOMTimeline name="PointTaret">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.plugins.VolumePlugin;
+
+var hero:MovieClip;
+var clip:MovieClip;
+var ctrl:PlayerControl;
+var mouseClip:MovieClip;
+var go:Boolean;
+var xDist:Number = 0;
+var yDist:Number = 0;
+visible = false;
+
+function init(_hero:MovieClip):void {
+	if (!go) {
+		hero = _hero;
+		ctrl = hero.control;
+		visible = false;
+		xDist = 240*hero.scaleX;
+		go = true;
+	}
+}
+function end():void {
+	if (go) {
+		trace("GO TELEPORT");
+		go = false;
+		hero.gotoAndStop("teleport");
+		visible = false;
+	}
+}
+
+function update ():void {
+	if (go) {
+		visible = true;
+		rotation = -MovieClip(parent).rotation * MovieClip(parent).scaleX;
+		
+		if (ctrl.ctrl_left) {
+			xDist = -240;
+			if (!ctrl.ctrl_up && !ctrl.ctrl_down)
+				yDist = 0;
+		}
+		if (ctrl.ctrl_right) {
+			xDist = 240;
+			if (!ctrl.ctrl_up && !ctrl.ctrl_down)
+				yDist = 0;
+		}
+		if (ctrl.ctrl_up) {
+			yDist = -240;
+			if (!ctrl.ctrl_left && !ctrl.ctrl_right)
+				xDist = 0;
+		}
+		if (ctrl.ctrl_down) {
+			yDist = 240;
+			if (!ctrl.ctrl_left && !ctrl.ctrl_right)
+				xDist = 0;
+		}
+		if ((xDist != 0 && yDist != 0)) {
+			xDist *= .8;
+			yDist *= .8;
+		}
+		
+		scaleX = hero.scaleX;
+		mouseClip.x += (xDist - mouseClip.x)/2;
+		mouseClip.y += (yDist - mouseClip.y)/2;
+		
+		clip.rotation = 0;
+		clip.width = distanceBetween(clip, mouseClip) - 16;
+		if (clip.width < 150) {
+			if (clip.currentFrame < 13) clip.gotoAndPlay(13);
+		} else {
+			if (clip.width < 300) {
+				if (clip.currentFrame < 7 || clip.currentFrame > 12) clip.gotoAndPlay(7);
+			} else {
+				if (clip.currentFrame > 7) clip.gotoAndPlay(1);
+			}
+		}
+		
+		var dist_Y:Number = mouseClip.y -clip.y ;
+		var dist_X:Number = mouseClip.x -clip.x ;
+		var angle:Number = Math.atan2(dist_Y,dist_X);
+		var degrees:Number = angle * 180/ Math.PI;
+		clip.rotation = degrees;
+	} else {
+		visible = false;
+	}
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PointTarget/PointTaret-CrossHar" name="mouseClip">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="9" blurY="9" distance="3" strength="0.17"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PointTarget/PointTaret-Line" name="clip">
+                  <matrix>
+                    <Matrix tx="2.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

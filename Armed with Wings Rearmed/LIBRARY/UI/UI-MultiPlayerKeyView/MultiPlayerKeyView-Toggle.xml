@@ -1,0 +1,37 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MultiPlayerKeyView/MultiPlayerKeyView-Toggle" itemID="574af476-00000bf4" lastModified="1464530038">
+  <timeline>
+    <DOMTimeline name="MultiPlayerKeyView-Toggle">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Key-TAB">
+                  <matrix>
+                    <Matrix tx="-67.05" ty="-20.5"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMStaticText selected="true" fontRenderingMode="standard" left="39.3" width="61" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-45.25" ty="-9.55"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Toggle</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineSpacing="-3" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="25" blurY="28" color="#FFFFFF" distance="4" quality="2" strength="0.54"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

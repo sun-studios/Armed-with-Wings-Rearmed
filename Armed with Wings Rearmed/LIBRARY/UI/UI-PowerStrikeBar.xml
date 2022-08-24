@@ -1,0 +1,107 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-PowerStrikeBar" itemID="558584e5-00002571" lastModified="1464792054">
+  <timeline>
+    <DOMTimeline name="UI-PowerStrikeBar" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var hero:MovieClip;
+var go:Boolean;
+
+init();
+
+function init():void {
+	if (this.name == "powerBarDisplay") {
+		hero = MovieClip(parent).hero;
+	} else {
+		hero = MovieClip(parent).hero_p2;
+	}
+	if (hero) {
+		hero.powerBarDisplay = this;
+		go = true;
+	}
+	visible = false;
+}
+
+function update():void {
+	if (go) {
+		if (hero.heroName == "VANDHEER") {
+			visible = false;
+		} else {		
+			x = hero.x - (50 * hero.scaleX);
+			y = hero.y - 5;
+			
+			bar.scaleY = hero.powerBar.bar.scaleY;
+			
+			this.alpha = hero.powerBar.alpha;
+			if (alpha <= 0) visible = false;
+			else visible = true;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PowerBar/UI-PowerBar_bar" name="bar" centerPoint3DX="-0.05" centerPoint3DY="-39">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#666666"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-81 -1560|80 -1560!80 -1560|80 0!80 0|-81 0!-81 0|-81 -1560"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!105 25|-106 25!-106 25|-106 -1585!-106 -1585|105 -1585!105 -1585|105 25"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

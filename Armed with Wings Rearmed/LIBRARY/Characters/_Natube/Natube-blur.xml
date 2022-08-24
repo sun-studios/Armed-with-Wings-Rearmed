@@ -1,0 +1,139 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/_Natube/Natube-blur" itemID="556ac673-000007da" lastModified="1433060979" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Natube-blur" currentFrame="7">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/_Natube/Natude-anim-idle">
+                  <matrix>
+                    <Matrix a="0.824569702148438" d="0.824569702148438" tx="-7.65" ty="-3.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/_Natube/Natude-anim-fx">
+                  <matrix>
+                    <Matrix a="0.791885375976563" d="0.870590209960938" tx="-15.95" ty="18.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/_Natube/Natude-anim-fx" selected="true">
+                  <matrix>
+                    <Matrix a="0.791885375976563" d="0.870590209960938" tx="-15.95" ty="18.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Characters/_Natube/assets/bitmap/Bitmap 5">
+                  <matrix>
+                    <Matrix d="2.14341735839844" tx="-100" ty="-167"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Characters/_Natube/assets/bitmap/Bitmap 5">
+                  <matrix>
+                    <Matrix d="2.21122741699219" tx="-100" ty="-406.2"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Characters/_Natube/assets/bitmap/Bitmap 5">
+                  <matrix>
+                    <Matrix d="1.35658264160156" tx="-100" ty="-286.1"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Characters/_Natube/assets/bitmap/Bitmap 5">
+                  <matrix>
+                    <Matrix d="1.32574462890625" tx="-100" ty="-203.95"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Characters/_Natube/assets/bitmap/Bitmap 5">
+                  <matrix>
+                    <Matrix d="1.208984375" tx="-100" ty="-201.9"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Characters/_Natube/assets/bitmap/Bitmap 5">
+                  <matrix>
+                    <Matrix tx="-100" ty="-167"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="Characters/_Natube/assets/bitmap/Bitmap 5">
+                  <matrix>
+                    <Matrix d="2.21122741699219" tx="-100" ty="-406.2"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Characters/_Natube/assets/bitmap/Bitmap 5">
+                  <matrix>
+                    <Matrix tx="-100" ty="-167"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

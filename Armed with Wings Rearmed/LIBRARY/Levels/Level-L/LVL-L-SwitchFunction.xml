@@ -1,0 +1,76 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-L/LVL-L-SwitchFunction" itemID="54d59940-00000f1c" lastModified="1423289473">
+  <timeline>
+    <DOMTimeline name="LVL-L-SwitchFunction">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+
+var rockSwitch:MovieClip = MovieClip(parent).rockSwitch;
+var ground:MovieClip = MovieClip(parent).ground;
+var edge1:MovieClip = MovieClip(parent).edge1;
+var edge2:MovieClip = MovieClip(parent).edge2;
+
+
+
+function update():void {
+	if (rockSwitch.isOn) {
+		if (ground.trap1.currentFrameLabel == "open")
+			ground.trap1.play();
+		if (ground.trap2.currentFrameLabel == "closed")
+			ground.trap2.play();
+		edge1.active = false;
+		edge2.active = false;
+	} else {
+		if (ground.trap1.currentFrameLabel == "closed")
+			ground.trap1.play();
+		if (ground.trap2.currentFrameLabel == "open")
+			ground.trap2.play();
+		edge1.active = true;
+		edge2.active = true;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>switch &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

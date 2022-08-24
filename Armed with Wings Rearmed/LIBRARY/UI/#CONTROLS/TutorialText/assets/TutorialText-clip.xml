@@ -1,0 +1,215 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/#CONTROLS/TutorialText/assets/TutorialText-clip" itemID="55081989-000004a5" symbolType="graphic" lastModified="1492842999" lastUniqueIdentifier="12">
+  <timeline>
+    <DOMTimeline name="TutorialText-clip" currentFrame="6" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-316&lt;/guideline&gt;&lt;guideline direction="v"&gt;315&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText left="-87.8" width="627.4" height="34.05" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-225.9" ty="-18.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Hold Forward to leap</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="34.05" size="38" bitmapSize="760" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="3" color="#000000"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMStaticText left="129.75" width="249.7" height="34.05" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-154.35" ty="-18.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>to use Eagle</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="34.05" size="38" bitmapSize="760" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="3" color="#000000"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Switch">
+                  <matrix>
+                    <Matrix tx="-61.55" ty="0.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMStaticText left="-87.8" width="627.4" height="34.05" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-302.55" ty="-18.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Strike with </characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="34.05" size="38" bitmapSize="760" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="3" color="#000000"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-ConfirmOLd">
+                  <matrix>
+                    <Matrix tx="54.65" ty="-1.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMStaticText left="-87.8" width="627.4" height="34.05" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-297.4" ty="-18.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Halt with</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="34.05" size="38" bitmapSize="760" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="3" color="#000000"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Block">
+                  <matrix>
+                    <Matrix tx="40.4" ty="-0.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMStaticText left="-87.8" width="627.4" height="34.05" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-297.4" ty="-18.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Pickup objects with </characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="34.05" size="38" bitmapSize="760" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="3" color="#000000"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-ConfirmOLd">
+                  <matrix>
+                    <Matrix tx="128.45" ty="-1.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMStaticText left="-87.8" width="256.2" height="34.05" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-105.9" ty="-18.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Hold     +      </characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="34.05" size="38" bitmapSize="760" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="3" color="#000000"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-CancelOLd" centerPoint3DX="43.15" centerPoint3DY="-23.75">
+                  <matrix>
+                    <Matrix tx="43.15" ty="-23.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Down">
+                  <matrix>
+                    <Matrix tx="-39.2" ty="-23.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMStaticText left="-87.8" width="627.4" height="34.05" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-204.8" ty="-18.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Hold     +  LEFT/RIGHT   </characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="34.05" size="38" bitmapSize="760" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="3" color="#000000"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Block2">
+                  <matrix>
+                    <Matrix tx="-73.85" ty="-0.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

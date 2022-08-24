@@ -1,0 +1,92 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-X02/LVLx2-ParticleSpawneer" itemID="57e7ea05-000012a4" lastModified="1492485397">
+  <timeline>
+    <DOMTimeline name="LVLx2-ParticleSpawneer">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var particles:MovieClip;
+var _parent:MovieClip;
+var sndCtrl:MovieClip;
+var go:Boolean;
+
+function init ():void {
+	particles = MovieClip(parent.parent).particleLayer;
+	_parent = MovieClip(parent);
+	sndCtrl = MovieClip(root);
+	go = true;
+}
+
+function update ():void {
+	if (go) {
+		for (var i:int = 0; i < 2; i ++) {
+			var rX:Number = (Math.random()-Math.random())*100;
+			var rY:Number = (Math.random()-Math.random())*100;
+			var rS:Number = .3 + (Math.random()*.8);
+			
+			var X:Number = x + _parent.x + rX;
+			var Y:Number = y + _parent.y + rY;
+			
+			particles.addHolyDust(X, Y, rS);
+		}
+	}
+}
+
+function playSound(id:int):void {
+	var snd:Sound;
+	switch (id) {
+		case 0:
+			snd = sndCtrl.sndHoly5;
+			break;
+		case 1:
+			snd = sndCtrl.sndHoly1;
+			break;
+		case 2:
+			snd = sndCtrl.sndHoly8;
+			break;
+	}
+	
+	sndCtrl.playSound(snd);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FF0000"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="0" b="1" c="-1" d="0" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FF0000"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

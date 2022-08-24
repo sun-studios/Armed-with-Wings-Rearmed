@@ -1,0 +1,381 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-SurvivalRouge_p2" itemID="58db4a45-000015a1" lastModified="1500988975" lastUniqueIdentifier="23">
+  <timeline>
+    <DOMTimeline name="HUD-SurvivalRouge_p2">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var playerID:int;
+var gameData:MovieClip;
+var fadein:Boolean = true;
+var pString:String = "";
+var gear0:Number;
+var gear1:Number;
+var gear2:Number;
+var gear3:Number;
+
+
+
+function init(id:int):void {
+	playerID = id;
+	gameData = MovieClip(root);
+	if (id == 2) {
+		pString = "_p2";
+	} else {
+		pString = "";
+	}
+}
+
+function fadeUpdate ():void {
+	if (fadein) {
+		if (alpha < 1) alpha += .1;
+	} else {
+		if (alpha > 0) alpha -= .1;
+	}
+}
+
+//FIND - HUD Booster
+function update():void {
+	
+	
+	displayWeapon(gameData.data_equiptedWeapon_p2);
+	
+	gear0 = gameData["data_equiptedGear"+0+pString];
+	gear1 = gameData["data_equiptedGear"+1+pString];
+	gear2 = gameData["data_equiptedGear"+2+pString];
+	gear3 = gameData["data_equiptedGear"+3+pString];
+	panelEquiptment0.clip.gearIcon.gotoAndStop(gear0+1);
+	panelEquiptment1.clip.gearIcon.gotoAndStop(gear1+1);
+	panelEquiptment2.clip.gearIcon.gotoAndStop(gear2+1);
+	panelEquiptment3.clip.gearIcon.gotoAndStop(gear3+1);
+	
+	//FIND - fix
+	var arr:Array = new Array();
+	var boostPan:MovieClip;
+	for (var i:int = 0; i < 4; i ++) {
+		boostPan = this["panelEquiptment"+i];
+		if (this["gear"+i] == 0) {
+			//dont display booster
+			boostPan.visible = false;
+		} else {
+			//display booster
+			boostPan.visible = true;
+			boostPan.clip.buttonClip.gotoAndStop("none");
+			boostPan.clip.gotoAndStop("none");
+			arr.push(boostPan);
+			if (!gameData["data_gear"+this["gear"+i]+"_passive"]) {
+				//change booster visual if Ability Booster - X 
+				boostPan.clip.gotoAndStop(2);
+				boostPan.clip.buttonClip.gotoAndStop("X");
+				if (i == 1) {
+					//change visual for Ability Y
+					boostPan.clip.gotoAndStop(3);
+					boostPan.clip.buttonClip.gotoAndStop("Y");
+				}
+			}
+		}
+	}
+	
+	//sort visible boosters
+	//for (i = 0; i < arr.length; i ++) {
+		//var clip:MovieClip = arr[i];
+		//clip.y = 62 - (42*((arr.length-1)-i));
+	//}
+}
+
+function displayWeapon(id:Number):void {		
+	
+	weaponIcon.gotoAndStop(gameData["data_weap"+id+"_graphic"]);
+	updateStats(id);
+	
+	/*
+	for (var i2:int = 0; i2 < 4; i2 ++) {
+		var arr:Array = gameData.dataGetWeapBoosterFromID(id);
+		var slot:MovieClip = boosters["slot"+i2];
+		
+		if (slot) {
+			slot.visible = false;
+			if (i2 >= arr.length) {
+				
+			} else {
+				slot.visible = true;
+				slot.gearIcon.gotoAndStop(1+arr[i2][0]);
+				if (slot.gearIcon.currentFrame == 1)
+					slot.gearIcon.gotoAndStop("free");
+				slot.gotoAndStop(1);
+				if (arr[i2][1]) {
+					if (i2 == 0) slot.gotoAndStop(2);
+					if (i2 == 1) slot.gotoAndStop(3);
+				}
+			}
+		}
+	}
+	*/
+	
+}
+
+function updateStats(id:Number):void {
+	var nameData:String;
+	var defenceData:Number;
+	var powerData:Number;
+	var speedData:Number;
+	var rangeData:Number;
+	
+	nameData = gameData["data_weap"+id+"_name"];
+	defenceData = gameData["data_weap"+id+"_defence"];
+	powerData = gameData["data_weap"+id+"_power"];
+	speedData = gameData["data_weap"+id+"_speed"];
+	rangeData = gameData["data_weap"+id+"_range"];
+	
+	//name_tf.text = nameData;
+	row0.update(defenceData, gameData.dataGetWeaponDefence(playerID));
+	row1.update(powerData, gameData.dataGetWeaponPower(playerID));
+	row2.update(speedData, gameData.dataGetWeaponSpeed(playerID));
+	row3.update(rangeData, gameData.dataGetWeaponRange(playerID));
+}
+
+function updateStatsLocked():void {
+	//name_tf.text = "Locked";
+	row0.update(0, 0);
+	row1.update(0, 0);
+	row2.update(0, 0);
+	row3.update(0, 0);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Weapons/UI-Player-WeaponIcon" name="weaponIcon" centerPoint3DX="-115.7" centerPoint3DY="14.8">
+                  <matrix>
+                    <Matrix a="0.330047607421875" d="0.330047607421875" tx="-111.65" ty="23.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="37.9999988616352" blurX="0" blurY="0" distance="4" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row3">
+                  <matrix>
+                    <Matrix a="0.318435668945313" d="-0.318435668945313" tx="-35.35" ty="36.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.45" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row2">
+                  <matrix>
+                    <Matrix a="0.318435668945313" d="-0.318435668945313" tx="-35.35" ty="27.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.45" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row1">
+                  <matrix>
+                    <Matrix a="0.318435668945313" d="-0.318435668945313" tx="-35.35" ty="18.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.45" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row0">
+                  <matrix>
+                    <Matrix a="0.318435668945313" d="-0.318435668945313" tx="-35.35" ty="8.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.45" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-WeaponSymbols" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-85.9" ty="4.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4" y="17.65"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/New Style Lines/Symbol 4">
+                  <matrix>
+                    <Matrix a="0" b="0.805923461914063" c="-0.805923461914063" d="0" ty="45.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.5" y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="6" blurY="6" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-10" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.3399658203125" d="-0.339874267578125" tx="-160.6" ty="21.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="-0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-10" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.339996337890625" d="-0.33990478515625" tx="-200.55" ty="21.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="-0.3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-10" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.339996337890625" d="-0.33990478515625" tx="-280.55" ty="21.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-10" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.339996337890625" d="-0.33990478515625" tx="-240.55" ty="21.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panelEquiptment0" uniqueID="20">
+                  <matrix>
+                    <Matrix a="0.383148193359375" d="0.383026123046875" tx="-280.55" ty="22.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.4" y="-2.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panelEquiptment1" uniqueID="21">
+                  <matrix>
+                    <Matrix a="0.383148193359375" d="0.383026123046875" tx="-240.5" ty="22.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.25" y="-2.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panelEquiptment2" uniqueID="22">
+                  <matrix>
+                    <Matrix a="0.383148193359375" d="0.383026123046875" tx="-200.55" ty="22.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.4" y="-2.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panelEquiptment3" uniqueID="23">
+                  <matrix>
+                    <Matrix a="0.383148193359375" d="0.383026123046875" tx="-160.5" ty="22.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.25" y="-2.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                        <VariablePointWidth>
+                          <WidthMarker position="0" left="0" right="0" type="corner"/>
+                          <WidthMarker position="0.12" left="0.5" right="0.5"/>
+                          <WidthMarker position="0.14" left="0.5" right="0.5"/>
+                          <WidthMarker position="0.86" left="0.5" right="0.5"/>
+                          <WidthMarker position="0.88" left="0.5" right="0.5"/>
+                          <WidthMarker position="1" left="0" right="0" type="corner"/>
+                        </VariablePointWidth>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-2694 721|-2694 509!-2694 369|-2694 157"/>
+                    <Edge fillStyle1="1" edges="!-2733 441|-2694 402!-2694 402|-2655 441!-2655 441|-2694 480!-2694 480|-2733 441"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

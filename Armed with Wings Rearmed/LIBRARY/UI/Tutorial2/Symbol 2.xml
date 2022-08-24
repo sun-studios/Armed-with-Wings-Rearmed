@@ -1,0 +1,89 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Tutorial2/Symbol 2" itemID="581985af-00001114" lastModified="1478178084">
+  <timeline>
+    <DOMTimeline name="Symbol 2" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+if (MovieClip(root).numOfDevices() > 0) {
+	gotoAndStop(2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="166.15" height="17" autoExpand="true">
+                  <matrix>
+                    <Matrix tx="-83.1" ty="-8.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>HOLD       TO SKIP</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="-4" lineHeight="17" size="19" bitmapSize="380" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" centerPoint3DX="-18.25" centerPoint3DY="0.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.641937255859375" d="0.641937255859375" tx="-18.2" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" width="18.05" height="21.35" autoExpand="true">
+                  <matrix>
+                    <Matrix tx="-26" ty="-10.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>W</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="0" lineHeight="21.35" size="19" bitmapSize="380" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="166.15" height="17" autoExpand="true">
+                  <matrix>
+                    <Matrix tx="-83.1" ty="-8.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>HOLD       TO SKIP</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="-4" lineHeight="17" size="19" bitmapSize="380" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Pad/Pad-Y-Size1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.72222900390625" d="0.72222900390625" tx="-20.75" ty="0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

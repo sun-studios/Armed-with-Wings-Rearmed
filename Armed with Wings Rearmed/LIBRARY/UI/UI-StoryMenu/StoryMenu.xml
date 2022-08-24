@@ -1,0 +1,580 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-StoryMenu/StoryMenu" itemID="553a140a-00000550" lastModified="1447080872" lastUniqueIdentifier="19">
+  <timeline>
+    <DOMTimeline name="StoryMenu" currentFrame="77" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-187&lt;/guideline&gt;&lt;guideline direction="h"&gt;-199&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+var keyFilter5:Boolean;
+var keyFilter6:Boolean;
+var keyFilter7:Boolean;
+
+var vertIndex:int;
+var horIndex:int;
+var selectionConfirmed:Boolean;
+var ready:Boolean;
+
+var currentPanel:MovieClip;
+var levelIcons:MovieClip;
+var shade:MovieClip;
+var ctrl:PlayerControl;
+var _root:MovieClip;
+var sndCtrl:MovieClip;
+
+shade.visible = false;
+stop();
+
+//init();
+
+function init():void {
+	keyDefaults();
+	
+	vertIndex = 1;
+	horIndex = 1;
+	selectionConfirmed = false;
+	ready = true;
+	
+	ctrl = MovieClip(root).player1Control;
+	_root = MovieClip(root);
+	sndCtrl = _root;
+	
+	shade.visible = false;
+	gotoAndPlay(2);
+}
+
+function keyDefaults():void {
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	keyFilter5 = true;
+	keyFilter6 = true;
+	keyFilter7 = true;
+}
+
+function update():void {
+	if (cursor && cursor.update) cursor.update();
+	if (levelIcons && levelIcons.update) levelIcons.update();
+	if (difficultyPanel && difficultyPanel.update) difficultyPanel.update();
+	
+	if (!selectionConfirmed) {
+		//up control
+		if (ctrl.ctrl_up) {
+			if (!keyFilter1) {
+				if (difficultyPanel && currentPanel != difficultyPanel) {
+					selectPanel(difficultyPanel);
+					vertIndex = 0;
+				}
+				keyFilter1 = true;
+			}
+		} else {
+			keyFilter1 = false;
+		}
+		
+		//down control
+		if (ctrl.ctrl_down) {
+			if (!keyFilter2) {
+				if (startButton && currentPanel != startButton) {
+					selectPanel(startButton);
+					vertIndex = 1;
+				}
+				keyFilter2 = true;
+			}
+		} else {
+			keyFilter2 = false;
+		}
+		
+		if (ctrl.ctrl_left) {
+			if (!keyFilter4) {
+				if (backButton && currentPanel != backButton) {
+					selectPanel(backButton);
+					vertIndex = 1;
+					horIndex = 0;
+				}
+				keyFilter4 = true;
+			}
+		} else {
+			keyFilter4 = false;
+		}
+		
+		if (ctrl.ctrl_right) {
+			if (!keyFilter5) {
+				if (vertIndex == 1) {
+					if (startButton && currentPanel != startButton) {
+						selectPanel(startButton);
+						vertIndex = 1;
+						horIndex = 1;
+					}
+				}
+				keyFilter5 = true;
+			}
+		} else {
+			keyFilter5 = false;
+		}
+		
+		//confirm control
+		if (ctrl.ctrl_confirm) {
+			if (!keyFilter3) {
+				confirm(currentPanel);
+				keyFilter3 = true;
+			}
+		} else {
+			keyFilter3 = false;
+		}
+		
+		//start enter
+		if (ctrl.ctrl_start) {
+			if (!keyFilter7) {
+				if (currentPanel == startButton) {
+					confirm(startButton);
+				} else {
+					selectPanel(startButton);
+					vertIndex = 1;
+					horIndex = 1;
+				}
+				keyFilter7 = true;
+			}
+		} else {
+			keyFilter7 = false;
+		}
+		
+		//back
+		if (ctrl.ctrl_cancel) {
+			if (!keyFilter6) {
+				if (currentPanel == backButton) {
+					confirm(backButton);
+				} else {
+					selectPanel(backButton);
+					vertIndex = 1;
+					horIndex = 0;
+				}
+				keyFilter6 = true;
+			}
+		} else {
+			keyFilter6 = false;
+		}
+	}
+}
+
+function selectPanel(obj:MovieClip, sound:Boolean = true):void {
+	if (currentPanel) {
+		currentPanel.gotoAndPlay("out");
+	}
+	
+	currentPanel = obj;
+	currentPanel.gotoAndPlay("over");
+	if (sound)
+		sndCtrl.playSound(sndCtrl.sndButton1);
+}
+
+function confirm(panel:MovieClip):void {
+	if (panel) {
+		switch (panel) {
+			case startButton:
+				startButton.gotoAndPlay("over");
+				sndCtrl.playSound(sndCtrl.sndButton3);
+				end();
+				break;
+			case difficultyPanel:
+				openDifficultyPanel();
+				break;
+			case backButton:
+				backButton.gotoAndPlay("over");
+				sndCtrl.playSound(sndCtrl.sndButton2);
+				end(true);
+				break;
+		}
+	}
+}
+
+function openDifficultyPanel():void {
+	selectionConfirmed = true;
+	sndCtrl.playSound(sndCtrl.sndButton3);
+	difficultyPanel.open();
+	addChild(shade);
+	shade.visible = true;
+	addChild(difficultyPanel);
+	addChild(cursor);
+}
+function closeDifficultyPanel():void {
+	keyDefaults();	
+	shade.visible = false;
+	difficultyPanel.close();
+	selectionConfirmed = false;
+}
+
+function end(goBack:Boolean = false):void {
+	selectionConfirmed = true;
+	
+	if (MovieClip(parent).menuID == 1) {
+		if (goBack) {
+			MovieClip(parent).gotoAndPlay("STORYTOMAIN");
+		} else {
+			MovieClip(parent).gotoAndPlay("GOTOSTART2");
+		}
+	} else {
+		
+		if (goBack) {
+			MovieClip(parent).closeStory();
+		} else {
+			MovieClip(parent).startGame();
+		}
+		
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="76" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[//if (ctrl.ctrl_input2 || ctrl.ctrl_backSpace || ctrl.ctrl_esc || ctrl.ctrl_cancel) {
+//if (ctrl.ctrl_input2 || ctrl.ctrl_backSpace || ctrl.ctrl_esc || ctrl.ctrl_cancel) {]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="77" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#9933CC" locked="true" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="78" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!0 0S4|16000 0!16000 0|16000 9000!16000 9000|0 9000!0 9000|0 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="shade" color="#808080" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="78" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-BG" name="shade" selected="true">
+                  <matrix>
+                    <Matrix a="0.85113525390625" d="0.874069213867188" tx="400" ty="225"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="54" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/UI-Story-Cursor" name="cursor">
+                  <matrix>
+                    <Matrix tx="847.75" ty="410.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" quality="2" strength="0.83"/>
+                    <GlowFilter color="#FFFFFF" quality="3" strength="0.44"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="UIControls" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UIControls-Display" centerPoint3DX="939.85" centerPoint3DY="20.15" uniqueID="20">
+                  <matrix>
+                    <Matrix tx="820.7" ty="36.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="119.15" y="-16.6"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_frame">
+      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="73" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UIControls-Display" centerPoint3DX="679.85" centerPoint3DY="20.15" uniqueID="21">
+                  <matrix>
+                    <Matrix tx="560.7" ty="36.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="119.15" y="-16.6"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_frame">
+      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Title" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-Title">
+                  <matrix>
+                    <Matrix a="2.40925598144531" tx="749.1" ty="60.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="147" blurY="0"/>
+                    <GlowFilter blurX="164" blurY="0" color="#FFFFFF" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-Title" centerPoint3DX="205.55" centerPoint3DY="60.4">
+                  <matrix>
+                    <Matrix a="2.40925598144531" tx="205.5" ty="60.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="147" blurY="0"/>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" strength="0.88"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-Title" centerPoint3DX="397.3" centerPoint3DY="60.4">
+                  <matrix>
+                    <Matrix a="0.827560424804688" tx="194.7" ty="60.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="244" blurY="0"/>
+                    <GlowFilter blurX="32" blurY="0" color="#FFFFFF" strength="3.38"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-Title" centerPoint3DX="418.2" centerPoint3DY="60.4">
+                  <matrix>
+                    <Matrix tx="173.4" ty="60.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="3" blurY="0"/>
+                    <GlowFilter blurX="87" blurY="0" color="#FFFFFF" quality="3" strength="2.57"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-Title" centerPoint3DX="418.2" centerPoint3DY="60.4">
+                  <matrix>
+                    <Matrix tx="173.4" ty="60.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="3" blurY="0"/>
+                    <GlowFilter blurY="0" color="#FFFFFF" quality="3" strength="1.89"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="61" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-Title" centerPoint3DX="418.2" centerPoint3DY="60.4">
+                  <matrix>
+                    <Matrix tx="173.4" ty="60.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0"/>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" quality="3" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Headers" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" duration="71" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-text-Anim" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix tx="373.75" ty="114.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="StartButton" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="55" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin" name="startButton" uniqueID="17">
+                  <matrix>
+                    <Matrix tx="478.95" ty="388"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="START" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-short-Black" name="backButton" uniqueID="18">
+                  <matrix>
+                    <Matrix tx="256.3" ty="388"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="BACK" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="LvlIcons" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="60" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-LvlIconContainer" name="levelIcons">
+                  <matrix>
+                    <Matrix tx="398.3" ty="230.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Difficulty Panel" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="70" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-DifficultyPanel" name="difficultyPanel" centerPoint3DX="643.95" centerPoint3DY="225.05">
+                  <matrix>
+                    <Matrix tx="645.4" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Best Run Panel" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="15" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="15" duration="63" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-StoryMenu/assets/StoryMenu-ScorePanel" selected="true" centerPoint3DX="153.6" centerPoint3DY="226.35">
+                  <matrix>
+                    <Matrix tx="153.6" ty="226.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="54" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[selectPanel(startButton, false);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

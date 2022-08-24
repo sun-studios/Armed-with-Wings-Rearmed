@@ -1,0 +1,124 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-S03/LVLS03-SwitchFunction-04" itemID="579a3483-0000276a" lastModified="1492352495" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="LVLS03-SwitchFunction-04">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var cGate:Number;
+var cCamHelp:Number;
+var gate:MovieClip;
+var camHelp:MovieClip;
+
+var _parent:MovieClip;
+var hero:MovieClip;
+var vcam:MovieClip;
+var flag1:Boolean;
+
+var enArr:Array;
+var enemyClipArr:Array = [];
+
+init ();
+
+function init ():void {
+	gate = MovieClip(parent).ground["gate"+cGate]
+	camHelp = MovieClip(parent)["camHelp"+cCamHelp]
+	_parent = MovieClip(parent);
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	
+	for (var i:int = 0; i < enArr.length; i ++) {
+		enemyClipArr.push(_parent[enArr[i]]);
+	}
+	
+	flag1 = false;
+	visible = false;
+}
+
+function update ():void {
+	if (CameraDistCheck.inRange(this)) {
+		if (!flag1) {
+			var deaths:int = 0;
+			for (var i:int = 0; i < enemyClipArr.length; i ++) {
+				if (enemyClipArr[i].dead || enemyClipArr[i].life <= 0) {
+					deaths ++;
+				}
+			}
+			if (deaths >= enemyClipArr.length) {
+				openGate(cGate);
+				flag1 = true;
+			}
+		}
+	}
+}
+
+function openGate(gateID:int = 0):void {
+	hero.lock();
+	hero.xSpeed *= .5;
+	vcam.target = camHelp;
+	gate.gotoAndPlay(2);
+	TweenMax.delayedCall(60, resume, null, true);
+}
+
+function resume ():void {
+	hero.unlock();
+	vcam.target = hero;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -368|873 -368!873 -368|873 367!873 367|-872 367!-872 367|-872 -368"/>
+                    <Edge cubics="!873 -368(873,-368;873,-368 873,367 873,367q873 -368 873 367)873,367;"/>
+                    <Edge cubics="!-872 367(;-872,367 -872,-368 -872,-368q-872 367 -872 -368);"/>
+                    <Edge cubics="!873 367(;873,367 -872,367 -872,367q873 367 -872 367);"/>
+                    <Edge cubics="!-872 -368(;-872,-368 873,-368 873,-368q-872 -368 873 -368);"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="52" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>switch &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="enArr">
+      <Inspectable name="enemies" variable="enArr" category="" verbose="0" defaultValue="" type="Array"/>
+   </property>
+   <property id="cGate">
+      <Inspectable name="gate" variable="cGate" category="" verbose="0" defaultValue="-1" type="Number"/>
+   </property>
+   <property id="cCamHelp">
+      <Inspectable name="camHelp" variable="cCamHelp" category="" verbose="0" defaultValue="-1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

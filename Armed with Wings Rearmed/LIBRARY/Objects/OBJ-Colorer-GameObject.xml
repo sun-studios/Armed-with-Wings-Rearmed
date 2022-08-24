@@ -1,0 +1,120 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-Colorer-GameObject" itemID="54ce9b59-000004c1" lastModified="1489940284">
+  <timeline>
+    <DOMTimeline name="OBJ-Colorer-GameObject">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = false;
+
+import flash.geom.ColorTransform;
+import flash.geom.Transform;
+import flash.display.MovieClip;
+
+var _root:MovieClip;
+var _parent:MovieClip;
+
+var colorNormal:ColorTransform;
+var colorDark:ColorTransform;
+var colorInvert:ColorTransform;
+var colorGrey:ColorTransform;
+var trans:Transform;
+
+init();
+
+function init():void {
+	_root = MovieClip(root);
+	_parent = MovieClip(parent);
+	
+	colorNormal = new ColorTransform(1,1,1,1,0,0,0,0);
+	colorDark = new ColorTransform(0,0,0,1,-255,-255,-255,0);
+	colorInvert = new ColorTransform(-1,-1,-1,1,255,255,255,0);
+	colorGrey = new ColorTransform(.16,.16,.16,1,43,43,43,0);
+	trans = new Transform(_parent);
+	
+	//color
+	changeColor(_root.VFXStyle, true);
+}
+
+function changeColor(color:String, dontInvert:Boolean = false):void {
+	_root = MovieClip(root);
+	switch (color) {
+		case "NONE":
+			if (trans.colorTransform != colorNormal)
+				trans.colorTransform = colorNormal;
+			break;
+		case _root.VFXDark:
+			if (trans.colorTransform != colorDark)
+				trans.colorTransform = colorDark;
+			break;
+		case _root.VFXInvert:
+			//might need to remove or make new colorer for charaters
+			if (!dontInvert) {
+				if (trans.colorTransform != colorInvert)
+					trans.colorTransform = colorInvert;
+			}
+			break;
+		case _root.VFXColor:
+			if (trans.colorTransform != colorNormal)
+				trans.colorTransform = colorNormal;
+		break;
+		case _root.VFXGREY:
+			if (trans.colorTransform != colorGrey)
+				trans.colorTransform = colorGrey;
+		break;
+		default:
+			if (trans.colorTransform != colorNormal)
+				trans.colorTransform = colorNormal;
+		break;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#990000" alpha="0.588235294117647"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#990000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!-363 -89|362 -89!362 -89|362 103!362 103|-363 103!-363 103|-363 -89"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="58.85" width="26.3" height="7.5" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-71.9" ty="-3.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>colorer</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="7.5" size="6" bitmapSize="120" face="Karnivore" fillColor="#990000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

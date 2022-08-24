@@ -1,0 +1,186 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-VampireStrike/anims/VampireStrike-Anim-Death2" itemID="58e102d6-00001769" lastModified="1491141354">
+  <timeline>
+    <DOMTimeline name="VampireStrike-Anim-Death2" currentFrame="24">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+var _parent:MovieClip = MovieClip(parent);
+var particleLayer:MovieClip;
+var hero:MovieClip = _parent;
+var readyForGround:Boolean;
+var hitGround:Boolean;
+var airBorn:Boolean;
+
+
+
+_parent.dispatchEvent(new Event("DEATHFREEZE"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dispatchEvent(new Event("DEATHFREEZE"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="32" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dispatchEvent(new Event("DEATHFREEZE"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="35" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dispatchEvent(new Event("DEATHFREEZEEND"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="36" duration="3" name="fly" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = 16 * -_parent.scaleX;
+_parent.ySpeed = 15;
+airBorn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="36" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[readyForGround = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="75" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="77" duration="35" name="stack" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[hitGround = true;
+airBorn = false;
+
+if (MovieClip(parent.parent).particleLayer) particleLayer =  MovieClip(parent.parent).particleLayer;
+if (particleLayer) {
+particleLayer.addDust(5, hero.x + (40 * hero.scaleX), 
+						 hero.y, 
+						 hero.scaleX);
+particleLayer.addDust(5, hero.x - (40 * -hero.scaleX), 
+						 hero.y, 
+						 -hero.scaleX);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="112" duration="26" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent.finalBattleDeath) {
+	stop();
+}
+
+if (_parent.gameData.gameMode == "MULTIPLAYER") {
+	if (_parent.gameData.dataIsGearEquipt(_parent.gameData.data_gear10_name, _parent.playerID)) {
+		if (_parent.firstDeath) {
+			stop();
+		}
+	} else {
+		stop();
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" duration="38" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.vcam.zoom = .55;
+_parent.vcam.slowZoom = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="176" name="startRevive" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="177" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+//_parent.startRevive();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="178" name="multiplayerKill" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="179" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+_parent = MovieClip(parent);
+hero = _parent;
+readyForGround = false;
+hitGround = false;
+airBorn = false;
+
+_parent.dispatchEvent(new Event("DEATHFREEZE"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="180" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dispatchEvent(new Event("DEATHFREEZE"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="181" duration="91" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dispatchEvent(new Event("DEATHFREEZE"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="272" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.dispatchEvent(new Event("DEATHFREEZEEND"));
+gotoAndPlay("fly");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="273" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" centerPoint3DX="-0.05" centerPoint3DY="-74.5">
+                  <matrix>
+                    <Matrix tx="51.65" ty="-8.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-69.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

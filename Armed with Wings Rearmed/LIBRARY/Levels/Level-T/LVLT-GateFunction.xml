@@ -1,0 +1,99 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-T/LVLT-GateFunction" itemID="58186b26-00000c8b" lastModified="1477995302">
+  <timeline>
+    <DOMTimeline name="LVLT-GateFunction">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var enemies:Array;
+var game:MovieClip;
+var gate:MovieClip;
+var sensor:MovieClip;
+var hero:MovieClip;
+
+var gateOpenFlag:Boolean;
+var go:Boolean;
+
+init ();
+
+function init ():void {
+	game = MovieClip(parent);
+	gate = MovieClip(parent).ground.gate8;
+	sensor = MovieClip(parent).sensor;
+	hero = MovieClip(parent).hero;
+	
+	visible = false;
+	
+	enemies = [game.en5, game.en6, game.en7, game.en8, game.en9];
+}
+
+function update ():void {
+	if (go) {
+		if (!gateOpenFlag) {
+			var allDead:Boolean = true;
+			for (var i:int = 0; i < enemies.length; i ++) {
+				var en:MovieClip = enemies[i];
+				if (en.life > 0) allDead = false;
+				break;
+			}
+		
+			if (allDead) {
+				openGate();
+				gateOpenFlag = true;
+			}
+		}
+	} else {
+		
+		if (hero.bound.hitTestObject(sensor)) {
+			go = true;
+		}
+		
+	}	
+}
+
+function openGate ():void {
+	gate.gotoAndPlay("open");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -368|873 -368!873 -368|873 367!873 367|-872 367!-872 367|-872 -368"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-1.95" width="100.1" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Gate&#xD;Function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

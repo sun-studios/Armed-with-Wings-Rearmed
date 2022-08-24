@@ -1,0 +1,121 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-H/LVL-H-TrapDoor2" itemID="54ba0512-0000016c" lastModified="1447065207">
+  <timeline>
+    <DOMTimeline name="LVL-H-TrapDoor2" currentFrame="15">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var isOpen:Boolean;
+var hero:MovieClip;
+var ground:MovieClip;
+
+init();
+
+function init():void {
+	isOpen = true;
+	hero = MovieClip(parent.parent).hero;
+	ground = MovieClip(parent);
+}
+
+function update ():void {
+	if (isOpen) {
+		if (hero.y > (y+ground.y + 250)) {
+			gotoAndPlay(2);
+			isOpen = false;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="15" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FFFFFF" alpha="0"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-2438 -4246|2488 -4246!2488 -4246|2488 514!2488 514|-2438 514!-2438 514|-2438 -4246"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="tween" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="70">
+              <tweens>
+                <Ease target="all" intensity="70"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-TrapDoor2-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-246.55" ty="11.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-TrapDoor2-Shape" symbolType="graphic" centerPoint3DX="5" centerPoint3DY="11.5" loop="loop">
+                  <matrix>
+                    <Matrix tx="5" ty="11.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-H/assets/LVL-H-TrapDoor2-Shape" symbolType="graphic" centerPoint3DY="11.5" loop="loop">
+                  <matrix>
+                    <Matrix ty="11.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

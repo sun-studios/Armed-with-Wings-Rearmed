@@ -1,0 +1,157 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-Gear-InfoPanel" itemID="54e88bad-000006be" lastModified="1492839184">
+  <timeline>
+    <DOMTimeline name="UI-Gear-InfoPanel">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+import flash.display.MovieClip;
+
+var info_tf:TextField;
+var info2_tf:TextField;
+var icon:MovieClip;
+var lockClip:MovieClip
+
+var gameData:MovieClip = MovieClip(root);
+
+lockClip.visible = false;
+
+function update(id:Number, playerID:Number = 0,comingsoon:Boolean = false):void {
+
+	if (comingsoon) {
+		info_tf.text = "Item";
+		info2_tf.text = "This item is in development";
+		icon.gotoAndStop("comingsoon");
+	} else {
+		if (gameData["data_gear"+id+"_name"]) {
+			info_tf.text = gameData["data_gear"+id+"_name"];
+			info2_tf.text = gameData["data_gear"+id+"_description"];
+			icon.gotoAndStop(id+1);
+		} else {
+			info_tf.text = "None";
+			info2_tf.text = "";
+			icon.gotoAndStop("none");
+
+		}
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LockIcon/lock2" name="lockClip" selected="true">
+                  <matrix>
+                    <Matrix a="1.13670349121094" d="1.21875" tx="-84.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="icon" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="icon" selected="true">
+                  <matrix>
+                    <Matrix a="0.628677368164063" d="0.628677368164063" tx="-84" ty="-0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="text" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="info_tf" fontRenderingMode="standard" left="6.5" width="154.45" height="23.65" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-37.45" ty="-41.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>name</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="0" lineHeight="21.55" size="24" bitmapSize="480" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="3" blurY="3" distance="2" strength="0.47"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMDynamicText name="info2_tf" fontRenderingMode="standard" left="6.5" width="154.45" height="63.95" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="-37.45" ty="-17.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Description.</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="0" lineHeight="16.15" size="18" bitmapSize="360" face="Font 7*" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="3" blurY="3" distance="2" strength="0.17"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#E5E5E5"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#CCCCCC"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!-778 975|-2599 975!-2599 975|-2599 -975!-2599 -975|-778 -975"/>
+                    <Edge fillStyle1="1" edges="!-778 -975|2600 -975!2600 -975|2600 975!2600 975|-778 975"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!-778 975|-778 -975"/>
+                    <Edge cubics="!-2599 -975(-2599,-975;-2599,-975 -778,-975 -778,-975q-2599 -975 -778 -975);"/>
+                    <Edge cubics="!-778 975(-778,975;-778,975 -2599,975 -2599,975q-778 975 -2599 975);"/>
+                    <Edge cubics="!-778 975(;-778,975 -778,-975 -778,-975q-778 975 -778 -975);"/>
+                    <Edge cubics="!2600 975(;2600,975 -778,975 -778,975q2600 975 -778 975);"/>
+                    <Edge cubics="!-778 -975(;-778,-975 2600,-975 2600,-975q-778 -975 2600 -975);"/>
+                    <Edge cubics="!-2599 975(;-2599,975 -2599,-975 -2599,-975q-2599 975 -2599 -975);"/>
+                    <Edge cubics="!2600 -975(;2600,-975 2600,975 2600,975q2600 -975 2600 975);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

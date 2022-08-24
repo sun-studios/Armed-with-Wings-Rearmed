@@ -1,0 +1,133 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/Symbol 44" itemID="58ea1c21-0001e743" lastModified="1491744266" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="Symbol 44">
+      <layers>
+        <DOMLayer name="label" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" name="out" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" name="over" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var iconClip:MovieClip;
+var cLabel:String;
+
+switch (cLabel) {
+	case "START":
+		iconClip.gotoAndStop(1);
+	break;
+	case "CHANGELOG":
+		iconClip.gotoAndStop(2);
+	break;
+	case "NEWS":
+		iconClip.gotoAndStop(3);
+	break;
+	case "TWITTER":
+		iconClip.gotoAndStop(4);
+	break;
+	case "FACEBOOK":
+		iconClip.gotoAndStop(5);
+	break;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 45" name="iconClip">
+                  <matrix>
+                    <Matrix ty="5.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="15" blurY="15" distance="4" quality="3" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 45" name="iconClip" centerPoint3DY="5.5">
+                  <matrix>
+                    <Matrix ty="5.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="15" blurY="15" distance="4" quality="3" strength="0.37"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Shape Short" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.19200134277344" d="1.14138793945313" tx="-86.65" ty="-64.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="72.75" y="-1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Shape Short" symbolType="graphic" firstFrame="1" centerPoint3DX="-0.2" centerPoint3DY="-0.3" loop="loop">
+                  <matrix>
+                    <Matrix a="1.19200134277344" d="1.14138793945313" tx="-86.65" ty="-64.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="72.75" y="-1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.25" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="cLabel">
+      <Inspectable name="label" variable="cLabel" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

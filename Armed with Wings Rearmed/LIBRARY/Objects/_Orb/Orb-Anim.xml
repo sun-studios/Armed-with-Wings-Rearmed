@@ -1,0 +1,842 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Orb/Orb-Anim" itemID="54b151bb-000010a4" lastModified="1443109922">
+  <timeline>
+    <DOMTimeline name="Orb-Anim" currentFrame="63">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF" locked="true" current="true" isSelected="true" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" duration="34" name="unlock" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="63" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).kill();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#4FFFFF">
+          <frames>
+            <DOMFrame index="0" duration="29" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 151" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.661636352539063" b="0.0373077392578125" c="-0.0373077392578125" d="0.661636352539063" tx="0.3" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 151" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.46757507324219" d="1.46757507324219" tx="0.3" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 151" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.8409423828125" b="-0.071929931640625" c="0.07049560546875" d="1.8037109375" tx="0.3" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.628" y="0.9726"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Orb-Pulse-Container" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.628" y="0.9726"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Orb-Pulse-Container" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.99772644042969" d="1.99772644042969"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments/>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Orb-Pulse-Container" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="33" tweenType="shape" keyMode="17922" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="-1.6015625, 0" startPointB="-8.765625, 0" strokeIndex1="0" strokeIndex2="1">
+                    <MorphCurves controlPointA="-1.6015625, -0.6640625" anchorPointA="-1.1328125, -1.1328125" controlPointB="-8.765625, -3.6328125" anchorPointB="#FFFFF9.CD, #FFFFF9.CD"/>
+                    <MorphCurves controlPointA="-0.6640625, -1.6015625" anchorPointA="0, -1.6015625" controlPointB="-3.6328125, -8.765625" anchorPointB="0, -8.765625"/>
+                    <MorphCurves controlPointA="#0.AA, -1.6015625" anchorPointA="#1.21, -1.1328125" controlPointB="#3.A2, -8.765625" anchorPointB="#6.2E, #FFFFF9.CD"/>
+                    <MorphCurves controlPointA="#1.9A, -0.6640625" anchorPointA="#1.9A, 0" controlPointB="#8.C4, -3.6328125" anchorPointB="#8.C4, 0"/>
+                    <MorphCurves controlPointA="#1.9A, #0.AA" anchorPointA="#1.21, #1.21" controlPointB="#8.C4, #3.A2" anchorPointB="#6.2E, #6.2E"/>
+                    <MorphCurves controlPointA="#0.AA, #1.9A" anchorPointA="0, #1.9A" controlPointB="#3.A2, #8.C4" anchorPointB="0, #8.C4"/>
+                    <MorphCurves controlPointA="-0.6640625, #1.9A" anchorPointA="-1.1328125, #1.21" controlPointB="-3.6328125, #8.C4" anchorPointB="#FFFFF9.CD, #6.2E"/>
+                    <MorphCurves controlPointA="-1.6015625, #0.AA" anchorPointA="-1.6015625, 0" controlPointB="-8.765625, #3.A2" anchorPointB="-8.765625, 0"/>
+                  </MorphSegment>
+                  <MorphSegment startPointA="-1.6015625, 0" startPointB="-8.765625, 0" strokeIndex1="0" strokeIndex2="1">
+                    <MorphCurves controlPointA="-1.6015625, -0.6640625" anchorPointA="-1.1328125, -1.1328125" controlPointB="-8.765625, -3.6328125" anchorPointB="#FFFFF9.CD, #FFFFF9.CD"/>
+                    <MorphCurves controlPointA="-0.6640625, -1.6015625" anchorPointA="0, -1.6015625" controlPointB="-3.6328125, -8.765625" anchorPointB="0, -8.765625"/>
+                    <MorphCurves controlPointA="#0.AA, -1.6015625" anchorPointA="#1.21, -1.1328125" controlPointB="#3.A2, -8.765625" anchorPointB="#6.2E, #FFFFF9.CD"/>
+                    <MorphCurves controlPointA="#1.9A, -0.6640625" anchorPointA="#1.9A, 0" controlPointB="#8.C4, -3.6328125" anchorPointB="#8.C4, 0"/>
+                    <MorphCurves controlPointA="#1.9A, #0.AA" anchorPointA="#1.21, #1.21" controlPointB="#8.C4, #3.A2" anchorPointB="#6.2E, #6.2E"/>
+                    <MorphCurves controlPointA="#0.AA, #1.9A" anchorPointA="0, #1.9A" controlPointB="#3.A2, #8.C4" anchorPointB="0, #8.C4"/>
+                    <MorphCurves controlPointA="-0.6640625, #1.9A" anchorPointA="-1.1328125, #1.21" controlPointB="-3.6328125, #8.C4" anchorPointB="#FFFFF9.CD, #6.2E"/>
+                    <MorphCurves controlPointA="-1.6015625, #0.AA" anchorPointA="-1.6015625, 0" controlPointB="-8.765625, #3.A2" anchorPointB="-8.765625, 0"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape selected="true">
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="3">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!289 -290[410 -170 410 0!410 0[410 170 289 289!289 289[170 410 0 410!0 410[-170 410 -290 289!-290 289[-410 170 -410 0!-410 0[-410 -170 -290 -290!-290 -290[-170 -410 0 -410!0 -410[170 -410 289 -290"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments/>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#FFFFFF" alpha="0"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!1582 -1587[2244 -930 2244 0!2244 0[2244 930 1582 1582!1582 1582[930 2244 0 2244!0 2244[-930 2244 -1587 1582!-1587 1582[-2244 930 -2244 0!-2244 0[-2244 -930 -1587 -1587!-1587 -1587[-930 -2244 0 -2244!0 -2244[930 -2244 1582 -1587"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.295218944714857" y="0.579076663004396"/>
+                  <Point x="0.619906679369737" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.12870788574219" d="1.12870788574219"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.301498705241484" y="0.6021440914609"/>
+                  <Point x="0.62971630278124" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.08268737792969" d="1.08268737792969"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.308728212854803" y="0.62187831170017"/>
+                  <Point x="0.639403945228372" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.04641723632813" d="1.04641723632813"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.316598491277664" y="0.638898002355094"/>
+                  <Point x="0.648840997910306" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.02047729492188" d="1.02047729492188"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.324863208647202" y="0.653696524805809"/>
+                  <Point x="0.657944499301946" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.00505065917969" d="1.00505065917969"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.5651" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" selected="true" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319593896402228" y="0.127304585084847"/>
+                  <Point x="0.565806750452076" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.0084228515625" d="1.0084228515625"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.307786106986636" y="0.229104312827342"/>
+                  <Point x="0.568011893191876" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.03318786621094" d="1.03318786621094"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.298291904872574" y="0.31165455828724"/>
+                  <Point x="0.571794006040324" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.07257080078125" d="1.07257080078125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.291420047512319" y="0.379249556042352"/>
+                  <Point x="0.57713252480575" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.12394714355469" d="1.12394714355469"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.287313896294703" y="0.434981032943681"/>
+                  <Point x="0.583895635446529" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.1837158203125" d="1.1837158203125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.285923608308386" y="0.481178670645157"/>
+                  <Point x="0.591852911827228" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.247802734375" d="1.247802734375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.287022034735499" y="0.51966553058827"/>
+                  <Point x="0.600710766236756" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.31205749511719" d="1.31205749511719"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.290257137317701" y="0.551903471203015"/>
+                  <Point x="0.610158109360984" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.37286376953125" d="1.37286376953125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.295218944714857" y="0.579076663004396"/>
+                  <Point x="0.619906679369737" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.42729187011719" d="1.42729187011719"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.301498705241484" y="0.6021440914609"/>
+                  <Point x="0.62971630278124" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.47329711914063" d="1.47329711914063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.308728212854803" y="0.62187831170017"/>
+                  <Point x="0.639403945228372" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.50958251953125" d="1.50958251953125"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.316598491277664" y="0.638898002355094"/>
+                  <Point x="0.648840997910306" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.53550720214844" d="1.53550720214844"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.324863208647202" y="0.653696524805809"/>
+                  <Point x="0.657944499301946" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.55093383789063" d="1.55093383789063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.5651" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.55599975585938" d="1.55599975585938"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.319593896402228" y="0.127304585084847"/>
+                  <Point x="0.565806750452076" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.54754638671875" d="1.54754638671875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.307786106986636" y="0.229104312827342"/>
+                  <Point x="0.568011893191876" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.52281188964844" d="1.52281188964844"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.298291904872574" y="0.31165455828724"/>
+                  <Point x="0.571794006040324" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.4833984375" d="1.4833984375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.291420047512319" y="0.379249556042352"/>
+                  <Point x="0.57713252480575" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.43203735351563" d="1.43203735351563"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.287313896294703" y="0.434981032943681"/>
+                  <Point x="0.583895635446529" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.37228393554688" d="1.37228393554688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.285923608308386" y="0.481178670645157"/>
+                  <Point x="0.591852911827228" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.30819702148438" d="1.30819702148438"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.287022034735499" y="0.51966553058827"/>
+                  <Point x="0.600710766236756" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.24392700195313" d="1.24392700195313"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" duration="21" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.222427368164063" d="0.222427368164063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.330645761754303" y="0.662747979396736"/>
+                  <Point x="0.663955262513932" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 149" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.74626159667969" d="1.74626159667969"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 150" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="18" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 150" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/assets/Tween 150" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.78421020507813" d="1.78421020507813"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" duration="16" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

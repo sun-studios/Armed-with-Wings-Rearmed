@@ -1,0 +1,79 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PRT-Wind/PRT-Wind" itemID="569f91a8-000008c4" linkageExportForAS="true" linkageClassName="Wind" lastModified="1489946083">
+  <timeline>
+    <DOMTimeline name="PRT-Wind">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var dead:Boolean;
+var endPoint:Number;//gets passed from partileLayer
+var master:MovieClip;//gets defined in the particle layer
+var hero:MovieClip;
+var particleLayer:MovieClip;
+var moveSpeed:Number;
+var go:Boolean;
+
+function init ():void {
+	//alpha = 0;
+	particleLayer = MovieClip(parent);
+	hero = MovieClip(parent.parent).hero;
+	
+	scaleX = .5 + (Math.random()*1.6);
+	scaleY = .3 + (Math.random()*1.5);
+	
+	moveSpeed = 10 + (Math.random()*20);
+	
+	go = true;
+}
+
+function update ():void {
+	if (!dead && go && master.inCameraView) {
+		x -= moveSpeed;
+		
+		if (endPoint) {
+			if (x < endPoint) {
+				alpha -= .15;
+				if (alpha <= 0) {
+					kill();
+				}
+			} else {
+				if (alpha < 1) alpha += .25;
+			}
+		}
+	}
+}
+
+
+
+
+
+function kill ():void {
+	particleLayer.removeFromWindArr(this);
+	MovieClip(parent).removeChild(this);
+	dead = true;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Wind/PRT-Wind-Clip" selected="true">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,70 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-VampireStrike/anims/VampireStrike-Anim-walk" itemID="58e0ddd0-00001632" lastModified="1491131903">
+  <timeline>
+    <DOMTimeline name="VampireStrike-Anim-walk">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="65" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var particleLayer:MovieClip = MovieClip(parent.parent).particleLayer;
+var hero:MovieClip = MovieClip(parent);
+var _parent:MovieClip = hero;
+
+var walking:Boolean = true;
+var skidding:Boolean = false;
+var jumping:Boolean = false;
+var falling:Boolean = false;
+
+var sliding:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" name="ease" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="20" name="walk" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="13" name="skid" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="36" duration="11" name="jump" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="8" name="fall" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="5" name="slideF" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="5" name="slideB" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="65" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle">
+                  <matrix>
+                    <Matrix tx="51.65" ty="-8.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-69.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

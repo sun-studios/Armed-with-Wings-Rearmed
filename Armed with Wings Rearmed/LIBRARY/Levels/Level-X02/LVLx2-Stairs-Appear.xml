@@ -1,0 +1,297 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-X02/LVLx2-Stairs-Appear" itemID="57adeec2-00003e60" symbolType="graphic" lastModified="1492485014" lastUniqueIdentifier="7">
+  <timeline>
+    <DOMTimeline name="LVLx2-Stairs-Appear" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+init();
+
+function init ():void {
+	visible = false;
+}
+
+function update ():void {
+	if (partSpawn) partSpawn.update();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;
+partSpawn.init();
+partSpawn.playSound(0);
+partSpawn.playSound(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[partSpawn.playSound(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="14" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[partSpawn.playSound(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[partSpawn.playSound(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="30" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[partSpawn.playSound(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[partSpawn.playSound(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="46" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[partSpawn.playSound(1);
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+partSpawn.go = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-ParticleSpawneer" name="partSpawn">
+                  <matrix>
+                    <Matrix tx="-341.3" ty="-118.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="48" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3028"/>
+                  <Point x="0.6809" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-ParticleSpawneer" name="partSpawn" selected="true" centerPoint3DX="-324.4" centerPoint3DY="-113.35">
+                  <matrix>
+                    <Matrix tx="-324.4" ty="-113.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-X02/LVLx2-ParticleSpawneer" name="partSpawn" centerPoint3DX="386.45" centerPoint3DY="108.55">
+                  <matrix>
+                    <Matrix tx="386.45" ty="108.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="LVLQ04-LightSteps" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="258.55" ty="77.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps" centerPoint3DX="258.55" centerPoint3DY="77.65">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="258.55" ty="77.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" duration="14" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps" centerPoint3DX="258.55" centerPoint3DY="77.65">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="258.55" ty="77.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps" centerPoint3DX="258.55" centerPoint3DY="77.65">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="258.55" ty="77.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="LVLQ04-LightSteps" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="0.7" ty="-0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="14" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps" centerPoint3DX="0.7" centerPoint3DY="-0.85">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="0.7" ty="-0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps" centerPoint3DX="0.7" centerPoint3DY="-0.85">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="0.7" ty="-0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" duration="21" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps" centerPoint3DX="0.7" centerPoint3DY="-0.85">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="0.7" ty="-0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="LVLQ04-LightSteps" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="-258.55" ty="-77.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="14" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps" centerPoint3DX="-258.55" centerPoint3DY="-77.65">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="-258.55" ty="-77.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="36" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/LVLQ04-LightSteps" centerPoint3DX="-258.55" centerPoint3DY="-77.65">
+                  <matrix>
+                    <Matrix a="-1.06289672851563" d="1.04969787597656" tx="-258.55" ty="-77.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

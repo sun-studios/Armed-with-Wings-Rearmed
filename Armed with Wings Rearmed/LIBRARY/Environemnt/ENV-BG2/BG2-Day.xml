@@ -1,0 +1,181 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-BG2/BG2-Day" itemID="58186c75-0000166e" lastModified="1508844059" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="BG2-Day">
+      <layers>
+        <DOMLayer name="actions" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var i:Number;
+
+var back:MovieClip;
+var front:MovieClip;
+var mid:MovieClip;
+var castle:MovieClip;
+
+var vcam:MovieClip;
+
+init();
+
+function init():void {
+	i = 0;
+}
+
+function update():void {
+	if (MovieClip(root).game.vcam) {
+		vcam = MovieClip(root).game.vcam;
+	}
+	
+	if (vcam) {
+		
+		front.x += ((vcam.x * -.15) - front.x)/4;
+		front.y += ((vcam.y * .1 + 150) - front.y)/4;
+		
+		//mid.x += ((vcam.x * -.1) - front.x)/4;
+		//mid.y += ((vcam.y * .125 + 150) - front.y)/4;
+		
+		back.x += ((vcam.x * -.08) - back.x)/4;
+		back.y += ((vcam.y * .15 + 150) - back.y)/4;
+		
+		castle.y += ((vcam.y * .2 + 150) - castle.y)/4;
+		
+		if (front.y > 514.6) front.y = 514.6;
+		if (front.y < -2.1) front.y = -2.1;
+		
+		//if (mid.y > 774.5) mid.y = 774.5;
+		//if (mid.y < 357.8) mid.y = 357.8;
+		
+		if (back.y > 443.55) back.y = 443.55;
+		if (back.y < -80.1) back.y = -80.1;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="front" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG2/assets/BG2-Mountains1" name="front" cacheAsBitmap="true">
+                  <matrix>
+                    <Matrix ty="269.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="4" blurY="4"/>
+                  </filters>
+                  <color>
+                    <Color brightness="0.2"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="back" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG2/assets/BG2-Mountains2" name="back" cacheAsBitmap="true">
+                  <matrix>
+                    <Matrix ty="243.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="480"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="4" blurY="4" quality="2"/>
+                  </filters>
+                  <color>
+                    <Color brightness="-0.51"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mid" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG2/assets/BG2-CloudsAnim" cacheAsBitmap="true">
+                  <matrix>
+                    <Matrix ty="-68.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="480" y="65.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="castle" color="#009999" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG2/assets/BG2-Castle" name="castle" cacheAsBitmap="true">
+                  <matrix>
+                    <Matrix a="0.60479736328125" d="0.60479736328125" tx="728.95" ty="331.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="435.5"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="4" blurY="4" quality="3"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.79" tintColor="#999999"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clouds" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG2/assets/BG2-Clouds2Anim" cacheAsBitmap="true">
+                  <transformationPoint>
+                    <Point x="724.5" y="64"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sku" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="-0.32958984375" c="0.5859375" d="0" tx="479.95" ty="270"/>
+                        </matrix>
+                        <GradientEntry color="#3C3C3C" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

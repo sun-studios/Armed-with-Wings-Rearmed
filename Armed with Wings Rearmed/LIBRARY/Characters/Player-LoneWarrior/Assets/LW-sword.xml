@@ -1,0 +1,935 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-LoneWarrior/Assets/LW-sword" itemID="54ae8674-000011f9" lastModified="1482757261" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="LW-sword" currentFrame="13">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+var isHero:Boolean;
+var isBossVandheer:Boolean;
+var isPlayer2:Boolean;
+
+var isTypeEnemy:Boolean;
+var boss:MovieClip;
+
+var container:MovieClip = this;
+for (var i:int = 0; i < 7; i ++) {
+	if (container) {
+		if (container == null || container != MovieClip(root)) {
+			if (container.hasOwnProperty("enemyType")) {
+				boss = container;
+				isTypeEnemy = true;
+			} else {
+				container = MovieClip(container.parent);
+				if (container) {
+					if (container.playerID) {
+						if (container.playerID == 2)
+							isPlayer2 = true;
+					}
+				}
+			}
+		} else {
+			break;
+		}
+	} else {
+		break;
+	}
+}
+
+var _root:MovieClip = MovieClip(root);
+if (boss && isTypeEnemy) {
+	gotoAndStop(60);
+} else {
+	if (_root) {
+		gotoAndStop(_root["data_weap"+(_root.data_equiptedWeapon)+"_graphic"]);
+	}
+}
+
+if (isPlayer2) {
+	if (_root) {
+		//gotoAndStop(MovieClip(root).data_equiptedWeapon_p2 +1);
+		gotoAndStop(_root["data_weap"+(_root.data_equiptedWeapon_p2)+"_graphic"]);
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="87" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" locked="true" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="88" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#0000FF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-109 509S4[-89 503 -72 496!-72 496[-70 496 -69 495!-69 495[-62 495 -59 489!-59 489|-56 489!-56 489[-56 486 -54 485!-54 485[-53 484 -51 483!-51 483[-49 482 -48 480!-48 480[-43 472 -42 468!-42 468[-41 465 -41 462!-41 462[-38 463 -36 461
+!-36 461[-34 460 -34 456!-34 456[-33 455 -33 454!-33 454[-31 449 -25 453!-25 453[-23 454 -20 455!-20 455[-17 456 -13 457!-13 457[-9 459 -5 459!-5 459[-1 459 2 457!2 457[-1 460 6 461!6 461[19 464 33 459!33 459[35 459 36 458!36 458[39 458
+ 41 457!41 457[40 463 44 470!44 470[45 472 46 474!46 474[47 479 47 483!47 483[48 490 41 491!41 491[34 492 28 494!28 494[29 495 29 496!29 496[30 497 30 498!30 498[#1F.7F #1F4.FF 32.5 503.5!32.5 503.5[32.75 #1F8.3F 33 505!33 505[33 508
+ 32 511!32 511|30 517!30 517[30 518 29 521!29 521[28 524 27 526!27 526[26 528 25 530!25 530[23 531 22 533!22 533[15 536 14 537!14 537[12 539 9 539!9 539[8 540 6 539!6 539[4 539 1 539!1 539[-3 539 -8 540!-8 540[-9 541 -11 541!-11 541[-13
+ 542 -13 541!-13 541[-16 541 -18 539!-18 539[-19 538 -21 539!-21 539[-27 541 -33 541!-33 541[-35 542 -37 542!-37 542[-40 544 -43 545!-43 545[-45 547 -48 549!-48 549[-49 551 -50 553!-50 553[-51 555 -54 556!-54 556[-74 564 -92 571!-92 571
+[-94 573 -97 573!-97 573[-99 574 -102 575!-102 575[-105 576 -108 578!-108 578[-111 580 -115 580!-115 580[-118 581 -122 582"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <transformationPoint>
+                    <Point x="0.75" y="0.9"/>
+                  </transformationPoint>
+                  <members>
+                    <DOMShape>
+                      <transformationPoint>
+                        <Point x="0.75" y="0.9"/>
+                      </transformationPoint>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle0="1" edges="
+!11 -299[11 82 -13 423!-13 423|-57 422!-57 422|-34 441!-34 441|-13 442!-13 442|-13 607!-13 607|-10 613!-10 613|-2 611!-2 611|16 442!16 442|43 443!43 443|65 424!65 424|16 423!16 423[53 91 39 -247!39 -247|11 -299"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword2">
+                  <matrix>
+                    <Matrix a="0.300003051757813" d="0.300003051757813" tx="-0.6" ty="6.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword3" centerPoint3DX="1.8" centerPoint3DY="6.95">
+                  <matrix>
+                    <Matrix a="0.300003051757813" d="0.300003051757813" tx="1.8" ty="6.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword4" centerPoint3DX="-0.3" centerPoint3DY="10.1">
+                  <matrix>
+                    <Matrix a="0.300003051757813" d="0.300003051757813" tx="-0.3" ty="10.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword5" centerPoint3DX="-0.3" centerPoint3DY="-3.65">
+                  <matrix>
+                    <Matrix a="0.300003051757813" d="0.300003051757813" tx="-0.3" ty="-3.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword6" centerPoint3DX="-0.3" centerPoint3DY="-3.65">
+                  <matrix>
+                    <Matrix a="0.300003051757813" d="0.300003051757813" tx="-0.3" ty="-3.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword7" centerPoint3DX="-0.3" centerPoint3DY="-3.65">
+                  <matrix>
+                    <Matrix a="0.300003051757813" d="0.300003051757813" tx="-0.3" ty="-3.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword8" centerPoint3DX="2.1" centerPoint3DY="-3.45">
+                  <matrix>
+                    <Matrix a="0.300003051757813" d="0.300003051757813" tx="2.1" ty="-3.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword9" centerPoint3DX="-0.05" centerPoint3DY="3.2">
+                  <matrix>
+                    <Matrix a="0.300003051757813" d="0.300003051757813" tx="-0.05" ty="3.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/Unsorted/sword-new">
+                  <matrix>
+                    <Matrix a="0.0202484130859375" b="-1.14881896972656" c="1.14881896972656" d="0.0202484130859375" tx="-2.7" ty="0.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.25" y="-0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword10">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="0.1" ty="-4.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword11">
+                  <matrix>
+                    <Matrix a="0.4520263671875" d="0.4520263671875" tx="0.45" ty="-2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.55" y="59.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword12" centerPoint3DX="-0.85" centerPoint3DY="-7.95">
+                  <matrix>
+                    <Matrix a="0.396133422851563" d="0.396133422851563" tx="-0.95" ty="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2" y="61.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword13" selected="true" centerPoint3DX="0.05" centerPoint3DY="-8.15">
+                  <matrix>
+                    <Matrix a="0.391799926757813" d="0.391799926757813" tx="-0.1" ty="0.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="59.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword14" centerPoint3DX="-0.2" centerPoint3DY="-8.15">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="-0.55" ty="-6.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword15" selected="true" centerPoint3DX="-2.1" centerPoint3DY="-4.25">
+                  <matrix>
+                    <Matrix a="0.353500366210938" d="0.353500366210938" tx="-1.6" ty="5.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.8" y="55.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword16" centerPoint3DX="1.25" centerPoint3DY="-8.15">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="0.9" ty="-5.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword17" centerPoint3DX="0.35" centerPoint3DY="-2.75">
+                  <matrix>
+                    <Matrix a="0.454055786132813" d="0.454055786132813" ty="1.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.45" y="54.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword18" centerPoint3DX="0.5" centerPoint3DY="-4.25">
+                  <matrix>
+                    <Matrix a="0.407211303710938" d="0.407211303710938" ty="2.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="53.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword19" centerPoint3DX="0.05" centerPoint3DY="-5.1">
+                  <matrix>
+                    <Matrix a="0.339401245117188" d="0.339401245117188" tx="-0.2" ty="5.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.45" y="53.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword20" centerPoint3DX="2.1" centerPoint3DY="1.65">
+                  <matrix>
+                    <Matrix a="0.412322998046875" d="0.412322998046875" tx="1.05" ty="6.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.8" y="41.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword21" selected="true" centerPoint3DX="-0.35" centerPoint3DY="-3.55">
+                  <matrix>
+                    <Matrix a="0.408584594726563" d="0.408584594726563" tx="-0.55" ty="2.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.75" y="47.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword22" centerPoint3DX="-2.65" centerPoint3DY="1.5">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="-3" ty="3.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword23" centerPoint3DX="0.1" centerPoint3DY="-9.15">
+                  <matrix>
+                    <Matrix a="0.40338134765625" d="0.40338134765625" tx="-0.25" ty="-1.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.5" y="62"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword24" selected="true" centerPoint3DX="0.05" centerPoint3DY="-3.55">
+                  <matrix>
+                    <Matrix a="0.430206298828125" d="0.430206298828125" tx="-0.15" ty="2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.6" y="51.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword25" centerPoint3DX="-0.8" centerPoint3DY="-2.55">
+                  <matrix>
+                    <Matrix a="0.263916015625" d="0.263916015625" tx="-0.8" ty="10.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="48.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword26" centerPoint3DX="1.25" centerPoint3DY="-3.5">
+                  <matrix>
+                    <Matrix a="0.338485717773438" d="0.338485717773438" tx="0.45" ty="6.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.45" y="50.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword28" centerPoint3DX="0.05" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="-0.25" ty="1.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword29" centerPoint3DX="-0.2">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="-0.55" ty="2.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword30" selected="true" centerPoint3DX="-0.75" centerPoint3DY="-2.7">
+                  <matrix>
+                    <Matrix a="0.406585693359375" d="0.406585693359375" tx="-0.85" ty="3.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.75" y="48.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword31" selected="true" centerPoint3DX="0.35" centerPoint3DY="-2">
+                  <matrix>
+                    <Matrix a="0.362548828125" d="0.362548828125" ty="6.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="48.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword32" selected="true" centerPoint3DX="0.75" centerPoint3DY="-2.15">
+                  <matrix>
+                    <Matrix a="0.455810546875" d="0.455810546875" tx="0.3" ty="2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="48.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="32" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword33" selected="true" centerPoint3DX="2.55" centerPoint3DY="-13.1">
+                  <matrix>
+                    <Matrix a="0.310134887695313" d="0.310134887695313" tx="1.4" ty="2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.9" y="68.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword34" centerPoint3DX="0.75" centerPoint3DY="-3.9">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="0.4" ty="-1.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword35" selected="true" centerPoint3DX="0.55" centerPoint3DY="-5.8">
+                  <matrix>
+                    <Matrix a="0.428741455078125" d="0.428741455078125" tx="0.1" ty="-0.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.6" y="55.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword36" selected="true" centerPoint3DX="0.7" centerPoint3DY="-0.95">
+                  <matrix>
+                    <Matrix a="0.465255737304688" d="0.465255737304688" tx="0.3" ty="2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="46.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="36" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword37" centerPoint3DX="0.05" centerPoint3DY="-7.45">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="-0.25" ty="-5.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword38" centerPoint3DX="0.2" centerPoint3DY="-5.65">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="-0.1" ty="-3.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword39" selected="true" centerPoint3DX="-0.15" centerPoint3DY="-10.3">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="-0.45" ty="-7.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword40" centerPoint3DX="0.4" centerPoint3DY="-9.6">
+                  <matrix>
+                    <Matrix a="0.368896484375" d="0.368896484375" tx="0.1" ty="0.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="65.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword41" selected="true" centerPoint3DX="0.25" centerPoint3DY="-7.05">
+                  <matrix>
+                    <Matrix a="0.377975463867188" d="0.377975463867188" tx="-0.05" ty="1.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.45" y="57"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="41" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword42" selected="true" centerPoint3DX="-0.05" centerPoint3DY="-5.95">
+                  <matrix>
+                    <Matrix a="0.400192260742188" d="0.400192260742188" tx="-0.3" ty="1.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.5" y="56.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="42" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword43" selected="true" centerPoint3DX="0.15" centerPoint3DY="-6.05">
+                  <matrix>
+                    <Matrix a="0.337921142578125" d="0.337921142578125" tx="-0.1" ty="5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="56.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="43" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword44" selected="true" centerPoint3DX="0.1" centerPoint3DY="-8.05">
+                  <matrix>
+                    <Matrix a="0.321533203125" d="0.321533203125" ty="4.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.1" y="58.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword45" centerPoint3DX="0.35" centerPoint3DY="-8.15">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" ty="-6.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword46" selected="true" centerPoint3DX="0.65" centerPoint3DY="-8.8">
+                  <matrix>
+                    <Matrix a="0.406387329101563" d="0.406387329101563" tx="0.1" ty="-0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1" y="61.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword47" centerPoint3DX="1.1" centerPoint3DY="21.9">
+                  <matrix>
+                    <Matrix a="0.636032104492188" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.636032104492188" tx="0.45" ty="24.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword48" centerPoint3DX="0.55" centerPoint3DY="-9.4">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="0.2" ty="-7.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword49" centerPoint3DX="0.3" centerPoint3DY="-3.05">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="-0.05" ty="-0.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword50" centerPoint3DX="1.85" centerPoint3DY="-0.8">
+                  <matrix>
+                    <Matrix a="0.50396728515625" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.50396728515625" tx="1.45" ty="1.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword51" centerPoint3DX="-0.5" centerPoint3DY="17.4">
+                  <matrix>
+                    <Matrix a="0.59747314453125" b="1.52587890625e-05" c="-1.52587890625e-05" d="0.590850830078125" tx="-0.8" ty="19.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword52" centerPoint3DX="6.4" centerPoint3DY="5.45">
+                  <matrix>
+                    <Matrix a="-0.581802368164063" b="1.52587890625e-05" c="1.52587890625e-05" d="0.579025268554688" tx="5.05" ty="1.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword53" selected="true" centerPoint3DX="-1.8" centerPoint3DY="-7.5">
+                  <matrix>
+                    <Matrix a="0.41162109375" d="0.41162109375" tx="-1.25" ty="-0.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.8" y="59.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword54" centerPoint3DX="-0.05" centerPoint3DY="-4.9">
+                  <matrix>
+                    <Matrix a="0.419723510742188" d="0.419723510742188" tx="-0.35" ty="1.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.25" y="52.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword55" selected="true" centerPoint3DX="0.2" centerPoint3DY="-5.65">
+                  <matrix>
+                    <Matrix a="0.411224365234375" d="0.411224365234375" tx="-0.15" ty="1.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="56.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword56" centerPoint3DX="2.65" centerPoint3DY="-7.85">
+                  <matrix>
+                    <Matrix a="-0.409713745117188" d="0.409713745117188" tx="2.4" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.35" y="62.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword57" selected="true" centerPoint3DX="1.4" centerPoint3DY="-4.95">
+                  <matrix>
+                    <Matrix a="0.430160522460938" d="0.430160522460938" tx="0.55" ty="0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.25" y="54.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="57" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword58" centerPoint3DX="0.75" centerPoint3DY="-10.9">
+                  <matrix>
+                    <Matrix a="0.350570678710938" d="0.350570678710938" tx="0.15" ty="0.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.55" y="64.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword59" centerPoint3DX="0.3" centerPoint3DY="-7.8">
+                  <matrix>
+                    <Matrix a="0.386138916015625" d="0.386138916015625" ty="1.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-1.3" y="58.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Swords/sword60" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-14.7" ty="-46.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="14.7" y="57.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" duration="28" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="
+!-21 389[-21 351 -21 314!-21 314[-21 282 -21 249!-21 249[-21 215 -21 182!-21 182[-21 143 -21 104!-21 104[-21 71 -21 37!-21 37[-21 5 -21 -26!-21 -26[-21 -60 -21 -93!-21 -93[-21 -131 -21 -168!-21 -168[-21 -205 -21 -243!-21 -243[-16 -249
+ -14 -258!-14 -258[-13 -262 -12 -266!-12 -266[-9 -272 -6 -276!-6 -276[-4 -280 -1 -283!-1 -283[4 -272 9 -261!9 -261[10 -259 11 -258!11 -258[13 -257 13 -256!13 -256[14 -253 15 -251!15 -251[15 -247 18 -245!18 -245[19 -243 19 -241!19 -241
+[19 -166 19 -91!19 -91[19 -39 19 12!19 12[19 50 19 87!19 87[19 128 19 169!19 169[19 200 19 232!19 232[19 253 19 274!19 274[19 298 19 322!19 322[19 357 19 392!19 392[19 397 19 402!19 402[14 413 9 424!9 424[9 459 9 493!9 493[9 498 9 502
+!9 502[9 507 10 512!10 512[10 513 10 514!10 514[10 523 6 527!6 527[5 528 5 529!5 529[4 558 4 587!4 587[4 590 3 591!3 591[-0.96875 #254.F4 1 597!1 597[-0.015625 597 -1 597!-1 597[-2 596 -3 594!-3 594[-7 586 -7 574!-7 574[-6 559 -5 544
+!-5 544[-5 532 -10 524!-10 524[-12 521 -11 514!-11 514[-11 513 -10 512!-10 512[-10 508 -11 504!-11 504[-11 467 -11 429!-11 429[-11 427 -12 424!-12 424[-12 423 -14 422!-14 422[-17 419 -21 415!-21 415[-21 402 -21 389!19 432[27 425 36 414
+!36 414[43 405 48 401!48 401[50 400 51 397!51 397[51 396 51 394!51 394[56 395 55 404!55 404[54 409 54 414!54 414[55 426 52 432!52 432|31 462!31 462[30 463 29 464!29 464[27 465 26 467!26 467[23 470 21 474!21 474[20 475 19 476!19 476[19
+ 471 19 467!19 467[19 453 19 439!19 439|19 432"/>
+                    <Edge fillStyle0="1" edges="
+!-21 432[-33 425 -42 414!-42 414[-49 405 -54 401!-54 401[-56 400 -57 397!-57 397[-57 396 -57 394!-57 394[-62 395 -61 404!-61 404[-60 409 -60 414!-60 414[-61 426 -58 432!-58 432|-25 474!-25 474[-25 470 -25 467!-25 467[-25 462 -24 457!-24
+ 457[-24 448 -21 439!-21 439[-21 436 -21 432"/>
+                    <Edge cubics="!-6 -276(;-5,-279 -3,-281 -1,-283q-6 -276Q-4 -280q-1 -283);"/>
+                    <Edge cubics="!-14 -258(;-13,-261 -13,-263 -12,-266q-14 -258Q-13 -262q-12 -266);"/>
+                    <Edge cubics="!-21 -243(;-18,-247 -15,-252 -14,-258q-21 -243Q-16 -249q-14 -258);"/>
+                    <Edge cubics="!-12 -266(;-10,-270 -8,-273 -6,-276q-12 -266Q-9 -272q-6 -276);"/>
+                    <Edge cubics="!9 -261(;10,-260 10,-259 11,-258q9 -261Q10 -259q11 -258);"/>
+                    <Edge cubics="!11 -258(;12,-257 13,-257 13,-256q11 -258Q13 -257q13 -256);"/>
+                    <Edge cubics="!13 -256(;14,-254 14,-252 15,-251q13 -256Q14 -253q15 -251);"/>
+                    <Edge cubics="!15 -251(;15,-248 16,-246 18,-245q15 -251Q15 -247q18 -245);"/>
+                    <Edge cubics="!18 -245(;19,-244 19,-242 19,-241q18 -245Q19 -243q19 -241);"/>
+                    <Edge cubics="!-1 -283(;2,-276 6,-268 9,-261q-1 -283Q4 -272q9 -261);"/>
+                    <Edge cubics="!19 -91(;19,-56 19,-22 19,12q19 -91Q19 -39q19 12);"/>
+                    <Edge cubics="!-21 -93(;-21,-118 -21,-143 -21,-168q-21 -93Q-21 -131q-21 -168);"/>
+                    <Edge cubics="!-21 -26(;-21,-49 -21,-71 -21,-93q-21 -26Q-21 -60q-21 -93);"/>
+                    <Edge cubics="!-21 37(;-21,16 -21,-5 -21,-26q-21 37Q-21 5q-21 -26);"/>
+                    <Edge cubics="!-21 182(;-21,156 -21,130 -21,104q-21 182Q-21 143q-21 104);"/>
+                    <Edge cubics="!-21 249(;-21,226 -21,204 -21,182q-21 249Q-21 215q-21 182);"/>
+                    <Edge cubics="!19 232(;19,246 19,260 19,274q19 232Q19 253q19 274);"/>
+                    <Edge cubics="!19 169(;19,190 19,211 19,232q19 169Q19 200q19 232);"/>
+                    <Edge cubics="!19 87(;19,114 19,142 19,169q19 87Q19 128q19 169);"/>
+                    <Edge cubics="!19 12(;19,37 19,62 19,87q19 12Q19 50q19 87);"/>
+                    <Edge cubics="!-21 104(;-21,82 -21,60 -21,37q-21 104Q-21 71q-21 37);"/>
+                    <Edge cubics="!51 394(;54,395 56,398 55,404q51 394Q56 395q55 404);"/>
+                    <Edge cubics="!51 397(;51,396 51,395 51,394q51 397Q51 396q51 394);"/>
+                    <Edge cubics="!48 401(;49,400 50,399 51,397q48 401Q50 400q51 397);"/>
+                    <Edge cubics="!19 322(;19,345 19,369 19,392q19 322Q19 357q19 392);"/>
+                    <Edge cubics="!19 392(;19,395 19,399 19,402q19 392Q19 397q19 402);"/>
+                    <Edge cubics="!19 439(;19,439 19,432 19,432q19 439 19 432);"/>
+                    <Edge cubics="!31 462(;30,463 30,463 29,464q31 462Q30 463q29 464);"/>
+                    <Edge cubics="!19 432(;24,427 30,421 36,414q19 432Q27 425q36 414);"/>
+                    <Edge cubics="!54 414(;55,422 54,428 52,432q54 414Q55 426q52 432);"/>
+                    <Edge cubics="!21 474(;20,475 20,475 19,476q21 474Q20 475q19 476);"/>
+                    <Edge cubics="!9 502(;9,505 9,509 10,512q9 502Q9 507q10 512);"/>
+                    <Edge cubics="!10 514(;10,513 10,513 10,512q10 514Q10 513q10 512);"/>
+                    <Edge cubics="!9 493(;9,496 9,499 9,502q9 493Q9 498q9 502);"/>
+                    <Edge cubics="!9 424(;9,447 9,470 9,493q9 424Q9 459q9 493);"/>
+                    <Edge cubics="!55 404(;54,407 54,411 54,414q55 404Q54 409q54 414);"/>
+                    <Edge cubics="!36 414(;41,408 45,404 48,401q36 414Q43 405q48 401);"/>
+                    <Edge cubics="!9 424(;12,417 16,409 19,402q9 424Q14 413q19 402);"/>
+                    <Edge cubics="!-21 389(;-21,364 -21,339 -21,314q-21 389Q-21 351q-21 314);"/>
+                    <Edge cubics="!-21 415(;-18,418 -16,420 -14,422q-21 415Q-17 419q-14 422);"/>
+                    <Edge cubics="!-12 424(;-11,426 -11,428 -11,429q-12 424Q-11 427q-11 429);"/>
+                    <Edge cubics="!-14 422(;-13,423 -12,423 -12,424q-14 422Q-12 423q-12 424);"/>
+                    <Edge cubics="!-10 512(;-11,513 -11,513 -11,514q-10 512Q-11 513q-11 514);"/>
+                    <Edge cubics="!5 529(;5,528 5,528 6,527q5 529Q5 528q6 527);"/>
+                    <Edge cubics="!-11 514(;-12,519 -11,522 -10,524q-11 514Q-12 521q-10 524);"/>
+                    <Edge cubics="!-11 504(;-10,507 -10,509 -10,512q-11 504Q-10 508q-10 512);"/>
+                    <Edge cubics="!-11 429(;-11,454 -11,479 -11,504q-11 429Q-11 467q-11 504);"/>
+                    <Edge cubics="!-21 415(;-21,406 -21,398 -21,389q-21 415Q-21 402q-21 389);"/>
+                    <Edge cubics="!1 597(;0,597 0,595 3,591q1 597Q-1 597q3 591);"/>
+                    <Edge cubics="!-1 597(;0,597 0,597 1,597q-1 597Q0 597q1 597);"/>
+                    <Edge cubics="!-5 544(;-6,554 -6,564 -7,574q-5 544Q-6 559q-7 574);"/>
+                    <Edge cubics="!-7 574(;-7,582 -6,589 -3,594q-7 574Q-7 586q-3 594);"/>
+                    <Edge cubics="!-3 594(;-2,595 -2,596 -1,597q-3 594Q-2 596q-1 597);"/>
+                    <Edge cubics="!3 591(;4,590 4,589 4,587q3 591Q4 590q4 587);"/>
+                    <Edge cubics="!-10 524(;-7,529 -5,536 -5,544q-10 524Q-5 532q-5 544);"/>
+                    <Edge cubics="!4 587(;4,568 4,548 5,529q4 587Q4 558q5 529);"/>
+                    <Edge cubics="!6 527(;9,524 10,520 10,514q6 527Q10 523q10 514);"/>
+                    <Edge cubics="!19 274(;19,290 19,306 19,322q19 274Q19 298q19 322);"/>
+                    <Edge cubics="!-21 314(;-21,293 -21,271 -21,249q-21 314Q-21 282q-21 249);"/>
+                    <Edge cubics="!19 -241(;19,-191 19,-141 19,-91q19 -241Q19 -166q19 -91);"/>
+                    <Edge cubics="!-21 -168(;-21,-193 -21,-218 -21,-243q-21 -168Q-21 -205q-21 -243);"/>
+                    <Edge cubics="!52 432(;52,432 31,462 31,462q52 432 31 462);"/>
+                    <Edge cubics="!-57 394(;-60,395 -62,398 -61,404q-57 394Q-62 395q-61 404);"/>
+                    <Edge cubics="!-57 397(;-57,396 -57,395 -57,394q-57 397Q-57 396q-57 394);"/>
+                    <Edge cubics="!-54 401(;-55,400 -56,399 -57,397q-54 401Q-56 400q-57 397);"/>
+                    <Edge cubics="!-60 414(;-61,422 -60,428 -58,432q-60 414Q-61 426q-58 432);"/>
+                    <Edge cubics="!-61 404(;-60,407 -60,411 -60,414q-61 404Q-60 409q-60 414);"/>
+                    <Edge cubics="!-42 414(;-47,408 -51,404 -54,401q-42 414Q-49 405q-54 401);"/>
+                    <Edge cubics="!29 464(;28,465 27,466 26,467q29 464Q27 465q26 467);"/>
+                    <Edge cubics="!19 467(;19,458 19,448 19,439q19 467Q19 453q19 439);"/>
+                    <Edge cubics="!26 467(;24,469 22,471 21,474q26 467Q23 470q21 474)21,474;"/>
+                    <Edge cubics="!19 476(;19,473 19,470 19,467q19 476Q19 471q19 467);"/>
+                    <Edge cubics="!-25 467(;-25,464 -25,460 -24,457q-25 467Q-25 462q-24 457);"/>
+                    <Edge cubics="!-21 439(;-21,437 -21,435 -21,432q-21 439Q-21 436q-21 432);"/>
+                    <Edge cubics="!-21 432(;-29,427 -36,421 -42,414q-21 432Q-33 425q-42 414);"/>
+                    <Edge cubics="!-24 457(;-24,451 -23,445 -21,439q-24 457Q-24 448q-21 439);"/>
+                    <Edge cubics="!-25 474(;-25,471 -25,469 -25,467q-25 474Q-25 470q-25 467);"/>
+                    <Edge cubics="!-58 432(;-58,432 -25,474 -25,474q-58 432 -25 474);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

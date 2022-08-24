@@ -1,0 +1,527 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-Relics2" itemID="587a58a2-00000e0c" lastModified="1519576359" lastUniqueIdentifier="9">
+  <timeline>
+    <DOMTimeline name="HUD-Relics2">
+      <layers>
+        <DOMLayer name="HUD-Actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+var pauseKeyFilter:Boolean;
+
+var lifeBar:MovieClip;
+var guardBar:MovieClip;
+var guardBar2:MovieClip;
+var pauseUI:MovieClip;
+var resultsUI:MovieClip;
+var resultsSurvivalUI:MovieClip;
+var waveDisplay:MovieClip;
+var waveCompleteDisplay:MovieClip;
+var scorePanel:MovieClip;
+var wavePanel:MovieClip;
+var levelPanel:MovieClip;
+var timer:MovieClip;
+var convoControl:MovieClip;
+var bossBar:MovieClip;
+var topLeft:MovieClip;
+var lives:MovieClip;
+var koDisplay:MovieClip;
+var playerWins:MovieClip;
+var endGameMenu:MovieClip;
+var multiplayerCtrlClip:MovieClip;
+
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var gameCore:MovieClip;
+var hero:MovieClip;
+var eagle:MovieClip;
+var gameData:MovieClip;
+
+function init():void {
+	pauseKeyFilter = true;
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	gameCore = MovieClip(root);
+
+	lifeBar = topLeft.lifeBar;
+	guardBar = topLeft.guardBar;
+	guardBar2 = topRight.guardBar;
+	lives = topLeft.lives ;
+	scorePanel = topLeft.scorePanel;
+	levelPanel = topLeft.levelPanel;
+	wavePanel = topLeft.wavePanel;
+	
+	hero = MovieClip(root).zoom.container.hero;
+	eagle = MovieClip(root).zoom.container.eagle;
+	lifeBar.init(hero);
+	guardBar.init(hero);
+	gameData = MovieClip(root);
+	topRight.init(gameCore.zoom.container.hero_p2);
+	multiplayerCtrlClip.turnOff();
+	
+	infoClip.init();
+	fadeinUI();
+	
+	this.addEventListener("PLAYERWINS", openEndGameMenu);
+	
+	convoControl.visible = false;
+	topLeft.compareClip.init();
+}
+
+function update ():void {
+	lifeBar.update();
+	guardBar.update();
+	
+	//scorePanel.update();
+	//if (wavePanel.visible) wavePanel.update();
+	//if (levelPanel.visible) levelPanel.update();
+	if (infoClip.visible) infoClip.update();
+	if (pauseUI.visible) pauseUI.update();
+	if (!pauseUI.visible && !resultsUI.visible && !endGameMenu.visible) infoClip.timer.update();
+	if (endGameMenu.visible) endGameMenu.update();
+	if (resultsUI.visible) resultsUI.update();
+	if (resultsSurvivalUI.visible) resultsSurvivalUI.update();
+	if (bossBar) bossBar.update();
+	//if (lootBar && gameData.gameMode == "SURVIVAL") lootBar.update();
+	if (lootBar) lootBar.update();
+	if (topLeft) topLeft.update();
+	if (topRight && gameData.gameMode == "MULTIPLAYER") {
+		topRight.update();
+		guardBar2.update();
+	}
+	
+	if (multiplayerCtrlClip) {
+		if (gameData.gameMode == gameData.MULTIPLAYER && gameData.numOfDevices() == 0) {
+			multiplayerCtrlClip.update();
+		}
+	}
+	
+	if (topRight && gameData.gameMode == gameData.MULTIPLAYER)topRight.update();
+	else topRight.visible = false;
+	
+	if (ctrl.ctrl_pause) { 
+		if (!pauseKeyFilter) {
+			if ((hero.moveable || eagle.moveable) && hero.life > 0) {
+				sndCtrl.pauseContinuous();
+				openPauseUI();
+			} else {
+				if (DebugControl.superPause) {
+					openPauseUI();
+				}
+			}
+			pauseKeyFilter = true;
+		}
+	} else { 
+		pauseKeyFilter = false;
+	}
+	
+	if (gameCore.data_hideHud) {
+		if (topLeft) topLeft.alpha = 0;
+		if (topRight) topRight.alpha = 0;
+		if (infoClip) infoClip.alpha = 0;
+		if (bossBar) bossBar.alpha = 0;
+		if (lootBar) lootBar.alpha = 0;
+	}
+}
+
+function resetKeyFilter():void {
+	pauseKeyFilter = true;
+}
+
+function openPauseUI():void {
+	if (!pauseUI.visible) {
+		hero.attackFilter = true;
+		gameCore._pause = true;
+		pauseUI.init();
+		pauseUI.visible = true;
+		gameData.sessionIsPaused = true;		
+	}
+}
+
+function closePauseUI():void {
+	pauseUI.buttons.b0.gotoAndStop(1);
+	pauseUI.buttons.b1.gotoAndStop(1);
+	pauseUI.buttons.b2.gotoAndStop(1);
+	pauseUI.buttons.b3.gotoAndStop(1);
+	pauseUI.buttons.b4.gotoAndStop(1);
+	
+	pauseKeyFilter = true;
+	gameCore._pause = false;
+	pauseUI.visible = false;
+	
+	if (gameCore.sessionGearChanged) {
+		gameCore.clearBoosterCache();
+		hero.applyItemStats();
+		gameCore.sessionGearChanged = false;
+	}
+	
+	gameData.sessionIsPaused = false;
+	sndCtrl.resumeContinuous();
+}
+
+function displayWave(waveNum:int):void {
+	if (waveDisplay) {
+		waveDisplay.init(waveNum);
+		waveDisplay.x = 0;
+		waveDisplay.y = 0;
+	}
+}
+function displayRound(waveNum:int, finalRound:Boolean = false):void {
+	waveDisplay.init(waveNum);
+	waveDisplay.waveClip.gotoAndStop(2);
+	waveDisplay.x = 35;
+	waveDisplay.y = -60;
+	
+	if (finalRound) waveDisplay.gotoAndPlay("finalround");
+}
+function updateRounds(p1:Number, p2:Number):void {
+	topLeft.roundScore = p1;
+	topRight.roundScore = p2;
+}
+function displayFight():void {
+	waveDisplay.gotoAndPlay("FIGHT");
+	waveDisplay.x = 0;
+	waveDisplay.y = -60;
+	waveDisplay.visible = true;
+}
+
+function displayWaveComplete():void {
+	waveCompleteDisplay.init();
+	waveDisplay.x = 0;
+	waveDisplay.y = 0;
+}
+function displayKo():void {
+	koDisplay.gotoAndPlay(2);
+}
+function displayPlayerWins(id:int):void {
+	playerWins.gotoAndPlay(2);
+	playerWins.winningPlayer = id;
+}
+
+function openResultsUI():void {
+	if (gameData.gameMode == gameData.SURVIVAL) {
+		resultsSurvivalUI.init();
+		resultsSurvivalUI.visible = true;
+	} else {
+		resultsUI.init();
+		resultsUI.visible = true;
+	}
+}
+
+function closeResultsUI():void {
+	resultsUI.visible = false;
+	resultsSurvivalUI.visible = false;
+}
+
+function displayConvo():void {
+	convoControl.visible = true;
+}
+
+function closeConvo():void {
+	convoControl.visible = false;
+}
+
+function openEndGameMenu(e:Event = null):void {
+	endGameMenu.init();
+}
+function closeEndGameMenu():void {
+	endGameMenu._close();
+}
+
+function fadeinUI():void {
+	topLeft.fadein = true;
+	infoClip.fadein = true;
+	bossBar.fadein = true;
+	if (gameCore.gameMode == "MULTIPLAYER") {
+		topRight.fadein = true;
+	} else {
+		infoClip.fadein = true;
+	}
+}
+function fadeoutUI(snap:Boolean = false):void {
+	topLeft.fadein = false;
+	infoClip.fadein = false;
+	bossBar.fadein = false;
+	if (gameCore.gameMode == "MULTIPLAYER") {
+		topRight.fadein = false;
+	}
+	if (snap) {
+		topLeft.alpha = 0;
+		topRight.alpha = 0;
+	}
+}
+
+
+function kill():void {
+	trace("KILLING HUD");
+	topLeft.kill();
+	
+	lifeBar = null;
+	pauseUI = null;
+	resultsUI = null;
+	resultsSurvivalUI = null;
+	waveDisplay = null;
+	waveCompleteDisplay = null;
+	scorePanel = null;
+	wavePanel = null;
+	levelPanel = null;
+	timer = null;
+	convoControl = null;
+	bossBar = null;
+	topLeft = null;
+	lives = null;
+	koDisplay = null;
+	playerWins = null;
+	endGameMenu = null;
+	multiplayerCtrlClip = null;
+	
+	this.removeEventListener("PLAYERWINS", openEndGameMenu);
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#4F80FF" autoNamed="false" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-8000 4500S4|-8000 -4500"/>
+                    <Edge strokeStyle="1" edges="!-8000 -4500|8000 -4500!8000 -4500|8000 4500!8000 4500|-8000 4500"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="resultsSurvival" color="#9933CC" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Results/UI-ResultsSurvival" name="resultsSurvivalUI" selected="true">
+                  <matrix>
+                    <Matrix tx="-401" ty="-226"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="400" y="225"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="results" color="#FF800A" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Results/UI-Results" name="resultsUI" selected="true">
+                  <matrix>
+                    <Matrix tx="-401" ty="-226"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="400" y="225"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="EndGame" color="#FF800A" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EndGameMenu/UI-EndGameMenu" name="endGameMenu" selected="true" blendMode="layer">
+                  <transformationPoint>
+                    <Point x="642.85" y="30.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Pause" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Pause/UI-Pause" name="pauseUI" selected="true">
+                  <transformationPoint>
+                    <Point x="-7.5" y="-39"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Multiplayer control" color="#FF800A" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MultiPlayerKeyView/MultiPlayerKeyView_" name="multiplayerCtrlClip">
+                  <matrix>
+                    <Matrix a="0.837493896484375" d="0.837478637695313" ty="1.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-1.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Waves" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/UI-DisplayWave" name="waveDisplay">
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/UI-DisplayWaveComplete" name="waveCompleteDisplay">
+                  <transformationPoint>
+                    <Point y="317.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins" name="playerWins">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="KO" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-KO/KO" name="koDisplay">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Convo Control" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Conversation" name="convoControl">
+                  <matrix>
+                    <Matrix ty="192"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="time" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/UI-HUD-InfoPanel" name="infoClip">
+                  <matrix>
+                    <Matrix tx="403.35" ty="-197.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-85.15" y="42.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="BossBar" color="#9933CC" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-BossBar/UI-BossBar" name="bossBar" centerPoint3DX="726.55" centerPoint3DY="-225">
+                  <matrix>
+                    <Matrix tx="400" ty="-225"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="248.25" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Lifebar" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-TopLeft" name="topLeft">
+                  <matrix>
+                    <Matrix tx="-400" ty="-225"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="162.9" y="73.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LootBarr/UI-LootBar" name="lootBar" centerPoint3DX="-66.85" centerPoint3DY="162.25">
+                  <matrix>
+                    <Matrix tx="-393.4" ty="162.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="326.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Lifebar_p2" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-TopRight" name="topRight">
+                  <matrix>
+                    <Matrix tx="400" ty="-225"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="162.9" y="73.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

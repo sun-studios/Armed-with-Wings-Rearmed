@@ -1,0 +1,71 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-LoneWarrior/Anims/LW-Anim-Idle" itemID="56b180de-000009c1" lastModified="1482329759" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="LW-Anim-Idle">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="slideB" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="slideF" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-idle" name="idle" selected="true" centerPoint3DX="3.5" centerPoint3DY="-44.8">
+                  <matrix>
+                    <Matrix a="0.85760498046875" d="0.85760498046875" tx="66.15" ty="-39.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-77.15" y="-0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Anim-SlideBack" name="slideB" centerPoint3DX="12.95" centerPoint3DY="-1.35">
+                  <matrix>
+                    <Matrix a="0.838333129882813" d="0.838333129882813" tx="10.2" ty="-1.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Anim-SlideForward" centerPoint3DX="13.55" centerPoint3DY="-0.8">
+                  <matrix>
+                    <Matrix a="0.782821655273438" d="0.829757690429688" tx="13.6" ty="-1.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

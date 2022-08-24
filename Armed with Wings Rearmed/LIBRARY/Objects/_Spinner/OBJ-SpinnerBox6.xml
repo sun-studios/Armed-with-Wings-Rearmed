@@ -1,0 +1,159 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Spinner/OBJ-SpinnerBox6" itemID="57a17e6e-0000dfe4" lastModified="1470202847" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="OBJ-SpinnerBox6" currentFrame="171">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="239" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="238" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var eagle:MovieClip;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	eagle = MovieClip(parent).eagle;
+}
+
+function update ():void {
+	damageEnemies();
+}
+
+
+function damageEnemies():void {
+
+	var dir:int = -1;
+	
+	if (hero) 
+	{
+		
+		if (clip.bound.hitTestObject(hero.bound) && hero.currentFrameLabel != "hurt") {
+			//(from, X, Y, damage, unblockable, canParry, enemyBlockBounce)
+			hero.takeDamage(this, 10*dir, 0, .5);
+			hero.scaleX = -dir;
+		}
+			
+	}
+	
+	if (eagle) {
+		if (clip.bound.hitTestObject(eagle.bound) && eagle.moveable) {
+			eagle.takeDamage(this, .5);
+		}
+	}
+}
+
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="238" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="39" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip">
+                  <matrix>
+                    <Matrix tx="1.25" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip" centerPoint3DX="-290">
+                  <matrix>
+                    <Matrix tx="-288.75" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" duration="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip" centerPoint3DX="-290" centerPoint3DY="-260">
+                  <matrix>
+                    <Matrix tx="-288.75" ty="-260.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="119" duration="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip" centerPoint3DY="-260">
+                  <matrix>
+                    <Matrix tx="1.25" ty="-260.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="159" duration="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip" centerPoint3DX="-290" centerPoint3DY="-260">
+                  <matrix>
+                    <Matrix tx="-288.75" ty="-260.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="199" duration="39" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip" centerPoint3DX="-290">
+                  <matrix>
+                    <Matrix tx="-288.75" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="238" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip">
+                  <matrix>
+                    <Matrix tx="1.25" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

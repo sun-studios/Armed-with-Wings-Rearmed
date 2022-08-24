@@ -1,0 +1,75 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/SpecialSoundManager" itemID="58d8d5ac-00001bac" lastModified="1490630821">
+  <timeline>
+    <DOMTimeline name="SpecialSoundManager">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);
+
+var hero:MovieClip;
+var hero_p2:MovieClip;
+
+visible = false;
+
+function update ():void {
+	slidingSounds();
+}
+
+function slidingSounds():void {
+	var isSliding:Boolean;
+	
+	hero = MovieClip(parent).hero;
+	hero_p2 = MovieClip(parent).hero_p2;
+	
+	
+	if (hero) {
+		if (hero.onSlope && hero.isSliding) isSliding = true;
+	}
+	if (hero_p2) {
+		if (hero_p2.onSlope && hero_p2.isSliding) isSliding = true;
+	}
+	
+	
+	if (isSliding) {
+		sndCtrl.playContinuous("sndSkidLong");
+	} else {
+		sndCtrl.stopContinuous("sndSkidLong");
+	}
+}]]></script>
+              </Actionscript>
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.749019607843137"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-1705 -520|1615 -520!1615 -520|1615 519!1615 519|-1705 519!-1705 519|-1705 -520"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" width="188.5" height="46.3" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-94.25" ty="-23.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>special&#xD;sound manager</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" alpha="0.705882352941177" lineSpacing="-3" lineHeight="24.65" size="25" bitmapSize="500" face="Furmanite" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

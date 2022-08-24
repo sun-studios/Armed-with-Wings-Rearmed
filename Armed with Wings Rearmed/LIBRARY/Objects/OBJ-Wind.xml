@@ -1,0 +1,290 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-Wind" itemID="569f9194-000008c2" lastModified="1490583629" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Wind" currentFrame="1">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+import flash.display.MovieClip;
+import flash.events.MouseEvent;
+
+var objArr:Array;
+
+var prtDelay:Number;
+var prtDelayIndex:Number;
+var inCameraView:Boolean;
+var headstart:Boolean;
+var headstartIndex:Number;
+
+var force:Number;
+var forceRange:Number;
+var forceMax:Number;
+var dir:Number;
+
+var flag:Boolean;
+var on:Boolean;
+
+var cPrtDelay:Number;
+var cForce:Number;
+var cForceMax:Number;
+var cDir:Number;
+var cOn:Boolean;
+var cBarrier:Boolean;
+
+var particleLayer:MovieClip;
+var sndCtrl:MovieClip;
+var vcam:MovieClip;
+var hero:MovieClip;
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+
+init();
+
+function init():void {
+	visible = false;
+	
+	prtDelay = 4;
+	if (cPrtDelay) prtDelay = cPrtDelay;
+	prtDelayIndex = 0;
+	headstart = true;
+	headstartIndex = 80;
+	on = cOn;
+	
+	force = .8;
+	if (cForce) force = cForce;
+	forceRange = force;
+	forceMax = 8;
+	if (cForceMax) forceMax = cForceMax;
+	if (cDir) dir = cDir;
+	else dir = 1;
+	
+	vcam = MovieClip(parent).vcam;
+	sndCtrl = MovieClip(root);
+	hero = MovieClip(parent).hero;
+	particleLayer = MovieClip(parent).particleLayer;
+	
+	updateObjArr();
+}
+function updateObjArr():void {
+	objArr = new Array();
+	objArr.push(hero);
+	for (var i:int = 0; i < MovieClip(parent).enemiesArr.length; i ++) {
+		var obj:MovieClip = MovieClip(parent).enemiesArr[i];
+		if (obj.enemyType != "ENEMY4") {
+			objArr.push(obj);
+		}
+	}
+}
+
+function update():void {	
+	
+	if (on) {
+		if (vcam.hitTestObject(this) || headstart) {
+			if (headstartIndex > 0) headstartIndex --;
+			else headstart = false;
+			inCameraView = true;
+			
+			if (!flag) {
+				sndCtrl.playContinuous("sndWind", true);
+				flag = true;
+			}
+			
+			handleParticles();
+			pushObjects();
+		} else {
+			inCameraView = false;
+			if (flag) {
+				sndCtrl.stopContinuous("sndWind");
+				flag = false;
+			}
+		}
+	} else {
+		if (flag) {
+			sndCtrl.stopContinuous("sndWind");
+			flag = false;
+		}
+	}
+}
+
+function handleParticles():void {
+	if (prtDelayIndex > 0) {
+		prtDelayIndex --;
+	} else {
+		//spawn winds
+		var X:Number = x + (this.width*.5);
+		var Y:Number = y + ((height*.5)*Math.random()) - ((height*.5)*Math.random());
+		var Xend:Number = x - (this.width*.5);
+		particleLayer.addWind(X, Y, -1, Xend, this);
+		
+		prtDelayIndex = prtDelay;
+		
+	}
+}
+
+function addDust(X:Number, Y:Number, dir:Number):void {
+	var r:int = 6 + Math.floor(Math.random()*3);
+	if (particleLayer) particleLayer.addDust(r, X, Y, dir);
+}
+
+function pushObjects():void {
+	//build array of objects to push
+	updateObjArr();
+	
+	for (var i:int = 0; i < objArr.length; i ++) {
+		var obj:MovieClip = objArr[i];
+		if (obj && obj.bound.hitTestObject(this)) {
+			if (obj.currentFrameLabel == "walk" && obj.walk.walking) {
+				if (obj.scaleX == dir) {
+					//running with the wind
+					if (!speedMaxedOut(obj)) {
+						obj.xSpeed += (force*1.2)*dir;
+					}
+				} else {
+					//running against the wind
+					if (cBarrier) obj.xSpeed += (force*1.2)*dir;
+					else obj.xSpeed += (force*.2)*dir;
+				}
+			} else {
+				if (!speedMaxedOut(obj)) {
+					obj.xSpeed += (force)*dir;
+				}
+			}
+		}
+	}
+	
+	/*
+	if (hero.bound.hitTestObject(this)) {
+		if (hero.currentFrameLabel == "walk" && hero.scaleX == 1) {
+			if (hero.xSpeed > -forceMax)
+				hero.xSpeed -= force*.35;
+		} else {
+			if (hero.xSpeed > -forceMax)
+				hero.xSpeed -= force;
+		}
+		if (hero.onGround) {
+			if (Math.random() < .25) {
+			//	addDust(hero.x, hero.y, hero.scaleX); 
+			}
+		}
+	}
+	
+	var game:MovieClip = MovieClip(parent);
+	for (var i:int = 0; i < game.enemiesArr.length; i ++) {
+		var en:MovieClip = game.enemiesArr[i];
+		if (en.enemyType != "ENEMY4" && en.enemyType != "ENEMY5" && en.enemyType != "BOSS1") {
+			if (en.currentFrameLabel == "walk" && hero.scaleX == 1) {
+				if (en.xSpeed > -forceMax)
+					en.xSpeed -= force*.35;
+			} else {
+				if (en.xSpeed > -forceMax)
+					en.xSpeed -= force;
+			}
+		}
+	}
+	*/
+}
+
+function speedMaxedOut(obj:MovieClip):Boolean {
+	return (Math.abs(obj.xSpeed) >= Math.abs(obj.maxMoveSpeed)+forceMax);
+}
+
+function flatten(arrays:Array):Array {
+    var result:Array = [];
+    for(var i:int=0;i<arrays.length;i++){
+        result = result.concat(arrays[i]);
+    }
+    return result;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <DashedStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#0033FF"/>
+                        </fill>
+                      </DashedStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-4139 -3001|4139 -3001!4139 -3001|4139 3001!4139 3001|-4139 3001!-4139 3001|-4139 -3001"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <DashedStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#0033FF" alpha="0.247058823529412"/>
+                        </fill>
+                      </DashedStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!2458.5 -3001|2858.5 -3001!1658.5 -3001|2458.5 -3001!58.5 -3001|458.5 -3001!458.5 -3001|1258.5 -3001!1258.5 -3001|1658.5 -3001!4058.5 -3001|4137 -3001!4137 -3001|4141 -3001!4141 -3001|4141 -2283.5!4141 -2283.5|4137 -2279.5!3658.5 -3001
+|4058.5 -3001!4137 -3001|4137 -2279.5!4141 -1883.5|4141 -1083!4141 -1083|4137 -1079!4141 -1883.5|4137 -1879.5!4137 -1879.5|4137 -1079!4141 -683|4137 -679!4141 -1083|4141 -683!4137 -679|3497 -39!3497 -39|4137 601!4137 -1079|4137 -679!4141
+ -2283.5|4141 -1883.5!4137 -2279.5|4137 -1879.5!3658.5 -3001|697 -39!697 -39|3737 3001!4058.5 -3001|1097 -39!1097 -39|4137 3001!2858.5 -3001|3658.5 -3001!4137 -1079|3097 -39!3097 -39|4137 1001!4137 -2279.5|1897 -39!1897 -39|4137 2201
+!4137 -1879.5|2297 -39!2297 -39|4137 1801!4137 601|4141 605!4141 1005|4141 1805!4137 1001|4141 1005!4137 1801|4141 1805!4137 1001|4137 1801!4141 605|4141 1005!4137 601|4137 1001!4137 2201|4141 2205!4141 2205|4141 3001!4141 3001|4137 3001
+!4137 3001|3737 3001!4137 2201|4137 3001!4141 1805|4141 2205!4137 1801|4137 2201!537 3001|137 3001!1337 3001|537 3001!2937 3001|2537 3001!2537 3001|1737 3001!1737 3001|1337 3001!3737 3001|2937 3001!4141 -683|4141 605!4137 -679|4137 601
+!-4141 -2001.5|-4141 -2401.5!-3541.5 -3001|-4141 -2401.5!-4141 -2401.5|-4141 -3001!-4141 -3001|-3541.5 -3001!-4141 -801|-4141 -1201!-4141 -1201|-4141 -2001.5!-1141.5 -3001|-741.5 -3001!-2341.5 -3001|-1941.5 -3001!-3141.5 -3001|-2341.5
+ -3001!-1941.5 -3001|-1141.5 -3001!-3141.5 -3001|-4141 -2001.5!-1941.5 -3001|-4141 -801!-2341.5 -3001|-4141 -1201!-741.5 -3001|-3703 -39!-3703 -39|-663 3001!-1141.5 -3001|-4103 -39!-4103 -39|-1063 3001!-3541.5 -3001|-3141.5 -3001!-1863
+ 3001|-2263 3001!-2263 3001|-3063 3001!-663 3001|-1063 3001!-1063 3001|-1863 3001!-4141 1923|-4141 1123!-4141 1123|-4141 723!-4141 2323|-3463 3001!-3463 3001|-4141 3001!-4141 3001|-4141 2323!-4141 2323|-4141 1923!-4141 723|-1863 3001
+!-4141 1123|-2263 3001!-4141 1923|-3063 3001!-3063 3001|-3463 3001!-4141 723|-4141 -801!58.5 -3001|-2903 -39!-2903 -39|137 3001!458.5 -3001|-2503 -39!-2503 -39|537 3001!1258.5 -3001|-1703 -39!-1703 -39|1337 3001!1658.5 -3001|-1303 -39
+!-1303 -39|1737 3001!2858.5 -3001|-103 -39!-103 -39|2937 3001!2458.5 -3001|-503 -39!-503 -39|2537 3001!-741.5 -3001|58.5 -3001!137 3001|-663 3001"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="cForce">
+      <Inspectable name="force" variable="cForce" category="" verbose="0" defaultValue="0.8" type="Number"/>
+   </property>
+   <property id="cForceMax">
+      <Inspectable name="forceMax" variable="cForceMax" category="" verbose="0" defaultValue="8" type="Number"/>
+   </property>
+   <property id="cPrtDelay">
+      <Inspectable name="prtDelay" variable="cPrtDelay" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+   <property id="cDir">
+      <Inspectable name="cDir" variable="cDir" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="cOn">
+      <Inspectable name="on" variable="cOn" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="cBarrier">
+      <Inspectable name="barrier" variable="cBarrier" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

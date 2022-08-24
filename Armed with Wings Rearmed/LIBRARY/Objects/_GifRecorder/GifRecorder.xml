@@ -1,0 +1,186 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_GifRecorder/GifRecorder" itemID="55bb42fb-000006d9" lastModified="1474815117">
+  <timeline>
+    <DOMTimeline name="GifRecorder">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+visible = false;
+
+stop();
+
+import com.rainbowcreatures.FWVideoEncoder;
+import flash.events.StatusEvent;
+import flash.events.Event;
+import flash.utils.ByteArray;
+import flash.display.MovieClip;
+import flash.net.FileReference;
+
+var state:String = "";
+var frameLength:int = 0;
+var frameLengthOrig:int = 400;
+var keyFilter:Boolean;
+
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+var sndCtrl:MovieClip = MovieClip(root);
+
+var encoder:FWVideoEncoder = FWVideoEncoder.getInstance(this);
+encoder.addEventListener(StatusEvent.STATUS, onStatus);
+var file:FileReference = new FileReference();
+
+clip.visible = false;
+
+function onStatus(e:StatusEvent):void {
+	if (e.code == "ready") {
+		frameLength = frameLengthOrig;
+		encoder.setFps(30);
+		encoder.setDimensions(960, 540);
+		encoder.start();
+		trace("");
+		sndCtrl.playSound(sndCtrl.sndButton1);
+		clip.visible = true;
+	}
+	if (e.code == "encoded") {
+		var video:ByteArray = encoder.getVideo();
+		file.save(video, ".mp4");
+		MovieClip(parent).hud.openPauseUI();
+		clip.visible = false;
+		state = "";
+	}
+}
+
+function update ():void {
+	if (state == "recording") {
+		record();
+	} else {
+		if (ctrl.keys.isKeyDown(123)) {
+			if (!keyFilter) {
+				state = "recording";
+				if (encoder.isRecording) encoder.finish();
+				encoder.load();
+				keyFilter = true;
+			}
+		} else {
+			keyFilter = false;
+		}
+	}
+}
+
+function record():void {
+	if (frameLength > 0) {
+		frameLength --;
+		encoder.capture();
+		clip.tf_time.text = ""+Math.ceil(frameLength/40);
+	} else {
+		encoder.finish();
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[//***BYTE ARRAY***//
+/*
+import org.bytearray.gif.encoder.GIFEncoder;
+import flash.display.BitmapData;
+import flash.utils.ByteArray;
+import flash.events.Event;
+import flash.net.FileReference;
+import flash.geom.Matrix;
+
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+
+var framesArr:Array = new Array();
+var maxFrames:int = 60;
+
+var gap:int = 2;
+var gapOrig:int = 2;
+
+var keyFilter:Boolean;
+
+
+function update():void {
+	if (gap > 0) {
+		gap --;
+	} else {
+		if (framesArr.length < maxFrames) {
+			framesArr.push(captureBitmapData());
+		} else {
+			framesArr.shift();
+			framesArr.push(captureBitmapData());
+		}
+		gap = gapOrig;
+	}
+	
+	if (ctrl.keys.isKeyDown(123)) {
+		if (!keyFilter) {
+			createGif();
+			keyFilter = true;
+		}
+	} else {
+		keyFilter = false;
+	}
+}
+
+function captureBitmapData():BitmapData {
+	var bmd:BitmapData = new BitmapData(432, 243);
+	bmd.draw(stage, new Matrix(.45, 0, 0, .45));
+	return bmd;
+}
+
+function createGif():void {
+	//define gif properties
+	var gifEncoder:GIFEncoder = new GIFEncoder();
+	gifEncoder.start();
+	gifEncoder.setRepeat(0);
+	gifEncoder.setFrameRate(18);
+	
+	//add frames to gif
+	for (var i:int = 0; i < framesArr.length; i ++) {
+		gifEncoder.addFrame(framesArr[i]);
+	}
+	
+	gifEncoder.finish();
+	var myGifStream:ByteArray;
+	myGifStream = gifEncoder.stream;
+	
+	saveData(myGifStream);
+}
+
+function saveData(byteArr) {
+	var file:FileReference = new FileReference();
+	file.save(byteArr, ".gif");
+}
+*/
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_GifRecorder/RecorderDisplay" name="clip">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.54"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

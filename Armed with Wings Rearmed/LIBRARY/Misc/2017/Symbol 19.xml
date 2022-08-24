@@ -1,0 +1,166 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 19" itemID="58ceb72d-00001803" lastModified="1492375858">
+  <timeline>
+    <DOMTimeline name="Symbol 19">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var gameData:MovieClip;
+var ctrl:PlayerControl;
+var stateID:int;
+
+init();
+
+function init ():void {
+	if (MovieClip(root)) {
+		gameData = MovieClip(root);
+		ctrl = MovieClip(root).player1Control;
+		
+		switch (gameData.data_gameQuality) {
+			case "LOW":
+				stateID = 0;
+			break;
+			case "MEDIUM":
+				stateID = 1;
+			break;
+			case "HIGH":
+				stateID = 2;
+			break;
+			case "ULTRA":
+				stateID = 3;
+			break;
+		}
+		
+		updateLabel();
+	}
+}
+
+function toggle():void {
+	stateID ++;
+	if (ctrl.keys.isKeyDown(80) && ctrl.keys.isKeyDown(79)) {
+		if (stateID > 3) stateID = 0;
+	} else {
+		if (stateID > 2) stateID = 0;
+	}
+	
+	updateLabel();
+	updateSetting();
+}
+
+function update ():void {
+	
+}
+
+function updateLabel():void {
+	switch (stateID) {
+		case 0:
+			tf_label.text = "LOW";
+			break;
+		case 1:
+			tf_label.text = "RECOMMENDED";
+			break;
+		case 2:
+			tf_label.text = "HIGH";
+			break;
+		case 3:
+			tf_label.text = "ULTRA";
+			break;
+	}
+}
+function updateSetting():void {
+	switch (stateID) {
+		case 0:
+			gameData.setQuality("LOW");
+			break;
+		case 1:
+			gameData.setQuality("MEDIUM");
+			break;
+		case 2:
+			gameData.setQuality("HIGH");
+			break;
+		case 3:
+			gameData.setQuality("ULTRA");
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="tf_label" fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-114.8" ty="-15.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>LOW</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-114.8" ty="-15.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>MEDIUM</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMStaticText selected="true" fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-114.8" ty="-15.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>HIGH</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

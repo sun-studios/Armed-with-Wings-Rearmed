@@ -1,0 +1,104 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-W/LVLW-GateFunction" itemID="561bc895-00000d0d" lastModified="1492354163">
+  <timeline>
+    <DOMTimeline name="LVLW-GateFunction">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var stepSwitch:MovieClip;
+var gate1:MovieClip;
+var gate2:MovieClip;
+var gate3:MovieClip;
+var hero:MovieClip;
+var vcam:MovieClip;
+
+var doOnce:Boolean;
+visible = false;
+//init();
+
+function init ():void {
+	
+	
+	stepSwitch = MovieClip(parent).stepSwitch;
+	gate1 = MovieClip(parent).ground.gate1;
+	gate2 = MovieClip(parent).ground.gate2;
+	gate3 = MovieClip(parent).ground.gate3;
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	
+	gate1.gotoAndStop("isOpen");
+	gate2.gotoAndStop("isOpen");
+	gate3.gotoAndStop("isOpen");
+}
+
+function update():void {
+	if (stepSwitch.isOn) {
+		if (!doOnce) {
+			closeGate();
+			doOnce = true;
+		}
+	}
+}
+
+function closeGate():void {
+	hero.switchToHero(false);
+	hero.xSpeed *= .5;
+	hero.active = false;
+	vcam.target = MovieClip(parent).camHelper2;
+	
+	gate1.gotoAndPlay("close");
+	gate2.gotoAndPlay("close");
+	gate3.gotoAndPlay("close");
+	
+	TweenMax.delayedCall(60, resume, null, true);
+}
+
+function resume ():void {
+	hero.switchToHero();
+	hero.active = true;
+	vcam.target = hero;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="79" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>gate &#xD;function&#xD;</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

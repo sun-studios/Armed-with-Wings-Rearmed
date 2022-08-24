@@ -1,0 +1,465 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-EquiptWeapon" itemID="54df206c-00000f79" lastModified="1496296278" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="UI-EquiptWeapon" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-267&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="icon actions" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var _root:MovieClip = MovieClip(root);
+var slotArr:Array = new Array();
+var slotSword:MovieClip;
+var numOfSwords:Number = _root.data_numofWeapons;
+var i:int;
+
+container.init();
+slotArr = container.slotArr;
+
+for (i = 0; i < slotArr.length; i ++) {
+	slotSword = slotArr[i];
+	slotSword.clip.gotoAndStop(_root["data_weap"+i+"_graphic"]);
+	
+	
+	//do boosters
+	for (var i2:int = 0; i2 < 4; i2 ++) {
+		var arr:Array = _root.dataGetWeapBoosterFromID(i);
+		
+		var slot:MovieClip = slotSword.boosters["slot"+i2];
+		
+		if (slot) {
+			slot.visible = false;
+			if (i2 >= arr.length) {
+				
+			} else {
+				slot.visible = true;
+				slot.gearIcon.gotoAndStop(1+arr[i2][0]);
+				if (slot.gearIcon.currentFrame == 1)
+					slot.gearIcon.gotoAndStop("free");
+					slot.gotoAndStop(1);
+				if (arr[i2][1]) {
+					if (i2 == 0) slot.gotoAndStop(2);
+					if (i2 == 1) slot.gotoAndStop(3);
+				}
+			}
+		}
+	}
+}
+
+for (i = 0; i < slotArr.length; i ++) {
+	slotSword = slotArr[i];
+	if (_root.isWeaponUnlocked(i)) {
+		slotSword.lockClip.visible = false;
+		if (_root.weaponsListingNew[i]) slotSword.newClip.visible = true;
+		else slotSword.newClip.visible = false;
+	} else {
+		//slotSword.clip.visible = false;
+		slotSword.newClip.visible = false;
+	}
+	if (i >= numOfSwords) {
+		slotSword.lockClip.visible = false;
+		slotSword.newClip.visible = false;
+		slotSword.bgClip.gotoAndStop(2);
+	}
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var currentIcon:MovieClip;
+var currentIconID:Number;
+var verticalIndex:Number;
+var verticalIndexMax:Number;
+var horizontalIndex:Number;
+var holdCool:Number = 0;
+var soundGap:int = 3;
+
+//reference
+var ctrl:PlayerControl;
+var _parent:MovieClip;
+var panelWeapons:MovieClip;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+
+//key filters
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+var keyFilter5:Boolean;
+var keyFilter6:Boolean;
+var keyFilter7:Boolean;
+
+function init ():void {
+	ctrl = MovieClip(root).player1Control;
+	_root = MovieClip(root);
+	_parent = MovieClip(parent);
+	panelWeapons = MovieClip(parent).panelWeapons.clip;
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	
+	verticalIndex = 0;
+	//verticalIndexMax = Math.floor(gameData.data_numofWeapons/3);
+	verticalIndexMax = Math.floor(container.slotArr.length/3);
+	horizontalIndex = 0;
+	
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	keyFilter5 = true;
+	keyFilter6 = true;
+	keyFilter7 = true;
+	
+	selectIconByID(_parent.local_equiptedWeapon);
+	panelWeapons.displayWeapon(_parent.local_equiptedWeapon);
+}
+
+function scrollLeft():void {
+	if (horizontalIndex > 0) {
+		horizontalIndex --;
+		sndCtrl.playUISound(sndCtrl.sndButton1);
+	}
+}
+function scrollUp():void {
+	if (verticalIndex > 0) {
+		verticalIndex--;
+		sndCtrl.playUISound(sndCtrl.sndButton1);
+	}
+}
+function scrollDown():void {
+	if (verticalIndex < verticalIndexMax-1) {
+		verticalIndex ++;
+		sndCtrl.playUISound(sndCtrl.sndButton1);
+	}
+}
+function scrollRight():void {
+	if (horizontalIndex < 2) {
+		horizontalIndex ++;
+		sndCtrl.playUISound(sndCtrl.sndButton1);
+	}
+}
+
+function update ():void {
+	var input:Boolean = false;
+	//UP control//-----------------------------------------//
+	if (ctrl.ctrl_up) {
+		if (!keyFilter1) {
+			scrollUp();
+			holdCool = 20;
+			input = true;
+			keyFilter1 = true;
+		}
+	} else { keyFilter1 = false; }
+	//DOWN control//-----------------------------------------//
+	if (ctrl.ctrl_down) {
+		if (!keyFilter2) {
+			scrollDown();
+			holdCool = 20;
+			input = true;
+			keyFilter2 = true;
+		}
+	} else { keyFilter2 = false; };
+	//LEFT control//-----------------------------------------//
+	if (ctrl.ctrl_left) {
+		if (!keyFilter3) {
+			scrollLeft();
+			input = true;
+			keyFilter3 = true;
+		}
+	} else { keyFilter3 = false; };
+	//RIGHT control//-----------------------------------------//
+	if (ctrl.ctrl_right) {
+		if (!keyFilter4) {
+			scrollRight();
+			input = true;
+			keyFilter4 = true;
+		}
+	} else { keyFilter4 = false; };
+
+	//hold scroll
+	if (holdCool > 0) {
+		holdCool --;
+	} else {
+		if (soundGap > 0) {
+			soundGap --;
+		} else {
+			if (keyFilter1) {
+				scrollUp();
+				selectIcon();
+			} else if (keyFilter2) {
+				scrollDown();
+				selectIcon();
+			}
+			soundGap = 3;
+		}
+	}	
+	
+	//execute input
+	if (input) {
+		selectIcon();
+	}
+	
+	//Equipt weapon
+	if (ctrl.ctrl_confirmStart) {
+		if (!keyFilter5) {
+			if (gameData.isWeaponUnlocked(currentIconID)) {
+				if (_parent.local_equiptedWeapon != currentIconID) {
+					sndCtrl.playUISound(sndCtrl.sndButton3);
+					currentIcon.gotoAndStop(1);
+					currentIcon = null;
+					_parent.local_equiptedWeapon = currentIconID;
+					panelWeapons.displayWeapon(_parent.local_equiptedWeapon);
+					_parent.closeWeaponsPanel();
+					_parent.updateBoosterSlots(true);
+				} else {
+					_parent.closeWeaponsPanel();
+					sndCtrl.playUISound(sndCtrl.sndButton2);
+				}
+			} else {
+				sndCtrl.playUISound(sndCtrl.sndButton2);
+			}
+			keyFilter5 = true;
+		}
+	} else {
+		keyFilter5 = false;
+	}
+	
+	//cancel
+	if (ctrl.ctrl_cancel) {
+		if (!keyFilter6) {
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			currentIcon.gotoAndStop(1);
+			currentIcon = null;
+			panelWeapons.displayWeapon(_parent.local_equiptedWeapon);
+			_parent.closeWeaponsPanel();
+			keyFilter6 = true;
+		}
+	} else {
+		keyFilter6 = false;
+	}
+	
+	scroll();
+	if (currentIcon) {
+		_parent.cursor.X = this.x + currentIcon.x + container.x - 40;
+		_parent.cursor.Y = this.y + currentIcon.y + container.y + 40;
+	}
+}
+
+function scroll():void {
+	var i:int = verticalIndex-2;
+	if (i < 0) i = 0;
+	if (i > verticalIndexMax-4) i = verticalIndexMax-4;
+	
+	var Y:Number = 130 - (90*i);
+	container.y += (Y - container.y)/4;
+	
+	//scroll visibility
+	for (i = 0; i < container.slotArr.length; i ++) {
+		var slotSword = container.slotArr[i];
+		if (i < (verticalIndex-3)*3) {
+			slotSword.visible = false;
+		} else {
+			if (i > (verticalIndex+4)*3) {
+				slotSword.visible = false;
+			} else {
+				slotSword.visible = true;
+			}
+		}
+	}
+}
+
+function selectIcon ():void {
+	if (currentIcon) currentIcon.gotoAndPlay("out");
+	/*
+	if (verticalIndex == 0) {
+		if (horizontalIndex == 0) currentIconID = 0;
+		if (horizontalIndex == 1) currentIconID = 1;
+		if (horizontalIndex == 2) currentIconID = 2;
+	}
+	if (verticalIndex == 1) {
+		if (horizontalIndex == 0) currentIconID = 3;
+		if (horizontalIndex == 1) currentIconID = 4;
+		if (horizontalIndex == 2) currentIconID = 5;
+	}
+	if (verticalIndex == 2) {
+		if (horizontalIndex == 0) currentIconID = 6;
+		if (horizontalIndex == 1) currentIconID = 7;
+		if (horizontalIndex == 2) currentIconID = 8;
+	}
+	if (verticalIndex == 3) {
+		if (horizontalIndex == 0) currentIconID = 9;
+		if (horizontalIndex == 1) currentIconID = 10;
+		if (horizontalIndex == 2) currentIconID = 11;
+	}
+	if (verticalIndex == 4) {
+		if (horizontalIndex == 0) currentIconID = 12;
+		if (horizontalIndex == 1) currentIconID = 13;
+		if (horizontalIndex == 2) currentIconID = 14;
+	}
+	if (verticalIndex == 5) {
+		if (horizontalIndex == 0) currentIconID = 15;
+		if (horizontalIndex == 1) currentIconID = 16;
+		if (horizontalIndex == 2) currentIconID = 17;
+	}
+	*/
+	currentIconID = (verticalIndex*3)+horizontalIndex;
+	
+	if (gameData.isWeaponUnlocked(currentIconID))
+	_root.weaponsListingNew[currentIconID] = false;
+	
+	currentIcon = container.slotArr[currentIconID];
+	currentIcon.gotoAndPlay("over");
+	panelWeapons.displayWeapon(currentIconID);
+	
+	
+	currentIcon.newClip.visible = false;
+}
+
+function selectIconByID (id:Number):void {
+	if (currentIcon) currentIcon.gotoAndPlay("out");	
+	currentIconID = id;
+	
+	/*
+	switch (id) {
+		case 0: verticalIndex = 0;horizontalIndex = 0;break;
+		case 1: verticalIndex = 0;horizontalIndex = 1;break;
+		case 2: verticalIndex = 0;horizontalIndex = 2;break;
+		
+		case 3:verticalIndex = 1;horizontalIndex = 0;break;
+		case 4:verticalIndex = 1;horizontalIndex = 1;break;
+		case 5:verticalIndex = 1;horizontalIndex = 2;break;
+		
+		case 6:verticalIndex = 2;horizontalIndex = 0;break;
+		case 7:verticalIndex = 2;horizontalIndex = 1;break;
+		case 8:verticalIndex = 2;horizontalIndex = 2;break;
+		
+		case 9:verticalIndex = 3;horizontalIndex = 0;break;
+		case 10:verticalIndex = 3;horizontalIndex = 1;break;
+		case 11:verticalIndex = 3;horizontalIndex = 2;break;
+		
+		case 12:verticalIndex = 4;horizontalIndex = 0;break;
+		case 13:verticalIndex = 4;horizontalIndex = 1;break;
+		case 14:verticalIndex = 4;horizontalIndex = 2;break;
+		
+		case 15:verticalIndex = 5;horizontalIndex = 0;break;
+		case 16:verticalIndex = 5;horizontalIndex = 1;break;
+		case 17:verticalIndex = 5;horizontalIndex = 2;break;
+	}
+	*/
+	//currentIconID = (verticalIndex*3)+horizontalIndex;
+	verticalIndex = Math.floor(id/3);
+	horizontalIndex = (id%3);
+	
+	currentIcon = container.slotArr[currentIconID];
+	currentIcon.gotoAndPlay("over");
+	panelWeapons.displayWeapon(id);
+	
+	if (gameData.isWeaponUnlocked(currentIconID))
+	_root.weaponsListingNew[currentIconID] = false;
+	currentIcon.newClip.visible = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="text" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="-26" width="261.05" height="42" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="146.65" ty="56.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>select weapon</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" letterSpacing="3" lineHeight="42" size="28" bitmapSize="560" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#4F80FF" locked="true" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0099CC"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2401 2480S2|7662 2480!7662 2480|7662 9922!7662 9922|2401 9922!2401 9922|2401 2480"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="icons" color="#FF800A" parentLayerIndex="3" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/WeaponIcons-Conatiner" name="container" selected="true">
+                  <matrix>
+                    <Matrix tx="121.5" ty="130"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="130.05" y="265"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="panel" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Animate">
+                  <matrix>
+                    <Matrix tx="250.95" ty="269"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.41"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

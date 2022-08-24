@@ -1,0 +1,175 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 5" itemID="58b42bdd-00004700" lastModified="1493041819" lastUniqueIdentifier="12">
+  <timeline>
+    <DOMTimeline name="Symbol 5">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var fadein:Boolean;
+var hero:MovieClip;
+var eagle:MovieClip;
+var gameRef:MovieClip;
+
+
+function init ():void {
+	panel0.clip.gearIcon.gotoAndStop("eagleReturn");
+	panel1.clip.gearIcon.gotoAndStop("eagleGrab");
+	panel2.clip.gearIcon.gotoAndStop("Speed Boost");
+	panel3.clip.gearIcon.gotoAndStop("eagleHalt");
+	
+	panel0.clip.refreshClip.visible = false;
+	panel1.clip.refreshClip.visible = false;
+	panel2.clip.refreshClip.visible = false;
+	panel3.clip.refreshClip.visible = false;
+	
+	panel0.clip.buttonClip.gotoAndStop("SWITCH");
+	panel1.clip.buttonClip.gotoAndStop("A");
+	panel2.clip.buttonClip.gotoAndStop("S");
+	panel3.clip.buttonClip.gotoAndStop("HALT");
+}
+
+function updateRefs(_hero:MovieClip, _eagle:MovieClip, _gameRef:MovieClip):void {
+	hero = _hero;
+	eagle = _eagle;
+	gameRef = _gameRef;
+	
+	
+}
+
+function update ():void {
+	if (fadein) {
+		if (alpha < 1) alpha += .1;
+	} else {
+		if (alpha > 0) alpha -= .1;
+	}
+	
+	
+	activeDisplayGrab();
+	activeDisplayBoost();
+}
+
+function activeDisplayGrab():void {
+	var eagleTouchingPickup:Boolean;
+	for (var i:int = 0; i < gameRef.pickupsArr.length; i ++) {
+		var pickup:MovieClip  = gameRef.pickupsArr[i];
+		if (pickup) {
+			if (pickup.bound.hitTestObject(eagle.bound)) {
+				eagleTouchingPickup = true;
+				break;
+			}
+		}
+	}	
+	if (eagleTouchingPickup) {
+		panel1.clip.refreshClip.visible = false;
+	} else {
+		panel1.clip.refreshClip.visible = true;
+	}
+}
+function activeDisplayBoost():void {
+	if (eagle.isMoving) {
+		panel2.clip.refreshClip.visible = false;
+	} else {
+		panel2.clip.refreshClip.visible = true;
+	}
+	
+}
+
+function doSpeedBoost ():void {
+	panel2.clip.flashClip.gotoAndPlay(2);
+}
+function doPickup():void {
+	panel1.clip.flashClip.gotoAndPlay(2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+init();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panel0" selected="true" uniqueID="5">
+                      <matrix>
+                        <Matrix a="0.38311767578125" d="0.382980346679688" tx="24.3" ty="-22.45"/>
+                      </matrix>
+                      <transformationPoint>
+                        <Point x="0.25" y="-2.1"/>
+                      </transformationPoint>
+                      <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                    </DOMComponentInstance>
+                    <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panel1" selected="true" uniqueID="6">
+                      <matrix>
+                        <Matrix a="0.38311767578125" d="0.382980346679688" tx="64.25" ty="-22.45"/>
+                      </matrix>
+                      <transformationPoint>
+                        <Point x="0.65" y="-2.1"/>
+                      </transformationPoint>
+                      <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                    </DOMComponentInstance>
+                    <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panel2" selected="true" uniqueID="10">
+                      <matrix>
+                        <Matrix a="0.38311767578125" d="0.382980346679688" tx="104.3" ty="-22.45"/>
+                      </matrix>
+                      <transformationPoint>
+                        <Point x="0.5" y="-2.1"/>
+                      </transformationPoint>
+                      <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                    </DOMComponentInstance>
+                    <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panel3" selected="true" uniqueID="11">
+                      <matrix>
+                        <Matrix a="0.38311767578125" d="0.382980346679688" tx="144.3" ty="-22.45"/>
+                      </matrix>
+                      <transformationPoint>
+                        <Point x="0.65" y="-2.1"/>
+                      </transformationPoint>
+                      <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                    </DOMComponentInstance>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

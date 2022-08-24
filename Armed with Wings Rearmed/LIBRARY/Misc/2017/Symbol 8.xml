@@ -1,0 +1,123 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 8" itemID="58b431cc-000047bd" lastModified="1488206533" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Symbol 8" currentFrame="27">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="31" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Tween 48">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="22" blurY="22" color="#FFFFFF" quality="2" strength="1.85"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#333333"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0132" y="0.0132"/>
+                  <Point x="0.0331" y="0.2437"/>
+                  <Point x="0.0463" y="0.2568"/>
+                  <Point x="0.0618" y="0.2723"/>
+                  <Point x="0.0771"/>
+                  <Point x="0.0926"/>
+                  <Point x="0.1137" y="0.0211"/>
+                  <Point x="0.1273" y="0.3488"/>
+                  <Point x="0.1484" y="0.3699"/>
+                  <Point x="0.1726" y="0.3941"/>
+                  <Point x="0.1891" y="0.0511"/>
+                  <Point x="0.2134" y="0.0753"/>
+                  <Point x="0.2353" y="0.0972"/>
+                  <Point x="0.2559" y="0.4302"/>
+                  <Point x="0.2778" y="0.4521"/>
+                  <Point x="0.3006" y="0.4748"/>
+                  <Point x="0.3207" y="0.1245"/>
+                  <Point x="0.3435" y="0.1473"/>
+                  <Point x="0.3646" y="0.1683"/>
+                  <Point x="0.3956" y="0.5789"/>
+                  <Point x="0.4167" y="0.6"/>
+                  <Point x="0.436" y="0.6194"/>
+                  <Point x="0.4542" y="0.2375"/>
+                  <Point x="0.4736" y="0.2568"/>
+                  <Point x="0.5033" y="0.2865"/>
+                  <Point x="0.5415" y="0.7169"/>
+                  <Point x="0.5711" y="0.7466"/>
+                  <Point x="0.5891" y="0.7646"/>
+                  <Point x="0.608" y="0.4615"/>
+                  <Point x="0.626" y="0.4795"/>
+                  <Point x="0.6493" y="0.5027"/>
+                  <Point x="0.6712" y="0.9117"/>
+                  <Point x="0.6944" y="0.9349"/>
+                  <Point x="0.723" y="0.9635"/>
+                  <Point x="0.7499" y="0.6564"/>
+                  <Point x="0.7785" y="0.6849"/>
+                  <Point x="0.8135" y="0.72"/>
+                  <Point x="0.8348" y="0.8759"/>
+                  <Point x="0.8699" y="0.911"/>
+                  <Point x="0.9095" y="0.9505"/>
+                  <Point x="0.9604" y="0.9604"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Tween 48">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="21.7915344238281" blurY="21.7915344238281" color="#FFFDFD" strength="1.83"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.98828125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Tween 48">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="19" blurY="19" color="#FFFFFF" strength="0"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

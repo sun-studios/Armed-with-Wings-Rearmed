@@ -1,0 +1,110 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-S03/LVLS03-SwitchFunction-00" itemID="579a333c-00002750" lastModified="1492353468">
+  <timeline>
+    <DOMTimeline name="LVLS03-SwitchFunction-00">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var totum1:MovieClip;
+var totum2:MovieClip;
+var gate0:MovieClip;
+var gate1:MovieClip;
+var camHelp0:MovieClip;
+var camHelp1:MovieClip;
+var hero:MovieClip;
+var vcam:MovieClip;
+var flag1:Boolean;
+
+init ();
+
+function init ():void {
+	totum1 = MovieClip(parent).totum2;
+	totum2 = MovieClip(parent).totum3;
+	gate0 = MovieClip(parent).ground.gate0;
+	gate1 = MovieClip(parent).ground.gate1;
+	camHelp0 = MovieClip(parent).camHelp0;
+	camHelp1 = MovieClip(parent).camHelp1;
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	
+	flag1 = false;
+	visible = false;
+}
+
+function update ():void {
+	if (!flag1) {
+		if (totum1.switchState == "ON") {
+			openGate(0);
+			flag1 = true;
+		}
+		
+		if (totum2.switchState == "ON") {
+			openGate(1);
+			flag1 = true;
+		}
+	}
+}
+
+function openGate(gateID:int = 0):void {
+	hero.lock();
+	hero.xSpeed *= .5;
+	vcam.target = this["camHelp"+gateID];
+	this["gate"+gateID].gotoAndPlay(2);
+	TweenMax.delayedCall(60, resume, [gateID], true);
+}
+
+function resume (gateID:int):void {
+	MovieClip(parent).ground.smallGate0.gotoAndPlay(2);
+	MovieClip(parent).ground.smallGate1.gotoAndPlay(2);
+	
+	hero.unlock();
+	vcam.target = hero;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -368|873 -368!873 -368|873 367!873 367|-872 367!-872 367|-872 -368"/>
+                    <Edge cubics="!873 -368(873,-368;873,-368 873,367 873,367q873 -368 873 367)873,367;"/>
+                    <Edge cubics="!-872 367(;-872,367 -872,-368 -872,-368q-872 367 -872 -368);"/>
+                    <Edge cubics="!873 367(;873,367 -872,367 -872,367q873 367 -872 367);"/>
+                    <Edge cubics="!-872 -368(;-872,-368 873,-368 873,-368q-872 -368 873 -368);"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="52" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>switch &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

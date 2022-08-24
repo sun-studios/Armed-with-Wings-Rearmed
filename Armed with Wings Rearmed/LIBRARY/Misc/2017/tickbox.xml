@@ -1,0 +1,205 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/tickbox" itemID="58cbdc8e-00001205" lastModified="1491247696" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="tickbox">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[
+import flash.display.MovieClip;
+
+var id:Number;
+var isOn:Boolean;
+var gameData:MovieClip;
+
+init ();
+
+function init ():void {
+	if (MovieClip(root)) {
+		gameData = MovieClip(root);
+	
+		switch (id) {
+			case 1:
+				//fullscreen
+				if (!gameData.fullscreen) {
+					toggleOff();
+				} else {
+					toggleOn();
+				}
+			break;
+			case 2:
+				//particles
+			if (gameData.data_particlesEnabled) {
+				toggleOn();
+			} else {
+				toggleOff();
+			}
+			break;
+			case 3:
+				//display hud
+				if (gameData.data_hideHud) {
+					toggleOff();
+				} else {
+					toggleOn();
+				}
+			break;
+			case 4:
+				//mute
+				if (gameData.isSoundMute) {
+					toggleOff();
+				} else {
+					toggleOn();
+				}
+			break;
+			case 5:
+				//mute
+				if (gameData.isMusicMute) {
+					toggleOff();
+				} else {
+					toggleOn();
+				}
+			break;
+		}
+	}
+}
+
+function toggleOn():void {
+	gotoAndStop(2);
+	isOn = true;
+	switch (id) {
+		case 1:
+			//fullscreen
+			gameData.displayFullscreen();
+			gameData.fullscreen = true;
+		break;
+		case 2:
+			//particles
+			gameData.data_particlesEnabled = true;
+		break;
+		case 3:
+			//display hud
+			gameData.data_hideHud = false;
+		break;
+		case 4:
+			gameData.unMuteSound();
+			break;
+		case 5:
+			gameData.unMuteMusic();
+			break;
+			
+	}
+}
+
+function toggleOff():void {
+	isOn = false;
+	gotoAndStop(3);
+	
+	switch (id) {
+		case 1:
+			//fullscreen
+			gameData.displayWindow();
+			gameData.fullscreen = false;
+		break;
+		case 2:
+			//particles
+			gameData.data_particlesEnabled = false;
+		break;
+		case 3:
+			//display hud
+			gameData.data_hideHud = true;
+		break;
+		case 4:
+			gameData.muteSound();
+			break;
+		case 5:
+			gameData.muteMusic();
+			break;
+	}	
+}
+
+function toggle():void {
+	if (isOn) {
+		toggleOff();
+	} else {
+		toggleOn();
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor alpha="0.568627450980392"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!-225 216|-306 216!-306 216|-306 -297!-306 -297|208 -297!208 -297|208 -216"/>
+                    <Edge fillStyle1="1" edges="!208 -216|289 -216!289 -216|289 298!289 298|-225 298!-225 298|-225 216"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!208 -216|208 216!208 216|-225 216"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal" caps="none" weight="4" joints="miter">
+                            <fill>
+                              <SolidColor color="#333333"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge strokeStyle="1" edges="!-91 -56|-4 31!-4 31|306 -279"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor alpha="0.568627450980392"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-225 -216|289 -216!289 -216|289 298!289 298|-225 298!-225 298|-225 -216"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

@@ -1,0 +1,337 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_IceSpike/IceSpike" itemID="567aa87d-00000857" linkageExportForAS="true" linkageClassName="IceSpike" lastModified="1501416597">
+  <timeline>
+    <DOMTimeline name="IceSpike">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var onGround:Boolean;
+var onLeftWall:Boolean;
+var onRightWall:Boolean;
+var gravityOn:Boolean;
+var slowFall:Boolean;
+var active:Boolean;
+var isFromBoss:Boolean;
+var particleLayer:MovieClip;
+var sndCtrl:MovieClip;
+var control:PlayerControl;
+
+var xSpeed:Number;
+var ySpeed:Number;
+var damage:Number;
+var shakeIt:Number;
+var timeOut:Number;
+
+var dead:Boolean;
+var ground:MovieClip;
+
+var enemyType:String;
+var master:MovieClip;
+var hero:MovieClip;
+
+//init();
+
+function init (_ctrl:PlayerControl):void {
+	xSpeed = 0;
+	ySpeed = 10;
+	shakeIt = 0;
+	timeOut = 240;
+	active = true;
+	
+	ground = MovieClip(parent.parent).ground;
+	particleLayer = MovieClip(parent);
+	sndCtrl = MovieClip(root);
+	if (master == null)
+		master = MovieClip(parent.parent).hero;
+	control = _ctrl;
+	hero =  MovieClip(parent.parent).hero;
+	
+	enemyType = "ICESPIKE";
+	
+	if (master.hasOwnProperty("enemyType")) {
+		if (master.enemyType == "BOSS4") {
+			isFromBoss = true;
+		}
+	}
+}
+
+function updateController(_ctrl:PlayerControl):void {
+	control = _ctrl;
+}
+
+function update ():void {
+	if (active) {
+		if (!onGround) {
+			damage = Math.abs(scaleY);
+			
+			
+			physics();
+			shake();
+			
+			aim();
+			if (gravityOn) damageEnemies();
+			if (master.currentFrameLabel == "hurt") {
+				drop(0);
+			}
+		}
+		
+		if (gravityOn) {
+			if (timeOut > 0) {
+				timeOut --;
+			} else {
+				active = false;
+				kill();
+			}
+		}
+	}
+}
+function physics():void {
+		var dir:int;
+		if (xSpeed > 0) dir = -1;
+		else dir = 1;
+		
+		x += xSpeed;
+		if (gravityOn) {
+			if (slowFall) ySpeed -= .25;
+			else ySpeed --;
+		} else {
+			if (ySpeed > 0) ySpeed --;
+			else ySpeed = 0;
+		}
+		y -= ySpeed;
+	
+		var w:Number = 30;
+		var h:Number = 30;
+		
+		
+		var minHeight:Number;
+		if (master.onGround) {
+			minHeight = master.y-(master.height*.5);
+		} else {
+			minHeight = master.y+10;
+		}
+		
+		if (y > minHeight) {
+			while (ground.hitTestPoint(getGlobalX(), getGlobalY(-w), true)) {
+				y-= .5;
+				ySpeed = 0;
+				xSpeed = 0;
+			}
+			if (ground.hitTestPoint(getGlobalX(), getGlobalY(-w+1), true)) {
+				ySpeed = 0;
+				xSpeed = 0;
+				if (!onGround) {
+					particleLayer.addDust(2, x+(Math.random()*20), y, 1+Math.random(), scaleY+(Math.random()*(scaleY*2)));
+					particleLayer.addDust(2, x-(Math.random()*20), y, 1-Math.random(), scaleY+(Math.random()*(scaleY*2)));
+				}
+				onGround = true;
+			}
+			
+			while (ground.hitTestPoint(getGlobalX(20), getGlobalY(-w*1.5), true)) {
+				x --;
+				ySpeed = 0;
+				xSpeed = 0;
+				onGround = true;
+			}
+			while (ground.hitTestPoint(getGlobalX(-20), getGlobalY(-w*1.5), true)) {
+				x ++;
+				ySpeed = 0;
+				xSpeed = 0;
+				onGround = true;
+			}
+		}
+
+		if (ground.hitTestPoint(getGlobalX(-w*.5-2), getGlobalY(-h*.5), true)) {
+			onLeftWall = true
+		} else {
+			onLeftWall = false;
+		}
+		if (ground.hitTestPoint(getGlobalX(w*.5+2), getGlobalY(-h*.5), true)) {
+			onRightWall = true
+		} else {
+			onRightWall = false;
+		}
+}
+
+function aim():void {
+	if (master.enemyType == "BOSS4") {
+	} else {
+		if (control) {
+			if (control.ctrl_right) {
+				if (rotation > -30) {
+					rotation -= 1.5;
+				} 
+			}
+			if (control.ctrl_left) {
+				if (rotation < 30) {
+					rotation += 1.5;
+				}
+			}
+		}
+	}
+}
+
+function drop(delay:Number):void {
+	
+	ySpeed = delay*3;
+	TweenMax.delayedCall(delay*2, function () {
+		gravityOn = true;
+		ySpeed = -65;
+		xSpeed = -rotation*1.5;
+		sndCtrl.playBossSwingSound();
+	}, null, true);
+}
+
+function shake():void {
+	if (!gravityOn) {
+		if (shakeIt < 80) {
+			shakeIt ++;
+		}
+		
+		var shakePower:Number = shakeIt * .08;
+		x += (Math.random()*shakePower) - (Math.random()*shakePower);
+		y += (Math.random()*shakePower) - (Math.random()*shakePower);
+		rotation += (Math.random()*shakePower - (Math.random()*shakePower))*.2;
+	} else {
+		shakeIt = 0;
+	}
+}
+function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1, combo:Boolean = false):void {
+	if (MovieClip(parent)) {
+		for (var i:int = 0; i < 6; i ++) {
+			var size:Number = .2;
+			if (i == 0) size = 1;
+			
+			particleLayer.addIceShard(this.x + ((Math.random()-Math.random())*10), this.y - (Math.random()*30), (size+ Math.random()*.5), size+Math.random());
+		}
+		if (Math.random() > .5) {
+			if (Math.random() > .4) 
+				sndCtrl.playSound(sndCtrl.sndStoneHit_0, 0, .6);
+		} else {
+			if (Math.random() > .4) 
+				sndCtrl.playSound(sndCtrl.sndStoneHit_1, 0, .6);
+		}
+		kill();
+	}
+}
+
+function damageEnemies ():void {
+	var dir:int = 1;
+	var arr:Array = MovieClip(parent.parent).enemiesArr;
+	
+	if (isFromBoss) {
+		if (this.bound.hitTestObject(hero.bound)) {
+			if (this.x > hero.x) dir = -1;
+			if (this.bound.hitTestObject(hero.bound) && !onGround) {
+				if (hero.onGround) {
+					hero.takeDamage(this, 8*dir, 2*scaleY, damage);
+				} else {
+					hero.takeDamage(this, 4*dir, 1.5*scaleY, damage);
+				}
+				if (x > hero.x) xSpeed = Math.abs(xSpeed *.5);
+				else if (x < hero.x) xSpeed = Math.abs(xSpeed*.5)*-1;
+			}
+		}
+	} else {
+		for (var i:int = 0; i < arr.length; i ++) {
+			var en:MovieClip = arr[i];
+			var go:Boolean = false;
+			if ((en.enemyType == "ENEMY1" || en.enemyType == "ENEMY2" || 
+				en.enemyType == "ENEMY3" || en.enemyType == "ENEMY4" || 
+				en.enemyType == "ENEMY5" || en.enemyType == "ENEMY6" || en.enemyType == "ENEMY7" ||
+				en.enemyType == "BOSS3" || en.enemyType == "BOULDER" ||
+				en.enemyType == "ROCK" || en.enemyType == "BOSS1" || en.enemyType == "BOMB" ||
+				en.enemyType == "BOSS2" || en.enemyType == "BOSS4") 
+				&& !en.dead && en.visible) {
+					go = true;
+			}
+			if (en.hasOwnProperty("heroName") && en != master) {
+				go = true;
+			}
+			if (go) {
+				if (this.x > en.x) dir = -1;
+				if (this.bound.hitTestObject(en.bound) && !onGround) {
+					if (en.onGround) {
+						en.takeDamage(this, 8*dir, 2*scaleY, damage);
+						if (Math.abs(xSpeed) > 30) {
+							takeDamage(this,x,y,1);
+							if (en.enemyType != "BOMB") en.xSpeed = xSpeed*.2;
+							else en.xSpeed *= -1;
+						}
+					} else {
+						en.takeDamage(this, 4*dir, 1.5*scaleY, damage);
+						if (Math.abs(xSpeed) > 30) {
+							takeDamage(this,x,y,1);
+							if (en.enemyType != "BOMB") en.xSpeed = xSpeed*.2;
+							else en.xSpeed *= -1;
+						}
+					}
+					if (x > en.x) xSpeed = Math.abs(xSpeed *.5);
+					else if (x < en.x) xSpeed = Math.abs(xSpeed*.5)*-1;
+				}
+			}
+		}
+	}
+}
+
+function kill():void {
+	particleLayer.removeIceSpikeArr(this);
+	particleLayer.removeChild(this);
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent.parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent.parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeContainer" symbolType="graphic" centerPoint3DX="-0.6" centerPoint3DY="-28.2" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.6" ty="-28.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0.707443237304688" d="1.30625915527344" tx="-0.2" ty="-26.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,325 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_BonusPopup/BonusPopup" itemID="55420224-00001b29" linkageExportForAS="true" linkageClassName="BonusPop" lastModified="1492843426">
+  <timeline>
+    <DOMTimeline name="BonusPopup" currentFrame="88">
+      <layers>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+import flash.display.MovieClip;
+
+var points_tf:TextField;
+var bonus_tf:TextField;
+var gameData:MovieClip;
+
+
+function init(type:String):void {
+	
+	gameData = MovieClip(root);
+	
+	var s:String;
+	var i:int; 
+	
+	switch (type) {
+		case BonusPoints.BONUS_GOAL:
+			s = "GOAL BONUS";
+			i = BonusPoints.POINTS_BONUS_GOAL;
+			break;
+		case BonusPoints.BONUS_GOAL2:
+			s = "GOAL BONUS";
+			i = BonusPoints.POINTS_BONUS_GOAL2;
+			break;
+		case BonusPoints.BONUS_SPIKEKILL:
+			s = "SPIKE BONUS";
+			i = BonusPoints.POINTS_BONUS_SPIKEKILL;
+			break;
+		case BonusPoints.COLLECTED_KEY:
+			s = "RELIC COLLECTED";
+			i = BonusPoints.POINTS_COLLECTED_KEY;
+			break;
+	}
+	
+	points_tf.text = "+"+i;
+	bonus_tf.text = s;
+	bonus_tf2.text = s;
+	
+	if (s == "RELIC COLLECTED") {
+		points_tf.text = "";
+	}
+	
+	gameData.scoreBonus(s, i);
+	
+}
+
+function update():void {
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="87" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[
+var sndCtrl:MovieClip = MovieClip(root);
+sndCtrl.playSound(sndCtrl.sndItem3);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="88" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).particleLayer.removeFromBonusArr(this);
+MovieClip(parent).removeChild(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="86" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="86" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="-0.065643310546875" c="0.0174102783203125" d="0" tx="-3.7" ty="-170.7"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0.0588235294117647" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.372549019607843" ratio="0.815686274509804"/>
+                            <GradientEntry color="#FFFFFF" ratio="0.933333333333333"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-359 -4489|211 -4489!211 -4489|211 -2338!211 -2338|-359 -2338!-359 -2338|-359 -4489"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="87" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="-0.210601806640625" c="0.00274658203125" d="0" tx="-6.45" ty="-286.35"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0.0588235294117647" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.372549019607843" ratio="0.815686274509804"/>
+                            <GradientEntry color="#FFFFFF" ratio="0.933333333333333"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-174 -9179|-84 -9179!-84 -9179|-84 -2280!-84 -2280|-174 -2280!-174 -2280|-174 -9179"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt1" symbolType="graphic" centerPoint3DX="-5.15" centerPoint3DY="-155.75" loop="loop">
+                  <matrix>
+                    <Matrix a="0.2774658203125" d="1.29032897949219" tx="-5.15" ty="-155.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0752" y="1"/>
+                  <Point x="0.7619" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt1" symbolType="graphic" centerPoint3DX="-5.15" centerPoint3DY="-140.8" loop="loop">
+                  <matrix>
+                    <Matrix a="1.31285095214844" d="0.54193115234375" tx="-5.15" ty="-140.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="78" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0224" y="0.4349"/>
+                  <Point x="0.1739" y="0.7891"/>
+                  <Point x="0.2093" y="0.8"/>
+                  <Point x="0.4207" y="0.8651"/>
+                  <Point x="0.9955" y="0.8664"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt1" selected="true" symbolType="graphic" centerPoint3DX="-5.2" centerPoint3DY="-205.25" loop="loop">
+                  <matrix>
+                    <Matrix a="0.878952026367188" d="1.167724609375" tx="-5.15" ty="-205"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="83" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt1" symbolType="graphic" centerPoint3DX="-5.2" centerPoint3DY="-185.95" loop="loop">
+                  <matrix>
+                    <Matrix a="1.094970703125" d="0.874191284179688" tx="-5.15" ty="-185.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt1" symbolType="graphic" centerPoint3DX="-2.95" centerPoint3DY="-206.85" loop="loop">
+                  <matrix>
+                    <Matrix a="0.374298095703125" d="1.16452026367188" tx="-3.2" ty="-206.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="87" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt2" symbolType="graphic" centerPoint3DX="-6.45" centerPoint3DY="-111" loop="loop">
+                  <matrix>
+                    <Matrix a="0.216445922851563" d="1.80961608886719" tx="-6.45" ty="-111"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0752" y="1"/>
+                  <Point x="0.7619" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt2" symbolType="graphic" centerPoint3DX="-5.05" centerPoint3DY="-126.3" loop="loop">
+                  <matrix>
+                    <Matrix a="1.36566162109375" d="0.239883422851563" tx="-5" ty="-126.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="76" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0224" y="0.4349"/>
+                  <Point x="0.1739" y="0.7891"/>
+                  <Point x="0.2093" y="0.8"/>
+                  <Point x="0.4207" y="0.8651"/>
+                  <Point x="0.9955" y="0.8664"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt2" symbolType="graphic" centerPoint3DX="-6.5" centerPoint3DY="-166.4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.833328247070313" d="1.08749389648438" tx="-6.35" ty="-167.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="82" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt2" symbolType="graphic" centerPoint3DX="-6.3" centerPoint3DY="-153.5" loop="loop">
+                  <matrix>
+                    <Matrix a="1.0714111328125" d="0.927505493164063" tx="-6.35" ty="-154.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BonusPopup/BonusPopup-txt2" symbolType="graphic" centerPoint3DX="-5.55" centerPoint3DY="-183.9" loop="loop">
+                  <matrix>
+                    <Matrix a="0.496292114257813" d="1.28459167480469" tx="-5.55" ty="-184.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.49" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="87" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

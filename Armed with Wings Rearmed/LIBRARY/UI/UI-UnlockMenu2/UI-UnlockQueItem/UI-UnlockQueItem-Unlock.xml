@@ -1,0 +1,519 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-Unlock" itemID="553caab6-00000637" lastModified="1491759681" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="UI-UnlockQueItem-Unlock">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="64" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(root).playUISound(MovieClip(root).sndItem3);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-text" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.4" ty="-80.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="7.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-text" symbolType="graphic" centerPoint3DX="0.3" centerPoint3DY="-122.85" loop="loop">
+                  <matrix>
+                    <Matrix a="0.917526245117188" d="1.93722534179688" tx="0.4" ty="-129.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-text" symbolType="graphic" centerPoint3DX="0.35" centerPoint3DY="-114.7" loop="loop">
+                  <matrix>
+                    <Matrix a="1.27128601074219" d="0.6326904296875" tx="0.4" ty="-111.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="7.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-text" symbolType="graphic" centerPoint3DX="0.35" centerPoint3DY="-115.6" loop="loop">
+                  <matrix>
+                    <Matrix a="0.958389282226563" d="1.09111022949219" tx="0.4" ty="-118.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="7.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="21" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-text" symbolType="graphic" centerPoint3DX="0.35" centerPoint3DY="-115.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.4" ty="-117.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="7.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-text" symbolType="graphic" centerPoint3DX="0.35" centerPoint3DY="-116.85" loop="loop">
+                  <matrix>
+                    <Matrix a="0.982833862304688" d="1.09121704101563" tx="0.4" ty="-118.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="7.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-text" symbolType="graphic" centerPoint3DX="0.35" centerPoint3DY="-118.25" loop="loop">
+                  <matrix>
+                    <Matrix a="0.937744140625" d="1.3309326171875" tx="0.4" ty="-122.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="7.55"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.377228575389296"/>
+                  <Point x="0.7083974653634" y="0.347475614280358"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="17.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="19" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6179"/>
+                  <Point y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="17.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape1" symbolType="graphic" centerPoint3DX="-0.15" centerPoint3DY="38.15" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="38.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape1" symbolType="graphic" centerPoint3DX="-0.15" centerPoint3DY="38.15" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="38.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape1" symbolType="graphic" centerPoint3DX="-0.15" centerPoint3DY="38.15" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="38.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape1" symbolType="graphic" centerPoint3DX="-0.15" centerPoint3DY="38.15" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="38.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.377228575389296"/>
+                  <Point x="0.7083974653634" y="0.347475614280358"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="-10.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="19" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.6179"/>
+                  <Point y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="-10.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape2" symbolType="graphic" centerPoint3DX="-0.15" centerPoint3DY="-34.2" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="-34.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape2" symbolType="graphic" centerPoint3DX="-0.15" centerPoint3DY="-34.2" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="-34.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape2" symbolType="graphic" centerPoint3DX="-0.15" centerPoint3DY="-34.2" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="-34.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockMenu2-lock-shape2" symbolType="graphic" centerPoint3DX="-0.15" centerPoint3DY="-34.2" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="-34.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="9" blurY="9" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="9" blurY="9" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="9" blurY="9" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="23" blurY="67" color="#FFFFFF" strength="1.93"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="23" blurY="67" color="#FFFFFF" strength="1.93"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="6" blurY="61" color="#FFFFFF" strength="1.64"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="6" blurY="61" color="#FFFFFF" strength="1.64"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="46" color="#FFFFFF" strength="1.03"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="46" color="#FFFFFF" strength="1.03"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="14" color="#FFFFFF" strength="0.86"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="14" color="#FFFFFF" strength="0.86"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-glow">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" strength="0"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

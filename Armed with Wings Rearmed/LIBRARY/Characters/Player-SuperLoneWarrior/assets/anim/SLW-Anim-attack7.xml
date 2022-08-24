@@ -1,0 +1,4203 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack7" itemID="587a4e27-00000d90" lastModified="1496122905" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="SLW-Anim-attack7" currentFrame="966" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;35&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="994" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="994" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="107.55" centerPoint3DY="-240.1">
+                  <matrix>
+                    <Matrix a="3.84521484375" d="3.674560546875" tx="40.15" ty="-251.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="182.15" centerPoint3DY="-241.1">
+                  <matrix>
+                    <Matrix a="4.48835754394531" d="3.674560546875" tx="103.55" ty="-252.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="288.9" centerPoint3DY="-245.6">
+                  <matrix>
+                    <Matrix a="5.76823425292969" d="3.674560546875" tx="187.75" ty="-257.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redMultiplier="-1" blueMultiplier="-1" greenMultiplier="0.87890625" redOffset="238" blueOffset="127" greenOffset="114"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="attackStart-actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" duration="24" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" duration="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="24" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="91" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="97" duration="27" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="124" duration="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="143" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="192" duration="16" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="236" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="254" duration="24" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="278" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="281" duration="39" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="320" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="334" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="343" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="362" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="363" duration="21" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="384" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="391" duration="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="410" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="411" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="414" duration="14" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="428" duration="16" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (!_parent.onGround) {
+	airborn = true;
+}
+
+forwardPower = true;
+attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="454" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="458" duration="10" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;
+
+if (_parent.onGround) {
+	_parent.forwadDashCooldown = _parent.forwadDashCooldownOrig;
+} else {
+	_parent.forwadDashCooldown = _parent.forwadDashCooldownOrig*.5;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="468" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = false;
+airborn = false;
+forwardPower = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="479" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="482" duration="14" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = false;
+attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="496" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[jumpAttack = true;
+attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="503" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="511" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;
+var airDodge:Boolean = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+if (_parent.control.ctrl_left) _parent.scaleX = -1;
+if (_parent.control.ctrl_right) _parent.scaleX = 1;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="531" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="536" duration="24" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="560" duration="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="582" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="599" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+if (_parent.control.ctrl_left) _parent.scaleX = -1;
+if (_parent.control.ctrl_right) _parent.scaleX = 1;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="602" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="607" duration="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="624" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="625" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = true;
+airborn = true;
+if (_parent.control.ctrl_left) _parent.scaleX = -1;
+if (_parent.control.ctrl_right) _parent.scaleX = 1;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="630" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="639" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="644" duration="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="661" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="664" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = true;
+airborn = true;
+if (_parent.control.ctrl_left) _parent.scaleX = -1;
+if (_parent.control.ctrl_right) _parent.scaleX = 1;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="665" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="670" duration="21" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="691" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="692" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="695" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+airAttack = true;
+if (_parent.control.ctrl_left) _parent.scaleX = -1;
+if (_parent.control.ctrl_right) _parent.scaleX = 1;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="696" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="703" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="714" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="715" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+airAttack = true;
+if (_parent.control.ctrl_left) _parent.scaleX = -1;
+if (_parent.control.ctrl_right) _parent.scaleX = 1;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="718" duration="12" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = false;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="730" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="736" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="743" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+airAttack = true;
+airStrike = true;
+if (_parent.control.ctrl_left) _parent.scaleX = -1;
+if (_parent.control.ctrl_right) _parent.scaleX = 1;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="744" duration="14" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airAttack = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="758" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = false;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="762" duration="32" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="794" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="800" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="815" duration="24" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="839" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="846" duration="62" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[attackStart = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="908" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="918" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="927" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="936" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="945" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="954" duration="15" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="969" duration="25" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[airborn = true;
+airAttack = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="thrust-actions" color="#4FFFFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[function thrust(_val:Number):void {
+	var val:Number = _val;
+	if (_parent.extraLundge) {
+		if (val > 0) val += 1.5;
+		else val -= 1.5;
+	}
+	_parent.xSpeed = val;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="26" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (6*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" duration="25" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (6*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="24" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (6*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="94" duration="30" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (6*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="124" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="130" duration="33" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = _parent.xSpeed + (6*_parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="188" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (6*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="212" duration="3" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[thrust((8*-_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="215" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust((12*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="236" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (6*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="254" duration="24" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="278" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="279" duration="41" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (8*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="320" duration="14" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="334" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="343" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="10" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;
+thrust(_parent.xSpeed + (2*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="362" duration="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = _parent.xSpeed + (8*_parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="384" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="389" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (12*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="395" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="410" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="414" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="415" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="416" duration="28" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[thrust(_parent.xSpeed + (11*_parent.scaleX));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (!_parent.onGround) {
+	_parent.xSpeed *= .6;
+	_parent.ySpeed = 5;
+}
+if (_parent.control.ctrl_left) _parent.scaleX = -1;
+if (_parent.control.ctrl_right) _parent.scaleX = 1;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="458" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="459" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[
+
+var speedGrab:Number;
+speedGrab = _parent.getWallDist(_parent.scaleX);
+
+
+
+if (speedGrab == 0) {
+	_parent.xSpeed = (15+(gameData.dataGetWeaponPower(_parent.playerID) * 1.5))*_parent.scaleX;
+} else {
+	_parent.xSpeed = (speedGrab*.1)*_parent.scaleX;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="464" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .2;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="482" duration="14" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[
+if (!_parent.onGround) {
+	_parent.ySpeed  *= .07;
+} else {
+	thrust(7 * _parent.scaleX);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="496" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="499" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent) {
+	_parent.ySpeed = 15 + (gameData.dataGetWeaponPower(_parent.playerID)*.5);
+	
+	if (MovieClip(root)) {
+		var playerControl:PlayerControl = MovieClip(parent).control;
+		if (playerControl.ctrl_left) {
+			_parent.xSpeed = _parent.ySpeed*-.3;
+			_parent.scaleX = -1;
+		} else {
+			if (playerControl.ctrl_right) {
+				_parent.xSpeed = _parent.ySpeed*.3;
+				_parent.scaleX = 1;
+			} else {
+				_parent.xSpeed = (_parent.ySpeed*.3) * MovieClip(parent).scaleX;
+			}
+		}
+		
+	}
+	
+}
+/*
+if (gameData.ctrl_left) {
+	_parent.xSpeed = (20 * .3)*-1;
+}
+if (gameData.ctrl_right) {
+	_parent.xSpeed = (20 * .3);
+}
+*/]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="505" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[//if (_parent.ySpeed > 18) 
+_parent.ySpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="533" duration="27" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.ySpeed += 3;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="560" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="582" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="599" duration="26" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="625" duration="36" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="661" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="664" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="667" duration="25" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.ySpeed = (_parent.ySpeed * .7) + 4;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="692" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="695" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="697" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.ySpeed = (_parent.ySpeed * .7) + 4;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="715" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="719" duration="24" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.ySpeed = (_parent.ySpeed * .7) + 6;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="743" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.ySpeed = (_parent.ySpeed * .7) + 6;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="761" duration="33" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.ySpeed = (_parent.ySpeed * .4) + 7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="794" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed *= .7;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="795" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = _parent.xSpeed + (6*-_parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="796" duration="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = _parent.xSpeed + (15*_parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="815" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.xSpeed = (8*_parent.scaleX);
+if(!_parent.onGround) _parent.ySpeed = 5;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="826" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="846" duration="63" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="918" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="927" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="936" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="945" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="954" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="966" duration="28" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.ySpeed = 10;
+_parent.xSpeed =  7*-_parent.scaleX;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="slashes-actions" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" duration="24" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(31, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" duration="22" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(32, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="57" duration="22" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(33, _parent);
+//_parent.shootProjectile();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="99" duration="25" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(4, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="124" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="130" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="131" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var strikeType:String = "MED";
+
+if (_parent.powerStrike >= _parent.powerStrikeMax) {
+	if (_parent.canPowerWave) 
+		strikeType = "HOR";
+	else strikeType = "HARD";
+	
+	vcam.shakeCamera(50);
+	sndCtrl.playSound(sndCtrl.sndBlast2);
+} else {
+	vcam.shakeCamera(20);
+	sndCtrl.playSound(sndCtrl.sndBlast1);
+	strikeType = "MED";
+}
+
+//strikeType = "HOR";
+particleLayer.addPowerStrike(strikeType, _parent.x+(90*_parent.scaleX), _parent.y, _parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="132" duration="31" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[_parent.powerStrike = 0;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="7" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="192" duration="16" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(35, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" duration="7" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="215" duration="15" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" duration="19" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(34, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="254" duration="24" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="278" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="279" duration="41" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(36, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="320" duration="14" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="334" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="343" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="10" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="362" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="363" duration="21" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(9, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="384" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="392" duration="18" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(10, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="410" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="414" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="419" duration="25" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(11, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="458" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="460" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[/*
+strikeType = "MED";
+
+if (_parent.powerStrike >= _parent.powerStrikeMax) {
+	if (gameData.dataIsGearEquipt("Power Wave")) 
+		strikeType = "HOR";
+	else strikeType = "HARD";
+	
+	vcam.shakeCamera(50);
+	sndCtrl.playSound(sndCtrl.sndBlast2);
+} else {
+	vcam.shakeCamera(20);
+	sndCtrl.playSound(sndCtrl.sndBlast1);
+	strikeType = "MED";
+}
+
+//strikeType = "HOR";
+//particleLayer.addPowerStrike(strikeType, _parent.x+(90*_parent.scaleX), _parent.y, _parent.scaleX);
+*/
+
+particleLayer.addDash(_parent.x, _parent.y-35, _parent.scaleX, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="461" duration="21" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[_parent.powerStrike = 0;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="482" duration="14" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="496" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="497" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="498" duration="2" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//Still needs work
+strikeType = "UP";
+var upStrikeScale:Number = (gameData.dataGetWeaponPower(_parent.playerID)/20)*1.5;
+
+var _dir:int = _parent.scaleX;
+if (_parent.control.ctrl_left) _dir = -1;
+else if (_parent.control.ctrl_right) _dir = 1;
+sndCtrl.playSound(sndCtrl.sndBlast1);
+particleLayer.addPowerStrike(strikeType, _parent.x+(40*_dir), _parent.y, _dir, upStrikeScale);
+
+/*
+//OLD CRAP
+if (_parent.powerStrike >= _parent.powerStrikeMax) {
+	vcam.shakeCamera(50);
+	sndCtrl.playSound(sndCtrl.sndBlast2);
+} else {
+	vcam.shakeCamera(20);
+	upStrikeScale = .5
+	sndCtrl.playSound(sndCtrl.sndBlast1);
+}
+
+//strikeType = "HOR";
+*/]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="500" duration="20" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[_parent.powerStrike = 0;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="8" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="533" duration="27" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(12, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="560" duration="22" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(13, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="582" duration="2" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(14, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="584" duration="15" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(15, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="599" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="605" duration="20" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(16, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="625" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="631" duration="10" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(17, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="641" duration="20" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(18, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="661" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="664" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="668" duration="24" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(19, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="692" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="695" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="699" duration="16" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(20, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="715" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="720" duration="9" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(6, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="729" duration="14" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(2, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="743" duration="18" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="761" duration="33" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addPowerStrike("AIR", _parent.x+(40*_parent.scaleX), _parent.y, _parent.scaleX);
+vcam.shakeCamera(20);
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="794" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="798" duration="17" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addSlash(10, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="815" duration="11" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="826" duration="20" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addPowerStrike("HOR", _parent.x+(90*_parent.scaleX), _parent.y, _parent.scaleX);
+vcam.shakeCamera(50);
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="846" duration="63" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="911" duration="7" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(16, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="918" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="920" duration="7" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(19, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="927" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="929" duration="7" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(2, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="936" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="937" duration="8" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(12, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="945" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="946" duration="8" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (particleLayer) particleLayer.addSlash(18, _parent);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="954" duration="12" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="966" duration="28" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addPowerStrike("AIR", _parent.x+(40*_parent.scaleX), _parent.y, _parent.scaleX);
+vcam.shakeCamera(20);
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="dust" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="27" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" duration="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="57" duration="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" duration="6" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="99" duration="25" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="124" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="131" duration="32" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="190" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="236" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="254" duration="24" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="278" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="282" duration="70" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[_parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="362" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="384" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="410" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="414" duration="30" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent.onGround) _parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="458" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="465" duration="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(5, _parent.x + (40 * _parent.scaleX), 
+						 _parent.y, 
+						 _parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="482" duration="14" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent.onGround) _parent.addAttackDust();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="496" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="498" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(2, _parent.x, 
+						 _parent.y, 
+						 _parent.scaleX, 
+						 2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="503" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit5" centerPoint3DX="38.35" centerPoint3DY="-43">
+                  <matrix>
+                    <Matrix a="3.89811706542969" d="6.602294921875" tx="4.95" ty="-65.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="505" duration="15" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="35" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="560" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="582" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="599" duration="26" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="625" duration="36" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="661" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="664" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="692" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="695" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="715" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="743" duration="51" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="794" duration="21" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="815" duration="31" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="846" duration="63" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="918" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="927" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="936" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="945" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="954" duration="40" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sound-actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="26" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" duration="25" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="24" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="94" duration="30" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="124" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="125" duration="4" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(parent)) {
+	if (MovieClip(parent).currentFrameLabel == "attack") {
+		sndCtrl.playPowerStrikeSound();
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="130" duration="33" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.powerStrikeChannel.stop();
+sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="188" duration="20" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" duration="22" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="236" duration="18" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="254" duration="24" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="278" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="282" duration="16" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="298" duration="22" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="320" duration="14" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="334" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="343" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="10" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="362" duration="3" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="365" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="384" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="390" duration="20" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="410" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="414" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="417" duration="27" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="454" duration="4" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndBossSwing1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="458" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="459" duration="23" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.powerStrikeChannel.stop();
+sndCtrl.playSound(sndCtrl.sndTeleport, 0, 1.7);
+sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="482" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="483" duration="13" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//sndCtrl.playPowerStrikeSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="496" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="497" duration="4" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.powerStrikeChannel.stop();
+sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="501" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit5" centerPoint3DX="38.35" centerPoint3DY="-43">
+                  <matrix>
+                    <Matrix a="3.89811706542969" d="6.602294921875" tx="4.95" ty="-65.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="503" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="505" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit5" centerPoint3DX="38.35" centerPoint3DY="-43">
+                  <matrix>
+                    <Matrix a="3.89811706542969" d="6.602294921875" tx="4.95" ty="-65.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="507" duration="13" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="7" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="532" duration="28" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="560" duration="22" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="582" duration="17" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="599" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="603" duration="22" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="625" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="631" duration="9" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="640" duration="21" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="661" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="664" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="667" duration="25" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="692" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="695" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="698" duration="17" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="715" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="719" duration="9" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="728" duration="15" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="743" duration="17" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="760" duration="34" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();
+sndCtrl.playSound(sndCtrl.sndBlast1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="794" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="797" duration="18" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="815" duration="10" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playBossSwingSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="825" duration="21" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.powerStrikeChannel.stop();
+sndCtrl.playSwingSound();
+sndCtrl.playSound(sndCtrl.sndBlast2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="846" duration="63" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="918" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="927" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="936" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="945" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="954" duration="10" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="964" duration="30" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSwingSound();
+sndCtrl.playSound(sndCtrl.sndBlast1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="goto-actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var charging:Boolean = false;
+var powerStrike:Boolean = false;
+var attackStart:Boolean = true;
+var airborn:Boolean = false;
+var airAttack:Boolean = false;
+var airStrike:Boolean = false;
+var jumpAttack:Boolean = false;
+var forwardPower:Boolean = false;
+
+var _parent:MovieClip = MovieClip(parent);
+var sndCtrl:MovieClip = MovieClip(root);
+var particleLayer:MovieClip = MovieClip(parent.parent).particleLayer;
+var vcam:MovieClip = MovieClip(parent.parent).vcam;
+var gameData:MovieClip = MovieClip(root);
+
+var extraRange:Number = gameData.dataGetWeaponRange(_parent.playerID)*.1 + _parent.extraRange;
+
+//gotoAndPlay("a1Delay");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" duration="6" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="21" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" duration="5" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" duration="24" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" duration="25" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="118" duration="6" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="124" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[charging = true;
+powerStrike = true;
+stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="130" duration="32" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[charging = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="162" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+powerStrike = false;
+_parent.gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="22" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="207" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" duration="21" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[_parent.canAntiFlinchFORCE = true;
+_parent.dodging = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="229" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.canAntiFlinchFORCE = false;
+_parent.dodging = false;
+_parent.gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" duration="18" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="253" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="254" duration="24" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="278" duration="42" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="320" duration="8" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="328" duration="6" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("a1");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="334" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="340" duration="3" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("a5");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="343" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="349" duration="3" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("a4");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="7" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="359" duration="3" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("a9");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="362" duration="21" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="383" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="384" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" duration="17" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="404" duration="6" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="410" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="414" duration="29" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="443" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="458" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//charging = true;
+//powerStrike = true;
+stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="459" duration="10" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//charging = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="469" duration="12" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (_parent.onGround) {
+	
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="481" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+powerStrike = false;
+_parent.gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="482" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="487" duration="9" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("charge3");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="496" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//charging = true;
+//powerStrike = true;
+//stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="497" duration="22" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[charging = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="519" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+powerStrike = false;
+_parent.gotoAndStop("walk");
+_parent.walk.gotoAndPlay("fall");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="34" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="559" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+powerStrike = false;
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="560" duration="21" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="581" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="582" duration="16" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="598" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="599" duration="25" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="624" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="625" duration="35" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="660" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="661" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="664" duration="27" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="691" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="692" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="695" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="714" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="715" duration="27" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="742" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="743" duration="44" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="787" duration="7" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="794" duration="20" name="a23Delay" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="814" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="815" duration="30" name="aPowerWave" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="845" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="846" duration="63" name="ultimateStrike" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="8" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="917" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="918" duration="8" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="926" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="927" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="935" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="936" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="944" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="945" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="953" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop("ULTIGO");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="954" duration="39" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="993" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (_parent.onGround) {
+	_parent.gotoAndStop("idle");
+} else{ 
+	_parent.gotoAndStop("walk");
+	_parent.walk.gotoAndPlay("fall");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="27" name="a1" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="26" name="a2" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" duration="25" name="a3" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" duration="31" name="a4" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="124" duration="3" name="a5" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="127" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" duration="34" name="charge" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="5" name="a6" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="190" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="194" duration="14" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" duration="22" name="counter" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" duration="19" name="a7" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="254" duration="24" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="278" duration="45" name="a8" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="323" duration="11" name="a1Delay" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="334" duration="9" name="a5Delay" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="343" duration="9" name="a4Delay" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="10" name="a9Delay" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="362" duration="22" name="a9" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="384" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" duration="23" name="a10" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="410" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="414" duration="30" name="a11" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" duration="6" name="a12" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="459" duration="23" name="charge2" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="482" duration="14" name="a13" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="496" duration="24" name="charge3" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="35" name="a14" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="560" duration="22" name="a15" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="582" duration="17" name="a16" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="599" duration="26" name="a17" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="625" duration="7" name="a18" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="632" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="633" duration="8" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="641" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="642" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="661" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="664" duration="28" name="a19" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="692" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="695" duration="20" name="a20" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="715" duration="28" name="a21" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="743" duration="51" name="a22" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="794" duration="21" name="a23" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="815" duration="31" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="846" duration="57" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="903" duration="5" name="ANYENEMIES" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="908" name="ULTIGO" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="9" name="ULTIATTACK0" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="918" duration="9" name="ULTIATTACK1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="927" duration="9" name="ULTIATTACK2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="936" duration="9" name="ULTIATTACK3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="945" duration="9" name="ULTIATTACK4" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="954" duration="11" name="ULTIATTACK5" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="965" duration="29" name="ULTIEND" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="hitbox" color="#808080" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="82.25" centerPoint3DY="-19.55">
+                  <matrix>
+                    <Matrix a="3.84820556640625" d="3.674560546875" tx="14.45" ty="-31"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="23" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="71.95" centerPoint3DY="6.85">
+                  <matrix>
+                    <Matrix a="3.84565734863281" d="3.76394653320313" tx="30.4" ty="-22.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" duration="21" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="65" centerPoint3DY="-23.9">
+                  <matrix>
+                    <Matrix a="3.84414672851563" d="4.31292724609375" tx="22" ty="-34.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" duration="20" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="99" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit2.width = hit2.width + (hit2.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2" centerPoint3DX="86.6" centerPoint3DY="-16.2">
+                  <matrix>
+                    <Matrix a="3.84486389160156" d="4.71794128417969" tx="30.1" ty="-38.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="100" duration="24" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="124" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="129" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-charge-dust-03" centerPoint3DX="4.85" centerPoint3DY="35.05">
+                  <matrix>
+                    <Matrix a="1.20867919921875" tx="5" ty="35.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-charge-dust-02" centerPoint3DX="4.85" centerPoint3DY="35.05">
+                  <matrix>
+                    <Matrix a="1.20867919921875" tx="5" ty="35.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="130" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="131" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="48.3" centerPoint3DY="17.9">
+                  <matrix>
+                    <Matrix a="7.15963745117188" d="5.24012756347656" tx="14.85" ty="-41.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="132" duration="31" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="190" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="52.35" centerPoint3DY="-31">
+                  <matrix>
+                    <Matrix a="3.84675598144531" d="4.90997314453125" tx="16.95" ty="-42.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="191" duration="17" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="217" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2" centerPoint3DX="41.3" centerPoint3DY="-21.95">
+                  <matrix>
+                    <Matrix a="8.42535400390625" d="3.674560546875" tx="-48.3" ty="-33.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.65" y="7.65"/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="218" duration="12" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="236" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="44.9" centerPoint3DY="-26.65">
+                  <matrix>
+                    <Matrix a="3.84634399414063" d="4.35916137695313" tx="13.8" ty="-38.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="237" duration="17" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="254" duration="24" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="278" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="283" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="46.9" centerPoint3DY="-26.65">
+                  <matrix>
+                    <Matrix a="3.84527587890625" d="4.35916137695313" tx="15.85" ty="-38.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="284" duration="36" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="320" duration="14" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="334" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="343" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="352" duration="10" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="362" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="364" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="36.15" centerPoint3DY="-22">
+                  <matrix>
+                    <Matrix a="3.84527587890625" d="4.35916137695313" tx="5.2" ty="-33.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="365" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="384" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="392" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="101.2" centerPoint3DY="-40">
+                  <matrix>
+                    <Matrix a="3.84722900390625" d="5.700439453125" tx="7.85" ty="-51.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="393" duration="17" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="410" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="414" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="420" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit2.width = hit2.width + (hit2.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit2" centerPoint3DX="72" centerPoint3DY="-68.2">
+                  <matrix>
+                    <Matrix a="3.20681762695313" d="7.67991638183594" tx="15.45" ty="-80"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="421" duration="23" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" duration="7" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="460" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="-1.25" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix a="8.39938354492188" d="2.85826110839844" tx="-34.15" ty="-22.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="461" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="462" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="51.35" centerPoint3DY="-38.5">
+                  <matrix>
+                    <Matrix a="5.96902465820313" d="5.700439453125" tx="-16.9" ty="-50"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="463" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="482" duration="15" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="497" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="500" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit4" centerPoint3DX="24.15" centerPoint3DY="-3.95">
+                  <matrix>
+                    <Matrix a="5.17538452148438" d="3.96316528320313" tx="-9.05" ty="-26.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="501" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="9" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="534" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="16.9" centerPoint3DY="-20.05">
+                  <matrix>
+                    <Matrix a="3.63032531738281" d="6.24253845214844" tx="-16.25" ty="-42.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="535" duration="25" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="560" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="562" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="64.8" centerPoint3DY="-40.15">
+                  <matrix>
+                    <Matrix a="2.7532958984375" d="6.24253845214844" tx="31.9" ty="-62.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="563" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="582" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="584" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="26.3" centerPoint3DY="-47.25">
+                  <matrix>
+                    <Matrix a="2.91806030273438" d="6.80101013183594" tx="-6.65" ty="-69.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="585" duration="14" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="599" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="605" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="43.4" centerPoint3DY="-19.8">
+                  <matrix>
+                    <Matrix a="3.01399230957031" d="5.30514526367188" tx="10.45" ty="-41.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="606" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="625" duration="7" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="632" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="82.65" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix a="4.48954772949219" d="4.43765258789063" tx="3.55" ty="-35.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="633" duration="8" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="641" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="82.65" centerPoint3DY="-23.65">
+                  <matrix>
+                    <Matrix a="4.48954772949219" d="4.43765258789063" tx="3.55" ty="-35.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="642" duration="19" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="661" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="664" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="669" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="87.15" centerPoint3DY="-29">
+                  <matrix>
+                    <Matrix a="4.48954772949219" d="3.674560546875" tx="8" ty="-40.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="670" duration="22" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="692" duration="3" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="695" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="700" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="80.15" centerPoint3DY="-25">
+                  <matrix>
+                    <Matrix a="4.48954772949219" d="3.674560546875" tx="1" ty="-36.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="701" duration="14" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="715" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="720" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="65.2" centerPoint3DY="-30.15">
+                  <matrix>
+                    <Matrix a="2.56546020507813" d="3.674560546875" tx="20" ty="-41.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="721" duration="8" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="729" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="82.05" centerPoint3DY="-30.15">
+                  <matrix>
+                    <Matrix a="4.48954772949219" d="3.674560546875" tx="2.95" ty="-41.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="730" duration="13" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="743" duration="18" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="761" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3" centerPoint3DX="13.35" centerPoint3DY="-11.8">
+                  <matrix>
+                    <Matrix a="6.53450012207031" d="9.02890014648438" tx="-20.2" ty="-70.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="762" duration="32" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="794" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="798" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[hit.width = hit.width + (hit.width * extraRange);]]></script>
+              </Actionscript>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit" centerPoint3DX="86.5" centerPoint3DY="-21.25">
+                  <matrix>
+                    <Matrix a="4.48954772949219" d="3.674560546875" tx="7.4" ty="-32.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redOffset="167" blueOffset="-27" greenOffset="183"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="799" duration="16" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="815" duration="31" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="846" duration="63" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="911" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit6" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="912" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="918" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="920" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit6" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="921" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="927" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="929" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit6" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="930" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="936" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="937" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="938" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit6" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="939" duration="6" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="945" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="946" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit6" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="947" duration="7" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="954" duration="12" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="966" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit6" centerPoint3DX="28.45" centerPoint3DY="-1.45">
+                  <matrix>
+                    <Matrix a="4.37020874023438" d="6.0384521484375" tx="-5.4" ty="-61.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="967" duration="27" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clips" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack" symbolType="graphic" firstFrame="1" loop="play once">
+                  <matrix>
+                    <Matrix a="1.11305236816406" d="1.11305236816406" tx="36.15" ty="-13.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-18.3" y="-1.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="25" duration="25" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack2" symbolType="graphic" firstFrame="1" loop="loop">
+                  <matrix>
+                    <Matrix a="1.00178527832031" d="1.00178527832031" tx="31.55" ty="-9.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-21.85" y="-3.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" duration="28" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack6" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.947479248046875" d="0.947479248046875" tx="8.2" ty="-5.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5" y="-18.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="90" duration="34" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack10" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.806900024414063" d="0.806900024414063" tx="-11.6" ty="-35.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="124" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack14" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.809127807617188" d="0.809127807617188" tx="-5.55" ty="-37.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="129" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-charge-dust-01" centerPoint3DX="10.7" centerPoint3DY="-13.05">
+                  <matrix>
+                    <Matrix a="1.20867919921875" d="1.38931274414063" tx="10.6" ty="35.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-49.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack13" name="chargeClip">
+                  <matrix>
+                    <Matrix tx="5.4" ty="-7.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="130" duration="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack12" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="14.2" ty="37.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="163" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="185" duration="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-atack3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.922561645507813" d="0.922561645507813" tx="32.8" ty="-4.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-41.8" y="-10.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="208" duration="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack26" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-2.75" ty="36.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="230" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="235" duration="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack4" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.836593627929688" d="0.836593627929688" tx="17.7" ty="-0.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-27.55" y="-1.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="254" duration="20" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="274" duration="25" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack5" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.8995361328125" d="0.8995361328125" tx="21.4" ty="-3.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-38.1" y="-10.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="299" duration="21" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="320" duration="14" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack28" symbolType="graphic" firstFrame="1" loop="play once">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="-1.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="334" duration="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack15" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="24.6" ty="3.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="343" duration="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack9" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="4.2" ty="7.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="352" duration="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack8" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="27.95" ty="-1.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="362" duration="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack8" symbolType="graphic" firstFrame="10" centerPoint3DX="-3.7" centerPoint3DY="-6.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="27.95" ty="-1.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="384" duration="26" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack8" symbolType="graphic" firstFrame="33" centerPoint3DX="-3.7" centerPoint3DY="-6.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="27.95" ty="-1.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="410" duration="34" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack11" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-15.6" ty="-54.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="444" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="453" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-atttack29">
+                  <matrix>
+                    <Matrix tx="-11" ty="-4.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="459" duration="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack17" symbolType="graphic" firstFrame="16" centerPoint3DX="16.85" centerPoint3DY="-4.35" loop="loop">
+                  <matrix>
+                    <Matrix tx="54.1" ty="-16"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="482" duration="15" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack18" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-8.15" ty="36.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="497" duration="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack18" symbolType="graphic" firstFrame="15" centerPoint3DX="-0.85" centerPoint3DY="-15.9" loop="loop">
+                  <matrix>
+                    <Matrix tx="-8.15" ty="36.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="520" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="525" duration="35" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="27.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="560" duration="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.912689208984375" d="0.912689208984375" tx="-3.35" ty="35.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="582" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.905471801757813" d="0.9683837890625" tx="3" ty="34.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-21.85" y="-42.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="599" duration="26" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack4" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.89794921875" d="0.89794921875" tx="10.45" ty="34.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-7.7" y="-40.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="625" duration="36" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack25" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.788055419921875" d="0.788055419921875" tx="-20.8" ty="-16.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="661" duration="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack21" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-15.45" ty="-55.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="692" duration="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack22" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.810089111328125" d="0.810089111328125" tx="-12.45" ty="-54.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="13.85" y="53.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="715" duration="28" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack24" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-2.5" ty="-7.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="743" duration="45" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack20" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-4.3" ty="-13.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="788" duration="27" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack19" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.886032104492188" d="0.886032104492188" tx="-2.75" ty="-0.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="815" duration="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack8" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="27.95" ty="-1.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="825" duration="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack8" symbolType="graphic" firstFrame="10" centerPoint3DX="-3.7" centerPoint3DY="-6.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="27.95" ty="-1.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="846" duration="62" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-anim-preulti" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.856201171875" d="0.8560791015625" tx="-3.95" ty="35.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="908" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="909" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack4 copy" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.89794921875" d="0.89794921875" tx="10.45" ty="34.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-7.7" y="-40.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="913" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack4 copy" symbolType="graphic" firstFrame="8" centerPoint3DX="-8.85" centerPoint3DY="-23.3" loop="loop">
+                  <matrix>
+                    <Matrix a="0.89794921875" d="0.89794921875" tx="10.45" ty="34.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-7.7" y="-40.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="915" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-00" centerPoint3DX="9.3" centerPoint3DY="-31.6">
+                  <matrix>
+                    <Matrix d="1.24673461914063" tx="9.3" ty="-24.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="59"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="918" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack21" symbolType="graphic" firstFrame="5" loop="loop">
+                  <matrix>
+                    <Matrix tx="-15.85" ty="-54.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="923" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-01" centerPoint3DX="28.8" centerPoint3DY="-2.65">
+                  <matrix>
+                    <Matrix a="1.40196228027344" tx="12.5" ty="-2.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-8.35"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="66" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="925" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-01" centerPoint3DX="-1.8" centerPoint3DY="-2.65">
+                  <matrix>
+                    <Matrix a="1.40196228027344" tx="-18.1" ty="-2.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-8.35"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="66" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="927" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack24" symbolType="graphic" firstFrame="11" loop="loop">
+                  <matrix>
+                    <Matrix tx="-2.45" ty="-6.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="931" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-02">
+                  <matrix>
+                    <Matrix d="1.10020446777344" tx="-25.9" ty="-18.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="27"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="933" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-02" centerPoint3DX="-25.9" centerPoint3DY="-17.4">
+                  <matrix>
+                    <Matrix d="1.25273132324219" tx="-25.9" ty="-6.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="60"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="936" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Anims/LW-Attack-Anim-airAttack copy" symbolType="graphic" firstFrame="7" loop="loop">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="27.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="940" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-03">
+                  <matrix>
+                    <Matrix tx="-9.1" ty="-13.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="26" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="942" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-03">
+                  <matrix>
+                    <Matrix a="1.33999633789063" tx="16.3" ty="-13.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="64" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="945" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack25" symbolType="graphic" firstFrame="15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.788055419921875" d="0.788055419921875" tx="-20.55" ty="-16.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="950" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-04">
+                  <matrix>
+                    <Matrix tx="-11.25" ty="-3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="27"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="952" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/SLW-Ulti-Blur-04">
+                  <matrix>
+                    <Matrix d="1.47697448730469" tx="-11.25" ty="21.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="39"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="954" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-attack20" symbolType="graphic" firstFrame="5" loop="loop">
+                  <matrix>
+                    <Matrix tx="-4.55" ty="-13.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

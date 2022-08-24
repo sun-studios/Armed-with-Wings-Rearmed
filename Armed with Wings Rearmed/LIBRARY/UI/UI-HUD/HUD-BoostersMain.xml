@@ -1,0 +1,355 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-BoostersMain" itemID="58fdff75-00001142" lastModified="1496672033" lastUniqueIdentifier="15">
+  <timeline>
+    <DOMTimeline name="HUD-BoostersMain">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var playerID:int;
+var gameData:MovieClip;
+var fadein:Boolean = true;
+var isEagle:Boolean;
+var pString:String = "";
+var gear0:Number;
+var gear1:Number;
+var gear2:Number;
+var gear3:Number;
+
+function init(id:int):void {
+	playerID = id;
+	gameData = MovieClip(root);
+	if (id == 2) {
+		pString = "_p2";
+	} else {
+		pString = "";
+	}
+}
+
+function fadeUpdate ():void {
+	if (fadein) {
+		if (alpha < 1) alpha += .1;
+	} else {
+		if (alpha > 0) alpha -= .1;
+	}
+}
+
+//FIND - HUD Booster
+function update():void {
+	gear0 = gameData["data_equiptedGear"+0+pString];
+	gear1 = gameData["data_equiptedGear"+1+pString];
+	gear2 = gameData["data_equiptedGear"+2+pString];
+	gear3 = gameData["data_equiptedGear"+3+pString];
+	panelEquiptment0.clip.gearIcon.gotoAndStop(gear0+1);
+	panelEquiptment1.clip.gearIcon.gotoAndStop(gear1+1);
+	panelEquiptment2.clip.gearIcon.gotoAndStop(gear2+1);
+	panelEquiptment3.clip.gearIcon.gotoAndStop(gear3+1);
+	
+	//FIND - fix
+	var arr:Array = new Array();
+	var boostPan:MovieClip;
+	var weapBoostersArr:Array = gameData.dataGetWeapBoosterFromID(gameData.data_equiptedWeapon);
+	for (var i:int = 0; i < 4; i ++) {
+		boostPan = this["panelEquiptment"+i];
+		//Gear empty
+		if (this["gear"+i] == 0) {
+			//slot available
+			boostPan.clip.gearIcon.gotoAndStop("free");
+			boostPan.clip.buttonClip.gotoAndStop("none");
+			if (weapBoostersArr[i] && weapBoostersArr[i][0] == 0) {
+				boostPan.visible = true;
+				//if passive
+				if (weapBoostersArr[i][1]) {
+					//if ability
+					boostPan.clip.gotoAndStop("X");
+					if (i == 1) boostPan.clip.gotoAndStop("Y");
+				} else {
+					boostPan.clip.gotoAndStop("none");
+				}
+			} else {
+				//dont display booster
+				boostPan.visible = false;
+				boostPan.clip.gotoAndStop("none");
+				
+			}
+		} else {
+			//display booster
+			boostPan.visible = true;
+			boostPan.clip.buttonClip.gotoAndStop("none");
+			boostPan.clip.gotoAndStop("none");
+			arr.push(boostPan);
+			
+			if (weapBoostersArr[i]) {
+				if (weapBoostersArr[i][1]) {
+					//change booster visual if Ability Booster - X 
+					boostPan.clip.gotoAndStop(2);
+					boostPan.clip.buttonClip.gotoAndStop("X");
+					if (i == 1) {
+						//change visual for Ability Y
+						boostPan.clip.gotoAndStop(3);
+						boostPan.clip.buttonClip.gotoAndStop("Y");
+					}
+				}
+			}
+		}
+	}
+}
+
+function hideCoolDowns():void {
+	panelEquiptment0.clip.refreshClip.visible = false;
+	panelEquiptment1.clip.refreshClip.visible = false;
+	panelEquiptment2.clip.refreshClip.visible = false;
+	panelEquiptment3.clip.refreshClip.visible = false;
+}
+
+function displayByID(id:int):void {
+	gear0 = 0;
+	gear1 = 0;
+	gear2 = 0;
+	gear3 = 0;
+	
+	var boostersArr:Array = gameData.dataGetWeapBoosterFromID(id);
+	if (boostersArr[0]) gear0 = boostersArr[0][0];
+	if (boostersArr[1]) gear1 = boostersArr[1][0];
+	if (boostersArr[2]) gear2 = boostersArr[2][0];
+	if (boostersArr[3]) gear3 = boostersArr[3][0];
+	
+	panelEquiptment0.clip.gearIcon.gotoAndStop(gear0+1);
+	panelEquiptment1.clip.gearIcon.gotoAndStop(gear1+1);
+	panelEquiptment2.clip.gearIcon.gotoAndStop(gear2+1);
+	panelEquiptment3.clip.gearIcon.gotoAndStop(gear3+1);
+	
+	panelEquiptment0.clip.buttonClip.visible = false;
+	panelEquiptment1.clip.buttonClip.visible = false;
+	panelEquiptment2.clip.buttonClip.visible = false;
+	panelEquiptment3.clip.buttonClip.visible = false;
+	
+	//FIND - fix
+	var arr:Array = new Array();
+	var boostPan:MovieClip;
+	var weapBoostersArr:Array = gameData.dataGetWeapBoosterFromID(id);
+	for (var i:int = 0; i < 4; i ++) {
+		boostPan = this["panelEquiptment"+i];
+		//Gear empty
+		if (this["gear"+i] == 0) {
+			//slot available
+			boostPan.clip.gearIcon.gotoAndStop("free");
+			boostPan.clip.buttonClip.gotoAndStop("none");
+			if (weapBoostersArr[i] && weapBoostersArr[i][0] == 0) {
+				boostPan.visible = true;
+				//if passive
+				if (weapBoostersArr[i][1]) {
+					//if ability
+					boostPan.clip.gotoAndStop("X");
+					if (i == 1) boostPan.clip.gotoAndStop("Y");
+				} else {
+					boostPan.clip.gotoAndStop("none");
+				}
+			} else {
+				//dont display booster
+				boostPan.visible = false;
+				boostPan.clip.gotoAndStop("none");
+				
+			}
+		} else {
+			//display booster
+			boostPan.visible = true;
+			boostPan.clip.buttonClip.gotoAndStop("none");
+			boostPan.clip.gotoAndStop("none");
+			arr.push(boostPan);
+			
+			if (weapBoostersArr[i][1]) {
+				//change booster visual if Ability Booster - X 
+				boostPan.clip.gotoAndStop(2);
+				boostPan.clip.buttonClip.gotoAndStop("X");
+				if (i == 1) {
+					//change visual for Ability Y
+					boostPan.clip.gotoAndStop(3);
+					boostPan.clip.buttonClip.gotoAndStop("Y");
+				}
+			}
+		}
+	}
+}
+
+function updateEagle (_isEagle:Boolean):void {
+	isEagle = _isEagle;
+	
+	var boostPan:MovieClip;
+	for (var i:int = 0; i < 4; i ++) {
+		boostPan = this["panelEquiptment"+i];
+	
+		if (isEagle) {
+			if (gameData["data_gear"+this["gear"+i]+"_eagleEnabled"]) {
+				boostPan.visible = true;
+			} else {
+				boostPan.visible = false;
+			}
+		} else {
+			update();
+		}
+	}
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                        <VariablePointWidth>
+                          <WidthMarker position="0" left="0" right="0" type="corner"/>
+                          <WidthMarker position="0.12" left="0.5" right="0.5"/>
+                          <WidthMarker position="0.14" left="0.5" right="0.5"/>
+                          <WidthMarker position="0.86" left="0.5" right="0.5"/>
+                          <WidthMarker position="0.88" left="0.5" right="0.5"/>
+                          <WidthMarker position="1" left="0" right="0" type="corner"/>
+                        </VariablePointWidth>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-153 300|-114 261!-114 261|-75 300!-75 300|-114 339!-114 339|-153 300"/>
+                    <Edge strokeStyle="1" edges="!-114 228|-114 16!-114 580|-114 368"/>
+                  </edges>
+                </DOMShape>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panelEquiptment0" uniqueID="1">
+                  <matrix>
+                    <Matrix a="0.344100952148438" d="0.344100952148438" tx="18.25" ty="15.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="-2.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panelEquiptment1" uniqueID="2">
+                  <matrix>
+                    <Matrix a="0.344100952148438" d="0.344100952148438" tx="54.2" ty="15.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="-2.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panelEquiptment2" uniqueID="3">
+                  <matrix>
+                    <Matrix a="0.344100952148438" d="0.344100952148438" tx="90.1" ty="15.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="-2.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container2" name="panelEquiptment3" uniqueID="4">
+                  <matrix>
+                    <Matrix a="0.344100952148438" d="0.344100952148438" tx="126.05" ty="15.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="-2.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-10" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.305328369140625" d="0.305328369140625" tx="16.8" ty="14.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-10" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.30535888671875" d="0.30535888671875" tx="54.25" ty="14.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.35" y="-0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-10" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.30535888671875" d="0.30535888671875" tx="126.1" ty="14.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.35" y="0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-10" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.30535888671875" d="0.30535888671875" tx="90.2" ty="14.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

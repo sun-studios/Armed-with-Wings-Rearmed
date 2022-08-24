@@ -1,0 +1,75 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-C/LVL-C-SwitchFunction3" itemID="55dddd0f-00000b29" lastModified="1478863630">
+  <timeline>
+    <DOMTimeline name="LVL-C-SwitchFunction3">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var totum:MovieClip;
+var gate1:MovieClip;
+var flag1:Boolean;
+
+init ();
+
+function init ():void {
+	totum = MovieClip(parent).totum;
+	gate1 = MovieClip(parent).ground.gate1;
+	flag1 = false;
+	visible = false;
+}
+
+function update ():void {
+	if (!flag1) {
+		if (totum.switchState == "ON") {
+			gate1.gotoAndPlay(2);
+			flag1 = true;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -368S2|873 -368!873 -368|873 367!873 367|-872 367!-872 367|-872 -368"/>
+                    <Edge cubics="!873 -368(873,-368;873,-368 873,367 873,367q873 -368 873 367)873,367;"/>
+                    <Edge cubics="!-872 367(;-872,367 -872,-368 -872,-368q-872 367 -872 -368);"/>
+                    <Edge cubics="!873 367(;873,367 -872,367 -872,367q873 367 -872 367);"/>
+                    <Edge cubics="!-872 -368(;-872,-368 873,-368 873,-368q-872 -368 873 -368);"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText selected="true" width="96.2" height="52" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>switch &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

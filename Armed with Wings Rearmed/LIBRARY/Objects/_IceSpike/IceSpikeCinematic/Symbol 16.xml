@@ -1,0 +1,327 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_IceSpike/IceSpikeCinematic/Symbol 16" itemID="570b9fae-00000afe" linkageExportForAS="true" linkageClassName="IceSpikeCinema" lastModified="1460549804" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="Symbol 16" currentFrame="18">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" duration="34" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(root).playHitHardSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).removeChild(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <RadialGradient>
+                            <matrix>
+                              <Matrix a="0.189926147460938" d="0.0045166015625" tx="107.45" ty="-0.5"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="0.329411764705882"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.823529411764706" ratio="0.356862745098039"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.650980392156863" ratio="0.486274509803922"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </RadialGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!5216 -10[5216 20 4317 42!4317 42[3419 63 2149 63!2149 63[880 63 -18 42!-18 42[-917 20 -917 -10!-917 -10[-917 -40 -18 -62!-18 -62[880 -83 2149 -83!2149 -83[3419 -83 4317 -62!4317 -62[5216 -40 5216 -10"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <RadialGradient>
+                            <matrix>
+                              <Matrix a="0.159530639648438" d="0.0102691650390625" tx="81.45" ty="-0.5"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="0.329411764705882"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.823529411764706" ratio="0.356862745098039"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.650980392156863" ratio="0.486274509803922"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </RadialGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!4205 -10[4205 59 3450 108!3450 108[2695 156 1629 156!1629 156[563 156 -192 108!-192 108[-947 59 -947 -10!-947 -10[-947 -78 -192 -127!-192 -127[563 -175 1629 -175!1629 -175[2695 -175 3450 -127!3450 -127[4205 -78 4205 -10"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <RadialGradient>
+                            <matrix>
+                              <Matrix a="0.138168334960938" d="0.0308685302734375" tx="35.9" ty="-0.45"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="0.329411764705882"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.823529411764706" ratio="0.356862745098039"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.650980392156863" ratio="0.486274509803922"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </RadialGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!2949 -9[2949 198 2295 344!2295 344[1641 490 718 490!718 490[-205 490 -859 344!-859 344[-1513 198 -1513 -9!-1513 -9[-1513 -215 -859 -361!-859 -361[-205 -507 718 -507!718 -507[1641 -507 2295 -361!2295 -361[2949 -215 2949 -9"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15" centerPoint3DX="-2.5">
+                  <matrix>
+                    <Matrix a="1.09574890136719" d="0.818496704101563" tx="-2.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.39" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15" centerPoint3DX="-348.2">
+                  <matrix>
+                    <Matrix a="1.09574890136719" d="0.818496704101563" tx="-348.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redMultiplier="0.48046875" blueMultiplier="0.48046875" greenMultiplier="0.48046875" redOffset="132" blueOffset="132" greenOffset="132"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15" centerPoint3DX="-374.6">
+                  <matrix>
+                    <Matrix a="1.09574890136719" d="0.818496704101563" tx="-374.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.55" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" duration="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/HitSplash/splash3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.6964111328125" d="0.6964111328125" tx="-385.5" ty="-4.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-10.7" y="6.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="13" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15">
+                  <matrix>
+                    <Matrix a="0.318496704101563" d="0.318496704101563" tx="52"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15">
+                  <matrix>
+                    <Matrix tx="19.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15" centerPoint3DX="14.4">
+                  <matrix>
+                    <Matrix a="1.16206359863281" d="0.68115234375" tx="14.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="89">
+              <tweens>
+                <Ease target="all" intensity="89"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15" centerPoint3DX="7.75">
+                  <matrix>
+                    <Matrix a="1.13236999511719" d="0.728805541992188" tx="7.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.29" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="53">
+              <tweens>
+                <Ease target="all" intensity="53"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15" centerPoint3DX="-2.5">
+                  <matrix>
+                    <Matrix a="1.09574890136719" d="0.818496704101563" tx="-2.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="96" blurY="0"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.39" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15" centerPoint3DX="-261.05">
+                  <matrix>
+                    <Matrix a="2.010009765625" d="0.529815673828125" tx="-260.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="156.07763671875" blurY="0"/>
+                  </filters>
+                  <color>
+                    <Color redMultiplier="0.5" blueMultiplier="0.5" greenMultiplier="0.5" redOffset="128" blueOffset="128" greenOffset="128"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_IceSpike/IceSpikeCinematic/Symbol 15" centerPoint3DX="-374.8">
+                  <matrix>
+                    <Matrix a="2.37406921386719" d="0.41485595703125" tx="-303.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="180" blurY="0"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.55" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" duration="34" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

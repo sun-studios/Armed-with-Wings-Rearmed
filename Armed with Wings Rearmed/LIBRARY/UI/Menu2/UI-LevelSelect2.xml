@@ -1,0 +1,137 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/UI-LevelSelect2" itemID="5669283c-0000097c" linkageExportForAS="true" linkageClassName="LevelSelect2" lastModified="1492881136" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="UI-LevelSelect2" currentFrame="1">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Strong;
+
+var levelSelectMenu:MovieClip;
+var titleClip:MovieClip;
+
+
+var go:Boolean;
+
+function init ():void {
+	go = true;
+	//TweenMax.to(titleClip, .65, {x:400, ease:Strong.easeOut});
+	gotoAndStop(2);
+	
+	visible = true;
+}
+function close ():void {
+	go = false;
+	visible = false;
+	gotoAndStop(1);
+}
+
+function update ():void {
+	if (go) {
+		if (levelSelectMenu.update) {
+			levelSelectMenu.update();
+			if (levelSelectMenu) {
+				if (levelSelectMenu.displayMenu1) {
+					titleClip.x += (-785 - titleClip.x)/6;
+					titleClip2.x += (400 - titleClip2.x)/6;
+				} else {
+					titleClip.x += ((400 - (levelSelectMenu.currentSelIndex * 6) - titleClip.x)/4);
+					titleClip2.x += (1166 - titleClip2.x)/6;
+				}
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="guide" color="#4F80FF" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!0 0|16000 0!16000 0|16000 9000!16000 9000|0 9000!0 9000|0 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-LevelSelectTitle" name="titleClip">
+                  <matrix>
+                    <Matrix a="0.832611083984375" d="0.832611083984375" tx="400" ty="48.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Difficulty-Title" name="titleClip2">
+                  <matrix>
+                    <Matrix tx="1166.45" ty="54.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/UI-LevelSelect" name="levelSelectMenu">
+                  <matrix>
+                    <Matrix tx="81.15" ty="242.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/ScrollBar/Scroll" name="LevelScrollBar">
+                  <matrix>
+                    <Matrix tx="18.6" ty="401.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

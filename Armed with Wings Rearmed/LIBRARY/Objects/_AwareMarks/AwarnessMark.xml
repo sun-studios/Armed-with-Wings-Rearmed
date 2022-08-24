@@ -1,0 +1,67 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_AwareMarks/AwarnessMark" itemID="56f66dde-000043ad" linkageExportForAS="true" linkageClassName="AwareMark" lastModified="1459248879" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="AwarnessMark" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var id:Number;
+var master:MovieClip;
+var follow:Boolean;
+
+var offsetX:Number;
+
+stop();
+
+function init (_id:Number = 0, _master:MovieClip = null, _follow:Boolean = false):void {
+	id = _id;
+	master = _master;
+	follow = _follow;
+	
+	offsetX = master.x - x;
+	
+	gotoAndStop(id+1);
+}
+
+function update ():void {
+	
+	x += ((master.x+offsetX) - x)/3;
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_AwareMarks/Exclamation/Exclamation">
+                  <transformationPoint>
+                    <Point x="0.25" y="-22.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_AwareMarks/QuestionMarkk/QuestionMark" selected="true" centerPoint3DX="0.25" centerPoint3DY="-22.05">
+                  <transformationPoint>
+                    <Point x="0.25" y="-22.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

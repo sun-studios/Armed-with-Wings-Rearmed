@@ -1,0 +1,221 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-SuperLoneWarrior/assets/anim/SLW-pose3" itemID="587a4edf-00000da9" lastModified="1484410605">
+  <timeline>
+    <DOMTimeline name="SLW-pose3">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="37" name="getup" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="37" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="20" name="teleport" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 3);
+stop();
+MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" duration="22" name="winPose" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="88" duration="50" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndThunder9);
+MovieClip(parent.parent).vcam.shakeCamera(30);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="38" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="101" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-recover2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-13.7" ty="-38.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-recover2" symbolType="graphic" firstFrame="7" centerPoint3DX="6.25" centerPoint3DY="-46.85" loop="loop">
+                  <matrix>
+                    <Matrix tx="-13.7" ty="-38.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.44" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-recover2" symbolType="graphic" firstFrame="17" centerPoint3DX="6.25" centerPoint3DY="-46.85" loop="loop">
+                  <matrix>
+                    <Matrix tx="-13.7" ty="-38.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-recover2" symbolType="graphic" firstFrame="23" centerPoint3DX="6.25" centerPoint3DY="-46.85" loop="loop">
+                  <matrix>
+                    <Matrix tx="-13.7" ty="-38.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="32" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-recover2" symbolType="graphic" firstFrame="32" centerPoint3DX="6.25" centerPoint3DY="-46.85" loop="loop">
+                  <matrix>
+                    <Matrix tx="-13.7" ty="-38.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" duration="21" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle" centerPoint3DX="-13.65" centerPoint3DY="-173">
+                  <matrix>
+                    <Matrix a="0.553146362304688" d="0.5130615234375" tx="0.05" ty="-136.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="94"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle" centerPoint3DX="-14.1" centerPoint3DY="-41.95">
+                  <matrix>
+                    <Matrix a="0.453048706054688" d="1.62483215332031" tx="0.05" ty="-5.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="83"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle" name="idle">
+                  <matrix>
+                    <Matrix a="1.10832214355469" d="0.927658081054688" tx="-13.35" ty="1.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-39.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="51"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle" name="idle" centerPoint3DX="-12" centerPoint3DY="-35.35">
+                  <matrix>
+                    <Matrix tx="-11.95" ty="4.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-39.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" duration="73" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-victory" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="0.947341918945313" d="0.947341918945313" tx="-45.25" ty="-43.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="59.7" y="8.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

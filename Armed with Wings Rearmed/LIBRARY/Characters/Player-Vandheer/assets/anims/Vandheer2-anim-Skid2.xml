@@ -1,0 +1,85 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-Skid2" itemID="567aa7b8-00000851" lastModified="1450878904">
+  <timeline>
+    <DOMTimeline name="Vandheer2-anim-Skid2" currentFrame="10">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-skid" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="-0.898757934570313" d="0.898757934570313" tx="-11.7" ty="-30.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-12.9" y="33.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-skid" symbolType="graphic" firstFrame="4" centerPoint3DX="3.1" centerPoint3DY="-6.9" loop="play once">
+                  <matrix>
+                    <Matrix a="-0.898757934570313" d="0.898757934570313" tx="-11.7" ty="-30.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-12.9" y="33.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-skid" selected="true" symbolType="graphic" firstFrame="8" centerPoint3DX="3.1" centerPoint3DY="-6.9" loop="play once">
+                  <matrix>
+                    <Matrix a="-0.898757934570313" d="0.898757934570313" tx="-11.7" ty="-30.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-12.9" y="33.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-skid" selected="true" symbolType="graphic" firstFrame="12" centerPoint3DX="3.1" centerPoint3DY="-6.9" loop="play once">
+                  <matrix>
+                    <Matrix a="-0.898757934570313" d="0.898757934570313" tx="-11.7" ty="-30.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-12.9" y="33.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-skid" symbolType="graphic" firstFrame="15" centerPoint3DX="3.1" centerPoint3DY="-6.9" loop="play once">
+                  <matrix>
+                    <Matrix a="-0.898757934570313" d="0.898757934570313" tx="-11.7" ty="-30.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-12.9" y="33.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

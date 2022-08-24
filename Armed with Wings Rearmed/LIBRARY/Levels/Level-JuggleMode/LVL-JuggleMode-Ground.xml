@@ -1,0 +1,86 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-JuggleMode/LVL-JuggleMode-Ground" itemID="57e7e901-0000128c" lastModified="1493037086">
+  <timeline>
+    <DOMTimeline name="LVL-JuggleMode-Ground">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="-6.35464477539063" d="19.8101806640625" tx="-970.45" ty="-990.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="-6.51313781738281" d="19.1391448974609" tx="814.75" ty="-960.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="-54.0356140136719" d="5.07768249511719" tx="-76.65" ty="-1662.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="-525.95" centerPoint3DY="-145.7">
+                  <matrix>
+                    <Matrix a="0.739593505859375" d="0.628997802734375" tx="-525.95" ty="-182.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="-52.25" centerPoint3DY="-145.6">
+                  <matrix>
+                    <Matrix a="1.05911254882813" d="1.23834228515625" tx="-66.3" ty="-122.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="361.7" centerPoint3DY="-145.7">
+                  <matrix>
+                    <Matrix a="0.739593505859375" d="0.628997802734375" tx="361.7" ty="-182.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

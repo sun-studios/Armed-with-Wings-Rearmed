@@ -1,0 +1,181 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-JuggleMode/LVL-JuggleMode-BGScore" itemID="57e7e91a-0000128f" lastModified="1572442516" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="LVL-JuggleMode-BGScore">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var vcam:MovieClip;
+var camHelper:MovieClip;
+var _parent:MovieClip;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+
+var cacheNewBest:Number = 0;
+
+init();
+
+function init ():void {
+	_parent = MovieClip(parent);
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	hero = _parent.hero;
+	camHelper = _parent.camHelper;
+	vcam = _parent.vcam;
+	
+	updateBestDisplay();
+}
+
+function update ():void {
+	
+	updateCounter();
+	updatePosition();
+	
+	if (topScoreIsBeaten()) {
+		gameData.juggleModeBest = gameData.sessionCombo;
+		cacheNewBest = gameData.juggleModeBest
+		updateBestDisplay();
+		vcam.shakeCamera(50);
+		gameData.freezeFrame.attackFreeze(40);
+		gameData.sky.hudFlash.gotoAndPlay(2);
+		sndCtrl.playSound(sndCtrl.sndNewCombo);
+		gameData.saveData();
+	}
+	
+	if (_parent.en0.onGround) {
+		if (_parent.en0.currentFrameLabel == "idle") {
+			gameData.sessionCombo = 0;
+		}
+		//if (_parent.en0.currentFrameLabel == "hurt" && 
+			//!_parent.en0.hurt.bouncing) {
+			//gameData.sessionCombo = 0;
+		//}
+	}
+	
+	if (hero.control.ctrl_char_swap) {
+		gameData.juggleModeBest = 0;
+		updateBestDisplay();
+	}
+}
+
+function topScoreIsBeaten():Boolean {
+	if (gameData.sessionCombo > gameData.juggleModeBest) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function updateCounter():void {
+	var comboString:String = ""+gameData.sessionCombo;
+	
+	if (comboString.length > 1) {
+		d0.clip.num_tf.text = comboString.charAt(0);
+		d1.clip.num_tf.text = comboString.charAt(1);
+	} else {
+		d0.clip.num_tf.text = "0";
+		d1.clip.num_tf.text = comboString;
+	}
+}
+
+function updatePosition ():void {
+	x += (camHelper.x - x)/10;
+	y += ((camHelper.y - 200) - y)/10;
+}
+
+function updateBestDisplay():void {
+	best_tf.text = ""+gameData.juggleModeBest;
+	if (best_tf.text.length == 1) {
+		best_tf.text = "0"+best_tf.text;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="233.15" height="33" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-128.05" ty="105.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>CURRENT    BEST</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="2.5" lineSpacing="0" lineHeight="33" size="22" bitmapSize="440" face="Font 1*" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="8" blurY="8"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMDynamicText name="best_tf" fontRenderingMode="standard" left="-26.55" width="73.05" height="44.8" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="1.03790283203125" d="1.03790283203125" tx="51.2" ty="97.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="44.8" size="50" bitmapSize="1000" face="Font 7*" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <GlowFilter blurX="10" blurY="10"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-JuggleMode/LVL-JuggleMode-BGSCore-Numb" name="d0">
+                  <matrix>
+                    <Matrix tx="-62.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-JuggleMode/LVL-JuggleMode-BGSCore-Numb" name="d1">
+                  <matrix>
+                    <Matrix tx="62.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

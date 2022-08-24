@@ -1,0 +1,245 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 76" itemID="580c60ae-00005340" lastModified="1501749835" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="Symbol 76" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-200&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+import flash.events.MouseEvent;
+import flash.display.MovieClip;
+
+var ctrl:PlayerControl;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+
+//break peroid of no input.
+var breakIndex:int = 8;
+var breakIndexOrig:int = 8;
+
+var go:Boolean;
+var go2:Boolean;
+
+var maxSel:int;
+var currentSelIndex:int;
+var currentClip:MovieClip = arrRight;
+var currentIsLocked:Boolean;
+
+var menuName:String = "WAVESELECT";
+
+function init (keepIndex:Boolean = false):void {
+	keyFilter0 = true;
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	
+	breakIndex = breakIndexOrig;
+	
+	ctrl = MovieClip(root).player1Control;
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	
+	
+	go = true;
+	
+	//maxSel = gameData.survivalScoreData[gameData.sessionSurvivalArena][1]-1;
+	maxSel = 9;
+	if (!keepIndex) currentSelIndex = 0;
+	if (maxSel > 9) maxSel = 9;
+	
+	clip._display(currentSelIndex);
+	
+	TweenMax.delayedCall(20, function () {go2 = true; }, null, true);
+	
+	
+}
+
+function update ():void {
+	if (go) {		
+		//left
+		if (ctrl.ctrl_left) {
+			if (!keyFilter0) {
+				
+				if (currentSelIndex > 0) {
+					currentClip = arrLeft;
+					sndCtrl.playSound(sndCtrl.sndButton1);
+					currentSelIndex --;
+					updateStartWave(-1);
+				}
+				
+				keyFilter0 = true;
+			}
+		} else {
+			keyFilter0 = false;
+		}
+		
+		//right
+		if (ctrl.ctrl_right) {
+			if (!keyFilter1) {
+				if (currentSelIndex < maxSel) {
+					currentClip = arrRight;
+					sndCtrl.playSound(sndCtrl.sndButton1);
+					currentSelIndex ++;
+					updateStartWave(1);
+				}
+				keyFilter1 = true;
+			}
+			
+		} else {
+			keyFilter1 = false;
+		}
+		
+		//confirm
+		
+		if (ctrl.ctrl_confirmStart) {
+			if (!keyFilter2) {
+				if (currentIsLocked) {
+					sndCtrl.playSound(sndCtrl.sndButton2);
+				} else {
+					sndCtrl.playSound(sndCtrl.sndButton3);
+					input();
+				}
+				
+				keyFilter2 = true;
+			}
+		} else {
+			keyFilter2 = false;
+		}
+		
+		if (currentSelIndex == 0) {
+			arrLeft.visible = false;
+			if (maxSel > 1) arrRight.visible = true;
+			else arrRight.visible = false;
+		} else if (currentSelIndex >= maxSel) {
+			arrLeft.visible = true;
+			arrRight.visible = false;
+		}
+		
+	}
+}
+
+function updateStartWave(dir:int):void {
+	if (!gameData.survivalScoreData[gameData.sessionSurvivalArena][1])
+		gameData.survivalScoreData[gameData.sessionSurvivalArena][1] = 1;
+	
+	if (currentSelIndex >= gameData.survivalScoreData[gameData.sessionSurvivalArena][1]) {
+		currentIsLocked = true;
+	} else {
+		currentIsLocked = false;
+	}
+	
+	if (dir == 1) {
+		arrRight.gotoAndPlay("nudge");
+	} else 
+	if (dir == -1) {
+		arrLeft.gotoAndPlay("nudge");
+	}
+	
+	clip._display(currentSelIndex, currentIsLocked);
+	
+	//arrow visiblity
+	if (currentSelIndex == 0) {
+		arrLeft.visible = false;
+	} else {
+		arrLeft.visible = true;
+	}
+	if (currentSelIndex == maxSel) {
+		arrRight.visible = false;
+	} else {
+		arrRight.visible = true;
+	}
+}
+
+function input():void {
+
+	gameData.sessionStartingWave = currentSelIndex;
+	
+	MovieClip(parent).confirmWaveSelect();
+	
+	go = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 75" name="clip">
+                  <matrix>
+                    <Matrix a="1.30685424804688" d="1.30685424804688" tx="-5.6" ty="8.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 77" name="arrLeft">
+                  <matrix>
+                    <Matrix a="1.30685424804688" d="1.30685424804688" tx="-83.3" ty="8.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 77" name="arrRight">
+                  <matrix>
+                    <Matrix a="-1.30685424804688" d="1.30685424804688" tx="75.2" ty="8.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText selected="true" fontRenderingMode="standard" left="-22.7" width="277.4" height="42" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-116.65" ty="-58.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>STARTING   WAVE</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="42" size="28" bitmapSize="560" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor alpha="0.847058823529412"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-2124 -304|2037 -304!2037 -304|2037 618!2037 618|-2124 618!-2124 618|-2124 -304"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

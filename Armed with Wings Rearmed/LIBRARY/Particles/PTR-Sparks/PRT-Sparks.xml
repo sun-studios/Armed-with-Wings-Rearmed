@@ -1,0 +1,68 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PTR-Sparks/PRT-Sparks" itemID="5541fe32-00001aef" linkageExportForAS="true" linkageClassName="Sparks" lastModified="1430388274">
+  <timeline>
+    <DOMTimeline name="PRT-Sparks">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.geom.Point;
+import flash.display.MovieClip;
+import flash.events.Event;
+
+var particleLayer:MovieClip;
+var sparkArr:Array;
+var life:Number;
+
+function init():void {
+	particleLayer = MovieClip(parent);
+	sparkArr = new Array();
+	life = 40;
+	
+	for (var i:int = 0; i < 7; i ++) {
+		var spark:MovieClip = new Spark();
+		sparkArr.push(spark);
+		this.addChild(spark);
+		
+		spark.init();
+	}
+	
+	scaleX = scaleY = .6;
+}
+
+function update ():void {
+	
+	for (var i:int = 0; i < sparkArr.length; i ++) {
+		var spark:MovieClip = sparkArr[i];
+		
+		spark.update();
+		
+	}
+	
+	if (life > 40) {
+		life --;
+	} else {
+		//kill();
+	}
+	
+}
+
+function kill():void {
+	particleLayer.removeSparksArr(this);
+	
+	for (var i:int = 0; i < sparkArr.length; i ++) {
+		var spark:MovieClip = sparkArr[i];
+		this.removeChild(spark);
+	}
+	
+	particleLayer.removeChild(this);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

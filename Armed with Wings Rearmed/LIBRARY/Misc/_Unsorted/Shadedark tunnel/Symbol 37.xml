@@ -1,0 +1,83 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/_Unsorted/Shadedark tunnel/Symbol 37" itemID="58494c45-00005775" lastModified="1481201845">
+  <timeline>
+    <DOMTimeline name="Symbol 37">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var isActive:Boolean;
+
+init();
+
+function init():void {
+	hero = MovieClip(parent).hero;
+}
+
+function update():void {
+	if (hero.bound.hitTestObject(this)) {
+		isActive = true;
+	} else {
+		isActive = false;
+	}
+	
+	if (isActive) {
+		if (alpha > 0) alpha -= .05;
+	} else {
+		if (alpha < 1) alpha += .05;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.486297607421875" b="0.35552978515625" c="0.445999145507813" d="-0.512298583984375" tx="532.1" ty="-7.2"/>
+                        </matrix>
+                        <GradientEntry alpha="0" ratio="0.603921568627451"/>
+                        <GradientEntry ratio="0.819607843137255"/>
+                      </RadialGradient>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="11.5426635742188" b="0.35552978515625" c="10.5861511230469" d="-0.512298583984375" tx="12110" ty="-7.2"/>
+                        </matrix>
+                        <GradientEntry alpha="0" ratio="0.603921568627451"/>
+                        <GradientEntry ratio="0.819607843137255"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!664 2514|4784 2514!4784 2514|4784 -2513!4784 -2513|664 -2513"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!664 -2513|664 2514"/>
+                    <Edge fillStyle0="2" edges="!664 -2513|-6504 -2513!-6504 -2513|-6504 2514!-6504 2514|664 2514"/>
+                    <Edge cubics="!4784 -2513(4784,-2513;4784,-2513 664,-2513 664,-2513q4784 -2513 664 -2513);"/>
+                    <Edge cubics="!664 2514(;664,2514 4784,2514 4784,2514q664 2514 4784 2514);"/>
+                    <Edge cubics="!664 -2513(664,-2513;664,-2513 664,2514 664,2514q664 -2513 664 2514)664,2514;"/>
+                    <Edge cubics="!-6504 -2513(;-6504,-2513 -6504,2514 -6504,2514q-6504 -2513 -6504 2514)-6504,2514;"/>
+                    <Edge cubics="!-6504 2514(;-6504,2514 664,2514 664,2514q-6504 2514 664 2514);"/>
+                    <Edge cubics="!664 -2513(664,-2513;664,-2513 -6504,-2513 -6504,-2513q664 -2513 -6504 -2513);"/>
+                    <Edge cubics="!4784 2514(;4784,2514 4784,-2513 4784,-2513q4784 2514 4784 -2513);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

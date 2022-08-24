@@ -1,0 +1,123 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Relic/OBJ-Relic" itemID="550ec150-00000a5d" lastModified="1492353270" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Relic">
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Elastic;
+import flash.events.Event;
+
+
+var obj_string: String;
+var obj: MovieClip;
+var isOn: Boolean = false;
+var pull:Number = 100;
+
+if (MovieClip(parent)[obj_string]) {
+	obj = MovieClip(parent)[obj_string];
+}
+
+function update(): void {
+	//set on or off
+	if (!isOn) {
+		if (bound.hitTestPoint(obj.getGlobalX(), obj.getGlobalY() + 2, true)) {
+			obj.pickup = false;
+			if (obj.hasGravity) obj.hasGravity = false;
+			var X:Number = this.x;
+			var Y:Number = this.y + (obj.height*.5);
+			obj.rotation = 300;
+			TweenMax.to(obj, 52, {x:X, y:Y, rotation:0,ease:Elastic.easeOut, onComplete:openGate, useFrames:true});
+			isOn = true;
+		}
+	} else {
+		obj.pickup = false;
+		obj.ySpeed = 1;
+	}
+	
+	
+}
+
+function openGate(e:Event = null):void {
+	this.dispatchEvent(new Event("COMPLETE"));
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#009999" autoNamed="false" layerType="folder"/>
+        <DOMLayer name="Layer 2" color="#9933CC" parentLayerIndex="1">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Relic/assets/Relic-Anim-Spin">
+                  <matrix>
+                    <Matrix tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter color="#000000" strength="0.9"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" parentLayerIndex="1">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="1">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" parentLayerIndex="1">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999" parentLayerIndex="1">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="5.64042663574219" d="2.44895935058594" tx="0.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="obj_string">
+      <Inspectable name="obj name" variable="obj_string" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

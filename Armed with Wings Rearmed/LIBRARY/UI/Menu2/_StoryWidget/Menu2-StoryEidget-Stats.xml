@@ -1,0 +1,123 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_StoryWidget/Menu2-StoryEidget-Stats" itemID="58186d1c-00001679" lastModified="1492870845">
+  <timeline>
+    <DOMTimeline name="Menu2-StoryEidget-Stats">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var _root:MovieClip = MovieClip(root);
+
+if (_root.bestRun[2] != undefined) {
+	tf_topTime.text = ""+_root.bestRun[2];
+	tf_difficlty.text = ""+_root.bestRun[11];
+	visible = true;
+} else {
+	tf_topTime.text = "Not Set"
+	tf_difficlty.text = "";
+	visible = false;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="4.21560668945313" d="1.78099060058594" tx="-623.25" ty="85.95"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2176 -1310|3738 -1310!3738 -1310|3738 -885!3738 -885|2176 -885!2176 -885|2176 -1310"/>
+                    <Edge cubics="!2176 -885(2176,-885;2176,-885 2176,-1310 2176,-1310q2176 -885 2176 -1310);"/>
+                    <Edge cubics="!3738 -1310(3738,-1310;3738,-1310 3738,-885 3738,-885q3738 -1310 3738 -885)3738,-885;"/>
+                    <Edge cubics="!3738 -885(;3738,-885 2176,-885 2176,-885q3738 -885 2176 -885);"/>
+                    <Edge cubics="!2176 -1310(;2176,-1310 3738,-1310 3738,-1310q2176 -1310 3738 -1310);"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" width="47.95" height="15" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.73513793945313" d="1.73513793945313" tx="-140.4" ty="-24"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>TOP TIME:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMDynamicText name="tf_topTime" fontRenderingMode="standard" width="150" height="27" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.73513793945313" d="1.73513793945313" tx="-46.25" ty="-29.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>000</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="21" size="14" bitmapSize="280" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="4.21560668945313" d="1.78099060058594" tx="-623.25" ty="128.95"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2176 -1310|3738 -1310!3738 -1310|3738 -885!3738 -885|2176 -885!2176 -885|2176 -1310"/>
+                    <Edge cubics="!2176 -885(2176,-885;2176,-885 2176,-1310 2176,-1310q2176 -885 2176 -1310);"/>
+                    <Edge cubics="!3738 -1310(3738,-1310;3738,-1310 3738,-885 3738,-885q3738 -1310 3738 -885)3738,-885;"/>
+                    <Edge cubics="!3738 -885(;3738,-885 2176,-885 2176,-885q3738 -885 2176 -885);"/>
+                    <Edge cubics="!2176 -1310(;2176,-1310 3738,-1310 3738,-1310q2176 -1310 3738 -1310);"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" width="48.95" height="15" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.73513793945313" d="1.73513793945313" tx="-140.4" ty="19"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>DIFFICULTY:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMDynamicText name="tf_difficlty" fontRenderingMode="standard" width="150" height="27" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.73513793945313" d="1.73513793945313" tx="-46.25" ty="13.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>000</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="21" size="14" bitmapSize="280" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

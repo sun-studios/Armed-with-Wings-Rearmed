@@ -1,0 +1,551 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-LevelTransition/UI-LevelTransition" itemID="54bb4780-0000102b" lastModified="1492202668" lastUniqueIdentifier="11">
+  <timeline>
+    <DOMTimeline name="UI-LevelTransition" currentFrame="332">
+      <layers>
+        <DOMLayer name="Actions" color="#FFFF00" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="12" name="OPENLEVEL" labelType="name" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var game:MovieClip = MovieClip(root).zoom.container;
+var gameCore:MovieClip = MovieClip(root);
+var ending:Boolean = false;
+
+if (gameCore.gameMode == "WARMODE") gotoAndPlay("intoWarMode");
+if (gameCore.gameMode == "MULTIPLAYER") gotoAndPlay("SKIPLEVELDISPLAY");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" duration="23" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (gameCore.gameMode == gameCore.SURVIVAL || DebugControl.directToLevel || gameCore.gameMode == gameCore.JUGGLE || gameCore.gameMode == gameCore.SLW_BONUSSTAGE) {
+	gotoAndPlay("SKIPLEVELDISPLAY");
+	MovieClip(root).dispatchEvent(new Event("LEVELFADEIN"));
+}
+
+tf_label.text = String(MovieClip(root).sessionLevel);
+tf_label2.text = String(MovieClip(root).sessionLevel);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="35" duration="105" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="140" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop ();
+game.beginLevelPlay();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="141" duration="36" name="SKIPLEVELDISPLAY" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="177" name="LEVEL" labelType="name" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop ();
+game.beginLevelPlay();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="178" duration="30" name="ENDLEVEL" labelType="name" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[ending = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+gameCore.nextLevel();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="209" duration="18" name="DEATH" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="227" duration="33" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[if (gameCore.gameMode == gameCore.SURVIVAL) {
+	gotoAndPlay("GAMEOVER");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="260" duration="74" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[livesRemaining.removeLife();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="334" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+if (gameCore.playerLives > 1) {
+	if (gameCore.game.spawner) {
+		gameCore.game.spawner.kill();
+		trace("kill spawner");
+	}
+	gameCore.playerLives --;
+	gameCore.sessionLives = gameCore.playerLives;
+	gameCore.resetLevel();
+	gameCore.hud.lives.init();
+} else {
+	gotoAndPlay("GAMEOVER");
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="335" duration="52" name="GAMEOVER" labelType="name" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[MovieClip(root).fadeOutMusic();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="387" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+
+if (gameCore.gameMode == gameCore.SLW_BONUSSTAGE) {
+	gameCore.returnToMenu();
+} else {
+	gameCore.hud.openResultsUI();
+}
+
+/*
+var _parent:MovieClip = MovieClip(parent);
+
+_parent.killGame();
+_parent.gotoAndStop(1, "Menu");
+*/]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" duration="3" name="intoWarMode" labelType="name" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[play();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="391" duration="64" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[game.beginLevelPlay();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="455" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="456" duration="27" name="quickSkip" labelType="name" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[MovieClip(root).playSound(MovieClip(root).sndBossSwing1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="483" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+
+this.dispatchEvent(new Event("QUICKSKIP"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="484" duration="21" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[MovieClip(root).playSound(MovieClip(root).sndBossSwing1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="505" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="106" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="106" duration="125" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+
+MovieClip(root).dispatchEvent(new Event("LEVELFADEIN"));]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="231" duration="14" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" selected="true" symbolType="graphic" firstFrame="5" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="245" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" firstFrame="19" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="246" duration="67" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="313" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="314" duration="19" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" firstFrame="19" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="333" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" firstFrame="5" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="334" duration="53" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-musicFade (no enterframe)">
+                  <matrix>
+                    <Matrix tx="462.8" ty="-79.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="387" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" duration="42" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.2724" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-FocusFrame">
+                  <matrix>
+                    <Matrix a="1.08015441894531" d="1.69114685058594"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="430" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-FocusFrame">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="456" duration="49" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" duration="12" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" duration="128" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets2/UI-LT2-Animation" symbolType="graphic" loop="play once">
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="140" duration="91" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="231" duration="103" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/LifeToken/UI-LT-LivesContainer" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="0.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="334" duration="52" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="386" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" duration="68" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="456" duration="19" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.0024871826171875" tx="-399.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="475" duration="9" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" firstFrame="17" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="484" duration="20" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" firstFrame="17" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="504" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.0024871826171875" tx="400.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="128" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="141" duration="35" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="176" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="177" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="178" duration="29" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="207" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="208" duration="18" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="226" duration="161" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="387" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="388" tweenType="motion" motionTweenRotate="none" motionTweenScale="false" motionTweenSnap="true" keyMode="20481">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="389" tweenType="motion" motionTweenRotate="none" motionTweenScale="false" motionTweenSnap="true" keyMode="20481">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" firstFrame="1" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="390" tweenType="motion" motionTweenRotate="none" motionTweenScale="false" motionTweenSnap="true" keyMode="20481">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="391" duration="22" tweenType="motion" motionTweenRotate="none" motionTweenScale="false" motionTweenSnap="true" keyMode="20481" acceleration="59">
+              <tweens>
+                <Ease target="all" intensity="59"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" firstFrame="1" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="413" duration="43" tweenType="motion" motionTweenRotate="none" motionTweenScale="false" motionTweenSnap="true" keyMode="20481">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LevelTransition/assets/UI-LT-BG" symbolType="graphic" firstFrame="23" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" redOffset="255" blueOffset="255" greenOffset="255"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="456" duration="49" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

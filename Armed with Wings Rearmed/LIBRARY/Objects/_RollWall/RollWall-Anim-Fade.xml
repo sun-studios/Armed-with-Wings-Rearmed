@@ -1,0 +1,589 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_RollWall/RollWall-Anim-Fade" itemID="55ec6b35-00001067" lastModified="1441557304" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="RollWall-Anim-Fade" currentFrame="36">
+      <layers>
+        <DOMLayer name="Layer 8" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="32" name="out" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="33" duration="16" name="in" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(parent)) MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="5" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.1504" y="0.0308"/>
+                  <Point y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.05" ty="35.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-47">
+              <tweens>
+                <Ease target="all" intensity="-47"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" centerPoint3DX="0.05" centerPoint3DY="21.9" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.05" ty="21.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.328125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" centerPoint3DX="0.05" centerPoint3DY="26.4" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.05" ty="26.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.328125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.05" ty="46.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.317728010368759" y="0.657243808131148"/>
+                  <Point x="0.65067963436507" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" centerPoint3DX="0.05" centerPoint3DY="35.4" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.05" ty="35.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 3" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.1504" y="0.0308"/>
+                  <Point y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="0.1" centerPoint3DY="15.65" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.1" ty="15.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-47">
+              <tweens>
+                <Ease target="all" intensity="-47"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="0.1" centerPoint3DY="-15.85" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.1" ty="-15.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.69921875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="0.1" centerPoint3DY="-20.35" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.1" ty="-20.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.69921875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.398636094780383" y="0.0961148544740137"/>
+                  <Point x="0.367352735990333" y="0.927575347292199"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="0.1" centerPoint3DY="29.15" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.1" ty="29.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.317728010368759" y="0.657243808131148"/>
+                  <Point x="0.65067963436507" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="0.1" centerPoint3DY="15.65" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="0.1" ty="15.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 4" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.1504" y="0.0308"/>
+                  <Point y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" centerPoint3DX="0.05" centerPoint3DY="-37.65" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-37.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-47">
+              <tweens>
+                <Ease target="all" intensity="-47"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" centerPoint3DX="0.05" centerPoint3DY="-114.15" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-114.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.359375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" centerPoint3DX="0.05" centerPoint3DY="-118.65" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-118.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.359375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="9" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.398636094780383" y="0.0961148544740137"/>
+                  <Point x="0.367352735990333" y="0.927575347292199"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" centerPoint3DX="0.05" centerPoint3DY="-30" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-29.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.317728010368759" y="0.657243808131148"/>
+                  <Point x="0.65067963436507" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-02" symbolType="graphic" centerPoint3DX="0.05" centerPoint3DY="-37.65" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-37.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 3" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.1504" y="0.0308"/>
+                  <Point y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="-0.05" centerPoint3DY="-17.95" loop="loop">
+                  <matrix>
+                    <Matrix ty="-17.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-47">
+              <tweens>
+                <Ease target="all" intensity="-47"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="-0.05" centerPoint3DY="-85.45" loop="loop">
+                  <matrix>
+                    <Matrix ty="-85.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.62890625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="-0.05" centerPoint3DY="-94.45" loop="loop">
+                  <matrix>
+                    <Matrix ty="-94.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.62890625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.398636094780383" y="0.0961148544740137"/>
+                  <Point x="0.367352735990333" y="0.927575347292199"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="-0.05" centerPoint3DY="-18.85" loop="loop">
+                  <matrix>
+                    <Matrix ty="-18.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.317728010368759" y="0.657243808131148"/>
+                  <Point x="0.65067963436507" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-01" symbolType="graphic" centerPoint3DX="-0.05" centerPoint3DY="-17.95" loop="loop">
+                  <matrix>
+                    <Matrix ty="-17.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 2" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="11" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.1504" y="0.0308"/>
+                  <Point y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.24749755859375" d="1.24749755859375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" duration="22" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-47">
+              <tweens>
+                <Ease target="all" intensity="-47"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.24749755859375" d="1.24749755859375" ty="-54"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.19921875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-00" symbolType="graphic" centerPoint3DY="-58.5" loop="loop">
+                  <matrix>
+                    <Matrix a="1.24749755859375" d="1.24749755859375" ty="-58.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.19921875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" duration="11" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.398636094780383" y="0.0961148544740137"/>
+                  <Point x="0.367352735990333" y="0.927575347292199"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.24749755859375" d="1.24749755859375" ty="5.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.317728010368759" y="0.657243808131148"/>
+                  <Point x="0.65067963436507" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Shape-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.24749755859375" d="1.24749755859375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Particle">
+                  <matrix>
+                    <Matrix tx="0.75" ty="-7.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Particle" centerPoint3DX="0.75" centerPoint3DY="-7.3">
+                  <matrix>
+                    <Matrix d="1.24855041503906" tx="0.75" ty="-33.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="29" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Particle" centerPoint3DX="0.75" centerPoint3DY="-7.3">
+                  <matrix>
+                    <Matrix d="1.24855041503906" tx="0.75" ty="-33.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Particle">
+                  <matrix>
+                    <Matrix tx="0.75" ty="-7.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

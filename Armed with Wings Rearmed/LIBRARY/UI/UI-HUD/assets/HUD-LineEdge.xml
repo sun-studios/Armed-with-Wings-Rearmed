@@ -1,0 +1,33 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/assets/HUD-LineEdge" itemID="593ab2ec-00000dae" lastModified="1497019116">
+  <timeline>
+    <DOMTimeline name="HUD-LineEdge">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" caps="none" joints="miter">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-1345 272|299 272!299 272|575 -4"/>
+                    <Edge cubics="!299 272(;299,272 575,-4 575,-4q299 272 575 -4);"/>
+                    <Edge cubics="!-2098 272(;-2098,272 -1345,272 -1345,272q-2098 272 -1345 272);"/>
+                    <Edge cubics="!-1345 272(;-1345,272 299,272 299,272q-1345 272 299 272);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,286 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Vandheer/assets/Vanheer2-Walk" itemID="56570e95-00000e89" lastModified="1453687047">
+  <timeline>
+    <DOMTimeline name="Vanheer2-Walk" currentFrame="87">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var particleLayer:MovieClip = MovieClip(parent.parent).particleLayer;
+var _parent:MovieClip = MovieClip(parent);
+
+var walking:Boolean = true;
+var skidding:Boolean = false;
+var jumping:Boolean = false;
+var falling:Boolean = false;
+var sliding:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(1, _parent.x, 
+						 _parent.y, 
+						 _parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="16" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(1, _parent.x, 
+						 _parent.y, 
+						 _parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(1, _parent.x, 
+						 _parent.y, 
+						 _parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="40" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(1, _parent.x, 
+						 _parent.y, 
+						 _parent.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="41" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("walk");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="42" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[walking = false;
+skidding = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="43" duration="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(5, _parent.x + (40 * _parent.scaleX), 
+						 _parent.y, 
+						 _parent.scaleX);
+_parent.xSpeed *= .6;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[skidding = false;
+stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="61" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[walking = false;
+jumping = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="72" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[walking = false;
+jumping = true;
+falling = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="80" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+sliding = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="81" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sounds" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[walking = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="12" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="35" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="42" duration="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSkid);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="61" duration="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();
+sndCtrl.playSound(sndCtrl.sndJump, 0);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="80" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="18" name="ease" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="24" name="walk" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="42" duration="9" name="skid" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" duration="10" name="land" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="61" duration="11" name="jump" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="72" duration="8" name="fall" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="80" duration="8" name="slideF" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clips" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-runEase" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="-0.916946411132813" d="0.916946411132813" tx="-12.2" ty="-67.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.1" y="26.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" duration="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-run" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.969009399414063" d="0.969009399414063" tx="-17.15" ty="-70.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.75" y="38.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="42" duration="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-skid" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.898757934570313" d="0.898757934570313" tx="-27.4" ty="-64.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-12.9" y="33.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" duration="18" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Leap" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.968704223632813" d="0.968704223632813" tx="29.05" ty="-31.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-33.4" y="-3.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Fall">
+                  <matrix>
+                    <Matrix a="0.941070556640625" d="0.941070556640625" tx="-13.3" ty="-7.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-48.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="80" duration="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-SlideForward" centerPoint3DX="-5.9" centerPoint3DY="-41.1">
+                  <matrix>
+                    <Matrix a="0.961395263671875" d="0.961395263671875" tx="-7.65" ty="-39.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

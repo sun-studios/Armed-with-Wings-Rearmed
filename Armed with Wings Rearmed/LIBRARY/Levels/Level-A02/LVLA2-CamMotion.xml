@@ -1,0 +1,108 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-A02/LVLA2-CamMotion" itemID="593ab350-00000db0" lastModified="1497019216">
+  <timeline>
+    <DOMTimeline name="LVLA2-CamMotion">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+import com.greensock.easing.Expo;
+import flash.events.Event;
+
+var vcam:MovieClip;
+var gameData:MovieClip;
+var hero:MovieClip;
+var convo1:MovieClip;
+var camMotion:MovieClip;
+var go:Boolean;
+
+init ();
+
+var counter0:int;
+var counter0Orig:int;
+
+var flag0:Boolean;
+
+function init ():void {
+	vcam = MovieClip(parent).vcam;
+	gameData = MovieClip(root);
+	hero = MovieClip(parent).hero;
+	convo1 = MovieClip(parent).convo1;
+	camMotion = MovieClip(parent).camMotion;
+	
+	counter0 = 360;
+	counter0Orig = 360;
+	
+	vcam.target = this;	
+	go = true;
+	visible = false;
+	
+	convo1.addEventListener("COMPLETE", convo1Complete);
+}
+
+function update ():void {
+if (go) {
+	
+	if (counter0 > 0){
+		x += 1;
+		counter0 --;
+	} else {
+		if (!flag0) {
+			TweenMax.delayedCall(100, function () { vcam.zoom = .5; vcam.slowZoom = true; }, null, true);
+			TweenMax.to(this, 120, {useFrames:true, x:hero.x, y:hero.y, ease:Expo.easeInOut, onComplete:startConvo1});
+			flag0 = true;
+		}
+	}
+}
+}
+
+function startConvo1():void {
+	TweenMax.delayedCall(100, function () { 
+		convo1.startConvo();
+	}, null, true);
+}
+
+function convo1Complete(e:Event = null):void {
+	hero.intro.gotoAndPlay("pickupSword");
+	TweenMax.delayedCall(80, function () { vcam.zoom = 1; }, null, true);
+}
+
+function killListeners():void {
+	convo1.removeEventListener("COMPLETE", convo1Complete);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal">
+                            <fill>
+                              <SolidColor color="#FF0000"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge strokeStyle="1" edges="!0 0|0 3027!3027 0|0 0!0 0|-3027 0!0 -3027|0 0"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

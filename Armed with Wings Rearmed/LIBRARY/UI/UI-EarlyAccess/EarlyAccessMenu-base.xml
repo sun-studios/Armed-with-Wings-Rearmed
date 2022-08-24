@@ -1,0 +1,117 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/EarlyAccessMenu-base" itemID="5557ab43-000042d8" lastModified="1491752313" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="EarlyAccessMenu-base">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+import flash.net.URLLoader;
+import flash.net.URLRequest;
+import flash.text.TextFormat;
+import fl.controls.UIScrollBar;
+
+var textURL:URLRequest = new URLRequest("changelog.html");
+var textLoader:URLLoader = new URLLoader();
+
+textLoader.addEventListener(Event.COMPLETE, displayText);
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+
+function displayText(e:Event):void 
+{
+	
+	info_tf.htmlText = e.target.data;
+	UIScrollBar(scrollbar).scrollPosition = 0;//7
+	scrollbar.scrollTarget = info_tf;
+}
+
+function update():void {
+	if (ctrl.ctrl_up) {
+		UIScrollBar(scrollbar).scrollPosition -= 2;
+	}
+	if (ctrl.ctrl_down) {
+		UIScrollBar(scrollbar).scrollPosition += 2;
+	}
+	
+	if (UIScrollBar(scrollbar).scrollPosition < 7) UIScrollBar(scrollbar).scrollPosition = 7;
+	
+	scrollbar.scrollTarget = info_tf;
+}
+
+textLoader.load(textURL);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="info_tf" fontRenderingMode="standard" top="11.55" left="11" width="576.1" height="401.95" isSelectable="false" scrollable="true" renderAsHTML="true" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="-96" ty="-3.05"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Let us begin with the obviouse.&#xD;Let us begin with the obviouse.&#xD;Let us begin with the obviouse.&#xD;Let us begin with the obviouse.&#xD;Let us begin with the obviouse.&#xD;Let us begin with the obviouse.&#xD;Let us begin with the obviouse.&#xD;</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="0.1" lineSpacing="-10" lineHeight="19.75" size="22" bitmapSize="440" face="Font 7*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter angle="47.0000056918241" blurX="0" blurY="0" distance="1" strength="0.07"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMComponentInstance libraryItemName="Misc/2016/UIScrollBar" name="scrollbar" uniqueID="1">
+                  <matrix>
+                    <Matrix d="4.05928039550781" tx="493.1" ty="6.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.5" y="49.95"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="direction">
+      <Inspectable name="direction" variable="direction" category="" verbose="0" defaultValue="vertical" enumeration="vertical,horizontal" type="List"/>
+   </property>
+   <property id="scrollTargetName">
+      <Inspectable name="scrollTargetName" variable="scrollTargetName" category="" verbose="0" defaultValue="info_tf" type="String"/>
+   </property>
+   <property id="visible">
+      <Inspectable name="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-2168 -120|10529 -120!10529 -120|10529 8519!10529 8519|-2168 8519!-2168 8519|-2168 -120"/>
+                    <Edge cubics="!10529 8519(;10529,8519 -2168,8519 -2168,8519q10529 8519 -2168 8519);"/>
+                    <Edge cubics="!-2168 8519(;-2168,8519 -2168,-120 -2168,-120q-2168 8519 -2168 -120);"/>
+                    <Edge cubics="!-2168 -120(;-2168,-120 3898,-120 3898,-120q-2168 -120 3898 -120);"/>
+                    <Edge cubics="!3898 -120(3898,-120;3898,-120 10529,-120 10529,-120q3898 -120 10529 -120)10529,-120;"/>
+                    <Edge cubics="!10529 -120(10529,-120;10529,-120 10529,1758 10529,1758q10529 -120 10529 1758)10529,1758;"/>
+                    <Edge cubics="!10529 1758(;10529,1758 10529,8519 10529,8519q10529 1758 10529 8519);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,142 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/UI-HUD-LifeBar2.0" itemID="582818ee-00000c83" lastModified="1492863946">
+  <timeline>
+    <DOMTimeline name="UI-HUD-LifeBar2.0" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;227&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+stop();
+
+var obj:MovieClip;
+
+function init(_obj:MovieClip):void {
+	obj = _obj;
+}
+
+function update():void {
+	if (obj) {
+		bar.scaleX = obj.blockBreak/obj.blockBreakOrig;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/UI-HUD-LifeBar2.0-Mask" name="bar">
+                  <matrix>
+                    <Matrix tx="1" ty="-1.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" parentLayerIndex="1" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0.144210815429688" d="0.01116943359375" tx="190.2" ty="2.6"/>
+                        </matrix>
+                        <GradientEntry color="#FFFFFF" ratio="0"/>
+                        <GradientEntry color="#AFAFAF" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2056 110|150 110!150 110|22 -17!22 -17|150 -145!150 -145|3658 -145"/>
+                    <Edge fillStyle1="2" edges="!3658 -145|4424 -145!4424 -145|4552 -17!4552 -17|4424 110!4424 110|2056 110"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!3658 -145|2056 110"/>
+                    <Edge cubics="!3658 -145(;3658,-145 2056,110 2056,110q3658 -145 2056 110);"/>
+                    <Edge cubics="!150 110(;150,110 22,-17 22,-17q150 110 22 -17);"/>
+                    <Edge cubics="!22 -17(;22,-17 150,-145 150,-145q22 -17 150 -145)150,-145;"/>
+                    <Edge cubics="!150 -145(;150,-145 3658,-145 3658,-145q150 -145 3658 -145);"/>
+                    <Edge cubics="!2056 110(2056,110;2056,110 150,110 150,110q2056 110 150 110);"/>
+                    <Edge cubics="!4530 49(;4530,49 4402,177 4402,177q4530 49 4402 177);"/>
+                    <Edge cubics="!4552 -17(;4552,-17 4424,-145 4424,-145q4552 -17 4424 -145);"/>
+                    <Edge cubics="!4552 -17(;4552,-17 4508,27 4508,27q4552 -17 4508 27);"/>
+                    <Edge cubics="!4530 49(;4530,49 4508,27 4508,27q4530 49 4508 27);"/>
+                    <Edge cubics="!4402 177(4402,177;4402,177 4047,177 4047,177q4402 177 4047 177);"/>
+                    <Edge cubics="!4047 177(;4047,177 4047,110 4047,110q4047 177 4047 110);"/>
+                    <Edge cubics="!4047 110(;4047,110 4047,-145 4047,-145q4047 110 4047 -145);"/>
+                    <Edge cubics="!3658 -145(;3658,-145 4047,-145 4047,-145q3658 -145 4047 -145);"/>
+                    <Edge cubics="!4047 110(;4047,110 2056,110 2056,110q4047 110 2056 110)2056,110;"/>
+                    <Edge cubics="!4047 -145(;4047,-145 4424,-145 4424,-145q4047 -145 4424 -145);"/>
+                    <Edge cubics="!4424 110(4424,110;4424,110 4047,110 4047,110q4424 110 4047 110);"/>
+                    <Edge cubics="!4552 -17(4552,-17;4552,-17 4511,24 4511,24q4552 -17 4511 24)4511,24;"/>
+                    <Edge cubics="!4511 24(;4511,24 4424,110 4424,110q4511 24 4424 110);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!43.5 5.5|44 5!44 5|22 -17!22 -17|150 -145!150 -145|4424 -145!4424 -145|4552 -17!4552 -17|4509.5 25!4509.5 25|4508 27!4508 27|4508.5 27.5"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!43.5 5.5|149.5 111.5!149.5 111.5|4425 111!4425 111|4508.5 27.5"/>
+                    <Edge fillStyle1="1" edges="!4508.5 27.5|4530 49!4530 49|4402 177!4402 177|128 177!128 177|0 49!0 49|43.5 5.5"/>
+                    <Edge cubics="!0 49(0,49;0,49 128,177 128,177q0 49 128 177);"/>
+                    <Edge cubics="!22 -17(;22,-17 150,-145 150,-145q22 -17 150 -145);"/>
+                    <Edge cubics="!4530 49(;4530,49 4468,111 4468,111q4530 49 4468 111);"/>
+                    <Edge cubics="!4468 111(;4468,111 4402,177 4402,177q4468 111 4402 177);"/>
+                    <Edge cubics="!4552 -17(;4552,-17 4424,-145 4424,-145q4552 -17 4424 -145);"/>
+                    <Edge cubics="!4510 25(;4510,25 4508,27 4508,27q4510 25 4508 27);"/>
+                    <Edge cubics="!4402 177(;4402,177 4359,177 4359,177q4402 177 4359 177);"/>
+                    <Edge cubics="!4359 177(;4359,177 215,177 215,177q4359 177 215 177);"/>
+                    <Edge cubics="!215 177(;215,177 128,177 128,177q215 177 128 177);"/>
+                    <Edge cubics="!150 -145(;150,-145 4424,-145 4424,-145q150 -145 4424 -145);"/>
+                    <Edge cubics="!23 -16(;23,-16 22,-17 22,-17q23 -16 22 -17);"/>
+                    <Edge cubics="!44 6(;44,6 215,177 215,177q44 6 215 177);"/>
+                    <Edge cubics="!44 6(;44,6 44,5 44,5q44 6 44 5);"/>
+                    <Edge cubics="!0 49(;0,49 44,6 44,6q0 49 44 6);"/>
+                    <Edge cubics="!215 177(;215,177 1179,1141 1179,1141q215 177 1179 1141);"/>
+                    <Edge cubics="!23 -16(;23,-16 44,6 44,6q23 -16 44 6);"/>
+                    <Edge cubics="!44 5(;44,5 23,-16 23,-16q44 5 23 -16);"/>
+                    <Edge cubics="!4552 -17(;4552,-17 4552,-16 4552,-16q4552 -17 4552 -16);"/>
+                    <Edge cubics="!4508 27(;4508,27 4509,28 4509,28q4508 27 4509 28);"/>
+                    <Edge cubics="!4509 28(;4509,28 4530,49 4530,49q4509 28 4530 49);"/>
+                    <Edge cubics="!4509 28(;4509,28 4425,111 4425,111q4509 28 4425 111);"/>
+                    <Edge cubics="!4425 111(;4425,111 4359,177 4359,177q4425 111 4359 177);"/>
+                    <Edge cubics="!4359 177(;4359,177 2883,1653 2883,1653q4359 177 2883 1653);"/>
+                    <Edge cubics="!4552 -16(;4552,-16 4509,28 4509,28q4552 -16 4509 28);"/>
+                    <Edge cubics="!4552 -16(;4552,-16 4510,25 4510,25q4552 -16 4510 25);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,152 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-Colorer-Game" itemID="54ce9b61-000004c9" lastModified="1490713298">
+  <timeline>
+    <DOMTimeline name="OBJ-Colorer-Game">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = false;
+
+import flash.geom.ColorTransform;
+import flash.geom.Transform;
+import flash.display.MovieClip;
+
+var _root:MovieClip;
+var _parent:MovieClip;
+
+var colorNormal:ColorTransform;
+var colorDark:ColorTransform;
+var colorInvert:ColorTransform;
+var colorColor:ColorTransform;
+var colorGold:ColorTransform;
+var colorRed:ColorTransform;
+var colorYellow:ColorTransform;
+var colorAqua:ColorTransform;
+var colorBlue:ColorTransform;
+var colorPurple:ColorTransform;
+
+var trans:Transform;
+var hudtrans:Transform;
+var transtrans:Transform;
+
+init();
+
+function init():void {
+	
+	_root = MovieClip(root);
+	_parent = MovieClip(parent);
+	
+	colorNormal = new ColorTransform(1,1,1,1,0,0,0,0);
+	colorDark = new ColorTransform(0,0,0,1,-255,-255,-255,0);
+	colorInvert = new ColorTransform(-1,-1,-1,1,255,255,255,0);
+	colorGold = new ColorTransform(.90,.99,.50,1,120,42,28, 0);
+	colorRed = new ColorTransform(1, .64, .55, 1, 46, 0, 0, 0);
+	colorYellow = new ColorTransform(1,1,.32,1, 73, 48, 58, 0);
+	colorAqua = new ColorTransform(.74,.93,.95 ,1, -4, 26, 49.5, 0);
+	colorBlue = new ColorTransform(1,1,1,1, 0, 5,99, 0);
+	colorPurple = new ColorTransform(1,1,1,1, 55, 5,99, 0);
+	//Dark Red - colorColor = new ColorTransform(1,1,1,1,-8,-74,-103, 0);
+	//Dusk - colorColor = new ColorTransform(.98,.61,.31,1,21,45,59, 0);
+	//Gold - colorColor = new ColorTransform(.90,.99,.50,1,120,42,28, 0);
+	colorColor = new ColorTransform(1,.87,1,1,-49,0,3, 0);
+	
+	trans = new Transform(_parent);
+	hudtrans = new Transform(_root.hud);
+	transtrans = new Transform(_root.transition);
+	
+	//color
+	changeColor(_root.VFXStyle, false);
+	
+}
+
+function changeColor(color:String, dontInvert:Boolean = false):void {
+	switch (color) {
+		case "NONE":
+			if (trans.colorTransform != colorNormal)
+				trans.colorTransform = colorNormal;
+			break;
+		case _root.VFXDark:
+			//only darken game objects, otherwise everything is black
+			//if (trans.colorTransform != colorDark)
+				trans.colorTransform = colorNormal;
+			break;
+		case _root.VFXInvert:
+			//might need to remove or make new colorer for charaters
+			if (!dontInvert) {
+				if (trans.colorTransform != colorInvert)
+					trans.colorTransform = colorInvert;
+			}
+			break;
+		case _root.VFXColor:
+			trans.colorTransform = colorColor;
+			break;
+		case _root.VFXGold:
+			trans.colorTransform = colorGold;
+			break;
+		case _root.VFXRed:
+			trans.colorTransform = colorRed;
+			break;
+		case _root.VFXYellow:
+			trans.colorTransform = colorYellow;
+			break;
+		case _root.VFXAqua:
+			trans.colorTransform = colorAqua;
+			break;
+		case _root.VFXBlue:
+			trans.colorTransform = colorBlue;
+			break;
+		case _root.VFXPurple:
+			trans.colorTransform = colorPurple;
+			break;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#990000" alpha="0.588235294117647"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#990000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!-696 -89|696 -89!696 -89|696 103!696 103|-696 103!-696 103|-696 -89"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="49.05" width="45.9" height="7.5" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-71.9" ty="-3.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Game colorer</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="7.5" size="6" bitmapSize="120" face="Karnivore" fillColor="#990000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

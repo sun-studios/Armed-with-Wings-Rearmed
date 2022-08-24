@@ -1,0 +1,142 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/FireBullet/PRT-FireBullet" itemID="54ffc9b3-00000575" linkageExportForAS="true" linkageClassName="FireBullet" lastModified="1485440796">
+  <timeline>
+    <DOMTimeline name="PRT-FireBullet" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-354&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+
+var dist:Number;
+var distCount:Number;
+var life:Number;
+
+var explode:Boolean;
+
+var clip:MovieClip;
+var bound:MovieClip;
+var particleLayer:MovieClip;
+var ground:MovieClip;
+var hero:MovieClip;
+
+
+init();
+
+function init():void {
+	dist = 100;
+	distCount = 0;
+	life = 60;
+	
+	explode = false;
+	
+	particleLayer = MovieClip(parent);
+	ground = MovieClip(parent.parent).ground;
+	hero = MovieClip(parent.parent).hero;
+}
+
+function update ():void {
+	if (!explode) {
+		//forward collision check
+		distCount = 0;
+		while (distCount < dist) {
+			distCount ++;
+			if (ground.hitTestPoint(getGlobalX()+(distCount*scaleX), getGlobalY(), true)) {
+				explode = true;
+				impact();
+				break;
+			}
+			if (hero.bound.hitTestPoint(getGlobalX()+(distCount*scaleX), getGlobalY(), true)) {
+				x += distCount*scaleX;
+				if (bound.hitTestObject(hero.bound)) {
+					if (hero.currentFrameLabel == "dodge" && hero.dodge.dodging) {
+					} else {
+						explode = true;
+						impact();
+						hero.takeDamage(this, 6, 0, 1, false, false, true);
+						break;
+
+					}
+				}
+			}
+		}
+		
+		if (!explode) {
+			x += distCount*scaleX;
+			clip.scaleX += (100*.005);
+		}
+			
+		if (life > 0) {
+			life --;
+		} else {
+			explode = true;
+			impact();
+		}
+	}
+}
+
+function impact():void {
+	clip.scaleY = .3;
+	particleLayer.addFireExplode(x, y, 1);
+	TweenMax.to(this, .2, {alpha:0, onComplete:destroy});
+}
+
+function destroy():void {
+	particleLayer.removeFireBulletArr(this);
+	MovieClip(parent).removeChild(this);
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent.parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent.parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/FireBullet/PRT-FireBullet-Container" name="clip">
+                  <matrix>
+                    <Matrix a="0.183822631835938" tx="-0.2" ty="-1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0.453338623046875" d="0.193359375" tx="0.25" ty="-0.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

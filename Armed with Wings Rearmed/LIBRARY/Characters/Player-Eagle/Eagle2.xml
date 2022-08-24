@@ -1,0 +1,570 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Eagle/Eagle2" itemID="58b2fc1d-0002517a" lastModified="1493124089" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="Eagle2" currentFrame="6">
+      <layers>
+        <DOMLayer name="Eagle-actions" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var xSpeed:Number;
+var ySpeed:Number;
+var diveSpeed:Number;
+var moveSpeed:Number;
+var decellSpeed:Number;
+var extraMoveSpeed:Number;
+var maxMoveSpeed:Number;
+var flightTime:Number;
+var flightTimeOrig:Number;
+var lineBrightness:Number;
+
+var isFollowingHero:Boolean;
+var hault:Boolean;
+var moveable:Boolean;
+var unlimitedFlight:Boolean;
+var keyFilter1:Boolean;
+var isMoving:Boolean;
+
+
+var onLeftWall:Boolean;
+var onRightWall:Boolean;
+var onTopWall:Boolean;
+var onBotWall:Boolean;
+
+var heroName:String = "EAGLE";
+
+var hero:MovieClip = MovieClip(parent).hero;
+var ground:MovieClip = MovieClip(parent).ground;
+var control:PlayerControl = MovieClip(root).player1Control;
+var sndCtrl:MovieClip = MovieClip(root);
+var gameData:MovieClip = MovieClip(root);
+var particles = MovieClip(parent).particleLayer;
+		
+init();		
+
+function init() 
+{
+	xSpeed = 0;
+	ySpeed = 0;
+	diveSpeed = 0;
+	moveSpeed = 1.5;
+	decellSpeed = .5;
+	maxMoveSpeed = 7;
+	flightTime = 350;
+	flightTimeOrig = flightTime;
+	
+	isFollowingHero = true;
+	hault = false;
+	moveable = false;
+	unlimitedFlight = false;
+	keyFilter1 = true;
+	
+	onLeftWall = false;
+	onRightWall = false;
+	onTopWall = false;
+	onBotWall = false;
+}
+
+function update():void {
+	//drawLine();
+	if (isFollowingHero) {
+		followHero();
+	} else {
+		if (moveable && !hero.dead) {
+			movementControl();
+			physics();
+		}		
+	}
+	
+	diveSpeed *= .97;
+	if (extraMoveSpeed > 0) extraMoveSpeed -= .2;
+	else extraMoveSpeed = 0;
+	
+	if (hault || moveable && !isFollowingHero) {
+		if (hault) {
+			
+			if (unlimitedFlight) {
+				if (flightTime < flightTimeOrig) {
+					flightTime += 1.5;
+				}
+			}
+			if (currentFrameLabel == "moveSlow" || currentFrameLabel == "moveFast") { 
+				gotoAndStop("idle");
+			}
+		}
+		if (flightTime <= 0) {
+			if (hault) {
+					
+					moveable = false;
+					isFollowingHero = true;
+					hault = false;
+				} else {
+				hero.switchToHero();
+			}
+		}
+	}
+	
+	if (moveable) {
+		var r:Number;
+		r = (ySpeed/maxMoveSpeed)*-45;
+		if (currentFrameLabel == "moveSlow") r = 0;
+		if (scaleX == 1) {
+			if (rotation < -18) rotation = -18;
+			if (rotation > 90) rotation = 90;
+		} else {
+			if (rotation < -90) rotation = -90;
+			if (rotation > 18) rotation = 18;
+		}
+		
+		rotation += ((r)*-scaleX - rotation)/20;
+		
+	} else {
+		rotation += (((ySpeed)*2) - rotation)/4;
+	}
+	
+}
+
+function followHero():void {
+	if (!hault) {
+		xSpeed = 0;
+		ySpeed = 0;
+		
+		var X:Number = hero.x - (50*(hero.scaleX));
+		var Y:Number = hero.y - 100;
+		
+		x += (X - x)/10;
+		y += (Y - y)/10;
+		
+		if (x > hero.x && scaleX == 1) {
+			gotoAndStop("turn");
+			scaleX = -1;
+		} else 
+		if (x < hero.x && scaleX == -1) {
+			gotoAndStop("turn");
+			scaleX = 1;
+		}
+		
+		if (currentFrameLabel == "moveSlow" || currentFrameLabel == "modeFast") {
+			gotoAndStop("move");
+		}
+	}
+}
+
+function movementControl():void {
+	//control
+	var input:Boolean = false;
+	isMoving = false;
+	var dir:int = 0;
+	
+		if (control.ctrl_pressure > .4) {
+			var xval:Number = Math.cos(control.ctrl_angle)*(moveSpeed+(extraMoveSpeed*.25));
+			var yval:Number = Math.sin(control.ctrl_angle)*-(moveSpeed+(extraMoveSpeed*.25));
+			xSpeed += xval; 
+			ySpeed += yval;
+			
+			x += (xval)*(extraMoveSpeed/maxMoveSpeed);
+			y += (yval)*(extraMoveSpeed/maxMoveSpeed);
+			
+			if (xSpeed > maxMoveSpeed+diveSpeed) xSpeed += ((maxMoveSpeed+diveSpeed) - xSpeed)/8;
+			if (xSpeed < -maxMoveSpeed-diveSpeed) xSpeed += ((-maxMoveSpeed-diveSpeed) - xSpeed)/8;
+			if (ySpeed > maxMoveSpeed+diveSpeed) ySpeed += ((maxMoveSpeed+diveSpeed) - ySpeed)/8;
+			if (ySpeed < -maxMoveSpeed-diveSpeed) ySpeed += ((-maxMoveSpeed-diveSpeed) - ySpeed)/8;
+			
+			input = true;
+			isMoving = true;
+			if (control.ctrl_right) dir = 1;
+			else if (control.ctrl_left) dir = -1;
+		}
+	
+	//dive
+	if (ySpeed > 0) {
+		diveSpeed += ySpeed*.04;
+	} 
+	
+	
+	
+	/*
+	if (control.ctrl_left && !onLeftWall) {
+		input = true; dir = -1;
+		if (xSpeed > -maxMoveSpeed) {
+			xSpeed -= moveSpeed;
+			if (xSpeed < -maxMoveSpeed) xSpeed = -maxMoveSpeed;
+		}
+	}
+	if (control.ctrl_right && !onRightWall) {
+		input = true; dir = 1;
+		if (xSpeed < maxMoveSpeed) {
+			xSpeed += moveSpeed;
+			if (xSpeed > maxMoveSpeed) xSpeed = maxMoveSpeed;
+		}
+	}
+	if (control.ctrl_down && !onBotWall) {
+		input = true;
+		if (ySpeed < maxMoveSpeed *.75) {
+			ySpeed += moveSpeed;
+			if (ySpeed > maxMoveSpeed *.75) ySpeed = maxMoveSpeed*.75;
+		}
+	} 
+	if (control.ctrl_up && !onTopWall) {
+		input = true;
+		if (ySpeed > -maxMoveSpeed *.75) {
+			ySpeed -= moveSpeed;
+			if (ySpeed < -maxMoveSpeed *.75) ySpeed = -maxMoveSpeed*.75;
+		}
+	}
+	*/
+	if (currentFrameLabel != "turn") {
+		if (control.ctrl_up && ySpeed < maxMoveSpeed) {
+			gotoAndStop("moveSlow");
+		} else {
+			if (Math.abs(xSpeed) > maxMoveSpeed && Math.abs(ySpeed) < (maxMoveSpeed*.5)) {
+				gotoAndStop("moveFast");
+			} else {
+				gotoAndStop("move");
+			}
+		}
+	}
+	if (input && dir != 0) {
+		scaleX = dir;
+		if (currentFrameLabel == "idle") {
+			gotoAndStop("move");
+		}
+		if (dir == 1 && xSpeed < -maxMoveSpeed *.5) {
+			gotoAndStop("turn");
+		} else
+		if (dir == -1 && xSpeed > maxMoveSpeed *.5) {
+			gotoAndStop("turn");
+		}
+	}
+	
+	if (!unlimitedFlight) {
+		if (input) {
+			if (flightTime > 0) {
+				flightTime --;
+			} else {
+				hero.switchToHero();
+			}
+		}
+	} else {
+		if (flightTime < flightTimeOrig) {
+			flightTime += 1.5;
+		}
+	}
+	
+	
+	//Speed Boost CTRL
+	if (control.ctrl_eagle_speed && (control.ctrl_left || control.ctrl_right || control.ctrl_up || control.ctrl_down)) {
+		if (!keyFilter1) {
+			extraMoveSpeed = maxMoveSpeed;
+			////xval = Math.cos(control.ctrl_angle)*15;
+			//yval = Math.sin(control.ctrl_angle)*-15;
+			//xSpeed = xval; 
+			//ySpeed = yval;
+			
+			flightTime -= 20;
+			keyFilter1 = true;
+			sndCtrl.playSound(sndCtrl.sndWings);
+			if (MovieClip(root).hud) {
+				MovieClip(root).hud.topLeft.eagleCtrl.doSpeedBoost();
+			}
+		}
+	} else {
+		keyFilter1 = false;
+	}
+	
+}
+
+function physics():void {
+	var w:Number = 30;
+	var h:Number = 30;
+	
+	//physics
+	if (xSpeed > 0) {
+		xSpeed -= moveSpeed *decellSpeed;
+		if (xSpeed < 0) xSpeed = 0;
+	}
+	if (xSpeed < 0) {
+		xSpeed += moveSpeed *decellSpeed;
+		if (xSpeed > 0) xSpeed = 0;
+	}
+	if (ySpeed > 0) {
+		ySpeed -= moveSpeed *decellSpeed;
+		if (ySpeed < 0) ySpeed = 0;
+	}
+	if (ySpeed < 0) {
+		ySpeed += moveSpeed *decellSpeed;
+		if (ySpeed > 0) ySpeed = 0;
+	}
+	
+	if (ground.hitTestPoint(getGlobalX(), getGlobalY(ySpeed), true)) {
+		ySpeed *= .5;
+	}
+	if (ground.hitTestPoint(getGlobalX(xSpeed), getGlobalY(), true)) {
+		xSpeed *= .5;
+	}
+	
+	//update pos
+	x += xSpeed;
+	y += ySpeed;
+	
+	
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY(h*.5), true)) {
+		y-= .5;
+		ySpeed = 0;
+		
+	}
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY(-h*.5), true)) {
+		ySpeed = 0;
+		y += .5;
+	}
+	while (ground.hitTestPoint(getGlobalX(-w*.5), getGlobalY(), true)) {
+		xSpeed = 0;
+		x += .5;
+	}
+	while (ground.hitTestPoint(getGlobalX(w*.5), getGlobalY(), true)) {
+		xSpeed = 0;
+		x -= .5;
+	}
+	
+	if (ground.hitTestPoint(getGlobalX(), getGlobalY(h*.5+2), true)) {
+		onBotWall = true;
+	} else { onBotWall = false; }
+	if (ground.hitTestPoint(getGlobalX(), getGlobalY(-h*.5-2), true)) {
+		onTopWall = true;
+	} else { onTopWall = false; }
+	if (ground.hitTestPoint(getGlobalX(-w*.5-2), getGlobalY(), true)) {
+		onLeftWall = true;
+	} else { onLeftWall = false; }
+	if (ground.hitTestPoint(getGlobalX(w*.5+2), getGlobalY(), true)) {
+		onRightWall = true;
+	} else { onRightWall = false; }
+	
+	
+	
+	
+}
+
+function isInGround():Boolean {
+	var w:Number = 20;
+	var h:Number = 20;	
+	
+	var b:Boolean = false;
+	if (ground.hitTestPoint(getGlobalX(), getGlobalY(h*.5), true)) {
+		b = true;
+	}
+	if (ground.hitTestPoint(getGlobalX(), getGlobalY(-h*.5), true)) {
+		b = true;
+	}
+	if (ground.hitTestPoint(getGlobalX(-w*.5), getGlobalY(), true)) {
+		b = true;
+	}
+	if (ground.hitTestPoint(getGlobalX(w*.5), getGlobalY(), true)) {
+		b = true;
+	}
+	
+	return b;
+}
+
+function takeDamage(from:MovieClip, damage:Number = 1):void {
+	hero.life -= damage;
+	sndCtrl.playHitSound();
+	hero.switchToHero();
+	gameData.scoreSubtractDamage(damage);
+}
+
+function pickup():void {
+	if (MovieClip(root).hud) {
+		MovieClip(root).hud.topLeft.eagleCtrl.doPickup();
+	}
+}
+function drop ():void {
+	
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}
+	
+
+function drawLine():void {
+	
+	var clip:MovieClip = MovieClip(parent).haltLine;
+	
+	if (hault) {
+		lineBrightness = 1;
+		clip.graphics.clear();
+		clip.graphics.lineStyle(1, 0xffffff, .33+Math.random());
+		clip.graphics.moveTo(this.x, this.y);
+		clip.graphics.lineTo(hero.x, hero.y-40);
+	} else {
+		if (lineBrightness > 0) {
+			lineBrightness -= .05;
+			clip.graphics.clear();
+			clip.graphics.lineStyle(1, 0xffffff, (.33+Math.random())*lineBrightness);
+			clip.graphics.moveTo(this.x, this.y);
+			clip.graphics.lineTo(hero.x, hero.y-40);
+		} else {
+			clip.graphics.clear();
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="turn" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="move" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="moveSlow" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" name="moveFast" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" name="anim0" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Eagle/Anims/Eagle-Idle" name="idle">
+                  <matrix>
+                    <Matrix a="-1" tx="-1.9" ty="-1.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Eagle/Anims/Eagle-Turn" name="turn">
+                  <matrix>
+                    <Matrix a="0.538192749023438" d="0.538192749023438" tx="-1.35" ty="-4.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.4" y="3.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Eagle/Anims/Eagle2-Anim-Idle copy" name="move" centerPoint3DX="-4.45" centerPoint3DY="-9.35">
+                  <matrix>
+                    <Matrix a="0.208587646484375" d="0.208587646484375" tx="-4.9" ty="-6.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 6" name="moveSlow">
+                  <matrix>
+                    <Matrix a="0.839279174804688" d="0.839279174804688" tx="-3.65" ty="-8.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 7" name="moveFast">
+                  <matrix>
+                    <Matrix a="0.778396606445313" d="0.778396606445313" tx="0.05" ty="4.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Eagle/Assets/Eagle-CinematicFlydown" name="anim0" selected="true">
+                  <matrix>
+                    <Matrix tx="1.9" ty="3.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Colorer-GameObject" name="colorer">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-32.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound" centerPoint3DX="-0.45" centerPoint3DY="-4.65">
+                  <matrix>
+                    <Matrix a="0.608810424804688" d="0.263092041015625" tx="-0.5" ty="-4.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

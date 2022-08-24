@@ -1,0 +1,638 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-AchievmentPopup/UI-AchievmentPopup" itemID="586fa453-00000da7" linkageExportForAS="true" linkageClassName="UIAchievePopup" lastModified="1493031312" lastUniqueIdentifier="9">
+  <timeline>
+    <DOMTimeline name="UI-AchievmentPopup" currentFrame="168" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-392&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 7" color="#669900" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="38" blurY="38" color="#FFFFFF" quality="2" strength="0.57"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-Title" centerPoint3DX="0.2" centerPoint3DY="0.2">
+                  <matrix>
+                    <Matrix a="0.823562622070313" d="0.823562622070313" tx="0.1" ty="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="12" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="13" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="15" duration="154" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(root).playUISound(MovieClip(root).sndItem3);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+visible = false;
+
+var id:int;
+
+//called from AchievmentsConditions function
+function go(_id:int):void {
+	if (CONFIG::ACHIEVEMENTS) {
+		id = _id;
+		gotoAndPlay(2);
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;
+MovieClip(root).addChild(this);
+MovieClip(root).playUISound(MovieClip(root).sndSwordShingk);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(root).addChild(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="49" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(root).addChild(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="116" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[infoClip.init(id);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="168" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#FF4FFF" locked="true" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4309"/>
+                  <Point x="0.1951" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix a="0.06365966796875" d="0.016815185546875" ty="-123.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" blueOffset="255" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.278564660248498"/>
+                  <Point x="0.760906271531975"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix a="0.370941162109375" d="0.106887817382813"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" blueOffset="255" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.614931107078114" y="0.236002158267924"/>
+                  <Point x="1" y="0.55871571950524"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix a="0.531845092773438" d="0.664031982421875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" blueOffset="255" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.261343286440737" y="0.374594638597221"/>
+                  <Point x="0.599166588267792" y="0.706291491420668"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix d="1.53147888183594"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" blueOffset="255" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" duration="36" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.215234164147962" y="0.973065431990651"/>
+                  <Point x="0.684818982176886" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix d="1.36883544921875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" blueOffset="255" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="96" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix d="1.00007629394531"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" blueOffset="255" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="148" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.9289" y="0.0651"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix d="1.00007629394531"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" quality="2" strength="0"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.30078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" blueOffset="255" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix d="1.00007629394531" tx="-521.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" quality="2" strength="0"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.30078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" blueOffset="255" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="161" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="achievmentclip" color="#009999" parentLayerIndex="2" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="52" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.7846" y="0.2603"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-InfoClip" name="infoClip">
+                  <matrix>
+                    <Matrix tx="225.9" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="32" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.4451" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-InfoClip" name="infoClip" selected="true" centerPoint3DX="-94.5" centerPoint3DY="-0.1">
+                  <matrix>
+                    <Matrix a="0.840103149414063" d="0.840103149414063" tx="-94.5" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="97" duration="51" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-InfoClip" name="infoClip" centerPoint3DX="-79.65" centerPoint3DY="-0.1">
+                  <matrix>
+                    <Matrix a="0.840103149414063" d="0.840103149414063" tx="-79.65" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="148" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.9289" y="0.0651"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-InfoClip" name="infoClip" selected="true" centerPoint3DX="-79.65" centerPoint3DY="-0.1">
+                  <matrix>
+                    <Matrix a="0.840103149414063" d="0.840103149414063" tx="-79.65" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-InfoClip" name="infoClip" centerPoint3DX="-601.5" centerPoint3DY="-0.1">
+                  <matrix>
+                    <Matrix a="0.840103149414063" d="0.840103149414063" tx="-601.5" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="161" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="unlocked txt" color="#FF800A" parentLayerIndex="2" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="15" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="15" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-Title">
+                  <matrix>
+                    <Matrix a="0.597930908203125" d="0.597930908203125" tx="0.1" ty="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.98" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" duration="35" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-Title" centerPoint3DX="0.1" centerPoint3DY="0.1">
+                  <matrix>
+                    <Matrix a="1.05729675292969" d="1.05729675292969" tx="0.05" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.33" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.7846" y="0.2603"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-Title" centerPoint3DX="0.2" centerPoint3DY="0.2">
+                  <matrix>
+                    <Matrix a="0.823562622070313" d="0.823562622070313" tx="0.1" ty="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-Title" centerPoint3DX="-184.6" centerPoint3DY="0.2">
+                  <matrix>
+                    <Matrix a="0.823562622070313" d="0.823562622070313" tx="-184.7" ty="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="104" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="base" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4309"/>
+                  <Point x="0.1951" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix a="0.06365966796875" d="0.016815185546875" ty="-123.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF" strength="1.53"/>
+                    <DropShadowFilter blurX="7" blurY="7" distance="4" quality="2" strength="0.82"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.278564660248498"/>
+                  <Point x="0.760906271531975"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix a="0.370941162109375" d="0.106887817382813"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="15" blurY="15" color="#FFFFFF" strength="1.5"/>
+                    <DropShadowFilter blurX="7" blurY="7" distance="4" quality="2" strength="0.8"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.614931107078114" y="0.236002158267924"/>
+                  <Point x="1" y="0.55871571950524"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix a="0.531845092773438" d="0.664031982421875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="15.7821960449219" blurY="37.6836853027344" color="#FFFFFF" strength="1.48"/>
+                    <DropShadowFilter blurX="7" blurY="7" distance="4" quality="2" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.261343286440737" y="0.374594638597221"/>
+                  <Point x="0.599166588267792" y="0.706291491420668"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix d="1.53147888183594"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="156" color="#FFFFFF" strength="2.1"/>
+                    <DropShadowFilter blurX="0" blurY="0" distance="0" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" duration="36" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.215234164147962" y="0.973065431990651"/>
+                  <Point x="0.684818982176886" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <matrix>
+                    <Matrix d="1.36883544921875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="23.4237518310547" blurY="62.2937469482422" color="#FFFFFF" quality="2" strength="1.18"/>
+                    <DropShadowFilter blurX="0" blurY="0" distance="0" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="96" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="38" blurY="38" color="#FFFFFF" quality="2" strength="0.57"/>
+                    <DropShadowFilter blurX="7" blurY="7" distance="4" quality="2" strength="0.8"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="148" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.9289" y="0.0651"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="38" blurY="38" color="#FFFFFF" quality="2" strength="0.57"/>
+                    <DropShadowFilter blurX="7" blurY="7" distance="4" quality="2" strength="0.8"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="160" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievmentPopup/assets/UI-AchievmentPopup-BaseShape" centerPoint3DX="-521.85">
+                  <matrix>
+                    <Matrix tx="-521.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="38" blurY="38" color="#FFFFFF" quality="2" strength="0.57"/>
+                    <DropShadowFilter blurX="7" blurY="7" distance="4" quality="2" strength="0.8"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="161" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

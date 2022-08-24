@@ -1,0 +1,69 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/#CONTROLS/CtrlDisplay-CancelOLd" itemID="58b43f5c-0000c870" lastModified="1488207708">
+  <timeline>
+    <DOMTimeline name="CtrlDisplay-CancelOLd" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+if (MovieClip(root).numOfDevices() > 0) {
+	gotoAndStop(2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Keyboard">
+                  <matrix>
+                    <Matrix a="0.60992431640625" d="0.60992431640625" tx="-45.75" ty="-43.25"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Gamepad">
+                  <matrix>
+                    <Matrix a="0.691253662109375" d="0.691253662109375" tx="-27.8" ty="-45.2"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="UI/#CONTROLS/Bitmap/Bit-Ctrl-Key-S">
+                  <matrix>
+                    <Matrix tx="-17.1" ty="3.15"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Pad/Pad-B-Size1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.3" ty="24.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

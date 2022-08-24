@@ -1,0 +1,112 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_LightTrigger/OBJ-LightTrigger" itemID="54cc7bc2-00001d20" lastModified="1492402290" lastUniqueIdentifier="2" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-LightTrigger">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+var bound:MovieClip;
+var hero:MovieClip;
+var hud:MovieClip;
+
+var timer:Number;
+var go:Boolean;
+var earlyGo:Boolean;
+
+//componemnt
+var stopHeroOnImpact:Boolean;
+
+init();
+
+function init():void {
+	hero = MovieClip(parent).hero;
+	hud = MovieClip(root).hud;
+	
+	timer = 20;
+	go = false;
+}
+
+function update():void {
+	if (!go) 
+	{
+	if (this.currentFrame == 1) {
+		if (this.bound.hitTestObject(hero.bound)) {
+			if (stopHeroOnImpact) {
+				hero.lock();
+				hud.fadeoutUI();
+				hero.xSpeed *= .5;
+			}
+			gotoAndStop(2);	
+		}
+	} else {
+		if (timer > 0) {
+			timer --;
+			lockHeroPos();
+			if (timer <= 15) earlyGo = true;
+		} else {
+			//define in load
+			//if (triggerFunction) triggerFunction();
+			
+			go = true;
+		}
+	}
+	}
+}
+
+function lockHeroPos():void {
+	hero.x += (x - hero.x)/4;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LightTrigger/assets/OBJ-LightTrigger_idle">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_LightTrigger/assets/OBJ-LightTrigger_active">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix d="1.55213928222656" tx="0.75" ty="-64.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="stopHeroOnImpact">
+      <Inspectable name="stopHeroOnImpact" variable="stopHeroOnImpact" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

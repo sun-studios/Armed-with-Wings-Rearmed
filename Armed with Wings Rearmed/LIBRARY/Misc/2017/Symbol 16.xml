@@ -1,0 +1,495 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 16" itemID="58ce501d-00000f2b" lastModified="1496309827" lastUniqueIdentifier="18">
+  <timeline>
+    <DOMTimeline name="Symbol 16">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var item0:MovieClip = muteSound;
+var item1:MovieClip = muteMusic;
+var item2:MovieClip = clipFullScreen;
+var item3:MovieClip = clipQuality;
+var item4:MovieClip = clipColor;
+var item5:MovieClip = clipParticles;
+var item6:MovieClip = clipHud;
+var item7:MovieClip = btn0;
+var item8:MovieClip = btn1;
+var item9:MovieClip = btn2;
+var item10:MovieClip = btn3;
+
+var max:int = 10;
+if (MovieClip(root) && !MovieClip(root).STEAM) {
+	max = 9;
+	btn3.visible = false;
+}
+
+var currentSelection:MovieClip;
+var _parent:MovieClip = MovieClip(parent);
+
+whiteScreen.visible = false;
+
+clipSoundDial.init();
+clipMusicDial.init();
+
+select(0);
+
+function select(i:Number):void {
+	currentSelection = this["item"+i];
+}
+
+function input (clip:MovieClip) {
+	whiteScreen.visible = false;
+	switch (clip) {
+		case item0:
+			muteSound.toggle();
+		break;
+		case item1:
+			muteMusic.toggle();
+		break;
+		case item2:
+			item2.toggle();
+		break;
+		case item3:
+			item3.toggle();
+		break;
+		case item4:
+			whiteScreen.visible = true;
+			_parent.lock = true;
+			item4.open();
+		break;
+		case item5:
+			item5.toggle();
+		break;
+		case item6:
+			item6.toggle();
+		break;
+		case item7:
+			_parent.openControlSettings();
+		break;
+		case item8:
+			MovieClip(root).applyDefaultSettings();
+		break;
+		case item9:
+			_parent.openResetWindow(false);
+		break;
+		case item10:
+			_parent.openResetWindow(true);
+		break;
+	}
+}
+
+function update ():void {
+	if (currentSelection == muteSound) clipSoundDial.update();
+	if (currentSelection == muteMusic) clipMusicDial.update();
+	if (currentSelection == clipColor) clipColor.update();
+}
+
+function reinit():void {
+	clipSoundDial.init();
+	clipMusicDial.init();
+	for (var i:int = 0; i < max; i ++) {
+		var obj = this["item"+i];
+		if (obj.hasOwnProperty("init")) {
+			obj.init();
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 15">
+                  <matrix>
+                    <Matrix tx="-84.55" ty="199.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.75"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-359.45" ty="182.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>COLOR</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 17" name="clipColor">
+                  <matrix>
+                    <Matrix ty="200.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 22" name="whiteScreen" selected="true">
+                  <matrix>
+                    <Matrix d="1.94999694824219" tx="-20" ty="174.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 15">
+                  <matrix>
+                    <Matrix tx="-84.55" ty="299.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.75"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 15">
+                  <matrix>
+                    <Matrix tx="-84.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.42"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 15">
+                  <matrix>
+                    <Matrix tx="-84.55" ty="49.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.42"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 15">
+                  <matrix>
+                    <Matrix tx="-84.55" ty="99.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.75"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="btn0" uniqueID="1">
+                  <matrix>
+                    <Matrix a="0.882522583007813" d="0.882522583007813" tx="-1.1" ty="398.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.46"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CONTROLS" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="btn1" uniqueID="2">
+                  <matrix>
+                    <Matrix a="0.882522583007813" d="0.882522583007813" tx="-1.1" ty="460.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.46"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="DEFAULT" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="btn2" uniqueID="3">
+                  <matrix>
+                    <Matrix a="0.882522583007813" d="0.882522583007813" tx="-1.1" ty="522.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.46"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="RESET ALL DATA" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMStaticText fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-359.45" ty="-16.25"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>SOUND</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-359.45" ty="32.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>MUSIC</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-359.45" ty="82.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>FULL SCREEN</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMComponentInstance libraryItemName="Misc/2017/SettingDial" name="clipSoundDial" uniqueID="12">
+                  <matrix>
+                    <Matrix ty="-1.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="doSound">
+      <Inspectable name="doSound" variable="doSound" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+   <property id="doMusic">
+      <Inspectable name="doMusic" variable="doMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Misc/2017/SettingDial" name="clipMusicDial" uniqueID="13">
+                  <matrix>
+                    <Matrix ty="48.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.75"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="doSound">
+      <Inspectable name="doSound" variable="doSound" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="doMusic">
+      <Inspectable name="doMusic" variable="doMusic" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Misc/2017/tickbox" name="clipFullScreen" uniqueID="14">
+                  <matrix>
+                    <Matrix ty="100.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.75" y="-0.2"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 15">
+                  <matrix>
+                    <Matrix tx="-84.55" ty="249.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.75"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-359.45" ty="232.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>PARTICLES</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMComponentInstance libraryItemName="Misc/2017/tickbox" name="clipParticles" uniqueID="15">
+                  <matrix>
+                    <Matrix ty="250.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.75" y="-0.2"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Misc/2017/tickbox" name="clipHud" uniqueID="17">
+                  <matrix>
+                    <Matrix ty="300.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.75" y="-0.2"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMStaticText fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-359.45" ty="282.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>DISPLAY HUD</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 15">
+                  <matrix>
+                    <Matrix tx="-84.55" ty="149.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.75"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="31.4" width="134.4" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="-359.45" ty="132.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>QUALITY</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.13"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 19" name="clipQuality">
+                  <matrix>
+                    <Matrix tx="0.8" ty="147.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="Misc/2017/tickbox" name="muteSound" uniqueID="17">
+                  <matrix>
+                    <Matrix tx="-124.5" ty="1.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.75" y="-0.2"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Misc/2017/tickbox" name="muteMusic" uniqueID="18">
+                  <matrix>
+                    <Matrix tx="-124.5" ty="49.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.75" y="-0.2"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="btn3" uniqueID="19">
+                  <matrix>
+                    <Matrix a="0.882522583007813" d="0.882522583007813" tx="-1.1" ty="584.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.46"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="WIPE STEAM DATA" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

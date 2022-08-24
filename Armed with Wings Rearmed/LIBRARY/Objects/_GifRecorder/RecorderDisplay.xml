@@ -1,0 +1,42 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_GifRecorder/RecorderDisplay" itemID="55bbc588-000006dc" lastModified="1474815290">
+  <timeline>
+    <DOMTimeline name="RecorderDisplay">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="56.9" width="87.7" height="30" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-57.9" ty="-28.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Recording</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" alpha="0.901960784313726" lineHeight="30" size="20" bitmapSize="400" face="Font 1*" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMDynamicText name="tf_time" fontRenderingMode="standard" left="56.9" width="105.5" height="24" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="36.6" ty="-21.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>000</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" alpha="0.901960784313726" lineHeight="24" size="16" bitmapSize="320" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

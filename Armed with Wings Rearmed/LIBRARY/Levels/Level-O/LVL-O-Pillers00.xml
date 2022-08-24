@@ -1,0 +1,348 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-O/LVL-O-Pillers00" itemID="56dd45fe-00000a3d" lastModified="1457341950">
+  <timeline>
+    <DOMTimeline name="LVL-O-Pillers00" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var X:Number;
+var vcam:MovieClip;
+var game:MovieClip;
+
+init();
+
+function init ():void {
+	MovieClip(parent).objectsArr.push(this);
+	
+	X = x;
+	vcam = MovieClip(parent).vcam;
+	game = MovieClip(parent);
+}
+
+function update ():void {
+	//x = X + ((distanceBetween(this, vcam))*.2);
+	this.x = X + ((game.x / -2));
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-1514.3" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-1261.95" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-1009.6" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-757.25" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-504.9" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-252.55" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-0.2" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="252.15" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="504.5" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="756.85" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="1009.2" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="1261.55" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="1513.9" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="-1514.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-1514.3" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="-1261.8" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-1261.95" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="-1009.45" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-1009.6" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="-757.1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-757.25" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="-504.75" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-504.9" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="-252.4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-252.55" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="-0.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="-0.2" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="252.3" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="252.15" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="504.65" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="504.5" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="757" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="756.85" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="1009.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="1009.2" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="1261.7" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="1261.55" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BossPiller" symbolType="graphic" centerPoint3DX="1514.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.630233764648438" d="0.630233764648438" tx="1513.9" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.34" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

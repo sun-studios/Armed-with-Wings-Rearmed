@@ -1,0 +1,98 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss1-Beast/assets/Boss1-Arm-Spin" itemID="54ba1304-000004a3" lastModified="1491164746" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Boss1-Arm-Spin" currentFrame="55">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" duration="34" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/assets/swing_spin" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.96142578125" b="-0.275115966796875" c="-0.403366088867188" d="1.15556335449219" tx="1.95" ty="-19.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="6" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.333333333333333" y="0.666666666666667"/>
+                  <Point x="0.666666666666667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/assets/boss6_swordarm_1" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix tx="-2.95" ty="41.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3" y="-30.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.333333333333333"/>
+                  <Point x="0.666666666666667" y="0.333333333333333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/assets/boss6_swordarm_1" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.990921020507813" b="0.158843994140625" c="-0.240951538085938" d="0.970535278320313" tx="-10.3" ty="36.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.9" y="-30.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/assets/boss6_swordarm_1" symbolType="graphic" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.245819091796875" b="-0.972976684570313" c="0.986709594726563" d="-0.162338256835938" tx="34.55" ty="15.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.95" y="-30.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/assets/boss6_swordarm_1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.83453369140625" b="0.557357788085938" c="-0.483291625976563" d="-0.875411987304688" tx="-8.9" ty="-11.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.95" y="-30.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

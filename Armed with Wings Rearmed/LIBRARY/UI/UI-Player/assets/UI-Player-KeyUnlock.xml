@@ -1,0 +1,153 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/assets/UI-Player-KeyUnlock" itemID="584ab813-00001792" lastModified="1492203033" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-Player-KeyUnlock">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[/*
+import flash.display.MovieClip;
+import flash.text.TextField;
+
+var gameData:MovieClip = MovieClip(root);
+var sndCtrl:MovieClip = MovieClip(root);
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+var _parent:MovieClip = MovieClip(parent);
+
+var tf_slot:TextField;
+var iconClip:MovieClip;
+var infoClip:MovieClip;
+
+var keyFilter6:Boolean;
+var gearID:Number;
+
+function init (slotID:Number):void {
+	gearID = gameData["data_equiptedGear"+slotID];
+	tf_slot.text = "Booster Slot "+(slotID+1);
+	iconClip.clip.gearIcon.gotoAndStop(gearID+1);
+	infoClip.update(gearID);
+	
+	keyFilter6 = true;
+	
+	if (gameData["data_gear"+gearID+"_passive"]) {
+		iconClip.clip.gotoAndStop(1);
+		inputClip.update("none");
+	} else {
+		//change booster visual if Ability Booster - X 
+		iconClip.clip.gotoAndStop(2);
+		inputClip.update("X");
+		if (slotID == 1) {
+			//change visual for Ability Y
+			iconClip.clip.gotoAndStop(3);
+			inputClip.update("Y");
+		}
+	}
+	//force 
+	iconClip.clip.gearIcon.gotoAndStop(gearID+1);
+	iconClip.clip.name_tf.text = " ";
+	
+}
+
+function update ():void {
+	//cancel
+	if (ctrl.ctrl_cancel || ctrl.ctrl_confirmStart) {
+		if (!keyFilter6) {
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			_parent.closeGearLockedPanel();
+			keyFilter6 = true;
+		}
+	} else {
+		keyFilter6 = false;
+	}
+}
+*/]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText left="-45.75" width="124.85" height="27.6">
+                  <matrix>
+                    <Matrix tx="-54.1" ty="-107.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>REQUIRES</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineSpacing="8" lineHeight="27.6" size="28" bitmapSize="560" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMComponentInstance libraryItemName="UI/UI-Player/UI-Player-Equiptment-Container" name="iconClip" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="-89.75" ty="-7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15" y="-2.1"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="gearSlotID">
+      <Inspectable name="gearSlotID" variable="gearSlotID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Symbol 6" name="infoClip">
+                  <matrix>
+                    <Matrix tx="54.25" ty="-10"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText left="39.1" width="40" height="27.6">
+                  <matrix>
+                    <Matrix tx="24.15" ty="-107.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>x3</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineSpacing="8" lineHeight="27.6" size="28" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="Objects/_KeySpecial/assets/Key-Shape">
+                  <matrix>
+                    <Matrix a="0.707107543945313" b="-0.70709228515625" c="0.70709228515625" d="0.707107543945313" tx="47.6" ty="-96"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#424242" alpha="0.847058823529412"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-5304 -2540|5303 -2540!5303 -2540|5303 3100!5303 3100|-5304 3100!-5304 3100|-5304 -2540"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

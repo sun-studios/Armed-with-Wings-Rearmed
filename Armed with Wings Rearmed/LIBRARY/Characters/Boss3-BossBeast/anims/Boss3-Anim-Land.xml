@@ -1,0 +1,168 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss3-BossBeast/anims/Boss3-Anim-Land" itemID="561bcb20-00000d5f" lastModified="1448317217" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Boss3-Anim-Land" currentFrame="30">
+      <layers>
+        <DOMLayer name="label" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="6" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="33" name="land" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="22" name="preleap" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit3">
+                  <matrix>
+                    <Matrix a="11.2628326416016" d="8.86175537109375" tx="-73.8" ty="-134.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.8" y="7.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="36" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var spinning:Boolean = true;
+var sndCtrl:MovieClip = MovieClip(root);
+MovieClip(parent).spinning = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndBossSwing1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = false;
+MovieClip(parent).spinning = false;
+sndCtrl.playSound(sndCtrl.sndStepHeavy);
+MovieClip(parent.parent).vcam.shakeCamera(30);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndStepHeavy);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="21" duration="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("taunt");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="21" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip = MovieClip(parent);
+_parent.antiFlinchOn = true;
+spinning = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (_parent.life > _parent.lifeOrig *.3) _parent.antiFlinchOn = false;
+gotoAndPlay(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="5" tweenType="motion" motionTweenRotate="clockwise" motionTweenRotateTimes="1" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/assets/Boss3-Spinning">
+                  <matrix>
+                    <Matrix tx="22.1" ty="-85.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-13.1" y="12"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/assets/Boss3-Spinning">
+                  <matrix>
+                    <Matrix tx="22.1" ty="-85.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-13.1" y="12"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" duration="33" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Land2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="13" ty="2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Attack" symbolType="graphic" firstFrame="68" centerPoint3DX="-27.95" centerPoint3DY="-138.55" loop="play once">
+                  <matrix>
+                    <Matrix tx="12.95" ty="0.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-92.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

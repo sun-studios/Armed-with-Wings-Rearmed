@@ -1,0 +1,56 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-Lightsource" itemID="55858446-00002569" lastModified="1452514336">
+  <timeline>
+    <DOMTimeline name="OBJ-Lightsource">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var vcam:MovieClip;
+var scale:Number;
+var a:Number;
+
+init();
+
+function init():void {
+	vcam = MovieClip(parent).vcam;
+	scale = 1;
+	a = 1;
+}
+function update():void {
+	x += (vcam.target.x - x)/8;
+	y += (vcam.target.y - y)/8;
+	
+	a = .4 + (Math.random()*.1);
+	alpha += (a - alpha)/8;
+	
+	scale = .8 + (Math.random()*.2);
+	scaleX = scaleY += (scale - scaleY)/8;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Bomb/assets/Bomb-glow3" selected="true">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.80078125" redMultiplier="0" blueMultiplier="0" greenMultiplier="0" redOffset="153" blueOffset="153" greenOffset="153"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

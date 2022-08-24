@@ -1,0 +1,94 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_StoryWidget/Menu2-StoryWidget-Stats" itemID="569e025d-000009e2" lastModified="1486217065">
+  <timeline>
+    <DOMTimeline name="Menu2-StoryWidget-Stats">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" width="39.2" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-38.9" ty="-33.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>LEVEL:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="18" bitmapSize="240" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMDynamicText name="tf_level" fontRenderingMode="standard" width="53.7" height="27" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="2.25" ty="-41.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>012</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="tf_date" fontRenderingMode="standard" width="76.7" height="18" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-38.9" ty="45.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>01/01/1990</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" width="32.2" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-38.9" ty="-7.45"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>TIME:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="18" bitmapSize="240" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMDynamicText name="tf_time" fontRenderingMode="standard" width="64.4" height="27" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-0.15" ty="-8.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>10:10:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="21" size="14" bitmapSize="280" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="tf_difficulty" fontRenderingMode="standard" width="55.75" height="18" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-38.9" ty="19.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NOMRAL</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

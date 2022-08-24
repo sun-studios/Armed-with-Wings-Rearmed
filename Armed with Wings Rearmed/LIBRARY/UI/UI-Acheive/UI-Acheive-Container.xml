@@ -1,0 +1,334 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Acheive/UI-Acheive-Container" itemID="582819a5-00000c88" lastModified="1479038262">
+  <timeline>
+    <DOMTimeline name="UI-Acheive-Container" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-445&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+
+var buttons:Array = new Array();
+buttons = [b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,
+			b10,b11,b12,b13,b14,b15,b16,b17,b18,b19];
+var selectX:int;
+var selectY:int;
+var xMax:int;
+var yMax:int;
+
+var currentClip:MovieClip;
+
+var go:Boolean;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+
+function init():void {
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	
+	selectX = 0;
+	selectY = 0;
+	xMax = 1;
+	yMax = 9;
+	
+	for (var i:int = 0; i < buttons.length; i ++) {
+		var btn:MovieClip = buttons[i];
+		btn.clip.init(i);
+	}
+	
+	go = true;
+}
+
+function update ():void {
+	
+	if (go) {
+		
+		scroll();
+		updateCursor();
+		
+		//DOWN KEY
+		if (ctrl.ctrl_down) {
+			if (!keyFilter0) {
+				//code here
+				if (selectY < yMax) {
+					selectY ++;
+					selectClip();
+				}
+				keyFilter0 = true;
+			}
+		} else {
+			keyFilter0 = false;
+		}
+			//UP KEY
+		if (ctrl.ctrl_up) {
+			if (!keyFilter1) {
+				//code here
+				if (selectY > 0) {
+					selectY --;
+					selectClip();
+				}
+				keyFilter1 = true;
+			}
+		} else {
+			keyFilter1 = false;
+		}
+			//LEFT KEY
+		if (ctrl.ctrl_left) {
+			if (!keyFilter2) {
+				//code here
+				if (selectX > 0) {
+					selectX --;
+					selectClip();
+				}
+				keyFilter2 = true;
+			}
+		} else {
+			keyFilter2 = false;
+		}
+			//RIGHT KEY
+		if (ctrl.ctrl_right) {
+			if (!keyFilter3) {
+				//code here
+				if (selectX < xMax) {
+					selectX ++;
+					selectClip();
+				}
+				keyFilter3 = true;
+			}
+		} else {
+			keyFilter3 = false;
+		}
+	}
+}
+
+function updateCursor():void {
+	var val:Number = (selectY*2) + selectX;
+	currentClip = this["b"+val];
+	
+	cursor.x += ((currentClip.x-180) - cursor.x)/2;
+	cursor.y += ((currentClip.y+42) - cursor.y)/2;
+}
+
+function selectClip():void {
+	if (currentClip) {
+		currentClip.gotoAndPlay("out");
+	}
+	
+	var val:Number = (selectY*2) + selectX;
+	currentClip = this["b"+val];
+	
+	currentClip.gotoAndPlay("over");
+	sndCtrl.playSound(sndCtrl.sndButton1);
+}
+
+function scroll():void {
+	var val = 135;
+	if (selectY > 1) val -= (selectY-1)*95;
+	if (val > 135) val = 135;
+	if (val < -485) val = -485;
+	
+	y += (val - y)/10;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-Cursor" name="cursor">
+                  <matrix>
+                    <Matrix tx="-393.2" ty="84"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.45" y="2.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" quality="2" strength="0.83"/>
+                    <GlowFilter color="#FFFFFF" quality="3" strength="0.44"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b0">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="41.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b1">
+                  <matrix>
+                    <Matrix tx="189.95" ty="40.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b2">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="136.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b3">
+                  <matrix>
+                    <Matrix tx="189.95" ty="135.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b4">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="231.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b5">
+                  <matrix>
+                    <Matrix tx="189.95" ty="230.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b6">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="326.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b7">
+                  <matrix>
+                    <Matrix tx="189.95" ty="325.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b8">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="421.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b9">
+                  <matrix>
+                    <Matrix tx="189.95" ty="420.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b10">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="516.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b11">
+                  <matrix>
+                    <Matrix tx="189.95" ty="515.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b12">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="611.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b13">
+                  <matrix>
+                    <Matrix tx="189.95" ty="610.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b14">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="706.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b15">
+                  <matrix>
+                    <Matrix tx="189.95" ty="705.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b16">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="801.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b17">
+                  <matrix>
+                    <Matrix tx="189.95" ty="800.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b18">
+                  <matrix>
+                    <Matrix tx="-189.95" ty="896.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Button" name="b19">
+                  <matrix>
+                    <Matrix tx="189.95" ty="895.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,110 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/assets/HUD-SwapWeapon" itemID="593e7ace-00000d4a" lastModified="1497266894">
+  <timeline>
+    <DOMTimeline name="HUD-SwapWeapon">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/Symbol-Swap">
+                  <matrix>
+                    <Matrix a="0.616928100585938" d="0.616928100585938" tx="9.05" ty="2.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.75" y="12.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" width="38.15" height="16" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="24.1" ty="2.15"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>CHANGE&#xD;WEAPON</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="-2" lineHeight="9" size="10" bitmapSize="200" face="Font 7*" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-SwapLoot">
+                  <matrix>
+                    <Matrix a="0.60589599609375" d="0.60589599609375" tx="80.45" ty="10.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.25" y="-0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="23" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6179" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-SwapWeapon-shape2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="53.05" ty="10.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.7890625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6179" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-SwapWeapon-shape2" symbolType="graphic" centerPoint3DX="53.05" centerPoint3DY="10.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="53.05" ty="10.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-SwapWeapon-shape2" symbolType="graphic" centerPoint3DX="53.05" centerPoint3DY="10.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="53.05" ty="10.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.80078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

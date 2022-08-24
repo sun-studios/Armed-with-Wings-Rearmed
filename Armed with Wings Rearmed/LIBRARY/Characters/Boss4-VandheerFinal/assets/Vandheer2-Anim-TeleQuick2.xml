@@ -1,0 +1,210 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick2" itemID="572dea05-0000186b" lastModified="1462626821" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Vandheer2-Anim-TeleQuick2" currentFrame="17" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-55&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="sound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);
+
+sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="8" name="teleport0" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="10" name="teleport1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Idle" name="idle" centerPoint3DX="-68" centerPoint3DY="36.15">
+                  <matrix>
+                    <Matrix tx="5.05" ty="42.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="5" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="0.9427490234375" tx="7.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="10" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="2.22451782226563" tx="7.55" ty="-0.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="10" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="0.9427490234375" tx="7.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="9" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="1.16746520996094" tx="7.55" ty="-20.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="9" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="0.9427490234375" tx="7.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" selected="true" symbolType="graphic" firstFrame="8" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="0.9427490234375" tx="7.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="7" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="0.9427490234375" tx="7.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="6" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="0.9427490234375" tx="7.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="6" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="0.9427490234375" tx="7.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="5" centerPoint3DX="6.15" centerPoint3DY="-60.8" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.9427490234375" d="0.9427490234375" tx="7.55" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.95" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Idle" name="idle" centerPoint3DX="-68" centerPoint3DY="36">
+                  <matrix>
+                    <Matrix tx="5.05" ty="42.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" symbolType="graphic" firstFrame="6" centerPoint3DX="6.15" centerPoint3DY="-47.5" loop="single frame">
+                  <matrix>
+                    <Matrix a="-1.61849975585938" d="0.25238037109375" tx="12.9" ty="33.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.85" y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Idle" name="idle" centerPoint3DX="-68" centerPoint3DY="36">
+                  <matrix>
+                    <Matrix tx="5.05" ty="42.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,77 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EndGameMenu/EndGame-Score" itemID="574af183-00000b81" lastModified="1464529283">
+  <timeline>
+    <DOMTimeline name="EndGame-Score">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+import flash.display.MovieClip;
+
+var score1:TextField;
+var score2:TextField;
+var gameData:MovieClip;
+
+function init():void {
+	gameData = MovieClip(root);
+	score1.text = ""+gameData.multiSessionP1Score;
+	score2.text = ""+gameData.multiSessionP2Score;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="score1" fontRenderingMode="standard" left="-11.1" width="52.3" height="111.35" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="-52.25" ty="-55.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>0</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="111.35" size="82" bitmapSize="1640" face="RETURNTOCASTLE" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" width="12.5" height="111.35" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-6.25" ty="-60.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="0" lineHeight="111.35" size="82" bitmapSize="1640" face="RETURNTOCASTLE" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMDynamicText name="score2" fontRenderingMode="standard" width="47.85" height="111.35" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="15.25" ty="-55.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>0</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="111.35" size="82" bitmapSize="1640" face="RETURNTOCASTLE" fillColor="#666666"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

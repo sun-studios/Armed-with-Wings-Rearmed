@@ -1,0 +1,216 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Core/vcam" itemID="54ae76df-00000ece" lastModified="1496250712">
+  <timeline>
+    <DOMTimeline name="vcam">
+      <layers>
+        <DOMLayer name="vcam-Actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+	
+var xSpeed:Number;
+var ingame:Boolean;
+var ignoreEagleSwitch:Boolean;
+var extraYY:Number;
+
+var target:MovieClip;
+var zoom:Number;
+var shakeX:Number;
+var shakeY:Number;
+var slowZoom:Boolean;
+var cameraShake:Number;
+var shakePause:Number;
+var battleCool:Number;
+var battleZoom:Number;
+var motionOverride:Boolean;
+var panningSmoothness:Number = 7;
+var panningSmoothnessOrig:Number = 7;
+
+var game:MovieClip;
+var zoomContainer:MovieClip;
+
+init();
+
+function init():void {
+	xSpeed = 0;
+	ingame = true;
+	target = MovieClip(parent).hero;
+	zoom = 1;
+	shakeX = 0;
+	shakeY = 0;
+	slowZoom = false;
+	cameraShake = 0;
+	shakePause = 0;
+	battleCool = 0;
+	battleZoom = 0;
+	extraYY = 0;
+	
+	game = MovieClip(parent);
+	zoomContainer = MovieClip(parent.parent);
+}
+
+function update ():void {
+	//visible = true;
+	if (target != null) {
+		//Y offset
+		var extraY:Number = (zoom * 40) + extraYY;
+		if (target == MovieClip(parent).hero) extraY = 60;
+		
+		//update position
+		var X:Number = -target.x*(game.scaleX) + shakeX;
+		var Y:Number =(-target.y*(game.scaleX) +50+extraY + shakeY);
+		
+		if (MovieClip(root)) {
+		if (!MovieClip(root).freezeFrame.freezeOn()) {
+			//battle zoom (combo reset)
+			if (battleCool > 0) {
+				if (target.onGround) {
+					battleZoom = .25;
+				} else {
+					battleZoom = .05;
+				}
+				battleCool --;
+				if (battleCool == 0) {
+					MovieClip(root).sessionCombo = 0;
+				}
+			} else {
+				battleZoom = 0;
+			}
+		}
+		}
+		
+		//eagle zoom
+		var eagleZoom:Number = 0;
+		if (target == MovieClip(parent).eagle) eagleZoom = -.2;
+		
+		//defult game zoom
+		var screenSize:Number = 2;//720 = .1.7, 450 = 1, 1 == 960
+		var zoomSpeed:Number = 12;
+		if (slowZoom) zoomSpeed = 20;
+		
+		//Motion override is used for external movieclip animations mapped onto the camera.
+		if (motionOverride) {
+			game.x = (target.x + MovieClip(target.parent).x) * -1;
+			game.y = (target.y + MovieClip(target.parent).y) * -1;
+			zoomContainer.scaleX = 2+(2-(target.scaleX*2));
+			zoomContainer.scaleY = 2+(2-(target.scaleY*2));
+			//zoomContainer.rotation = target.rotation;
+		} else {
+			zoomContainer.scaleX = zoomContainer.scaleY += ((screenSize/zoom+battleZoom+eagleZoom) - zoomContainer.scaleX)/zoomSpeed;
+			game.x = Math.floor(game.x + ((X) - game.x)/panningSmoothness);//was /8
+			game.y = Math.floor(game.y + ((Y) - game.y)/panningSmoothness);//was /8
+			//zoomContainer.rotation += (0 - zoomContainer.rotation)/4;
+		}
+			
+		x = target.x;
+		y = target.y-50;
+	}
+	
+	_cameraShake();
+}
+
+function forcePos(_X:Number, _Y:Number):void {
+	var extraY:Number = zoom * 40;
+	var X:Number = -_X*(game.scaleX) + shakeX;
+	var Y:Number =(-_Y*(game.scaleX) +50+extraY + shakeY);
+	
+	game.x = X;
+	game.y = Y;
+	
+}
+
+function _cameraShake():void {
+	if (cameraShake > 70) {
+		cameraShake = 70;
+	}
+	if (cameraShake > 0) {
+		if (shakePause >0) {
+			
+			shakePause --;
+		} else {
+			
+			
+			if (Math.floor(Math.random()*3) == 0) {
+				shakeX = cameraShake;
+			} else {
+				shakeX = -cameraShake;
+			}
+			if (Math.floor(Math.random()*3) == 0) {
+				shakeY = cameraShake;
+			} else {
+				shakeY = -cameraShake;
+			}
+			
+			shakeX *= 1;
+			shakeY *= 1;
+			
+			shakePause = 2;
+			
+		}
+		//game.x += ((shakeX) - game.x)/3;
+		//game.y += ((shakeY) - game.y)/3;
+		cameraShake --;
+	} 
+}
+
+function shakeCamera(ammount:Number):void {
+	cameraShake = ammount;
+
+}
+
+function doBossKillZoom(_zoom:Number = .45):void {
+	slowZoom = true;
+	zoom = _zoom;
+}
+function endBosSKillZoom():void {
+	slowZoom = false;
+	zoom = 1;
+	
+}
+
+function getGlobalX(obj:MovieClip):Number {
+	var _parent:MovieClip = MovieClip(parent);
+	return obj.x + _parent.x;
+}
+function getGlobalY(obj:MovieClip):Number {
+	var _parent:MovieClip = MovieClip(parent);
+	return obj.y + _parent.y;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="graphic" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#ECECEC" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!8001 -4500|8001 4500!8001 4500|-8000 4500!-8000 4500|-8000 -4500!-8000 -4500|8001 -4500"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

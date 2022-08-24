@@ -1,0 +1,775 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_RingButton/assets/Ring-Body" itemID="562bd3bd-00001391" lastModified="1572441612" lastUniqueIdentifier="6">
+  <timeline>
+    <DOMTimeline name="Ring-Body" currentFrame="2">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+import flash.text.TextFormat;
+
+var label_tf:TextField = clip.label_tf;
+
+switch (MovieClip(parent).id) {
+	case 0:
+		label_tf.text = "STORY";
+		iconClip.gotoAndStop(1);
+		break;
+	case 1:
+		label_tf.text = "LEVELS";
+		iconClip.gotoAndStop(2);
+		break;
+	case 2:
+		label_tf.text = "SURVIVAL";
+		iconClip.gotoAndStop(3);
+		break;
+	case 3:
+		label_tf.text = "SETTINGS";
+		iconClip.gotoAndStop(4);
+		break;
+	case 4:
+		label_tf.text = "VS BATTLE";
+		iconClip.gotoAndStop(5);
+		break;
+	case 5:
+		label_tf.text = "JUGGLE";
+		iconClip.gotoAndStop(8);
+		break;
+	case 6:
+		label_tf.text = "ACHIEVEMENTS";
+		iconClip.gotoAndStop(6);
+	break;
+	case 8:
+		label_tf.text = "QUIT";
+		iconClip.gotoAndStop(7);
+	break;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="50" name="loop" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("loop");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" duration="43" name="over" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" duration="61" name="loop2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="163" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("loop2");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="164" duration="25" name="out" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="189" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("loop");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Logo" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip">
+                  <matrix>
+                    <Matrix a="0.73846435546875" d="0.73846435546875" ty="-24.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="25" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6707" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip">
+                  <matrix>
+                    <Matrix a="0.73846435546875" d="0.73846435546875" ty="-24.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.332303854881017"/>
+                  <Point x="0.666726984843435" y="0.509396251013919"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip" selected="true">
+                  <matrix>
+                    <Matrix a="0.73846435546875" d="0.73846435546875" ty="-12.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" duration="12" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.335354370082565" y="0.509055885519925"/>
+                  <Point x="0.669633793969433" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip" centerPoint3DY="-18.75">
+                  <matrix>
+                    <Matrix a="0.738449096679688" d="0.738449096679688" ty="-18.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2381" y="0.9281"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip">
+                  <matrix>
+                    <Matrix a="0.73846435546875" d="0.73846435546875" ty="-24.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="37" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2883"/>
+                  <Point x="0.1768" y="0.8664"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip" selected="true" centerPoint3DX="-0.1" centerPoint3DY="-98.25">
+                  <matrix>
+                    <Matrix a="1.17852783203125" d="1.17852783203125" ty="-98.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" duration="31" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.4065" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip" centerPoint3DY="-49.1">
+                  <matrix>
+                    <Matrix ty="-49.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="133" duration="30" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.4065" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip" centerPoint3DX="0.05" centerPoint3DY="-61.25">
+                  <matrix>
+                    <Matrix a="1.02391052246094" d="1.02391052246094" ty="-61.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="163" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip" centerPoint3DY="-49.1">
+                  <matrix>
+                    <Matrix ty="-49.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="189" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Icon" name="iconClip">
+                  <matrix>
+                    <Matrix a="0.73846435546875" d="0.73846435546875" ty="-24.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Text" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="58" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip">
+                  <matrix>
+                    <Matrix ty="87.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip">
+                  <matrix>
+                    <Matrix d="1.5347900390625" ty="87.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DY="87.55">
+                  <matrix>
+                    <Matrix d="0.237350463867188" ty="115.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                    <BlurFilter blurX="0" blurY="43"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DY="87.55">
+                  <matrix>
+                    <Matrix d="1.90325927734375" ty="79.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                    <BlurFilter blurX="0" blurY="22"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="61" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DY="87.55">
+                  <matrix>
+                    <Matrix d="0.509078979492188" ty="41.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                    <BlurFilter blurX="0" blurY="10"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DY="87.55">
+                  <matrix>
+                    <Matrix d="2.45860290527344" ty="83.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                    <BlurFilter blurX="0" blurY="45"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DY="50.15">
+                  <matrix>
+                    <Matrix d="0.353713989257813" ty="44.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.15"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                    <BlurFilter blurX="0" blurY="45"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DY="106.9">
+                  <matrix>
+                    <Matrix d="0.353713989257813" ty="101.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                    <BlurFilter blurX="0" blurY="29"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip">
+                  <matrix>
+                    <Matrix d="1.5347900390625" ty="89.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="27" color="#FFFFFF" strength="1.59"/>
+                    <GlowFilter blurX="0" blurY="23" color="#FFFFFF" quality="2" strength="1.6"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" duration="36" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2175" y="0.0651"/>
+                  <Point x="0.185" y="0.7534"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DX="0.1" centerPoint3DY="92.45">
+                  <matrix>
+                    <Matrix a="1.14593505859375" d="1.14593505859375" ty="92.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="3" blurY="3" color="#FFFFFF" strength="1.55"/>
+                    <GlowFilter blurX="0" blurY="55" color="#FFFFFF" quality="2" strength="1.71"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" duration="31" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6559" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DX="-0.05" centerPoint3DY="80">
+                  <matrix>
+                    <Matrix a="1.15928649902344" d="1.15928649902344" ty="79.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="3" blurY="3" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="9" color="#FFFFFF" quality="2" strength="0.69"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="133" duration="30" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6559" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DX="-0.1" centerPoint3DY="73.85">
+                  <matrix>
+                    <Matrix a="1.08828735351563" d="1.08828735351563" ty="73.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="3" blurY="3" color="#FFFFFF" strength="0.84"/>
+                    <GlowFilter blurX="0" blurY="17" color="#FFFFFF" quality="2" strength="0.8"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="163" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DX="-0.05" centerPoint3DY="80">
+                  <matrix>
+                    <Matrix a="1.15928649902344" d="1.15928649902344" ty="79.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="3" blurY="3" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="9" color="#FFFFFF" quality="2" strength="0.69"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="168" duration="21" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2134"/>
+                  <Point x="0.2381" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DX="0.05" centerPoint3DY="67.65">
+                  <matrix>
+                    <Matrix a="0.948837280273438" d="0.948837280273438" ty="67.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="3" blurY="3" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="189" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6923" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Text" name="clip" centerPoint3DY="49.2">
+                  <matrix>
+                    <Matrix ty="49.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                    <GlowFilter blurX="0" blurY="34" color="#FFFFFF" quality="2" strength="0.69"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Bade" color="#FF800A" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="25" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6923" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" duration="25" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6923" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" centerPoint3DY="4.95" loop="loop">
+                  <matrix>
+                    <Matrix ty="4.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0" redMultiplier="0.37109375" blueMultiplier="0.37109375" greenMultiplier="0.37109375" redOffset="161" blueOffset="161" greenOffset="161"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" duration="39" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2175" y="0.0651"/>
+                  <Point x="0.185" y="0.7534"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" selected="true" symbolType="graphic" centerPoint3DY="89.25" loop="loop">
+                  <matrix>
+                    <Matrix ty="89.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.63" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" duration="31" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6559" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" centerPoint3DY="82.5" loop="loop">
+                  <matrix>
+                    <Matrix ty="82.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.63" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="133" duration="30" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6559" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" centerPoint3DY="76.95" loop="loop">
+                  <matrix>
+                    <Matrix ty="76.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.63" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="163" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" centerPoint3DY="82.5" loop="loop">
+                  <matrix>
+                    <Matrix ty="82.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.63" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="168" duration="21" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2134"/>
+                  <Point x="0.2381" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" centerPoint3DY="73" loop="loop">
+                  <matrix>
+                    <Matrix ty="73"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0" redMultiplier="0.37109375" blueMultiplier="0.37109375" greenMultiplier="0.37109375" redOffset="161" blueOffset="161" greenOffset="161"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="189" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Glow" symbolType="graphic" centerPoint3DY="49.2" loop="loop">
+                  <matrix>
+                    <Matrix ty="49.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

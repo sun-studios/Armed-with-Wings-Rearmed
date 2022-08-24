@@ -1,0 +1,110 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-G/LVL-E-GateFunction" itemID="54b926fb-0000035d" lastModified="1484650536">
+  <timeline>
+    <DOMTimeline name="LVL-E-GateFunction">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+visible = false;
+
+var currLevel:MovieClip = MovieClip(parent);
+var ground:MovieClip = currLevel.ground;
+var sndCtrl:MovieClip = MovieClip(root);
+
+function update():void {
+	if (ground.gate1.currentFrame != 1) {
+		if (!currLevel.en2.moveable) {
+			currLevel.en2.moveable = true;
+			currLevel.en3.moveable = true;
+		}
+	} else {
+		currLevel.en2.moveable = false;
+		currLevel.en3.moveable = false;
+	}
+	
+	if (ground.gate2.currentFrame != 1) {
+		if (!currLevel.en4.moveable) {
+			currLevel.en4.moveable = true;
+			currLevel.en5.moveable = true;
+			currLevel.en6.moveable = true;
+		}
+	} else {
+		currLevel.en4.moveable = false;
+		currLevel.en5.moveable = false;
+		currLevel.en6.moveable = false;
+	}
+	
+	if (ground.gate3.currentFrame != 1) {
+		if (!currLevel.en7.moveable) {
+			currLevel.en7.moveable = true;
+		}
+	} else {
+		currLevel.en7.moveable = false;
+	}
+	
+	if (ground.gate1.currentFrame == 1) {
+		if (currLevel.en1.life <= 0) {
+			
+			ground.gate1.gotoAndPlay(2);
+		}
+	}
+	if (ground.gate2.currentFrame == 1) {
+		if (currLevel.en2.life <= 0 && currLevel.en3.life <= 0) {
+			ground.gate2.gotoAndPlay(2);
+		}
+	}
+	if (ground.gate3.currentFrame == 1) {
+		if (currLevel.en4.life <= 0 && currLevel.en5.life <= 0 && currLevel.en6.life <= 0) {
+			ground.gate3.gotoAndPlay(2);
+		}
+	}
+	if (ground.gate4.currentFrame == 1) {
+		if (currLevel.en7.life <= 0) {
+			 ground.gate4.gotoAndPlay(2);
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>gate&#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

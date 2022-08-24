@@ -1,0 +1,128 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Spinner/OBJ-SpinnerBox4" itemID="54d37501-000012bf" lastModified="1479535495" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="OBJ-SpinnerBox4" currentFrame="147">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="147" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var eagle:MovieClip;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	eagle = MovieClip(parent).eagle;
+}
+
+function update ():void {
+	damageEnemies();
+}
+
+
+function damageEnemies():void {
+
+	var dir:int = -1;
+	
+	if (hero) 
+	{
+		
+		if (clip.bound.hitTestObject(hero.bound) && hero.currentFrameLabel != "hurt") {
+			//(from, X, Y, damage, unblockable, canParry, enemyBlockBounce)
+			hero.takeDamage(this, 10*dir, 0, .5);
+			hero.scaleX = -dir;
+		}
+			
+	}
+	
+	if (eagle) {
+		if (clip.bound.hitTestObject(eagle.bound) && eagle.moveable) {
+			eagle.takeDamage(this, .5);
+		}
+	}
+}
+
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="147" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="42" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip">
+                  <matrix>
+                    <Matrix tx="1.25" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="42" duration="31" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip" centerPoint3DX="-5.95" centerPoint3DY="376.65">
+                  <matrix>
+                    <Matrix tx="-4.7" ty="376.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="73" duration="45" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip" centerPoint3DX="-290.8" centerPoint3DY="376.65">
+                  <matrix>
+                    <Matrix tx="-289.55" ty="376.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="118" duration="29" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip" centerPoint3DX="-290.8">
+                  <matrix>
+                    <Matrix tx="-289.55" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="147" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Spinner/assets/Symbol 27" name="clip">
+                  <matrix>
+                    <Matrix tx="1.25" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

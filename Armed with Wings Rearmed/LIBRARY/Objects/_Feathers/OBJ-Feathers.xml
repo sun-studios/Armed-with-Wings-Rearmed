@@ -1,0 +1,141 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Feathers/OBJ-Feathers" itemID="581872ec-000016a8" lastModified="1485440796" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="OBJ-Feathers" currentFrame="58">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="58" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var eagle:MovieClip;
+var hero:MovieClip;
+var sndCtrl:MovieClip;
+var collected:Boolean;
+
+init();
+
+function init ():void {
+	eagle = MovieClip(parent).eagle;
+	hero = MovieClip(parent).hero;
+	sndCtrl = MovieClip(root);
+	
+	collected = false;
+}
+
+function update ():void {
+	if (!collected) {
+		if (eagle.bound.hitTestObject(this.bound)) {
+			sndCtrl.playSound(sndCtrl.sndItem2);
+			eagle.flightTime += 100;
+			visible = false;
+			collected = true;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4126"/>
+                  <Point x="0.5589" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Feathers/assets/OBJ-Feathers-Anim">
+                  <matrix>
+                    <Matrix a="0.754043579101563" d="0.754043579101563" tx="-1.05" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="15" blurY="15" quality="2"/>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" duration="32" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4126"/>
+                  <Point x="0.5589" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Feathers/assets/OBJ-Feathers-Anim" centerPoint3DX="1.45" centerPoint3DY="-0.4">
+                  <matrix>
+                    <Matrix a="1.01438903808594" d="1.01438903808594" tx="-1" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="15" blurY="15" quality="2"/>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Feathers/assets/OBJ-Feathers-Anim" centerPoint3DX="1.15" centerPoint3DY="-0.8">
+                  <matrix>
+                    <Matrix a="0.754043579101563" d="0.754043579101563" tx="-1.05" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="15" blurY="15" quality="2"/>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="59" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="59" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix d="0.45147705078125" tx="0.55" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,48 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/assets/HUD-Rounds-Shape" itemID="593ab423-00000dc1" symbolType="graphic" lastModified="1497019427">
+  <timeline>
+    <DOMTimeline name="HUD-Rounds-Shape">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup selected="true">
+                  <members>
+                    <DOMShape selected="true">
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#424242" alpha="0.8" colorReferenceID="1"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle0="1" edges="!1 484S1|1016 484!1016 484|1500 0!1500 0|484 0!484 0|1 484"/>
+                        <Edge cubics="!1 484(;1,484 484,0 484,0q1 484 484 0);"/>
+                        <Edge cubics="!1016 484(;1016,484 1500,0 1500,0q1016 484 1500 0);"/>
+                        <Edge cubics="!1 484(;1,484 1016,484 1016,484q1 484 1016 484);"/>
+                        <Edge cubics="!484 0(;484,0 1500,0 1500,0q484 0 1500 0);"/>
+                      </edges>
+                    </DOMShape>
+                    <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/New Style Lines/Symbol 2">
+                      <matrix>
+                        <Matrix a="0.890731811523438" d="0.890731811523438" tx="37.45" ty="12.05"/>
+                      </matrix>
+                      <transformationPoint>
+                        <Point y="0.05"/>
+                      </transformationPoint>
+                      <filters>
+                        <GlowFilter blurX="6" blurY="6" color="#FFFFFF"/>
+                      </filters>
+                      <color>
+                        <Color alphaMultiplier="0.5"/>
+                      </color>
+                    </DOMSymbolInstance>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

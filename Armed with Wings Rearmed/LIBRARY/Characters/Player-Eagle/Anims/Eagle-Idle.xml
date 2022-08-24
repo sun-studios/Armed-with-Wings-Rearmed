@@ -1,0 +1,67 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Eagle/Anims/Eagle-Idle" itemID="54af912a-00000777" lastModified="1471874008" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Eagle-Idle" currentFrame="16">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var eagle:MovieClip = MovieClip(parent);
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="31" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (eagle.moveable) {
+	sndCtrl.playSound(sndCtrl.sndWings, 0, .2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Eagle/Anims/Eagle2-Anim-Idle" centerPoint3DX="2.55" centerPoint3DY="-7.4">
+                  <matrix>
+                    <Matrix a="-0.208587646484375" d="0.208587646484375" tx="3" ty="-4.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-0.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Eagle/Assets/Eagle-Idling" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.455078125" b="0.303924560546875" c="0.303924560546875" d="0.455078125" tx="0.4" ty="0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-1.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,114 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Z03/BackParticles" itemID="5889f533-00001abe" lastModified="1490532213">
+  <timeline>
+    <DOMTimeline name="BackParticles" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var spaceWidth:int;
+var spaceHeight:int;
+
+var clipsArr:Array;
+var game:MovieClip;
+
+init();
+
+function init ():void {
+	spaceWidth = 3300;
+	spaceHeight = 575;
+	clipsArr = new Array();
+	game = MovieClip(parent);
+	
+	for (var i:int = 0; i < 60; i ++) {
+		var clip:MovieClip = new ShatterPillerBack();
+		clipsArr.push(clip);
+		
+		addChild(clip);
+		clip.scaleX = clip.scaleY = .2 + (Math.random()*.6);
+		clip.gotoAndStop(Math.ceil(Math.random()*clip.totalFrames));
+		clip.rotation = Math.random()*360;
+		clip.x = Math.random()*spaceWidth;
+		clip.y = Math.random()*spaceHeight;
+	}
+}
+
+function update ():void {
+	if (MovieClip(root).data_particlesEnabled) {
+		visible = true;
+		if (clipsArr != null) {
+			for (var i:int = 0; i < clipsArr.length; i ++) {
+				var clip:MovieClip = clipsArr[i];
+				if (clip) {
+					
+					updateClipPosition(clip);
+					
+				}
+			}
+		}
+	} else {
+		visible = false;
+	}
+}
+
+function updateClipPosition (_clip:MovieClip):void {
+	var clip:MovieClip = _clip;
+	
+	clip.x -= clip.scaleX * 2;
+	clip.rotation += clip.scaleX * .5;
+	
+	var min:Number = game.vcam.target.x - (spaceWidth*.5);
+	var max:Number = game.vcam.target.x + (spaceWidth*.5);
+	
+	if (clip.x+x < min) clip.x = max-50-x;
+	if (clip.x+x > max) clip.x = min+50-x;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!0 -1|66000 -1!66000 -1|66000 11500!66000 11500|0 11500!0 11500|0 -1"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="Environemnt/ShatterPiller/ENV-ShatterPiller-Back">
+                  <matrix>
+                    <Matrix tx="2" ty="5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

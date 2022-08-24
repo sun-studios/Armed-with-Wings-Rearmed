@@ -1,0 +1,103 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-GapBlock" itemID="55d4ae68-0000180e" lastModified="1440001640">
+  <timeline>
+    <DOMTimeline name="OBJ-GapBlock">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+
+init();
+
+function init ():void {
+	visible = false;
+	hero = MovieClip(parent).hero;
+}
+
+function update ():void {
+	if (!hero.onGround) {
+		scaleX = 1 + (Math.abs(hero.xSpeed)/10);
+	} else {
+		scaleX = 1;
+	}
+		
+	if (hero.bound.hitTestObject(this)) {
+		if (hero.x > x && hero.scaleX == -1) 
+			hero.xSpeed = 0;
+		if (hero.x < x && hero.scaleX == 1) 
+			hero.xSpeed = 0;
+		
+		var w:Number = 57;
+		var h:Number = 83;		
+		
+		while (this.hitTestPoint(hero.getGlobalX(), hero.getGlobalY(), true)) {
+			hero.y-= .5;
+		}
+		while (this.hitTestPoint(hero.getGlobalX(), hero.getGlobalY(-h), true)) {
+			hero.y++;
+		}
+		while (this.hitTestPoint(hero.getGlobalX(-w*.5), hero.getGlobalY(-h*.5), true)) {
+			hero.x ++;
+		}
+		while (this.hitTestPoint(hero.getGlobalX(w*.5), hero.getGlobalY(-h*.5), true)) {
+			hero.x --;
+		}
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[update();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#3399FF" alpha="0.6"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-320 -742|320 -742!320 -742|320 742!320 742|-320 742!-320 742|-320 -742"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FFFFFF" alpha="0.6"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle0="1" edges="!-144 290|145 2!145 2|-144 -288!-144 -288|-144 290"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

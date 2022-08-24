@@ -1,0 +1,103 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_holyBarricade/OBJ-LvlRoof" itemID="54d1407d-00000310" lastModified="1488646560">
+  <timeline>
+    <DOMTimeline name="OBJ-LvlRoof">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+init();
+
+var eagle:MovieClip;
+var hero:MovieClip;
+var game:MovieClip;
+
+function init():void {
+	eagle = MovieClip(parent).eagle;
+	hero = MovieClip(parent).hero;
+	game = MovieClip(parent);
+}
+
+function update():void {
+	physics();
+}
+
+function physics():void {
+
+	var w:Number = 50;
+	var h:Number = 50;
+	
+	if (eagle.moveable) {
+		while (this.hitTestPoint(eagle.getGlobalX(), eagle.getGlobalY()-(h*.5), true)) {
+			
+			eagle.y+= .5;
+			eagle.ySpeed = 0;
+			//eagle.flightTime ++;
+			
+		}
+	}
+	if (hero.moveable && hero.bound) {
+		while (hero.bound.hitTestObject(this)) {
+			
+			hero.y+= .5;
+			hero.ySpeed = 0;
+			
+		}
+	}
+	for (var i:int = 0; i < game.enemiesArr.length; i ++) {
+		var en:MovieClip = game.enemiesArr[i];
+		if (en) {
+			while (en.bound.hitTestObject(this)) {
+				en.y+= .5;
+				en.ySpeed = 0;
+			}
+		}
+	}
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="3.13981628417969" d="0.175628662109375" tx="0.2" ty="-9.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="shape" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-1180 -8162|1180 -8162!1180 -8162|1180 0!1180 0|-1180 0!-1180 0|-1180 -8162"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

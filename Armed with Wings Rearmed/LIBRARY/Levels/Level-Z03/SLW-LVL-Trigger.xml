@@ -1,0 +1,75 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Z03/SLW-LVL-Trigger" itemID="587a594f-00000e11" lastModified="1485440794">
+  <timeline>
+    <DOMTimeline name="SLW-LVL-Trigger">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var game:MovieClip;
+var gameData:MovieClip;
+var gameCore:MovieClip;
+var transition:MovieClip;
+
+var flag:Boolean;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	game = MovieClip(parent);
+	gameData = MovieClip(root);
+	gameCore = MovieClip(root);
+	transition = MovieClip(root).transition;
+}
+
+function update ():void {
+	if (CameraDistCheck.inRange(this)) {
+		if (hero.bound.hitTestObject(this)) {
+			
+			if (!flag) {
+				
+				gameData.unlockSuperLoneWarrior();
+				
+				hero.xSpeed *= .5;
+				hero.switchToHero(false);
+				hero.moveable = false;
+				hero.active = false;
+				game.levelComplete = true;
+				
+			    transition.gotoAndPlay("GAMEOVER");
+				
+				flag = true;
+			}			
+			
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,40 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Idle" itemID="56b18118-000009c5" lastModified="1454473496">
+  <timeline>
+    <DOMTimeline name="Vandheer2-Anim-Idle">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-LoneWarrior/Assets/LW-sword" selected="true" centerPoint3DX="16.05" centerPoint3DY="-35.85">
+                  <matrix>
+                    <Matrix a="-0.354293823242188" b="0.93511962890625" c="-0.93511962890625" d="-0.354293823242188" tx="15.95" ty="-35.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="22.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="31" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Idle" symbolType="graphic" centerPoint3DX="-0.2" centerPoint3DY="-46.8" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.917694091796875" d="0.917694091796875" tx="2.95" ty="-0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="3.4" y="-50"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

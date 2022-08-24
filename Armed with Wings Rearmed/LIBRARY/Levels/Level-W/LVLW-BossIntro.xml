@@ -1,0 +1,148 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-W/LVLW-BossIntro" itemID="55ec6c09-0000107b" lastModified="1492354153">
+  <timeline>
+    <DOMTimeline name="LVLW-BossIntro">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var stoneWall:MovieClip;
+var trigger1:MovieClip;
+var vcam:MovieClip;
+var camHelper1:MovieClip;
+var sndCtrl:MovieClip;
+var soundFader:MovieClip;
+
+var flag1:Boolean;
+var flag2:Boolean;
+
+var shake:Number;
+
+init ();
+
+visible = false;
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	stoneWall = MovieClip(parent).stoneWall;
+	trigger1 = MovieClip(parent).trigger1;
+	vcam = MovieClip(parent).vcam;
+	camHelper1 = MovieClip(parent).camHelper1;
+	sndCtrl = MovieClip(root);
+	soundFader = MovieClip(parent).soundFader;
+	
+	boss.visible = false;
+	boss.x = -1158;
+	boss.y = 438;
+	
+	shake = 4;
+}
+
+function update ():void {
+	if (!flag1) {
+		if (hero.bound.hitTestObject(trigger1)) {
+			TweenMax.delayedCall(90, bossApear, null, true);
+			stopHero();
+			vcam.target = camHelper1;
+			//soundFader.on = true;
+			MovieClip(root).fadeOutMusic();
+			flag1 = true;
+		}
+		
+		if (stoneWall.life <= 0) {
+			
+			if (!soundFader.on) sndCtrl.musicChannel.stop();
+			stopHero();
+			hero.gotoAndStop("hurt");
+			hero.hurt.gotoAndPlay("spin");
+			hero.xSpeed = 28;
+			hero.ySpeed = 10;
+			hero.scaleX = -1;
+			bossApear();
+			flag1 = true;
+		}
+	} else {
+		if (!flag2) {
+			shake += .5;
+			vcam.shakeCamera(shake);
+		}
+	}
+}
+
+function bossApear ():void {
+	flag2 = true;
+	boss.visible = true;
+	vcam.target = boss;
+	stoneWall.life = 0;
+	boss.updateAnimation("attack");
+	vcam.zoom = .75;
+	sndCtrl.playSound(sndCtrl.sndExplode);
+	
+	boss.attack.gotoAndPlay("a2");
+	boss.xSpeed = 10;
+	TweenMax.delayedCall(24, bossTaunt, null, true);
+}
+
+function bossTaunt ():void {
+	boss.updateAnimation("taunt");
+	TweenMax.delayedCall(80, resume, null, true);
+	vcam.zoom = 1;
+}
+
+function resume ():void {
+	resumeHero();
+	boss.active = true;
+}
+
+function stopHero():void {
+	hero.lock();
+}
+function resumeHero (id:int = 0):void {
+	hero.unlock();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-873 -735|872 -735!872 -735|872 0!872 0|-873 0!-873 0|-873 -735"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="15.55" width="65.1" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.15" ty="-30.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Boss &#xD;intro</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

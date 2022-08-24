@@ -1,0 +1,72 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Tutorial-GUI/assets/TutorialGUI-CompletedCounter" itemID="58188a11-00001a05" lastModified="1478003217">
+  <timeline>
+    <DOMTimeline name="TutorialGUI-CompletedCounter">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var _parent:MovieClip = MovieClip(parent);
+function update ():void {
+	tf_taskCount.text = ""+_parent.tasksCompleted+"/5";
+	
+	if (_parent.tasksCompleted >= 5) {
+		visible = false;
+		_parent.titleClip.visible = false;
+		_parent.barB.visible = false;
+		_parent.bar.visible = false;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF" alpha="0.8"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-1948 -319|1679 -319!1679 -319|1679 328!1679 328|233 328!233 328|233 167!233 167|-1948 167!-1948 167|-1948 -319"/>
+                  </edges>
+                </DOMShape>
+                <DOMDynamicText name="tf_taskCount" fontRenderingMode="standard" width="76.35" height="32.25" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="19.1" ty="-16.15"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>1/4</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="0" lineHeight="32.25" size="36" bitmapSize="720" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" width="109.1" height="17">
+                  <matrix>
+                    <Matrix tx="-90" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>COMPLETED</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="0" lineHeight="17" size="19" bitmapSize="380" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

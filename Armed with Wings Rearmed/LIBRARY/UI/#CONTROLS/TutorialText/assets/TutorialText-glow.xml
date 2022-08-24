@@ -1,0 +1,44 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/#CONTROLS/TutorialText/assets/TutorialText-glow" itemID="55081985-000004a4" symbolType="graphic" lastModified="1426594181">
+  <timeline>
+    <DOMTimeline name="TutorialText-glow">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <RadialGradient>
+                            <matrix>
+                              <Matrix a="0.32763671875" d="0.0254669189453125" tx="-0.05"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </RadialGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!5341 0[5341 172 3771 293!3771 293[2215 415 -1 415!-1 415[-2217 415 -3786 293!-3786 293[-5342 172 -5342 0!-5342 0[-5342 -172 -3786 -294!-3786 -294[-2217 -415 -1 -415!-1 -415[2215 -415 3771 -294!3771 -294[5341 -172 5341 0"/>
+                        <Edge cubics="!-1 -415(-1,-415;1476,-415 2729,-375 3771,-294q-1 -415Q2215 -415q3771 -294)3771,-294;"/>
+                        <Edge cubics="!-3786 -294(-3786,-294;-2744,-375 -1478,-415 -1,-415q-3786 -294Q-2217 -415q-1 -415);"/>
+                        <Edge cubics="!3771 293(3771,293;2729,374 1476,415 -1,415q3771 293Q2215 415q-1 415);"/>
+                        <Edge cubics="!5341 0(5341,0;5341,115 4813,212 3771,293q5341 0Q5341 172q3771 293);"/>
+                        <Edge cubics="!-3786 293(-3786,293;-4828,212 -5342,115 -5342,0q-3786 293Q-5342 172q-5342 0)-5342,0;"/>
+                        <Edge cubics="!-1 415(-1,415;-1478,415 -2744,374 -3786,293q-1 415Q-2217 415q-3786 293)-3786,293;"/>
+                        <Edge cubics="!3771 -294(3771,-294;4813,-213 5341,-115 5341,0q3771 -294Q5341 -172q5341 0)5341,0;"/>
+                        <Edge cubics="!-5342 0(-5342,0;-5342,-115 -4828,-213 -3786,-294q-5342 0Q-5342 -172q-3786 -294)-3786,-294;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

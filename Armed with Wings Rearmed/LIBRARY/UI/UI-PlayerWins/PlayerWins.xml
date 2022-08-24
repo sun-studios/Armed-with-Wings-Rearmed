@@ -1,0 +1,429 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-PlayerWins/PlayerWins" itemID="574af36a-00000bd2" lastModified="1464529770" lastUniqueIdentifier="10">
+  <timeline>
+    <DOMTimeline name="PlayerWins">
+      <layers>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var winningPlayer:int = 1;
+
+stop();
+visible = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" duration="141" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[playerNumClip.gotoAndStop(winningPlayer);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="149" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+
+MovieClip(parent).dispatchEvent(new Event("PLAYERWINS"));
+gotoAndStop(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Wins" centerPoint3DX="-26.2" centerPoint3DY="-85.75">
+                  <matrix>
+                    <Matrix a="0.230178833007813" d="0.230178833007813" tx="-26.7" ty="-89.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.75" y="17.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="58" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0955" y="0.9"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Wins" centerPoint3DX="-26.2" centerPoint3DY="-85.9">
+                  <matrix>
+                    <Matrix a="1.67489624023438" d="1.67489624023438" tx="-29.15" ty="-114.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.65" y="17.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="27" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Wins" selected="true" centerPoint3DX="-33.4" centerPoint3DY="-85.8">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="-35.8" ty="-110"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.65" y="17.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2602"/>
+                  <Point x="0.752"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Wins" selected="true" centerPoint3DX="-33.4" centerPoint3DY="-85.8">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="-35.8" ty="-110"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.65" y="17.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="117" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Wins" centerPoint3DX="-530.2" centerPoint3DY="-85.8">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="-532.6" ty="-110"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.65" y="17.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="118" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Player" selected="true" centerPoint3DX="-496.65" centerPoint3DY="-157.75">
+                  <matrix>
+                    <Matrix a="1.41856384277344" c="1.1114501953125" d="1.41856384277344" tx="-520.1" ty="-170.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Player" selected="true" centerPoint3DX="-12.9" centerPoint3DY="-157.75">
+                  <matrix>
+                    <Matrix a="1.41856384277344" c="1.1114501953125" d="1.41856384277344" tx="-36.35" ty="-170.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="59" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0955" y="0.9"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Player" centerPoint3DX="7.65" centerPoint3DY="-157.8">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="13.1" ty="-170.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="27" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Player" selected="true" centerPoint3DX="-20.75" centerPoint3DY="-157.8">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="-15.3" ty="-170.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2602"/>
+                  <Point x="0.752"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Player" selected="true" centerPoint3DX="-20.75" centerPoint3DY="-157.8">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="-15.3" ty="-170.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="117" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Player" centerPoint3DX="509.1" centerPoint3DY="-157.8">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="514.55" ty="-170.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="118" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Num" name="playerNumClip" selected="true" centerPoint3DX="472.9" centerPoint3DY="-106.95">
+                  <matrix>
+                    <Matrix a="1.597412109375" c="-0.915145874023438" d="1.597412109375" tx="520.4" ty="-150.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4" y="17"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Num" name="playerNumClip" selected="true" centerPoint3DX="157.45" centerPoint3DY="-106.95">
+                  <matrix>
+                    <Matrix a="1.59738159179688" c="-0.667633056640625" d="1.59738159179688" tx="189.75" ty="-150.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.05" y="17"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" duration="59" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0955" y="0.9"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Num" name="playerNumClip" centerPoint3DX="146.3" centerPoint3DY="-106.95">
+                  <matrix>
+                    <Matrix a="1.597412109375" d="1.597412109375" tx="137.65" ty="-150.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.05" y="17"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="72" duration="27" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Num" name="playerNumClip" selected="true" centerPoint3DX="117.9" centerPoint3DY="-106.95">
+                  <matrix>
+                    <Matrix a="1.597412109375" d="1.597412109375" tx="109.25" ty="-150.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.05" y="17"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2602"/>
+                  <Point x="0.752"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Num" name="playerNumClip" selected="true" centerPoint3DX="117.9" centerPoint3DY="-106.95">
+                  <matrix>
+                    <Matrix a="1.597412109375" d="1.597412109375" tx="109.25" ty="-150.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.05" y="17"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="117" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Num" name="playerNumClip" centerPoint3DX="901.4" centerPoint3DY="-106.95">
+                  <matrix>
+                    <Matrix a="1.597412109375" d="1.597412109375" tx="892.75" ty="-150.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.05" y="17"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="118" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DX="-3.7" centerPoint3DY="-507.15" loop="loop">
+                  <matrix>
+                    <Matrix a="1.25253295898438" d="1.56671142578125" tx="-3.7" ty="-507.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Num" name="playerNumClip" centerPoint3DX="117.9" centerPoint3DY="-494.45">
+                  <matrix>
+                    <Matrix a="1.597412109375" d="1.597412109375" tx="109.25" ty="-538"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4.05" y="17"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Player" centerPoint3DX="-20.75" centerPoint3DY="-545.3">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="-15.3" ty="-558.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-PlayerWins/PlayerWins-Wins" centerPoint3DX="-33.4" centerPoint3DY="-473.3">
+                  <matrix>
+                    <Matrix a="1.41856384277344" d="1.41856384277344" tx="-35.8" ty="-497.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1.65" y="17.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.25253295898438" d="0.0550384521484375" tx="-3.7" ty="-92.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="89" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DX="-3.7" centerPoint3DY="-92.15" loop="loop">
+                  <matrix>
+                    <Matrix a="1.25253295898438" d="1.7989501953125" tx="-3.7" ty="-92.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2602"/>
+                  <Point x="0.752"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DX="-3.7" centerPoint3DY="-92.15" loop="loop">
+                  <matrix>
+                    <Matrix a="1.25253295898438" d="1.56671142578125" tx="-3.7" ty="-92.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="117" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-displayWave/assets/DarkGradient" symbolType="graphic" centerPoint3DX="-3.7" centerPoint3DY="-91.95" loop="loop">
+                  <matrix>
+                    <Matrix a="1.25253295898438" d="0.0598297119140625" tx="-3.7" ty="-92.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="118" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

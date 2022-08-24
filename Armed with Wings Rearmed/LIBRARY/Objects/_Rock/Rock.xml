@@ -1,0 +1,278 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Rock/Rock" itemID="54b22613-00001357" lastModified="1492833452" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="Rock" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-150&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="carry" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Ball  actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[
+import flash.display.MovieClip;
+
+var ySpeed:Number = 0;
+var xSpeed:Number = 0;
+var pickup = false;
+var isOnSwitch = false;
+var switchObject:MovieClip;
+var onGround:Boolean = false;
+var enemyHit:Boolean = false;
+var  allowFrameChange :Boolean = false;
+
+var ground:MovieClip;
+var particleLayer:MovieClip;
+var eagle:MovieClip;
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var keyFilter:Boolean;
+
+
+init();
+
+
+function init ():void {
+	ySpeed = 0;
+	xSpeed = 0;
+	pickup = false;
+	isOnSwitch = false;
+	onGround = false;
+	enemyHit = false;
+
+	ground = MovieClip(parent).ground;
+	particleLayer = MovieClip(parent).particleLayer;
+	eagle = MovieClip(parent).eagle;
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	
+	keyFilter = false;
+}
+
+function update ():void {
+	if (pickup || isOnSwitch) {
+		if (isOnSwitch && switchObject) {
+			x += (switchObject.x - x)/6; 
+			y += ((switchObject.y-27) - y)/6; 
+		}
+	} else {
+		if (getGlobalX() != 12345 && getGlobalY() != 12345) physics();
+		hitEnemy();
+	}
+	
+	
+	if (ctrl.ctrl_char_pickup) {
+		if (!keyFilter) {
+			if (pickup) {
+				drop_f();
+			} else {
+				pickup_f();
+			}
+			keyFilter = true;
+		}
+    } else {
+		keyFilter = false;
+	}
+    
+	
+	if (allowFrameChange) {
+		if (pickup == true)
+		{
+			ySpeed = 0;
+			x = eagle.x;
+			y = eagle.y + 10;
+			if (currentFrameLabel != "carry")
+				gotoAndStop("carry");
+		} else {
+			if (currentFrameLabel != "idle")
+				gotoAndStop("idle");
+		}
+	}
+}
+
+function physics ():void {
+	ySpeed --;
+		y -= ySpeed;
+		
+		if (xSpeed > 0) {
+			xSpeed -= .25;
+			if (xSpeed < 0) xSpeed = 0;
+		}
+		if (xSpeed < 0) {
+			xSpeed += .25;
+			if (xSpeed > 0) xSpeed = 0;
+		}
+		
+		x += xSpeed;
+		
+		if (idle) {
+			idle.rotation += xSpeed;
+		}
+		
+		if (ground.hitTestPoint(getGlobalX(), getGlobalY(3), true)) {
+			if (!onGround) {
+				if (ySpeed < -5)
+				sndCtrl.playSound(sndCtrl.sndRockThud);
+			}
+			onGround = true;
+			enemyHit = false;
+		} else {
+			onGround = false;
+		}
+		
+		var w:Number = 30;
+		var h:Number = 30;
+		
+		while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true)) {
+			ySpeed = 0;
+			y -= .5;
+		} 
+		while (ground.hitTestPoint(getGlobalX(), getGlobalY(-h), true)) {
+			y+=.5;
+			ySpeed = 0;
+		}
+		while (ground.hitTestPoint(getGlobalX(-w*.5), getGlobalY(-h*.75), true)) {
+			if (xSpeed <0) {
+				xSpeed *= -.7;
+				scaleX = -1;
+			} else {
+				xSpeed = 0;
+			}		
+			x += .5;
+		}
+		while (ground.hitTestPoint(getGlobalX(w*.5), getGlobalY(-h*.75), true)) {
+
+			if (xSpeed >0) {
+				xSpeed *= -.7;
+				scaleX = 1;
+			} else {
+				xSpeed = 0;
+			}
+			x -= .5;
+		}
+}
+
+function hitEnemy():void {
+	if (MovieClip(parent).enemiesArr) {
+	if (!onGround && ySpeed  < -5 && !enemyHit) {
+		for (var i:int = 0; i < MovieClip(parent).enemiesArr.length; i ++) {
+			var en:MovieClip = MovieClip(parent).enemiesArr[i];
+			if (this.bound.hitTestObject(en.bound) && !en.dead) {
+				if (en.enemyType == "ENEMY1" || en.enemyType == "ENEMY2" || en.enemyType == "ENEMY5") {
+					en.updateAnimation("hurt");
+					en.hurt.gotoAndPlay("rockHit");
+					this.ySpeed *= -.5;
+					this.xSpeed = 7*en.scaleX;
+					enemyHit = true;
+					sndCtrl.playSound(sndCtrl.sndRockThud);
+					break;
+				}
+			}
+		}
+	}
+	}
+}
+
+function pickup_f() {
+	if (bound.hitTestObject(eagle.bound) && eagle.moveable)
+	{
+		eagle.pickup();
+		particleLayer.addPulse(x, y);
+		pickup = true;
+		isOnSwitch = false;
+	}
+}
+function drop_f() {
+	if (eagle.moveable) {
+		eagle.drop();
+		pickup = false;
+		xSpeed = eagle.xSpeed;
+		ySpeed = -eagle.ySpeed;
+	}
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	if (_root && _parent) return Physics.getGlobalX(_root, _parent, this, offset);
+	else return 12345;
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	if (_root && _parent) return Physics.getGlobalY(_root, _parent, this, offset);
+	else return 12345;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).pickupsArr.push(this);
+allowFrameChange = true;
+stop();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Rock/Rock-Glow" name="idle">
+                  <matrix>
+                    <Matrix tx="-1.95" ty="-14.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Rock/Rock-Carry" name="carry">
+                  <matrix>
+                    <Matrix tx="-0.65" ty="2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-7.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0.862945556640625" d="0.335800170898438" ty="-13.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

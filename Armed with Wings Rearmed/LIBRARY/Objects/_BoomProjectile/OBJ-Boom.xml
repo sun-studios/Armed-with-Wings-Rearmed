@@ -1,0 +1,161 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_BoomProjectile/OBJ-Boom" itemID="54eaff2f-0000046d" linkageExportForAS="true" linkageClassName="Boom" lastModified="1486226969" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="OBJ-Boom">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var xSpeed:Number;
+var life:Number;
+var lifeTotal:Number;
+var hitCool:Number;
+
+var bound:MovieClip;
+var clip:MovieClip;
+var _parent:MovieClip;
+var particleLayer:MovieClip;
+var game:MovieClip;
+var enemiesArr:Array;
+var master:MovieClip;
+
+var enemyType:String = "BOOM";
+
+
+init();
+
+function init():void {
+	xSpeed = 20;
+	life = 140;
+	lifeTotal = life;
+	hitCool = 0;
+	
+	bound.visible = false;
+	_parent = MovieClip(parent);
+	particleLayer = _parent.particleLayer;
+	game = MovieClip(parent);
+	enemiesArr = game.enemiesArr;
+}
+
+function update():void {
+	x += xSpeed * scaleX;
+	
+	hitEnemies();
+	wallCollide();
+	lifeTimer();
+}
+
+function hitEnemies():void {
+	if (hitCool > 0) {
+		hitCool --;
+	} else {
+		for (var i:int = 0; i < enemiesArr.length; i ++) {
+			var en:MovieClip = enemiesArr[i];
+			if (en.visible && !en.dead && en.life > 0) {
+				if (en && en.bound.hitTestObject(bound) && en.currentFrameLabel != "death" && en != master) {
+					en.takeDamage(this, 8, 8, 1.5);
+					scaleX *= -1;
+					hitCool = 4;
+					life -= 20;
+					break;
+				}
+			}
+			if (en.enemyType == "BOMB") {
+				if (en.bound.hitTestObject(bound)) {
+					en.takeDamage(this, 8, 1, 1.5);
+					//scaleX *= -1;
+					//hitCool = 4;
+					//life -= 20;
+					break;
+				}
+			}
+		}
+	}
+}
+
+function wallCollide():void {
+	while (game.ground.hitTestPoint(getGlobalX()-20, getGlobalY(), true)) {
+		if (scaleX == -1) {
+			scaleX = 1;
+		}
+		x ++;
+	}
+	while (game.ground.hitTestPoint(getGlobalX()+20, getGlobalY(), true)) {
+		if (scaleX == 1) {
+			scaleX = -1;
+		}
+		x --;
+	}
+}
+
+function lifeTimer():void {
+	if (life > 0) {
+		life --;
+		if (life < 0) life = 0;
+		clip.scaleX = clip.scaleY = .25 + ((life/lifeTotal)*.5);
+	} else {
+		kill();
+	}
+}
+
+function kill():void {
+	particleLayer.removeFromBoomArr(this);
+	_parent.removeChild(this);
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_BoomProjectile/OBJ-Boom-Anim" name="clip">
+                  <matrix>
+                    <Matrix a="-0.737655639648438" c="-0.280349731445313" d="0.491043090820313"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="1.74021911621094" d="0.404647827148438" tx="2.1" ty="2.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,215 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Pully/OBJ-Pully" itemID="56dd483c-00000a70" lastModified="1488639299" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Pully">
+      <layers>
+        <DOMLayer name="Pully Actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var value:Number;
+
+var pickup:Boolean;
+var keyFilter:Boolean;
+
+var handle:MovieClip;
+var lineLayer:MovieClip;
+var collision;
+var slowDrag:Boolean;
+var superHeavy:Boolean;
+
+var eagle:MovieClip;
+var particleLayer:MovieClip;
+var ctrl:PlayerControl;
+
+var pullLength:Number;
+var slowSpeed:Number;
+
+init();
+
+function init ():void {
+	
+	value = 0;
+	if (!pullLength) pullLength = 180;
+	if (!slowSpeed) slowSpeed = 1;
+	
+	pickup = false;
+	keyFilter = false;
+	
+	lineLayer = new MovieClip();
+	addChild(lineLayer);
+	
+	eagle = MovieClip(parent).eagle;
+	particleLayer = MovieClip(parent).particleLayer;
+	ctrl = MovieClip(root).player1Control;
+}
+
+function update ():void {
+	bound.x = handle.x;
+	bound.y = handle.y+16.5;
+	
+	input();
+
+	if (pickup) {
+		//throttle speed
+		if (eagle.xSpeed > 2) eagle.xSpeed = 2;
+		if (eagle.xSpeed < -2) eagle.xSpeed = -2;
+		if (eagle.ySpeed > 2) eagle.ySpeed = 2;
+		if (eagle.ySpeed < -2) eagle.ySpeed = -2;
+		//X align eagle
+		eagle.x += (x - eagle.x)/15;
+		//Max length
+		if (eagle.y > y+pullLength) {
+			eagle.y = y+pullLength-1;
+			if (!eagle.unlimitedFlight) eagle.flightTime ++;
+			if (eagle.ySpeed < 0) eagle.ySpeed *= -.5;
+		}
+		if (eagle.y < y+9) {
+			if (!eagle.unlimitedFlight)eagle.flightTime ++;			
+			eagle.y = y+9;
+		}
+		
+		handle.x = eagle.x - x;
+		handle.y = eagle.y - y -20;
+		
+		if (superHeavy) {
+			if (eagle.xSpeed > 1) eagle.xSpeed = 1;
+			if (eagle.xSpeed < -1) eagle.xSpeed = -1;
+			if (eagle.ySpeed > 1) eagle.ySpeed = 1;
+			if (eagle.ySpeed < -1) eagle.ySpeed = -1;
+			
+			eagle.flightTime -= 3;
+		}
+	} else {
+		handle.x += (0 - handle.x)/5;
+		if (slowDrag) {
+			if (handle.y > 0) {
+				handle.y -= slowSpeed;
+			}
+		} else {
+			handle.y += (0 - handle.y)/10;
+		}
+	}
+	
+	value = (handle.y/pullLength);
+	
+	renderLine();
+}
+
+function input():void {
+	if (eagle.moveable) {
+		if (ctrl.ctrl_char_pickup) {
+			if (!keyFilter) {
+				if (pickup) {
+					drop_f();
+				} else {
+					pickup_f();
+				}
+				keyFilter = true;
+			}
+		} else {
+			keyFilter = false;
+		}	
+		
+		
+	}
+	if (pickup) {
+		if (eagle.isFollowingHero && !eagle.hault && pickup) drop_f();
+	}
+}
+
+function renderLine():void {
+	lineLayer.graphics.clear();
+	lineLayer.graphics.lineStyle(2);
+	lineLayer.graphics.moveTo(0,-9);
+	lineLayer.graphics.lineTo(handle.x, handle.y);
+}
+
+function pickup_f() {
+	if (bound.hitTestObject(eagle.bound) && eagle.moveable)
+	{
+		eagle.pickup();
+		particleLayer.addPulse(handle.x, handle.y);
+		pickup = true;
+	}
+}
+function drop_f() {
+	eagle.drop();
+	pickup = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).pickupsArr.push(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-101 -273|91 -273!91 -273|91 -156!91 -156|-101 -156!-101 -156|-101 -273"/>
+                    <Edge cubics="!91 -273(;91,-273 91,-156 91,-156q91 -273 91 -156);"/>
+                    <Edge cubics="!-101 -156(;-101,-156 -101,-273 -101,-273q-101 -156 -101 -273);"/>
+                    <Edge cubics="!91 -156(;91,-156 -101,-156 -101,-156q91 -156 -101 -156);"/>
+                    <Edge cubics="!-101 -273(;-101,-273 91,-273 91,-273q-101 -273 91 -273);"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="Objects/_Pully/OBJ-Pully-Handle" name="handle">
+                  <matrix>
+                    <Matrix tx="-0.2" ty="-0.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="9.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix d="0.36334228515625" tx="0.55" ty="0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="slowDrag">
+      <Inspectable name="slowDrag" variable="slowDrag" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="pullLength">
+      <Inspectable name="pullLength" variable="pullLength" category="" verbose="0" defaultValue="180" type="Number"/>
+   </property>
+   <property id="slowSpeed">
+      <Inspectable name="slowSpeed" variable="slowSpeed" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+   <property id="superHeavy">
+      <Inspectable name="superHeavy" variable="superHeavy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

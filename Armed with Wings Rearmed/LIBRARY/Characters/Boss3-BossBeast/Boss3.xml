@@ -1,0 +1,1169 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss3-BossBeast/Boss3" itemID="55ec345c-00000734" lastModified="1496184137" lastUniqueIdentifier="4" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="Boss3" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;0&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+init();
+
+var life:Number;
+var lifeOrig:Number;
+var eyeSight:Number;
+var xSpeed:Number;
+var ySpeed:Number;
+var moveSpeed:Number;
+var maxMoveSpeed:Number;
+var attackRange:Number;
+var attackCool:Number;
+var attackCoolOrig:Number;
+var damage:Number;
+var enemyLevel:Number;
+
+var enemies:Array;
+
+var digTime:Number;
+var digTimeOrig:Number;
+var digAttackDelay:Number;
+var digAttackDelayOrig:Number;
+var hitsTillDig:Number;
+var hitsTillDigOrig:Number;
+var hitsTillFlip:Number;
+var hitsTillFlipOrig:Number;
+var hitCount:Number;
+var timeTillBounce:Number;
+var timeTillBounceOrig:Number;
+var bounceAttkCount:Number;
+var bounceAttkCountOrig:Number;
+var rockCount:Number;
+var bounceAttkHitCool:Number;
+
+var active:Boolean;
+var dead:Boolean;
+var angry:Boolean;
+var onGround:Boolean;
+var onLeftWall:Boolean;
+var onRightWall:Boolean;
+var aware:Boolean;
+var moveable:Boolean;
+var superEnemy:Boolean //component var < remove from init
+var chasing:Boolean;
+var antiFlinchOn:Boolean;
+var antiFlinching:Boolean;
+var collideWithGround:Boolean;
+var digging:Boolean;
+var bounceAttk:Boolean;
+var spinning:Boolean;
+var heroKilled:Boolean;
+var debugFly:Boolean;
+var forceHeroX:Boolean;
+
+var enemyType:String = "BOSS3";
+
+//components
+var maxX:Number;//useless
+var minX:Number;//useless
+
+//refs
+var hero:MovieClip = MovieClip(parent).hero;
+var ground:MovieClip = MovieClip(parent).ground;
+var sndCtrl:MovieClip = MovieClip(root);
+var gameData:MovieClip = MovieClip(root);
+var vcam:MovieClip = MovieClip(parent).vcam;
+var particleLayer:MovieClip = MovieClip(parent).particleLayer;
+var bossBar:MovieClip = MovieClip(root).hud.bossBar;
+var game:MovieClip = MovieClip(parent);
+
+var cDir:Number;
+
+var ctrl:MovieClip = MovieClip(root).player1Control;
+
+function init(setLevel:Number = 0):void {
+	life = 200;//was 200	
+	lifeOrig = life;
+	
+	eyeSight = 500;
+	xSpeed = 0;
+	ySpeed = 0;
+	moveSpeed = .65;
+	maxMoveSpeed = 9;
+	attackRange = 200;
+	attackCool = 0;
+	attackCoolOrig = 7;
+	damage = 1;
+	
+	enemies = new Array();
+	
+	digTime = 120;
+	digTimeOrig = digTime;
+	digAttackDelay = 25;
+	digAttackDelayOrig = digAttackDelay;
+	hitsTillDig = 20;
+	hitsTillDigOrig = hitsTillDig;
+	hitsTillFlip = 8;
+	hitsTillFlipOrig = hitsTillFlip;
+	hitCount = 0;
+	timeTillBounce = 325;
+	timeTillBounceOrig = timeTillBounce;
+	bounceAttkCount = 3;
+	bounceAttkCountOrig = bounceAttkCount;
+	rockCount = 6;
+	bounceAttkHitCool = 70;
+	
+	active = false;
+	dead = false;
+	angry = false;
+	onGround = false;
+	onLeftWall = false;
+	onRightWall = false;
+	aware = false;
+	moveable = true;
+	superEnemy = false; // remove when component
+	antiFlinchOn = true;
+	antiFlinching = false;
+	collideWithGround = true;
+	chasing = true;
+	forceHeroX = true;
+	
+	hero = MovieClip(parent).hero;
+	ground = MovieClip(parent).ground;
+	sndCtrl = MovieClip(root);
+	gameData = MovieClip(root);
+	vcam = MovieClip(parent).vcam;
+	particleLayer = MovieClip(parent).particleLayer;
+	game = MovieClip(parent);
+	
+	difficultyCurve(setLevel);
+	
+	if (cDir == 1) scaleX = 1;
+	if (cDir == -1) scaleX = -1;
+	
+	gotoAndStop("idle");
+	enemies = [hero];
+	
+	if (gameData.gameMode == gameData.SURVIVAL) {
+		active = true;
+		forceHeroX = false;
+		chasing = false;
+	}
+	
+	if (gameData.gameMode == gameData.SURVIVAL) {
+		life = lifeOrig = 100;
+		antiFlinchOn = false;
+	}
+	if (DebugControl.lowHealthBosses) life = 10;
+	
+	//this.addEventListener(MouseEvent.CLICK, onClick, false, 0, true);
+}
+
+function onClick(e:MouseEvent):void {
+	trace(":::::::::: BEAST BOSS STATS ::::::::::");
+	trace("::enemyLevel :: "+enemyLevel);
+	trace("::life :: "+life);
+	trace("::damage :: "+damage);
+	trace("::moveSpeed :: "+moveSpeed);
+	trace("::maxMoveSpeed :: "+maxMoveSpeed);
+	trace("::attackRange :: "+attackRange);
+	trace("::eyeSight :: "+eyeSight);
+	trace("::attackCool :: "+attackCoolOrig);
+	trace(":::::::::::::::::::::::::::::::::::");
+}
+
+function difficultyCurve(setLevel:Number = 0):void {
+	if (setLevel == 0) {
+		if (gameData.gameMode != gameData.SURVIVAL) {
+			enemyLevel = game.enemyBaseLevel;
+		} else {
+			//enemyLevel = Math.ceil(gameData.sessionWave *.75);
+		}
+		if (gameData.gameDifficulty == gameData.gameDifficultyfutile) {
+			var i:Number = Math.round(game.enemyBaseLevel * 1.5);
+			enemyLevel = 5+i;
+		} else if (gameData.gameDifficulty == gameData.gameDifficultySuperFutile) {
+			i = Math.round(game.enemyBaseLevel * 1.7);
+			enemyLevel = 6+i;
+		}
+	} else {
+		enemyLevel = setLevel;
+	}
+	
+
+		
+	life = 200+(enemyLevel*.6);
+	lifeOrig = life;
+	maxMoveSpeed = 9+(enemyLevel*.15);
+	damage = 1+(enemyLevel*.04);
+	eyeSight = 500+(200*(enemyLevel*.08));
+	attackRange = 200+(enemyLevel*1.5);
+	//digTime
+	//digAttackDelay
+}
+
+function update():void {
+
+
+	//if (distanceBetween(this, vcam) < 1200) {
+		if (visible) {
+			physics();
+			slopeAngles();
+			if (active) {
+				if (!dead) {
+					
+					if (!chasing) {
+						if (life < lifeOrig * .3) {
+							antiFlinchOn = true;
+							//maxMoveSpeed = 12;
+							digTimeOrig = 80;
+							digAttackDelayOrig = 20;
+							moveSpeed = .85;
+						}
+						if (life > lifeOrig*.66) {
+							antiFlinchOn = false;
+						}
+					} else {
+						antiFlinchOn = true;
+						life = lifeOrig;
+					}
+					
+					blockHero();
+					if (!chasing) bossBar.add(this);
+					attackTriggers();
+					damageEnemies();
+					handleBounceAttack();
+					interactWithRocks();
+					
+					if (!antiFlinching) {
+						
+						if (!hero.dead && hero.life > 0) {
+							if (hero.life == hero.lifeOrig && heroKilled) heroKilled = false;
+							if (digging && currentFrameLabel != "spinAttack") {
+								huntHeroDigging();
+							} else {
+								if (findHero() && moveable) {
+									huntHero();
+								}
+							}
+						}
+						if (hero.life <= 0 && this.currentFrameLabel == "walk") {
+							updateAnimation("idle");
+						}
+						
+						if (life <= 0 && this.currentFrameLabel != "death") {
+							gotoDeath();
+						}
+					}
+					
+					if (gameData.gameMode != "SURVIVAL") {
+						if (hero.dead && !heroKilled) {
+							sndCtrl.fadeOutMusic();
+							heroKilled = true;
+						}
+					}
+				}
+				updateAnims();
+			}
+		}
+	//}
+}
+
+function slopeAngles ():void {
+	var p0:MovieClip = MovieClip(parent).p0;
+	var p1:MovieClip = MovieClip(parent).p1;
+	
+	if (p0 && p1) {
+		var angle:Number = getAngle(p0.x, p0.y, p1.x, p1.y) * 180/Math.PI; 
+		rotation += (angle - rotation)/4;
+	}
+}
+function getAngle (x1:Number, y1:Number, x2:Number, y2:Number):Number
+{
+	var dx:Number = x2 - x1;
+	var dy:Number = y2 - y1;
+	return Math.atan2(dy,dx);
+}
+
+function physics():void {
+	ySpeed --;
+	y -= ySpeed;
+		
+	var w:Number = 240;
+	var h:Number = 142;
+	
+	if (!debugFly) { 
+	if (collideWithGround) {
+		while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true)) {
+			y-= .5;
+			ySpeed = 0;
+		}
+		while (ground.hitTestPoint(getGlobalX(), getGlobalY()-h, true)) {
+			y++;
+			ySpeed = 0;
+		}
+		while (ground.hitTestPoint(getGlobalX()-(w*.5), getGlobalY()-(h*.75), true)) {
+			xSpeed = 0;
+			x ++;
+		}
+		while (ground.hitTestPoint(getGlobalX()+(w*.5), getGlobalY()-(h*.75), true)) {
+			xSpeed = 0;
+			x --;
+		}
+	
+		if (ground.hitTestPoint(getGlobalX(), getGlobalY()+2, true)) {
+			onGround = true;
+			landFromSpinning();
+		} else {
+			onGround = false;
+		}
+		if (ground.hitTestPoint(getGlobalX()-(w*.5)-2, getGlobalY()-(h*.75), true)) {
+			onLeftWall = true
+		} else {
+			onLeftWall = false;
+		}
+		if (ground.hitTestPoint(getGlobalX()+(w*.5)+2, getGlobalY()-(h*.75), true)) {
+			onRightWall = true
+		} else {
+			onRightWall = false;
+		}
+	}}
+	
+	var decell:Number = 1;
+	if (superEnemy) decell = 1.2;
+	if (!onGround) decell = .5;
+	if (chasing && currentFrameLabel == "walk") decell = .25;
+	if (xSpeed != 0) {
+		x += xSpeed;
+		
+		if (xSpeed > 0) {
+			xSpeed -= .5*decell;
+			if (xSpeed < 0) xSpeed = 0;
+		}
+		if (xSpeed < 0) {
+			xSpeed += .5*decell;
+			if (xSpeed > 0) xSpeed = 0;
+		}
+	}
+}
+
+function interactWithRocks():void {
+	var rock:MovieClip;
+	for (var i:int = 0; i < enemies.length; i ++) {
+		if (enemies[i].enemyType == "ROCK") rock = enemies[i];
+		
+		if (rock && onGround && !digging) {
+			
+			if (rock.bound2.hitTestObject(this.bound)) {
+				if (Math.abs(xSpeed) > maxMoveSpeed*.6) {
+					//move rocks around
+					rock.xSpeed = xSpeed * .4;
+					if (rock.onGround) rock.ySpeed = xSpeed*.3;
+				} else {
+					if (scaleX == 1 && rock.x > x || scaleX == -1 && rock.x < x 
+						&& currentFrameLabel == "walk" && Math.abs(rock.xSpeed) < 7) {
+						if (life < lifeOrig *.3) {
+							if (gameData.gameDifficulty == gameData.gameDifficultyfutile)
+								attacking(true);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+function findHero():Boolean {
+	if (this.currentFrameLabel == "spinAttack") return false;
+	if (aware) {
+		return true
+	}
+	if (hero.life <= 0) return false;
+	if (distanceBetween(this, hero) <= eyeSight && distanceBetweenY(this,hero) <= eyeSight*.33) {
+		if (aware) {
+			return true;
+		} else {
+			if ((hero.x > x && scaleX == 1) || (hero.x < x && scaleX == -1)) {
+				aware = true;
+				return true;
+			} else {
+				return false;
+			}
+		}
+	} else {
+		
+		return false;
+	}
+}
+
+function huntHero():void {
+	if (onGround && currentFrameLabel != "hurt" && currentFrameLabel != "attack" && currentFrameLabel != "SPAWN") {
+		if (distanceBetween(this, hero) > attackRange) {
+			moveTowards(hero);
+		} else {
+			if (angry) {
+				attacking(true);
+			}else{
+				
+				attacking();
+			}
+		}
+	}
+}
+
+function attackTriggers():void {
+	if (!chasing && currentFrameLabel != "spinAttack" && currentFrameLabel != "attack" && currentFrameLabel != "turn") {
+		//DIG Trigger
+		if (hero.currentFrameLabel == "hurt") {
+			if (hero.onLeftWall || hero.onRightWall) {
+				startDig();
+			}
+		}
+		
+		if (hitsTillDig <= 0) {
+			startDig();
+		} else {
+			//Flip Trigger
+			if (hitsTillFlip <= 0) {
+				updateAnimation("attack");
+				attack.gotoAndPlay("a4");
+			}
+		}
+		
+		//had to put these after last block, to reset and stop repeat
+		if (hitsTillDig <= 0) hitsTillDig = hitsTillDigOrig;
+		if (hitsTillFlip <= 0) hitsTillFlip = hitsTillFlipOrig;
+		
+		//trigger bounce attack
+		if (timeTillBounce > 0) {
+			timeTillBounce --;
+		} else {
+			if (currentFrameLabel == "idle" || currentFrameLabel == "walk")
+				startBounce();
+		}
+	}
+}
+function startDig(_digTime:Number = 120, _attackDelay:Number = 40):void {
+	digging = true;
+	if (currentFrameLabel != "dig") {
+		antiFlinchOn = true;
+		updateAnimation("dig");
+		xSpeed = 0;
+		digTime = _digTime;
+		digAttackDelay = _attackDelay;
+	}
+}
+function huntHeroDigging():void {
+	var dir:Number;
+	if (hero.x < x) dir = -1;
+	else dir = 1;
+	
+	if (digTime > 0) {
+		digTime --;
+		
+		if (checkStep() && !onLeftWall || !onRightWall){
+			xSpeed += moveSpeed*dir;			
+			if (xSpeed > maxMoveSpeed*1.5) xSpeed = maxMoveSpeed*1.5;
+			if (xSpeed < -maxMoveSpeed*1.5) xSpeed = -maxMoveSpeed*1.5;
+			//scaleX = dir;
+		} else {
+			digTime = 0;
+			digAttackDelay = 0;
+		}
+		
+	} else {
+		if (digAttackDelay > 0) {
+			digAttackDelay --;
+			xSpeed += (0 - xSpeed)/10;
+			
+			if (currentFrameLabel == "dig") {
+				if (!dig.preAttack) {
+					vcam.shakeCamera(20);
+					dig.gotoAndPlay("loop2");
+				}
+			}
+		} else {
+			
+			moveable = false;
+			appearFromGround(x, y, 26);
+			TweenMax.delayedCall(30, function () { moveable = true; }, null, true);
+			digAttackDelay = digAttackDelayOrig;
+			
+		}
+	}
+}
+function startBounce():void {
+	if (life <= lifeOrig *.3) {
+		bounceAttkCountOrig = 3;
+		bounceAttkCount = 3;
+	} else {
+		if (life <= lifeOrig * .6) {
+			bounceAttkCountOrig = 1;
+			bounceAttkCount = 1;
+		} else {
+			bounceAttkCountOrig = 0;
+			bounceAttkCount = 0;
+		}
+	}
+	
+	bounceAttk = true;
+	
+	antiFlinchOn = true;
+	updateAnimation("spinAttack");
+	spinAttack.gotoAndPlay("preleap");
+	
+}
+function handleBounceAttack():void {
+	if (currentFrameLabel == "spinAttack" && bounceAttk) {
+		var b:Boolean = false;
+		var dir:int;
+		if (hero.x < x) dir = -1;
+		else dir = 1;
+		scaleX = dir;
+		
+		if (onGround) {
+			if (spinAttack.currentFrame == 60 && !spinAttack.spinning) {
+				if (!b) {
+					sndCtrl.playSound(sndCtrl.sndExplode, 0, 2);
+					xSpeed = 12 * scaleX;
+					ySpeed = 25;
+					addGroundDebry();
+					b = true;
+				}
+			}
+			if (spinAttack.spinning && bounceAttk) {
+				if (bounceAttkCount > 0) {
+					if (!b) {
+						sndCtrl.playSound(sndCtrl.sndExplode, 0, 2);
+						xSpeed = 15 * scaleX;
+						ySpeed = 20;
+						bounceAttkCount --;
+						spinAttack.gotoAndPlay(1);
+						addGroundDebry();
+						b = true;
+					}
+				} else {
+					bounceAttk = false;
+					timeTillBounce = timeTillBounceOrig;
+					bounceAttkCount = bounceAttkCountOrig;
+				}
+			}
+		}
+		if (ySpeed <= 0) b = false;
+	}
+}
+
+
+function checkTurn():Boolean {
+	if (!digging && !bounceAttk && !spinning) {
+		if (hero.x < x) {
+			if (scaleX == 1) {
+				updateAnimation("turn");
+			} else {
+				if (currentFrameLabel != "turn")
+					return true;
+			}
+		} else 
+		if (hero.x > x) {
+			if (scaleX == -1) {
+				updateAnimation("turn");
+			} else {
+				if (currentFrameLabel != "turn")
+					return true;
+			}
+		}
+	}
+	return false;
+}
+
+function moveTowards(obj:MovieClip):void {
+	if (chasing) {
+		if (distanceBetween(this, hero) > 800) {
+			maxMoveSpeed = hero.maxMoveSpeed * 1.6;
+		}
+		
+		if (distanceBetween(this, hero) > 200 && distanceBetween(this, hero) < 800) {
+			maxMoveSpeed = hero.maxMoveSpeed * 1.2;
+		} 
+		
+		if (distanceBetween(this, hero) < 200) {
+			maxMoveSpeed = hero.maxMoveSpeed * .8;
+		}
+	}
+	
+	var dir:Number;
+	if (obj.x < x) dir =-1;
+	else dir = 1;
+	
+	if (checkTurn()) {
+		if ((scaleX == 1 && onRightWall) || (scaleX == -1 && onLeftWall)) {
+			stopMoving();
+		} else {
+			if (checkStep()){
+				xSpeed += moveSpeed*dir;			
+				if (xSpeed > maxMoveSpeed) xSpeed -= 1;
+				if (xSpeed < -maxMoveSpeed) xSpeed += 1;
+				
+				updateAnimation("walk");
+			} else {
+				stopMoving();
+			}
+		}
+	}
+}
+function stopMoving():void {
+	if (currentFrameLabel == "walk") updateAnimation("idle");
+}
+
+
+function attacking(ignoreCool:Boolean = false):void {
+	if (ignoreCool) attackCool = 0;
+	if (attackCool > 0) {
+		stopMoving();
+		attackCool --;
+	} else {
+		if (checkTurn()) {
+			
+			updateAnimation("attack");
+			attackCool = attackCoolOrig;
+		}
+	}
+}
+function doAttack2():void {
+	this.updateAnimation("attack");
+	this.attack.gotoAndPlay("a2");
+	
+}
+
+function damageEnemies():void {
+	var hitStandard:MovieClip = this[currentFrameLabel].hit;
+	var hitHard:MovieClip = this[currentFrameLabel].hit2;
+	var hitSpin:MovieClip = this[currentFrameLabel].hit3;
+	var hitFlip:MovieClip = this[currentFrameLabel].hit5;
+	
+	var target:MovieClip;
+	if (gameData.gameDifficulty == gameData.gameDifficultyNormal) enemies = [hero];
+	
+	for (var i:int = 0; i < enemies.length; i ++) {
+		target = enemies[i];
+		if (target && !antiFlinching) 
+		{
+			
+			
+			if (hitStandard && hitStandard.hitTestObject(target.bound)) {
+				target.takeDamage(this, 6);
+				
+				if (this.currentFrameLabel == "attack" && this.attack.attackNum == 1) {
+					TweenMax.delayedCall(5, doAttack2, null, true);
+				}
+			}
+			if (hitHard && hitHard.hitTestObject(target.bound)) {
+				target.takeDamage(this, 15, 8, damage);
+			}
+			
+			if (bounceAttkHitCool > 0) {
+				bounceAttkHitCool --;
+			} else {
+				if (hitSpin && hitSpin.hitTestObject(target.bound)) {
+					target.takeDamage(this, 20, 8, damage*2);
+					bounceAttkHitCool = 70;
+				}
+			}
+			
+			if (hitFlip && hitFlip.hitTestObject(target.bound)) {
+				target.takeDamage(this, 28, 12, damage);
+			}	
+		}
+	}
+	
+	
+}
+
+function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1, combo:Boolean = true):void {
+	var rockHit:Boolean;
+	if (from.hasOwnProperty("heroName") && life > 0) {
+		if (gameData.dataIsGearEquipt("Leech", from.playerID)) {
+			if (Math.random() <= gameData.data_leechAmount) {
+				from.life += 1;
+				if (from.life > from.lifeOrig) from.life = from.lifeOrig;
+			}
+		}
+	}
+	if (distanceBetween(this, vcam) < 1200) {
+		if (currentFrameLabel != "death" && !digging && !bounceAttk && !spinning) {
+			damage = damage + (gameData.dataGetWeaponPower()*.15);
+			if (from.enemyType == "ROCK") {
+				damage = damage;
+				X *= .5;
+				rockHit = true;
+			}
+			
+			
+			aware = true;
+			life -= damage;
+			
+			if (from == hero) {
+				hitsTillDig --;
+				hitsTillFlip --;
+				hitCount++;
+			}
+			
+			if (antiFlinchOn) {
+				if (!chasing) xSpeed = (xSpeed*.9)+(X * from.scaleX) * .5;
+			} else {
+				xSpeed = (X * from.scaleX);
+				scaleX = from.scaleX *-1;
+			}
+			
+			if (life <= 0 && Y == 0) {
+				sndCtrl.playHitHardSound();
+				gotoDeath();
+			} else {
+				sndCtrl.playHitSound();
+				if (antiFlinchOn) {
+					antiFlinch(rockHit);
+				} else {
+					updateAnimation("hurt");
+					if (hurt) {
+						if (rockHit) hurt.gotoAndPlay("light");
+						else hurt.gotoAndPlay(1);
+					}
+				}
+			}
+			
+			if (combo) gameData.scoreAttack();
+			vcam.battleCool = 60;
+			if (from.overdrive) 
+				particleLayer.addHitSplash(from, this, 1.5);
+			else particleLayer.addHitSplash(from, this);
+			if (combo && !rockHit) if (gameData.sessionCombo > 1) particleLayer.addCombo(x, y - 70, 1);
+			
+		}
+	}
+}
+
+function gotoDeath():void {
+	if (!dead) {
+		dead = true;
+		if (MovieClip(parent).bossCamHelper) MovieClip(parent).bossCamHelper.activated = false;
+		vcam.target = hero;
+		if (gameData.gameMode == gameData.SURVIVAL) {
+			gameData.sessionSurvivalBosses ++;
+		} else {
+			sndCtrl.musicChannel.stop();
+			sndCtrl.playMusic(sndCtrl.track2);
+		}
+	} 
+	updateAnimation("death");
+	xSpeed = 0;
+}
+
+function updateAnims():void {
+	var clip:MovieClip = this[currentFrameLabel];
+	
+	if (!antiFlinching) {
+		if (clip.name == "attack" ) {
+			if (clip.currentFrame == 5) {
+				sndCtrl.playSound(sndCtrl.sndRoar3);
+				if (angry) {
+					xSpeed += 5 *  scaleX;
+				} else {
+					xSpeed += 3 *  scaleX;
+				}
+			}
+			if (clip.currentFrame == 71) {
+				sndCtrl.playSound(sndCtrl.sndRoar5);
+			}
+			if (clip.currentFrame == 89) {
+				xSpeed = 8 * scaleX;
+			}
+			if (clip.currentFrame == 91) {
+				sndCtrl.playSound(sndCtrl.sndBossSwing1);
+			}
+			if (clip.currentFrame == clip.totalFrames) updateAnimation("idle");
+		}
+		if (clip.name == "hurt") {
+			if (clip.currentFrame == 2) {
+				sndCtrl.playSound(sndCtrl.sndRoar4);
+			}
+			if (clip.currentFrame == clip.totalFrames) updateAnimation("idle");
+		}
+		
+		if (clip.name == "death") {
+			if (clip.currentFrame == 1) {
+				sndCtrl.playSound(sndCtrl.sndExplode);
+				
+			}
+			if (clip.currentFrame == clip.totalFrames) {
+				clip.stop();
+				visible = false;
+			}
+		}
+		
+		if (clip.name == "dig") {
+			if (clip.digging) {
+				//for (var i:int = 0; i < 2; i ++) {
+					particleLayer.addStone(x, y, 12,26);
+				//}
+			}
+		}
+		
+		if (clip.name == "walk") {
+			if (clip.currentFrame == 5 || clip.currentFrame == 15) {
+				particleLayer.addDust(7, x -100, y, scaleX);
+			}
+			if (clip.currentFrame == 10 || clip.currentFrame == 19) {
+				particleLayer.addDust(7, x +100, y, scaleX);
+			}
+		}
+		
+		if (clip.name == "spinAttack") {
+			if (clip.currentFrame == 41) {
+				sndCtrl.playSound(sndCtrl.sndRoar5);
+			}
+		}
+	}
+}
+
+function blockHero():void {
+	if (forceHeroX) {
+		if (hero.x < x+120) hero.x = x+120;
+	}
+	
+	if (digging || !collideWithGround) {
+	} else {
+	if (hero.currentFrameLabel != "dodge" && hero.currentFrameLabel != "hurt") {
+		if (distanceBetween(this, hero) < 100) {
+			if (hero.x < x) {
+				hero.x --;
+				hero.xSpeed = -3;
+				xSpeed = 3;
+				
+			} else 
+			if (hero.x > x) {
+				hero.x ++;
+				hero.xSpeed = 3;
+				xSpeed = -3;
+			}
+		}
+	}
+	}
+}
+
+function appearFromGround(X:Number, Y:Number, power:Number = 30):void {
+	collideWithGround = false;
+	digging = false;
+	if (life > lifeOrig *.3) antiFlinchOn = false;
+	x = X;
+	y = Y;
+	ySpeed = power;
+	gotoAndStop("spinAttack");
+	sndCtrl.playSound(sndCtrl.sndExplode, 0, 3);
+	vcam.shakeCamera(60);
+	TweenMax.delayedCall(20, function () { collideWithGround = true; }, null, true);
+	addGroundDebry();
+}
+function addGroundDebry():void {
+	for (var i:int = 0; i < 20; i ++) {
+		particleLayer.addStone(x, y, 7,20);
+		if (i < 8) {
+			var r:Number = 6 + (Math.round(Math.random()));
+			particleLayer.addDust(r, x + (Math.random()*100) - (Math.random()*150), y, Math.random()*2, Math.random()*10);
+		}
+		
+		if (i < 2 && active) {
+			if (rockCount > 0) {
+
+				var rock:MovieClip;
+				rock = particleLayer.addRock2(x, y-(Math.random()*40), (Math.random()*30) - (Math.random()*30), 10+(Math.random()*30));
+				enemies.push(rock);
+				rockCount --;
+			}
+		}
+	}
+}
+
+function landFromSpinning ():void {
+	if (currentFrameLabel == "spinAttack") {
+		if (spinAttack.spinning && !bounceAttk) {
+			spinAttack.gotoAndPlay("land");
+			if (life > lifeOrig *.4) antiFlinchOn = false;
+			
+			if (chasing) {
+				//start music - delayed offset
+				TweenMax.delayedCall(40, function () { 
+					sndCtrl.stopMusic();
+					sndCtrl.playMusic(sndCtrl.track3); }, null, true);			
+				//start round - delayed offset
+				TweenMax.delayedCall(80, startRound2, null, true);
+			}
+		}
+	}
+}
+
+function startRound2():void {
+	if (MovieClip(parent).bossCamHelper) MovieClip(parent).bossCamHelper.activated = true;
+	hero.switchToHero();
+	hero.active = true;
+	hero.moveable = true;
+	vcam.target = hero;
+	vcam.zoom = 1;
+	moveable = true;
+	chasing = false;
+	antiFlinchOn = false;
+	active = true;
+	bossBar.add(this);
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = Math.abs(obj1.x - obj2.x);
+    return X;
+}
+function distanceBetweenY(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var Y:Number = Math.abs(obj1.y - obj2.y);
+    return Y;
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}
+
+function checkStep():Boolean {
+	var b:Boolean = false;
+	
+	if (ground.hitTestPoint(getGlobalX()+(50 * this.scaleX), getGlobalY()+20, true)) {
+		b = true;
+	} else {
+		if (ground.hitTestPoint(getGlobalX()+(50 * this.scaleX), getGlobalY()+60, true)) {
+			b = true;
+		}
+	}
+	
+	return b;
+}
+
+function updateAnimation(animName:String):void {
+	if (currentFrameLabel != animName) {
+		this[currentFrameLabel].stop();
+		gotoAndStop(animName);
+	}
+}
+
+function antiFlinch(fromRock:Boolean = false):void {
+	colorer.changeColor(MovieClip(root).VFXInvert);
+	this[currentFrameLabel].stop();
+	antiFlinching = true;
+	if (fromRock) TweenMax.delayedCall(5, antiFlinchOver, null, true);
+	else TweenMax.delayedCall(10, antiFlinchOver, null, true);
+}
+function antiFlinchOver():void {
+	colorer.changeColor(MovieClip(root).VFXStyle);
+	this[currentFrameLabel].play();
+	antiFlinching = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="labels" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="walk" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="taunt" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="attack" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" name="hurt" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" name="spinAttack" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" name="death" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" name="dig" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" name="turn" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Idle" name="idle">
+                  <matrix>
+                    <Matrix tx="-40" ty="2.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-89.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Walk" name="walk" centerPoint3DX="-44.05" centerPoint3DY="-83.05">
+                  <matrix>
+                    <Matrix tx="-2.1" ty="1.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Taunt" name="taunt">
+                  <matrix>
+                    <Matrix tx="-20.25" ty="1.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-AttackRaw" name="attack" selected="true">
+                  <matrix>
+                    <Matrix tx="68.1" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Hurt" name="hurt">
+                  <matrix>
+                    <Matrix tx="7.9" ty="8.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-20.4" y="-78.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Land" name="spinAttack">
+                  <matrix>
+                    <Matrix tx="-0.25" ty="-0.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/LargeCloud/DustCloud" name="death">
+                  <matrix>
+                    <Matrix a="0.882705688476563" b="-0.785690307617188" c="0.785690307617188" d="0.882705688476563" tx="16.15" ty="0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-13.6" y="-12.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-Dig" name="dig">
+                  <matrix>
+                    <Matrix tx="19.25" ty="3.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-21.2" y="-87.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss3-BossBeast/anims/Boss3-Anim-TurnAround" name="turn">
+                  <matrix>
+                    <Matrix tx="-1.9" ty="1.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="6.53192138671875" d="1.55982971191406" tx="0.85" ty="-71"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Colorer-GameObject" name="colorer">
+                  <matrix>
+                    <Matrix tx="10.05" ty="-171.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="cDir">
+      <Inspectable name="dir" variable="cDir" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

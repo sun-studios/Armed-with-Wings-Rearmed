@@ -1,0 +1,66 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PTR-Sparks/Spark" itemID="5541fdf3-00001ae4" linkageExportForAS="true" linkageClassName="Spark" lastModified="1430388272">
+  <timeline>
+    <DOMTimeline name="Spark">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var speed:Number;
+var speedMax:Number;
+
+function init():void {
+	var r:Number = (Math.random()*180) - (Math.random()*180);
+	rotation = r;
+	
+	r = (Math.random()*10) - (Math.random()*10);
+	speed = 20+r;
+	speedMax = speed;
+	
+	scaleY = Math.random()+Math.random();
+	
+}
+
+function update ():void {
+	
+	if (speed > 0) {
+		speed -=2;
+	
+		x += Math.cos(rotation * Math.PI/180) * speed;
+		y += Math.sin(rotation * Math.PI/180) * speed;
+		
+		scaleX = speed/speedMax *1.4;
+		if (rotation >90) rotation +=4;
+		else rotation -=4;
+	} else {
+		visible = false;
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!0 -30|0 30!0 30|-399 30!-399 30|-399 -30!-399 -30|0 -30"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

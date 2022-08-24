@@ -1,0 +1,278 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Credits/UI-Credits-Text" itemID="552e5400-00000bd5" lastModified="1492354742">
+  <timeline>
+    <DOMTimeline name="UI-Credits-Text" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-202&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+import com.greensock.easing.Elastic;
+import flash.display.MovieClip;
+
+var box:MovieClip = MovieClip(parent).box;
+var box2:MovieClip = MovieClip(parent).box2;
+var sndCtrl:MovieClip = MovieClip(root);
+var finished:Boolean;
+
+clip0.x = -480-clip0.width; 
+clip1.x = 480;				 
+clip2.x = -480-clip2.width;	 
+clip3.x = 480;				 
+clip4.x = -480-clip4.width;	 
+clip5.x = 480;				 
+clip6.x = -480-clip6.width;	 
+clip7.x = 480;				 
+clip8.x = -480-clip8.width;	 
+clip9.x = 480;				 
+clip10.x = -480-clip10.width;
+clip11.x = 480;				
+clip12.x = -480-clip12.width;
+clip13.x = 480;				
+
+box.scaleY = 0;
+box.width = box2.width = 960;
+box.visible = false;
+
+clip0.y = -12.9;
+clip1.y = 13.9;
+
+TweenMax.delayedCall(40, start, null, true);
+
+function start ():void {
+	box.visible = true;
+	sndCtrl.playUISound(sndCtrl.sndWoosh);
+	TweenMax.to(box, 100, {scaleY:.2, ease:Elastic.easeOut, useFrames:true});
+	TweenMax.delayedCall(1, slideIn, [clip0], true);
+	TweenMax.delayedCall(3, slideIn, [clip1], true);
+	TweenMax.delayedCall(200, expandView, null, true);
+}
+
+function expandView():void {
+	sndCtrl.playUISound(sndCtrl.sndWoosh);
+	TweenMax.to(clip0, 90, {y:-176.7, ease:Elastic.easeOut, useFrames:true});
+	TweenMax.to(clip1, 120, {y:-149.9, ease:Elastic.easeOut, useFrames:true});
+	
+	TweenMax.to(box, 120, {scaleY:1.5, scaleX:1, ease:Elastic.easeOut, useFrames:true});
+	TweenMax.to(box2, 120, {scaleY:1.5, scaleX:1, ease:Elastic.easeOut, useFrames:true});
+	
+	TweenMax.delayedCall(40, displayNote, null, true);
+	TweenMax.delayedCall(60, finishContent, null, true);
+}
+
+function displayNote():void {
+	for (var i:int = 2; i < 13; i ++ ){
+		var clip:MovieClip = this["clip"+i];
+		TweenMax.delayedCall(i*2, slideIn, [clip], true);
+	}
+}
+
+function slideIn(clip:MovieClip):void {
+	sndCtrl.playBossSwingSound();
+	TweenMax.to(clip, 120, {x:-204, ease:Elastic.easeOut, useFrames:true});
+}
+
+function finishContent ():void {
+	MovieClip(parent).instruct2.visible = true;
+	finished = true;
+}
+
+function skip():void {
+	MovieClip(parent).instruct2.visible = true;
+	TweenMax.killAll();
+	
+	clip0.y = -176.7;
+	clip1.y = -149.9;
+	box.scaleX = box2.scaleX = 1;
+	box.scaleY = box2.scaleY = 1.5;
+	
+	for (var i:int = 2; i < 13; i ++ ){
+		var clip:MovieClip = this["clip"+i];
+		clip.x = -204;
+	}
+	
+	finished = true;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Stay tuned for more Armed with Wings." color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 11" name="clip0">
+                  <matrix>
+                    <Matrix tx="-204" ty="-176.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#333333"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 12" name="clip1">
+                  <matrix>
+                    <Matrix tx="-204" ty="-149.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 13" name="clip2">
+                  <matrix>
+                    <Matrix tx="-204" ty="-100.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#333333"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 14" name="clip3">
+                  <matrix>
+                    <Matrix tx="-204" ty="-73.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 15" name="clip4">
+                  <matrix>
+                    <Matrix tx="-204" ty="-51.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 16" name="clip5">
+                  <matrix>
+                    <Matrix tx="-204" ty="-29.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 17" name="clip6">
+                  <matrix>
+                    <Matrix tx="-204" ty="17.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 18" name="clip7">
+                  <matrix>
+                    <Matrix tx="-204" ty="38.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 19" name="clip8">
+                  <matrix>
+                    <Matrix tx="-204" ty="60.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 20" name="clip9">
+                  <matrix>
+                    <Matrix tx="-204" ty="82.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 21" name="clip10">
+                  <matrix>
+                    <Matrix tx="-204" ty="134.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 22" name="clip11">
+                  <matrix>
+                    <Matrix tx="-204" ty="156.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 23" name="clip12">
+                  <matrix>
+                    <Matrix tx="-204" ty="177.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Credits/assets/credits_Symbol 24" name="clip13">
+                  <matrix>
+                    <Matrix tx="-204" ty="199.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

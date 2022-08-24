@@ -1,0 +1,120 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-SurvivalMenu/assets/UI-SurvivalMenu-Container" itemID="56a52bb7-00003c1f" lastModified="1491297426" lastUniqueIdentifier="5">
+  <timeline>
+    <DOMTimeline name="UI-SurvivalMenu-Container">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var btnArr:Array;
+
+init();
+
+function init():void {
+	btnArr = new Array();
+	btnArr = [b0, b1, b2, b3, b4];//
+}
+
+function updateVisibility(confirming:Boolean, selectedBtn:MovieClip):void {
+	
+	for (var i:int = 0; i < btnArr.length; i ++) {
+		var clip:MovieClip = btnArr[i];
+		if (confirming) {
+			
+			if (clip == selectedBtn) {
+				if (clip.alpha < 1) clip.alpha += .1;
+			} else {
+				if (clip.alpha > 0) clip.alpha -= .1;
+			}
+		} else {
+			if (clip.alpha < 1) clip.alpha += .1;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-SurvivalMenu/UI-SurivialLevel" name="b1" uniqueID="5">
+                  <matrix>
+                    <Matrix tx="500" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-SurvivalMenu/UI-SurivialLevel" name="b2" uniqueID="6">
+                  <matrix>
+                    <Matrix tx="999.95" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-SurvivalMenu/UI-SurivialLevel" name="b3" uniqueID="7">
+                  <matrix>
+                    <Matrix tx="1499.9" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-SurvivalMenu/UI-SurivialLevel" name="b4" uniqueID="5">
+                  <matrix>
+                    <Matrix tx="1999.85" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-SurvivalMenu/UI-SurivialLevel" name="b0" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

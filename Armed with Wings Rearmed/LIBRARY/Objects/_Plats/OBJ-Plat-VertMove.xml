@@ -1,0 +1,152 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Plats/OBJ-Plat-VertMove" itemID="54bfa0f8-000004d1" lastModified="1485440793" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Plat-VertMove">
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var dir:int;
+var goDown:Boolean;
+var max:int;
+
+var i:Number; // component
+var range:Number; //component
+
+var hero:MovieClip; 
+var ground:MovieClip;
+
+init();
+
+function init():void {
+	//copmponent
+	if (!i) i = 0;
+	if (!range) range = 10;
+	
+	//vars
+	dir = 1;
+	goDown = true;
+	max = range;
+	
+	//refs
+	hero = MovieClip(parent.parent).hero; 
+	ground = MovieClip(parent);
+}
+
+function update():void {
+	//Up Down Movement
+	if (dir == 1) {
+		if (i < max) {
+			i += .25;
+		} else {
+			dir = -1;
+		}
+	} else 
+	if (dir == -1) {
+		if (i > 0) {
+			i -= .25;
+		} else {
+			dir = 1;
+			if (goDown) goDown = false;
+			else goDown = true;
+		}
+	}
+	
+	if (goDown) y += i;
+	else y -= i;
+
+	if (withinRange()) {
+		var go:Boolean = true;
+		if (hero.currentFrameLabel == "walk" && (hero.walk.jumping || hero.walk.falling)) go = false;
+		if (hero.currentFrameLabel == "attack" && hero.attack.jumpAttack) go = false;
+		if (hero.currentFrameLabel == "jump") go = false;
+		if (hero.currentFrameLabel == "dodge" && hero.dodge.airborn) go = false;
+		
+		if (go) {
+			hero.y = y + ground.y;
+		}
+		/*
+		if (hero.currentFrameLabel == "walk") {
+			if (hero.walk.jumping) {
+				
+			} else {
+				hero.y = y+ground.y;
+			}
+		} else {
+			if ((hero.currentFrameLabel == "attack" && hero.attack.jumpAttack) || 
+				hero.currentFrameLabel == "jump" ||
+				(hero.currentFrameLabel == "dodge" && hero.dodge.airborn)) {
+				
+			} else {
+				hero.y = y+ground.y;
+			}
+		}
+		*/
+	}
+	
+}
+
+function withinRange():Boolean {
+	if (hero.x > (x + ground.x) -113 && 
+		hero.x < (x + ground.x) +113 &&
+		hero.y > (y + ground.y) -20 && 
+		hero.y < (y + ground.y) +50) {
+		
+		return true;
+	} else {
+		return false;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2286 419|2227 786!2227 786|-2268 786!-2268 786|-2314 419!-2314 419|-2409 419!-2409 419|-2471 -35!-2471 -35|2472 -35!2472 -35|2396 419!2396 419|2286 419!604 1444|-604 1444!-604 1444|-630 1199!-630 1199|630 1199!630 1199|604 1444!827 1122
+|-825 1122!-825 1122|-862 877!-862 877|862 877!862 877|827 1122"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0" b="-1.5333251953125" c="2.63096618652344" d="0" ty="25.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

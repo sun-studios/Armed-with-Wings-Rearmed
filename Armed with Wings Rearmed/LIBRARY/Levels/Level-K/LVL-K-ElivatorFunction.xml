@@ -1,0 +1,153 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-K/LVL-K-ElivatorFunction" itemID="54d38ef0-00001445" lastModified="1485004131">
+  <timeline>
+    <DOMTimeline name="LVL-K-ElivatorFunction">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+var goDown:Boolean;
+var goUp:Boolean;
+var interuption:Boolean;
+var interuptionComplete:Boolean;
+var spawnEnemies:Boolean;
+
+var hero:MovieClip;
+var platform:MovieClip;
+var zoomReigon:MovieClip;
+var en3:MovieClip;
+var en4:MovieClip;
+var gate1:MovieClip;
+
+var flag0:Boolean;
+
+init();
+
+function init():void {
+	alpha = 0;
+	goDown = false;
+	goUp = false;
+	interuption = false;
+	interuptionComplete = false;
+	spawnEnemies = false;
+	
+	hero = MovieClip(parent).hero;
+	platform = MovieClip(parent).platformDown;
+	zoomReigon = MovieClip(parent).zoomReigon;
+	en3 = MovieClip(parent).en3;
+	en4 = MovieClip(parent).en4;
+	gate1 = MovieClip(parent).ground.gate1;
+	
+}
+
+function update():void {
+	//start goingdown
+	if (hero.bound.hitTestObject(this) && !goDown) {
+		goDown = true;
+	}
+	
+	//godown halfway
+	if (!interuption) {
+		if (goDown) {
+			platform.goDown();
+			if (platform.halfWay) {
+				interuption = true;
+			}
+		}
+	}
+	
+	//trigger battle interuption
+	if (interuption && !interuptionComplete) {
+		if (!spawnEnemies) {
+			zoomReigon.y = -10000;
+			zoomReigon.scaleX = zoomReigon.scaleY = 0;
+			en3.visible = true;
+			en4.visible = true;
+			en3.aware = true;
+			en4.aware = true;
+			gate1.gotoAndPlay(2);
+			spawnEnemies = true;
+		}
+		
+		if (en3.dead && en4.dead) {
+			interuptionComplete = true;
+		}
+	}
+	
+	//continue after interuption
+	if (interuptionComplete && !goUp) {
+		if (goDown) {
+			platform.goDown();
+			
+			if (platform.onGround) {
+				if (hero.bound.hitTestObject(platform)) {
+					platform.visible = false;
+					platform = MovieClip(parent).ground.platformUp;
+					platform.setPositionAtBottom();
+					platform.gotoAndStop(2);
+					platform.visible = true;
+					goUp = true;
+				}
+			}
+		}
+	}
+	
+	//go up and complete lvel
+	if (goUp) {
+		platform.goUp();
+		lockHero(hero);
+		if (!flag0) {
+			MovieClip(root).fadeOutMusic();
+			flag0 = true;
+		}
+	}
+}
+
+function lockHero(hero:MovieClip):void {
+	hero.x += (MovieClip(parent).platformDown.x - hero.x)/8;
+	hero.active = false;
+	hero.moveable = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-1799 -758|1801 -758!1801 -758|1801 2929!1801 2929|-1799 2929!-1799 2929|-1799 -758"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-1.95" width="100.1" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="1.06071472167969" d="1.06071472167969" tx="-51.05" ty="-26.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Elivator&#xD;Function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

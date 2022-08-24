@@ -1,0 +1,143 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/SunLogoAnimation/movieclips/sun-studios_anim" itemID="542a10f3-0000166c" lastModified="1493563021" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="sun-studios_anim">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.561" y="0.9726"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/sun-studios" selected="true">
+                  <matrix>
+                    <Matrix tx="-9.65" ty="10.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3" y="-3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="25" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.561" y="0.9726"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/sun-studios" selected="true" centerPoint3DX="-9.3" centerPoint3DY="23.7">
+                  <matrix>
+                    <Matrix tx="-9.65" ty="20.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3" y="-3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/sun-studios" centerPoint3DX="-9.3" centerPoint3DY="13.7">
+                  <matrix>
+                    <Matrix tx="-9.65" ty="10.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3" y="-3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="50" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="50" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="50" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="24" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/logo_shadow" selected="true" centerPoint3DX="-80.75" centerPoint3DY="157.05">
+                  <matrix>
+                    <Matrix a="2.81376647949219" d="0.772720336914063" tx="-80.55" ty="157.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="12" blurY="12" quality="3"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.37890625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="25" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/logo_shadow" centerPoint3DX="-80.75" centerPoint3DY="157.05">
+                  <matrix>
+                    <Matrix a="2.81376647949219" d="0.772720336914063" tx="-80.55" ty="157.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="12" blurY="12" quality="3"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.51171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/logo_shadow" centerPoint3DX="-80.75" centerPoint3DY="157.05">
+                  <matrix>
+                    <Matrix a="2.81376647949219" d="0.772720336914063" tx="-80.55" ty="157.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="12" blurY="12" quality="3"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.37890625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

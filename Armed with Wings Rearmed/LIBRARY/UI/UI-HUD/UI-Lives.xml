@@ -1,0 +1,137 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/UI-Lives" itemID="5523c718-0000052d" lastModified="1493035109">
+  <timeline>
+    <DOMTimeline name="UI-Lives">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var token1:MovieClip;
+var token2:MovieClip;
+var token3:MovieClip;
+var token4:MovieClip;
+
+var game:MovieClip;
+
+init();
+
+function init():void {
+	game = MovieClip(root);
+	
+	for (var i:int = 0; i < 3; i ++) {
+		if (i >= game.playerLives) {
+			this["token"+(i+1)].gotoAndStop(2);
+		}
+	}
+	
+	if (game.gameMode == game.SURVIVAL || game.gameMode == game.MULTIPLAYER) {
+		visible = false;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" locked="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/UI-LT-Shape" name="token1">
+                  <matrix>
+                    <Matrix tx="34" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/UI-LT-Shape" name="token2">
+                  <matrix>
+                    <Matrix tx="17.45" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/UI-LT-Shape" name="token3">
+                  <matrix>
+                    <Matrix tx="-0.1" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#424242" alpha="0.8" colorReferenceID="1"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!777 -7|682 -190!682 -190|587 -7!587 -7|682 176!682 176|777 -7!441 -7|346 -190!346 -190|251 -7!251 -7|346 176!346 176|441 -7!88 -7|-7 -190!-7 -190|-102 -7!-102 -7|-7 176!-7 176|88 -7"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" locked="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#424242" alpha="0.8" colorReferenceID="1"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!834 237|1070 2!1070 2|834 -234!834 -234|-575 -234!-575 -234|-575 237!-575 237|834 237"/>
+                    <Edge cubics="!-575 237(;-575,237 834,237 834,237q-575 237 834 237);"/>
+                    <Edge cubics="!834 -234(;834,-234 -575,-234 -575,-234q834 -234 -575 -234);"/>
+                    <Edge cubics="!834 -234(;834,-234 1070,2 1070,2q834 -234 1070 2);"/>
+                    <Edge cubics="!-575 -234(;-575,-234 -575,237 -575,237q-575 -234 -575 237);"/>
+                    <Edge cubics="!834 237(;834,237 1070,2 1070,2q834 237 1070 2);"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-LineEdge">
+                  <matrix>
+                    <Matrix a="0.867950439453125" d="0.867950439453125" tx="28.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="6" blurY="6" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.5"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,217 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-Conversation" itemID="5561ca1f-00000cd5" lastModified="1501077626" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Conversation">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = false;
+
+import flash.display.MovieClip;
+import flash.events.Event;
+import com.greensock.TweenMax;
+
+var index:int;
+var textArr:Array;
+var disable:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var complete:Boolean;
+var isActive:Boolean;
+var skipped:Boolean;
+
+var inputDelay:int;
+var inputDelayOrig:int;
+
+var party1:MovieClip;
+var party2:MovieClip;
+var particleLayer:MovieClip;
+var ctrl:PlayerControl;
+var vcam:MovieClip;
+var currentText:MovieClip
+var hud:MovieClip;
+var vcamEnabled:Boolean;
+
+var party1_s:String;
+var party2_s:String;
+var cID:Number;
+var textFollow:Boolean;
+if (!cID) cID = 0;
+
+init();
+
+function init():void {
+	party1 = MovieClip(parent)[party1_s];
+	party2 = MovieClip(parent)[party2_s];
+	
+	index = 0;
+	defineText();
+	disable = true;
+	keyFilter1 = true;
+	complete = false;
+	vcamEnabled = true;
+	
+	inputDelay = 40;
+	inputDelayOrig = 40;
+	
+	particleLayer = MovieClip(parent).particleLayer;
+	ctrl = MovieClip(root).playerDefaultControl;
+	vcam = MovieClip(parent).vcam;
+	hud = MovieClip(root).hud;
+}
+
+function defineText():void {
+	textArr = new Array();
+	
+	textArr = TextData.getConvoArr(cID);
+}
+
+function startConvo():void {
+	disable = false;
+	complete = false;
+	isActive = true;
+	index = 0;
+	if (vcamEnabled) vcam.target = party1;
+	input(false);
+	hud.displayConvo();
+}
+
+function spawn(obj:MovieClip, txt:String):void {
+	//random pos
+	var rX:Number = (Math.random()*60) - (Math.random()*60);
+	var rY:Number = (Math.random()*15) - (Math.random()*15);
+	//grab text
+	var text:String = txt; 
+	if (textFollow) {
+		currentText = particleLayer.addTextPop(obj.x+rX, obj.y - (obj.height * .65) + rY, text, true, obj);
+	} else {
+		currentText = particleLayer.addTextPop(obj.x+rX, obj.y - (obj.height * .65) + rY, text, true);
+	}
+	
+}
+
+function update():void {
+	if (!disable) {
+		
+		if (inputDelay > 0) {
+			inputDelay --;
+		} else {
+			if (ctrl.ctrl_confirm) {
+				if (!keyFilter1) {
+					input();
+					keyFilter1 = true;
+				}
+			} else {
+				keyFilter1 = false;
+			}
+			if (ctrl.ctrl_cancel) {
+				endConvo(true);
+			}
+		}
+	}
+}
+
+function input(count:Boolean = true):void {
+	if (index < textArr.length-1) {
+		if (currentText && currentText.closeText) {
+			currentText.closeText();
+		}
+		hud.closeConvo();
+		inputDelay = inputDelayOrig;
+		
+		TweenMax.delayedCall(8, 
+				function () {
+					if (count) index ++;
+					
+					var obj:MovieClip;
+					if (textArr[index][0] == 1) obj = party1;
+					else obj = party2;
+					
+					if (vcamEnabled) vcam.target = obj;
+					spawn(obj, textArr[index][1]); 
+					hud.displayConvo();
+					
+					var o:Object = textArr[index][2];
+					if (o) {
+						if (o.vcamZoom) vcam.zoom = o.vcamZoom;
+						if (o.anim) obj.gotoAndStop(o.anim);
+						if (o.subanim) MovieClip(obj[obj.currentFrameLabel]).gotoAndPlay(o.subanim);
+					}
+				}
+		, null, true);
+		
+	} else {
+		endConvo();
+	}
+}
+
+function endConvo(_skipped:Boolean = false):void {
+	skipped = _skipped;
+	if (currentText && currentText.closeText) {
+		currentText.closeText();
+	}
+	
+	this.dispatchEvent(new Event("COMPLETE"));
+	complete = true;
+	disable = true;
+	isActive = false;
+	hud.closeConvo();
+	MovieClip(parent).hero.canAttack = false;
+}
+
+//displayConvo
+//closeConvo]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor alpha="0.756862745098039"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-1660 -519|1660 -519!1660 -519|1660 519!1660 519|-1660 519!-1660 519|-1660 -519"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" left="10.2" width="123.6" height="23.65" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-72" ty="-8.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Conversation</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="23.65" size="24" bitmapSize="480" face="Furmanite-Bold" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="party1_s">
+      <Inspectable name="party1" variable="party1_s" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+   <property id="party2_s">
+      <Inspectable name="party2" variable="party2_s" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+   <property id="cID">
+      <Inspectable name="convo ID" variable="cID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="textFollow">
+      <Inspectable name="textFollow" variable="textFollow" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

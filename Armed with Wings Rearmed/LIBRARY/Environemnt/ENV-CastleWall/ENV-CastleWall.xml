@@ -1,0 +1,157 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-CastleWall/ENV-CastleWall" itemID="54cc4b3d-00000e29" lastModified="1491252767" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="ENV-CastleWall">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var X:Boolean;
+var Y:Boolean;
+
+var initX:Number = x;
+var initY:Number = y;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var game:MovieClip = MovieClip(parent);
+
+function update():void {
+	if (X) this.x = initX + (game.x / -1.5);
+	if (Y) this.y = initY + (game.y / -1.5);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-521.3" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-285.2" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-49.1" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="187" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="423.85" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="659.95" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="896.05" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1132.15" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-992.3" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-756.2" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-1228.15" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1369" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1605.1" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-CastleWall/ENV-CastleWall-Tile" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1841.2" ty="5.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-179.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="X">
+      <Inspectable name="X" variable="X" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="Y">
+      <Inspectable name="Y" variable="Y" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

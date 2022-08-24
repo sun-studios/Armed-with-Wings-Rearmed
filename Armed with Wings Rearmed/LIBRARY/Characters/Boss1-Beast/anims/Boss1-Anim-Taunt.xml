@@ -1,0 +1,62 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss1-Beast/anims/Boss1-Anim-Taunt" itemID="54ba148a-000004d8" lastModified="1421513046" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Boss1-Anim-Taunt" currentFrame="76">
+      <layers>
+        <DOMLayer name="Action Layer" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" duration="14" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//_root.boss1.moreS = _root.boss1.moreS + 0.250000;
+var roaring:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="14" duration="33" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//_root.playSound(_root.sndRoar1);
+roaring = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="21" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//_parent._parent.wall.bossblock.gotoAndStop(2);
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="8" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[roaring = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[//_parent.gotoAndStop(1);
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="77" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss1-Beast/anims/Boss1-Taunt" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix tx="-47.85" ty="7.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="51.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

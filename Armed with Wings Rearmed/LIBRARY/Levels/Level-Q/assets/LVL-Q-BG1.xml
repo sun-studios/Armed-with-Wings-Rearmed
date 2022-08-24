@@ -1,0 +1,109 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q/assets/LVL-Q-BG1" itemID="556adb12-00000e6c" lastModified="1441027085">
+  <timeline>
+    <DOMTimeline name="LVL-Q-BG1" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-1219&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var initX:Number = x;
+var initY:Number = y;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var game:MovieClip = MovieClip(parent);
+
+var arr:Array = new Array();
+
+function update():void {
+	this.x = initX + (game.x *.8);
+	//if (Y) this.y = initY + (game.y / -2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="-1.85377502441406" d="3.01054382324219" tx="3050.75" ty="65.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="1.23439025878906" d="1.23439025878906" tx="1440.75" ty="-56.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="-1.63957214355469" d="2.3204345703125" tx="2109.25" ty="147.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="-1.15048217773438" d="2.7906494140625" tx="5045.45" ty="815.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="-1.3282470703125" d="1.87982177734375" tx="7069.45" ty="981"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="-1.15048217773438" d="2.7906494140625" tx="11215.85" ty="609.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="-1.15048217773438" d="2.7906494140625" tx="9459" ty="609.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="-1.7281494140625" d="2.59556579589844" tx="7526.05" ty="699.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Front-Anim">
+                  <matrix>
+                    <Matrix a="-1.63957214355469" d="2.3204345703125" tx="4070.1" ty="126.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

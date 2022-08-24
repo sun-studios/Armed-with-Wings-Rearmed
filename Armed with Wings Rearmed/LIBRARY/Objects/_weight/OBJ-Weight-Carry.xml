@@ -1,0 +1,64 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_weight/OBJ-Weight-Carry" itemID="54d59757-00000854" lastModified="1423284165" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="OBJ-Weight-Carry" currentFrame="38">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="19" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_weight/OBJ-Weight-Graphic" selected="true" centerPoint3DX="1.05" centerPoint3DY="-0.9">
+                  <matrix>
+                    <Matrix a="0.995849609375" b="-0.09100341796875" c="0.09100341796875" d="0.995849609375" tx="2.7" ty="17.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-29.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="19" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_weight/OBJ-Weight-Graphic" centerPoint3DX="-0.9" centerPoint3DY="-0.85">
+                  <matrix>
+                    <Matrix a="0.997268676757813" b="0.0738525390625" c="-0.0738525390625" d="0.997268676757813" tx="-2.2" ty="17.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-29.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_weight/OBJ-Weight-Graphic" centerPoint3DX="1.05" centerPoint3DY="-0.9">
+                  <matrix>
+                    <Matrix a="0.995849609375" b="-0.09100341796875" c="0.09100341796875" d="0.995849609375" tx="2.7" ty="17.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-29.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

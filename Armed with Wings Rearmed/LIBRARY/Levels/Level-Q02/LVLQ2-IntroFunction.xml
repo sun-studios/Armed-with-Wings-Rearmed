@@ -1,0 +1,114 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q02/LVLQ2-IntroFunction" itemID="551d78dc-00001010" lastModified="1492353304">
+  <timeline>
+    <DOMTimeline name="LVLQ2-IntroFunction">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import flash.events.Event;
+
+var dustSpin:MovieClip;
+var hero:MovieClip;
+var eagle:MovieClip;
+var vcam:MovieClip;
+
+init();
+
+function init():void {
+	visible = false;
+		
+	dustSpin = MovieClip(parent).dustSpin;
+	hero = MovieClip(parent).hero;
+	eagle = MovieClip(parent).eagle;
+	vcam = MovieClip(parent).vcam;
+	
+	
+	
+	hero.visible = false;
+	hero.moveable = false;
+	hero.active = false;
+	
+	eagle.visible = false;
+	
+	TweenMax.delayedCall(220, startAnim, null, true);
+}
+
+function startAnim ():void {
+	dustSpin.gotoAndPlay(2);
+	dustSpin.addEventListener("THUNDER", heroApear);
+}
+
+function heroApear(e:Event):void {
+	dustSpin.removeEventListener("THUNDER", heroApear);
+	hero.visible = true;
+	hero.gotoAndStop("rise");
+	hero.addEventListener("RISECOMPLETE", resume);
+	
+	eagle.visible = true;
+	eagle.x = hero.x;
+	eagle.y = hero.y-hero.bound.height;
+}
+
+function resume(e:Event):void {
+	hero.moveable = true;
+	hero.active = true;
+	TweenMax.delayedCall(80, function () { vcam.slowZoom = false; }, null, true);
+}
+
+function update():void {
+	if (dustSpin.currentFrame < 192) {
+		hero.moveable = false;
+		hero.active = false;
+	}
+	
+	//initial level zoom in
+	if (!MovieClip(parent).hasLevelBegun) {
+		if (MovieClip(root).transition.currentFrame == 140) {
+			vcam.zoom = 2.5;
+			vcam.slowZoom = true;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="96.2" height="25" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-5.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

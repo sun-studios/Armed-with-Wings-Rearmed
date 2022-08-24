@@ -1,0 +1,193 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-VampireStrike/anims/VampireStrike-Anim-teleport" itemID="58e0e2f3-0000163f" lastModified="1491133678" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="VampireStrike-Anim-teleport" currentFrame="11">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="7" name="teleport" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);
+
+sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("idle");
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="-0.05" centerPoint3DY="-74.5">
+                  <matrix>
+                    <Matrix tx="51.65" ty="-8.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-69.25"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="29"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="-0.1" centerPoint3DY="-88.3">
+                  <matrix>
+                    <Matrix a="0.71429443359375" d="1.11956787109375" tx="36.9" ty="-13.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-69.25"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="49.3330230712891"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="43.9" centerPoint3DY="-66.85">
+                  <matrix>
+                    <Matrix a="1.15980529785156" d="0.1375732421875" tx="67.8" ty="-57.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="-69.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="69.6665115356445"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="43.9" centerPoint3DY="-67">
+                  <matrix>
+                    <Matrix a="1.15980529785156" d="0.0433197021484375" tx="67.8" ty="-63.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="-69.25"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="253" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="43.5" centerPoint3DY="-67">
+                  <matrix>
+                    <Matrix a="0.554275512695313" d="0.0433197021484375" tx="-39.9" ty="-63.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.25" y="-69.25"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="253" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="44.45" centerPoint3DY="-67">
+                  <matrix>
+                    <Matrix a="0.629302978515625" d="0.0433197021484375" tx="109.2" ty="-63.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.4" y="-69.25"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="253" blurY="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="43.9" centerPoint3DY="-66.85">
+                  <matrix>
+                    <Matrix a="1.15980529785156" d="0.1375732421875" tx="67.8" ty="-57.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="-69.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="69.6665115356445"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="-0.1" centerPoint3DY="-88.3">
+                  <matrix>
+                    <Matrix a="0.71429443359375" d="1.11956787109375" tx="36.9" ty="-13.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="-69.25"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="49.3330230712891"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-VampireStrike/anims/VampireStrike-Anim-idle" name="teleport" centerPoint3DX="-0.05" centerPoint3DY="-74.5">
+                  <matrix>
+                    <Matrix tx="51.65" ty="-8.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-69.25"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="29"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,95 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/Symbol 41" itemID="58ea164e-0001e5e8" lastModified="1491744208" lastUniqueIdentifier="11">
+  <timeline>
+    <DOMTimeline name="Symbol 41">
+      <layers>
+        <DOMLayer name="Layer 1" color="#0000FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-EarlyAccess/Symbol 44" name="b4" uniqueID="10">
+                  <matrix>
+                    <Matrix tx="299.25" ty="70.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cLabel">
+      <Inspectable name="label" variable="cLabel" category="" verbose="0" defaultValue="FACEBOOK" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-EarlyAccess/Symbol 44" name="b3" uniqueID="11">
+                  <matrix>
+                    <Matrix tx="299.25" ty="-66.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cLabel">
+      <Inspectable name="label" variable="cLabel" category="" verbose="0" defaultValue="TWITTER" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 40">
+                  <matrix>
+                    <Matrix tx="-182.95" ty="3.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="6" blurY="56" color="#FFFFFF" quality="2" strength="0.65"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-EarlyAccess/Symbol 42" name="b0" selected="true" uniqueID="5">
+                  <matrix>
+                    <Matrix tx="-299.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cLabel">
+      <Inspectable name="label" variable="cLabel" category="" verbose="0" defaultValue="START" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-EarlyAccess/Symbol 42" name="b1" uniqueID="6">
+                  <matrix>
+                    <Matrix tx="-69.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cLabel">
+      <Inspectable name="label" variable="cLabel" category="" verbose="0" defaultValue="CHANGELOG" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-EarlyAccess/Symbol 42" name="b2" uniqueID="7">
+                  <matrix>
+                    <Matrix tx="115.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="cLabel">
+      <Inspectable name="label" variable="cLabel" category="" verbose="0" defaultValue="NEWS" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

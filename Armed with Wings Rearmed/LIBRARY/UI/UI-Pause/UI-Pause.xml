@@ -1,0 +1,147 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Pause/UI-Pause" itemID="54bcd44c-00000dd8" lastModified="1572445415" lastUniqueIdentifier="24">
+  <timeline>
+    <DOMTimeline name="UI-Pause" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-558&lt;/guideline&gt;&lt;guideline direction="h"&gt;-379&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+
+var playerOptionsUI:MovieClip;
+playerOptionsUI.visible = false;
+
+function update ():void {
+	if (playerOptionsUI.visible) { 
+		playerOptionsUI.update();	
+	} else {
+		buttons.update();
+		confirmPanel.update();
+	}
+}
+
+function init():void {
+	buttons.init();
+	confirmPanel.visible = false;
+}
+
+function openPlayerUI():void {
+	playerOptionsUI.init(true);
+	playerOptionsUI.visible = true;
+	addChild(playerOptionsUI);
+}
+
+function closePlayerUI():void {
+	buttons.optionConfirmed = false;
+	playerOptionsUI.visible = false;
+	transition.gotoAndPlay("fadein");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="player options" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player" name="playerOptionsUI" selected="true">
+                  <matrix>
+                    <Matrix a="0.833328247070313" d="0.833251953125" tx="-400" ty="-224.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="1575.35" y="275.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="transition" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Pause/UI-Pause-Transition" name="transition" centerPoint3DX="1.2" centerPoint3DY="3.6">
+                  <matrix>
+                    <Matrix tx="1.2" ty="3.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 24" name="confirmPanel">
+                  <matrix>
+                    <Matrix tx="990.7" ty="-3.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Title" color="#4FFFFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-Label3" centerPoint3DY="-157.1">
+                  <matrix>
+                    <Matrix ty="-157.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="buttons" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Pause/UI-Pause-Buttons" name="buttons">
+                  <matrix>
+                    <Matrix ty="34.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="shade" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF" alpha="0.898039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!8101 -4560|8101 4560!8101 4560|-8100 4560!-8100 4560|-8100 -4560!-8100 -4560|8101 -4560"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

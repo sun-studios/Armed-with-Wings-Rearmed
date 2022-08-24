@@ -1,0 +1,199 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-SurvivalRouge" itemID="57fb6556-00003e61" lastModified="1501415982" lastUniqueIdentifier="15">
+  <timeline>
+    <DOMTimeline name="HUD-SurvivalRouge">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var playerID:int;
+var gameData:MovieClip;
+var fadein:Boolean = true;
+var pString:String = "";
+var currID:int;
+
+function init(id:int):void {
+	playerID = id;
+	gameData = MovieClip(root);
+	if (id == 2) {
+		pString = "_p2";
+	} else {
+		pString = "";
+	}
+}
+
+function fadeUpdate ():void {
+	if (fadein) {
+		if (alpha < 1) alpha += .1;
+	} else {
+		if (alpha > 0) alpha -= .1;
+	}
+}
+
+//FIND - HUD Booster
+function update():void {
+	displayWeapon(gameData.data_equiptedWeapon);
+}
+
+function displayWeapon(id:Number):void {		
+	currID = id;
+	weaponIcon.gotoAndStop(gameData["data_weap"+id+"_graphic"]);
+	updateStats(id);
+	
+	/*
+	for (var i2:int = 0; i2 < 4; i2 ++) {
+		var arr:Array = gameData.dataGetWeapBoosterFromID(id);
+		var slot:MovieClip = boosters["slot"+i2];
+		
+		if (slot) {
+			slot.visible = false;
+			if (i2 >= arr.length) {
+				
+			} else {
+				slot.visible = true;
+				slot.gearIcon.gotoAndStop(1+arr[i2][0]);
+				if (slot.gearIcon.currentFrame == 1)
+					slot.gearIcon.gotoAndStop("free");
+				slot.gotoAndStop(1);
+				if (arr[i2][1]) {
+					if (i2 == 0) slot.gotoAndStop(2);
+					if (i2 == 1) slot.gotoAndStop(3);
+				}
+			}
+		}
+	}
+	*/
+	
+}
+
+function updateStats(id:Number):void {
+	var nameData:String;
+	var defenceData:Number;
+	var powerData:Number;
+	var speedData:Number;
+	var rangeData:Number;
+	
+	nameData = gameData["data_weap"+id+"_name"];
+	defenceData = gameData["data_weap"+id+"_defence"];
+	powerData = gameData["data_weap"+id+"_power"];
+	speedData = gameData["data_weap"+id+"_speed"];
+	rangeData = gameData["data_weap"+id+"_range"];
+	
+	//name_tf.text = nameData;
+	//row0.update(defenceData, gameData.dataGetWeaponDefence(playerID));
+	//row1.update(powerData, gameData.dataGetWeaponPower(playerID));
+	//row2.update(speedData, gameData.dataGetWeaponSpeed(playerID));
+	//row3.update(rangeData, gameData.dataGetWeaponRange(playerID));
+	
+	for (var i:int = 0; i < 20; i ++) {
+		row0.updateIndex(defenceData, gameData.dataGetWeaponDefence(playerID), i);
+		row1.updateIndex(powerData, gameData.dataGetWeaponPower(playerID), i);
+		row2.updateIndex(speedData, gameData.dataGetWeaponSpeed(playerID), i);
+		row3.updateIndex(rangeData, gameData.dataGetWeaponRange(playerID), i);
+	}
+}
+
+function updateStatsLocked():void {
+	//name_tf.text = "Locked";
+	row0.update(0, 0);
+	row1.update(0, 0);
+	row2.update(0, 0);
+	row3.update(0, 0);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Weapons/UI-Player-WeaponIcon" name="weaponIcon" centerPoint3DX="24.2" centerPoint3DY="-31.8">
+                  <matrix>
+                    <Matrix a="0.330047607421875" d="0.330047607421875" tx="28.25" ty="-23.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="37.9999988616352" blurX="0" blurY="0" distance="4" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row0">
+                  <matrix>
+                    <Matrix a="0.318435668945313" d="0.318435668945313" tx="104.55" ty="-36.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.45" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row1">
+                  <matrix>
+                    <Matrix a="0.318435668945313" d="0.318435668945313" tx="104.55" ty="-27.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.45" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row2">
+                  <matrix>
+                    <Matrix a="0.318435668945313" d="0.318435668945313" tx="104.55" ty="-18.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.45" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row3">
+                  <matrix>
+                    <Matrix a="0.318435668945313" d="0.318435668945313" tx="104.55" ty="-8.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-19.45" y="0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-WeaponSymbols" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="53.95" ty="-40.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="4" y="17.65"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

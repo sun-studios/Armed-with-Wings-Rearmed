@@ -1,0 +1,98 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/assets/UI-Player-Stat" itemID="54ded531-0000055f" symbolType="graphic" lastModified="1496132152">
+  <timeline>
+    <DOMTimeline name="UI-Player-Stat" currentFrame="3">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-70 -215|70 -215!70 -215|70 216!70 216|-70 216!-70 216|-70 -215"/>
+                    <Edge cubics="!-70 -215(-70,-215;-70,-215 70,-215 70,-215q-70 -215 70 -215);"/>
+                    <Edge cubics="!70 216(;70,216 -70,216 -70,216q70 216 -70 216);"/>
+                    <Edge cubics="!70 -215(;70,-215 70,216 70,216q70 -215 70 216);"/>
+                    <Edge cubics="!-70 216(;-70,216 -70,-215 -70,-215q-70 216 -70 -215);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-70 -215|70 -215!70 -215|70 216!70 216|-70 216!-70 216|-70 -215"/>
+                    <Edge cubics="!-70 -215(-70,-215;-70,-215 70,-215 70,-215q-70 -215 70 -215);"/>
+                    <Edge cubics="!70 216(;70,216 -70,216 -70,216q70 216 -70 216);"/>
+                    <Edge cubics="!70 -215(;70,-215 70,216 70,216q70 -215 70 216);"/>
+                    <Edge cubics="!-70 216(;-70,216 -70,-215 -70,-215q-70 216 -70 -215);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Stat-">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Stat+" selected="true">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor alpha="0.298039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-47 -194|102 -194!102 -194|102 245!102 245|-47 245!-47 245|-47 -194"/>
+                    <Edge cubics="!-47 -194(-47,-194;-47,-194 102,-194 102,-194q-47 -194 102 -194);"/>
+                    <Edge cubics="!102 245(;102,245 -47,245 -47,245q102 245 -47 245);"/>
+                    <Edge cubics="!102 -194(;102,-194 102,245 102,245q102 -194 102 245);"/>
+                    <Edge cubics="!-47 245(;-47,245 -47,-194 -47,-194q-47 245 -47 -194);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

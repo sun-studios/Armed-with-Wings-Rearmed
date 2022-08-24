@@ -1,0 +1,114 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/Symbol 68" itemID="584d584a-00003b0d" lastModified="1481463980">
+  <timeline>
+    <DOMTimeline name="Symbol 68">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var gameData:MovieClip;
+
+init();
+
+function init ():void {
+	gameData = MovieClip(root);
+	
+	val_tf.text = ""+gameData.numofKeysCollected();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="val_tf" selected="true" fontRenderingMode="standard" top="-2.8" left="47.1" width="16.9" height="21" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-38.4" ty="-7.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>40</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" letterSpacing="1" lineSpacing="0" lineHeight="19.55" size="13" bitmapSize="260" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="2" blurY="2" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" top="-2.8" left="47.1" width="24.35" height="19.55" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-17.9" ty="-6.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>/40</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineSpacing="0" lineHeight="19.55" size="13" bitmapSize="260" face="Thinman" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="2" blurY="2" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" top="-2.8" left="4.8" width="54.2" height="14.35" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-74.1" ty="-5.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>relics</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="14.35" size="16" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.8"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#333333" alpha="0.8"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-97 175|-1343 175!-1343 175|-1343 -218!-1343 -218|-97 -218"/>
+                    <Edge fillStyle1="2" edges="!-97 -218|1426 -218!1426 -218|1426 175!1426 175|-97 175"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!-97 175|-97 -218"/>
+                    <Edge cubics="!1426 -218(;1426,-218 1426,175 1426,175q1426 -218 1426 175);"/>
+                    <Edge cubics="!-1343 175(-1343,175;-1343,175 -1343,-218 -1343,-218q-1343 175 -1343 -218)-1343,-218;"/>
+                    <Edge cubics="!-97 175(-97,175;-97,175 -97,-218 -97,-218q-97 175 -97 -218)-97,-218;"/>
+                    <Edge cubics="!-1343 -218(;-1343,-218 -97,-218 -97,-218q-1343 -218 -97 -218);"/>
+                    <Edge cubics="!-97 175(-97,175;-97,175 -1343,175 -1343,175q-97 175 -1343 175)-1343,175;"/>
+                    <Edge cubics="!1426 175(;1426,175 -97,175 -97,175q1426 175 -97 175);"/>
+                    <Edge cubics="!-97 -218(-97,-218;-97,-218 1426,-218 1426,-218q-97 -218 1426 -218)1426,-218;"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

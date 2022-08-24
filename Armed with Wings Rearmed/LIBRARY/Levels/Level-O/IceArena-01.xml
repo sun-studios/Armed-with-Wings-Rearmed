@@ -1,0 +1,1073 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-O/IceArena-01" itemID="56c5d98a-00000b4f" lastModified="1490645259">
+  <timeline>
+    <DOMTimeline name="IceArena-01" currentFrame="111" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-374&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 10" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+visible = false;
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="23" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="27" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="30" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="50" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="53" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="56" duration="55" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 21" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="56" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="56" duration="55" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-07" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="173.45" ty="486.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-97.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.43" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 18" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="27" duration="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="795.25" ty="466.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-52.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="59" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-06" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="60.35" ty="449.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-90.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.43" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="19" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" duration="56" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/IceExplosion" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.25747680664063" d="1.25747680664063" tx="1087.8" ty="337.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-54.4"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.35"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 20" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="56" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="56" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="58" duration="53" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-06" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" tx="332.45" ty="443.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-90.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.43" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 16" color="#FF4F4F">
+          <frames>
+            <DOMFrame index="0" duration="31" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="31" duration="64" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-03" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="620.1" ty="496.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-86.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="95" duration="16" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 19" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="52" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="56" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="71" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="74" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 17" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="34" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" duration="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-04" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="695.8" ty="491.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-101.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" duration="55" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 15" color="#669900">
+          <frames>
+            <DOMFrame index="0" duration="26" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="26" duration="55" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-05" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="541.65" ty="497.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-75.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="81" duration="30" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.523162841796875" b="-0.76922607421875" c="2.25032043457031" d="-1.53044128417969" tx="492.8" ty="387.8"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.458145141601563" b="-0.673629760742188" c="0.606460571289063" d="-0.412445068359375" tx="584.55" ty="507.85"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0" b="-0.505126953125" c="4.03572082519531" d="0" tx="781" ty="231.8"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0" b="-0.974700927734375" c="4.03572082519531" d="0" tx="781" ty="442.65"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0" b="-0.713119506835938" c="1.38363647460938" d="0" tx="749" ty="282.2"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0" b="-1.28337097167969" c="0.978424072265625" d="0" tx="751" ty="538.25"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.1639404296875" b="-0.543975830078125" c="1.44302368164063" d="-0.434906005859375" tx="563.9" ty="277.8"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.184219360351563" b="-0.611282348632813" c="2.99942016601563" d="-0.903976440429688" tx="562.1" ty="311.3"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.372543334960938" b="-1.23617553710938" c="0.792694091796875" d="-0.238906860351563" tx="664.4" ty="579.85"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.130615234375" b="-0.433425903320313" c="2.28749084472656" d="-0.689422607421875" tx="656.95" ty="298.75"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.22882080078125" b="-0.759292602539063" c="0.903610229492188" d="-0.2723388671875" tx="708.05" ty="445.1"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="32" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.329681396484375" b="-1.248291015625" c="2.87593078613281" d="-0.759674072265625" tx="6.5" ty="172.4"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.379470825195313" b="-1.43682861328125" c="2.87593078613281" d="-0.759674072265625" tx="98.9" ty="493.65"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.09014892578125" b="-0.659896850585938" c="-1.4295654296875" d="-0.1953125" tx="177.65" ty="122.65"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.0985870361328125" b="-0.794677734375" c="-1.43186950683594" d="-0.177642822265625" tx="150.6" ty="359.45"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.188201904296875" b="-0.599838256835938" c="-1.37666320800781" d="0.43194580078125" tx="117.4" ty="166.35"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.3466796875" b="-1.10494995117188" c="-1.37666320800781" d="0.43194580078125" tx="188.55" ty="393.2"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.38458251953125" b="-0.774093627929688" c="-0.887481689453125" d="0.44091796875" tx="226.3" ty="244.25"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.38458251953125" b="-0.774093627929688" c="-2.14263916015625" d="1.06449890136719" tx="254.25" ty="290.8"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="57" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="51" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="111" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 24" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-23" symbolType="graphic" centerPoint3DX="266.6" centerPoint3DY="371.85" loop="single frame">
+                  <matrix>
+                    <Matrix tx="286.45" ty="386.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="54" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-23" symbolType="graphic" firstFrame="1" centerPoint3DX="166.3" centerPoint3DY="175.35" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.105484008789063" b="-0.048583984375" c="1.64703369140625" d="3.5765380859375" tx="186.35" ty="182.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5.75"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="36" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-23" symbolType="graphic" centerPoint3DX="269.3" centerPoint3DY="374.55" loop="single frame">
+                  <matrix>
+                    <Matrix tx="289.15" ty="389.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="94" duration="18" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-23" symbolType="graphic" centerPoint3DX="266.6" centerPoint3DY="371.85" loop="single frame">
+                  <matrix>
+                    <Matrix tx="286.45" ty="386.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 23" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-22" symbolType="graphic" centerPoint3DX="199.6" centerPoint3DY="392.25" loop="single frame">
+                  <matrix>
+                    <Matrix tx="197.4" ty="400.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="52" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="53" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-22" symbolType="graphic" firstFrame="1" centerPoint3DX="82.3" centerPoint3DY="62.5" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.182937622070313" b="-0.054168701171875" c="0.552154541015625" d="1.86473083496094" tx="83" ty="71.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="56" duration="36" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-22" symbolType="graphic" centerPoint3DX="203.2" centerPoint3DY="395.85" loop="single frame">
+                  <matrix>
+                    <Matrix tx="201" ty="404.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="92" duration="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-22" symbolType="graphic" centerPoint3DX="199.6" centerPoint3DY="392.25" loop="single frame">
+                  <matrix>
+                    <Matrix tx="197.4" ty="400.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 22" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-21" symbolType="graphic" centerPoint3DX="144.25" centerPoint3DY="351.5" loop="single frame">
+                  <matrix>
+                    <Matrix tx="144.25" ty="351.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="50" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-21" symbolType="graphic" centerPoint3DX="189.95" centerPoint3DY="-35.65" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.308670043945313" b="0.032257080078125" c="-0.2320556640625" d="2.22039794921875" tx="190.05" ty="-35.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="36" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-21" symbolType="graphic" centerPoint3DX="144.25" centerPoint3DY="356" loop="single frame">
+                  <matrix>
+                    <Matrix tx="144.25" ty="356"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="90" duration="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-21" symbolType="graphic" centerPoint3DX="144.25" centerPoint3DY="351.5" loop="single frame">
+                  <matrix>
+                    <Matrix tx="144.25" ty="351.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 21" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-20" symbolType="graphic" centerPoint3DX="41.25" centerPoint3DY="216.85" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.972549438476563" b="-0.232681274414063" c="0.232681274414063" d="0.972549438476563" tx="40.5" ty="249.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="48" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-20" symbolType="graphic" firstFrame="1" centerPoint3DX="-49.35" centerPoint3DY="-157.95" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.0482940673828125" b="-0.0115509033203125" c="0.321502685546875" d="1.34382629394531" tx="-50.1" ty="-124.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="36" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-20" symbolType="graphic" centerPoint3DX="43.95" centerPoint3DY="220.45" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.972549438476563" b="-0.232681274414063" c="0.232681274414063" d="0.972549438476563" tx="43.2" ty="253.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="88" duration="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-20" symbolType="graphic" centerPoint3DX="41.25" centerPoint3DY="216.85" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.972549438476563" b="-0.232681274414063" c="0.232681274414063" d="0.972549438476563" tx="40.5" ty="249.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 20" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-19" symbolType="graphic" firstFrame="1" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.958938598632813" b="-0.283599853515625" c="0.283599853515625" d="0.958938598632813" tx="687.3" ty="388.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="29" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="30" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-19" symbolType="graphic" centerPoint3DX="621.4" centerPoint3DY="206.15" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.15692138671875" b="-0.0464019775390625" c="0.391098022460938" d="1.32240295410156" tx="634.25" ty="179.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="33" duration="37" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-19" symbolType="graphic" firstFrame="1" centerPoint3DX="674.5" centerPoint3DY="405.4" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.958938598632813" b="-0.283599853515625" c="0.283599853515625" d="0.958938598632813" tx="687.3" ty="378.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="70" duration="42" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-19" symbolType="graphic" firstFrame="1" centerPoint3DX="672.25" centerPoint3DY="402.7" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.958938598632813" b="-0.283599853515625" c="0.283599853515625" d="0.958938598632813" tx="685.05" ty="376.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 18" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-17" symbolType="graphic" firstFrame="1" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.951126098632813" b="-0.308792114257813" c="0.308792114257813" d="0.951126098632813" tx="618" ty="418.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="27" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-17" symbolType="graphic" centerPoint3DX="533.9" centerPoint3DY="208.15" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.0886993408203125" b="-0.0287933349609375" c="0.484817504882813" d="1.4932861328125" tx="545.25" ty="186.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="37" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-17" symbolType="graphic" firstFrame="1" centerPoint3DX="606.95" centerPoint3DY="429.95" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.951126098632813" b="-0.308792114257813" c="0.308792114257813" d="0.951126098632813" tx="618" ty="408.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="44" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-17" symbolType="graphic" firstFrame="1" centerPoint3DX="602.45" centerPoint3DY="425.45" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.951126098632813" b="-0.308792114257813" c="0.308792114257813" d="0.951126098632813" tx="613.5" ty="404.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 16" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-15" symbolType="graphic" firstFrame="1" loop="single frame">
+                  <matrix>
+                    <Matrix tx="755.5" ty="393"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="25" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="26" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-15" symbolType="graphic" centerPoint3DX="761.1" centerPoint3DY="210.45" loop="single frame">
+                  <matrix>
+                    <Matrix a="-0.344680786132813" d="1.66592407226563" tx="755.5" ty="199"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="37" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-15" symbolType="graphic" firstFrame="1" centerPoint3DX="761.2" centerPoint3DY="394.2" loop="single frame">
+                  <matrix>
+                    <Matrix tx="755.5" ty="383"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="66" duration="46" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-15" symbolType="graphic" firstFrame="1" centerPoint3DX="761.2" centerPoint3DY="389.7" loop="single frame">
+                  <matrix>
+                    <Matrix tx="755.5" ty="378.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 15" color="#FF4F4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-14" symbolType="graphic" firstFrame="1" loop="single frame">
+                  <matrix>
+                    <Matrix tx="802.8" ty="431.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="23" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-14" symbolType="graphic" centerPoint3DX="798.1" centerPoint3DY="194.5" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.631576538085938" d="2.87480163574219" tx="802.8" ty="178.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" duration="37" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-14" symbolType="graphic" firstFrame="1" centerPoint3DX="798" centerPoint3DY="437.5" loop="single frame">
+                  <matrix>
+                    <Matrix tx="802.8" ty="421.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="64" duration="48" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-14" symbolType="graphic" firstFrame="1" centerPoint3DX="798.9" centerPoint3DY="433" loop="single frame">
+                  <matrix>
+                    <Matrix tx="803.7" ty="417.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 19" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-18" symbolType="graphic" firstFrame="1" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.841110229492188" b="-0.54083251953125" c="0.54083251953125" d="0.841110229492188" tx="535.1" ty="444.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="22" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-18" symbolType="graphic" centerPoint3DX="398.1" centerPoint3DY="260.15" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.0951385498046875" b="-0.0611724853515625" c="1.0792236328125" d="1.67843627929688" tx="405.6" ty="228.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="26" duration="37" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-18" symbolType="graphic" firstFrame="1" centerPoint3DX="528.1" centerPoint3DY="465.75" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.841110229492188" b="-0.54083251953125" c="0.54083251953125" d="0.841110229492188" tx="535.1" ty="434.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" duration="49" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-18" symbolType="graphic" firstFrame="1" centerPoint3DX="524.95" centerPoint3DY="462.6" loop="single frame">
+                  <matrix>
+                    <Matrix a="0.841110229492188" b="-0.54083251953125" c="0.54083251953125" d="0.841110229492188" tx="531.95" ty="431.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,393 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-O/CinemaController4" itemID="572de9fb-0000186a" lastModified="1492870365">
+  <timeline>
+    <DOMTimeline name="CinemaController4">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import flash.events.Event;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var bossCamHelper:MovieClip;
+var vcam:MovieClip;
+var convo:MovieClip;
+var convo4:MovieClip;
+var sndCtrl:MovieClip;
+var hud:MovieClip;
+var gameData:MovieClip;
+var _parent:MovieClip;
+
+var flag1:Boolean;
+var flag2:Boolean;
+var flag3:Boolean;
+
+var activated:Boolean = true;
+
+var forceHeroSmoke:Boolean;
+var overDriveIndex:Number = 0;
+var overdrive:Boolean;
+
+init ();
+
+function init ():void {
+	visible = false;
+	
+	hero = MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	bossCamHelper = MovieClip(parent).bossCamHelper;
+	vcam = MovieClip(parent).vcam;
+	convo = MovieClip(parent).convo3;
+	convo4 = MovieClip(parent).convo4;
+	sndCtrl = MovieClip(root);
+	hud = MovieClip(root).hud;
+	gameData = MovieClip(root);
+	_parent = MovieClip(parent);
+	
+	convo.addEventListener("COMPLETE", endConvo);
+	convo4.addEventListener("COMPLETE", endConvo4);
+}
+
+function update ():void {
+	if (hero.heroName == "LONEWARRIOR") {
+		if (activated) {
+			logic();
+		} else {
+			
+		}
+		
+		//force persistant anti flinch
+		if (boss.phase2 && overDriveIndex > 0) {
+			hero.antiFlinchOn = true;
+		}
+		
+		//force overdrive ability
+		if (hero.active && hero.life > 0) {
+			if (overdrive || hero.currentFrameLabel == "revive") hero.smokeType = 1;
+			else hero.smokeType = 0;
+		}
+		forceOverdrive();
+	}
+}
+
+function logic ():void {
+	//hero is hit, force revival death2
+	if (!flag1 && !hero.isUltiStriking) {
+	if (boss.phase2 && hero.heroName == "LONEWARRIOR") {
+		hero.forceDontDie = true;
+		if (hero.life <= 0) {
+			gameData.sessionFinalBossRevived = true;
+			hud.fadeoutUI();
+			hero.finalBattleDeath = true;	
+			hero.firstDeath = false;
+			hero.dead = true;
+			hero.takeDamageOn = false;
+			hero.gotoDeath2();
+			flag1 = true;
+			
+		}
+	}
+	}
+	
+	//Lone Warrior hits ground, delay trigger Vandheer teleport
+	if (!flag2) {
+	if (hero.life <= 0 && boss.phase2) {
+		if (hero.currentFrameLabel == "death2") {
+			var clip:MovieClip = hero[hero.currentFrameLabel];
+			if (clip) {
+				if (clip.currentFrameLabel == "stack") {
+					TweenMax.delayedCall(40, vandheerApear, null, true);
+					flag2 = true;
+				}
+			}
+		}
+	}
+	}
+	
+	//Keeps player in visible area
+	if (hero.currentFrameLabel == "death2" && boss.phase2) {
+		if (1 == 1) {
+			if ((hero.x < -300 && hero.xSpeed <0) || (hero.x > 600 && hero.xSpeed >0)) { 
+				hero.xSpeed *= -1;
+				hero.scaleX *= -1;
+			} 
+		}
+	}
+	
+
+	//Vandheer teleports to fallen Lone Warrior
+	if (boss.currentFrameLabel == "convo4") {
+		clip = boss.convo4;
+		if (clip) {
+			
+			if (clip.currentFrameLabel == "teleport1") {
+				boss.x = hero.x + (100*hero.scaleX);
+				if (boss.x > hero.x) boss.scaleX = -1;
+				else boss.scaleX = 1;
+				
+				bossCamHelper.activated = false;
+				vcam.target = boss;
+				vcam.shakeCamera(20);
+				sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 3);
+				boss.takeDamageOn = false;
+			}
+		}
+	}
+	
+	if (hero.currentFrameLabel == "death2") {
+		if (hero.death2.currentFrameLabel == "startRevive") {
+			startRevive();
+		}
+	}
+	
+	//Vandheer teleports away from Revival explosion
+	if (!flag3) {
+		if (hero.reviving && boss.phase2) {
+			forceHeroSmoke = true;
+			vcam.zoom = .8;
+			boss.gotoAndStop("convo5");
+			flag3 = true;
+		}
+	}
+	
+	//Lone Warrior posses after revival, then to Vandheer
+	if (hero.currentFrameLabel == "revive" && boss.phase2) {
+		if (hero.revive) {
+			if (hero.revive.currentFrame == 50) {
+				hero.gotoAndStop("convo0");
+				
+			}
+		}
+	}
+	
+	//Vandheer makes distance after revival explosion, then begins convo
+	if (boss.currentFrameLabel == "convo5") {
+		if (boss.convo5.currentFrameLabel == "teleport2") {
+			
+			var dir:Number;
+			if (boss.x < hero.x) dir = -1;
+			else dir = 1;
+			
+			boss.x += 450 * dir;
+			if (boss.x > 700) boss.x = 700;
+			if (boss.x < -700) boss.x = -700;
+			
+			if (boss.x < hero.x) {
+				boss.scaleX = 1;
+				hero.scaleX = -1;
+			} else {
+				boss.scaleX = -1;
+				hero.scaleX = 1;
+			}
+			bossCamHelper.activated = false;
+			vcam.target = boss;
+			
+		}
+		
+		if (boss.convo5.currentFrameLabel == "end") {
+			beginConversaion4();
+		}
+		
+		if (boss.convo5.currentFrame == 70) {
+			vcam.zoom = .5;
+		}
+	}
+	
+	
+	if (forceHeroSmoke) {
+		hero.emmitSmoke2()
+		if (vcam.target == hero) {
+			vcam.shakeCamera(20);
+		}
+	}
+}
+
+function vandheerApear():void {
+	//boss.cinemaMode = true;
+	boss.gotoAndStop("convo4");
+	
+	TweenMax.delayedCall(40, beginConversaion, null, true);
+}
+
+function beginConversaion():void {
+	bossCamHelper.activated = false;
+	vcam.target = boss;
+	vcam.zoom = .45;
+	convo.startConvo(); 
+}
+function beginConversaion4():void {
+	
+	vcam.zoom = .45;
+	convo4.startConvo();
+}
+
+
+function endConvo(e:Event):void {
+	boss.takeDamageOn = true;
+	
+	
+	
+	if (hero.currentFrameLabel == "death2") {
+		hero.death2.play();
+		vcam.zoom = .8;
+		vcam.target = hero;
+		//boss.gotoAndStop("idle");
+	}
+	convo.removeEventListener("COMPLETE", endConvo);
+	
+}
+function endConvo4(e:Event):void {
+	activated = false;
+	convo4.removeEventListener("COMPLETE", endConvo4);
+	
+	hero.takeDamageOn = true;
+	hud.fadeinUI();
+	boss.cinemaMode = false;
+	hero.moveable = true;
+	hero.active = true;
+	boss.gotoAndStop("idle");
+	hero.gotoAndStop("idle");
+	hero.dead = false;
+	//hero.endRevive();
+	endRevive();
+	hero.forceDontDie = false;
+	hero.applyItemStats();
+	vcam.zoom = 1;
+	bossCamHelper.activated = true;
+	vcam.target = bossCamHelper;
+	
+	overDriveIndex = 100000000;
+	overdrive = true;
+}
+
+
+
+function forceOverdrive():void {
+	if (overDriveIndex > 0) {
+		overDriveIndex --;
+		
+		if (overdrive) {
+			if (vcam.cameraShake < 10) vcam.cameraShake = 10;
+		}
+	} else {
+		if (overdrive) {
+			hero.applyItemStats();
+			trace("stats restored");
+			overdrive = false;
+			hero.overdrive = false;
+		}
+	}
+}
+
+function startRevive():void {
+	var gameData:MovieClip = MovieClip(root);
+	var go:Boolean = false;
+	var game:MovieClip = MovieClip(parent);
+	
+	if (hero.hasOwnProperty("swaptoSuper")) {
+		hero.swaptoSuper();
+		hero.visible = false;
+		hero = game.hero;
+		hero.finalBattleDeath = true;	
+		hero.firstDeath = false;
+		hero.dead = true;
+		hero.takeDamageOn = false;
+		hero.gotoDeath2();
+		hero.heroName = "LONEWARRIOR";
+		gameData.hud.hero = hero;
+		gameData.hud.topLeft.updateRefs(hero, game.eagle, game);
+		gameData.sessionSuperEnding = true;
+		go = true;
+	}
+		
+	if (go) {
+		hero.reviving = true;
+		var lightning:MovieClip = new ReviveLightning();
+		var lightningBG:MovieClip = new ReviveLightningBG();
+		game.addChildAt(lightning, game.getChildIndex(game.hero) +1);
+		game.addChildAt(lightningBG, game.getChildIndex(game.ground));
+		
+		lightning.x = hero.x; lightning.y = hero.y;
+		lightningBG.x = hero.x; lightningBG.y = hero.y;
+		
+		sndCtrl.playSound(sndCtrl.sndThunder3);
+		sndCtrl.playSound(sndCtrl.sndThunder2, 0, .6);
+		vcam.shakeCamera(40);
+		vcam.zoom = 1; 
+		vcam.slowZoom = false;
+		
+		sndCtrl.musicChannel.stop();
+		sndCtrl.playMusic(sndCtrl.currentMusic, true);
+		
+		TweenMax.delayedCall(35, function () { hero.visible = true; hero.gotoAndStop("revive");  vcam.shakeCamera(40); }, null, true);
+		
+		hero.life = 5;	
+		TweenMax.to(hero, 120, {life:hero.lifeOrig, useFrames:true});
+	}
+}
+
+function endRevive():void {
+	hero.overDriveIndex = hero.overDriveTime;
+	hero.overdrive = true;
+	hero.firstDeath = true;
+	hero.dead = false;
+	
+	
+	//appy hack stats
+	if (hero.maxMoveSpeed < 10) {
+		hero.maxMoveSpeed = 10;
+		hero.maxMoveSpeedDefault = hero.maxMoveSpeed;
+	}
+	hero.powerStrikeChargeSpeed = 2;
+	
+	if (hero.attackSpeed < 12) hero.attackSpeed = 12;
+	hero.powerBar.init();
+	trace("apply super stats");
+	hero.moveable = true;
+	hero.reviving = false;
+	hero.dispatchEvent(new Event("REVIVECOMPLETE"));
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-873 -367|872 -367!872 -367|872 368!872 368|-873 368!-873 368|-873 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="2.55" width="91.1" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.15" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Cinema4&#xD;Control</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

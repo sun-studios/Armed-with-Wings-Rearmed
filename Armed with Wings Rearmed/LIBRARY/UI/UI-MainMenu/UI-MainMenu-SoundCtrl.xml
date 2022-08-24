@@ -1,0 +1,73 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MainMenu/UI-MainMenu-SoundCtrl" itemID="54cc992d-00000e4a" lastModified="1459249952">
+  <timeline>
+    <DOMTimeline name="UI-MainMenu-SoundCtrl">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.media.SoundTransform;
+import flash.events.Event;
+
+visible = false;
+	
+var vol:Number = 1;
+var on:Boolean = false;
+var done:Boolean = false;
+
+var sndCtrl:MovieClip = MovieClip(root);
+
+function update() {
+	if (!done) 
+	{
+	
+		if (vol > 0) vol -= .05;
+		
+		if (!sndCtrl.isMusicMute)
+			//sndCtrl.musicChannel.soundTransform = new SoundTransform(vol);
+		
+		if (vol <= 0) {
+			done = true;
+			this.dispatchEvent(new Event("COMPLETE"));
+		}
+		
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!592 -22|592 56!592 56|340 56!340 56|340 -22!340 -22|592 -22!221 470|-2 180!-2 180|-221 180!-221 180|-221 -150!-221 -150|-2 -150!-2 -150|221 -440!221 -440|221 470"/>
+                    <Edge cubics="!-2 180(;-2,180 -221,180 -221,180q-2 180 -221 180);"/>
+                    <Edge cubics="!-221 180(;-221,180 -221,-150 -221,-150q-221 180 -221 -150);"/>
+                    <Edge cubics="!-221 -150(;-221,-150 -2,-150 -2,-150q-221 -150 -2 -150);"/>
+                    <Edge cubics="!221 -440(;221,-440 221,470 221,470q221 -440 221 470);"/>
+                    <Edge cubics="!-2 -150(;-2,-150 221,-440 221,-440q-2 -150 221 -440);"/>
+                    <Edge cubics="!221 470(;221,470 -2,180 -2,180q221 470 -2 180);"/>
+                    <Edge cubics="!592 -22(;592,-22 592,56 592,56q592 -22 592 56);"/>
+                    <Edge cubics="!340 56(;340,56 340,-22 340,-22q340 56 340 -22);"/>
+                    <Edge cubics="!592 56(;592,56 340,56 340,56q592 56 340 56);"/>
+                    <Edge cubics="!340 -22(;340,-22 592,-22 592,-22q340 -22 592 -22);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

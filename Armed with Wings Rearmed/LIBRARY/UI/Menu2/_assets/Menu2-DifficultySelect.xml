@@ -1,0 +1,225 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_assets/Menu2-DifficultySelect" itemID="567aa73d-00000844" lastModified="1496184136" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="Menu2-DifficultySelect">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var _parent:MovieClip;
+var _root:MovieClip;
+var storyMenu:MovieClip;
+var infoClip:MovieClip;
+var selectIndex:int;
+var cursorY:Number;
+var currentClip:MovieClip;
+
+var go:Boolean;
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var survival:Boolean;
+//break peroid of no input.
+var breakIndex:int = 8;
+var breakIndexOrig:int = 8;
+
+var menuName:String = "DIFFICULTY";
+
+visible = false;
+
+function init ():void {
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	_parent = MovieClip(parent);
+	_root = MovieClip(root);
+	storyMenu = MovieClip(parent.parent);
+	infoClip = MovieClip(parent).infoClip;
+	
+	refreshKeyFilters();
+	breakIndex = breakIndexOrig;
+	
+	b0.visible = true;
+	b1.visible = true;
+	b0.y = -1;
+	b1.y = 71.5;
+	//b2.y = 144;
+	
+	selectIndex = 0;
+	selectBtn(false);
+	go = true;
+}
+
+function refreshKeyFilters ():void {
+	keyFilter0 = true;
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+}
+
+function update ():void {
+	if (go) {
+		if (breakIndex > 0) {
+			breakIndex --;
+		} else {
+			if (ctrl.ctrl_up) {
+				if (!keyFilter0) {
+					if (selectIndex > 0) {
+						selectIndex --;
+						selectBtn();
+					}
+					keyFilter0 = true;
+				}
+			} else {
+				keyFilter0 = false;
+			}
+			
+			if (ctrl.ctrl_down) {
+				if (!keyFilter1) {
+					if (selectIndex < 1) {
+						selectIndex ++;
+						selectBtn();
+					}
+					keyFilter1 = true;
+				}
+			} else {
+				keyFilter1 = false;
+			}
+			
+			if (ctrl.ctrl_cancel) {
+				if (!keyFilter2) {
+					go = false;
+					sndCtrl.playUISound(sndCtrl.sndButton2);
+					_parent.closeDifficulty();
+					b0.visible = true;
+					b1.visible = true;
+					//b2.visible = true;
+					keyFilter2 = true;
+				}
+			} else {
+				keyFilter2 = false;
+			}
+			
+			if (ctrl.ctrl_confirmStart) {
+				if (!keyFilter3) {
+					input();
+					keyFilter3 = true;
+				}
+			} else {
+				keyFilter3 = false;
+			}
+		}
+	} else {
+		if (currentClip) 
+		currentClip.y += (0 - currentClip.y)/4;
+	}
+}
+
+function selectBtn(playSounds:Boolean = true):void {
+	if (currentClip) currentClip.gotoAndPlay("out");
+	currentClip = this["b"+selectIndex];
+	currentClip.gotoAndPlay("over");
+	if (playSounds) sndCtrl.playUISound(sndCtrl.sndButton1);
+	cursorY = currentClip.y + 80;
+	//infoClip.updateDisplay();
+}
+
+function input ():void {
+	go = false;
+	
+	if (selectIndex == 0) {
+		_root.gameDifficulty = _root.gameDifficultyNormal;
+		b1.visible = false;
+		//b2.visible = false;
+	}
+	if (selectIndex == 1) {
+		_root.gameDifficulty = _root.gameDifficultyfutile;
+		b0.visible = false;
+		//b2.visible = false;
+	}
+	if (selectIndex == 2) {
+		_root.gameDifficulty = _root.gameDifficultySuperFutile;
+		_root.sessionBaseSword = true;
+		b0.visible = false;
+		b1.visible = false;
+	}
+	sndCtrl.playUISound(sndCtrl.sndButton3);
+	
+	if (survival) {
+		_parent.selectDifficulty(selectIndex);
+
+		b0.visible = false;
+		b1.visible = false;
+		currentClip.visible = true;
+		
+	} else {
+		_root.data_continueDifficulty = _root.gameDifficulty;
+		storyMenu.startGame();
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="b0" uniqueID="2">
+                  <matrix>
+                    <Matrix ty="-6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="NORMAL" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="b1" uniqueID="3">
+                  <matrix>
+                    <Matrix ty="61.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="HARD" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 1" name="titleClip">
+                  <matrix>
+                    <Matrix tx="2" ty="-70.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

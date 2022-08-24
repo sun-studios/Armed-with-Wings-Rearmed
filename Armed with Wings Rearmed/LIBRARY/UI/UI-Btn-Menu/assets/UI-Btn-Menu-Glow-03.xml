@@ -1,0 +1,66 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Btn-Menu/assets/UI-Btn-Menu-Glow-03" itemID="54bcd56e-00000e25" symbolType="graphic" lastModified="1451489434">
+  <timeline>
+    <DOMTimeline name="UI-Btn-Menu-Glow-03">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2880 -2200|2880 2200!2880 2200|80 2200!80 2200|80 -2200!80 -2200|2880 -2200"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-06" symbolType="graphic" centerPoint3DX="131.05" centerPoint3DY="55.5" loop="loop">
+                  <matrix>
+                    <Matrix a="0" b="0.694580078125" c="-0.694580078125" d="0" tx="131.45" ty="56.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-05" symbolType="graphic" centerPoint3DX="19.7" centerPoint3DY="-38.7" loop="loop">
+                  <matrix>
+                    <Matrix a="0" b="0.687881469726563" c="0.687881469726563" d="0" tx="19.65" ty="-38.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-03" symbolType="graphic" centerPoint3DX="57.15" centerPoint3DY="-114.8" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.679397583007813" d="0.679397583007813" tx="56.9" ty="-114.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-02" symbolType="graphic" centerPoint3DX="103.2" centerPoint3DY="114.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0" b="-0.679397583007813" c="-0.679397583007813" d="0" tx="103.15" ty="114.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

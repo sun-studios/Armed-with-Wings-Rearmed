@@ -1,0 +1,259 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-StickToSlope" itemID="54b93675-00000484" lastModified="1491135243" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-StickToSlope" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+import flash.display.MovieClip;
+
+var flag:Boolean;
+var flag2:Boolean;
+var hero:MovieClip;
+var hero_p2:MovieClip;
+
+var checkTick:Number;
+var checkTickOrig:Number;
+
+var dir:Number;
+var slide:Boolean;
+var disableSpeed:Boolean;
+var go:Boolean;
+var stairs:Boolean;
+
+var allSlopes:Array;
+var objArray:Array;
+
+var ctrl:PlayerControl;
+var gameData:MovieClip;
+
+init();
+
+//This object keeps a list of all other slopes present in the level.
+
+
+function init():void {
+	visible = false;
+	
+	flag = false;
+	flag2 = true;
+	hero = MovieClip(parent).hero;	
+	hero_p2 = MovieClip(parent).hero_p2;	
+	ctrl = MovieClip(root).player1Control;
+	gameData = MovieClip(root);
+	
+	checkTick = 0;
+	checkTickOrig = 1;
+
+	allSlopes = new Array();
+	for (var i:int = 1; i < 50; i ++) {
+		var slope:MovieClip = MovieClip(parent)["slope"+i];
+		if (slope && slope != this) {
+			allSlopes.push(slope);
+		}
+		if (slope == null) break;
+	}
+	updateObjRefs();
+	
+	go = true;
+}
+function updateObjRefs():void {
+	objArray = new Array();
+	objArray.push([hero, false, true]);
+	if (gameData.gameMode == gameData.MULTIPLAYER) {
+		objArray.push([hero_p2, false, true]);
+	}
+	for (var i:int = 0; i < MovieClip(parent).enemiesArr.length; i ++) {
+		var en:MovieClip = MovieClip(parent).enemiesArr[i];
+		if (en.enemyType) {
+			if ((en.enemyType.substring(0,5) == "ENEMY" || en.enemyType.substring(0,4) == "BOSS") 
+				&& en.enemyType != "BOSS3" && en.enemyType != "ENEMY4") {
+				var b1:Boolean;
+				var b2:Boolean;
+				if (bound.hitTestPoint(en.getGlobalX(), en.getGlobalY(), true) && !en.dead) {
+					b1 = b2 = true;
+				}
+				objArray.push([en, b1, b2]);
+			}
+		}
+	}
+}
+
+function update():void {
+	if (go && CameraDistCheck.inRange(this, false, 1500)) {
+	//	updateObjRefs();
+		if (checkTick > 0) {
+			checkTick --;
+		} else {
+			checkTick = checkTickOrig;
+		}
+		
+		for (var i:int = 0; i < objArray.length; i ++) {
+			var obj:MovieClip = objArray[i][0];
+			
+			if (bound.hitTestPoint(obj.getGlobalX(), obj.getGlobalY(), true)) {
+				if (obj.currentFrameLabel != "attack" && obj.currentFrameLabel != "dodge" && obj.currentFrameLabel != "jump" && obj.onGround
+					&& !obj.disableSlopes) {
+					//aggresive gravity
+					obj.y+=2;
+					obj.ySpeed = -20;
+					//constrain speed
+					if (!disableSpeed) obj.maxMoveSpeed = obj.maxMoveSpeedDefault*(1-((Math.abs(rotation))/90));
+					if (stairs) obj.maxMoveSpeed = obj.maxMoveSpeedDefault*(1-((Math.abs(rotation))/120));
+					//these need to be hair
+					objArray[i][1] = true;
+					objArray[i][2] = true;
+					
+					//normal movement speed when running down slope
+					if (obj.scaleX == dir) {
+						//obj.maxMoveSpeed = obj.maxMoveSpeedDefault *1.2;
+						obj.maxMoveSpeed = obj.maxMoveSpeedDefault;
+						objArray[i][1] =  false;
+					} 
+					
+					//angle
+					if (stairs) {
+						obj.rotation += ((Math.abs(rotation*.35)*dir) - obj.rotation)/4;
+					} else {
+						obj.rotation += ((Math.abs(rotation*.85)*dir) - obj.rotation)/10;
+					}
+					
+					
+					//sliding down slopes
+					if (slide) {
+						heroAnimation(obj);
+						if (obj.currentFrameLabel == "walk") {
+							if (obj.scaleX == dir) {
+								obj.xSpeed += dir *.65;//was .6
+							} else {
+								obj.xSpeed += dir *.45;//was .4
+							}
+						} else {
+							obj.xSpeed += dir *.65;//was .6
+						}
+					}
+				}
+			} else {
+				
+				if (objArray[i][1]) {
+					obj.maxMoveSpeed = obj.maxMoveSpeedDefault;
+					objArray[i][1] = false;
+				}
+				if (!isTouchingAnotherSlide(obj) && checkTick == 0) {
+					if (objArray[i][2]) {
+						obj.rotation += (0 - obj.rotation)/2;//was 10 (but looks wonky when walking away from slopes, at least stairs)
+						if (obj.rotation < .2 && obj.rotation > -.2) {
+							objArray[i][2] = false;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+function heroAnimation(obj:MovieClip) {
+	
+	if (obj.heroName) {
+		if (slide) obj.onSlope = this;
+		if (obj.currentFrameLabel == "idle") {
+			if (Math.abs(obj.xSpeed) >= .1) {
+				if (obj.idle.currentFrameLabel != "slideB" && obj.scaleX == -dir) {
+					obj.idle.gotoAndStop("slideB");
+				}
+				if (obj.idle.currentFrameLabel != "slideF" && obj.scaleX == dir) {
+					obj.idle.gotoAndStop("slideF");
+				}
+			}
+		}
+	}
+	
+}
+
+function isTouchingAnotherSlide(obj:MovieClip):Boolean {
+	for (var i:int = 0; i < allSlopes.length; i ++) {
+		var slope:MovieClip = allSlopes[i];
+			if (slope.bound.hitTestPoint(obj.getGlobalX(), obj.getGlobalY(), true) && slope.slide) {
+				return true;
+			}
+		
+	}
+	if (obj.heroName) {
+		obj.onSlope = null;
+	}
+	return false;
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0033FF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-375 -347|376 -347!376 -347|376 -196!376 -196|-375 -196!-375 -196|-375 -347"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-46.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="dir">
+      <Inspectable name="dir" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="slide">
+      <Inspectable name="slide" variable="slide" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="disableSpeed">
+      <Inspectable name="disableSpeed" variable="disableSpeed" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="stairs">
+      <Inspectable name="stairs" variable="stairs" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

@@ -1,0 +1,103 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy6-Razor/Anims/Enemy6-Spawn" itemID="56a279fc-000009f0" lastModified="1453488754" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Enemy6-Spawn" currentFrame="22">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-Idle" name="idle">
+                  <matrix>
+                    <Matrix a="-0.882110595703125" d="1.01405334472656" tx="-1.2" ty="51.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="-51.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="24" color="#FFFFFF" strength="2.08"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-Idle" name="idle" centerPoint3DX="-0.05" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix a="-1.07777404785156" d="0.979156494140625" tx="-0.6" ty="51.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="-51.5"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0.666666686534882" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-Idle" name="idle" centerPoint3DX="-0.05" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix a="-0.922439575195313" d="1.01405334472656" tx="-0.5" ty="51.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="-51.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="1.16666662693024" blurY="7" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-Idle" name="idle" centerPoint3DX="-0.05" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix a="-1" tx="-0.55" ty="51.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="-51.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="0" color="#FFFFFF" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,235 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Spinner/OBJ-SpinnerDeflectDown" itemID="54d34f4b-00000f2a" lastModified="1423135193" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-SpinnerDeflectDown">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+alpha = 0;
+
+var dir:int = -1;
+var spinnerObjects:Array;
+//component def
+var spinnerObjName:Array;
+
+init();
+
+function init ():void {
+	spinnerObjects = new Array();
+	
+	for (var i:int = 0; i < spinnerObjName.length; i ++) {
+		var obj:MovieClip = MovieClip(parent)[spinnerObjName[i]];
+		if (obj) {
+			spinnerObjects.push(obj);
+		}
+	}
+}
+
+function update():void {
+	if (spinnerObjects.length > 0) {
+		for (var i:int = 0; i < spinnerObjects.length; i ++) {
+			var obj:MovieClip = spinnerObjects[i];
+			
+			if (this.hitTestObject(obj.bound)) {
+				obj.dir = dir;
+			}
+			
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-6153 -214|-5253 -214!-5253 -214|-5702 230!-5702 230|-6153 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-5014 -214|-4114 -214!-4114 -214|-4563 230!-4563 230|-5014 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-3875 -214|-2975 -214!-2975 -214|-3424 230!-3424 230|-3875 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-2682 -214|-1782 -214!-1782 -214|-2231 230!-2231 230|-2682 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1543 -214|-643 -214!-643 -214|-1092 230!-1092 230|-1543 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-404 -214|496 -214!496 -214|47 230!47 230|-404 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!706 -214|1607 -214!1607 -214|1158 230!1158 230|706 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!1845 -214|2746 -214!2746 -214|2297 230!2297 230|1845 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!2984 -214|3885 -214!3885 -214|3436 230!3436 230|2984 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!4080 -214|4980 -214!4980 -214|4532 230!4532 230|4080 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#CCCCCC" alpha="0.886274509803922"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!5219 -214|6119 -214!6119 -214|5671 230!5671 230|5219 -214"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#00FFFF" alpha="0.505882352941176"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-6301 -378|6301 -378!6301 -378|6301 378!6301 378|-6301 378!-6301 378|-6301 -378"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="spinnerObjName">
+      <Inspectable name="spinnerObjName" variable="spinnerObjName" category="" verbose="0" defaultValue="" type="Array"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

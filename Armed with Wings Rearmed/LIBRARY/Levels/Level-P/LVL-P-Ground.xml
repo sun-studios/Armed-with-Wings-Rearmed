@@ -1,0 +1,184 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-P/LVL-P-Ground" itemID="54cc723b-00001ac6" lastModified="1481203384">
+  <timeline>
+    <DOMTimeline name="LVL-P-Ground">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+gate1.gotoAndStop(69);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="gate" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/pillarGateLong" name="gate1">
+                  <matrix>
+                    <Matrix tx="-404.15" ty="-1147.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-89.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/pillarGate" name="gate2">
+                  <matrix>
+                    <Matrix tx="391.65" ty="599.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="trap1" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/bridge/LVL-P-Bridge" name="door1" centerPoint3DX="-245.75" centerPoint3DY="-772.65">
+                  <matrix>
+                    <Matrix tx="-353" ty="-772.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/bridge/LVL-P-Bridge" name="door2" centerPoint3DX="236.1" centerPoint3DY="-167.6">
+                  <matrix>
+                    <Matrix tx="128.85" ty="-167.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/bridge/LVL-P-Bridge" name="door3" centerPoint3DX="-105.95" centerPoint3DY="154">
+                  <matrix>
+                    <Matrix tx="-213.2" ty="154"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-P/bridge/LVL-P-Bridge" name="door4" centerPoint3DX="109.65" centerPoint3DY="154">
+                  <matrix>
+                    <Matrix a="-1" tx="216.9" ty="154"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="shape" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-6899 -16281|-6899 -14241!-6899 -14241|-7561 -14241!-7561 -14241|-7561 -16281!-7561 -16281|-6899 -16281!-7561 -20701|-1741 -20701!-1741 -20701|-1741 -19781!-1741 -19781|-7561 -19781!-7561 -19781|-7561 -20701"/>
+                    <Edge fillStyle0="1" edges="!1940 -19781|7562 -19781!7562 -19781|7562 -20701!7562 -20701|1940 -20701!1940 -20701|1940 -19781"/>
+                    <Edge fillStyle1="1" edges="!7562 -16281|7562 -14241!7562 -14241|-2903 -14241!-2903 -14241|-2903 -16281!-2903 -16281|7562 -16281"/>
+                    <Edge fillStyle0="1" edges="!2820 -4161|-7561 -4161!-7561 -4161|-7561 -2163!-7561 -2163|2820 -2163!2820 -2163|2820 -4161"/>
+                    <Edge fillStyle1="1" edges="!6461 -4161|7562 -4161!7562 -4161|7562 -2163!7562 -2163|6461 -2163!6461 -2163|6461 -4161!-7561 2279|-4160 2279!-4160 2279|-4160 4310!-4160 4310|-7561 4310!-7561 4310|-7561 2279!7562 2279|7562 4310!7562 4310|4227 4310!4227 4310|4227 2279
+!4227 2279|7562 2279"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="shape" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-18014 -33245|-18014 -20706!-18014 -20706|-7214 -20706!-7214 -20706|-7214 -56!-7214 -56|-14688 -56!-14688 -56|-14688 2341!-14688 2341|-20118 2341!-20118 2341|-20118 -4948!-20118 -4948|-22149 -4948!-22149 -4948|-22149 2991!-22149 2991
+|-14038 2991!-14038 2991|-14038 594!-14038 594|-7214 594!-7214 594|-7214 19201!-7214 19201|-34424 19201!-34424 19201|-34424 -33244!-34424 -33244|-18014 -33245"/>
+                        <Edge cubics="!-7214 -20706(-7214,-20706;-7214,-20706 -7214,-56 -7214,-56q-7214 -20706 -7214 -56)-7214,-56;"/>
+                        <Edge cubics="!-7214 594(;-7214,594 -7214,19201 -7214,19201q-7214 594 -7214 19201);"/>
+                        <Edge cubics="!-18014 -33245(-18014,-33245;-18014,-33245 -18014,-20706 -18014,-20706q-18014 -33245 -18014 -20706)-18014,-20706;"/>
+                        <Edge cubics="!-22149 -150(-22149,-150;-22149,-150 -20118,-150 -20118,-150q-22149 -150 -20118 -150)-20118,-150;"/>
+                        <Edge cubics="!-14038 594(-14038,594;-14038,594 -14038,2991 -14038,2991q-14038 594 -14038 2991)-14038,2991;"/>
+                        <Edge cubics="!-14038 2991(-14038,2991;-14038,2991 -22149,2991 -22149,2991q-14038 2991 -22149 2991)-22149,2991;"/>
+                        <Edge cubics="!-14688 2341(-14688,2341;-14688,2341 -20118,2341 -20118,2341q-14688 2341 -20118 2341)-20118,2341;"/>
+                        <Edge cubics="!-14688 2341(-14688,2341;-14688,2341 -14688,-56 -14688,-56q-14688 2341 -14688 -56)-14688,-56;"/>
+                        <Edge cubics="!-20118 -150(;-20118,-150 -20118,2341 -20118,2341q-20118 -150 -20118 2341);"/>
+                        <Edge cubics="!-22149 2991(-22149,2991;-22149,2991 -22149,-150 -22149,-150q-22149 2991 -22149 -150)-22149,-150;"/>
+                        <Edge cubics="!-7214 594(;-7214,594 -14038,594 -14038,594q-7214 594 -14038 594);"/>
+                        <Edge cubics="!-14688 -56(;-14688,-56 -7214,-56 -7214,-56q-14688 -56 -7214 -56);"/>
+                        <Edge cubics="!-7214 -20706(;-7214,-20706 -18014,-20706 -18014,-20706q-7214 -20706 -18014 -20706);"/>
+                        <Edge cubics="!-34424 19201(;-34424,19201 -34424,-33244 -34424,-33244q-34424 19201 -34424 -33244);"/>
+                        <Edge cubics="!-34424 -33244(;-34424,-33244 -18014,-33245 -18014,-33245q-34424 -33244 -18014 -33245);"/>
+                        <Edge cubics="!-7214 19201(;-7214,19201 -34424,19201 -34424,19201q-7214 19201 -34424 19201);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!29001 -33245|29001 19201!29001 19201|7174 19201!7174 19201|7174 10155!7174 10155|15511.5 10155!15511.5 10155|15512 10074.5!15512 10074.5|15512.5 10109!15512.5 10109|15525.5 9014!15525.5 9014|15526 6334!15526 6334|7174 6334!7174 6334
+|7174 594!7174 594|13258 594!13258 594|13258 -1175!13258 -1175|11107 -1175!11107 -1175|11107 -69!11107 -69|7174 -69.5!7174 -69.5|7174 -4159.5!7174 -4159.5|22028 -4160!22028 -4160|22028 -7894!22028 -7894|7174 -7893.5!7174 -7893.5|7174
+ -33244!7174 -33244|18500 -33244.5!18500 -33244.5|18500 -33243.5!18500 -33243.5|29001 -33245"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <transformationPoint>
+                    <Point x="-136.15" y="885.55"/>
+                  </transformationPoint>
+                  <members>
+                    <DOMShape>
+                      <transformationPoint>
+                        <Point x="-136.15" y="885.55"/>
+                      </transformationPoint>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!29001 25267|-34421 25267!-34421 25267|-34421 10157!-34421 10157|28997 10157!28997 10157|29001 25267"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

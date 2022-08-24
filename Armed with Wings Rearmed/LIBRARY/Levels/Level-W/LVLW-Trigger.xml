@@ -1,0 +1,80 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-W/LVLW-Trigger" itemID="561bc8e8-00000d1b" lastModified="1492352264">
+  <timeline>
+    <DOMTimeline name="LVLW-Trigger">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var vcam:MovieClip;
+var bossSpawnPoint:MovieClip;
+
+var flag1:Boolean;
+
+init ();
+
+function init():void {
+	hero = MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	vcam = MovieClip(parent).vcam;
+	bossSpawnPoint = MovieClip(parent).bossSpawnPoint;
+	
+	flag1 = false;
+}
+
+function update():void {
+	if (!flag1) {
+		if (hero.bound.hitTestObject(this)) {
+			MovieClip(parent).cavein.active = false;
+			stopHero();
+			boss.forceHeroX = false;
+			vcam.target = bossSpawnPoint;
+			TweenMax.delayedCall(40, function () {
+				boss.moveable = false;
+				boss.appearFromGround(bossSpawnPoint.x, bossSpawnPoint.y);
+				boss.scaleX = -1;
+				boss.visible = true;
+				TweenMax.delayedCall(20, function () { vcam.target = boss; }, null, true);
+			}, null, true);
+			flag1 = true;
+		}
+	}
+}
+
+function stopHero():void {
+	hero.lock();
+	hero.xSpeed *= .5;
+	
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="2.40420532226563" d="3.85398864746094" tx="0.6" ty="-174.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

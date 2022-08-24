@@ -1,0 +1,202 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PRT-Dust/PRT-Dust" itemID="54af876a-0000070c" linkageExportForAS="true" linkageClassName="Dust" lastModified="1491239856">
+  <timeline>
+    <DOMTimeline name="PRT-Dust" currentFrame="10" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;0&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.filters.GlowFilter;
+import flash.display.MovieClip;
+
+function update() {
+	var clip:MovieClip = this[this.currentFrameLabel];
+	if (clip.currentFrame == clip.totalFrames) {
+		MovieClip(parent).removeFromDustArr(this);
+		MovieClip(parent).removeChild(this);
+	}
+	
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" name="DUST1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="DUST2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="DUST3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="DUST4" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="DUST5" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" name="DUST6" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" name="DUST7" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" name="DUST8" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" name="DUST9" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" name="DUST10" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" name="DUST11" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-001" name="DUST1">
+                  <matrix>
+                    <Matrix tx="-3.5" ty="-3.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-002" name="DUST2">
+                  <matrix>
+                    <Matrix tx="0.25" ty="-21.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-003" name="DUST3">
+                  <matrix>
+                    <Matrix tx="-2.75" ty="-13.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-004" name="DUST4">
+                  <matrix>
+                    <Matrix tx="-2.75" ty="-13.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" name="DUST5">
+                  <matrix>
+                    <Matrix tx="-3.5" ty="-10.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-006" name="DUST6">
+                  <matrix>
+                    <Matrix tx="-6.85" ty="-8.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="20.1" y="10.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-007" name="DUST7">
+                  <matrix>
+                    <Matrix tx="-2" ty="-4.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="36.55" y="-2.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-008" name="DUST8">
+                  <matrix>
+                    <Matrix tx="21.45" ty="-13.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="14.6" y="11.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-009" name="DUST9">
+                  <matrix>
+                    <Matrix a="-1" tx="-22.85" ty="-4.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-57.9" y="-28.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-010" name="DUST10">
+                  <matrix>
+                    <Matrix tx="15.85" ty="0.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-011" name="DUST11" selected="true">
+                  <matrix>
+                    <Matrix tx="-5.55" ty="-1.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

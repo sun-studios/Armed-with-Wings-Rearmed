@@ -1,0 +1,107 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-DeathZone" itemID="54b62876-0000026b" lastModified="1492353238" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-DeathZone">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Strong;
+
+visible = false;
+
+var wall:Boolean;//component def
+var hero:MovieClip = MovieClip(parent).hero;
+var enemiesArr:Array = MovieClip(parent).enemiesArr;
+var particleLayer:MovieClip = MovieClip(parent).particleLayer;
+var enemiesDead:Array;
+
+init();
+
+function init ():void {
+	enemiesDead = new Array();
+	for (var i:int = 0; i < enemiesArr.length; i ++) {
+		enemiesDead.push(false);
+	}
+}
+
+function update ():void {
+	if (hero.bound.hitTestObject(this)) {
+		if (hero.life > 0 || hero.currentFrameLabel == "death2") {
+			hero.dead = false;//set to false> run gotoDead > causes death > is set to true
+			hero.firstDeath = true;
+			hero.life = 0;
+			if (wall) {
+				hero.gotoDeath(true);
+				if (hero.x > x) hero.scaleX = 1;
+				else hero.scaleX = -1;
+			} else {
+				hero.gotoDeath();
+			}
+		}
+	}
+	
+	if (MovieClip(parent)) {
+		enemiesArr = MovieClip(parent).enemiesArr;
+		
+		for (var i:int = 0; i < enemiesArr.length; i ++) {
+			var enemy:MovieClip = enemiesArr[i];
+			if (enemy && !enemy.dead) {
+				if (enemy.bound.hitTestObject(this) && (enemy.enemyType == "ENEMY1" || 
+														enemy.enemyType == "ENEMY2" ||
+														enemy.enemyType == "ENEMY3" ||
+														enemy.enemyType == "ENEMY4" ||
+														enemy.enemyType == "ENEMY5" ||
+														enemy.enemyType == "ENEMY6" ||
+														enemy.enemyType == "ENEMY7")) {
+					if (!enemiesDead[i]) {
+						if (enemy.dead) {
+							enemiesDead[i] = true;
+						} else {
+							var bonus = particleLayer.addBonus(enemy.x, enemy.y, 1, BonusPoints.BONUS_SPIKEKILL);
+							TweenMax.to(bonus, 20, {y:hero.y+(Math.random()*20), ease:Strong.easeOut, useFrames:true});
+							enemy.gotoDeath();
+							enemiesDead[i] = true;
+						}
+					}
+					enemy.life = 0;
+				}
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000" alpha="0.698039215686274"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-2790 680|-2790 -680!-2790 -680|-2610 -500!-2610 -500|-2430 -680!-2430 -680|-2250 -500!-2250 -500|-2070 -680!-2070 -680|-1890 -500!-1890 -500|-1710 -680!-1710 -680|-1530 -500!-1530 -500|-1350 -680!-1350 -680|-1170 -500!-1170 -500|-990
+ -680!-990 -680|-810 -500!-810 -500|-630 -680!-630 -680|-450 -500!-450 -500|-270 -680!-270 -680|-90 -500!-90 -500|90 -680!90 -680|270 -500!270 -500|450 -680!450 -680|630 -500!630 -500|810 -680!810 -680|990 -500!990 -500|1170 -680!1170
+ -680|1350 -500!1350 -500|1530 -680!1530 -680|1710 -500!1710 -500|1890 -680!1890 -680|2070 -500!2070 -500|2250 -680!2250 -680|2430 -500!2430 -500|2610 -680!2610 -680|2790 -500!2790 -500|2790 680!2790 680|-2790 680"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="wall">
+      <Inspectable name="wall" variable="wall" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

@@ -1,0 +1,81 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Plats/OBJ-Plat-Edges" itemID="54bfa8a9-00000533" lastModified="1478868957" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Plat-Edges">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var ground:MovieClip;
+var masterObject:MovieClip;
+//component
+var masterName:String;
+
+init();
+
+function init():void {
+	hero = MovieClip(parent).hero;
+	ground = MovieClip(parent).ground;
+	masterObject = ground[masterName];
+}
+
+function update ():void {
+		
+	y = masterObject.y + ground.y - 5;
+	x = masterObject.x + ground.x;
+	
+	edge1.hero = hero;
+	edge2.hero = hero;
+	
+	edge1.update();
+	edge2.update();
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Objects/OBJ-jumpTrigger&amp;#060" name="edge1" selected="true" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="-123.55" ty="-0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="disableGrab">
+      <Inspectable name="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/OBJ-jumpTrigger&amp;#062" name="edge2" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="123.6" ty="0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="disableGrab">
+      <Inspectable name="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="true" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="masterName">
+      <Inspectable name="master" variable="masterName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

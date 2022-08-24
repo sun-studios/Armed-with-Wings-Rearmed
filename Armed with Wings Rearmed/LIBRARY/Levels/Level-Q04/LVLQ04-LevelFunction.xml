@@ -1,0 +1,246 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q04/LVLQ04-LevelFunction" itemID="556ac136-0000078d" lastModified="1493131138">
+  <timeline>
+    <DOMTimeline name="LVLQ04-LevelFunction">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = false;
+
+import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Quad;
+import com.greensock.easing.Elastic;
+import flash.events.Event;
+import com.greensock.easing.CustomEase;
+
+CustomEase.create("camPanEase", [{s:0,cp:-0.024,e:0.464},{s:0.464,cp:0.952,e:1.028},{s:1.028,cp:1.104,e:1.022},{s:1.022,cp:0.94,e:0.978},{s:0.978,cp:1.016,e:1},{s:1,cp:0.984,e:1}]);
+
+var flag1:Boolean;
+
+var vcam:MovieClip;
+var hero:MovieClip;
+var eagle:MovieClip;
+var eaglePoint:MovieClip;
+var between:MovieClip;
+var _parent:MovieClip;
+var sky:MovieClip;
+var camPoint1:MovieClip;
+var camPoint2:MovieClip;
+var lightTrig1:MovieClip;
+var spitText:MovieClip;
+var convo1:MovieClip;
+var convo3:MovieClip;
+var teleporter:MovieClip;
+var transitionScreen:MovieClip;
+var sndCtrl:MovieClip;
+var gameCore:MovieClip;
+
+var angel1:MovieClip;
+var angel2:MovieClip;
+var angel3:MovieClip;
+var angel4:MovieClip;
+var angel5:MovieClip;
+
+init();
+
+function init():void {
+	vcam = MovieClip(parent).vcam;
+	hero = MovieClip(parent).hero;
+	eagle = MovieClip(parent).eagle;
+	eaglePoint = MovieClip(parent).eaglePoint;
+	between = MovieClip(parent).between;
+	_parent = MovieClip(parent);
+	sky = MovieClip(root).sky;
+	camPoint1 = MovieClip(parent).camPoint1;
+	camPoint2 = MovieClip(parent).camPoint2;
+	lightTrig1 = MovieClip(parent).lightTrig1;
+	spitText = MovieClip(parent).spitText;
+	convo1 = MovieClip(parent).convo1;
+	convo3 = MovieClip(parent).convo3;
+	teleporter = MovieClip(parent).teleporter;
+	transitionScreen = MovieClip(parent).transitionScreen;
+	sndCtrl = MovieClip(root);
+	gameCore = MovieClip(root);
+	
+	angel1 = MovieClip(parent).angel1;
+	angel2 = MovieClip(parent).angel2;
+	angel3 = MovieClip(parent).angel3;
+	angel4 = MovieClip(parent).angel4;
+	angel5 = MovieClip(parent).angel5;
+	
+	convo1.addEventListener("COMPLETE", endConvo);
+	convo3.addEventListener("COMPLETE", endConvo3);
+	teleporter.addEventListener("COMPLETE", next_);
+	hero.addEventListener("RISECOMPLETE", doEagleIntro);//was resume
+}
+
+function update():void {
+	if (lightTrig1.go && !flag1) {
+		if (gameCore.heroName == "LONEWARRIOR" || gameCore.heroName == "SUPERLONEWARRIOR") {
+			vcam.target = camPoint1;
+			spitText.disable = true;
+			
+			TweenMax.delayedCall(20, angel1.init, null, true);
+			TweenMax.delayedCall(22, angel2.init, null, true);
+			TweenMax.delayedCall(24, angel3.init, null, true);
+			TweenMax.delayedCall(26, angel4.init, null, true);
+			TweenMax.delayedCall(28, angel5.init, null, true);
+			
+			TweenMax.delayedCall(120, beginConvo, null, true);
+			
+			flag1 = true;
+		} else {
+			TweenMax.delayedCall(20, endConvo,[null], true);
+			
+			flag1 = true;
+		}
+	}
+}
+
+function beginConvo():void {
+	vcam.target = camPoint2;
+	vcam.slowZoom = true;
+	vcam.zoom = .8;
+	
+	
+	convo1.startConvo();
+}
+
+function endConvo(e:Event):void {
+	vcam.target = hero;
+	vcam.zoom = 1;
+	
+	gameCore.hud.fadeoutUI();
+	teleporter.init();
+	//next_();
+}
+function endConvo3(e:Event):void {
+	vcam.target = hero;
+	vcam.zoom = 1;
+	
+	gameCore.hud.fadeinUI();
+	resume();
+}
+
+function next_(e:Event):void {
+	hero.x = _parent.spawnPoint2.x;
+	hero.y = _parent.spawnPoint2.y;
+	sky.gotoAndStop("normalCloud");
+	
+	transitionScreen.gotoAndPlay("close");
+	hero.gotoAndStop("rise");
+	
+	
+	vcam.zoom = 1;
+	vcam.slowZoom = true;
+	vcam.forcePos(hero.x, hero.y);
+	transitionScreen.x = hero.x;
+	transitionScreen.y = hero.y;
+	
+	if (hero.heroName == "VANDHEER") {
+		
+	} else {
+		eagle.moveable = false;
+		eagle.visible = false;
+	}
+	
+	sndCtrl.playSound(sndCtrl.sndThunder5);
+	sndCtrl.playSound(sndCtrl.sndThunder2);
+	
+	MovieClip(root).forceStyle(MovieClip(root).VFXNone);
+	
+	sndCtrl.playMusic(sndCtrl.track1);
+}
+
+function doEagleIntro(e:Event = null):void {
+	if (hero.heroName == "VANDHEER") {
+		resume();
+	} else {
+		sndCtrl.playSound(sndCtrl.sndWoosh);
+		sndCtrl.playSound(sndCtrl.sndEagleVocal);
+		eagle.x = eaglePoint.x;
+		eagle.y = eaglePoint.y - 1000;
+		vcam.target = between;
+		vcam.zoom = .5;
+		vcam.extraYY = -200;
+		eagle.visible  = true;
+		eagle.scaleX = -1;
+		eagle.isFollowingHero  = false;
+		eagle.moveable = false;
+		eagle.gotoAndStop("anim0");
+		TweenMax.to(eagle, 82, {y:eaglePoint.y, ease:Quad.easeOut, useFrames:true});
+		TweenMax.to(vcam, 82, {extraYY:-50, useFrames:true});
+		TweenMax.delayedCall(100, startConvo3, null, true);
+		
+		TweenMax.delayedCall(60, function () {
+			TweenMax.to(between, 60, {val:.5, ease:CustomEase.byName("camPanEase"), useFrames:true});
+			TweenMax.to(vcam, 60, {zoom:.6, ease:Quad.easeOut, useFrames:true});
+		},null, true);
+	}
+}
+
+function startConvo3 ():void {
+	convo3.vcamEnabled = false;
+	convo3.startConvo();
+	
+}
+
+function resume(e:Event = null):void {
+	hero.unlock();
+	hero.switchToHero();
+	hero.gotoAndStop("idle");
+	eagle.gotoAndStop("idle");
+	eagle.isFollowingHero  = true;
+	
+	gameCore.hud.fadeinUI();
+	vcam.extraYY = 0;
+}
+
+function killListeners():void {
+	convo1.removeEventListener("COMPLETE", endConvo);
+	convo3.removeEventListener("COMPLETE", endConvo3);
+	teleporter.removeEventListener("COMPLETE", next_);
+	hero.removeEventListener("RISECOMPLETE", doEagleIntro);//was resume
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-8.3" width="112.8" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>TRIGGER &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

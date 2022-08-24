@@ -1,0 +1,201 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-T/LVLT-WallTrap" itemID="58186e4a-00001696" lastModified="1490583595">
+  <timeline>
+    <DOMTimeline name="LVLT-WallTrap">
+      <layers>
+        <DOMLayer name="StompContainer" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var value:Number;
+var hero:MovieClip;
+var vcam:MovieClip;
+var sndCtrl:MovieClip;
+
+var arr:Array = new Array();
+var movementDetected:Boolean;
+var soundFlag:Boolean;
+
+init();
+
+function init ():void {
+	value = 0;
+	hero = MovieClip(root).game.hero;
+	vcam = MovieClip(root).game.vcam;
+	sndCtrl = MovieClip(root);
+}
+
+function update ():void {
+	
+	var valueNorm:Number = value*600;
+	
+	movementDetected = false;
+	arr.unshift(valueNorm);
+	if (arr.length > 2) {
+		arr.pop();
+	}
+	if (arr.length == 2) {
+		if (arr[0] == arr[1]) {
+			movementDetected = false;
+		} else {
+			movementDetected = true;
+		}
+	}
+	if (movementDetected) {
+		vcam.shakeCamera(6);
+		if (!soundFlag) {
+			sndCtrl.playContinuous("sndStoneDrag");
+			soundFlag = true;
+		}
+	} else {
+		if (soundFlag) {
+			sndCtrl.stopContinuous("sndStoneDrag");
+			soundFlag = false;
+		}
+	}
+
+	//Left Stompers
+	for (var i:int = 0; i < 6; i ++) {
+		var stomp:MovieClip = this["stomp_L_"+i];
+		var lockVal:Number = i*50;
+		if (valueNorm > lockVal) {
+			stomp.x = 32.25 - (valueNorm) + lockVal;
+			if (stomp.x < -310) stomp.x = -310;
+			stomp.update();
+		}
+	}
+	
+	//Right Stompers
+	for (i = 0; i < 6; i ++) {
+		stomp = this["stomp_R_"+i];
+		lockVal = i*50;
+		if (valueNorm > lockVal) {
+			stomp.x = -32.25 + (valueNorm) - lockVal;
+			if (stomp.x > 310) stomp.x = 310;
+			stomp.update();
+		}
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_R_5">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="-1" d="0" tx="-32.25" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_R_4">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="-1" d="0" tx="-32.25" ty="-130.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_R_3">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="-1" d="0" tx="-32.25" ty="-260.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_R_2">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="-1" d="0" tx="-32.25" ty="-391.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_R_1">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="-1" d="0" tx="-32.25" ty="-521.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_R_0">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="-1" d="0" tx="-32.25" ty="-652.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_L_5">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="32.25" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_L_4">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="32.25" ty="-130.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_L_3">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="32.25" ty="-260.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_L_2">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="32.25" ty="-391.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_L_1">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="32.25" ty="-521.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper2" name="stomp_L_0">
+                  <matrix>
+                    <Matrix a="0" b="-1" c="1" d="0" tx="32.25" ty="-652.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

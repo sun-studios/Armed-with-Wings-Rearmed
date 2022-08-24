@@ -1,0 +1,67 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PRT-Stones/PRT-Stones" itemID="55204fd5-00004b8c" linkageExportForAS="true" linkageClassName="Stones" lastModified="1456899032">
+  <timeline>
+    <DOMTimeline name="PRT-Stones">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var xSpeed:Number;
+var ySpeed:Number;
+var life:Number;
+
+var particleLayer:MovieClip;
+
+//init();
+
+function init(_xSpeed:Number = 9, _ySpeed:Number = 24):void {
+
+	xSpeed = (Math.random()*_xSpeed) - (Math.random()*_xSpeed);
+	ySpeed = (Math.random()*_ySpeed);
+	life = 80;
+		
+	
+	particleLayer = MovieClip(parent);
+}
+
+function update():void {
+	if (life > 0) {
+		life --;
+		
+		ySpeed -= 1;
+		
+		x += xSpeed;
+		y -= ySpeed;
+		rotation += xSpeed + ySpeed;
+	} else {
+		particleLayer.removeStoneArr(this);
+		MovieClip(parent).removeChild(this);
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Stones/PRT-Stones-Clip" name="clip">
+                  <matrix>
+                    <Matrix a="1.53488159179688" d="1.53488159179688"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

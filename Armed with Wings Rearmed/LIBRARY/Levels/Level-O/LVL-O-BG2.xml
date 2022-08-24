@@ -1,0 +1,160 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-O/LVL-O-BG2" itemID="54cc6f4e-00001a57" lastModified="1422684321" lastUniqueIdentifier="13" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="LVL-O-BG2">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var X:Boolean;
+var Y:Boolean;
+
+var initX:Number = x;
+var initY:Number = y;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var game:MovieClip = MovieClip(parent);
+
+function update():void {
+    if (hero.life > 0)
+    {
+        if (X) this.x = initX + (game.x / -1.25);
+		if (Y) this.y = initY + (game.y / -1.1);
+    }
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="-1099.85" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="-1099.8" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="-1296.25" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="-1296.2" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="-703.75" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="-703.7" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="-900.15" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="-900.1" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="-496.25" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="-496.2" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="-296.25" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="-296.2" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="-99.1" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="-99.05" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="100.3" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="100.35" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="300.85" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="300.9" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="501.4" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="501.45" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="700.8" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="700.85" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="901.35" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="901.4" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="1099.65" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="1099.7" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-005" centerPoint3DX="1300.2" centerPoint3DY="-29.15">
+                  <matrix>
+                    <Matrix tx="1300.25" ty="295.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-324.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="X">
+      <Inspectable name="X" variable="X" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="Y">
+      <Inspectable name="Y" variable="Y" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

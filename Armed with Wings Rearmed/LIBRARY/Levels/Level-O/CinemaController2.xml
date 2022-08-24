@@ -1,0 +1,207 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-O/CinemaController2" itemID="572de9b4-00001863" lastModified="1492870312">
+  <timeline>
+    <DOMTimeline name="CinemaController2">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.plugins.VolumePlugin;
+import flash.events.Event;
+
+//This is the 1st mid battle cutscene, where LW and VL exchange some blows, teleport around each other, 
+//and end with a lightning sword clash.
+
+
+var hero:MovieClip;
+var boss:MovieClip;
+var spawnPoint2:MovieClip;
+var spawnPoint:MovieClip;
+var vcam:MovieClip;
+var bossCamHelper:MovieClip;
+var hud:MovieClip;
+var sndCtrl:MovieClip;
+var particleLayer:MovieClip;
+var convo:MovieClip;
+var game:MovieClip;
+
+var flag0:Boolean;
+
+init();
+
+function init ():void {
+	visible = false;
+	
+	hero = MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	spawnPoint2 = MovieClip(parent).spawnPoint2;
+	spawnPoint = MovieClip(parent).spawnPoint;
+	vcam = MovieClip(parent).vcam;
+	bossCamHelper = MovieClip(parent).bossCamHelper;
+	hud = MovieClip(root).hud;
+	sndCtrl = MovieClip(root);
+	particleLayer = MovieClip(parent).particleLayer;
+	convo = MovieClip(parent).convo2;
+	game = MovieClip(parent);
+	
+	convo.addEventListener("COMPLETE",  resumeBattle);
+}
+
+function update ():void {
+	if (boss.cinemaMode && boss.cinema1) {
+		hero.moveable = hero.active = false;
+		
+		//set hero animation
+		if (!flag0 && !hero.isUltiStriking) {
+
+			hero.gotoAndStop("convo1");
+			boss.gotoAndStop("convo2");
+			hud.fadeoutUI();
+			flag0 = true;
+		}
+		
+		
+		if (hero.currentFrameLabel == "convo1") {
+			//Lone Warrrior teleport behind Vandheer
+			if (hero.convo1.currentFrameLabel == "teleport") {
+				hero.x = spawnPoint2.x;
+				hero.xSpeed = 0;
+				hero.ySpeed = 0;
+				hero.y = spawnPoint2.y;
+				hero.scaleX = 1;
+			}
+			
+			//Vandheer Teleport behind LW 
+			if (hero.convo1.currentFrameLabel == "bossAttack") {
+				boss.x = hero.x - 80;
+				boss.scaleX = 1;
+				boss.convo2.gotoAndPlay("teleport2");
+				vcam.target = bossCamHelper;
+				vcam.zoom = .8;
+			}
+		}
+		
+		if (boss.currentFrameLabel == "convo2") {
+			//Teleport into position
+			if (boss.convo2.currentFrameLabel == "teleport0") {
+				boss.x = spawnPoint2.x + 70;
+				bossCamHelper.activated = false;
+				vcam.target = boss;
+			}
+			
+			//Vandheer Teleport away, prepar to throw ice.
+			if (boss.convo2.currentFrameLabel == "teleport1") {
+				boss.x  = spawnPoint2.x + 505;
+				boss.scaleX = -1;
+				vcam.zoom = .6;
+			}
+			
+			//Throw Ice spikes
+			if (boss.convo2.currentFrameLabel == "throw0" || boss.convo2.currentFrameLabel == "throw1" || boss.convo2.currentFrameLabel == "throw2" ) {
+				var iceSpike:MovieClip = new IceSpikeCinema();
+				MovieClip(parent).addChild(iceSpike);
+				iceSpike.x = boss.x + ((Math.random() - Math.random())*80);
+				iceSpike.y = boss.y - 50 - ((Math.random())*50);
+				iceSpike.rotation -= (Math.random()*4);
+				vcam.shakeCamera(20);
+			}
+			
+			//Move forward when throwing ice
+			if (boss.convo2.applyMotion0) {
+				boss.xSpeed = 3 * boss.scaleX;
+			}
+			
+			//Swap camera during Ice throw to Hero, for hero to defend
+			if (boss.convo2.currentFrameLabel == "cameraToHero") {
+				vcam.target = hero;
+				hero.convo1.gotoAndPlay("attack");
+			}
+			
+			//Clash Vandheer with Lone Warrior
+			if (boss.convo2.currentFrameLabel == "clash") {
+				hero.convo1.gotoAndPlay("clash");
+				hero.scaleX = -1;
+				vcam.shakeCamera(50);
+				hero.xSpeed = 6;
+				boss.xSpeed = 4;
+				vcam.zoom = .45;
+				particleLayer.addSparks(boss.x+(30 * boss.scaleX), boss.y-53);
+				particleLayer.addSparks(boss.x+(30 * boss.scaleX), boss.y-53);
+				sndCtrl.playSound(sndCtrl.sndHitHard4);
+				sndCtrl.playSound(sndCtrl.sndSoftExplode3);
+				sndCtrl.playSound(sndCtrl.sndDeflect2);
+				
+				var lightning:MovieClip = new LightningClash();
+				game.addChildAt(lightning, game.getChildIndex(boss)+1);
+				lightning.x = boss.x + 30;
+				lightning.y = boss.y;
+			}
+			
+			//repell
+			if (boss.convo2.currentFrameLabel == "repell") {
+				vcam.target = bossCamHelper;
+				bossCamHelper.activated = true;
+				TweenMax.delayedCall(60, startConversation, null, true);
+			}
+		}
+	}
+}
+
+function startConversation():void {
+	bossCamHelper.activated = false;
+	vcam.target = hero;
+	convo.startConvo(); 
+}
+
+function resumeBattle(e:Event):void {
+	hud.fadeinUI();
+	boss.cinemaMode = false;
+	hero.moveable = hero.active = true;
+	boss.gotoAndStop("idle");
+	hero.gotoAndStop("idle");
+	vcam.zoom = 1;
+	bossCamHelper.activated = true;
+	vcam.target = bossCamHelper;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-873 -367|872 -367!872 -367|872 368!872 368|-873 368!-873 368|-873 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="2.55" width="91.1" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.15" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Cinema2&#xD;Control</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,54 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-Shade-Slip" itemID="587a5623-00000de1" lastModified="1484412451">
+  <timeline>
+    <DOMTimeline name="ENV-Shade-Slip">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var isActive:Boolean;
+
+init();
+
+function init():void {
+	hero = MovieClip(parent).hero;
+}
+
+function update():void {
+	if (hero.bound.hitTestObject(this)) {
+		isActive = true;
+	} else {
+		isActive = false;
+	}
+	
+	if (isActive) {
+		if (alpha > 0) alpha -= .05;
+	} else {
+		if (alpha < 1) alpha += .05;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Environemnt/ENV-Shade">
+                  <matrix>
+                    <Matrix tx="-302" ty="-203"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

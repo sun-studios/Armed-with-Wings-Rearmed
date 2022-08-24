@@ -1,0 +1,57 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-S02/LVL-S02-FallTrigger" itemID="5585835a-00002552" lastModified="1485440794">
+  <timeline>
+    <DOMTimeline name="LVL-S02-FallTrigger">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ground:MovieClip;
+var hero:MovieClip;
+
+var flag1:Boolean;
+
+init();
+
+function init():void {
+	ground = MovieClip(parent).ground;
+	hero = MovieClip(parent).hero;
+	
+	flag1 = false;
+}
+
+function update():void {
+	if (hero.bound.hitTestObject(this)) {
+		if (!flag1) {
+			ground.collapseStoneBridge();
+			flag1 = true;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="1.66488647460938" d="3.7156982421875" tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

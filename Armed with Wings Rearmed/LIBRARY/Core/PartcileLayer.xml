@@ -1,0 +1,1008 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Core/PartcileLayer" itemID="54aea39b-00001430" lastModified="1501752935" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="PartcileLayer">
+      <layers>
+        <DOMLayer name="Partcile actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import flash.geom.ColorTransform;
+
+
+var slashesArr:Array = new Array();
+var dustArr:Array = new Array();
+var hitSplashArr:Array = new Array();
+var iceShotArr:Array = new Array();
+var comboArr:Array = new Array();
+var boomArr:Array = new Array();
+var lightningArr:Array = new Array();
+var fireBulletArr:Array = new Array();
+var fireExplodeArr:Array = new Array();
+var pickupPulseArr:Array = new Array();
+var bombArr:Array = new Array();
+var stonesArr:Array = new Array();
+var sparksArr:Array = new Array();
+var textPopArr:Array = new Array();
+var smokeArr:Array = new Array();
+var dashArr:Array = new Array();
+var bonusArr:Array = new Array();
+var orbArr:Array = new Array();
+var rock2Arr:Array = new Array();
+var iceSpikeArr:Array = new Array();
+var flamesArr:Array = new Array();
+var windArr:Array = new Array();
+var energySlashArr:Array = new Array();
+var lightningAuraArr:Array = new Array();
+var awarnessArr:Array = new Array();
+var iceShardArr:Array = new Array();
+var holyDustArr:Array = new Array();
+var bigExplosionArr:Array = new Array();
+var pickupWeaponArr:Array = new Array();
+var waterPrtArr:Array = new Array();
+var ultimateStrikeArr:Array = new Array();
+
+var hero:MovieClip = MovieClip(parent).hero;
+var gameData:MovieClip = MovieClip(root);
+
+function update () {
+	for (var i:Number = 0; i < slashesArr.length; i ++) {
+		var slash:MovieClip = slashesArr[i];
+		slash.update();
+	}
+	
+	for (i = 0; i < dustArr.length; i ++) {
+		var dust:MovieClip = dustArr[i];
+		dust.update();
+	}
+	
+	for (i = 0; i < hitSplashArr.length; i ++) {
+		var hitSplash:MovieClip = hitSplashArr[i];
+		hitSplash.update();
+	}
+	
+	for (i = 0; i < iceShotArr.length; i ++) {
+		var iceShot:MovieClip = iceShotArr[i];
+		//iceShot.update();
+	}
+	
+	for (i = 0; i < comboArr.length; i ++) {
+		var combo:MovieClip = comboArr[i];
+		combo.update();
+	}
+	for (i = 0; i < boomArr.length; i ++) {
+		var boom:MovieClip = boomArr[i];
+		boom.update();
+	}
+	
+	for (i = 0; i < lightningArr.length; i ++) {
+		var lightning:MovieClip = lightningArr[i];
+		lightning.update();
+	}
+	for (i = 0; i < fireBulletArr.length; i ++) {
+		var fireBullet:MovieClip = fireBulletArr[i];
+		fireBullet.update();
+	}
+	for (i = 0; i < fireExplodeArr.length; i ++) {
+		var fireExplode:MovieClip = fireExplodeArr[i];
+		fireExplode.update();
+	}
+	for (i = 0; i < pickupPulseArr.length; i ++) {
+		var pickupPulse:MovieClip = pickupPulseArr[i];
+		pickupPulse.update();
+		
+	}
+	/*
+	for (i = 0; i < bombArr.length; i ++) {
+		var bomb:MovieClip = bombArr[i];
+		if (bomb && bomb.update) bomb.update();
+	}
+	*/
+	for (i = 0; i < stonesArr.length; i ++) {
+		var stone:MovieClip = stonesArr[i];
+		if (stone && stone.update) stone.update();
+	}
+	for (i = 0; i < sparksArr.length; i ++) {
+		var spark:MovieClip = sparksArr[i];
+		if (spark && spark.update) spark.update();
+	}
+	
+	for (i = 0; i < textPopArr.length; i ++) {
+		var _textPop:MovieClip = textPopArr[i];
+		if (_textPop && _textPop.update) _textPop.update();
+	}
+	
+	for (i = 0; i < smokeArr.length; i ++) {
+		var smoke:MovieClip = smokeArr[i];
+		if (smoke && smoke.update) smoke.update();
+	}
+	
+	for (i = 0; i < dashArr.length; i ++) {
+		var dash:MovieClip = dashArr[i];
+		if (dash && dash.update) dash.update();
+	}
+	for (i = 0; i < bonusArr.length; i ++) {
+		var bonus:MovieClip = bonusArr[i];
+		if (bonus && bonus.update) bonus.update();
+	}
+	for (i = 0; i < orbArr.length; i ++) {
+		var orb:MovieClip = orbArr[i];
+		if (orb && orb.update) orb.update();
+	}
+	
+	/*
+	for (i = 0; i < rock2Arr.length; i ++) {
+		var rock2:MovieClip = rock2Arr[i];
+		if (rock2 && rock2.update) rock2.update();
+	}
+	
+	for (i = 0; iceSpikeArr.length; i ++) {
+		var iceSpike:MovieClip = iceSpikeArr[i];
+		if (iceSpike && iceSpike.update) iceSpike.update();
+	}
+	*/
+	for (i = 0; i < flamesArr.length; i ++) {
+		var flames:Object = flamesArr[i];
+		if (flames) {
+			flames.y -=2;
+			//flames.update();
+		}
+	}
+	for (i = 0; i < windArr.length; i ++) {
+		var wind:MovieClip = windArr[i];
+		if (wind && wind.update) wind.update();
+	}
+	for (i = 0; i < energySlashArr.length; i ++) {
+		var energySlash:MovieClip = energySlashArr[i];
+		if (energySlash && energySlash.update) energySlash.update();
+	}
+	for (i = 0; i < lightningAuraArr.length; i ++) {
+		var lightningAura:MovieClip = lightningAuraArr[i];
+		if (lightningAura && lightningAura.update) lightningAura.update(); 
+	}
+	for (i = 0; i < awarnessArr.length; i ++) {
+		var awarness:MovieClip = awarnessArr[i];
+		if (awarness && awarness.update) awarness.update();
+	}
+	for (i = 0; i <iceShardArr.length; i ++) {
+		var iceShard:MovieClip = iceShardArr[i];
+		if (iceShard && iceShard.update) iceShard.update();
+	}
+	
+	for (i = 0; i <holyDustArr.length; i ++) {
+		var holyDust:MovieClip = holyDustArr[i];
+		if (holyDust && holyDust.update) holyDust.update();
+	}
+	
+	for (i = 0; i < bigExplosionArr.length; i ++) {
+		var bigExplosion:MovieClip = bigExplosionArr[i];
+		if (bigExplosion) bigExplosion.update();
+	}
+	for (i = 0; i <pickupWeaponArr.length; i ++) {
+		var pickupWeapon:MovieClip = pickupWeaponArr[i];
+		if (pickupWeapon && pickupWeapon.update) pickupWeapon.update();
+	}
+	
+	for (i = 0; i <waterPrtArr.length; i ++) {
+		var water:MovieClip = waterPrtArr[i];
+		if (water && water.update) water.update();
+	}
+	
+	for (i = 0; i < ultimateStrikeArr.length; i ++) {
+		var ring:MovieClip = ultimateStrikeArr[i];
+		if (ring && ring.update) ring.update();
+	}
+}
+
+
+
+function addSlash(frameNum:Number, obj:MovieClip = null):void {
+	
+	if (gameData.data_particlesEnabled) {
+		if (obj == null) obj = hero;
+		
+		var newSlash:MovieClip = new Slashes();
+		this.addChild(newSlash);
+		newSlash.gotoAndStop(frameNum);
+		newSlash.x = obj.x - (8.75*obj.scaleX);
+		newSlash.y = obj.y - 36.1;
+		newSlash.scaleX = obj.scaleX;
+		newSlash.init(obj);
+		slashesArr.push(newSlash);
+		
+		//var glow:GlowFilter = new GlowFilter(0xffffff, 1, 7, 7, 1, 1);
+		//newSlash.filters = [glow];
+	}
+}
+
+function removeFromSlashesArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < slashesArr.length; i++) {
+		var slash:MovieClip = slashesArr[i];
+		if (obj == slash) {
+			slashesArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addDust(frameNum:Number, X:Number, Y:Number, dir:int, _yscale:Number = 1):MovieClip {
+	if (gameData.data_particlesEnabled) {
+		var newDust:MovieClip = new Dust();
+		this.addChild(newDust);
+		newDust.gotoAndStop(frameNum);
+		newDust.x = X;
+		newDust.y = Y;
+		newDust.scaleX = dir;
+		newDust.scaleY = _yscale;
+		dustArr.push(newDust);
+		return newDust;
+	} else {
+		return null;
+	}
+}
+
+function removeFromDustArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < dustArr.length; i++) {
+		var dust:MovieClip = dustArr[i];
+		if (obj == dust) {
+			dustArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addPowerStrike(type:String, X:Number, Y:Number, dir:int, _yscale:Number = 1):void {
+	var clip:MovieClip;
+	switch (type) {
+		case "HARD":
+			clip = new PowerStrikeHard();
+			break;
+		case "MED":
+			clip = new PowerStrikeMed();
+			break;
+		case "HOR":
+			clip = new PowerStrikeHor();
+			break;
+		case "UP":
+			clip = new PowerStrikeUp();
+			break;
+		case "AIR":
+			clip = new PowerStrikeAir();
+			break;
+	}
+	
+	this.addChild(clip);
+	clip.x = X;
+	clip.y = Y;
+	clip.scaleX = dir;
+	clip.scaleY = _yscale;
+}
+
+function addHitSplash(obj1:MovieClip, obj2:MovieClip, scale:Number = 1):void {
+	if (gameData.data_particlesEnabled) {
+		var clip:MovieClip = new HitSplash();
+		this.addChild(clip);
+		
+		var X:Number = obj2.x - obj1.x;
+		var Y:Number = obj2.y - obj1.y;
+		
+		clip.x = obj1.x + X;
+		clip.y = obj1.y + Y -50;
+		
+		clip.scaleX = clip.scaleY = scale;
+		
+		hitSplashArr.push(clip);
+	}
+}
+
+function removeHitSplash(obj:MovieClip):void {
+	for (var i:Number = 0; i < hitSplashArr.length; i++) {
+		var hitSplash:MovieClip = hitSplashArr[i];
+		if (obj == hitSplash) {
+			hitSplashArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addIceShot(X:Number, Y:Number, dir:int, _ctrl:PlayerControl = null):MovieClip {
+	var clip:MovieClip = new IceShot();
+	this.addChild(clip);
+	clip.x = X;
+	clip.y = Y;
+	clip.scaleX = dir;
+	iceShotArr.push(clip);
+	if (_ctrl != null)
+		clip.ctrl = _ctrl;
+	return clip;
+}
+
+function removeFromIceShotArr(obj:MovieClip):void {
+	for (var i:int = 0; i < iceShotArr.length; i ++) {
+		var iceShot:MovieClip = iceShotArr[i];
+		if (obj == iceShot) {
+			iceShotArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addCombo(X:Number, Y:Number, dir:int):void {
+	if (gameData.data_particlesEnabled) {
+		var clip:MovieClip = new ComboPop();
+		this.addChild(clip);
+		clip.x = X+ (Math.random()*30) - (Math.random()*30);
+		clip.y = Y + (Math.random()*40) - (Math.random()*30);
+		clip.scaleX = dir;
+		clip.gotoAndPlay(2);
+		clip.rotation = 0 + (Math.random()*15) - (Math.random()*15);
+		clip.init();
+		comboArr.push(clip);
+	}
+}
+
+function removeFromComboArr(obj:MovieClip):void {
+	for (var i:int = 0; i < comboArr.length; i ++) {
+		var combo:MovieClip = comboArr[i];
+		if (obj == combo) {
+			comboArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addBonus(X:Number, Y:Number, dir:int, type:String):MovieClip {
+	var clip:MovieClip = new BonusPop();
+	MovieClip(parent).addChild(clip);
+	clip.x = X+ (Math.random()*30) - (Math.random()*30);
+	clip.y = Y + (Math.random()*40) - (Math.random()*30);
+	clip.scaleX = dir;
+	clip.gotoAndPlay(2);
+	clip.rotation = 0 + (Math.random()*15) - (Math.random()*15);
+	clip.init(type);
+	bonusArr.push(clip);
+	return clip;
+}
+
+function removeFromBonusArr(obj:MovieClip):void {
+	for (var i:int = 0; i < bonusArr.length; i ++) {
+		var bonus:MovieClip = bonusArr[i];
+		if (obj == bonus) {
+			bonusArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addBoom(X:Number, Y:Number, dir:int, from:MovieClip):void {
+	var clip:MovieClip = new Boom();
+	MovieClip(parent).addChild(clip);
+	clip.x = X;
+	clip.y = Y;
+	clip.scaleX = dir;
+	clip.master = from;
+	clip.init();
+	boomArr.push(clip);
+}
+
+function removeFromBoomArr(obj:MovieClip):void {
+	for (var i:int = 0; i < boomArr.length; i ++) {
+		var boom:MovieClip = boomArr[i];
+		if (obj == boom) {
+			boomArr.splice(i, 1);
+			break;
+		}
+	}
+}
+function removeAllBoom():void {
+	if (boomArr) {
+		for (var i:int = 0; i < boomArr.length; i ++) {
+			var boom:MovieClip = boomArr[i];
+			if (boom) {
+				boom.kill();
+			}
+		}
+		boomArr = [];
+	}
+}
+
+function addLightning(X:Number, Y:Number):void {
+	var lightning:MovieClip = new Lightning();
+	this.addChild(lightning);
+	lightning.x = X;
+	lightning.y = Y;
+	lightningArr.push(lightning);
+}
+
+function removeFromLightningArr(obj:MovieClip):void {
+	for (var i:int = 0; i < lightningArr.length; i ++) {
+		var lightning:MovieClip = lightningArr[i];
+		if (obj == lightning) {
+			lightningArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addFireBullet(X:Number, Y:Number, dir:int):void {
+	var fireBullet:MovieClip = new FireBullet();
+	this.addChild(fireBullet);
+	fireBullet.x = X;
+	fireBullet.y = Y;
+	fireBulletArr.push(fireBullet);
+	fireBullet.scaleX = dir;
+}
+
+function removeFireBulletArr(obj:MovieClip):void {
+	for (var i:int = 0; i < fireBulletArr.length; i ++) {
+		if (obj == fireBulletArr[i]) {
+			fireBulletArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addFireExplode(X:Number, Y:Number, dir:int):void {
+	var fireExplode:MovieClip = new FireExplode();
+	this.addChild(fireExplode);
+	fireExplode.x = X;
+	fireExplode.y = Y;
+	fireExplodeArr.push(fireExplode);
+	fireExplode.scaleX = dir;
+}
+
+function removeFireExplodeArr(obj:MovieClip):void {
+	for (var i:int = 0; i < fireExplodeArr.length; i ++) {
+		if (obj == fireExplodeArr[i]) {
+			fireExplodeArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addPulse(X:Number, Y:Number):void {
+	var pulse:MovieClip = new PickupPulse();
+	this.addChild(pulse);
+	pulse.x = X;
+	pulse.y = Y;
+	pickupPulseArr.push(pulse);
+}
+
+function removePulseArr(obj:MovieClip):void {
+	for (var i:int = 0; i < pickupPulseArr.length; i ++) {
+		if (obj == pickupPulseArr[i]) {
+			pickupPulseArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addBomb(X:Number, Y:Number, dir:int = 1, _hero:MovieClip = null):MovieClip {
+	var bomb:MovieClip = new Bomb();
+	MovieClip(parent).addChild(bomb);	
+	bomb.x = X;
+	bomb.y = Y;
+	bomb.cDir = dir;
+	bomb.init(_hero);
+	MovieClip(parent).enemiesArr.push(bomb);
+	return bomb;
+}
+
+function removeBombArr(obj:MovieClip):void {
+	for (var i:int = 0; i < MovieClip(parent).enemiesArr.length; i ++) {
+		if (obj == MovieClip(parent).enemiesArr[i]) {
+			MovieClip(parent).enemiesArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addStone(X:Number, Y:Number, xSpeed:Number = 9, ySpeed:Number = 24):MovieClip {
+	
+	var stone:MovieClip = new Stones();
+	addChild(stone);	
+	stone.x = X;
+	stone.y = Y;
+	stone.init(xSpeed, ySpeed);
+	stonesArr.push(stone);
+	return stone;
+}
+
+function removeStoneArr(obj:MovieClip):void {
+	for (var i:int = 0; i < stonesArr.length; i ++) {
+		if (obj == stonesArr[i]) {
+			stonesArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addSparks(X:Number, Y:Number):MovieClip {
+	var sparks:MovieClip = new Sparks();
+	addChild(sparks);
+	sparks.x = X;
+	sparks.y = Y;
+	sparks.init();
+	sparksArr.push(sparks);
+	return sparks;
+}
+function removeSparksArr(obj:MovieClip):void {
+	for (var i:int = 0; i < sparksArr.length; i ++) {
+		if (obj == sparksArr[i]) {
+			sparksArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addTextPop(X:Number, Y:Number, data:String, convo:Boolean = false, obj:MovieClip = null) {
+	var textPop:MovieClip;
+	if (convo) {
+		textPop = new TextPopConvo();
+	} else {
+		textPop = new TextPop();
+	}
+		
+	MovieClip(parent).addChild(textPop);
+	textPop.x = X;
+	textPop.y = Y;
+	textPop.init(data);
+	if (obj) {
+		textPop.followClip = obj;
+	}
+	textPopArr.push(textPop);
+	return textPop;
+}
+function removeTextPopArr(obj:MovieClip):void {
+	for (var i:int = 0; i < textPopArr.length; i ++) {
+		if (obj == textPopArr[i]) {
+			textPopArr.splice(i,1);
+			break;
+		}
+	}
+}
+function addSmoke(X:Number, Y:Number, dir:Number, dirY:Number):void {
+	if (gameData.data_particlesEnabled) {
+		var newSmoke:MovieClip = new Smoke();
+		this.addChild(newSmoke);
+		newSmoke.gotoAndStop(Math.ceil(Math.random()*newSmoke.totalFrames));
+		newSmoke.x = X;
+		newSmoke.y = Y;
+		newSmoke.scaleX = dir;
+		newSmoke.scaleY = dirY;
+		newSmoke.alpha = .5;
+		smokeArr.push(newSmoke);
+	}
+}
+
+function removeFromSmokeArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < smokeArr.length; i++) {
+		var smoke:MovieClip = smokeArr[i];
+		if (obj == smoke) {
+			smokeArr.splice(i,1);
+			break;
+		}
+	}
+}
+function addDash(X:Number, Y:Number, dir:Number, obj:MovieClip = null):void {
+	var newDash:MovieClip = new Dash();
+	this.addChild(newDash);
+	newDash.x = X;
+	newDash.y = Y;
+	newDash.scaleX = dir;
+	newDash.master = obj;
+	dashArr.push(newDash);
+}
+
+function removeFromDashArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < dashArr.length; i++) {
+		var dash:MovieClip = dashArr[i];
+		if (obj == dash) {
+			dashArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addOrb(ammount:Number, from:MovieClip):void {
+	//if (MovieClip(root).gameMode == "SURVIVAL") {
+		
+	//} else {
+		var orb:MovieClip;
+		for (var i:int = 0; i < ammount; i ++) {
+			orb = new OrbPhysics();
+			MovieClip(parent).addChildAt(orb, MovieClip(parent).getChildIndex(from));
+			orb.x = from.x;
+			orb.y = from.y - from.bound.height*.35;
+			orb.spawn(from.xSpeed*(Math.random()), from.ySpeed*(Math.random()));
+			orbArr.push(orb);
+		}
+	//}
+}
+function removeOrbFromArr(obj:MovieClip):void {
+	for (var i:int = 0; i < orbArr.length; i ++) {
+		var orb:MovieClip = orbArr[i];
+		if (orb == obj) {
+			orbArr.splice(i,1);
+			break;
+		}
+	}
+}
+function removeAllOrbs():void {
+	if (orbArr) {
+		for (var i:int = 0; i < orbArr.length; i ++) {
+			var orb:MovieClip = orbArr[i];
+			if (orb) {
+				orb.kill();
+			}
+		}
+		orbArr = [];
+	}
+}
+
+
+function addRock2(X:Number, Y:Number, _xSpeed:Number, _ySpeed:Number,dir:int = 1):MovieClip {
+	var rock2:MovieClip = new Rock2();
+	MovieClip(parent).addChild(rock2);	
+	rock2.x = X;
+	rock2.y = Y;
+	rock2.cDir = dir;
+	rock2.init();
+	
+	TweenMax.delayedCall(2, function () {
+		rock2.xSpeed = _xSpeed;
+		rock2.ySpeed = _ySpeed;
+	},null, true);
+		
+	MovieClip(parent).enemiesArr.push(rock2);
+	rock2Arr.push(rock2);
+	return rock2;
+}
+
+function removeRock2Arr(obj:MovieClip):void {
+	for (var i:int = 0; i < MovieClip(parent).enemiesArr.length; i ++) {
+		if (obj == MovieClip(parent).enemiesArr[i]) {
+			MovieClip(parent).enemiesArr.splice(i, 1);
+		}
+	}
+	
+	for (i = 0; i < rock2Arr.length; i ++) {
+		if (obj == rock2Arr[i]) {
+			rock2Arr.splice(i, 1);
+		}
+	}
+}
+
+function removeAllRocks2():void {
+	if (rock2Arr) {
+		for (var i:int = 0; i < rock2Arr.length; i ++) {
+			var rock2:MovieClip = rock2Arr[i];
+			if (rock2) {
+				rock2.kill();
+			}
+		}
+		orbArr = [];
+	}
+}
+
+function addIceSpike(X:Number, Y:Number, _xSpeed:Number, _ySpeed:Number,dir:int = 1, _master:MovieClip = null):MovieClip {
+	var iceSpike:MovieClip = new IceSpike();
+	addChild(iceSpike);	
+	iceSpike.x = X;
+	iceSpike.y = Y;
+	iceSpike.cDir = dir;
+	if (_master != null) iceSpike.master = _master;
+	iceSpike.init(_master.control);
+		
+	MovieClip(parent).enemiesArr.push(iceSpike);
+	iceSpikeArr.push(iceSpike);
+	return iceSpike;
+}
+
+function removeIceSpikeArr(obj:MovieClip):void {
+	for (var i:int = 0; i < MovieClip(parent).enemiesArr.length; i ++) {
+		if (obj == MovieClip(parent).enemiesArr[i]) {
+			MovieClip(parent).enemiesArr.splice(i, 1);
+			break;
+		}
+	}
+	
+	for (i = 0; i < iceSpikeArr.length; i ++) {
+		if (obj == iceSpikeArr[i]) {
+			
+			iceSpikeArr.splice(i, 1);
+			break;
+		}
+	}
+}
+
+function addFlames(X:Number, Y:Number, dir:Number, dirY:Number):void {
+	if (gameData.data_particlesEnabled) {
+		if (addFlames.length < 20) {
+			var newFlame:MovieClip;
+			switch (Math.floor(Math.random()*4)) {
+				case 0: newFlame = new Flame0(); break;
+				case 1: newFlame = new Flame1(); break;
+				case 2: newFlame = new Flame2(); break;
+				case 3: newFlame = new Flame3(); break;
+			}
+			this.addChild(newFlame);
+			
+			var tintVal:Number = Math.random();
+			if (Math.random() < .5)
+				newFlame.transform.colorTransform = new ColorTransform(tintVal,tintVal,tintVal);
+			
+			newFlame.x = X;
+			newFlame.y = Y;
+			newFlame.scaleX = dir;
+			newFlame.scaleY = dirY;
+			flamesArr.push(newFlame);
+		}
+	}
+}
+
+function removeFromFlamesArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < flamesArr.length; i++) {
+		var flame:MovieClip = flamesArr[i];
+		if (obj == flame) {
+			flamesArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addWind(X:Number, Y:Number, dir:Number, endPoint:Number, master:MovieClip):void {
+	var wind:MovieClip = new Wind();
+	this.addChild(wind);
+	wind.endPoint = endPoint;
+	wind.x = X;
+	wind.y = Y;
+	wind.scaleX = dir;
+	wind.master = master;
+	wind.init();
+	windArr.push(wind);
+}
+function removeFromWindArr(obj:MovieClip):void {
+	for (var i:int = 0; i < windArr.length; i ++) {
+		var wind:MovieClip = windArr[i];
+		if (obj == wind) {
+			windArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addEnergySlash(X:Number, Y:Number, dir:Number, _life:Number = 20, _rSpeed:Number = 10, _scaleX:Number = 1, _scaleY:Number = 1):MovieClip {
+	var clip:MovieClip = new EnergySlash();
+	MovieClip(parent).addChild(clip);
+	clip.x = X;
+	clip.y = Y;
+	clip.scaleX = dir;
+	//clip.master = master;
+	clip.init(_life, _rSpeed, _scaleX, _scaleY);
+	energySlashArr.push(clip);
+	
+	return clip;
+}
+function removeFromEnergySlashArr(obj:MovieClip):void {
+	for (var i:int = 0; i < energySlashArr.length; i ++) {
+		var clip:MovieClip = energySlashArr[i];
+		if (obj == clip) {
+			energySlashArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addLightningAura(X:Number, Y:Number, dir:int, _yscale:Number = 1):MovieClip {
+	var lightningAura:MovieClip = new LightningAura();
+	MovieClip(parent).addChild(lightningAura);
+	lightningAura.x = X;
+	lightningAura.y = Y;
+	lightningAura.scaleX = dir;
+	lightningAura.scaleY = _yscale;
+	lightningAuraArr.push(lightningAura);
+	return lightningAura;
+}
+function removeFromLightningAura(obj:MovieClip):void {
+	for (var i:Number = 0; i < lightningAuraArr.length; i++) {
+		var lightningAura:MovieClip = lightningAuraArr[i];
+		if (obj == lightningAura) {
+			lightningAuraArr.splice(i,1);
+			break;
+		}
+	}
+}
+function addAwarness(target:MovieClip, id:Number = 0, follow:Boolean = false):MovieClip {
+	var awarness:MovieClip = new AwareMark();
+	this.addChild(awarness);
+	awarness.x = target.x + ((Math.random()-Math.random())*30);
+	awarness.y = target.y - (target.height) + ((Math.random()-Math.random())*15);
+	awarness.scaleX = .8+(Math.random()*.4);
+	awarness.scaleY = .8+(Math.random()*.4);
+	awarness.rotation += (Math.random()-Math.random())*20;
+	awarnessArr.push(awarness);
+	awarness.init(id, target, follow);
+	return awarness;
+}
+
+function removeFromAwarnessArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < awarnessArr.length; i++) {
+		var awarness:MovieClip = awarnessArr[i];
+		if (obj == awarness) {
+			awarnessArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addIceShard(X:Number, Y:Number,_xscale:Number = 1, _yscale:Number = 1):MovieClip {
+	var iceShard:MovieClip = new IceShard();
+	addChild(iceShard);
+	iceShard.x = X;
+	iceShard.y = Y;
+	iceShard.scaleX = _xscale;
+	iceShard.scaleY = _yscale;
+	iceShard.init((Math.random()-Math.random())*18, Math.random()*30); 
+	iceShardArr.push(iceShard);
+	return iceShard;
+}
+function removeFromIceShard(obj:MovieClip):void {
+	for (var i:Number = 0; i < iceShardArr.length; i++) {
+		var iceShard:MovieClip = iceShardArr[i];
+		if (obj == iceShard) {
+			iceShardArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addHolyDust(X:Number, Y:Number, S:Number):MovieClip {
+	if (gameData.data_particlesEnabled) {
+		var newDust:MovieClip = new HolyDust();
+		this.addChild(newDust);
+		newDust.x = X;
+		newDust.y = Y;
+		newDust.scaleX = newDust.scaleY = S;
+		holyDustArr.push(newDust);
+		return newDust;
+	} else {
+		return null;
+	}
+}
+
+function removeFromHolyDustArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < holyDustArr.length; i++) {
+		var dust:MovieClip = holyDustArr[i];
+		if (obj == dust) {
+			holyDustArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addBigExplosion(X:Number, Y:Number):void {
+	var bigExplosion:MovieClip = new BigExplosion();
+	this.addChild(bigExplosion);
+	bigExplosion.x = X;
+	bigExplosion.y = Y;
+	bigExplosion.init();
+	
+	bigExplosionArr.push(bigExplosion);
+}
+
+function removeFromBigExplosion(obj:MovieClip):void {
+	for (var i:Number = 0; i < bigExplosionArr.length; i ++) {
+		var bigExplosion:MovieClip = bigExplosionArr[i];
+		if (obj == bigExplosion) {
+			bigExplosionArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addpickupWeapon(X:Number, Y:Number, xSpeed:Number, ySpeed:Number, weaponID:Number):MovieClip {
+	var newpickupWeapon:MovieClip = new PickupWeapon();
+	MovieClip(parent).addChild(newpickupWeapon);
+	newpickupWeapon.x = X;
+	newpickupWeapon.y = Y;
+	newpickupWeapon.xSpeed = xSpeed*1.5;
+	newpickupWeapon.ySpeed = ySpeed*.8;
+	
+	pickupWeaponArr.push(newpickupWeapon);
+	newpickupWeapon.id = weaponID;
+	newpickupWeapon.instantiated = true;
+	return newpickupWeapon;
+}
+function removeFromPickupWeapon(obj:MovieClip):void {
+	for (var i:Number = 0; i < pickupWeaponArr.length; i++) {
+		var pickUp:MovieClip = pickupWeaponArr[i];
+		if (obj == pickUp) {
+			pickupWeaponArr.splice(i,1);
+			break;
+		}
+	}
+}
+function removeAllPickups():void {
+	if (pickupWeaponArr) {
+		for (var i:int = 0; i < pickupWeaponArr.length; i ++) {
+			var pickUp:MovieClip = pickupWeaponArr[i];
+			if (pickUp) {
+				pickUp.kill();
+			}
+		}
+		pickupWeaponArr = [];
+	}
+}
+
+function addWaterPrt(X:Number, Y:Number, dir:int, _yscale:Number = 1):MovieClip {
+	if (gameData.data_particlesEnabled) {
+	var water:MovieClip = new WaterParticles();
+	this.addChild(water);
+	water.x = X;
+	water.y = Y;
+	water.scaleX = dir;
+	water.scaleY = _yscale;
+	water.init();
+	waterPrtArr.push(water);
+	return water;
+	} else {
+		return null;
+	}
+}
+
+function removeFromWaterPrtArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < waterPrtArr.length; i++) {
+		var water:MovieClip = waterPrtArr[i];
+		if (obj == water) {
+			waterPrtArr.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addUltimateStrikeRing(X:Number, Y:Number):MovieClip {
+	var ring:MovieClip = new UltimateStrikeRing();
+	this.addChild(ring);
+	ring.x = X;
+	ring.y = Y;
+	ring.init();
+	
+	ultimateStrikeArr.push(ring);
+	return ring;
+}
+function removeFromUltimateStrikeArr(obj:MovieClip):void {
+	for (var i:Number = 0; i < ultimateStrikeArr.length; i++) {
+		var ring:MovieClip = ultimateStrikeArr[i];
+		if (obj == ring) {
+			ultimateStrikeArr.splice(i,1);
+			break;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Core/ParticleHelper" centerPoint3DX="-576.95" centerPoint3DY="-416">
+                  <matrix>
+                    <Matrix tx="-576.95" ty="-416"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

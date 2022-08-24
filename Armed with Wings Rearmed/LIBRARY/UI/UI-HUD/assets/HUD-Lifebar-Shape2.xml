@@ -1,0 +1,59 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/assets/HUD-Lifebar-Shape2" itemID="593ab3ff-00000dbd" symbolType="graphic" lastModified="1497019391">
+  <timeline>
+    <DOMTimeline name="HUD-Lifebar-Shape2">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/New Style Lines/Symbol 1">
+                  <matrix>
+                    <Matrix a="0.867950439453125" d="0.867950439453125" tx="159.9" ty="43.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="6" blurY="6" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.5"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#424242" alpha="0.8" colorReferenceID="1"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!6502 680|7182 0!7182 0|-132 0!-132 0|-132 1068!-132 1068|4904 1068!4904 1068|5292 680!5292 680|6502 680"/>
+                    <Edge cubics="!6502 680(;6502,680 5292,680 5292,680q6502 680 5292 680);"/>
+                    <Edge cubics="!4904 1068(;4904,1068 5292,680 5292,680q4904 1068 5292 680);"/>
+                    <Edge cubics="!6502 680(;6502,680 7182,0 7182,0q6502 680 7182 0);"/>
+                    <Edge cubics="!-132 0(;-132,0 -132,1068 -132,1068q-132 0 -132 1068);"/>
+                    <Edge cubics="!-132 1068(;-132,1068 4904,1068 4904,1068q-132 1068 4904 1068);"/>
+                    <Edge cubics="!7182 0(;7182,0 -132,0 -132,0q7182 0 -132 0);"/>
+                    <Edge cubics="!1224 1635(;1224,1635 1460,1400 1460,1400q1224 1635 1460 1400);"/>
+                    <Edge cubics="!-185 1635(;-185,1635 1224,1635 1224,1635q-185 1635 1224 1635);"/>
+                    <Edge cubics="!1224 1164(;1224,1164 -185,1164 -185,1164q1224 1164 -185 1164);"/>
+                    <Edge cubics="!1224 1164(;1224,1164 1460,1400 1460,1400q1224 1164 1460 1400);"/>
+                    <Edge cubics="!-185 1164(;-185,1164 -185,1635 -185,1635q-185 1164 -185 1635);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

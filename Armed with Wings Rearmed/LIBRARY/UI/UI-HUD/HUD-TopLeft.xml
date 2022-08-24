@@ -1,0 +1,369 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-TopLeft" itemID="56dd4778-00000a65" lastModified="1501737875" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="HUD-TopLeft" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-301&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Elastic;
+import flash.events.Event;
+
+var gameData:MovieClip;
+var fadein:Boolean;
+var roundScore:Number = 0;
+var hero:MovieClip;
+var eagle:MovieClip;
+var gameRef:MovieClip;
+var isEagle:Boolean;
+
+init();
+heroCtrl.init(0);
+boosterCtrl.init(0);
+
+function init ():void {
+	fadein = true;
+	isEagle = false;
+	gameData = MovieClip(root);
+	TweenMax.delayedCall(2, function () {heroCtrl.update(); boosterCtrl.update();}, null, true);
+	gameData.addEventListener("GEARCHANGED", gearChanged);
+	compareClip.init();
+}
+
+function gearChanged (e:Event):void {
+	heroCtrl.update();
+	boosterCtrl.update();
+}
+
+function update():void {
+	if (fadein) {
+		if (alpha < 1) alpha += .1;
+	} else {
+		if (alpha > 0) alpha -= .1;
+	}
+	heroCtrl.fadeUpdate();
+	eagleCtrl.update();
+	compareClip.update();
+	
+	roundPoints();
+	
+}
+
+function updatePlayerSwitch(_isEagle:Boolean = false):void {
+	isEagle = _isEagle;
+	if (isEagle) {
+		TweenMax.to(boosterCtrl, 80, {x:177.75, ease:Elastic.easeOut, useFrames:true});
+		heroCtrl.fadein = false;
+		eagleCtrl.fadein = true;
+		boosterCtrl.updateEagle(true);
+	} else {
+		TweenMax.to(boosterCtrl, 80, {x:144, ease:Elastic.easeOut, useFrames:true});
+		heroCtrl.fadein = true;
+		eagleCtrl.fadein = false;
+		boosterCtrl.updateEagle(false);
+	}
+}
+
+function updateRefs(_hero:MovieClip, _eagle:MovieClip, gameRef:MovieClip):void {
+	hero = _hero;
+	eagle = _eagle;
+	gameRef = gameRef;
+	eagleCtrl.updateRefs(hero, eagle, gameRef);
+	
+	lifeBar.init(hero);
+	guardBar.init(hero);
+}
+
+function roundPoints():void {
+	if (gameData.gameMode == gameData.MULTIPLAYER) {
+		for (var i:int = 0; i < 3; i ++) {
+			if (i < roundScore) {
+				this["roundPoint"+i].gotoAndStop(1);
+			} else {
+				this["roundPoint"+i].gotoAndStop(2);
+			}
+			
+			//show only 2 rounds on tournament
+			
+			if (i >= gameData.sessionVSRounds) this["roundPoint"+i].visible = false;
+			
+		}
+	} else {
+		roundBG.visible = false;
+		roundPoint0.visible = false;
+		roundPoint1.visible = false;
+		roundPoint2.visible = false;
+	}
+}
+
+function kill():void {
+	gameData.removeEventListener("GEARCHANGED", gearChanged);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-CompareGear" name="compareClip" selected="true">
+                  <matrix>
+                    <Matrix tx="9.65" ty="335.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="144" y="21.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Boosters" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-BoostersMain" name="boosterCtrl" blendMode="layer">
+                  <matrix>
+                    <Matrix a="1.11386108398438" d="1.11386108398438" tx="144" ty="410.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Eagle Ctrl" color="#808080" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 5" name="eagleCtrl">
+                  <matrix>
+                    <Matrix ty="450"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="VS Points" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-Round" name="roundPoint0">
+                  <matrix>
+                    <Matrix tx="266.6" ty="51.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-Round" name="roundPoint1">
+                  <matrix>
+                    <Matrix tx="276.6" ty="51.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-Round" name="roundPoint2">
+                  <matrix>
+                    <Matrix tx="286.6" ty="51.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="MainCtrl" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-SurvivalRouge" name="heroCtrl" blendMode="layer">
+                  <matrix>
+                    <Matrix ty="450"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Lives" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/UI-Lives" name="lives">
+                  <matrix>
+                    <Matrix a="1.1214599609375" d="1.1214599609375" tx="12.95" ty="71.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Health Bars" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LifeBar/UI-LifeBar" name="lifeBar" centerPoint3DX="181.85" centerPoint3DY="16.95">
+                  <matrix>
+                    <Matrix tx="181.85" ty="16.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/UI-HUD-LifeBar2.0" name="guardBar">
+                  <matrix>
+                    <Matrix tx="23.5" ty="40.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="116.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#333333"/>
+                        </FillStyle>
+                      </fills>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal" weight="0.1">
+                            <fill>
+                              <SolidColor color="#999999"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge fillStyle1="1" strokeStyle="1" edges="!143 734[215 711 240 679!240 679[264 711 336 734!336 734[327 856 240 903!240 903[152 856 143 734"/>
+                        <Edge cubics="!240 903(;298,872 330,815 336,734q240 903Q327 856q336 734);"/>
+                        <Edge cubics="!240 903(;181,872 149,815 143,734q240 903Q152 856q143 734);"/>
+                        <Edge cubics="!240 679(;256,700 288,719 336,734q240 679Q264 711q336 734);"/>
+                        <Edge cubics="!143 734(;191,719 224,700 240,679q143 734Q215 711q240 679);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#333333"/>
+                        </FillStyle>
+                      </fills>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal" weight="0.1">
+                            <fill>
+                              <SolidColor color="#999999"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge fillStyle1="1" strokeStyle="1" edges="!338 205|407 205!407 205|407 275!407 275|473 275!473 275|473 345!473 345|407 345!407 345|407 417!407 417|338 417!338 417|338 345!338 345|262 345!262 345|262 275!262 275|338 275!338 275|338 205"/>
+                        <Edge cubics="!338 205(;338,205 407,205 407,205q338 205 407 205);"/>
+                        <Edge cubics="!407 205(;407,205 407,275 407,275q407 205 407 275)407,275;"/>
+                        <Edge cubics="!407 345(;407,345 407,417 407,417q407 345 407 417);"/>
+                        <Edge cubics="!407 417(407,417;407,417 338,417 338,417q407 417 338 417);"/>
+                        <Edge cubics="!338 417(338,417;338,417 338,345 338,345q338 417 338 345)338,345;"/>
+                        <Edge cubics="!338 275(;338,275 338,205 338,205q338 275 338 205)338,205;"/>
+                        <Edge cubics="!262 345(;262,345 262,275 262,275q262 345 262 275);"/>
+                        <Edge cubics="!262 275(262,275;262,275 338,275 338,275q262 275 338 275)338,275;"/>
+                        <Edge cubics="!407 275(;407,275 473,275 473,275q407 275 473 275);"/>
+                        <Edge cubics="!473 275(473,275;473,275 473,345 473,345q473 275 473 345);"/>
+                        <Edge cubics="!473 345(;473,345 407,345 407,345q473 345 407 345)407,345;"/>
+                        <Edge cubics="!338 345(338,345;338,345 262,345 262,345q338 345 262 345)262,345;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-Rounds-Shape" name="roundBG">
+                  <matrix>
+                    <Matrix tx="243.85" ty="37.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="37.45" y="12.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="BGs" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient colorReferenceID="2">
+                            <matrix>
+                              <Matrix a="0.0692138671875" d="0.028045654296875" tx="227.8" ty="-22.8"/>
+                            </matrix>
+                            <GradientEntry color="#424242" alpha="0.8" ratio="0"/>
+                            <GradientEntry color="#424242" alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-2 8088|5722 8088!5722 8088|5722 9007!5722 9007|-2 9007!-2 9007|-2 8088"/>
+                        <Edge cubics="!-2 8088(;-2,8088 5722,8088 5722,8088q-2 8088 5722 8088);"/>
+                        <Edge cubics="!-2 9007(;-2,9007 -2,8088 -2,8088q-2 9007 -2 8088);"/>
+                        <Edge cubics="!5722 9007(;5722,9007 -2,9007 -2,9007q5722 9007 -2 9007);"/>
+                        <Edge cubics="!5722 8088(;5722,8088 5722,9007 5722,9007q5722 8088 5722 9007);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/New Style Lines/Symbol 4">
+                  <matrix>
+                    <Matrix a="0" b="-0.805923461914063" c="0.805923461914063" d="0" tx="-0.1" ty="404.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.5" y="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="6" blurY="6" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-Lifebar-Shape" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point x="182.85" y="26.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

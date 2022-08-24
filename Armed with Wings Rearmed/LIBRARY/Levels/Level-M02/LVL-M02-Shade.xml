@@ -1,0 +1,70 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-M02/LVL-M02-Shade" itemID="582819f8-00000c8e" lastModified="1481202494">
+  <timeline>
+    <DOMTimeline name="LVL-M02-Shade">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var eagle:MovieClip;
+var isActive:Boolean;
+
+init();
+
+function init():void {
+	eagle = MovieClip(parent).eagle;
+}
+
+function update():void {
+	if (eagle.bound.hitTestObject(this)) {
+		isActive = true;
+	} else {
+		isActive = false;
+	}
+	
+	if (isActive) {
+		if (alpha > 0) alpha -= .05;
+	} else {
+		if (alpha < 1) alpha += .05;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="-0.04400634765625" d="-0.068359375" tx="-96.75" ty="367.2"/>
+                        </matrix>
+                        <GradientEntry ratio="0"/>
+                        <GradientEntry alpha="0" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!1 8464|-2720 8464!-2720 8464|-2720 6224!-2720 6224|-2015 6224"/>
+                    <Edge fillStyle1="1" edges="!-2015 6224|-2015 -6224!-2015 -6224|1760 -6224!1760 -6224|1760 8464!1760 8464|1 8464"/>
+                    <Edge fillStyle0="2" fillStyle1="1" edges="!1 8464|1 6224!1 6224|-2015 6224"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

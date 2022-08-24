@@ -1,0 +1,231 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-PlayerMulti" itemID="572dddcb-00000b85" lastModified="1500989557" lastUniqueIdentifier="19">
+  <timeline>
+    <DOMTimeline name="UI-PlayerMulti" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-187&lt;/guideline&gt;&lt;guideline direction="h"&gt;-234&lt;/guideline&gt;&lt;guideline direction="h"&gt;-242&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var ctrl1:PlayerControl;
+var ctrl2:PlayerControl;
+var _root:MovieClip;
+var sndCtrl:MovieClip;
+var ctrlClip:MovieClip;
+
+var flag:Boolean;
+
+var p1Menu:UIMultiPlayer;
+var p2Menu:UIMultiPlayer;
+
+function init():void {
+	transition.gotoAndPlay(1);
+	
+	ctrl1 = MovieClip(root).player1Control;
+	ctrl2 = MovieClip(root).player2Control;
+	_root = MovieClip(root);
+	
+	p1Menu.init(ctrl1, transition, 1);
+	p2Menu.init(ctrl2, transition, 2);
+	
+	_root.setMultiPlayerControl();
+	
+}
+
+function update():void {
+	if (!flag) {
+		ctrlClip.update();
+		if (!ctrlClip.visible) {
+			if (transition.currentFrame <= 20) {
+				p1Menu.update();
+				p2Menu.update();
+			}
+	
+			if (p1Menu.ready && p2Menu.ready) {
+				p1Menu.readyClip.gotoAndPlay("done");
+				p2Menu.readyClip.gotoAndPlay("done");
+				TweenMax.delayedCall(40, startGame, null, true);
+				flag = true;
+			}
+		}
+	}
+}
+
+function startGame():void {
+	trace("SO LETS SEE WILL BEE :: "+_root.data_equiptedGear0_p2);
+	transition.toGame = true;
+	transition.backToMenu = false;
+	transition.backToPasue = false;
+	transition.gotoAndPlay("out");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#4FFF4F" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                    <StrokeStyle index="2">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!9600 0|19200 0!19200 0|19200 10800!19200 10800|9600 10800!9600 10800|0 10800!0 10800|0 0!0 0|9600 0"/>
+                    <Edge strokeStyle="2" edges="!9600 10800|9600 0"/>
+                    <Edge cubics="!19200 0(;19200,0 19200,10800 19200,10800q19200 0 19200 10800);"/>
+                    <Edge cubics="!9600 10800(;9600,10800 9600,0 9600,0q9600 10800 9600 0);"/>
+                    <Edge cubics="!0 0(;0,0 9600,0 9600,0q0 0 9600 0);"/>
+                    <Edge cubics="!0 10800(;0,10800 0,0 0,0q0 10800 0 0);"/>
+                    <Edge cubics="!9600 10800(;9600,10800 0,10800 0,10800q9600 10800 0 10800);"/>
+                    <Edge cubics="!19200 10800(;19200,10800 9600,10800 9600,10800q19200 10800 9600 10800);"/>
+                    <Edge cubics="!9600 0(;9600,0 19200,0 19200,0q9600 0 19200 0);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="transition" color="#4F80FF" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equip-Transition" name="transition">
+                  <matrix>
+                    <Matrix a="0.960006713867188" d="0.937759399414063" tx="480" ty="269.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UIControls-Display" name="instruct2" centerPoint3DX="127.75" centerPoint3DY="518.5" uniqueID="19">
+                  <matrix>
+                    <Matrix tx="8.6" ty="535.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="119.15" y="-16.6"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_frame">
+      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MultiPlayerKeyView/MultiPlayerKeyView_" name="ctrlClip" selected="true">
+                  <matrix>
+                    <Matrix tx="480" ty="272.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="gearPanel" color="#FF4F4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MultiPlayerMenu/UI-MultiPlayer" name="p1Menu" selected="true" matrix3D="0.906307756900787 0 0.422618329524994 0 0 1 0 0 -0.422618329524994 0 0.906307756900787 0 823.676391601562 0 -1911.080078125 1" rotationY="-25" centerPoint3DX="246.1" centerPoint3DY="267.4">
+                  <matrix>
+                    <Matrix tx="226.1" ty="275"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="20" y="-7.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-MultiPlayerMenu/UI-MultiPlayer" name="p2Menu" matrix3D="0.891006529331207 0 -0.453990578651428 0 0 1 0 0 0.453990578651428 0 0.891006529331207 0 1106.34423828125 40 6357.68505859375 1" rotationY="27" centerPoint3DX="679.2" centerPoint3DY="269.4">
+                  <matrix>
+                    <Matrix tx="700.2" ty="275"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-21" y="-5.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-MultiPlayerKeyView/MultiPlayerKeyView-Text">
+                  <matrix>
+                    <Matrix tx="482.4" ty="526.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="1.3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.6015625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-588 -610|19788 -610!19788 -610|19788 11410!19788 11410|-588 11410!-588 11410|-588 -610"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Clouds-Animated" name="clouds" centerPoint3DX="1575.4" centerPoint3DY="319.85">
+                  <matrix>
+                    <Matrix tx="1575.4" ty="319.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.5"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

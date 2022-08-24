@@ -1,0 +1,109 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-LockIcon/lock2" itemID="54ef7a51-00000423" lastModified="1481288835">
+  <timeline>
+    <DOMTimeline name="lock2">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333" alpha="0.827450980392157"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-801 -800S2|801 -800!801 -800|801 800!801 800|-801 800!-801 800|-801 -800"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/UI-LockIcon/lock" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.05" ty="0.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.8"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-801 -800|801 -800!801 -800|801 800!801 800|-801 800!-801 800|-801 -800"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" left="7.9" width="128.2" height="39" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.3564453125" b="-0.3564453125" c="0.3564453125" d="0.3564453125" tx="-33.45" ty="17.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>equipped</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" letterSpacing="3" lineHeight="39" size="26" bitmapSize="520" face="Thinman" fillColor="#CCCCCC"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#999999" distance="3" strength="0.22"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333" alpha="0.827450980392157"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-801 -800|801 -800!801 -800|801 800!801 800|-801 800!-801 800|-801 -800"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="Objects/_KeySpecial/assets/Key-Shape">
+                  <matrix>
+                    <Matrix a="0.707107543945313" b="-0.70709228515625" c="0.70709228515625" d="0.707107543945313" tx="-0.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.45" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMDynamicText fontRenderingMode="standard" left="71" width="29" height="22.4" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-61.95" ty="16.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>x3</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" letterSpacing="1" lineSpacing="0" lineHeight="22.4" size="25" bitmapSize="500" face="Font 7*" fillColor="#BABABA"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

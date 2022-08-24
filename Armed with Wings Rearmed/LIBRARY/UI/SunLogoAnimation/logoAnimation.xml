@@ -1,0 +1,676 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/SunLogoAnimation/logoAnimation" itemID="542a0fe4-00001606" linkageExportForAS="true" linkageClassName="SunLogoAnim" lastModified="1485084101">
+  <timeline>
+    <DOMTimeline name="logoAnimation">
+      <layers>
+        <DOMLayer name="actions" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="208" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+import flash.display.MovieClip;
+
+this.addEventListener(Event.ENTER_FRAME, sunLogoUpdate);
+
+var keyFilter:Boolean = true;
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+var _root:MovieClip = MovieClip(root);
+
+function sunLogoUpdate(e:Event):void {
+	_root.controlUpdate();
+		
+	if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+		if (!keyFilter) {
+			end();
+			keyFilter = true;
+		}
+	} else {
+		keyFilter = false;
+	}
+}
+
+function end():void {
+	this.removeEventListener(Event.ENTER_FRAME,sunLogoUpdate);
+	stop();
+	MovieClip(parent).removeChild(this);
+	_root.play();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="208" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+end();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="9" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" duration="4" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/Meditation from Underwater.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="14" duration="7" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/SMPTE COLOR BARS ULTRA HD 4K resolution.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="21" duration="6" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="27" duration="128" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/Meditation from Underwater.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="155" duration="10" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/SMPTE COLOR BARS ULTRA HD 4K resolution.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="165" duration="14" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="179" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="184" duration="15" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="199" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="24" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="33" duration="13" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="46" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="2" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" duration="4" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="38" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" duration="7" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="100" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="118" duration="3" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="121" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="125" duration="10" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="135" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" duration="13" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="151" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="152" duration="2" keyMode="9728" soundEffect="custom" soundName="UI/SunLogoAnimation/sounds/TV Static effect.mp3" soundSync="stream" inPoint44="13000" outPoint44="441000" soundZoomLevel="2">
+              <SoundEnvelope>
+                <SoundEnvelopePoint level0="16259" level1="15008"/>
+              </SoundEnvelope>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="154" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="155" duration="54" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" duration="209" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!16243 9137|-244 9137!-244 9137|-244 -137!-244 -137|16243 -137!16243 -137|16243 9137"/>
+                    <Edge cubics="!16243 -137(16243,-137;16243,-137 16243,9137 16243,9137q16243 -137 16243 9137)16243,9137;"/>
+                    <Edge cubics="!-244 9137(;-244,9137 -244,-137 -244,-137q-244 9137 -244 -137);"/>
+                    <Edge cubics="!16243 9137(;16243,9137 -244,9137 -244,9137q16243 9137 -244 9137);"/>
+                    <Edge cubics="!-244 -137(-244,-137;-244,-137 16243,-137 16243,-137q-244 -137 16243 -137)16243,-137;"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" parentLayerIndex="3">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" firstFrame="1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.64892578125" d="0.64892578125" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" firstFrame="1" centerPoint3DX="400" centerPoint3DY="225" loop="loop">
+                  <matrix>
+                    <Matrix a="0.64892578125" d="0.64892578125" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/color_anim" symbolType="graphic" firstFrame="2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.629776000976563" d="0.629776000976563" tx="397.85" ty="224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" firstFrame="2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.674591064453125" d="0.674591064453125" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" firstFrame="2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.677719116210938" d="0.677719116210938" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.3515625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/color_anim" symbolType="graphic" firstFrame="2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.629776000976563" d="0.629776000976563" tx="401.4" ty="219.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" duration="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" firstFrame="1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.655319213867188" d="0.655319213867188" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="65" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" duration="62" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="155" duration="10" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="165" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/color_anim" blendMode="screen" centerPoint3DX="400.9" centerPoint3DY="219.5">
+                  <matrix>
+                    <Matrix a="0.629776000976563" d="0.629776000976563" tx="401.4" ty="219.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="24" blurY="24"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.23046875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="166" duration="43" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" parentLayerIndex="3">
+          <frames>
+            <DOMFrame index="0" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" blendMode="subtract" centerPoint3DX="400.05" centerPoint3DY="224.9">
+                  <matrix>
+                    <Matrix a="0.679107666015625" d="0.679107666015625" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="33" duration="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.67535400390625" d="0.67535400390625" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="41" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="42" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.678848266601563" d="0.678848266601563" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.678848266601563" d="0.678848266601563" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" duration="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.676727294921875" d="0.676727294921875" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" duration="38" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="93" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.679107666015625" d="0.679107666015625" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="100" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="118" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.676681518554688" d="0.676681518554688" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="121" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="125" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.67535400390625" d="0.67535400390625" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="132" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="134" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.679107666015625" d="0.679107666015625" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="135" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="138" duration="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.67535400390625" d="0.67535400390625" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.12109375"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="155" duration="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/color_anim" symbolType="graphic" firstFrame="2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.629776000976563" d="0.629776000976563" tx="397.85" ty="224.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="165" duration="14" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" firstFrame="2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.6563720703125" d="0.6563720703125" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="179" duration="5" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!16547 -303|16547 9305!16547 9305|16546 9305!16546 9305|16546 9308!16546 9308|-547 9308!-547 9308|-547 -307!-547 -307|16546 -307!16546 -307|16546 -303!16546 -303|16547 -303"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="184" duration="11" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/static_anim" symbolType="graphic" firstFrame="2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.663970947265625" d="0.663970947265625" tx="400.05" ty="225.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="195" duration="14" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!16581 -322|16581 9323!16581 9323|16580 9323!16580 9323|16580 9327!16580 9327|-580 9327!-580 9327|-580 -326!-580 -326|16580 -326!16580 -326|16580 -322!16580 -322|16581 -322"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999" parentLayerIndex="3">
+          <frames>
+            <DOMFrame index="0" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="146" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/sun-studios_anim" symbolType="graphic" firstFrame="34" loop="loop">
+                  <matrix>
+                    <Matrix a="0.629776000976563" d="0.629776000976563" tx="501.1" ty="221.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="155" duration="54" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="main" color="#808080" parentLayerIndex="3" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="146" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/SunLogoAnimation/movieclips/logo_anim" selected="true" symbolType="graphic" firstFrame="14" loop="loop">
+                  <matrix>
+                    <Matrix a="0.629776000976563" d="0.629776000976563" tx="188.8" ty="204.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="155" duration="54" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#669900" parentLayerIndex="3" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="146" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0" b="-0.2984619140625" c="0.534408569335938" d="0" tx="400" ty="225"/>
+                        </matrix>
+                        <GradientEntry color="#A3DAF8" ratio="0"/>
+                        <GradientEntry color="#6666FF" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!16756 9391|-756 9391!-756 9391|-756 -390!-756 -390|16756 -390!16756 -390|16756 9391"/>
+                    <Edge cubics="!16756 -390(16756,-390;16756,-390 16756,9391 16756,9391q16756 -390 16756 9391)16756,9391;"/>
+                    <Edge cubics="!-756 9391(;-756,9391 -756,-390 -756,-390q-756 9391 -756 -390);"/>
+                    <Edge cubics="!16756 9391(;16756,9391 -756,9391 -756,9391q16756 9391 -756 9391);"/>
+                    <Edge cubics="!-756 -390(-756,-390;-756,-390 16756,-390 16756,-390q-756 -390 16756 -390)16756,-390;"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="155" duration="54" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

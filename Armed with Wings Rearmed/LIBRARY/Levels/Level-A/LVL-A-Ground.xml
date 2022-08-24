@@ -1,0 +1,87 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-A/LVL-A-Ground" itemID="54ae67aa-00000dfe" lastModified="1490688149" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="LVL-A-Ground">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!52270 3958|54346 3958!54346 3958|54346 6184!54346 6184|52270 6184!52270 6184|52270 3958"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" parentLayerIndex="0">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-R/LVL-R-Door" name="door2">
+                  <matrix>
+                    <Matrix a="-1" tx="2642.9" ty="281.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-A/LVL-A-ElevatorPlat" name="elevator">
+                  <matrix>
+                    <Matrix tx="2954.85" ty="493.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#FFFF00" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-A/LVL-A-Ground-Graphic" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/pillarGate" name="gate1" centerPoint3DX="2582.6" centerPoint3DY="440.9">
+                  <matrix>
+                    <Matrix tx="2582.65" ty="586.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/pillarGate" name="gate2" centerPoint3DX="2752.65" centerPoint3DY="440.9">
+                  <matrix>
+                    <Matrix tx="2752.7" ty="586.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

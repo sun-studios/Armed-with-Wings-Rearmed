@@ -1,0 +1,578 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-Player-WeaponStats" itemID="54ded600-00000575" lastModified="1496164020" lastUniqueIdentifier="6">
+  <timeline>
+    <DOMTimeline name="UI-Player-WeaponStats">
+      <layers>
+        <DOMLayer name="actions" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+import flash.display.MovieClip;
+import flash.text.TextField;
+
+var playerID:int;
+var weaponIcon:MovieClip;
+var name_tf:TextField;
+var gameData:MovieClip = MovieClip(root);
+var menu:MovieClip = MovieClip(parent.parent);
+
+function init(_playerID:int):void {
+	playerID = _playerID;
+	if (gameData.gameMode == gameData.MULTIPLAYER) {
+		var s:String = "";
+		if (playerID == 2) {
+			s = "_p2";
+		}
+		displayWeapon(gameData["data_equiptedWeapon"+s]);
+	} else {
+		displayWeapon(menu.local_equiptedWeapon);
+	}
+}
+
+function displayWeapon(id:Number):void {
+	if (gameData.gameMode == gameData.MULTIPLAYER) {
+		clipNew.visible = false;
+	} else {
+		clipNew.visible = unequippedWeapons();
+	}
+	
+	
+	if (gameData.isWeaponUnlocked(id)) {
+		weaponIcon.gotoAndStop(gameData["data_weap"+id+"_graphic"]);
+		updateStats(id);
+		
+		for (var i2:int = 0; i2 < 4; i2 ++) {
+			var arr:Array = gameData.dataGetWeapBoosterFromID(id);
+			var slot:MovieClip = boosters["slot"+i2];
+			
+			if (slot) {
+				slot.visible = false;
+				if (i2 >= arr.length) {
+					
+				} else {
+					slot.visible = true;
+					slot.gearIcon.gotoAndStop(1+arr[i2][0]);
+					if (slot.gearIcon.currentFrame == 1)
+						slot.gearIcon.gotoAndStop("free");
+					slot.gotoAndStop(1);
+					if (arr[i2][1]) {
+						if (i2 == 0) slot.gotoAndStop(2);
+						if (i2 == 1) slot.gotoAndStop(3);
+					}
+				}
+			}
+		}
+	} else {
+		weaponIcon.gotoAndStop("locked");
+		updateStatsLocked();
+	}
+}
+
+function updateStats(id:Number):void {
+	var nameData:String;
+	var defenceData:Number;
+	var powerData:Number;
+	var speedData:Number;
+	var rangeData:Number;
+	
+	nameData = gameData["data_weap"+id+"_name"];
+	defenceData = gameData["data_weap"+id+"_defence"];
+	powerData = gameData["data_weap"+id+"_power"];
+	speedData = gameData["data_weap"+id+"_speed"];
+	rangeData = gameData["data_weap"+id+"_range"];
+		
+	var curr:Number = menu.local_equiptedWeapon;
+	
+	name_tf.text = nameData;
+	row0.update(defenceData, gameData["data_weap"+curr+"_defence"]);
+	row1.update(powerData, gameData["data_weap"+curr+"_power"]);
+	row2.update(speedData, gameData["data_weap"+curr+"_speed"]);
+	row3.update(rangeData, gameData["data_weap"+curr+"_range"]);
+}
+
+function updateStatsLocked():void {
+	name_tf.text = "Locked";
+	row0.update(0, 0);
+	row1.update(0, 0);
+	row2.update(0, 0);
+	row3.update(0, 0);
+}
+
+function unequippedWeapons():Boolean {
+	var go:Boolean;
+	for (var i:int = 0; i < gameData.numOfWeaponsUnlocked(); i ++) {
+		if (gameData.weaponsListingNew[i]) {
+			go = true;
+			break;
+		}
+	}
+	
+	return go;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipt-New1" name="clipNew">
+                  <matrix>
+                    <Matrix a="1.69169616699219" d="1.69169616699219" tx="-77.6" ty="102.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-39.55" y="-39.35"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="20" blurY="20" color="#FFFFFF"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LockIcon/WeaponsIcons-Boosters-Vert" name="boosters">
+                  <matrix>
+                    <Matrix a="1.70318603515625" d="1.69841003417969" tx="247.35" ty="21.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="title" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="name_tf" fontRenderingMode="standard" width="265.3" height="27" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-68.75" ty="-41.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>weapon name</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="3" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="name_tf" fontRenderingMode="standard" width="265.3" height="27">
+                  <matrix>
+                    <Matrix tx="-68.75" ty="-36.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>weapon name</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="3" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row0" selected="true" centerPoint3DX="61.05" centerPoint3DY="2.7">
+                  <matrix>
+                    <Matrix tx="80.75" ty="2.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row1" centerPoint3DX="61.05" centerPoint3DY="29.6">
+                  <matrix>
+                    <Matrix tx="80.75" ty="29.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row2" centerPoint3DX="61.05" centerPoint3DY="57.3">
+                  <matrix>
+                    <Matrix tx="80.75" ty="57.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row0">
+                  <matrix>
+                    <Matrix tx="80.75" ty="12.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row1">
+                  <matrix>
+                    <Matrix tx="80.75" ty="46.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row2">
+                  <matrix>
+                    <Matrix tx="80.75" ty="82.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="icons" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1350 424|-1268 429!-1268 429|-1093 636!-1093 636|-1074 640!-1074 640|-1027 594!-1027 594|-1010 641!-1010 641|-1043 687!-1043 687|-982 762!-982 762|-990 783!-990 783|-1012 792!-1012 792|-1085 729!-1085 729|-1132 763!-1132 763|-1178 746
+!-1178 746|-1133 699!-1133 699|-1137 680!-1137 680|-1344 505!-1344 505|-1350 424"/>
+                        <Edge cubics="!-1344 505(;-1344,505 -1350,424 -1350,424q-1344 505 -1350 424);"/>
+                        <Edge cubics="!-1350 424(;-1350,424 -1268,429 -1268,429q-1350 424 -1268 429);"/>
+                        <Edge cubics="!-990 783(;-990,783 -1012,792 -1012,792q-990 783 -1012 792);"/>
+                        <Edge cubics="!-1010 641(;-1010,641 -1043,687 -1043,687q-1010 641 -1043 687);"/>
+                        <Edge cubics="!-1027 594(;-1027,594 -1010,641 -1010,641q-1027 594 -1010 641);"/>
+                        <Edge cubics="!-982 762(;-982,762 -990,783 -990,783q-982 762 -990 783);"/>
+                        <Edge cubics="!-1074 640(;-1074,640 -1027,594 -1027,594q-1074 640 -1027 594);"/>
+                        <Edge cubics="!-1178 746(;-1178,746 -1133,699 -1133,699q-1178 746 -1133 699);"/>
+                        <Edge cubics="!-1268 429(;-1268,429 -1093,636 -1093,636q-1268 429 -1093 636);"/>
+                        <Edge cubics="!-1137 680(;-1137,680 -1344,505 -1344,505q-1137 680 -1344 505);"/>
+                        <Edge cubics="!-1132 763(;-1132,763 -1085,729 -1085,729q-1132 763 -1085 729);"/>
+                        <Edge cubics="!-1178 746(;-1178,746 -1132,763 -1132,763q-1178 746 -1132 763);"/>
+                        <Edge cubics="!-1043 687(-1043,687;-1043,687 -982,762 -982,762q-1043 687 -982 762)-982,762;"/>
+                        <Edge cubics="!-1133 699(-1133,699;-1133,699 -1137,680 -1137,680q-1133 699 -1137 680)-1137,680;"/>
+                        <Edge cubics="!-1093 636(;-1093,636 -1074,640 -1074,640q-1093 636 -1074 640);"/>
+                        <Edge cubics="!-1012 792(-1012,792;-1012,792 -1085,729 -1085,729q-1012 792 -1085 729)-1085,729;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/UI-Weapons/UI-Player-WeaponIcon" name="weaponIcon" centerPoint3DX="-143.25" centerPoint3DY="32.05">
+                  <matrix>
+                    <Matrix tx="-143.25" ty="32.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="37.9999988616352" blurX="0" blurY="0" distance="4" strength="0.22"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMGroup>
+                  <members>
+                    <DOMGroup selected="true">
+                      <members>
+                        <DOMShape selected="true">
+                          <fills>
+                            <FillStyle index="1">
+                              <SolidColor/>
+                            </FillStyle>
+                          </fills>
+                          <edges>
+                            <Edge fillStyle1="1" edges="
+!-1296 950S2|-1117 1129!-1117 1129|-1296 1308!-1296 1308|-1346 1258!-1346 1258|-1216 1129!-1216 1129|-1346 1000!-1346 1000|-1296 950"/>
+                          </edges>
+                        </DOMShape>
+                      </members>
+                    </DOMGroup>
+                    <DOMGroup selected="true">
+                      <members>
+                        <DOMShape selected="true">
+                          <fills>
+                            <FillStyle index="1">
+                              <SolidColor/>
+                            </FillStyle>
+                          </fills>
+                          <edges>
+                            <Edge fillStyle1="1" edges="
+!-1150 950S2|-971 1129!-971 1129|-1150 1308!-1150 1308|-1199 1258!-1199 1258|-1070 1129!-1070 1129|-1199 1000!-1199 1000|-1150 950"/>
+                          </edges>
+                        </DOMShape>
+                      </members>
+                    </DOMGroup>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle0="1" edges="
+!-1271 1851|-1321 1801!-1321 1801|-1014 1494!-1014 1494|-963 1545!-963 1545|-1001 1583!-1001 1583|-1019 1565!-1019 1565|-1034 1580!-1034 1580|-1016 1598!-1016 1598|-1055 1637!-1055 1637|-1086 1606!-1086 1606|-1101 1621!-1101 1621|-1070
+ 1652!-1070 1652|-1109 1691!-1109 1691|-1127 1673!-1127 1673|-1142 1688!-1142 1688|-1124 1706!-1124 1706|-1163 1745!-1163 1745|-1194 1714!-1194 1714|-1209 1729!-1209 1729|-1178 1760!-1178 1760|-1216 1798!-1216 1798|-1234 1780!-1234 1780
+|-1250 1796!-1250 1796|-1232 1814!-1232 1814|-1271 1851"/>
+                        <Edge fillStyle1="1" edges="
+!-1019 1457|-911 1565!-911 1565|-1250 1904!-1250 1904|-1358 1796!-1358 1796|-1019 1457"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/statrow" name="row3" centerPoint3DX="61.05" centerPoint3DY="84.8">
+                  <matrix>
+                    <Matrix tx="80.75" ty="84.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-1188 -127|-1074 -127!-1074 -127|-1074 -10!-1074 -10|-964 -10!-964 -10|-964 106!-964 106|-1074 106!-1074 106|-1074 225!-1074 225|-1188 225!-1188 225|-1188 106!-1188 106|-1314 106!-1314 106|-1314 -10!-1314 -10|-1188 -10!-1188 -10|-1188
+ -127"/>
+                        <Edge cubics="!-1188 -127(;-1188,-127 -1074,-127 -1074,-127q-1188 -127 -1074 -127);"/>
+                        <Edge cubics="!-1074 -127(;-1074,-127 -1074,-10 -1074,-10q-1074 -127 -1074 -10)-1074,-10;"/>
+                        <Edge cubics="!-1074 106(;-1074,106 -1074,225 -1074,225q-1074 106 -1074 225);"/>
+                        <Edge cubics="!-1074 225(-1074,225;-1074,225 -1188,225 -1188,225q-1074 225 -1188 225);"/>
+                        <Edge cubics="!-1188 225(-1188,225;-1188,225 -1188,106 -1188,106q-1188 225 -1188 106)-1188,106;"/>
+                        <Edge cubics="!-1188 -10(;-1188,-10 -1188,-127 -1188,-127q-1188 -10 -1188 -127)-1188,-127;"/>
+                        <Edge cubics="!-1314 106(;-1314,106 -1314,-10 -1314,-10q-1314 106 -1314 -10);"/>
+                        <Edge cubics="!-1314 -10(-1314,-10;-1314,-10 -1188,-10 -1188,-10q-1314 -10 -1188 -10)-1188,-10;"/>
+                        <Edge cubics="!-1074 -10(;-1074,-10 -964,-10 -964,-10q-1074 -10 -964 -10);"/>
+                        <Edge cubics="!-964 -10(-964,-10;-964,-10 -964,106 -964,106q-964 -10 -964 106);"/>
+                        <Edge cubics="!-964 106(;-964,106 -1074,106 -1074,106q-964 106 -1074 106)-1074,106;"/>
+                        <Edge cubics="!-1188 106(-1188,106;-1188,106 -1314,106 -1314,106q-1188 106 -1314 106)-1314,106;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-1424 698|-1309 705!-1309 705|-1062 996!-1062 996|-1036 1002!-1036 1002|-970 938!-970 938|-946 1004!-946 1004|-993 1069!-993 1069|-906 1174!-906 1174|-918 1204!-918 1204|-948 1216!-948 1216|-1052 1128!-1052 1128|-1117 1175!-1117 1175
+|-1183 1151!-1183 1151|-1119 1085!-1119 1085|-1125 1059!-1125 1059|-1416 812!-1416 812|-1424 698"/>
+                        <Edge cubics="!-1416 812(;-1416,812 -1424,698 -1424,698q-1416 812 -1424 698);"/>
+                        <Edge cubics="!-1424 698(;-1424,698 -1309,705 -1309,705q-1424 698 -1309 705);"/>
+                        <Edge cubics="!-918 1204(;-918,1204 -948,1216 -948,1216q-918 1204 -948 1216);"/>
+                        <Edge cubics="!-946 1004(;-946,1004 -993,1069 -993,1069q-946 1004 -993 1069);"/>
+                        <Edge cubics="!-970 938(;-970,938 -946,1004 -946,1004q-970 938 -946 1004);"/>
+                        <Edge cubics="!-906 1174(;-906,1174 -918,1204 -918,1204q-906 1174 -918 1204);"/>
+                        <Edge cubics="!-1036 1002(;-1036,1002 -970,938 -970,938q-1036 1002 -970 938);"/>
+                        <Edge cubics="!-1183 1151(;-1183,1151 -1119,1085 -1119,1085q-1183 1151 -1119 1085);"/>
+                        <Edge cubics="!-1309 705(;-1309,705 -1062,996 -1062,996q-1309 705 -1062 996);"/>
+                        <Edge cubics="!-1125 1059(;-1125,1059 -1416,812 -1416,812q-1125 1059 -1416 812);"/>
+                        <Edge cubics="!-1117 1175(;-1117,1175 -1052,1128 -1052,1128q-1117 1175 -1052 1128);"/>
+                        <Edge cubics="!-1183 1151(;-1183,1151 -1117,1175 -1117,1175q-1183 1151 -1117 1175);"/>
+                        <Edge cubics="!-993 1069(-993,1069;-993,1069 -906,1174 -906,1174q-993 1069 -906 1174)-906,1174;"/>
+                        <Edge cubics="!-1119 1085(-1119,1085;-1119,1085 -1125,1059 -1125,1059q-1119 1085 -1125 1059)-1125,1059;"/>
+                        <Edge cubics="!-1062 996(;-1062,996 -1036,1002 -1036,1002q-1062 996 -1036 1002);"/>
+                        <Edge cubics="!-948 1216(-948,1216;-948,1216 -1052,1128 -1052,1128q-948 1216 -1052 1128)-1052,1128;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!-1398 87[-1220 31 -1162 -48!-1162 -48[-1104 31 -926 87!-926 87[-949 383 -1162 499!-1162 499[-1376 383 -1398 87"/>
+                        <Edge cubics="!-1162 499(;-1020,421 -941,284 -926,87q-1162 499Q-949 383q-926 87);"/>
+                        <Edge cubics="!-1162 499(;-1305,421 -1383,284 -1398,87q-1162 499Q-1376 383q-1398 87);"/>
+                        <Edge cubics="!-1162 -48(;-1123,5 -1045,50 -926,87q-1162 -48Q-1104 31q-926 87);"/>
+                        <Edge cubics="!-1398 87(;-1279,50 -1201,5 -1162,-48q-1398 87Q-1220 31q-1162 -48);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/UI-Weapons/UI-Player-WeaponIcon" name="weaponIcon">
+                  <matrix>
+                    <Matrix tx="-143.25" ty="33.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="37.9999988616352" blurX="0" blurY="0" distance="4" strength="0.22"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMGroup>
+                  <members>
+                    <DOMGroup selected="true">
+                      <members>
+                        <DOMShape selected="true">
+                          <fills>
+                            <FillStyle index="1">
+                              <SolidColor/>
+                            </FillStyle>
+                          </fills>
+                          <edges>
+                            <Edge fillStyle1="1" edges="
+!-1347 1383S2|-1103 1627!-1103 1627|-1347 1871!-1347 1871|-1415 1803!-1415 1803|-1238 1627!-1238 1627|-1415 1450!-1415 1450|-1347 1383"/>
+                          </edges>
+                        </DOMShape>
+                      </members>
+                    </DOMGroup>
+                    <DOMGroup selected="true">
+                      <members>
+                        <DOMShape selected="true">
+                          <fills>
+                            <FillStyle index="1">
+                              <SolidColor/>
+                            </FillStyle>
+                          </fills>
+                          <edges>
+                            <Edge fillStyle1="1" edges="
+!-1147 1383S2|-903 1627!-903 1627|-1147 1871!-1147 1871|-1215 1803!-1215 1803|-1038 1627!-1038 1627|-1215 1450!-1215 1450|-1147 1383"/>
+                          </edges>
+                        </DOMShape>
+                      </members>
+                    </DOMGroup>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="panel" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="
+!-1552 -897|4276 -897!4276 -897|4276 2058!4276 2058|-1552 2058!-1552 2058|-1552 -897"/>
+                    <Edge cubics="!4276 2058(;4276,2058 -1552,2058 -1552,2058q4276 2058 -1552 2058);"/>
+                    <Edge cubics="!-1552 -897(;-1552,-897 4276,-897 4276,-897q-1552 -897 4276 -897);"/>
+                    <Edge cubics="!4276 -897(;4276,-897 4276,2058 4276,2058q4276 -897 4276 2058);"/>
+                    <Edge cubics="!-1552 -897(;-1552,-897 -1552,2058 -1552,2058q-1552 -897 -1552 2058);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="
+!-1552 -897|4276 -897!4276 -897|4276 2058!4276 2058|-1552 2058!-1552 2058|-1552 -897"/>
+                    <Edge cubics="!4276 2058(;4276,2058 -1552,2058 -1552,2058q4276 2058 -1552 2058);"/>
+                    <Edge cubics="!-1552 -897(;-1552,-897 4276,-897 4276,-897q-1552 -897 4276 -897);"/>
+                    <Edge cubics="!4276 -897(;4276,-897 4276,2058 4276,2058q4276 -897 4276 2058);"/>
+                    <Edge cubics="!-1552 -897(;-1552,-897 -1552,2058 -1552,2058q-1552 -897 -1552 2058);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-SquarePanel-Animated" centerPoint3DX="0.7" centerPoint3DY="24.55">
+                  <matrix>
+                    <Matrix tx="-6.05" ty="23"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-SquarePanel-Animated">
+                  <matrix>
+                    <Matrix tx="-6.05" ty="23"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

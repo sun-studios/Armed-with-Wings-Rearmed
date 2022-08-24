@@ -1,0 +1,111 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-PowerBar/UI-PowerBar" itemID="54b961aa-00000c2f" lastModified="1467296328" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-PowerBar">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var gainSpeed:Number;
+var _parent:MovieClip;
+var disable:Boolean;
+var gameData:MovieClip;
+
+function init ():void {
+	gainSpeed = MovieClip(parent).powerStrikeChargeSpeed;
+	_parent = MovieClip(parent);
+	disable = false;
+	gameData = MovieClip(root);
+}
+
+
+function update():void {
+	if (_parent.currentFrameLabel == "attack" && _parent.attack.charging) {
+		if (_parent.powerStrike < _parent.powerStrikeMax) {
+			_parent.powerStrike += gainSpeed;
+			//if (gameData.dataIsGearEquipt("Speed Charge")) {
+				//_parent.powerStrike += (gainSpeed*.75);
+				//trace("lala :: "+_parent.powerStrike);
+			//}
+		}
+	}
+	
+	if (disable) {
+		visible = false;
+	} else {
+		
+		if (_parent.powerStrike == 0) {
+			if (alpha >0){
+				alpha -= .1;
+			}
+		} else {
+			var barHeight:Number = (_parent.powerStrike/_parent.powerStrikeMax);
+			bar.scaleY = barHeight;
+			if (alpha < 1){
+				alpha = 1;
+			}
+		}
+	}
+	
+	visible = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PowerBar/UI-PowerBar_bar" name="bar" centerPoint3DX="-0.05" centerPoint3DY="-39">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#666666"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-81 -1560|80 -1560!80 -1560|80 0!80 0|-81 0!-81 0|-81 -1560"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!105 25|-106 25!-106 25|-106 -1585!-106 -1585|105 -1585!105 -1585|105 25"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

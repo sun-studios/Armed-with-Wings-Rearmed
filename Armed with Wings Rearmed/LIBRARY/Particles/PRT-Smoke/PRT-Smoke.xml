@@ -1,0 +1,96 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PRT-Smoke/PRT-Smoke" itemID="556ae425-00001488" linkageExportForAS="true" linkageClassName="Smoke" lastModified="1433478042" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="PRT-Smoke">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.filters.GlowFilter;
+import flash.display.MovieClip;
+
+function update() {
+	var clip:MovieClip = this[this.currentFrameLabel];
+	if (clip.currentFrame == clip.totalFrames) {
+		MovieClip(parent).removeFromSmokeArr(this);
+		MovieClip(parent).removeChild(this);
+	}
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="labels" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" name="SMOKE1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="SMOKE2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="SMOKE3" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="SMOKE4" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clips" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Smoke/anims/PRT-Smoke-01" name="SMOKE1">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="6.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.5" y="-6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Smoke/anims/PRT-Smoke-02" name="SMOKE2">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="6.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.5" y="-6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Smoke/anims/PRT-Smoke-03" name="SMOKE3">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="6.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.5" y="-6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Smoke/anims/PRT-Smoke-04" name="SMOKE4">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="6.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.5" y="-6.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,86 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-BG/Hud-flash" itemID="56e44052-00000ad8" lastModified="1457880090">
+  <timeline>
+    <DOMTimeline name="Hud-flash">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/Hud-flash-shape" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="33" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0849"/>
+                  <Point x="0.0198" y="0.1942"/>
+                  <Point x="0.0955" y="0.2329"/>
+                  <Point x="0.1992" y="0.2858"/>
+                  <Point x="0.1146" y="0.0752"/>
+                  <Point x="0.2121" y="0.1267"/>
+                  <Point x="0.2522" y="0.148"/>
+                  <Point x="0.2576" y="0.3562"/>
+                  <Point x="0.3008" y="0.4349"/>
+                  <Point x="0.3389" y="0.5043"/>
+                  <Point x="0.3718" y="0.383"/>
+                  <Point x="0.4141" y="0.3664"/>
+                  <Point x="0.4477" y="0.3532"/>
+                  <Point x="0.4836" y="0.5444"/>
+                  <Point x="0.5152" y="0.589"/>
+                  <Point x="0.5597" y="0.6521"/>
+                  <Point x="0.5824" y="0.4351"/>
+                  <Point x="0.6301" y="0.4795"/>
+                  <Point x="0.6789" y="0.525"/>
+                  <Point x="0.6826" y="0.6762"/>
+                  <Point x="0.7358" y="0.7808"/>
+                  <Point x="0.7665" y="0.8413"/>
+                  <Point x="0.8498" y="0.752"/>
+                  <Point x="0.8821" y="0.7808"/>
+                  <Point x="0.9601" y="0.8505"/>
+                  <Point x="0.9825" y="0.9785"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/Hud-flash-shape" selected="true" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.96875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-BG/Hud-flash-shape" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

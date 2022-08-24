@@ -1,0 +1,59 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PRT-BigExplosion" itemID="58301cd9-0000317a" linkageExportForAS="true" linkageClassName="BigExplosion" lastModified="1479561753">
+  <timeline>
+    <DOMTimeline name="PRT-BigExplosion" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="67" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var particleLayer:MovieClip;
+var sndCtrl:MovieClip;
+
+function init ():void {
+	particleLayer = MovieClip(parent);
+	sndCtrl = MovieClip(root);
+	
+	gotoAndPlay(2);
+	sndCtrl.playSound(sndCtrl.sndExplode);
+}
+
+function update ():void {
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="67" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+particleLayer.removeFromBigExplosion(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="68" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-BigExplosion" symbolType="graphic" firstFrame="3" centerPoint3DX="16.75" centerPoint3DY="-1.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.348419189453125" b="-0.310836791992188" c="0.310836791992188" d="0.348419189453125" tx="-4.25" ty="16.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="30.3" y="-22.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

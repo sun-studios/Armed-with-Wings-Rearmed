@@ -1,0 +1,205 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-BossBar/UI-BossBar" itemID="54ba7394-00002579" lastModified="1492875313" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-BossBar">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var bar:MovieClip;
+var bossArray:Array;
+var hero:MovieClip;
+var fadein:Boolean;
+
+init();
+
+function init():void {
+	bar = lifeBar.bar;
+	bossArray = new Array();
+	fadein = true;
+	
+	visible = false;
+	alpha = 0;
+}
+
+function add(boss:MovieClip):void {
+	bossArray.push(boss);
+}
+function _clear():void {
+	bossArray = new Array();
+}
+
+function update():void {
+	//Clear when dead
+	if (MovieClip(parent).hero && MovieClip(parent).hero.dead) bossArray = [];	
+	
+	//if (!MovieClip(parent).lootBar.visible) {
+	//	x = MovieClip(parent).lootBar.x;
+	//	y = MovieClip(parent).lootBar.y;
+	//}
+	
+	if (fadein) {
+		if (bossArray.length > 0) {
+			//fade in
+			visible = true;
+			if (alpha < 1) {
+				alpha += .2;
+			}
+			
+			var val:Number = 0;
+			for (var i:int = 0; i < bossArray.length; i++) {
+				var life:Number = bossArray[i].life;
+				var lifeOrig:Number = bossArray[i].lifeOrig;
+				if (life < 0) life = 0;
+				
+				val += (life/lifeOrig);
+			}
+			
+			if (val <= 0) {
+				val = 0;
+				bossArray = [];
+			}
+			
+			//apply
+			bar.scaleX = val/bossArray.length;
+			
+		} else {
+			if (alpha > 0) alpha -= .1;
+			else visible = false;
+		}
+		
+	} else {
+		
+		if (alpha > 0) alpha -= .1;
+	
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 7" color="#669900">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-Boss-Text">
+                  <matrix>
+                    <Matrix tx="-197.9" ty="431.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="16.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 8" color="#FF4F4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-LifebarBoss-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="-0.05" ty="450"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="182.85" y="26.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-LifeBar/UI-LifeBar" name="lifeBar" centerPoint3DX="-181.8" centerPoint3DY="433.05">
+                  <matrix>
+                    <Matrix tx="-181.8" ty="433.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                  <color>
+                    <Color blueMultiplier="-1" redOffset="51" blueOffset="-249" greenOffset="-181"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#333333"/>
+                        </FillStyle>
+                      </fills>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal" weight="0.1">
+                            <fill>
+                              <SolidColor color="#999999"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge fillStyle0="1" strokeStyle="1" edges="!-339 8531|-408 8531!-408 8531|-408 8601!-408 8601|-474 8601!-474 8601|-474 8671!-474 8671|-408 8671!-408 8671|-408 8743!-408 8743|-339 8743!-339 8743|-339 8671!-339 8671|-263 8671!-263 8671|-263 8601!-263 8601|-339 8601!-339 8601|-339
+ 8531"/>
+                        <Edge cubics="!-339 8531(;-339,8531 -408,8531 -408,8531q-339 8531 -408 8531);"/>
+                        <Edge cubics="!-408 8531(;-408,8531 -408,8601 -408,8601q-408 8531 -408 8601)-408,8601;"/>
+                        <Edge cubics="!-408 8671(;-408,8671 -408,8743 -408,8743q-408 8671 -408 8743);"/>
+                        <Edge cubics="!-408 8743(-408,8743;-408,8743 -339,8743 -339,8743q-408 8743 -339 8743);"/>
+                        <Edge cubics="!-339 8743(-339,8743;-339,8743 -339,8671 -339,8671q-339 8743 -339 8671)-339,8671;"/>
+                        <Edge cubics="!-339 8601(;-339,8601 -339,8531 -339,8531q-339 8601 -339 8531)-339,8531;"/>
+                        <Edge cubics="!-263 8671(;-263,8671 -263,8601 -263,8601q-263 8671 -263 8601);"/>
+                        <Edge cubics="!-263 8601(-263,8601;-263,8601 -339,8601 -339,8601q-263 8601 -339 8601)-339,8601;"/>
+                        <Edge cubics="!-408 8601(;-408,8601 -474,8601 -474,8601q-408 8601 -474 8601);"/>
+                        <Edge cubics="!-474 8601(-474,8601;-474,8601 -474,8671 -474,8671q-474 8601 -474 8671);"/>
+                        <Edge cubics="!-474 8671(;-474,8671 -408,8671 -408,8671q-474 8671 -408 8671)-408,8671;"/>
+                        <Edge cubics="!-339 8671(-339,8671;-339,8671 -263,8671 -263,8671q-339 8671 -263 8671)-263,8671;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

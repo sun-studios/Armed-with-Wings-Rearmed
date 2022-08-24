@@ -1,0 +1,479 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HighScores/UI-HighScoreTable" itemID="5503b4c7-00000465" lastModified="1661341935" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="UI-HighScoreTable">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[CONFIG::STEAM {
+import com.amanitadesign.steam.FRESteamWorks;
+import com.amanitadesign.steam.SteamResults;
+import com.amanitadesign.steam.SteamEvent;
+import com.amanitadesign.steam.SteamConstants;
+import com.amanitadesign.steam.UserStatsConstants;
+import com.amanitadesign.steam.LeaderboardEntry;
+import flash.display.MovieClip;
+import flash.text.TextField;
+
+var handle:String;
+var leaderBoardName:String;
+var leaderBoardIndex:int = 0;
+
+var btnGlobal:MovieClip;
+var btnFriends:MovieClip;
+var btnLocal:MovieClip;
+var btnCurrent:MovieClip;
+var btnTabsIndex:int = 0;
+
+var keyFilter1:Boolean = true;
+var keyFilter2:Boolean = true;
+var keyFilter3:Boolean = true;
+var keyFilter4:Boolean = true;
+
+//refs
+var _root:MovieClip;
+var ctrl:PlayerControl;
+var steamworks:FRESteamWorks;
+
+//temp debug
+var log_tf:TextField;
+
+
+init();
+
+function init():void {
+	_root = MovieClip(root);
+	ctrl = MovieClip(root).player1Control;
+	
+	if (_root.STEAM) {
+		steamworks = _root.steamworks;
+		steamworks.addEventListener(SteamEvent.STEAM_RESPONSE, onSteamResponse);
+		
+		leaderBoardName = "Survival";
+		changeFilter("Global");
+		//steamFindBoard("Survival");
+	}
+}
+
+function changeFilter(displayfilter:String):void {
+	if (btnCurrent) btnCurrent.gotoAndPlay("out");
+	switch (displayfilter) {
+		case "Global":
+			btnCurrent = btnGlobal;
+			break;
+		case "Friends":
+			btnCurrent = btnFriends;
+			break;
+		case "Local":
+			btnCurrent = btnLocal;
+			break;
+	}
+	btnCurrent.gotoAndPlay("over");
+	steamFindBoard(leaderBoardName);
+}
+
+function steamFindBoard(_leaderBoardName:String):void {
+	clearSlots();
+	leaderBoardName = _leaderBoardName;
+	switch (leaderBoardName) {
+		case "Survival":
+			steamworks.findLeaderboard("Survival");
+			break;
+		case "Single Player":
+			steamworks.findOrCreateLeaderboard("Single Player", UserStatsConstants.SORTMETHOD_Descending, UserStatsConstants.DISPLAYTYPE_Numeric);
+			break;
+	}
+}
+
+function onSteamResponse (e:SteamEvent):void {
+	
+	switch (e.req_type) {
+		case SteamConstants.RESPONSE_OnFindLeaderboard:
+			handle = steamworks.findLeaderboardResult();
+			log(steamworks.getLeaderboardName(handle));
+		
+			var userStatsConst;
+			if (btnTabsIndex == 0) userStatsConst = UserStatsConstants.DATAREQUEST_Global;
+			if (btnTabsIndex == 1) userStatsConst = UserStatsConstants.DATAREQUEST_Friends;
+		
+			steamworks.downloadLeaderboardEntries(handle, userStatsConst, 0,8);
+			break;
+		
+		case SteamConstants.RESPONSE_OnUploadLeaderboardScore:
+			log("score uploaded");
+			steamworks.uploadLeaderboardScoreResult();
+			break;
+		
+		case SteamConstants.RESPONSE_OnDownloadLeaderboardEntries:
+			var i:int = 0;
+			var entry:LeaderboardEntry;
+			for (i = 0; i < 7; i ++) {
+				entry = steamworks.downloadLeaderboardEntriesResult()[i];
+				
+				if (entry) {
+					trace("score :: " +entry.score);
+					this["slot"+i].update(String(entry.globalRank), steamworks.getFriendPersonaName(entry.userID), entry.score);
+				}
+			}
+			break;
+	}
+}
+
+function clearSlots():void {
+	for (var i:int = 0; i < 7; i ++) {
+		this["slot"+i].update("", "#", "#");
+	}
+}
+
+function update():void {
+	title.update();
+	
+	var input:Boolean = false;
+	//left
+	if (ctrl.ctrl_left) {
+		if (!keyFilter1) {
+			if (btnTabsIndex > 0) {
+				btnTabsIndex--;
+				input = true;
+			}
+			keyFilter1 = true;
+		}
+	} else { keyFilter1 = false; }
+	
+	//right
+	if (ctrl.ctrl_right) {
+		if (!keyFilter2) {
+			if (btnTabsIndex < 2) {
+				btnTabsIndex ++;
+				input = true;
+			}
+			keyFilter2 = true;
+		}
+	} else { keyFilter2 = false; }
+	
+	//LT
+	if (ctrl.ctrl_char_swap) {
+		if (!keyFilter3) {
+			if (leaderBoardIndex > 0) {
+				title.index = 0;
+				leaderBoardIndex = 0;
+				steamFindBoard("Survival");
+				keyFilter3 = true;
+			}
+		}
+	} else {
+		keyFilter3 = false;
+	}
+	
+	//RT
+	if (ctrl.ctrl_char_swap) {
+		if (!keyFilter4) {
+			if (leaderBoardIndex < 1) {
+				title.index = 1;
+				leaderBoardIndex = 1;
+				steamFindBoard("Single Player");
+				keyFilter4 = true;
+			}
+		}
+	} else {
+		keyFilter4 = false;
+	}
+	
+	if (input) {
+		switch (btnTabsIndex) {
+			case 0:
+				changeFilter("Global");
+				break;
+			case 1:
+				changeFilter("Friends");
+				break;
+			case 2:
+				changeFilter("Local");
+				break;
+		}
+	}
+	
+}
+
+function log(s:String):void {
+	log_tf.text = s;
+}
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" locked="true" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF9900"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-8000 -4099|-8000 -4500!-8000 -4500|8000 -4500!8000 -4500|8000 -4099!8000 4280|8000 4500!8000 4500|-8000 4500!-8000 4500|-8000 4280"/>
+                    <Edge strokeStyle="1" edges="!8000 -4099S4|8000 4280!-8000 4280|-8000 -4099"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/Keys(legacy)/LeftTrigger/LT">
+                  <matrix>
+                    <Matrix tx="-278.45" ty="-191.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/Keys(legacy)/RightTrigger/RT">
+                  <matrix>
+                    <Matrix tx="268.85" ty="-191.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!3465 -2249|6722 -2249!6722 -2249|6722 -1493!6722 -1493|3465 -1493!3465 -1493|3465 -2249!-4702 -2249|3367 -2249!3367 -2249|3367 -1493!3367 -1493|-4702 -1493!-4702 -1493|-4702 -2249!-6719 -2249|-4806 -2249!-4806 -2249|-4806 -1493!-4806
+ -1493|-6719 -1493!-6719 -1493|-6719 -2249"/>
+                    <Edge cubics="!3367 -2249(3367,-2249;3367,-2249 3367,-1493 3367,-1493q3367 -2249 3367 -1493)3367,-1493;"/>
+                    <Edge cubics="!3465 -1493(;3465,-1493 3465,-2249 3465,-2249q3465 -1493 3465 -2249);"/>
+                    <Edge cubics="!6722 -2249(6722,-2249;6722,-2249 6722,-1493 6722,-1493q6722 -2249 6722 -1493)6722,-1493;"/>
+                    <Edge cubics="!6722 -1493(;6722,-1493 3465,-1493 3465,-1493q6722 -1493 3465 -1493);"/>
+                    <Edge cubics="!3465 -2249(3465,-2249;3465,-2249 6722,-2249 6722,-2249q3465 -2249 6722 -2249);"/>
+                    <Edge cubics="!-6719 -1493(-6719,-1493;-6719,-1493 -6719,-2249 -6719,-2249q-6719 -1493 -6719 -2249);"/>
+                    <Edge cubics="!-4806 -2249(-4806,-2249;-4806,-2249 -4806,-1493 -4806,-1493q-4806 -2249 -4806 -1493);"/>
+                    <Edge cubics="!-4702 -1493(;-4702,-1493 -4702,-2249 -4702,-2249q-4702 -1493 -4702 -2249);"/>
+                    <Edge cubics="!-4806 -1493(;-4806,-1493 -6719,-1493 -6719,-1493q-4806 -1493 -6719 -1493);"/>
+                    <Edge cubics="!-6719 -2249(;-6719,-2249 -4806,-2249 -4806,-2249q-6719 -2249 -4806 -2249);"/>
+                    <Edge cubics="!3367 -1493(;3367,-1493 -4702,-1493 -4702,-1493q3367 -1493 -4702 -1493);"/>
+                    <Edge cubics="!-4702 -2249(-4702,-2249;-4702,-2249 3367,-2249 3367,-2249q-4702 -2249 3367 -2249)3367,-2249;"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" left="51.9" width="40.2" height="30" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-280.6" ty="-107.35"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>user</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="30" size="20" bitmapSize="400" face="Font 1*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="51.9" width="50.2" height="30" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="127.2" ty="-108.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>score</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="30" size="20" bitmapSize="400" face="Font 1*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="51.9" width="40.2" height="30" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-382.3" ty="-108.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>rank</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="30" size="20" bitmapSize="400" face="Font 1*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScore-Row" name="slot0">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="-47.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScore-Row" name="slot1">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="-19.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScore-Row" name="slot2">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="8.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScore-Row" name="slot3">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="37"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScore-Row" name="slot4">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="65.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScore-Row" name="slot5">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="93.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMInputText name="log_tf" fontRenderingMode="standard" width="182.25" height="27">
+                  <matrix>
+                    <Matrix tx="-390.2" ty="274.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>nothing</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="24" size="16" bitmapSize="320" face="Font 1*" fillColor="#FF9900"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMInputText>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScore-Row" name="slot6">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="121.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Black" uniqueID="1">
+                  <matrix>
+                    <Matrix a="0.748733520507813" d="0.748733520507813" tx="-0.05" ty="188.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="BACK" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Tab/UI-Btn-Tab" name="btnFriends" uniqueID="2">
+                  <matrix>
+                    <Matrix a="0.748733520507813" d="0.748733520507813" tx="-3.75" ty="-144.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="FRIENDS" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Tab/UI-Btn-Tab" name="btnGlobal" uniqueID="3">
+                  <matrix>
+                    <Matrix a="0.748733520507813" d="0.748733520507813" tx="-233.5" ty="-144.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="GLOBAL" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Tab/UI-Btn-Tab" name="btnLocal" uniqueID="4">
+                  <matrix>
+                    <Matrix a="0.748733520507813" d="0.748733520507813" tx="232.95" ty="-144.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="2.8"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="LOCAL" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/UI-HighScore-Row" name="slot7">
+                  <matrix>
+                    <Matrix tx="-0.4" ty="150"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HighScores/assets/UI-HighScore-Title" name="title">
+                  <matrix>
+                    <Matrix ty="-191.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-6.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" width="264.2" height="33.4">
+                  <matrix>
+                    <Matrix tx="-391.2" ty="183.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>This feature is &#xD;still in development.</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineSpacing="-2" lineHeight="17.7" size="18" bitmapSize="360" face="Furmanite-Bold" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" color="#990000" distance="2" strength="0.76"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

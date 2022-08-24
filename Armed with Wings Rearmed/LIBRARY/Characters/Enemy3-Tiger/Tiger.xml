@@ -1,0 +1,712 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy3-Tiger/Tiger" itemID="54b64198-00000f1c" lastModified="1501753314" lastUniqueIdentifier="6" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="Tiger">
+      <layers>
+        <DOMLayer name="Tiger-actions" color="#FFFF00" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import boosters.PlayerBoosterManager;
+
+init();
+
+var life:Number;
+var lifeOrig:Number;
+var eyeSight:Number;
+var xSpeed:Number;
+var ySpeed:Number;
+var moveSpeed:Number;
+var maxMoveSpeed:Number;
+var maxMoveSpeedDefault:Number;
+var eagleSight:Number;
+var attackRange:Number;
+var attackCool:Number;
+var attackCoolOrig:Number;
+var damage:Number;
+var enemyLevel:Number;
+var orbs:Number;
+
+var dead:Boolean;
+var angry:Boolean;
+var onGround:Boolean;
+var onLeftWall:Boolean;
+var onRightWall:Boolean;
+var aware:Boolean;
+var baware:Boolean;
+var eagleAnger:Boolean;
+var moveable:Boolean;
+var superEnemy:Boolean //component var < remove from init
+var slowHit:Boolean;
+var slowHitTimer:Number;
+var eagleInSight:Boolean;
+var scouting:Boolean;
+
+var enemyType:String = "ENEMY3";
+
+//components
+var maxX:Number;//useless
+var minX:Number;//useless
+
+//refs
+var hero:MovieClip = MovieClip(parent).hero;
+var eagle:MovieClip = MovieClip(parent).eagle;
+var ground:MovieClip = MovieClip(parent).ground;
+var sndCtrl:MovieClip = MovieClip(root);
+var gameData:MovieClip = MovieClip(root);
+var vcam:MovieClip = MovieClip(parent).vcam;
+var game:MovieClip = MovieClip(parent);
+var particleLayer:MovieClip = MovieClip(parent).particleLayer;
+
+function init(setLevel:Number = 0):void {
+	life = 25;	
+	eyeSight = 500;
+	xSpeed = 0;
+	ySpeed = 0;
+	moveSpeed = 1;
+	maxMoveSpeedDefault = maxMoveSpeed = 2;
+	attackRange = 100;
+	attackCool = 0;
+	attackCoolOrig = 7;
+	damage = 1;
+	orbs = 4;
+
+	eyeSight = 300;
+	eagleSight = 200;
+	
+	dead = false;
+	angry = false;
+	onGround = false;
+	onLeftWall = false;
+	onRightWall = false;
+	aware = false;
+	moveable = true;
+	superEnemy = false; // remove when component
+	
+	hero = MovieClip(parent).hero;
+	ground = MovieClip(parent).ground;
+	sndCtrl = MovieClip(root);
+	gameData = MovieClip(root);
+	vcam = MovieClip(parent).vcam;
+	game = MovieClip(parent);
+	particleLayer = MovieClip(parent).particleLayer;
+	
+	difficultyCurve(setLevel);
+	
+	scaleX = -1;
+	gotoAndStop("idle");
+	if (gameData.gameMode == gameData.SURVIVAL) {
+		orbs = 6;
+	}
+}
+
+function difficultyCurve(setLevel:Number = 0):void {
+	if (setLevel == 0) {
+		if (gameData.gameMode != gameData.SURVIVAL) {
+			enemyLevel = game.enemyBaseLevel;
+			
+			if (gameData.gameDifficulty == gameData.gameDifficultyfutile) {
+				var i:Number = Math.round(game.enemyBaseLevel * 1.5);
+				enemyLevel = 5+i;
+			} else if (gameData.gameDifficulty == gameData.gameDifficultySuperFutile) {
+				i = Math.round(game.enemyBaseLevel * 1.7);
+				enemyLevel = 6+i
+			}
+		} else {
+			//enemyLevel = Math.ceil(gameData.sessionWave *.75);
+		}
+		
+	} else {
+		enemyLevel = setLevel;
+	}
+	
+		
+	if (DebugControl.forceEnemyLevel) enemyLevel = DebugControl.enemyLevel;
+	
+	life = 25+(enemyLevel*.6);
+	lifeOrig = life;
+	maxMoveSpeedDefault = maxMoveSpeed = 2+(enemyLevel*.15);
+	damage = 1+(enemyLevel*.04);
+	eyeSight = 500+(80*(enemyLevel*.08));
+	attackRange = 100+(enemyLevel*1.5);
+	
+	if (DebugControl.lowHealthEnemies) life = 1;
+}
+
+function update():void {
+	if (CameraDistCheck.inRangeEnemy(this)) {
+		if (visible) {
+			physics();
+			if (!dead) {
+				
+				if (life < 8) angry = true;
+				if (angry) {
+					maxMoveSpeedDefault = maxMoveSpeed = 5;
+				}
+				
+				blockHero();
+				recoverSlowHit();
+				if (!hero.dead && hero.life > 0) {
+					if (findHero() && moveable) {
+						huntHero();
+						damageEnemies();
+					} else {
+						if (findEagle()) {
+							if (eagleAnger) {
+								eagleInSight = true;
+								huntEagle();
+							}
+							else stopMoving();
+						} else {
+							eagleInSight = false;
+							if (!scouting) {
+								stopMoving();
+							}
+						}
+					}
+				}
+				
+				if (hero.life <= 0) {
+					if (currentFrameLabel == "walk") gotoAndStop("idle");
+				}
+				
+				if (life <= 0 && this.currentFrameLabel != "death") {
+					gotoDeath();
+				}
+			}
+			updateAnims();
+		}
+	} else {
+		eagleInSight = false;
+	}
+}
+
+function physics():void {
+	if (slowHit) {
+		if (ySpeed < 0)
+			ySpeed -= .5;
+		else ySpeed -= .75;
+	} else {
+		ySpeed --;
+	}
+	y -= ySpeed;
+		
+	var w:Number = 57;
+	var h:Number = 83;
+	
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true)) {
+		y-= .5;
+		ySpeed = 0;
+	}
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY()-h, true)) {
+		y++;
+		ySpeed = 0;
+	}
+	while (ground.hitTestPoint(getGlobalX()-(w*.5), getGlobalY()-(h*.75), true)) {
+		xSpeed = 0;
+		x ++;
+	}
+	while (ground.hitTestPoint(getGlobalX()+(w*.5), getGlobalY()-(h*.75), true)) {
+		xSpeed = 0;
+		x --;
+	}
+	
+	if (ground.hitTestPoint(getGlobalX(), getGlobalY()+2, true)) {
+		onGround = true;
+	} else {
+		onGround = false;
+	}
+	if (ground.hitTestPoint(getGlobalX()-(w*.5)-2, getGlobalY()-(h*.75), true)) {
+		onLeftWall = true
+	} else {
+		onLeftWall = false;
+	}
+	if (ground.hitTestPoint(getGlobalX()+(w*.5)+2, getGlobalY()-(h*.75), true)) {
+		onRightWall = true
+	} else {
+		onRightWall = false;
+	}
+	
+	var decell:Number = 1;
+	if (superEnemy) decell = 1.2;
+	if (!onGround) decell = .5;
+	if (xSpeed != 0) {
+		x += xSpeed;
+		
+		if (xSpeed > 0) {
+			xSpeed -= .5*decell;
+			if (xSpeed < 0) xSpeed = 0;
+		}
+		if (xSpeed < 0) {
+			xSpeed += .5*decell;
+			if (xSpeed > 0) xSpeed = 0;
+		}
+	}
+}
+
+function findHero():Boolean {
+	if (aware) {
+		return true
+	}
+	if (hero.life <= 0) return false;
+	if (distanceBetween(this, hero) <= eyeSight && distanceBetweenY(this,hero) <= eyeSight*.33) {
+		if (aware) {
+			return true;
+		} else {
+			if ((hero.x > x && scaleX == 1) || (hero.x < x && scaleX == -1)) {
+				aware = true;
+				return true;
+			} else {
+				return false;
+			}
+		}
+	} else {
+		
+		return false;
+	}
+}
+function findEagle():Boolean {
+	if (distanceBetween(this, eagle) < eagleSight) {
+		baware = true;
+		if (eagle.bound.hitTestObject(bound)) {
+			eagleAnger = true;
+			scouting = false;
+		}
+		return true;
+	} else {
+		baware = false;
+		return false;
+	}
+}
+
+
+function huntHero():void {
+	if (onGround && currentFrameLabel != "hurt" && currentFrameLabel != "attack" && currentFrameLabel != "SPAWN") {
+		if (distanceBetween(this, hero) > attackRange) {
+			moveTowards(hero);
+		} else {
+			if (angry) 
+				attacking(true);
+			else
+				attacking();
+		}
+	}
+}
+function huntEagle():void {
+	if (onGround && currentFrameLabel != "hurt" && currentFrameLabel != "attack") 
+	{
+		if (!this.bound.hitTestObject(eagle.bound)) {	
+			if (eagle.x < x) scaleX = -1;
+			else scaleX = 1;
+			if (distanceBetween(this, eagle) < eagleSight && distanceBetweenX(this, eagle) > 50) {
+				
+				moveTowards(eagle);
+			} else {
+				stopMoving();
+			}
+			
+		} else {
+			attacking(true, true);
+		}
+	}
+}
+
+function moveTowards(obj:MovieClip):void {
+	var dir:Number;
+	if (obj.x < x) dir =-1;
+	else dir = 1;
+	scaleX = dir;
+	
+	if ((scaleX == 1 && onRightWall) || (scaleX == -1 && onLeftWall)) {
+		stopMoving();
+	} else {
+		if (checkStep()){
+			xSpeed += moveSpeed*dir;			
+			if (xSpeed > maxMoveSpeed) xSpeed = maxMoveSpeed;
+			if (xSpeed < -maxMoveSpeed) xSpeed = -maxMoveSpeed;
+			
+			updateAnimation("walk");
+		} else {
+			stopMoving();
+		}
+	}
+}
+function stopMoving():void {
+	if (currentFrameLabel == "walk") updateAnimation("idle");
+}
+
+function attacking(ignoreCool:Boolean = false, attackEagle:Boolean = false):void {
+	if (ignoreCool) attackCool = 0;
+	if (attackCool > 0) {
+		stopMoving();
+		attackCool --;
+	} else {
+		if (this.currentFrameLabel != "attack") {
+			var target:MovieClip = hero;
+			if (attackEagle) target = eagle;
+				
+			if (target.x < x) scaleX = -1;
+			else scaleX = 1;
+		}
+		updateAnimation("attack");
+		attackCool = attackCoolOrig;
+	}
+}
+
+function doAttack2():void {
+	if (this.currentFrameLabel == "attack") {
+		this.attack.gotoAndPlay("a2");
+	}
+}
+
+function recoverSlowHit():void {
+	if (slowHitTimer > 0) {
+		slowHitTimer --;
+	} else {
+		slowHit = false;
+	}
+}
+
+function damageEnemies():void {
+	var hitStandard:MovieClip = this[currentFrameLabel].hit;
+	var hitHard:MovieClip = this[currentFrameLabel].hit2;
+	
+	if (hero) 
+	{
+		
+		if (hitStandard && hitStandard.hitTestObject(hero.bound)) {
+			hero.takeDamage(this, 6);
+			if (this.currentFrameLabel == "attack" && this.attack.attackNum == 1) {
+				TweenMax.delayedCall(4, doAttack2, null, true);
+			}
+		}
+		if (hitHard && hitHard.hitTestObject(hero.bound)) {
+			hero.takeDamage(this, 15, 8, damage);
+		}
+			
+	}
+	
+	if (eagle) {
+		if (hitStandard && hitStandard.hitTestObject(eagle.bound) && eagle.moveable) {
+			eagle.takeDamage(this, 1);
+		}
+	}
+}
+
+function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1, combo:Boolean = true):void {
+	if (from.hasOwnProperty("heroName") && life > 0) {
+		if (gameData.dataIsGearEquipt("Gravity Hit", from.playerID)) {
+			if (!slowHit) {
+				if(PlayerBoosterManager(from.boosterManager).canUse("Gravity Hit")) {
+					slowHitTimer = 120;
+					slowHit = true;
+				}
+			}
+		}
+		if (gameData.dataIsGearEquipt("Leech", from.playerID)) {
+			if (Math.random() <= gameData.data_leechAmount) {
+				from.life += 1;
+				if (from.life > from.lifeOrig) from.life = from.lifeOrig;
+			}
+		}
+	}
+	if (distanceBetween(this, vcam) < 1200) {
+		if (currentFrameLabel != "death") {
+			damage = damage + (gameData.dataGetWeaponPower()*.15);
+			
+			aware = true;
+			life -= damage;
+			xSpeed = (X * from.scaleX) * .3;
+			scaleX = from.scaleX *-1;
+			
+			if (life <= 0 && Y == 0) {
+				sndCtrl.playHitHardSound();
+				gotoDeath();
+			} else {
+				sndCtrl.playHitSound();
+				updateAnimation("hurt");
+				
+				if (hurt) {
+					hurt.gotoAndPlay(1);
+					
+				}
+			}
+			
+			if (combo) gameData.scoreAttack();
+			vcam.battleCool = 60;
+			if (from.overdrive) 
+				particleLayer.addHitSplash(from, this, 1.5);
+			else particleLayer.addHitSplash(from, this);
+			if (combo) if (gameData.sessionCombo > 1) particleLayer.addCombo(x, y, 1);
+		}
+	}
+}
+
+function gotoDeath():void {
+	if (!dead) {
+		for (var i:int = 0; i < orbs; i ++) {
+			particleLayer.addOrb(1, this);
+		}
+			
+		dead = true;
+		if (gameData.gameMode == gameData.SURVIVAL) 
+			gameData.sessionSurvivalEnemies ++;
+	} 
+	updateAnimation("death");
+	xSpeed = 0;
+}
+
+function updateAnims():void {
+	var clip:MovieClip = this[currentFrameLabel];
+	
+	if (clip.name == "attack") {
+		if (clip.currentFrame == 2) {
+			sndCtrl.playSound(sndCtrl.sndRoar3);
+			if (angry) {
+				xSpeed += 5 *  scaleX;
+			} else {
+				xSpeed += 3 *  scaleX;
+			}
+		}
+		if (clip.currentFrame == 73) {
+			sndCtrl.playSound(sndCtrl.sndRoar5);
+		}
+		if (clip.currentFrame == clip.totalFrames) updateAnimation("idle");
+	}
+	if (clip.name == "hurt") {
+		if (clip.currentFrame == 2) {
+			sndCtrl.playSound(sndCtrl.sndRoar4);
+		}
+		if (clip.currentFrame == clip.totalFrames) updateAnimation("idle");
+	}
+	
+	if (clip.name == "death") {
+		if (clip.currentFrame == 1) {
+			sndCtrl.playSound(sndCtrl.sndExplode);
+		}
+		if (clip.currentFrame == clip.totalFrames) {
+			clip.stop();
+			visible = false;
+		}
+	}
+}
+
+function blockHero():void {
+	var dist:Number = distanceBetween(this, hero);
+	if (hero.currentFrameLabel != "dodge" && hero.currentFrameLabel != "hurt" && onGround) {
+		if (dist < 45) {
+			if (hero.x < x) {
+				hero.x --;
+				hero.xSpeed = -3;
+				xSpeed = 3;
+				
+			} else 
+			if (hero.x > x) {
+				hero.x ++;
+				hero.xSpeed = 3;
+				xSpeed = -3;
+			}
+		}
+	}
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = Math.abs(obj1.x - obj2.x);
+    return X;
+}
+function distanceBetweenY(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var Y:Number = Math.abs(obj1.y - obj2.y);
+    return Y;
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}
+
+function checkStep():Boolean {
+	var b:Boolean = false;
+	
+	if (ground.hitTestPoint(getGlobalX()+(50 * this.scaleX), getGlobalY()+20, true)) {
+		b = true;
+	} else {
+		if (ground.hitTestPoint(getGlobalX()+(50 * this.scaleX), getGlobalY()+60, true)) {
+			b = true;
+		}
+	}
+	
+	return b;
+}
+
+function updateAnimation(animName:String):void {
+	if (currentFrameLabel != animName) {
+		this[currentFrameLabel].stop();
+		gotoAndStop(animName);
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="labels" color="#FFFF00" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="idle" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="walk" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="attack" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="hurt" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" name="death" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" name="SPAWN" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy3-Tiger/Anims/Tiger-Idle" name="idle">
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy3-Tiger/Anims/Tiger-Walk" name="walk">
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy3-Tiger/Anims/Tiger-Attack" name="attack">
+                  <matrix>
+                    <Matrix ty="0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy3-Tiger/Anims/Tiger-Hurt" name="hurt">
+                  <matrix>
+                    <Matrix ty="-0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-4.9" y="1.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/LargeCloud/DustCloud" name="death">
+                  <matrix>
+                    <Matrix a="0.555816650390625" b="-0.494720458984375" c="0.494720458984375" d="0.555816650390625" tx="8" ty="0.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-13.65" y="-12.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy3-Tiger/Anims/Tiger-Spawnn" name="SPAWN" selected="true">
+                  <matrix>
+                    <Matrix tx="-18.2" ty="-32"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Colorer-GameObject" name="colorer">
+                  <matrix>
+                    <Matrix tx="-3.55" ty="-71.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="-2.84042358398438" d="0.549942016601563" tx="-1.85" ty="-30.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="maxX">
+      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="minX">
+      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

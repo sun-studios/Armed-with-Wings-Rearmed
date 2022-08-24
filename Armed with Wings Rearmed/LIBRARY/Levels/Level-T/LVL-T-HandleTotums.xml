@@ -1,0 +1,309 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-T/LVL-T-HandleTotums" itemID="5651d34a-00003798" lastModified="1485791300">
+  <timeline>
+    <DOMTimeline name="LVL-T-HandleTotums">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var ground:MovieClip;
+var hud:MovieClip;
+var _parent:MovieClip;
+var hero:MovieClip;
+var eagle:MovieClip;
+var vcam:MovieClip;
+var elevator:MovieClip;
+var gate0:MovieClip;
+var gate1:MovieClip;
+var gate2:MovieClip;
+var gate3:MovieClip;
+var gate4:MovieClip;
+var door0:MovieClip;
+var door1:MovieClip;
+var door2:MovieClip;
+var totum0:MovieClip;
+var totum1:MovieClip;
+var rockSwitch0:MovieClip;
+var rockSwitch1:MovieClip;
+var spikeGate:MovieClip;
+var ropeCogs:MovieClip;
+var camPoint:MovieClip;
+var stepSwitch:MovieClip;
+var fireTrigger2:MovieClip;
+
+var flag0:Boolean;
+var flag1:Boolean;
+var flag2:Boolean;
+var flag3:Boolean;
+var flag4:Boolean;
+var flag5:Boolean;
+
+
+init();
+
+function init ():void {
+	visible = false;
+	
+	ground = MovieClip(parent).ground;
+	hud = MovieClip(root).hud;
+	_parent = MovieClip(parent);
+	hero = _parent.hero;
+	eagle = _parent.eagle;
+	vcam = _parent.vcam;
+	elevator = _parent.elevatorFunction;
+	gate0 = ground.gate0;
+	gate1 = ground.gate1;
+	gate2 = ground.gate2;
+	gate3 = ground.gate3;
+	gate4 = ground.gate4;
+	door0 = ground.door0;
+	door1 = ground.door1;
+	door2 = ground.door2;
+	totum0 = _parent.totum0;
+	totum1 = _parent.totum1;
+	rockSwitch0 = _parent.rockSwitch0;
+	rockSwitch1 = _parent.rockSwitch1;
+	
+	spikeGate = ground.spikeGate;
+	ropeCogs = _parent.ropeCogs;
+	camPoint = _parent.camPoint;
+	stepSwitch = _parent.stepSwitch;
+	fireTrigger2 = _parent.fireTrigger2;
+	
+	gate2.gotoAndStop("isOpen");
+}
+
+function update ():void {
+	//Puzzle Step 1
+	if (!flag0 && totum0.switchState == "ON") {
+		triggerSet0();
+		flag0 = true;
+	}
+	
+	//Puzzle Step 2
+	if (rockSwitch1.isOn) {
+		if (!flag1) {
+			triggerSet1("CLOSE");
+			flag1 = true;
+		}
+	} else {
+		if (flag1) {
+			triggerSet1("OPEN");
+			flag1 = false;
+		}
+	}
+	
+	//Puzzle Step 3
+	if (rockSwitch0.isOn) {
+		if (!flag2) {
+			triggerSet2("OPEN");
+			flag2 = true; 
+		}
+	} else {
+		if (flag2) {
+			triggerSet2("CLOSE");
+			flag2 = false;
+		}
+	}
+	
+	//Puzzle Step 4
+	if (!flag3 && totum1.switchState == "ON") {
+		triggerSet3();
+		flag3 = true;
+	}
+	
+	//Puzzle Step 5
+	//if (!flag4 && ropeCogs.flag) {
+		//triggerSet4();	
+		//flag4 = true;
+	//}
+	if (!flag4) {
+		if (fireTrigger2._on) {
+			triggerSet4();	
+			flag4 = true;
+		}
+	}
+	
+	//Puzzle Step 6
+	if (!flag5 && stepSwitch.isOn) {
+		triggerSet5();	
+		flag5 = true;
+	}
+}
+
+///////////////////////////////////////////////////////////////////////
+///////// TRIGGER SETS ////////////////////////////////////////////////
+function triggerSet0 ():void {
+	stopControl();
+	
+	//delay gates opening
+	TweenMax.delayedCall(60, function () {
+		gate3.gotoAndPlay(2);
+		spikeGate.gotoAndPlay(2);
+		door1.gotoAndPlay(2);
+		door2.gotoAndPlay(2);
+	}, null, true);
+	
+	//return 
+	TweenMax.delayedCall(140, resumeControl, null, true);
+}
+function triggerSet1 (state:String):void {
+	stopControl();
+	
+	TweenMax.delayedCall(60, function () {
+		switch (state) {
+			case "OPEN":
+				gate2.gotoAndPlay("open");
+				updateElevator();
+				break;
+			case "CLOSE":
+				gate2.gotoAndPlay("close");
+				updateElevator();
+				break;
+		}
+	}, null, true);
+	
+	//return 
+	TweenMax.delayedCall(140, resumeControl, null, true);
+}
+function triggerSet2 (state:String):void {
+	stopControl();
+	
+	TweenMax.delayedCall(60, function () {
+		switch (state) {
+			case "OPEN":
+				gate0.gotoAndPlay("open");
+				updateElevator();
+				break;
+			case "CLOSE":
+				gate0.gotoAndPlay("close");
+				updateElevator();
+				break;
+		}
+	}, null, true);
+	
+	//return 
+	TweenMax.delayedCall(140, resumeControl, null, true);
+}
+function triggerSet3():void {
+	stopControl(_parent.camPoint2, 1);
+	
+	//delay gates opening
+	TweenMax.delayedCall(20, function () {
+		door0.gotoAndPlay(2);
+	}, null, true);
+	
+	//return 
+	TweenMax.delayedCall(80, resumeControl, null, true);
+}
+function triggerSet4():void {
+	stopControl(fireTrigger2, .8);
+	
+	//delay gates opening
+	TweenMax.delayedCall(60, function () {
+		vcam.target = _parent.camPoint4;
+		vcam.zoom = .9;
+		gate4.gotoAndPlay(2);
+	}, null, true);
+	
+	//return 
+	TweenMax.delayedCall(120, resumeControl, null, true);
+}
+function triggerSet5():void {
+	stopControl();
+	
+	//delay gates opening
+	TweenMax.delayedCall(20, function () {
+		gate1.gotoAndPlay(2);
+	}, null, true);
+	
+	//return 
+	TweenMax.delayedCall(80, resumeControl, null, true);
+}
+///////////////////////////////////////////////////////////////////////
+
+function updateElevator():void {
+	if (rockSwitch1.isOn && rockSwitch0.isOn) {
+		elevator.setPos(2);
+	} else {
+		if (rockSwitch1.isOn) {
+			elevator.setPos(1);
+		} else {
+			if (rockSwitch0.isOn) {
+				elevator.setPos(1);
+			} else {
+				elevator.setPos(0);
+			}
+		}
+	}
+}
+
+function stopControl(_camPoint:MovieClip = null, _zoom:Number = 0):void {
+	vcam.ignoreEagleSwitch = true;
+	hud.visible = false;
+	//hero.switchToHero(false);
+	//hero.xSpeed *= .5;
+	//hero.active = false;
+	
+	//set camera
+	if (_camPoint == null) vcam.target = camPoint;
+	else vcam.target = _camPoint;
+	
+	if (_zoom == 0) vcam.zoom = 2.45;
+	else vcam.zoom = _zoom;
+}
+function resumeControl():void {
+	vcam.ignoreEagleSwitch = false;
+	hud.visible = true;
+	//hero.switchToHero();
+	hero.active = true;
+	if (hero.moveable) {
+		vcam.target = hero;
+	} else if (eagle.moveable) {
+		vcam.target = eagle;
+	}
+	vcam.zoom = 1;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-873 -367|872 -367!872 -367|872 368!872 368|-873 368!-873 368|-873 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="4.5" width="87.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.15" ty="-12.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Handle &#xD;Totums</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

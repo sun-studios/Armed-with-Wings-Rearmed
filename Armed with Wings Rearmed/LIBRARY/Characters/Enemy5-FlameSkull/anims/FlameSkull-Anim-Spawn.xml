@@ -1,0 +1,106 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy5-FlameSkull/anims/FlameSkull-Anim-Spawn" itemID="56b180f0-000009c2" lastModified="1454473456" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="FlameSkull-Anim-Spawn" currentFrame="22">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="22" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy5-FlameSkull/anims/Symbol 18" name="idle">
+                  <matrix>
+                    <Matrix tx="-2.8" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.85" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="24" color="#FFFFFF" strength="2.08"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy5-FlameSkull/anims/Symbol 18" name="idle" centerPoint3DY="-48.35">
+                  <matrix>
+                    <Matrix a="1.0872802734375" d="0.914886474609375" tx="-2.45" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.85" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="10" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy5-FlameSkull/anims/Symbol 18" name="idle" centerPoint3DY="-48.35">
+                  <matrix>
+                    <Matrix a="0.962600708007813" d="1.01589965820313" tx="-2.95" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.85" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="7" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy5-FlameSkull/anims/Symbol 18" name="idle" centerPoint3DY="-48.35">
+                  <matrix>
+                    <Matrix tx="-2.8" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.85" y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,154 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Teleport" itemID="587a4ec1-00000da8" lastModified="1484410569">
+  <timeline>
+    <DOMTimeline name="SLW-Teleport">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="7" name="teleport" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);
+
+sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndTeleport);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(parent).onGround) {
+	MovieClip(parent).gotoAndStop("idle");
+} else {
+	MovieClip(parent).gotoAndStop("spinJump");
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle" centerPoint3DX="-82.75" centerPoint3DY="-18.2">
+                  <matrix>
+                    <Matrix a="1.05705261230469" d="0.705490112304688" tx="-4.7" ty="-5.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-77.15" y="-0.35"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="29"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle" centerPoint3DX="5" centerPoint3DY="-98.35">
+                  <matrix>
+                    <Matrix a="0.0597686767578125" d="1.40217590332031" tx="5.1" ty="-92.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-76.95" y="-0.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="90"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle" centerPoint3DX="5" centerPoint3DY="-48.2">
+                  <matrix>
+                    <Matrix a="0.0597686767578125" d="0.471450805664063" tx="5.1" ty="-85.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-76.95" y="-0.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="90"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-SpinJump2">
+                  <matrix>
+                    <Matrix a="0.0760498046875" d="2.27153015136719" tx="-1.15" ty="-31.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="194"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-SpinJump2" centerPoint3DX="-1.15" centerPoint3DY="-31.35">
+                  <matrix>
+                    <Matrix a="0.155303955078125" d="1.86537170410156" tx="-1.15" ty="-31.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="194"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-SpinJump2" centerPoint3DX="-1.2" centerPoint3DY="-31.3">
+                  <matrix>
+                    <Matrix a="0.656906127929688" d="0.941970825195313" tx="-1.15" ty="-31.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="16"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

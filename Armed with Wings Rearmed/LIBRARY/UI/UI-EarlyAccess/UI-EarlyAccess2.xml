@@ -1,0 +1,406 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/UI-EarlyAccess2" itemID="569e02ed-000011a6" lastModified="1494320542" lastUniqueIdentifier="11">
+  <timeline>
+    <DOMTimeline name="UI-EarlyAccess2">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+import flash.display.MovieClip;
+import flash.events.Event;
+import flash.net.URLLoader;
+import flash.net.URLRequest;
+import flash.net.navigateToURL;
+import com.greensock.TweenMax;
+
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+var keyFilter5:Boolean;
+var keyFilter6:Boolean;
+var keyFilter7:Boolean;
+var keyFilter8:Boolean;
+
+var changeLogOpen:Boolean;
+
+var vertIndex:int;
+var horIndex:int;
+var btnArray:Array;
+
+var currentSelect:MovieClip;
+
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var gameData:MovieClip;
+
+init();
+
+function init():void {
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	keyFilter5 = true;
+	keyFilter6 = true;
+	keyFilter7 = true;
+	keyFilter8 = true;
+	
+	vertIndex = 0;
+	horIndex  = 0;
+	btnArray = new Array();
+	btnArray = [container.b0, container.b1, container.b2, container.b3, container.b4];
+	
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	gameData = MovieClip(root);
+	this.addEventListener(Event.ENTER_FRAME, update);
+	
+	selectButton(container.b0, false);
+	tf_version.text = "v"+MovieClip(root).gameVersion;
+	
+}
+
+function update(e:Event):void {
+	gameData.controlUpdate();
+	changeLog.update();
+	
+	coolScroll();
+	if (!changeLogOpen) {
+		//control down//
+		if (ctrl.ctrl_down) {
+			if (!keyFilter1) {
+				if (horIndex == 3) {
+					if (vertIndex < 1) {
+						vertIndex ++;
+						selectButton(btnArray[vertIndex+3]);
+					}
+				} 
+				keyFilter1 = true;
+			}
+		} else {
+			keyFilter1 = false;
+		}
+		
+		//control up//
+		if (ctrl.ctrl_up) {
+			if (!keyFilter2) {
+				if (horIndex == 3) {
+					if (vertIndex > 0) {
+						vertIndex --;
+						selectButton(btnArray[vertIndex+3]);
+					}
+				}
+				keyFilter2 = true;
+			}
+		} else {
+			keyFilter2 = false;
+		}
+		
+		//left//----------------------
+		if (ctrl.ctrl_left) {
+			if (!keyFilter7) {
+				if (horIndex > 0) {
+					horIndex --;
+					selectButton(btnArray[horIndex]);
+				}
+				keyFilter7 = true;
+			}
+		} else {
+			keyFilter7 = false;
+		}
+		
+		//right//----------------------
+		if (ctrl.ctrl_right) {
+			if (!keyFilter8) {
+				if (horIndex < 3) {
+					horIndex ++;
+					if (horIndex == 3) {
+						selectButton(btnArray[vertIndex+3]);
+					} else {
+						selectButton(btnArray[horIndex]);
+					}
+					
+				}
+				keyFilter8 = true;
+			}
+		} else {
+			keyFilter8 = false;
+		}
+		
+		if (ctrl.ctrl_confirmStart) {
+			if (!keyFilter3) {
+				if (horIndex == 3) {
+					switch (vertIndex) {
+						case 0:
+							openURL("twitter");
+							break;
+						case 1:
+							openURL("facebook");
+							break;
+					}
+				} else {
+					switch (horIndex) {
+						case 0:
+							sndCtrl.playUISound(sndCtrl.sndButton3);
+							close();
+							break;
+						case 1:
+							sndCtrl.playUISound(sndCtrl.sndButton3);
+							changeLog.visible = true;
+							changeLog.x = 0;
+							changeLog.y = 0;
+							changeLogOpen = true;
+							break;
+						case 2:
+							openURL("news");
+							break;
+					}
+				}
+				keyFilter3 = true;
+			}
+		} else {
+			keyFilter3 = false;
+		}
+			
+		//control start
+		if (ctrl.ctrl_start) {
+			if (!keyFilter4) {
+				//close();
+				keyFilter4 = true;
+			}
+		} else {
+			keyFilter4 = false;
+		}
+	} else {
+		if (ctrl.ctrl_cancel) {
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			changeLogOpen = false;
+			changeLog.visible = false;
+		}
+	}
+	
+	if (cursor) {
+		cursor.x += ((currentSelect.x - (currentSelect.width*.5) + container.x) - cursor.x)/2;
+		cursor.y += ((currentSelect.y + (currentSelect.height*.5) + container.y) - cursor.y)/2;
+	}
+}
+
+function coolScroll():void {
+	var X:Number = -currentSelect.x*.2;
+	
+	
+	container.x += (X - container.x)/16;
+}
+
+function selectButton(obj:MovieClip, doSound:Boolean = true):void {
+	if (doSound) sndCtrl.playUISound(sndCtrl.sndButton1);
+	if (currentSelect) {
+		currentSelect.gotoAndPlay("out");
+	}
+	currentSelect = obj;
+	currentSelect.gotoAndPlay("over");
+}
+
+
+function openURL(s:String):void {
+	var url:String;
+	
+	switch (s) {
+		case "devBlog":
+			url = "http://www.armedwithwings.com";
+			break;
+		case "forums":
+			url = "http://www.sun-studios.net/forum/viewforum.php?f=34";
+			break;
+		case "suggest":
+			url = "http://www.sun-studios.net/forum/posting.php?mode=post&f=35";
+			break;
+		case "news":
+			url = "http://www.armedwithwings.com/category/news/";
+			break;
+		case "facebook":
+			url = "https://www.facebook.com/ArmedwithWingsPage/";
+			break;
+		case "twitter":
+			url = "http://www.twitter.com/armedwithwings";
+			break;
+	}
+	
+	if (gameData.STEAM && gameData.steamworks.isReady) {
+		gameData.steamworks.activateGameOverlayToWebPage(url);
+	} else {
+		navigateToURL(new URLRequest(url));
+	}
+	
+	sndCtrl.playSound(sndCtrl.sndButton3);
+}
+
+function close():void {
+	this.removeEventListener(Event.ENTER_FRAME, update);
+	MovieClip(parent).removeChild(this);
+	TweenMax.delayedCall(60, gameData.play, null, true);
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="tf_version" fontRenderingMode="standard" left="214.35" width="78.35" height="30" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="180.55" ty="240"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>v0.0</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="1" lineHeight="24" size="16" bitmapSize="320" face="Font 1*" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="4" strength="0.08"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="changelog" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/UI-EarlyAccess2-ChaneLog" name="changeLog">
+                  <matrix>
+                    <Matrix tx="1097.45" ty="-4.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="200.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="cursor" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/UI-EarlyAcces-Cursor" name="cursor">
+                  <matrix>
+                    <Matrix tx="-534.45" ty="28.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.45" y="2.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" quality="2" strength="0.83"/>
+                    <GlowFilter color="#FFFFFF" quality="3" strength="0.44"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 1">
+                  <matrix>
+                    <Matrix a="0" b="1" c="-1" d="0" ty="-129.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.6"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="56" blurY="6" color="#FFFFFF" quality="2" strength="0.65"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 1">
+                  <matrix>
+                    <Matrix a="0" b="1" c="-1" d="0" ty="220.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5.6"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="56" blurY="6" color="#FFFFFF" quality="2" strength="0.65"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 41" name="container" selected="true">
+                  <matrix>
+                    <Matrix tx="-4.55" ty="48.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Title">
+                  <matrix>
+                    <Matrix a="0.803512573242188" d="0.803512573242188" tx="-0.05" ty="-199.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Clouds-Animated" centerPoint3DX="1122.8" centerPoint3DY="53.9">
+                  <matrix>
+                    <Matrix tx="1122.8" ty="53.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.30078125"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#FF800A" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" fillStyle1="1" edges="!3920 -5400S2|3920 -1695!3920 -1695|-3915 -1695!-3915 -1695|-3915 -5400"/>
+                    <Edge fillStyle1="1" edges="!3920 -5400|9600 -5400!9600 -5400|9600 5400!9600 5400|-9600 5400!-9600 5400|-9600 -5400!-9600 -5400|-3915 -5400"/>
+                    <Edge fillStyle1="1" edges="!-3915 -5400S2|3920 -5400"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

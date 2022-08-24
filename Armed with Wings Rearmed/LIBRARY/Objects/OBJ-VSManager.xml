@@ -1,0 +1,274 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-VSManager" itemID="573f2491-00000d55" lastModified="1493039498">
+  <timeline>
+    <DOMTimeline name="OBJ-VSManager">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+import flash.display.MovieClip;
+import flash.events.Event;
+
+var hud:MovieClip;
+var hero_p1:MovieClip;
+var hero_p2:MovieClip;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+var vcam:MovieClip;
+var camHelper:MovieClip;
+var roundNumber:int;
+var inactivePeriod:Boolean;
+
+var p1_score:Number;
+var p2_score:Number;
+var targetScore:Number;
+
+init();
+
+function init():void {
+	visible = false;
+	
+	hud = MovieClip(root).hud;
+	vcam = MovieClip(parent).vcam;
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	camHelper = MovieClip(parent).camHelper;
+	hero_p1 = MovieClip(parent).hero;
+	hero_p2 = MovieClip(parent).hero_p2;
+	
+	hero_p1.addEventListener("REVIVECOMPLETE", focusCamera); 
+	hero_p1.addEventListener("DEFEATED", doKO); 
+	
+	hero_p2.addEventListener("REVIVECOMPLETE", focusCamera); 
+	hero_p2.addEventListener("DEFEATED", doKO); 
+	
+	inactivePeriod = true;
+	
+	p1_score = 0;
+	p2_score = 0;
+	targetScore = MovieClip(root).sessionVSRounds;
+	
+	roundNumber = 0;
+	hud.fadeoutUI(true);
+	TweenMax.delayedCall(40, preRound, null, true);
+	
+	sndCtrl.musicChannel.stop();
+	sndCtrl.playMusic(sndCtrl.track9_0);
+}
+//hook2
+function preRound():void {
+	vcam.slowZoom = false;
+	if (p1_score == targetScore-1 && p2_score == targetScore-1) {
+		sndCtrl.playSound(sndCtrl.sndRound5);
+		hud.displayRound(roundNumber+1, true);
+	} else {
+		sndCtrl.playSound(sndCtrl["sndRound"+(roundNumber+1)]);
+		hud.displayRound(roundNumber+1);
+	}
+		
+	
+	hero_p1.life = hero_p1.lifeOrig;
+	hero_p2.life = hero_p2.lifeOrig;
+	TweenMax.delayedCall(66, hud.displayFight, null, true);
+	TweenMax.delayedCall(66, function () { sndCtrl.playSound(sndCtrl.sndRoundFight); }, null, true);
+	TweenMax.delayedCall(80, startRound, null, true);
+}
+
+function startRound():void {
+	inactivePeriod = false;
+	hud.fadeinUI();
+	hero_p1.active = true;
+	hero_p2.active = true;
+	hero_p1.moveable = true;
+	hero_p2.moveable = true;
+}
+
+function update():void {
+	if (inactivePeriod) {
+		hero_p1.active = false;
+		hero_p2.active = false;
+		hero_p1.moveable = false;
+		hero_p2.moveable = false;
+	} else {
+		
+	}
+	blockHeros();
+}
+
+function doKO(e:Event):void {
+	sndCtrl.musicChannel.stop();
+	if (roundNumber%2 == 0) {
+		sndCtrl.playMusic(sndCtrl.track9_3);
+	} else {
+		sndCtrl.playMusic(sndCtrl.track9_1);
+	}
+	
+	if (hero_p1.life > 0 && hero_p2.life <= 0) {
+		hero_p2.scaleX = -hero_p1.scaleX;
+		p1_score ++;
+	}
+	if (hero_p2.life > 0 && hero_p1.life <= 0) {
+		hero_p1.scaleX = -hero_p2.scaleX;
+		p2_score ++;
+	}
+	hero_p1.takeDamageOn = false;
+	hero_p2.takeDamageOn = false;
+	
+	hud.updateRounds(p1_score, p2_score);
+	inactivePeriod = true;
+	update();
+	
+	hud.displayKo();
+	if (p1_score >= targetScore || p2_score >= targetScore) {
+		TweenMax.delayedCall(140, endMatch, null, true);
+	} else {
+		TweenMax.delayedCall(200, endRound, null, true);
+	}
+	hud.fadeoutUI();
+}
+
+function endRound ():void {
+	var winnerHero:MovieClip;
+	var loserHero:MovieClip;
+	if (hero_p1.life > 0 && hero_p2.life <= 0) {
+		winnerHero =  hero_p1;
+		loserHero = hero_p2;
+	}
+	if (hero_p2.life > 0 && hero_p1.life <= 0) {
+		winnerHero =  hero_p2;
+		loserHero = hero_p1;
+	}
+	
+	if (winnerHero && loserHero) {
+		hero_p1.gotoAndStop("mutliplayerAnims");
+		hero_p2.gotoAndStop("mutliplayerAnims");
+		if (!hero_p1.dead)
+			hero_p1[hero_p1.currentFrameLabel].gotoAndPlay("teleport");
+		if (!hero_p2.dead)
+			hero_p2[hero_p2.currentFrameLabel].gotoAndPlay("teleport");
+		
+		hero_p1.life = hero_p1.lifeOrig;
+		hero_p1.dead = false;
+		hero_p2.life = hero_p2.lifeOrig;
+		hero_p2.dead = false;
+		hero_p1.takeDamageOn = true;
+		hero_p2.takeDamageOn = true;
+		
+		var dir:int = loserHero.scaleX;
+		winnerHero.x = loserHero.x + 200 * dir;
+		
+		vcam.target = camHelper;
+		
+		roundNumber ++;
+		
+		preRound();
+	}
+}
+
+function endMatch():void {
+	var winnerHero:MovieClip;
+	var winner_id:int;
+	if (p1_score >= targetScore) {
+		winnerHero = hero_p1;
+		winner_id = 1;
+		gameData.multiSessionP1Score ++;
+		sndCtrl.playSound(sndCtrl.sndRoundP1Wins);
+	}
+	if (p2_score >= targetScore) {
+		winnerHero = hero_p2;
+		winner_id = 2;
+		gameData.multiSessionP2Score ++;
+		sndCtrl.playSound(sndCtrl.sndRoundP2Wins);
+	}
+	
+	camHelper.activated = false;
+	vcam.target = winnerHero;
+	vcam.zoom = 1;
+	
+	TweenMax.delayedCall(15,
+		function () {
+			vcam.zoom = .6;
+			vcam.slowZoom = true;
+			winnerHero.gotoAndStop("mutliplayerAnims");
+			winnerHero.mutliplayerAnims.gotoAndPlay("winPose");
+			hud.displayPlayerWins(winner_id);
+		}
+	,null,true);
+		
+	sndCtrl.musicChannel.stop();
+	sndCtrl.playMusic(sndCtrl.track9_2, false, 0);
+}
+
+function focusCamera(e:Event):void {
+	TweenMax.delayedCall(1, function () {
+		camHelper.cameraFocus();
+	}, null, true);
+}
+function focusCameraOn(obj:MovieClip):void {
+	vcam.target = obj;
+}
+
+
+function blockHeros():void {
+	var dist:Number = distanceBetween(hero_p1, hero_p2);
+	if (hero_p1.currentFrameLabel != "dodge" && hero_p1.currentFrameLabel != "hurt" && hero_p1.onGround && hero_p1.life > 0 &&
+		hero_p2.currentFrameLabel != "dodge" && hero_p2.currentFrameLabel != "hurt" && hero_p2.onGround && hero_p2.life > 0) {
+		if (dist < 30) {
+			if (hero_p1.x < hero_p2.x) {
+				hero_p1.x --;
+				hero_p1.xSpeed = -3;
+				hero_p2.x ++;
+				hero_p2.xSpeed = 3;
+				
+			} else 
+			if (hero_p1.x > hero_p2.x) {
+				hero_p1.x ++;
+				hero_p1.xSpeed = 3;
+				hero_p2.x --;
+				hero_p2.xSpeed = -3;
+			}
+		}
+	}
+}
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor alpha="0.6"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!-1441 -740|1440 -740!1440 -740|1440 740!1440 740|-1441 740!-1441 740|-1441 -740"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

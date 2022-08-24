@@ -1,0 +1,174 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy6-Razor/assets/Enemy6-Hurt" itemID="55dddf34-00002576" lastModified="1492133435">
+  <timeline>
+    <DOMTimeline name="Enemy6-Hurt" currentFrame="51">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip = MovieClip(parent);
+var spinning:Boolean = false;
+var bouncing:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(parent))
+	_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="21" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="29" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="30" duration="21" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = false; 
+bouncing = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="51" duration="16" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[bouncing = false;
+if (MovieClip(parent)) {
+	
+	if (_parent.life > 0) {
+		if (MovieClip(parent).checkStep(true)) 
+			_parent.xSpeed = 8 * -_parent.scaleX;
+	} else {
+		_parent.gotoDeath();
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="67" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(parent)) MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="15" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="83" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[if (MovieClip(parent)) MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="84" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[spinning = false; ]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="99" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="21" name="hurt" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="21" duration="9" name="spin" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="30" duration="38" name="bounce" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="16" name="rockHit" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="84" duration="16" name="recover" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-Hurt" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="2" ty="-48.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.05" y="7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" duration="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-HurtSpin">
+                  <matrix>
+                    <Matrix tx="7" ty="-42.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.05" y="7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" duration="38" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-HurtBounce" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="-0.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.05" y="7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="16" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-Hurt" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="2" ty="-48.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.05" y="7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="84" duration="16" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-HurtBounce" symbolType="graphic" firstFrame="22" centerPoint3DX="2.75" centerPoint3DY="-33.75" loop="loop">
+                  <matrix>
+                    <Matrix ty="-0.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.05" y="7.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

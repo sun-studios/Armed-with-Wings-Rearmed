@@ -1,0 +1,74 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy6-Razor/assets/Enemy6-Walk" itemID="55dddd8a-000011a9" lastModified="1440605830">
+  <timeline>
+    <DOMTimeline name="Enemy6-Walk" currentFrame="45">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="23" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var running:Boolean = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("run");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="21" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[running = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="45" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("walk");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" name="run" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="22" name="walk" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-Run" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="-40.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="-51.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy6-Razor/Anims/Enemy6-Anim-Walk" symbolType="graphic" centerPoint3DX="-6.3" centerPoint3DY="-42.3" loop="loop">
+                  <matrix>
+                    <Matrix tx="-5" ty="-42.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.55" y="-51.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

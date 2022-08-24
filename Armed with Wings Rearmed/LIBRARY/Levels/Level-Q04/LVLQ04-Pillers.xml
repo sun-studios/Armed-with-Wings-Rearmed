@@ -1,0 +1,85 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q04/LVLQ04-Pillers" itemID="556ac199-00000797" lastModified="1433059737">
+  <timeline>
+    <DOMTimeline name="LVLQ04-Pillers">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var initX:Number = x;
+var initY:Number = y;
+
+var pointClip:MovieClip = new MovieClip();
+pointClip.x = initX;
+pointClip.y = initY;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var game:MovieClip = MovieClip(parent);
+var vcam:MovieClip = MovieClip(parent).vcam;
+
+function update():void {
+	//this.x = initX + (game.x / -2);
+
+	var dir:int;
+	if (vcam.target.x > pointClip.x) dir = 1;
+	else dir = -1;
+	
+	this.x = initX + ((distanceBetweenX(vcam.target, pointClip) / 8)*dir);
+	//if (Y) this.y = initY + (game.y / -2);
+}
+
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = Math.abs(obj1.x - obj2.x);
+    return X;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-006">
+                  <matrix>
+                    <Matrix a="0.729644775390625" b="0.047760009765625" c="-0.047760009765625" d="0.729644775390625" tx="-410.45" ty="-1.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-006">
+                  <matrix>
+                    <Matrix a="0.73095703125" b="-0.0189666748046875" c="0.0189666748046875" d="0.73095703125" tx="-297.95" ty="-8.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-006">
+                  <matrix>
+                    <Matrix a="-0.729644775390625" b="0.047760009765625" c="0.047760009765625" d="0.729644775390625" tx="410.45" ty="8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Back/ENV-Piller/ENV-Piller-006">
+                  <matrix>
+                    <Matrix a="-0.73095703125" b="-0.0189666748046875" c="-0.0189666748046875" d="0.73095703125" tx="297.95" ty="0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,45 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Relic" itemID="587a59c5-00000e14" lastModified="1484413382">
+  <timeline>
+    <DOMTimeline name="UI-Btn-LevelSelect-Relic">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Relics/Relic-All" name="clip">
+                  <matrix>
+                    <Matrix a="0.38372802734375" d="0.38372802734375" tx="-2.75" ty="2.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.5" y="-9.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.34"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#070707" alpha="0.776470588235294"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-1954 -646|1885 -646!1885 -646|1885 656!1885 656|-1954 656!-1954 656|-1954 -646"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,79 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss2-Vandheer/TeleportReigon" itemID="54d583ce-00000806" lastModified="1485440796" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="TeleportReigon">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var boss:MovieClip;
+//component def
+var dir:int;
+
+init();
+
+function init():void {
+	visible = false;
+	boss = MovieClip(parent).boss;
+}
+
+function update():void {
+	if (boss.bound.hitTestObject(this)) {
+		boss.teleportX = x + 150*dir;
+		boss.updateAnimation("attack");
+		if (!boss.attack.quickTeleporting) {
+			boss.attack.gotoAndPlay("quickTeleport");
+		}
+		
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!6717 -108|1788 -108!1788 -108|1788 108!1788 108|6717 108!6717 108|6717 -108"/>
+                    <Edge fillStyle1="1" edges="!8082 1043|7039 0!7039 0|8082 -1043!8082 -1043|8082 1043!1332 1043|289 0!289 0|1332 -1043!1332 -1043|1332 1043"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="11.4455261230469" d="2.11459350585938" tx="215"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="dir">
+      <Inspectable name="dir" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

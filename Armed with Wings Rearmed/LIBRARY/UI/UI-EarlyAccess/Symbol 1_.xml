@@ -1,0 +1,91 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/Symbol 1_" itemID="5559680f-000011b2" lastModified="1451989799" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="Symbol 1_">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="8" name="over" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" duration="9" name="out" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/EarlyAccessMenu-base" name="clip" selected="true">
+                  <matrix>
+                    <Matrix a="0.93133544921875" d="0.93133544921875" tx="-194.6" ty="-195.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="208.95" y="206.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="10" blurY="10" distance="4" inner="true" quality="3" strength="0.75"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.16"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/EarlyAccessMenu-base" name="clip" centerPoint3DY="-0.05">
+                  <matrix>
+                    <Matrix a="0.97882080078125" d="0.97882080078125" tx="-204.5" ty="-205.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="208.9" y="206.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="10" blurY="10" distance="4" inner="true" quality="3" strength="0.75"/>
+                  </filters>
+                  <color>
+                    <Color redMultiplier="0.94921875" blueMultiplier="0.94921875" greenMultiplier="0.94921875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/EarlyAccessMenu-base" name="clip">
+                  <matrix>
+                    <Matrix a="0.93133544921875" d="0.93133544921875" tx="-194.6" ty="-195.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="208.95" y="206.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="10" blurY="10" distance="4" inner="true" quality="3" strength="0.75"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.16"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

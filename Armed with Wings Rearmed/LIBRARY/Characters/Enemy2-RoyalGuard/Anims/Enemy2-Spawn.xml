@@ -1,0 +1,116 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Spawn" itemID="54efa404-00000584" lastModified="1434125713" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="Enemy2-Spawn" currentFrame="34">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="34" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+if (MovieClip(parent)) MovieClip(parent).gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Anim-Idle">
+                  <matrix>
+                    <Matrix a="0.727691650390625" d="0.595687866210938" tx="-7.3" ty="36.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10.05" y="-56.75"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Anim-Idle">
+                  <matrix>
+                    <Matrix a="0.5830078125" d="0.684555053710938" tx="-5.85" ty="36.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10.05" y="-56.75"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Anim-Idle">
+                  <matrix>
+                    <Matrix a="0.680191040039063" d="0.635452270507813" tx="-6.8" ty="36.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10" y="-56.75"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Anim-Idle">
+                  <matrix>
+                    <Matrix a="0.647796630859375" d="0.647796630859375" tx="-6.5" ty="36.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10.05" y="-56.75"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#FFFFFF"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Enemy2-Anim-Idle">
+                  <matrix>
+                    <Matrix a="0.647796630859375" d="0.647796630859375" tx="-6.5" ty="36.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10.05" y="-56.75"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="4" blurY="4" color="#000000" strength="0"/>
+                  </filters>
+                  <color>
+                    <Color tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

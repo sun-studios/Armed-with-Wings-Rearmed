@@ -1,0 +1,176 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/SettingDial" itemID="58ce4c8c-00000de7" lastModified="1492375862" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="SettingDial">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var doSound:Boolean;
+var doMusic:Boolean;
+
+var ctrl:PlayerControl;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+
+var volume:int;
+var volumeMax:int;
+
+
+function init ():void {
+	if (MovieClip(root)) {
+		ctrl = MovieClip(root).player1Control;
+		gameData = MovieClip(root);
+		sndCtrl = MovieClip(root);
+	
+	
+		if (doSound) volume = gameData.soundVolumeCtrl*10;
+		if (doMusic) volume = gameData.volumeCtrl*10;
+		volumeMax = 10;
+		
+		updateDial();
+	}
+}
+
+function update ():void {
+	var input:Boolean;
+	
+	if (ctrl.ctrl_left) {
+		if (!keyFilter0) {
+			if (volume > 0) volume--;
+			if (doSound) sndCtrl.playUISound(sndCtrl.sndButton1);
+			input = keyFilter0 = true;
+		}
+	} else {
+		keyFilter0 = false;
+	}
+	
+	if (ctrl.ctrl_right) {
+		if (!keyFilter1) {
+			if (volume < volumeMax) volume ++;
+			if (doSound) sndCtrl.playUISound(sndCtrl.sndButton1);
+			input = keyFilter1 = true;
+		}
+	} else {
+		keyFilter1 = false;
+	}
+	
+	updateDial();
+	
+	if (input) {
+			
+		if (doSound) {
+			sndCtrl.soundVolumeCtrl = volume/10;
+		} else if (doMusic) {
+			sndCtrl.volumeCtrl = volume/10;
+			if (!sndCtrl.isMusicMute)
+			sndCtrl.musicChannel.soundTransform = new SoundTransform(sndCtrl.volumeCtrl);
+		}
+	}
+}
+
+function updateDial():void {
+	dialClip.x = -80 +((volume/volumeMax)*160);
+	tf_vol.text = ""+volume;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" caps="none" weight="3" joints="miter">
+                        <fill>
+                          <SolidColor color="#999999"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-2000 0|2000 0"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal" caps="none" weight="3" joints="miter">
+                            <fill>
+                              <SolidColor color="#515151"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge strokeStyle="1" edges="!2000 -115|2000 116"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal" caps="none" weight="3" joints="miter">
+                            <fill>
+                              <SolidColor color="#515151"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge strokeStyle="1" edges="!-2000 -115|-2000 116"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMDynamicText name="tf_vol" fontRenderingMode="standard" left="31.4" width="26.2" height="27" includeOutlines="true" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="1.16452026367188" d="1.16452026367188" tx="75.45" ty="-15.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>10</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.2"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 12" name="dialClip">
+                  <matrix>
+                    <Matrix tx="-1.5" ty="-1.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="doSound">
+      <Inspectable name="doSound" variable="doSound" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="doMusic">
+      <Inspectable name="doMusic" variable="doMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

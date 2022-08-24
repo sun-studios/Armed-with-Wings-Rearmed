@@ -1,0 +1,248 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-StoryMenu/StoryMenu 2" itemID="564095af-0000154d" lastModified="1496078801" lastUniqueIdentifier="26">
+  <timeline>
+    <DOMTimeline name="StoryMenu 2">
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Strong;
+
+visible = false;
+
+var ctrl:PlayerControl;
+var _parent:MovieClip;
+var sndCtrl:MovieClip;
+var _root:MovieClip;
+
+var menu0:MovieClip;
+var menu1:MovieClip;
+var menuLvlSel:MovieClip;
+var titleClip:MovieClip;
+var currentMenu:MovieClip;
+
+var keyFilter0:Boolean;
+
+var ready:Boolean;
+var go:Boolean;
+//break peroid of no input.
+var breakIndex:int = 10;
+var breakIndexOrig:int = 10;
+
+function init ():void {
+	ctrl = MovieClip(root).player1Control;
+	_parent = MovieClip(parent);
+	sndCtrl = MovieClip(root);
+	_root = MovieClip(root);
+	
+	refreshKeyFilters();
+	
+	menu0.init();
+	currentMenu = menu0;
+	
+	breakIndex = breakIndexOrig;
+	
+	titleClip.x = -480;
+	TweenMax.to(titleClip, 26, {x:480, ease:Strong.easeOut, useFrames:true});
+	cursor.y = (currentMenu.y + currentMenu.cursorY);
+	ready = true;
+	visible = true;
+	go = true;
+}
+
+function refreshKeyFilters ():void {
+	keyFilter0 = true;
+}
+
+function update ():void {
+	if (breakIndex > 0) {
+		breakIndex --;
+	} else {
+		if (go) {
+			if (ctrl.ctrl_cancel) {
+				if (!keyFilter0) {
+					if (currentMenu == menu0) {
+						sndCtrl.playUISound(sndCtrl.sndButton2);
+						menu0.go = false;
+						_parent.closeStory();
+						go = false;
+					}
+					keyFilter0 = true;
+				}
+			} else {
+				keyFilter0 = false;
+			}
+		}
+		
+		menu0.update();
+		menu1.update();
+	}
+	infoClip.update();
+	if (menuLvlSel) menuLvlSel.update();
+	
+	if (currentMenu != null) {
+		cursor.x = currentMenu.x - 150;
+		cursor.y += ((menu0.y + currentMenu.cursorY) - cursor.y)/4;
+		
+		y += (((-cursor.y+300)*.2) - y)/10;
+	} else {
+		y += (0 - y)/10;
+	}
+	titleClip.y = (y*-.5)+60;
+}
+
+function openDifficulty():void {
+	sndCtrl.playUISound(sndCtrl.sndButton3);
+	menu1.init();
+	currentMenu = menu1;
+	menu1.visible = true;
+}
+function closeDifficulty():void {
+	refreshKeyFilters();
+	currentMenu = menu0;
+	menu1.visible = false;
+	menu0.init();
+}
+function openLevelSelect():void {
+	currentMenu = null;
+	menu0.visible = false;
+	menu1.visible = false;
+	titleClip.visible = false;
+	infoClip.visible = false;
+	cursor.visible = false;
+	menuLvlSel.x = menuLvlSel.y = 0;
+	menuLvlSel.init();
+	sndCtrl.playUISound(sndCtrl.sndButton3);
+	go = false;
+}
+function closeLevelSelect():void {
+	
+	currentMenu = menu0;
+	menu0.visible = true;
+	menu0.go = true;
+	//menu1.visible = true;
+	titleClip.visible = true;
+	infoClip.visible = true;
+	cursor.visible = true;
+	menuLvlSel.close();
+	sndCtrl.playUISound(sndCtrl.sndButton2);
+	go = true;
+	keyFilter0 = true;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#9933CC" autoNamed="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!0 0|19200 0!19200 0|19200 10800!19200 10800|0 10800!0 10800|0 0"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/UI-LevelSelect2" name="menuLvlSel">
+                  <matrix>
+                    <Matrix a="1.19999694824219" d="1.19999694824219" ty="-604.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="417.9" y="207.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-StoryTitle" name="titleClip">
+                  <matrix>
+                    <Matrix tx="480" ty="60.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-Cursor" name="cursor">
+                  <transformationPoint>
+                    <Point x="-2.45" y="2.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" quality="2" strength="0.83"/>
+                    <GlowFilter color="#FFFFFF" quality="3" strength="0.44"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_StoryWidget/Menu2-StoryWidget" name="infoClip" matrix3D="0.882947683334351 0 -0.469471395015717 0 0 1 0 0 0.469471395015717 0 0.882947683334351 0 1051.8984375 -600 6023.78759765625 1" rotationY="-332" centerPoint3DX="619.05" centerPoint3DY="289.9">
+                  <matrix>
+                    <Matrix tx="641.55" ty="319.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-22.5" y="-30"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-StoryMenu" name="menu0" matrix3D="0.906307756900787 0 0.422618269920349 0 0 1 0 0 -0.422618269920349 0 0.906307756900787 0 163.9638671875 -600 -2092.8056640625 1" rotationY="-25" centerPoint3DX="232.6" centerPoint3DY="289.9">
+                  <matrix>
+                    <Matrix tx="247.6" ty="319.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15" y="-30"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-DifficultySelect + superfutile" name="menu1" matrix3D="0.906307756900787 0 0.422618269920349 0 0 1 0 0 -0.422618269920349 0 0.906307756900787 0 163.9638671875 600 -2092.8056640625 1" rotationY="-25" centerPoint3DX="232.6" centerPoint3DY="349.9">
+                  <matrix>
+                    <Matrix tx="247.6" ty="319.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-15" y="30"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

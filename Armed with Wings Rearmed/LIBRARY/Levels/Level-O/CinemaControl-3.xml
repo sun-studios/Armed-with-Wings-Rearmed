@@ -1,0 +1,160 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-O/CinemaControl-3" itemID="5710bb33-00000bee" lastModified="1492870343">
+  <timeline>
+    <DOMTimeline name="CinemaControl-3">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.plugins.VolumePlugin;
+import flash.events.Event;
+
+//VL is struck, and moves away from LW. VL then lets out a power burst and is then covered in black aura.
+
+var hero:MovieClip;
+var boss:MovieClip;
+var spawnPoint2:MovieClip;
+var spawnPoint:MovieClip;
+var vcam:MovieClip;
+var bossCamHelper:MovieClip;
+var hud:MovieClip;
+var sndCtrl:MovieClip;
+var particleLayer:MovieClip;
+var convo:MovieClip;
+var game:MovieClip;
+
+var flag0:Boolean;
+
+init();
+
+function init ():void {
+	visible = false;
+	
+	hero = MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	spawnPoint2 = MovieClip(parent).spawnPoint2;
+	spawnPoint = MovieClip(parent).spawnPoint;
+	vcam = MovieClip(parent).vcam;
+	bossCamHelper = MovieClip(parent).bossCamHelper;
+	hud = MovieClip(root).hud;
+	sndCtrl = MovieClip(root);
+	particleLayer = MovieClip(parent).particleLayer;
+	game = MovieClip(parent);
+}
+
+
+function update ():void {
+	if (boss.cinemaMode && boss.cinema2) {
+		hero.moveable = false;
+		hero.active = false;
+		
+		//set hero animation
+		if (!flag0 && !hero.isUltiStriking) {
+			bossCamHelper.activated = false;
+			vcam.target = boss;
+			vcam.zoom = .5;
+			vcam.shakeCamera(20);
+			MovieClip(root).freezeFrame.attackFreeze(41);
+			MovieClip(root).sky.hudFlash.gotoAndPlay(2);			
+			boss.gotoAndStop("convo3");
+			//sndCtrl.stopMusic();
+			hero.xSpeed = 7 * boss.scaleX;
+			hud.fadeoutUI();
+			flag0 = true;
+		} else {
+			boss.gotoAndStop("convo3");
+		}
+		
+		if (boss.currentFrameLabel == "convo3") {
+			if (boss.convo3.currentFrameLabel == "teleport2") {
+				vcam.target = boss;
+				vcam.zoom = .45;
+				boss.x = hero.x + (500*hero.scaleX);
+				if (boss.x < -700) boss.x = hero.x + (250);
+				if (boss.x > 700) boss.x = hero.x - (250);
+				
+				if (hero.x > boss.x) boss.scaleX = 1;
+				else boss.scaleX = -1;
+			}
+			
+			//reinforce hero freeze
+			if (boss.convo3.currentFrame < 40) {
+				if (hero[hero.currentFrameLabel]) {
+					hero[hero.currentFrameLabel].stop();
+				}
+			}
+			
+			//slide
+			if (boss.convo3.currentFrameLabel == "slide") {
+				boss.xSpeed = 10 * -boss.scaleX;
+			}
+			
+			//rage
+			if (boss.convo3.currentFrameLabel == "rage") {
+				vcam.zoom = 1;
+				//sndCtrl.playMusic(null, true);
+				vcam.shakeCamera(100);
+				sndCtrl.playSound(sndCtrl.sndExplode, 0, 1.5);
+			}
+			
+			//end
+			if (boss.convo3.currentFrameLabel == "end") {
+				resumeBattle();
+			}
+		}
+	}
+}
+
+function resumeBattle():void {
+	hud.fadeinUI();
+	boss.cinemaMode = false;
+	hero.moveable = true;
+	hero.active = true;
+	boss.gotoAndStop("idle");
+	hero.gotoAndStop("idle");
+	vcam.zoom = 1;
+	bossCamHelper.activated = true;
+	vcam.target = bossCamHelper;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-873 -367|872 -367!872 -367|872 368!872 368|-873 368!-873 368|-873 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="2.55" width="91.1" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.15" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Cinema3&#xD;Control</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

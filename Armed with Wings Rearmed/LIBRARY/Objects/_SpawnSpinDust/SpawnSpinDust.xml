@@ -1,0 +1,114 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_SpawnSpinDust/SpawnSpinDust" itemID="551d7810-00000fea" lastModified="1493034855" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="SpawnSpinDust" currentFrame="192">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+stop();
+
+var vcam:MovieClip = MovieClip(parent).vcam;
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="38" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;
+
+vcam.slowZoom = true;
+vcam.zoom = .8;
+
+sndCtrl.playSound(sndCtrl.sndWindWirl);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.shakeCamera(10);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" duration="14" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.shakeCamera(20);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="68" duration="12" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.shakeCamera(30);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="80" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndEpicSpawn);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="83" duration="109" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+
+this.dispatchEvent(new Event("THUNDER"));
+
+vcam.shakeCamera(50);
+vcam.zoom = .5;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="192" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.zoom = 1;
+MovieClip(root).hud.fadeinUI();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="193" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpawnSpinDust/SpawnSpinDust-anim" symbolType="graphic" firstFrame="49" loop="play once">
+                  <matrix>
+                    <Matrix a="0.830490112304688" d="0.830490112304688" tx="-0.35" ty="-18.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-148" y="-28.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="137" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpawnSpinDust/SpawnSpinDust-anim" symbolType="graphic" loop="play once">
+                  <matrix>
+                    <Matrix a="0.830490112304688" d="0.830490112304688" tx="-0.35" ty="-18.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-148" y="-28.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="138" duration="56" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

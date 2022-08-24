@@ -1,0 +1,68 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/PRT-EnergySlash/PRT-EnergySlash" itemID="56c5eab3-00000abe" linkageExportForAS="true" linkageClassName="EnergySlash" lastModified="1455867167">
+  <timeline>
+    <DOMTimeline name="PRT-EnergySlash">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var life:Number;
+var lifeOrig:Number;
+var rSpeed:Number;
+
+var particleLayer:MovieClip;
+
+function init (_life:Number, _rSpeed:Number, _scaleX:Number, _scaleY:Number):void {
+	particleLayer = MovieClip(parent).particleLayer;
+	
+	life = _life;
+	lifeOrig = life;
+	rSpeed = _rSpeed;
+	scaleX = _scaleX;
+	scaleY = _scaleY;
+	
+	gotoAndStop(1+ (Math.ceil(Math.random()*totalFrames-1)));
+}
+
+function update ():void {
+	if (life > 0) {
+		life --;
+		
+		rotation += rSpeed;
+		alpha = life/lifeOrig;
+		
+		if (life > lifeOrig*.8) {
+			alpha = (lifeOrig-life)*.2;
+		}
+	} else {
+		particleLayer.removeFromEnergySlashArr(this);
+		MovieClip(parent).removeChild(this);
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-EnergySlash/assets/PRT-EnergySlash-Clip" name="clip">
+                  <matrix>
+                    <Matrix tx="-6" ty="13"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6" y="-13"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

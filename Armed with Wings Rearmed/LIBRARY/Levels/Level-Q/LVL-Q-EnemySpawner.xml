@@ -1,0 +1,96 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q/LVL-Q-EnemySpawner" itemID="54cfe6ef-00000a65" lastModified="1493101858">
+  <timeline>
+    <DOMTimeline name="LVL-Q-EnemySpawner">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+visible = false;
+
+var inited:Boolean = false;
+var round:int;
+var doOnce:Boolean;
+
+var game:MovieClip;
+var tut2:MovieClip = MovieClip(parent).tut2;
+
+function init():void {
+	inited = true;
+	round = 0;
+	doOnce = true;
+	
+	game = MovieClip(parent);
+	tut2 = game.tut2;
+}
+
+function update():void {
+	if (inited) 
+	{
+		if (tut2 && !tut2.active) tut2.active = true;
+		if (round == 0) {
+			if (!game.en1.dead && !game.en1.visible) {
+				game.en1.visible = true;
+			}
+			if (game.en1.dead) round = 1;
+		}
+
+		
+		if (game.en1.dead && game.en2.dead && game.en3.dead && game.en4.dead) {
+			if (doOnce) {
+				
+				this.dispatchEvent(new Event("COMPLETE"));
+				
+				doOnce = false;
+				inited = false;
+			}
+		}
+		
+		
+	} else {
+		if (tut2) tut2.active = false;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-11.15" width="118.5" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>ENEMY &#xD;SPAWNER</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

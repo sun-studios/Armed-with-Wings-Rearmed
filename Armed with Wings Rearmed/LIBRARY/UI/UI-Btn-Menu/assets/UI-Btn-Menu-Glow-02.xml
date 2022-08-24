@@ -1,0 +1,32 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Btn-Menu/assets/UI-Btn-Menu-Glow-02" itemID="54bcd569-00000e1f" symbolType="graphic" lastModified="1421661545">
+  <timeline>
+    <DOMTimeline name="UI-Btn-Menu-Glow-02">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-Menu/assets/UI-Btn-Menu-Glow-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0" b="-0.5753173828125" c="-0.6727294921875" d="0" ty="-134.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="48.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-Menu/assets/UI-Btn-Menu-Glow-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0" b="0.5753173828125" c="0.6727294921875" d="0" ty="134.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="48.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

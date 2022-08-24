@@ -1,0 +1,156 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/Symbol 42" itemID="58ea1658-0001e5fb" lastModified="1491744582" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="Symbol 42">
+      <layers>
+        <DOMLayer name="label" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" name="out" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" name="over" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+var iconClip:MovieClip;
+var cLabel:String;
+var label_tf:TextField;
+
+switch (cLabel) {
+	case "START":
+		iconClip.gotoAndStop(1);
+		label_tf.text = "START";
+	break;
+	case "CHANGELOG":
+		iconClip.gotoAndStop(2);
+		label_tf.text = "CHANGE LOG";
+	break;
+	case "NEWS":
+		iconClip.gotoAndStop(3);
+		label_tf.text = "NEWS";
+	break;
+	case "TWITTER":
+		iconClip.gotoAndStop(4);
+		label_tf.text = "TWITTER";
+	break;
+	case "FACEBOOK":
+		iconClip.gotoAndStop(5);
+		label_tf.text = "FACEBOOK";
+	break;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 46" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.2" ty="102.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 45" name="iconClip">
+                  <matrix>
+                    <Matrix ty="-17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="15" blurY="15" distance="4" quality="3" strength="0"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 45" name="iconClip">
+                  <matrix>
+                    <Matrix ty="-17.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="15" blurY="15" distance="4" quality="3" strength="0.37"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.19200134277344" d="1.19200134277344" tx="-86.7" ty="1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="72.5" y="-1.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Shape" symbolType="graphic" firstFrame="1" centerPoint3DX="-0.25" centerPoint3DY="-0.25" loop="loop">
+                  <matrix>
+                    <Matrix a="1.19200134277344" d="1.19200134277344" tx="-86.7" ty="1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="72.5" y="-1.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.25" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="cLabel">
+      <Inspectable name="label" variable="cLabel" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

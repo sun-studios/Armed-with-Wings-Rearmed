@@ -1,0 +1,786 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/CinematicText/OBJ-CinematicText" itemID="593ab1be-00000d94" lastModified="1497018814" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="OBJ-CinematicText">
+      <layers>
+        <DOMLayer name="actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.events.Event;
+import flash.display.MovieClip;
+import flash.text.TextField;
+import com.greensock.plugins.VolumePlugin;
+
+stop();
+visible = false;
+
+var ctrl:PlayerControl;
+var _parent:MovieClip;
+var sndCtrl:MovieClip;
+var cutsceneClip:MovieClip;
+var stopOnLabel:String;
+var textID:Number;
+var cutsceneID:Number;
+var currentField:int;
+
+var transition:Boolean;
+var textDisplay:Boolean;
+
+var tf1:TextField;
+var tf2:TextField;
+
+var stringQue:Array;
+var index:int;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var go:Boolean;
+
+init();
+
+function init():void {
+	ctrl = MovieClip(root).player1Control;
+	_parent = MovieClip(parent);
+	sndCtrl = MovieClip(root);
+	
+	tf1 = tf_1;
+	tf2 = tf_2;
+	
+}
+
+function start(strings:Array, _stopOnLabel = "", clip:MovieClip = null):void {
+	go = true;
+	index = 0;
+	currentField = 1;
+	stringQue = strings;
+	stopOnLabel = _stopOnLabel;
+	cutsceneClip = clip;
+	MovieClip(parent).addChild(this);
+	
+	showFirstText();
+}
+
+function update ():void {
+	if (go) {
+		if (cutsceneClip.currentFrameLabel == stopOnLabel) {
+			cutsceneClip.stop();
+		}
+		
+		if (textDisplay) {
+			
+			if (ctrl.ctrl_confirm) {
+				if (!keyFilter0) {
+					showNext();
+					keyFilter0 = true;
+				}
+			} else {
+				keyFilter0 = false;
+			}
+			
+			if (ctrl.ctrl_cancel) {
+				if (!keyFilter1) {
+					doEnd();
+					cutsceneClip.gotoAndPlay(stopOnLabel);
+					keyFilter1 = true;
+				}
+			} else {
+				keyFilter1 = false;
+			}
+			
+		}
+	}
+}
+
+function showFirstText():void {
+	gotoAndPlay("showFirst");
+	var s:String = stringQue[0];
+	tf1.text = s;
+	currentField = 1;
+	sndCtrl.playUISound(sndCtrl.sndCinemaText0);
+}
+
+function showNext():void {
+	if (index >= stringQue.length-1) {
+		
+		doEnd();
+		
+	} else {
+		currentField ++;
+		index ++;
+		var s:String = stringQue[index];
+		
+		if (currentField > 2) {
+			currentField = 1;
+			tf1.text = s;
+		} else {
+			tf2.text = s;
+		}
+				
+		gotoAndPlay("showText"+currentField);
+		sndCtrl.playUISound(sndCtrl.sndCinemaText1);
+	}
+}
+
+
+function doEnd():void {
+	gotoAndPlay("end"+currentField);
+	cutsceneClip.play();
+	go = false;
+	sndCtrl.playUISound(sndCtrl.sndCinemaText1);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="18" name="showFirst" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;
+transition = true;
+textDisplay = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+transition = false;
+textDisplay = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" duration="19" name="showText2" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[transition = true;
+textDisplay = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+transition = false;
+textDisplay = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="40" duration="19" name="showText1" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[transition = true;
+textDisplay = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+transition = false;
+textDisplay = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="15" name="end1" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[transition = true;
+textDisplay = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="75" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" duration="15" name="end2" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[transition = true;
+textDisplay = false;
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="91" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/chatBox" selected="true" centerPoint3DX="0.05" centerPoint3DY="6.95">
+                  <matrix>
+                    <Matrix d="0.63104248046875" tx="0.05" ty="-3.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter distance="4" inner="true" strength="0.28"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMStaticText selected="true" fontRenderingMode="standard" left="-190.2" width="795.45" height="21.55" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-205.65" ty="-13.25"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Textbody 1</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="21.55" size="24" bitmapSize="480" face="Font 7*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter distance="3" strength="0.4"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0.39849853515625" d="0.025177001953125" tx="63.9" ty="121.75"/>
+                            </matrix>
+                            <GradientEntry ratio="0"/>
+                            <GradientEntry alpha="0.368627450980392" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1082 368|1059 368!1059 368|1332 641!1332 641|1059 912!1059 912|-1082 912!-1082 912|-1354 640!-1354 640|-1082 368"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Confirm">
+                  <matrix>
+                    <Matrix a="0.758193969726563" d="0.758193969726563" tx="-20.45" ty="31.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText left="53.9" width="36.2" height="21" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-56.65" ty="21.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NEXT</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" letterSpacing="2" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" duration="19" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0.39849853515625" d="0.025177001953125" tx="63.9" ty="121.75"/>
+                            </matrix>
+                            <GradientEntry ratio="0"/>
+                            <GradientEntry alpha="0.368627450980392" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1082 368|1059 368!1059 368|1332 641!1332 641|1059 912!1059 912|-1082 912!-1082 912|-1354 640!-1354 640|-1082 368"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Confirm">
+                  <matrix>
+                    <Matrix a="0.758193969726563" d="0.758193969726563" tx="-20.45" ty="31.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText left="53.9" width="36.2" height="21" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-56.65" ty="21.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NEXT</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" letterSpacing="2" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="19" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0.39849853515625" d="0.025177001953125" tx="63.9" ty="121.75"/>
+                            </matrix>
+                            <GradientEntry ratio="0"/>
+                            <GradientEntry alpha="0.368627450980392" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1082 368|1059 368!1059 368|1332 641!1332 641|1059 912!1059 912|-1082 912!-1082 912|-1354 640!-1354 640|-1082 368"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Confirm">
+                  <matrix>
+                    <Matrix a="0.758193969726563" d="0.758193969726563" tx="-20.45" ty="31.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText left="53.9" width="36.2" height="21" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-56.65" ty="21.65"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>NEXT</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" letterSpacing="2" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" duration="16" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" duration="16" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="29" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="39.35" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="39.35" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" centerPoint3DX="-35.65" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="-35.65" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" centerPoint3DX="-35.65" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="-35.65" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" centerPoint3DX="-35.65" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="-35.65" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="85" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="2.4" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-01" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="12.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="12.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="19" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2195" y="0.8527"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="13.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-00" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="20" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-00" symbolType="graphic" centerPoint3DX="-35.65" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="-35.65" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-00" symbolType="graphic" centerPoint3DX="39.35" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="39.35" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-00" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-00" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="-2.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="-2.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" duration="22" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-00" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="2.4" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="2.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/CinematicText/assets/CinematicText-00" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="12.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="12.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="19" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/chatBox" centerPoint3DX="0.05" centerPoint3DY="17.1">
+                  <matrix>
+                    <Matrix d="0.63104248046875" tx="0.05" ty="7.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter distance="4" inner="true" strength="0.28"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="41" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/chatBox" centerPoint3DX="0.05" centerPoint3DY="6.95">
+                  <matrix>
+                    <Matrix d="0.63104248046875" tx="0.05" ty="-3.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter distance="4" inner="true" strength="0.28"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/chatBox" centerPoint3DX="0.05" centerPoint3DY="6.95">
+                  <matrix>
+                    <Matrix d="0.63104248046875" tx="0.05" ty="-3.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter distance="4" inner="true" strength="0.28"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/chatBox" centerPoint3DX="0.05" centerPoint3DY="17.1">
+                  <matrix>
+                    <Matrix d="0.63104248046875" tx="0.05" ty="7.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter distance="4" inner="true" strength="0.28"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/chatBox" centerPoint3DX="0.05" centerPoint3DY="6.95">
+                  <matrix>
+                    <Matrix d="0.63104248046875" tx="0.05" ty="-3.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter distance="4" inner="true" strength="0.28"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/chatBox" centerPoint3DX="0.05" centerPoint3DY="17.1">
+                  <matrix>
+                    <Matrix d="0.63104248046875" tx="0.05" ty="7.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter distance="4" inner="true" strength="0.28"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

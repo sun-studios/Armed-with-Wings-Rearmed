@@ -1,0 +1,64 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UIControls-Display2" itemID="58d130e6-000040eb" lastModified="1490104659" lastUniqueIdentifier="4" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="UIControls-Display2">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-Esc">
+                  <matrix>
+                    <Matrix a="0.870330810546875" d="0.870330810546875" tx="33.75" ty="-22.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#424242" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!2058 -601|2171 -601!2171 -601|1750 -180!1750 -180|107 -180!107 -180|163 -237"/>
+                    <Edge fillStyle0="1" edges="!2058 -601|2115 -657!2115 -657|471 -657!471 -657|50 -237!50 -237|163 -237"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!163 -237|1694 -237!1694 -237|2058 -601"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText width="20.2" height="15" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="58.3" ty="-29.2"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>BACK</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="justify" aliasText="false" lineHeight="15" size="10" bitmapSize="200" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="_frame">
+      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

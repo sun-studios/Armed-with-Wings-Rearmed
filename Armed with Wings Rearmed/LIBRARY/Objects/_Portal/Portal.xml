@@ -1,0 +1,349 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Portal/Portal" itemID="55d9c522-000010ec" lastModified="1485440795" lastUniqueIdentifier="1" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="Portal">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var eagle:MovieClip;
+var hero:MovieClip;
+var vcam:MovieClip;
+var sndCtrl:MovieClip;
+var particles:MovieClip;
+var open:Boolean;
+
+var teleportHero:Boolean;
+var teleportEagle:Boolean;
+var telePoint:MovieClip;
+var telePointString:String;
+var lockEagle:Boolean;
+
+var dustIndex:Number;
+
+init();
+
+function init ():void {
+	eagle = MovieClip(parent).eagle;
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	particles = MovieClip(parent).particleLayer;
+	sndCtrl = MovieClip(root);
+	open = true;
+	
+	dustIndex = 0;
+	
+	if (telePointString && MovieClip(parent)[telePointString]) {
+		telePoint = MovieClip(parent)[telePointString];
+	}
+}
+
+function update ():void {
+	if (open) {
+		if (eagle.bound.hitTestObject(this.bound) && eagle.moveable) {
+			if (currentFrame == 1) {
+				gotoAndPlay(2);
+				lockEagle = true;
+			}			
+		}
+		if (lockEagle) {
+			eagle.moveable = false;
+			eagle.x += (x - eagle.x)/10;
+			eagle.y += (y - eagle.y)/10;
+		}
+	}
+	
+	if (currentFrame > 1 && currentFrame < 100) {
+		vcam.shakeCamera((currentFrame/totalFrames)*50);
+		
+		addHolyDust();
+	}
+}
+
+function addHolyDust():void {
+	if (dustIndex > 0) {
+		dustIndex --;
+	} else {
+		var X:Number = (Math.random()-Math.random())* width;
+		var Y:Number = (Math.random()-Math.random())* height;
+		particles.addHolyDust(x+X,y+Y,.2+Math.random());
+		dustIndex = Math.round(5-((currentFrame/totalFrames)*5));
+	}
+}
+
+function teleport():void {
+	if (teleportHero) {
+		hero.x = x;
+		hero.y = y;
+		if (!telePoint) hero.switchToHero();
+	}
+	if (teleportEagle) {
+		if (telePoint) {
+			lockEagle = false;
+			eagle.moveable = true;
+			eagle.x = telePoint.x;
+			eagle.y = telePoint.y;
+			eagle.xSpeed = 0;
+			eagle.ySpeed = 0;
+			eagle.flightTime = eagle.flightTimeOrig;
+		} else {
+			trace("PORTAL: TelePoint String not defined");
+		}
+	}
+	sndCtrl.playSound(sndCtrl.sndThunder5);
+	open = false;
+	visible = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="98" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndWindWirl);
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="99" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndHoly4);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="102" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[teleport();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="103" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Relic/assets/Relic-Anim-Spin">
+                  <matrix>
+                    <Matrix tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter color="#000000" strength="0.9"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="98" tweenType="motion" motionTweenRotate="clockwise" motionTweenRotateTimes="10" useSingleEaseCurve="false" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="position">
+                  <Point/>
+                  <Point x="0.3333" y="0.3333"/>
+                  <Point x="0.6667" y="0.6667"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="rotation">
+                  <Point/>
+                  <Point x="0.6646"/>
+                  <Point x="0.6565" y="0.2192"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="scale">
+                  <Point/>
+                  <Point x="0.0142" y="0.0685"/>
+                  <Point x="0.0572" y="0.1267"/>
+                  <Point x="0.0955" y="0.1267"/>
+                  <Point x="0.1593" y="0.1267"/>
+                  <Point x="0.143" y="0.0411"/>
+                  <Point x="0.2764" y="0.0411"/>
+                  <Point x="0.4146" y="0.0411"/>
+                  <Point x="0.7731" y="0.9895"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="color">
+                  <Point/>
+                  <Point x="0.1768" y="0.7"/>
+                  <Point x="0.6362" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="filters">
+                  <Point/>
+                  <Point x="0.1837" y="0.6747"/>
+                  <Point x="1" y="0.3836"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Relic/assets/Relic-Anim-Spin" centerPoint3DX="0.1">
+                  <matrix>
+                    <Matrix tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter color="#000000" strength="0.9"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Relic/assets/Relic-Anim-Spin" centerPoint3DX="0.1">
+                  <matrix>
+                    <Matrix a="1.41416931152344" d="1.41416931152344" tx="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="40" blurY="40" color="#000000" strength="1.55"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Relic/assets/Relic-Anim-Spin" centerPoint3DX="0.5">
+                  <matrix>
+                    <Matrix a="0.293701171875" d="0.293701171875" tx="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="40" blurY="40" color="#000000" strength="4.26"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="98" tweenType="motion" useSingleEaseCurve="false" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="position">
+                  <Point/>
+                  <Point x="0.3333" y="0.3333"/>
+                  <Point x="0.6667" y="0.6667"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="scale">
+                  <Point/>
+                  <Point x="0.3333" y="0.3333"/>
+                  <Point x="0.6667" y="0.6667"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="color">
+                  <Point/>
+                  <Point x="0.0768" y="0.4912"/>
+                  <Point x="0.1837" y="0.6"/>
+                  <Point x="0.2581" y="0.6"/>
+                  <Point x="0.3455" y="0.6"/>
+                  <Point x="0.3576" y="0.1438"/>
+                  <Point x="0.5408" y="0.1438"/>
+                  <Point x="0.7658" y="0.1438"/>
+                  <Point x="0.9817" y="0.6884"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Portal/Tween 53" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0" redMultiplier="0" blueMultiplier="0" greenMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="3" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Portal/Tween 53" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.48554992675781" d="1.48554992675781"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="102" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Portal/Tween 53" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.0550537109375" d="1.0550537109375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="104" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="2.53515625" d="1.1007080078125" tx="-0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="teleportEagle">
+      <Inspectable name="teleportEagle" variable="teleportEagle" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="teleportHero">
+      <Inspectable name="teleportHero" variable="teleportHero" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="telePointString">
+      <Inspectable name="telePoint" variable="telePointString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

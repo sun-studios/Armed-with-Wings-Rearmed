@@ -1,0 +1,93 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HighScores/UI-HighScore-Row" itemID="5503b4ce-00000466" lastModified="1428531078">
+  <timeline>
+    <DOMTimeline name="UI-HighScore-Row">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+
+var rank_tf:TextField;
+var user_tf:TextField;
+var score_tf:TextField;
+
+function update(_rank:String, _user:String, _score:String):void {
+	rank_tf.text = "#"+_rank;
+	user_tf.text = _user;
+	score_tf.text = _score;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="rank_tf" selected="true" fontRenderingMode="standard" left="51.9" width="71.45" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-382.8" ty="-20.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>#</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="user_tf" selected="true" fontRenderingMode="standard" left="51.9" width="389.45" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-280.05" ty="-20.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>#</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="score_tf" selected="true" fontRenderingMode="standard" left="51.9" width="146" height="21" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="127.25" ty="-20.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>#</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333" alpha="0.8"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!6746 -433|6746 35!6746 35|3460 35!3460 35|3460 -433!3460 -433|6746 -433!-4697 -433|3370 -433!3370 -433|3370 35!3370 35|-4697 35!-4697 35|-4697 -433!-6745 -433|-4787 -433!-4787 -433|-4787 35!-4787 35|-6745 35!-6745 35|-6745 -433"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

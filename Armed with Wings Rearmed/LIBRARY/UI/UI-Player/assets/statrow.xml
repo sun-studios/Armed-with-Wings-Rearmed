@@ -1,0 +1,212 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/assets/statrow" itemID="54df0a64-000007ec" lastModified="1501415392">
+  <timeline>
+    <DOMTimeline name="statrow">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+function update(stat:int, currStat:int):void {
+	for (var i:int = 0; i < 20; i ++) {
+		var clip:MovieClip = this["stat"+i];
+		if (i < stat) {
+			if (i >= currStat && MovieClip(root).gameMode != "MULTIPLAYER") clip.gotoAndStop(4);
+			else clip.gotoAndStop(2);
+		} else {
+			if (i < currStat  && MovieClip(root).gameMode != "MULTIPLAYER") clip.gotoAndStop(3);
+			else clip.gotoAndStop(1);
+		}
+	}
+}
+
+function updateIndex(stat:int, currStat:int, i:int):void {
+	
+		var clip:MovieClip = this["stat"+i];
+		if (i < stat) {
+			if (i >= currStat && MovieClip(root).gameMode != "MULTIPLAYER") clip.gotoAndStop(4);
+			else clip.gotoAndStop(2);
+		} else {
+			if (i < currStat  && MovieClip(root).gameMode != "MULTIPLAYER") clip.gotoAndStop(3);
+			else clip.gotoAndStop(1);
+		}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat0">
+                  <matrix>
+                    <Matrix tx="-115.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat1">
+                  <matrix>
+                    <Matrix tx="-105.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat2">
+                  <matrix>
+                    <Matrix tx="-95.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat3">
+                  <matrix>
+                    <Matrix tx="-85.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat4">
+                  <matrix>
+                    <Matrix tx="-75.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat5">
+                  <matrix>
+                    <Matrix tx="-65.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat6">
+                  <matrix>
+                    <Matrix tx="-55.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat7">
+                  <matrix>
+                    <Matrix tx="-45.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat8">
+                  <matrix>
+                    <Matrix tx="-35.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat9">
+                  <matrix>
+                    <Matrix tx="-25.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat10">
+                  <matrix>
+                    <Matrix tx="-15.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat11">
+                  <matrix>
+                    <Matrix tx="-5.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat12">
+                  <matrix>
+                    <Matrix tx="4.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat13">
+                  <matrix>
+                    <Matrix tx="14.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat14">
+                  <matrix>
+                    <Matrix tx="24.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat15">
+                  <matrix>
+                    <Matrix tx="34.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat16">
+                  <matrix>
+                    <Matrix tx="44.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat17">
+                  <matrix>
+                    <Matrix tx="54.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat18">
+                  <matrix>
+                    <Matrix tx="64.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-Stat" name="stat19">
+                  <matrix>
+                    <Matrix tx="74.5" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

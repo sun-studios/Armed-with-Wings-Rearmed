@@ -1,0 +1,123 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_RollWall/RollWall" itemID="55ec6b2c-00001066" lastModified="1485440794" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="RollWall" currentFrame="2">
+      <layers>
+        <DOMLayer name="label" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="animate" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip = MovieClip(parent).hero;
+
+
+init();
+
+function init():void {
+	
+}
+
+function update():void {
+	if (CameraDistCheck.inRange(this, true)) {
+		blockHero();
+	}
+}
+
+function blockHero():void {
+	if (hero.currentFrameLabel != "dodge") {
+		if (hero.bound.hitTestObject(this.bound)) {
+			if (hero.x < x) {
+				hero.x --;
+				hero.xSpeed = 0;
+			} else 
+			if (hero.x > x) {
+				hero.x ++;
+				hero.xSpeed = 0;
+			}
+		}
+	} else {
+		gotoAndStop("animate");
+	}
+	
+	if (currentFrameLabel == "animate") {
+		if (hero.currentFrameLabel != "dodge") {
+			if (animate.currentFrame < 34) {
+				animate.gotoAndPlay("in");
+			} else {
+				
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Anim-Idle">
+                  <matrix>
+                    <Matrix ty="0.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RollWall/RollWall-Anim-Fade" name="animate" selected="true">
+                  <matrix>
+                    <Matrix ty="-7.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0.760772705078125" d="2.15229797363281" tx="0.15" ty="-0.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

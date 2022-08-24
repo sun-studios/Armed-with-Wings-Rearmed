@@ -1,0 +1,671 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Stomper/Stomper" itemID="5500547b-00000647" lastModified="1485440794" lastUniqueIdentifier="3" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="Stomper">
+      <layers>
+        <DOMLayer name="Layer 5" color="#009999" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="12" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+//vars
+var isDown:Boolean;
+var isUp:Boolean;
+var particleLayer:MovieClip;
+var sndCtrl:MovieClip;
+var vcam:MovieClip;
+
+//component
+var halfWayOffset:Boolean;
+var hitDir:Number;
+if (!hitDir) hitDir = 1;
+
+//refs
+var hero:MovieClip;
+
+init();
+
+function init():void {
+	isDown = false;
+	hero = MovieClip(parent).hero;
+	particleLayer = MovieClip(parent).particleLayer;
+	sndCtrl = MovieClip(root);
+	vcam = MovieClip(parent).vcam;
+	
+	if (halfWayOffset) gotoAndPlay("half");
+}
+
+function update():void {
+	if (CameraDistCheck.inRange(this)) {
+		damageEnemies();
+		blockHero();
+		batchEnemies();
+		
+		if (this.currentFrame == 79) {
+			gotoAndPlay(2);
+		}
+		visible = true;
+	} else {
+		visible = false;
+	}
+}
+
+function batchEnemies ():void {
+	var arr:Array = MovieClip(parent).enemiesArr;
+	var hitStandard:MovieClip = this.hit;
+	
+	for (var i:int = 0; i < arr.length; i ++) {
+		var en:MovieClip = arr[i];
+		
+		//Damage Enemies
+		if ((en.enemyType == "ENEMY1" || en.enemyType == "ENEMY2" || 
+			en.enemyType == "ENEMY3" || en.enemyType == "ENEMY4" || 
+			en.enemyType == "ENEMY5" || en.enemyType == "ENEMY6" ||
+			en.enemyType == "BOSS3" || en.enemyType == "BOSS1" ||
+			en.enemyType == "BOSS2" || en.enemyType == "BOSS4" ||
+			(en.hasOwnProperty("heroName")))
+			&& en.life > 0) {
+			if (hitStandard && hitStandard.hitTestObject(en.bound)) {
+				var dir:int;
+				if (hitDir) {
+					dir = hitDir;
+				} else {
+					if (en.x < x) dir = -1; 
+					else dir = 1;
+				}
+				
+				en.takeDamage(this, 15*dir, 0, 2);
+				en.scaleX = dir*-1;
+			}
+		}
+		
+		//BLOCK Enemies
+		//if (en.currentFrameLabel != "hurt") {
+		if (!isUp) {
+			if (hitStandard && hitStandard.hitTestObject(en.bound)) {
+			
+			} else {
+				if (distanceBetweenX(this, en) < 20 && bound.hitTestObject(en.bound)) {
+					if (gap.height > en.height && en.y > y+gap.y-(gap.height*.5)) {
+						
+					} else {
+						if (en.x < x) {
+							en.x = x-25;
+							//en.xSpeed = 0;
+						} else 
+						if (en.x > x) {
+							en.x = x+25;
+							//en.xSpeed = 0;
+						}
+					}
+				}
+			}
+		}
+		//}
+		
+	}
+}
+
+function damageEnemies():void {
+	var hitStandard:MovieClip = this.hit;
+	
+	if (hitStandard && hitStandard.hitTestObject(hero.bound)) {
+		var dir:int;
+		if (hitDir) {
+			dir = hitDir;
+		} else {
+			if (hero.x < x) dir = -1; 
+			else dir = 1;
+		}
+		
+		hero.takeDamage(this, 15*dir, 0, 2, true, false, false);
+		hero.scaleX = dir*-1;
+		//vcam.cameraShake = 15;
+	}
+
+}
+
+function blockHero():void {
+	var hitStandard:MovieClip = this.hit;
+	
+	if (!isUp) {
+		if (hitStandard && hitStandard.hitTestObject(hero.bound)) {
+			
+		} else {
+		//if (hero.currentFrameLabel != "hurt") {
+			if (distanceBetweenX(this, hero) < 25 && bound.hitTestObject(hero.bound)) {
+				if (gap.height > hero.height && hero.y > y+gap.y-(gap.height*.5)) {
+					
+				} else {
+					if (hero.x < x) {
+						hero.x = x-25;
+						//hero.xSpeed = 0;
+					} else 
+					if (hero.x > x) {
+						hero.x = x+25;
+						//hero.xSpeed = 0;
+					}
+				}
+			}
+		}
+	}
+	//}
+	
+	/*
+	if (isDown) {
+		if (hero.currentFrameLabel != "dodge" && hero.currentFrameLabel != "hurt") {
+			if (distanceBetweenX(this, hero) < 20 && bound.hitTestObject(hero.bound)) {
+				if (hero.x < x) {
+					hero.x --;
+					hero.xSpeed = 0;
+				} else 
+				if (hero.x > x) {
+					hero.x ++;
+					hero.xSpeed = 0;
+				}
+			}
+		}
+	}
+	*/
+}
+
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = Math.abs(obj1.x - obj2.x);
+    return X;
+}
+
+
+function doFX():void {
+	if (CameraDistCheck.distanceBetween(this, vcam) < 600) {
+		if (sndCtrl) sndCtrl.playSound(sndCtrl.sndStepHeavy2);
+	}
+}
+
+function killListeners():void {
+	sndCtrl = null;
+	gotoAndStop(1);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[isDown = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="14" duration="20" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[isUp = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" duration="9" name="half" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="43" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[isUp = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" duration="29" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[isDown = true;
+doFX();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="49" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" duration="30" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-008" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="25.7" ty="281.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="14.6" y="11.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-008" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-1" tx="-23.1" ty="281.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="14.6" y="11.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="hit" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="49" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HitBox/OBJ-HitBox" name="hit">
+                  <matrix>
+                    <Matrix a="2.00325012207031" d="19.3866424560547" tx="-15.2" ty="5.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.75" y="7.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-Height" name="gap">
+                  <matrix>
+                    <Matrix d="0.035125732421875" tx="0.05" ty="300.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="20" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-Height" name="gap" centerPoint3DY="256.4">
+                  <matrix>
+                    <Matrix d="2.80296325683594" tx="0.05" ty="174.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.7012"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-Height" name="gap" centerPoint3DY="256.5">
+                  <matrix>
+                    <Matrix d="2.59219360351563" tx="0.05" ty="184.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="29" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-Height" name="gap">
+                  <matrix>
+                    <Matrix d="0.035125732421875" tx="0.05" ty="300.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="78" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-Height" name="gap" centerPoint3DX="0.05" centerPoint3DY="300.9">
+                  <matrix>
+                    <Matrix d="0.035125732421875" tx="0.05" ty="300.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="animations" color="#669900" autoNamed="false" layerType="folder"/>
+        <DOMLayer name="Layer 3" color="#FF800A" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape1" symbolType="graphic" centerPoint3DY="223" loop="loop">
+                  <matrix>
+                    <Matrix d="1.06455993652344" ty="132.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="80.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="20" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape1" symbolType="graphic" centerPoint3DY="-33.05" loop="loop">
+                  <matrix>
+                    <Matrix ty="-113.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="80.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.7012"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape1" symbolType="graphic" centerPoint3DY="-13.85" loop="loop">
+                  <matrix>
+                    <Matrix ty="-94"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="80.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="20" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="142.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="80.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.637500606380329" y="0.276849646792483"/>
+                  <Point x="1" y="0.606789373288353"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape1" symbolType="graphic" centerPoint3DY="223" loop="loop">
+                  <matrix>
+                    <Matrix d="1.06455993652344" ty="132.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="80.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape2" symbolType="graphic" centerPoint3DY="100.7" loop="loop">
+                  <matrix>
+                    <Matrix ty="63.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="37.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="20" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape2" symbolType="graphic" centerPoint3DY="-21.7" loop="loop">
+                  <matrix>
+                    <Matrix ty="-59"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="37.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.7012"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape2" symbolType="graphic" centerPoint3DY="-11.3" loop="loop">
+                  <matrix>
+                    <Matrix ty="-48.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="37.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="20" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="77"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="37.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.637500606380329" y="0.276849646792483"/>
+                  <Point x="1" y="0.606789373288353"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape2" symbolType="graphic" centerPoint3DY="100.7" loop="loop">
+                  <matrix>
+                    <Matrix ty="63.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="37.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" parentLayerIndex="4">
+          <frames>
+            <DOMFrame index="0" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape3" symbolType="graphic" centerPoint3DY="20.95" loop="loop">
+                  <matrix>
+                    <Matrix ty="-23.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="44"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="20" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape3" symbolType="graphic" centerPoint3DY="-35.85" loop="loop">
+                  <matrix>
+                    <Matrix ty="-79.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="44"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="15" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.7012"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape3" symbolType="graphic" centerPoint3DY="-31.85" loop="loop">
+                  <matrix>
+                    <Matrix ty="-75.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="44"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="20" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape3" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="-7.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="44"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.637500606380329" y="0.276849646792483"/>
+                  <Point x="1" y="0.606789373288353"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Stomper/Stomper-shape3" symbolType="graphic" centerPoint3DY="20.95" loop="loop">
+                  <matrix>
+                    <Matrix ty="-23.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="44"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="79" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix d="3.48957824707031" tx="0.1" ty="142.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="halfWayOffset">
+      <Inspectable name="halfWayOffset" variable="halfWayOffset" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="hitDir">
+      <Inspectable name="hitDir" variable="hitDir" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="delay">
+      <Inspectable name="delay" variable="delay" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

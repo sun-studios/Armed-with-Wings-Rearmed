@@ -1,0 +1,123 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q04/LVLQ04-SpitText" itemID="556abb20-00000755" lastModified="1490638915">
+  <timeline>
+    <DOMTimeline name="LVLQ04-SpitText">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var i:Number;
+var iOrig:Number;
+var disable:Boolean;
+
+var hero:MovieClip;
+var particleLayer:MovieClip;
+
+var textArr:Array;
+
+init();
+
+function init():void {
+	i = 0;
+	iOrig = 0;
+	
+	defineText();
+	
+	hero = MovieClip(parent).hero;
+	particleLayer = MovieClip(parent).particleLayer;
+	
+	visible = false;
+	
+	if (MovieClip(root).heroName == "LONEWARRIOR" || MovieClip(root).heroName == "SUPERLONEWARRIOR") {
+		
+	} else {
+		disable = true;
+	}
+}
+
+function defineText():void {
+	textArr = new Array();
+	
+	textArr = ["Where am I??", 
+				"This place...", 
+				"What is this place?!", 
+				"Have I died?", 
+				"What am I?", 
+				"Is there anybody else?", 
+				"Am I alone?",
+				"..I ..I can't even.."]
+}
+
+function spawn():void {
+	//random pos
+	var rX:Number = (Math.random()*120) - (Math.random()*120);
+	var rY:Number = (Math.random()*60) - (Math.random()*60);
+	//grab text
+	
+	var text:String 
+	if (Math.round(Math.random()*100 ) == 1) {
+		if (Math.random() > .5) text = "Am I a frog?";
+		else text = "My shoes... Where are they?";
+	} else {
+		text = textArr[Math.floor(Math.random()*textArr.length)]; 
+	}
+	
+	particleLayer.addTextPop(hero.x+rX, hero.y - (hero.height * .65) + rY, text);
+	
+	//reset timer
+	iOrig = 1 + (Math.random()*2) - (Math.random()*2);
+	if (iOrig <= 0) iOrig = .1;
+	i = iOrig * 40;
+}
+
+function update():void {
+	if (!disable) {
+		if (i > 0) {
+			i --;
+		} else {
+			spawn();
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor alpha="0.756862745098039"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-1660 -519|1660 -519!1660 -519|1660 519!1660 519|-1660 519!-1660 519|-1660 -519"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText fontRenderingMode="standard" left="26" width="92" height="23.65" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-72" ty="-8.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Spit Text</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="23.65" size="24" bitmapSize="480" face="Furmanite-Bold" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

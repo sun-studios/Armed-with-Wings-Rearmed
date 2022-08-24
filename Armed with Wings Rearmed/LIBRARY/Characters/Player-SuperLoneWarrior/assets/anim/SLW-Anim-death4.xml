@@ -1,0 +1,104 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-death4" itemID="587a4df0-00000d88" lastModified="1484410352">
+  <timeline>
+    <DOMTimeline name="SLW-Anim-death4" currentFrame="32">
+      <layers>
+        <DOMLayer name="Action Layer" color="#FFFF00">
+          <frames>
+            <DOMFrame index="0" duration="32" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="32" motionTweenScale="false" keyMode="8192">
+              <Actionscript>
+                <script><![CDATA[stop ();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#FFFF00" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-death5" symbolType="graphic" loop="loop">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="30" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-death5" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-10.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="2" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-death5" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-10.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!7 -14|7 -9!7 -9|4 0!4 0[11 0 21 8!21 8|23 12!23 12|22 15!22 15|18 23!18 23|15 24!15 24[4 27 -5 24!-5 24|-8 23!-8 23|-10 21!-10 21|-16 19!-16 19[-19 18 -20 16!-20 16|-21 15!-21 15|-22 13!-22 13|-23 7!-23 7[-23 6 -23 5!-23 5[-23 -5 -21
+ -10!-21 -10|-18 -16!-18 -16|-14 -21!-14 -21[-10 -24 -6 -22!-6 -22|-5 -25!-5 -25[2 -22 6 -16!6 -16|7 -14"/>
+                    <Edge cubics="!7 -14(7,-14;8,-12 7,-11 7,-9q7 -14Q7 -14q7 -9);"/>
+                    <Edge cubics="!7 -9(7,-9;6,-6 5,-3 4,0q7 -9 4 0);"/>
+                    <Edge cubics="!4 0(;10,0 16,4 21,8q4 0Q11 0q21 8);"/>
+                    <Edge cubics="!21 8(;21,9 22,10 23,12q21 8 23 12);"/>
+                    <Edge cubics="!23 12(23,12;23,13 22,14 22,15q23 12 22 15);"/>
+                    <Edge cubics="!18 23(;17,24 16,24 15,24q18 23 15 24)15,24;"/>
+                    <Edge cubics="!15 24(15,24;8,26 1,26 -5,24q15 24Q4 27q-5 24)-5,24;"/>
+                    <Edge cubics="!-5 24(;-6,24 -7,24 -8,23q-5 24 -8 23);"/>
+                    <Edge cubics="!-8 23(;-9,23 -9,21 -10,21q-8 23 -10 21)-10,21;"/>
+                    <Edge cubics="!-10 21(;-12,20 -14,20 -16,19q-10 21 -16 19);"/>
+                    <Edge cubics="!-21 -10(;-20,-12 -19,-14 -18,-16q-21 -10 -18 -16)-18,-16;"/>
+                    <Edge cubics="!-18 -16(;-16,-18 -15,-20 -14,-21q-18 -16 -14 -21)-14,-21;"/>
+                    <Edge cubics="!-14 -21(;-11,-23 -8,-23 -6,-22q-14 -21Q-10 -24q-6 -22)-6,-22;"/>
+                    <Edge cubics="!-6 -22(-6,-22;-5,-23 -5,-24 -5,-25q-6 -22 -5 -25)-5,-25;"/>
+                    <Edge cubics="!-5 -25(;-1,-23 3,-20 6,-16q-5 -25Q2 -22q6 -16)6,-16;"/>
+                    <Edge cubics="!6 -16(6,-16;7,-15 7,-15 7,-14q6 -16 7 -14);"/>
+                    <Edge cubics="!-20 16(;-21,15 -21,15 -21,15q-20 16 -21 15);"/>
+                    <Edge cubics="!-21 15(;-22,14 -22,14 -22,13q-21 15 -22 13);"/>
+                    <Edge cubics="!-23 7(-23,7;-23,6 -23,6 -23,5q-23 7Q-23 6q-23 5);"/>
+                    <Edge cubics="!-22 13(-22,13;-22,13 -23,7 -23,7q-22 13 -23 7);"/>
+                    <Edge cubics="!-23 5(-23,5;-23,-2 -22,-7 -21,-10q-23 5Q-23 -5q-21 -10);"/>
+                    <Edge cubics="!22 15(22,15;22,15 18,23 18,23q22 15 18 23);"/>
+                    <Edge cubics="!-16 19(;-18,18 -19,17 -20,16q-16 19Q-19 18q-20 16);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

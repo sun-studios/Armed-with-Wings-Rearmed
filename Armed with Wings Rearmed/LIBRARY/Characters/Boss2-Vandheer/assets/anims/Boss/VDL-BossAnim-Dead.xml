@@ -1,0 +1,81 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss2-Vandheer/assets/anims/Boss/VDL-BossAnim-Dead" itemID="54d481ab-00001525" lastModified="1479804828">
+  <timeline>
+    <DOMTimeline name="VDL-BossAnim-Dead" currentFrame="2">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="38" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var sndCtrl:MovieClip = MovieClip(root);
+
+if (MovieClip(root).gameMode == "SURVIVAL") {
+	MovieClip(parent).doDeath();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="71" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="110" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="38" name="kneel" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" name="finalhit" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="72" name="death" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="39" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Dead" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.954193115234375" d="0.954193115234375" tx="1.5" ty="-3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="-38.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" duration="72" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/LargeCloud/DustCloud" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.714767456054688" b="-0.588058471679688" c="0.588058471679688" d="0.714767456054688" tx="2.35" ty="-1.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-14.6" y="-12.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

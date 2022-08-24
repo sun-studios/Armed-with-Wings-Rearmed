@@ -1,0 +1,104 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-A/LVL-A-ElevatorPlat" itemID="5585836a-00002554" lastModified="1491410347">
+  <timeline>
+    <DOMTimeline name="LVL-A-ElevatorPlat">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var dir:int;
+var goDown:Boolean;
+var max:int;
+
+var i:Number; // component
+var range:Number; //component
+
+var hero:MovieClip; 
+var ground:MovieClip;
+
+init();
+
+function init():void {
+	//copmponent
+	if (!i) i = 0;
+	if (!range) range = 10;
+	
+	//vars
+	dir = 1;
+	goDown = true;
+	max = range;
+	
+	//refs
+	hero = MovieClip(parent.parent).hero; 
+	ground = MovieClip(parent);
+}
+
+function update():void {
+	
+
+
+	if (withinRange()) {
+		var go:Boolean = true;
+		if (hero.currentFrameLabel == "walk" && (hero.walk.jumping || hero.walk.falling)) go = false;
+		if (hero.currentFrameLabel == "attack" && hero.attack.jumpAttack) go = false;
+		if (hero.currentFrameLabel == "attack" && hero.attack.airStrike) go = false;
+		if (hero.currentFrameLabel == "jump") go = false;
+		if (hero.currentFrameLabel == "dodge" && hero.dodge.airborn) go = false;
+		
+		if (go) {
+			hero.y = y + ground.y;
+		}
+		
+		
+	}
+
+	
+}
+
+function withinRange():Boolean {
+	if (hero.x > (x + ground.x) -330 && 
+		hero.x < (x + ground.x) +330 &&
+		hero.y > (y + ground.y) -40 && 
+		hero.y < (y + ground.y) +40) {
+		
+		return true;
+	} else {
+		return false;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!3426 872|-3126 872!-3126 872|-3126 -30!-3126 -30|3426 -30!3426 -30|3426 872"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,862 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q04/LVLQ04-Ground" itemID="55603e80-00000774" lastModified="1493171684">
+  <timeline>
+    <DOMTimeline name="LVLQ04-Ground">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var tileArr:Array;
+
+var hero:MovieClip;
+
+init();
+
+function init():void {
+	tileArr = new Array();
+	hero = MovieClip(parent).hero;
+}
+
+function update():void {
+	for (var i:int = 0; i < tileArr.length; i ++) {
+		var clip:MovieClip = tileArr[i];
+		if (distanceBetween(hero, clip) < 300) {
+			clip.state = "ON";
+		} else {
+			clip.state = "OFF";
+		}
+		clip.update();
+	}
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0099FF" alpha="0"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-23464 5897|-13804 929!-13804 929|-12894 813!-12894 813|-12884 1895!-12884 1895|-23447 7447!-23447 7447|-23464 5897!-49008 10029|-34960 5959!-34960 5959|-33622 5897!-33622 5897|-33622 7011!-33622 7011|-48984 11580!-48984 11580|-49008
+ 10029"/>
+                    <Edge cubics="!-33622 5897(;-33622,5897 -33622,7011 -33622,7011q-33622 5897 -33622 7011);"/>
+                    <Edge cubics="!-34960 5959(;-34960,5959 -33622,5897 -33622,5897q-34960 5959 -33622 5897);"/>
+                    <Edge cubics="!-48984 11580(-48984,11580;-48984,11580 -49008,10029 -49008,10029q-48984 11580 -49008 10029);"/>
+                    <Edge cubics="!-33622 7011(-33622,7011;-33622,7011 -48984,11580 -48984,11580q-33622 7011 -48984 11580);"/>
+                    <Edge cubics="!-49008 10029(-49008,10029;-49008,10029 -34960,5959 -34960,5959q-49008 10029 -34960 5959);"/>
+                    <Edge cubics="!-12884 781(;-12884,781 -12884,1895 -12884,1895q-12884 781 -12884 1895);"/>
+                    <Edge cubics="!-13804 929(;-13804,929 -12884,781 -12884,781q-13804 929 -12884 781);"/>
+                    <Edge cubics="!-23447 7447(-23447,7447;-23447,7447 -23464,5897 -23464,5897q-23447 7447 -23464 5897);"/>
+                    <Edge cubics="!-12884 1895(-12884,1895;-12884,1895 -23447,7447 -23447,7447q-12884 1895 -23447 7447);"/>
+                    <Edge cubics="!-23464 5897(-23464,5897;-23464,5897 -13804,929 -13804,929q-23464 5897 -13804 929);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="21.2980194091797" d="29.8080596923828" tx="2678.3" ty="-543.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-0.9"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="0" b="11.6275177001953" c="-140.541900634766" d="0" tx="8664.35" ty="-1156.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.25" y="-0.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="21.2980194091797" d="29.7836761474609" tx="-3586.15" ty="-533.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="-0.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="188.521896362305" d="5.91056823730469" tx="-447.2" ty="-1622.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="-0.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="
+!194310 1591|194310 1591.5!194310 1591.5|194311 1591!194311 1591|194310 1591!194310 1591|197981 -175!197981 -175|210969 -175!210969 -175|217225 -3062!217225 -3062|244523 -3062!244523 -3062|248855 -488!248855 -488|256642 -488!256642 -488
+|264021 954!264021 954|274823 954!274823 954|278033 -487.5!278033 -487.5|285736 -487.5!285736 -487.5|285736 -34454!285736 -34454|301425 -34454!301425 -34454|301425 10278!301425 10278|286877 10278!286877 10278|286877 10279!286877 10279
+|217229 10279!217229 10279|217229 10249.5!217229 10249.5|217225.5 10278!217225.5 10278|157825.5 10278!157825.5 10278|157831 16429!157831 16429|145352 16429!145352 16429|145346 16439!145346 16439|75909 16439!75909 16439|75909 10326!75909
+ 10326|60394 10326!60394 10326|60394 -37350!60394 -37350|87193 -37350!87193 -37350|87193 -17894!87193 -17894|87192.5 -17894!87192.5 -17894|87193 -9300!87193 -9300|71090 -9300!71090 -9300|71090 -4975!71090 -4975|78692 -4975!78692 -4975
+|83673 -3086!83673 -3086[#1472F.41 -3084 83846 -3084!83846 -3084[85407 -3084 86970 -3084!86970 -3084[87050 -3084 87053 -3070!87053 -3070[#15435.1A #FFF4DC.0B 87193 -2655!87193 -2655|87193 2762!87193 2762|123186.5 2762!123186.5 2762|125927
+ 1901!125927 1901|133778 1841!133778 1841|136381 2802!136381 2802|139024.5 2762!139024.5 2762|146560 -955.5!146560 -955.5|146560 -955!146560 -955|164426.5 -1519!164426.5 -1519|164427 -1497!164427 -1497|164427 -28562!164427 -28562|192644
+ -28562!192644 -28562|193039.5 1558!193039.5 1558|194310 1591"/>
+                    <Edge fillStyle0="1" edges="
+!75908 7984|75909 7984!75909 7984|75909 7984.5!75909 7984.5|75908 7984"/>
+                    <Edge cubics="!75908 10280(;75908,10280 73458,10280 73458,10280q75908 10280 73458 10280);"/>
+                    <Edge cubics="!87193 -2655(;87193,-2655 87193,2762 87193,2762q87193 -2655 87193 2762);"/>
+                    <Edge cubics="!73458 10280(;73458,10280 70713,10290 70713,10290q73458 10280 70713 10290);"/>
+                    <Edge cubics="!70713 10290(;70713,10290 60394,10326 60394,10326q70713 10290 60394 10326);"/>
+                    <Edge cubics="!87053 -3070(;87080,-2925 87126,-2786 87193,-2655q87053 -3070Q87093 -2852q87193 -2655);"/>
+                    <Edge cubics="!86970 -3084(;87023,-3084 87051,-3079 87053,-3070q86970 -3084Q87050 -3084q87053 -3070);"/>
+                    <Edge cubics="!83846 -3084(;84887,-3084 85928,-3084 86970,-3084q83846 -3084Q85407 -3084q86970 -3084);"/>
+                    <Edge cubics="!78692 -4975(;78692,-4975 71090,-4975 71090,-4975q78692 -4975 71090 -4975);"/>
+                    <Edge cubics="!83673 -3086(;83673,-3086 78692,-4975 78692,-4975q83673 -3086 78692 -4975);"/>
+                    <Edge cubics="!83673 -3086(;83730,-3085 83788,-3084 83846,-3084q83673 -3086Q83759 -3084q83846 -3084);"/>
+                    <Edge cubics="!71090 -9300(;71090,-9300 71090,-4975 71090,-4975q71090 -9300 71090 -4975);"/>
+                    <Edge cubics="!87193 -9300(;87193,-9300 71090,-9300 71090,-9300q87193 -9300 71090 -9300);"/>
+                    <Edge cubics="!139025 2762(;139025,2762 146560,-955 146560,-955q139025 2762 146560 -955);"/>
+                    <Edge cubics="!87193 2762(;87193,2762 123187,2762 123187,2762q87193 2762 123187 2762);"/>
+                    <Edge cubics="!123187 2762(;123187,2762 123462,2762 123462,2762q123187 2762 123462 2762);"/>
+                    <Edge cubics="!131193 2762(;131193,2762 133778,2762 133778,2762q131193 2762 133778 2762);"/>
+                    <Edge cubics="!133778 2762(;133778,2762 139025,2762 139025,2762q133778 2762 139025 2762);"/>
+                    <Edge cubics="!146560 -955(;146560,-955 164427,-1519 164427,-1519q146560 -955 164427 -1519);"/>
+                    <Edge cubics="!193040 1558(;193040,1558 194310,1591 194310,1591q193040 1558 194310 1591);"/>
+                    <Edge cubics="!164427 -1497(;164427,-1497 164427,-1519 164427,-1519q164427 -1497 164427 -1519);"/>
+                    <Edge cubics="!87193 -17894(;87193,-17894 87193,-9300 87193,-9300q87193 -17894 87193 -9300);"/>
+                    <Edge cubics="!194310 1592(;194310,1592 194311,1591 194311,1591q194310 1592 194311 1591);"/>
+                    <Edge cubics="!194310 1591(;194310,1591 194310,1592 194310,1592q194310 1591 194310 1592);"/>
+                    <Edge cubics="!194311 1591(;194311,1591 194310,1591 194310,1591q194311 1591 194310 1591);"/>
+                    <Edge cubics="!194310 1591(;194310,1591 197981,-175 197981,-175q194310 1591 197981 -175);"/>
+                    <Edge cubics="!217225 -3062(;217225,-3062 244523,-3062 244523,-3062q217225 -3062 244523 -3062);"/>
+                    <Edge cubics="!217226 10278(;217226,10278 157826,10278 157826,10278q217226 10278 157826 10278);"/>
+                    <Edge cubics="!301425 10278(;301425,10278 286877,10278 286877,10278q301425 10278 286877 10278);"/>
+                    <Edge cubics="!197981 -175(;197981,-175 210969,-175 210969,-175q197981 -175 210969 -175);"/>
+                    <Edge cubics="!210969 -175(;210969,-175 217225,-3062 217225,-3062q210969 -175 217225 -3062);"/>
+                    <Edge cubics="!217226 10278(;217226,10278 217229,10250 217229,10250q217226 10278 217229 10250);"/>
+                    <Edge cubics="!217229 10279(;217229,10279 217229,10250 217229,10250q217229 10279 217229 10250);"/>
+                    <Edge cubics="!286877 10279(;286877,10279 286877,10278 286877,10278q286877 10279 286877 10278);"/>
+                    <Edge cubics="!248855 -488(;248855,-488 244523,-3062 244523,-3062q248855 -488 244523 -3062);"/>
+                    <Edge cubics="!286877 10279(286877,10279;286877,10279 217229,10279 217229,10279q286877 10279 217229 10279)217229,10279;"/>
+                    <Edge cubics="!248855 -488(248855,-488;248855,-488 256642,-488 256642,-488q248855 -488 256642 -488)256642,-488;"/>
+                    <Edge cubics="!264021 954(;264021,954 256642,-488 256642,-488q264021 954 256642 -488);"/>
+                    <Edge cubics="!278033 -487(;278033,-487 285736,-487 285736,-487q278033 -487 285736 -487);"/>
+                    <Edge cubics="!301425 -34454(;301425,-34454 285736,-34454 285736,-34454q301425 -34454 285736 -34454);"/>
+                    <Edge cubics="!274823 954(;274823,954 278033,-487 278033,-487q274823 954 278033 -487);"/>
+                    <Edge cubics="!264021 954(;264021,954 274823,954 274823,954q264021 954 274823 954);"/>
+                    <Edge cubics="!60394 -37350(;60394,-37350 87193,-37350 87193,-37350q60394 -37350 87193 -37350);"/>
+                    <Edge cubics="!87193 -37350(;87193,-37350 87193,-17894 87193,-17894q87193 -37350 87193 -17894);"/>
+                    <Edge cubics="!285736 -487(;285736,-487 285736,-34454 285736,-34454q285736 -487 285736 -34454);"/>
+                    <Edge cubics="!301425 -34454(;301425,-34454 301425,10278 301425,10278q301425 -34454 301425 10278);"/>
+                    <Edge cubics="!60394 10326(;60394,10326 60394,-37350 60394,-37350q60394 10326 60394 -37350);"/>
+                    <Edge cubics="!164427 -28562(;164427,-28562 192644,-28562 192644,-28562q164427 -28562 192644 -28562);"/>
+                    <Edge cubics="!145352 16429(;145352,16429 145346,16439 145346,16439q145352 16429 145346 16439);"/>
+                    <Edge cubics="!145346 16439(;145346,16439 75909,16439 75909,16439q145346 16439 75909 16439);"/>
+                    <Edge cubics="!157831 16429(;157831,16429 145352,16429 145352,16429q157831 16429 145352 16429);"/>
+                    <Edge cubics="!157826 10278(;157826,10278 157831,16429 157831,16429q157826 10278 157831 16429);"/>
+                    <Edge cubics="!75909 16439(;75909,16439 75909,10326 75909,10326q75909 16439 75909 10326);"/>
+                    <Edge cubics="!75909 10326(;75909,10326 75909,7984 75909,7984q75909 10326 75909 7984);"/>
+                    <Edge cubics="!75908 7984(;75908,7984 75909,7984 75909,7984q75908 7984 75909 7984);"/>
+                    <Edge cubics="!75908 10280(;75908,10280 75908,7984 75908,7984q75908 10280 75908 7984);"/>
+                    <Edge cubics="!164427 -1497(;164427,-1497 164427,-28562 164427,-28562q164427 -1497 164427 -28562);"/>
+                    <Edge cubics="!192644 -28562(;192644,-28562 193040,1558 193040,1558q192644 -28562 193040 1558);"/>
+                    <Edge cubics="!123463 1841(;123463,1841 133778,1841 133778,1841q123463 1841 133778 1841);"/>
+                    <Edge cubics="!133778 1841(;133778,1841 133778,2762 133778,2762q133778 1841 133778 2762);"/>
+                    <Edge cubics="!133778 2762(;133778,2762 133778,3738 133778,3738q133778 2762 133778 3738);"/>
+                    <Edge cubics="!123463 3738(;123463,3738 123463,1841 123463,1841q123463 3738 123463 1841);"/>
+                    <Edge cubics="!133778 3738(;133778,3738 131193,3738 131193,3738q133778 3738 131193 3738);"/>
+                    <Edge cubics="!131193 3738(;131193,3738 123463,3738 123463,3738q131193 3738 123463 3738);"/>
+                    <Edge cubics="!131193 2762(;131193,2762 131193,3738 131193,3738q131193 2762 131193 3738);"/>
+                    <Edge cubics="!123463 3738(;123463,3738 123462,3738 123462,3738q123463 3738 123462 3738);"/>
+                    <Edge cubics="!123462 3738(;123462,3738 123462,2762 123462,2762q123462 3738 123462 2762);"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499679565429688" tx="-1182.4" ty="-1842.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.79986572265625" tx="-1097.95" ty="-1832"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499664306640625" tx="-1013.45" ty="-1842.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.350234985351563" tx="-928.95" ty="-1847.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.500335693359375" tx="-844.45" ty="-1842.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.500335693359375" tx="-759.95" ty="-1842.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.350234985351563" tx="-675.5" ty="-1847.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.350234985351563" tx="-591" ty="-1847.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.3"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.5078125" tx="-506.5" ty="-1842.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.7244873046875" tx="-422" ty="65.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.537033081054688" tx="-337.5" ty="59.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.537033081054688" tx="-253.05" ty="59.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.386932373046875" tx="-168.55" ty="53.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.386932373046875" tx="-84.05" ty="53.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499664306640625" tx="0.45" ty="57.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499664306640625" tx="84.95" ty="57.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499664306640625" tx="169.4" ty="57.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.725143432617188" tx="253.9" ty="65.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.91259765625" tx="338.4" ty="72.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.575042724609375" tx="422.9" ty="60.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.575042724609375" tx="507.35" ty="60.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.456924438476563" tx="591.85" ty="56.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.456924438476563" tx="676.35" ty="56.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.649765014648438" tx="760.85" ty="62.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.649765014648438" tx="845.35" ty="62.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.405990600585938" tx="929.8" ty="54.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.405990600585938" tx="1014.3" ty="54.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.312210083007813" tx="1098.8" ty="51.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499374389648438" tx="1183.3" ty="57.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.7991943359375" tx="1267.8" ty="68.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499786376953125" tx="1352.25" ty="-1842.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499786376953125" tx="1436.75" ty="-1842.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.1"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.49578857421875" tx="1521.25" ty="-1842.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.79986572265625" tx="-2111.75" ty="-1832"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499679565429688" tx="-2027.3" ty="-1842.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.462326049804688" tx="-1942.8" ty="-1843.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.462326049804688" tx="-1858.3" ty="-1843.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.6497802734375" tx="-1773.8" ty="-1837.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.462326049804688" tx="-1689.3" ty="-1843.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.6495361328125" tx="-1604.85" ty="-1837.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.462326049804688" tx="-1520.35" ty="-1843.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.35552978515625" tx="-1435.85" ty="-1847.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.35552978515625" tx="-1351.35" ty="-1847.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.35552978515625" tx="-1266.85" ty="-1847.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.794296264648438" tx="1605.7" ty="-1832.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.53118896484375" tx="1690.2" ty="-1841.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.761184692382813" tx="1774.7" ty="-1833.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.47589111328125" tx="1859.2" ty="-1843.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.588516235351563" tx="1943.7" ty="-1839.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.359878540039063" tx="2028.15" ty="-1847.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.462310791015625" tx="2112.65" ty="-1843.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.462310791015625" tx="2197.15" ty="-1843.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.462310791015625" tx="2281.65" ty="-1843.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.355514526367188" tx="2366.15" ty="-1847.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.25"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-lightTileSmart">
+                  <matrix>
+                    <Matrix a="0.49993896484375" d="0.499664306640625" tx="2450.6" ty="-1842.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.3" y="-2.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller-Anim-Idle" name="idle">
+                  <matrix>
+                    <Matrix a="0.999267578125" b="-0.0382537841796875" c="0.0382537841796875" d="0.999267578125" tx="-3184.3" ty="523.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="-3136.15" centerPoint3DY="602">
+                  <matrix>
+                    <Matrix a="0.678619384765625" d="0.357940673828125" tx="-3178.55" ty="538.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="1353.8" centerPoint3DY="138.8">
+                  <matrix>
+                    <Matrix a="-1.40220642089844" d="0.357940673828125" tx="1492.1" ty="75.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="-2984.5" centerPoint3DY="605.1">
+                  <matrix>
+                    <Matrix a="0.630889892578125" d="0.565811157226563" tx="-2770.3" ty="557"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="-1575.5" centerPoint3DY="398.5">
+                  <matrix>
+                    <Matrix a="0.542236328125" d="0.565811157226563" tx="-1406.15" ty="350.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="-512.55" centerPoint3DY="139.05">
+                  <matrix>
+                    <Matrix a="0.71197509765625" d="0.357940673828125" tx="-550.45" ty="75.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

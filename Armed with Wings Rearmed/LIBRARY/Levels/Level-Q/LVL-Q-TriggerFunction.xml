@@ -1,0 +1,264 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q/LVL-Q-TriggerFunction" itemID="54cea156-000004ff" lastModified="1492402401">
+  <timeline>
+    <DOMTimeline name="LVL-Q-TriggerFunction">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import flash.events.Event;
+
+visible = false;
+
+var lightTrig1:MovieClip;
+var lightTrig2:MovieClip;
+var lightTrig3:MovieClip;
+var groundBridge1:MovieClip;
+var groundBridge2:MovieClip;
+var groundBridge3:MovieClip;
+var pillerTrigger:MovieClip;
+var holyPiller:MovieClip;
+var pillerTrigger2:MovieClip;
+var holyPiller2:MovieClip;
+var holyPiller3:MovieClip;
+var holyPiller4:MovieClip;
+var holyPiller5:MovieClip;
+var holyPiller6:MovieClip;
+var relic:MovieClip;
+var totum:MovieClip;
+var enemySpawner:MovieClip;
+var tut1:MovieClip;
+
+var bridgeCam1:MovieClip;
+var bridgeCam2:MovieClip;
+var bridgeCam3:MovieClip;
+var pillerCam:MovieClip;
+var exitCam:MovieClip;
+
+var hero:MovieClip;
+var vcam:MovieClip;
+var hud:MovieClip;
+
+var bridge1Flag:Boolean;
+var bridge2Flag:Boolean;
+var bridge3Flag:Boolean;
+var flag4:Boolean;
+
+var totumX:Number;
+var totumY:Number;
+
+init();
+
+function init():void {
+	lightTrig1 = MovieClip(parent).lightTrig1;
+	lightTrig2 = MovieClip(parent).lightTrig2;
+	lightTrig3 = MovieClip(parent).lightTrig3;
+	groundBridge1 = MovieClip(parent).ground.bridge1;
+	groundBridge2 = MovieClip(parent).ground.bridge2;
+	groundBridge3 = MovieClip(parent).ground.bridge3;
+	pillerTrigger = MovieClip(parent).pillerTrigger;
+	holyPiller = MovieClip(parent).ground.holyPiller;
+	pillerTrigger2 = MovieClip(parent).pillerTrigger2;
+	holyPiller2 = MovieClip(parent).ground.holyPiller2;
+	holyPiller3 = MovieClip(parent).ground.holyPiller3;
+	holyPiller4 = MovieClip(parent).ground.holyPiller4;
+	holyPiller5 = MovieClip(parent).ground.holyPiller5;
+	holyPiller6 = MovieClip(parent).ground.holyPiller6;
+	relic = MovieClip(parent).relic;
+	totum = MovieClip(parent).totum;
+	enemySpawner = MovieClip(parent).enemySpawner;
+	tut1 = MovieClip(parent).tut1;
+	
+	bridgeCam1 = MovieClip(parent).bridgeCam1;
+	bridgeCam2 = MovieClip(parent).bridgeCam2;
+	bridgeCam3 = MovieClip(parent).bridgeCam3;
+	pillerCam = MovieClip(parent).pillerCam;
+	exitCam = MovieClip(parent).exitCam;
+	
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	hud = MovieClip(root).hud;
+	
+	bridge1Flag = false;
+	bridge2Flag = false;
+	bridge3Flag = false;
+	flag4 = false;
+	
+	totum.visible = false;
+	totumX = totum.x;
+	totumY = totum.y;
+	totum.x = -10000;
+	totum.y = -10000;
+
+	
+	totum.addEventListener("TOTUMACTIVE", totumActivated);
+	enemySpawner.addEventListener("COMPLETE", endBattle);
+	relic.addEventListener("COMPLETE", relicActivated);
+}
+
+function update():void {
+	if (lightTrig1.go && groundBridge1.currentFrameLabel == "closed") {
+		if (!bridge1Flag) {
+			stopHero();
+			openBridge(1);
+			bridge1Flag = true;
+		}
+	}
+	
+	if (lightTrig2.earlyGo && groundBridge2.currentFrameLabel == "closed") {
+		if (!bridge2Flag) {
+			stopHero();
+			openBridge(2, 2);
+			bridge2Flag = true;
+		}
+	}
+	
+	if (pillerTrigger.hitTestObject(hero.bound)) {
+		if (holyPiller.state == "EMPTY") {
+			stopHero();
+			holyPiller.activate();
+			vcam.target = pillerCam;
+			vcam.zoom = 1.5;
+			totum.visible = true;
+			totum.x = totumX;
+			totum.y = totumY;
+			TweenMax.delayedCall(80, resume, [1], true);
+			pillerTrigger.visible = false;
+		}
+	}
+	
+	if (pillerTrigger2.hitTestObject(hero.bound)) {
+		if (holyPiller2.state == "EMPTY") {
+			stopHero();
+			vcam.target = pillerTrigger2;
+			vcam.zoom = 2;
+			TweenMax.delayedCall(8, 
+			function () { 
+				holyPiller2.activate(); holyPiller3.activate(); 
+				holyPiller5.activate();holyPiller6.activate();
+			}, null, true);
+			TweenMax.delayedCall(120, enemySpawner.init, null, true);
+			TweenMax.delayedCall(120, resume, null, true);
+			pillerTrigger2.visible = false;
+		}
+	}
+	
+	if (lightTrig3.earlyGo && groundBridge3.currentFrameLabel == "closed") {
+		if (!bridge3Flag) {
+			stopHero();
+			openBridge(3, 2);
+			bridge3Flag = true;
+		}
+	}
+	
+	if (MovieClip(parent).rockSwitch.isOn) {
+		if (!flag4) {
+			stopHero();
+			vcam.target = exitCam;
+			vcam.zoom = 2;
+			vcam.battleZoom = 0;
+			TweenMax.delayedCall(20, function () { holyPiller4.openPiller(); }, null, true);
+			TweenMax.delayedCall(80, resume, null, true);
+			flag4 = true;
+		}
+	}
+}
+
+function stopHero():void {
+	hero.switchToHero(false);
+	hero.moveable = false;
+	hero.active = false;
+}
+//TWEENMAXUSEFRAME
+function openBridge (bridgeNum:int, delay:Number = 3.3):void {
+	this["groundBridge"+bridgeNum].gotoAndPlay("opening");
+	vcam.target = this["bridgeCam"+bridgeNum];
+	vcam.zoom = 1.5;
+	TweenMax.delayedCall(delay, resume);
+}
+
+function totumActivated(e:Event):void {
+	totum.removeEventListener("TOTUMACTIVE", totumActivated);
+	holyPiller.openPiller();
+	stopHero();
+	vcam.target = pillerCam;
+	vcam.zoom = 1.5;
+	TweenMax.delayedCall(80, resume, null, true);
+}
+
+function endBattle(e:Event):void {
+	enemySpawner.removeEventListener("COMPLETE", endBattle);
+	stopHero();
+	vcam.target = pillerTrigger2;
+	vcam.zoom = 2;
+	vcam.battleZoom = 0;
+	TweenMax.delayedCall(20, 
+	function () { 
+		holyPiller2.openPiller(); holyPiller3.openPiller(); 
+		holyPiller5.openPiller(); holyPiller6.openPiller(); 
+	}, null, true);
+	TweenMax.delayedCall(80, resume, null, true);
+}
+
+function relicActivated (e:Event):void {
+	relic.removeEventListener("COMPLETE", relicActivated);
+	stopHero();
+	vcam.target = exitCam;
+	vcam.zoom = 2;
+	vcam.battleZoom = 0;
+	TweenMax.delayedCall(20, function () { holyPiller4.openPiller(); }, null, true);
+	TweenMax.delayedCall(80, resume, null, true);
+}
+
+function resume (id:int = 0):void {
+	if (id == 1) tut1.active = true;
+	
+	hud.fadeinUI();
+	hero.switchToHero();
+	hero.active = true;
+	hero.moveable = true;
+	vcam.target = hero;
+	vcam.zoom = 1;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-8.3" width="112.8" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>TRIGGER &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

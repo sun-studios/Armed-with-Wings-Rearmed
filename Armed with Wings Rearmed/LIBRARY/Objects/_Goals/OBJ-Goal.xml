@@ -1,0 +1,131 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Goals/OBJ-Goal" itemID="54b62879-0000026c" lastModified="1490599120" lastUniqueIdentifier="2" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Goal">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="23" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import flash.events.Event;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var ground:MovieClip = MovieClip(parent).ground;
+var gameCore:MovieClip = MovieClip(root);
+var game:MovieClip = MovieClip(parent);
+var done:Boolean = false;
+var transition:MovieClip = MovieClip(root).transition;
+var enablePhysics:Boolean = false;
+
+//componant
+var spawnID:Number;
+var stopMusic:Boolean;
+
+function update ():void
+{
+	if (CameraDistCheck.inRange(this)) {
+		if (!done) {
+			if (hero.bound.hitTestObject(this.bound) && hero.life > 0)
+			{
+				hero.xSpeed *= .5;
+				hero.switchToHero(false);
+				hero.moveable = false;
+				hero.active = false;
+				done = true;
+				game.levelComplete = true;
+				if (!spawnID) spawnID = 0;
+				gameCore.sessionSpawnID = spawnID;
+				gameCore.sessionFlagPostType = 1;
+				if (stopMusic) gameCore.stopMusic();
+				
+			   gameCore.dispatchEvent(new Event("GOALREACHED"));
+			   transition.gotoAndPlay("ENDLEVEL");
+			} 
+		}
+		if (enablePhysics) {
+			physics();
+		}
+	}
+	
+}
+
+function physics():void {
+
+		
+		while (ground.hitTestPoint(getGlobalX(), getGlobalY(64), true)) {
+			y-= .1;
+		}
+
+
+}
+
+function getGlobalX(offset:Number = 0):Number {
+
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+	//return (x *(_root.zoom.scaleX)+(_root.gameWidth*.5) + _parent.x *(_root.zoom.scaleX) + (offset * _root.zoom.scaleX))*_root.scaleFactor;
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+	//return (y*(_root.zoom.scaleX)+(_root.gameHeight*.5)  + _parent.y *(_root.zoom.scaleX) + (offset * _root.zoom.scaleX))*_root.scaleFactor;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay(2);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix d="1.7843017578125" tx="1.3" ty="-7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Goals/OBJ-Goal-anim">
+                  <matrix>
+                    <Matrix tx="0.75" ty="61.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="spawnID">
+      <Inspectable name="spawnID" variable="spawnID" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="stopMusic">
+      <Inspectable name="stopMusic" variable="stopMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

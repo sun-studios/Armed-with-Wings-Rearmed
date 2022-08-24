@@ -1,0 +1,78 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/assets/UI-Player-Equipment-Vandheer" itemID="587a5932-00000e0f" lastModified="1492841332" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="UI-Player-Equipment-Vandheer" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-256&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Idle">
+                  <matrix>
+                    <Matrix a="1.72494506835938" d="1.72494506835938" tx="-2.45" ty="63.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.55" y="-45.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="-15.05" width="124.7" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-44.6" ty="68.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>VANDHEER LORDE</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" letterSpacing="3" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="-22.55" width="139.7" height="18" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-44.6" ty="68.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>ARMED WITH WINGS</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" letterSpacing="3" lineHeight="18" bitmapSize="240" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle" centerPoint3DX="-4.3" centerPoint3DY="-18.7">
+                  <matrix>
+                    <Matrix a="1.70368957519531" d="1.70368957519531" tx="-3.45" ty="59.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.7" y="-46.35"/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="-0.22"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

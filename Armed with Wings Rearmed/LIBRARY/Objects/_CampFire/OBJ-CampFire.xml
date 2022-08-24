@@ -1,0 +1,197 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_CampFire/OBJ-CampFire" itemID="592d466f-000014b0" lastModified="1499775363">
+  <timeline>
+    <DOMTimeline name="OBJ-CampFire">
+      <layers>
+        <DOMLayer name="camp fre" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+var ctrl:PlayerControl;
+var hero:MovieClip;
+var vcam:MovieClip;
+var hud:MovieClip;
+var particleLayer:MovieClip;
+
+var flag0:Boolean;
+var forceLockIndex:Number;
+var forceLockIndexOrig:Number;
+var flameSpawn:Number;
+var flameSpawnOrig:Number;
+
+init();
+
+function init ():void {
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	hud = MovieClip(root).hud;
+	particleLayer = MovieClip(parent).particleLayer;
+	ctrl = hero.control;
+	
+	forceLockIndex = 0;
+	forceLockIndexOrig = 80;
+	flameSpawn = 2;
+	flameSpawnOrig = 2;	
+	
+	signClip.alpha = 0;
+	signClip.x = 0;
+	signClip.y = 0;
+}
+
+function update ():void {
+	if (gameData.gameDifficulty == gameData.gameDifficultySuperFutile) {
+		visible = false;
+	} else {
+	
+		if (CameraDistCheck.inRange(this)) {
+			handleFlames();
+		}
+		
+		if (!flag0 && !hero.eagle.moveable) {
+			if (distanceBetween(this, hero) < 140) {
+				if (vcam.battleCool == 0) {
+					vcam.doBossKillZoom(.6);
+					//MovieClip(root).hud.fadeoutUI();
+					sndCtrl.playSound(sndCtrl.sndWoosh);
+					sndCtrl.fadeOutMusicTo();
+					forceLockIndex = forceLockIndexOrig;
+					flag0 = true;				
+				}
+			} else {
+				//I know these are in odd places
+				fadeSignOut();
+			}
+		} else {
+			if (distanceBetween(this, hero) < 140 && !hero.eagle.moveable) {
+				//I know these are in odd places
+				fadeSignIn();
+				
+				//INPUT TO OPEN EQUPT MENU
+				if (ctrl.ctrl_char_swapPickupLoot) {
+					sndCtrl.pauseContinuous();
+					hud.openPauseUI();
+					hud.pauseUI.openPlayerUI();
+				}
+			
+			} else {
+				vcam.endBosSKillZoom();
+				//MovieClip(root).hud.fadeinUI();
+				sndCtrl.fadeInMusic();
+				flag0 = false;
+			}
+		}
+	}
+}
+
+function handleFlames ():void {
+	
+	if (flameSpawn > 0) {
+		flameSpawn --;
+	} else {
+		particleLayer.addFlames((x)+((Math.random()-Math.random())*10), 
+									32+(y-26)+((Math.random()-Math.random())*10), 
+									.5+Math.random(), 
+									.5+Math.random());
+		flameSpawn = flameSpawnOrig;
+	}
+}
+
+function fadeSignIn():void {
+	signClip.alpha += (1-signClip.alpha)/8;
+	signClip.x = (distanceBetweenX(this, hero)*-.3)*signClip.alpha;
+	signClip.y = (-140+(distanceBetweenY(this, hero)*-.3))*signClip.alpha;
+	if (signClip.alpha >= .5) signClip.visible = true;
+}
+function fadeSignOut():void {
+	signClip.alpha += (0-signClip.alpha)/12;
+	signClip.x += (0-signClip.x)/12;
+	signClip.y += (0-signClip.y)/12;
+	if (signClip.alpha < .5) signClip.visible = false;
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = obj1.x - obj2.x;
+    return X;
+}
+function distanceBetweenY(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var Y:Number = obj1.y - obj2.y;
+    return Y;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_CampFire/HUD-SwapWeapon2" name="signClip">
+                  <matrix>
+                    <Matrix tx="15.95" ty="-81.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" quality="2" strength="0.8"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_CampFire/CampFire-Anim">
+                  <matrix>
+                    <Matrix tx="-0.35" ty="36.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="2.11477661132813" d="0.870040893554688" tx="0.4" ty="9.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

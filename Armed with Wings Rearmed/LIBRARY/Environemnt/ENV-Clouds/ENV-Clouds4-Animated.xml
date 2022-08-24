@@ -1,0 +1,86 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-Clouds/ENV-Clouds4-Animated" itemID="57e7e7a4-00001275" lastModified="1492846304">
+  <timeline>
+    <DOMTimeline name="ENV-Clouds4-Animated" currentFrame="17" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-739&lt;/guideline&gt;&lt;guideline direction="h"&gt;-10&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="140" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[play();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="139" tweenType="shape" keyMode="17922">
+              <MorphShape>
+                <morphSegments>
+                  <MorphSegment startPointA="#FFFF55.F5, #FFFFE8.35" startPointB="#FFFF55.F5, #FFFFE8.35" strokeIndex1="0" strokeIndex2="0" fillIndex1="0" fillIndex2="1">
+                    <MorphCurves controlPointA="#FFFFF8.2B, #FFFFE8.35" anchorPointA="#9A.6, #FFFFE8.35" controlPointB="#FFFFF8.2B, #FFFFE8.35" anchorPointB="#9A.6, #FFFFE8.35" isLine="true"/>
+                    <MorphCurves controlPointA="#9A.6, #FFFFF3.B9" anchorPointA="#9A.6, -0.765625" controlPointB="#9A.6, #FFFFF3.B9" anchorPointB="#9A.6, -0.765625" isLine="true"/>
+                    <MorphCurves controlPointA="#FFFFF8.2B, -0.765625" anchorPointA="#FFFF55.F5, -0.765625" controlPointB="#FFFFF8.2B, -0.765625" anchorPointB="#FFFF55.F5, -0.765625" isLine="true"/>
+                    <MorphCurves controlPointA="#FFFF55.F5, #FFFFF3.B9" anchorPointA="#FFFF55.F5, #FFFFE8.35" controlPointB="#FFFF55.F5, #FFFFF3.B9" anchorPointB="#FFFF55.F5, #FFFFE8.35" isLine="true"/>
+                  </MorphSegment>
+                </morphSegments>
+                <morphHintsList/>
+              </MorphShape>
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <BitmapFill bitmapPath="Environemnt/ENV-Clouds/Clouds4.png">
+                        <matrix>
+                          <Matrix a="20" d="20" tx="-740.3" ty="-309.8"/>
+                        </matrix>
+                      </BitmapFill>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!39520 -196|-43531 -196!-43531 -196|-43531 -6091!-43531 -6091|39520 -6091!39520 -6091|39520 -196"/>
+                    <Edge cubics="!39520 -6091(;39520,-6091 39520,-196 39520,-196q39520 -6091 39520 -196);"/>
+                    <Edge cubics="!-43531 -196(;-43531,-196 -43531,-6091 -43531,-6091q-43531 -196 -43531 -6091);"/>
+                    <Edge cubics="!-43531 -6091(-43531,-6091;-43531,-6091 -43531,-6196 -43531,-6196q-43531 -6091 -43531 -6196)-43531,-6196;"/>
+                    <Edge cubics="!39520 -196(;39520,-196 -43531,-196 -43531,-196q39520 -196 -43531 -196);"/>
+                    <Edge cubics="!-6484 -6091(;-6484,-6091 -6485,-6196 -6485,-6196q-6484 -6091 -6485 -6196);"/>
+                    <Edge cubics="!-43531 -6196(-43531,-6196;-43531,-6196 -6485,-6196 -6485,-6196q-43531 -6196 -6485 -6196)-6485,-6196;"/>
+                    <Edge cubics="!39520 -6091(39520,-6091;39520,-6091 -6484,-6091 -6484,-6091q39520 -6091 -6484 -6091)-6484,-6091;"/>
+                  </edges>
+                </DOMShape>
+                <DOMBitmapInstance libraryItemName="Environemnt/ENV-BG/clouds.png"/>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="139" tweenType="shape" keyMode="17922">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <BitmapFill bitmapPath="Environemnt/ENV-Clouds/Clouds4.png">
+                        <matrix>
+                          <Matrix a="20" d="20" tx="-2019.9" ty="-310.2"/>
+                        </matrix>
+                      </BitmapFill>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!39520 -196|-43531 -196!-43531 -196|-43531 -6091!-43531 -6091|39520 -6091!39520 -6091|39520 -196"/>
+                    <Edge cubics="!39520 -6091(;39520,-6091 39520,-196 39520,-196q39520 -6091 39520 -196);"/>
+                    <Edge cubics="!-43531 -196(;-43531,-196 -43531,-6091 -43531,-6091q-43531 -196 -43531 -6091);"/>
+                    <Edge cubics="!39520 -196(;39520,-196 -43531,-196 -43531,-196q39520 -196 -43531 -196);"/>
+                    <Edge cubics="!39520 -6091(;39520,-6091 -43531,-6091 -43531,-6091q39520 -6091 -43531 -6091)-43531,-6091;"/>
+                  </edges>
+                </DOMShape>
+                <DOMBitmapInstance libraryItemName="Environemnt/ENV-BG/clouds.png">
+                  <matrix>
+                    <Matrix tx="0.4" ty="0.4"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

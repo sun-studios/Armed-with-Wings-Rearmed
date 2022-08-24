@@ -1,0 +1,101 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/_Unsorted/Shadedark tunnel/Symbol 24" itemID="5844261b-000018cf" lastModified="1480861225">
+  <timeline>
+    <DOMTimeline name="Symbol 24">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var eagle:MovieClip;
+var isActive:Boolean;
+
+init();
+
+function init():void {
+	eagle = MovieClip(parent).eagle;
+}
+
+function update():void {
+	if (eagle.bound.hitTestObject(this)) {
+		isActive = true;
+	} else {
+		isActive = false;
+	}
+	
+	if (isActive) {
+		if (alpha > 0) alpha -= .05;
+	} else {
+		if (alpha < 1) alpha += .05;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                        <FillStyle index="2">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0.020843505859375" d="0.061981201171875" tx="-67.8" ty="-92.7"/>
+                            </matrix>
+                            <GradientEntry alpha="0" ratio="0"/>
+                            <GradientEntry ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                        <FillStyle index="3">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="-0.015167236328125" c="0.0433502197265625" d="0" tx="49.3" ty="131"/>
+                            </matrix>
+                            <GradientEntry alpha="0" ratio="0"/>
+                            <GradientEntry ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1014 -2868|934 -2868!934 -2868|1697 -2104!1697 -2104|1697 2371"/>
+                        <Edge fillStyle0="3" edges="!276 2371|276 2868!276 2868|1697 2868!1697 2868|1697 2371"/>
+                        <Edge fillStyle0="1" fillStyle1="3" edges="!276 2371|1697 2371"/>
+                        <Edge fillStyle1="1" edges="!276 2371|276 -399!276 -399|-165 -840!-165 -840|-1014 -839"/>
+                        <Edge fillStyle1="2" edges="!-1014 -839|-1697 -838!-1697 -838|-1697 -2868!-1697 -2868|-1014 -2869!-1014 -2869|-1014 -2868"/>
+                        <Edge fillStyle0="1" fillStyle1="2" edges="!-1014 -2868|-1014 -839"/>
+                        <Edge cubics="!1697 2371(;1697,2371 1697,2868 1697,2868q1697 2371 1697 2868);"/>
+                        <Edge cubics="!276 2371(;276,2371 1697,2371 1697,2371q276 2371 1697 2371);"/>
+                        <Edge cubics="!1697 2868(;1697,2868 276,2868 276,2868q1697 2868 276 2868);"/>
+                        <Edge cubics="!276 2371(;276,2371 276,-399 276,-399q276 2371 276 -399);"/>
+                        <Edge cubics="!276 -399(;276,-399 -165,-840 -165,-840q276 -399 -165 -840);"/>
+                        <Edge cubics="!-165 -840(;-165,-840 -1014,-839 -1014,-839q-165 -840 -1014 -839);"/>
+                        <Edge cubics="!-1014 -839(;-1014,-839 -1697,-838 -1697,-838q-1014 -839 -1697 -838);"/>
+                        <Edge cubics="!-1697 -838(;-1697,-838 -1697,-2868 -1697,-2868q-1697 -838 -1697 -2868);"/>
+                        <Edge cubics="!-1014 -2869(;-1014,-2869 -1014,-2868 -1014,-2868q-1014 -2869 -1014 -2868);"/>
+                        <Edge cubics="!-1014 -2868(;-1014,-2868 -1014,-839 -1014,-839q-1014 -2868 -1014 -839);"/>
+                        <Edge cubics="!934 -2868(;934,-2868 1697,-2104 1697,-2104q934 -2868 1697 -2104);"/>
+                        <Edge cubics="!-1014 -2868(;-1014,-2868 934,-2868 934,-2868q-1014 -2868 934 -2868);"/>
+                        <Edge cubics="!276 2371(;276,2371 276,2868 276,2868q276 2371 276 2868);"/>
+                        <Edge cubics="!1697 -2104(;1697,-2104 1697,2371 1697,2371q1697 -2104 1697 2371);"/>
+                        <Edge cubics="!-1697 -2868(;-1697,-2868 -1014,-2869 -1014,-2869q-1697 -2868 -1014 -2869);"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

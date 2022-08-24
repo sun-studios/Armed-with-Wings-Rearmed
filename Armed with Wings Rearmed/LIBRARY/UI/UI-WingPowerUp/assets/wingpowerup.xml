@@ -1,0 +1,64 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-WingPowerUp/assets/wingpowerup" itemID="5461c1f8-00001a2a" symbolType="graphic" lastModified="1415692792">
+  <timeline>
+    <DOMTimeline name="wingpowerup">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3684"/>
+                  <Point x="0.6463" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-WingPowerUp/assets/wingpowerup2" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.992599487304688" b="0.121429443359375" c="-0.121429443359375" d="0.992599487304688" tx="16.4" ty="1.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="99">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3684"/>
+                  <Point x="0.6463" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-WingPowerUp/assets/wingpowerup2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.999557495117188" b="-0.0297393798828125" c="0.0297393798828125" d="0.999557495117188" tx="14.8" ty="-2.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-WingPowerUp/assets/wingpowerup2" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.992599487304688" b="0.121429443359375" c="-0.121429443359375" d="0.992599487304688" tx="16.4" ty="1.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

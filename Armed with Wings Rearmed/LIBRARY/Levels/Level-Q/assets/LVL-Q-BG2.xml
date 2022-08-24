@@ -1,0 +1,405 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q/assets/LVL-Q-BG2" itemID="556adb14-00000e6d" lastModified="1441027103">
+  <timeline>
+    <DOMTimeline name="LVL-Q-BG2">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var initX:Number = x;
+var initY:Number = y;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var game:MovieClip = MovieClip(parent);
+
+var arr:Array = new Array();
+
+function update():void {
+	this.x = initX + (game.x / -2);
+	//if (Y) this.y = initY + (game.y / -2);
+	
+	for (var i:int; i < arr.length; i ++) {
+		var clip:MovieClip = arr[i][0];
+		clip.x = arr[i][1] + ((x*.7)*((clip.scaleX+clip.scaleY)/2));
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="470.95" ty="-25.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="289.95" ty="48.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="883.05" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2925.3" ty="560.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="3013.3" ty="590.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="3240.35" ty="599.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="3408.4" ty="541.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="3553.45" ty="560.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="3717.45" ty="590.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="4030.5" ty="599.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="4311.35" ty="535.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="1233.8" ty="48.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="1460.85" ty="58.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="1628.9" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="1773.95" ty="19.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2118.95" ty="-25.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="1937.95" ty="48.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2236.65" ty="326.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="4627.7" ty="560.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="4764.7" ty="516.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2416.4" ty="276.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2443.65" ty="186.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2076.7" ty="238.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2621.95" ty="455.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2758.95" ty="412.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2741.8" ty="607.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="783.05" ty="-55.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="363.85" ty="93.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="1565.45" ty="131.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="2207.05" ty="-50.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="3968.15" ty="436.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="3319" ty="732.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-HolyPillerFloat/ENV-HolyPillerFloat-Back">
+                  <matrix>
+                    <Matrix tx="4954.1" ty="584.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.9" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

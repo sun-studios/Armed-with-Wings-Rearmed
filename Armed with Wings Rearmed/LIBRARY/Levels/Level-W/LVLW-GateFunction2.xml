@@ -1,0 +1,81 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-W/LVLW-GateFunction2" itemID="561bcb82-00000d6b" lastModified="1444662146">
+  <timeline>
+    <DOMTimeline name="LVLW-GateFunction2">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var boss:MovieClip;
+var gate2:MovieClip;
+var gate3:MovieClip;
+var cover:MovieClip;
+
+var flag1:Boolean;
+
+init();
+
+function init ():void {
+	visible = false;
+	
+	boss = MovieClip(parent).boss;
+	gate2 = MovieClip(parent).ground.gate2;
+	gate3 = MovieClip(parent).ground.gate3;
+	cover = MovieClip(parent).cover;
+	flag1 = false;
+}
+
+function update ():void {
+	if (!flag1) {
+		if (boss.dead) {
+			gate2.gotoAndPlay(2);
+			gate3.gotoAndPlay(2);
+			flag1 = true;
+		}
+	}
+	if (boss.dead) {
+		if (cover.alpha > 0) cover.alpha -= .05;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -461|873 -461!873 -461|873 274!873 274|-872 274!-872 274|-872 -461"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-11" width="118.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-17.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>gate &#xD;function 2</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

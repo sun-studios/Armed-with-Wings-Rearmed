@@ -1,0 +1,104 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-BossSurvival/LVL-BossSurvival-Ground" itemID="56d2cf77-00000ccc" lastModified="1493037130">
+  <timeline>
+    <DOMTimeline name="LVL-BossSurvival-Ground">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="7.80851745605469" d="20.2749328613281" tx="1452.7" ty="-681.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="7.80851745605469" d="20.2749328613281" tx="-1460.05" ty="-681.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="85.1658172607422" d="3.86341857910156" tx="2.25" ty="-1430"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="68.1" centerPoint3DY="139.95">
+                  <matrix>
+                    <Matrix a="1.05911254882813" d="1.23834228515625" tx="54.05" ty="163.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="731" centerPoint3DY="139.8">
+                  <matrix>
+                    <Matrix a="0.644088745117188" d="0.95404052734375" tx="764.1" ty="135.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02">
+                  <matrix>
+                    <Matrix a="1.3790283203125" d="1.223876953125" tx="1180.45" ty="162.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="-731" centerPoint3DY="139.8">
+                  <matrix>
+                    <Matrix a="-0.644088745117188" d="0.95404052734375" tx="-764.1" ty="135.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02">
+                  <matrix>
+                    <Matrix a="-1.3790283203125" d="1.223876953125" tx="-1180.45" ty="162.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Front/ENV-Prop-F-044">
+                  <matrix>
+                    <Matrix a="1.7613525390625" b="0.293914794921875" c="-0.293914794921875" d="1.7613525390625" tx="1346" ty="-95.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Environemnt/ENV-Prop-Front/ENV-Prop-F-044">
+                  <matrix>
+                    <Matrix a="-1.7613525390625" b="0.293914794921875" c="0.293914794921875" d="1.7613525390625" tx="-1351.25" ty="-92.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

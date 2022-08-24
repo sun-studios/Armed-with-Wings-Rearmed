@@ -1,0 +1,142 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_StoryWidget/Menu2-StoryWidget" itemID="567aa701-0000083f" lastModified="1496135620" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Menu2-StoryWidget">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var id:int = 0; 
+var slotHeight:Number = 290;
+
+function updateDisplay(_stateID:int):void {
+	id = _stateID;
+	clip.hardClip.visible = false;
+}
+
+function update ():void {
+	clip.y += ((id*-slotHeight) - clip.y)/4;
+	
+	if (MovieClip(parent).menu1.go) {
+		if (MovieClip(parent).menu1.selectIndex == 2) {
+			clip.hardClip.visible = true;
+		} else {
+			clip.hardClip.visible = false;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#9933CC" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Solid" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="120.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-240.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="info" color="#FF4FFF" parentLayerIndex="1" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-StoryWidget-Container" name="clip">
+                  <matrix>
+                    <Matrix tx="-1.45" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="color" color="#4F80FF" parentLayerIndex="1" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-5027 -2400|5028 -2400!5028 -2400|5028 2401!5028 2401|-5027 2401!-5027 2401|-5027 -2400"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-06" symbolType="graphic" centerPoint3DX="177.95" centerPoint3DY="-103.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.931320190429688" d="0.931320190429688" tx="178.05" ty="-103.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-05" symbolType="graphic" centerPoint3DX="-154.55" centerPoint3DY="-97.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.922332763671875" d="0.922332763671875" tx="-154.35" ty="-97.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-05" symbolType="graphic" centerPoint3DX="-154.55" centerPoint3DY="98.1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.922332763671875" d="-0.922332763671875" tx="-154.35" ty="98.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-04" symbolType="graphic" centerPoint3DX="199.4" centerPoint3DY="108.5" loop="loop">
+                  <matrix>
+                    <Matrix a="0.915420532226563" d="0.915420532226563" tx="199.7" ty="108.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-03" symbolType="graphic" centerPoint3DX="79.75" centerPoint3DY="-124.95" loop="loop">
+                  <matrix>
+                    <Matrix a="0.910964965820313" d="0.910964965820313" tx="79.85" ty="-124.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-BtnStyle-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.909423828125" d="0.909423828125" tx="255.2" ty="71.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

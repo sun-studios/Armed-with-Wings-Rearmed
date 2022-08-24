@@ -1,0 +1,36 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy2-RoyalGuard/Anims/Raw/Enemy2-HurtSpin" itemID="55402c21-0000059c" lastModified="1430268961">
+  <timeline>
+    <DOMTimeline name="Enemy2-HurtSpin">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="18" tweenType="motion" motionTweenRotate="counter-clockwise" motionTweenRotateTimes="1" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Raw/Enemy2-Spin" symbolType="graphic" centerPoint3DX="33" centerPoint3DY="-41.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="6.75" ty="2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-7.3" y="-12.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy2-RoyalGuard/Anims/Raw/Enemy2-Spin" symbolType="graphic" centerPoint3DX="33" centerPoint3DY="-41.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="6.75" ty="2.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-7.3" y="-12.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

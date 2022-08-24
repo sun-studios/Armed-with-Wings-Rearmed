@@ -1,0 +1,76 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/_Unsorted/Shadedark tunnel/Symbol 34" itemID="5846ccf7-000069cb" lastModified="1481201796">
+  <timeline>
+    <DOMTimeline name="Symbol 34">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var isActive:Boolean;
+
+init();
+
+function init():void {
+	hero = MovieClip(parent).hero;
+}
+
+function update():void {
+	if (hero.bound.hitTestObject(this)) {
+		isActive = true;
+	} else {
+		isActive = false;
+	}
+	
+	if (isActive) {
+		if (alpha > 0) alpha -= .05;
+	} else {
+		if (alpha < 1) alpha += .05;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <RadialGradient>
+                        <matrix>
+                          <Matrix a="0.03955078125" d="1.01646423339844" tx="331" ty="-13.6"/>
+                        </matrix>
+                        <GradientEntry ratio="0.443137254901961"/>
+                        <GradientEntry alpha="0" ratio="1"/>
+                      </RadialGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!6613.5 -3008[#19E4.12 #FFF2C2.D1 6647 -3744!6647 -3744|7283 -3744!7283 -3744[7365 -2207 7365 -175!7365 -175[7365 2138 7260 3808!7260 3808|6670 3808!6670 3808[#19F5.EA #D60.ED 6627.5 3008"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!6627.5 3008[6565 #647.6E 6565 -175!6565 -175[6565 #FFF936.16 6613.5 -3008"/>
+                    <Edge fillStyle1="1" edges="!6627.5 3008|-6928 3008!-6928 3008|-6928 -3008!-6928 -3008|6613.5 -3008"/>
+                    <Edge cubics="!6928 -3008(6928,-3008;6928,-3008 6928,3008 6928,3008q6928 -3008 6928 3008)6928,3008;"/>
+                    <Edge cubics="!-6928 3008(-6928,3008;-6928,3008 -6928,-3008 -6928,-3008q-6928 3008 -6928 -3008)-6928,-3008;"/>
+                    <Edge cubics="!-6928 -3008(;-6928,-3008 6614,-3008 6614,-3008q-6928 -3008 6614 -3008);"/>
+                    <Edge cubics="!6614 -3008(;6614,-3008 6928,-3008 6928,-3008q6614 -3008 6928 -3008);"/>
+                    <Edge cubics="!6928 3008(6928,3008;6928,3008 6628,3008 6628,3008q6928 3008 6628 3008);"/>
+                    <Edge cubics="!6628 3008(;6628,3008 -6928,3008 -6928,3008q6628 3008 -6928 3008);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

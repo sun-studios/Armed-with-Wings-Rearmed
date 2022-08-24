@@ -1,0 +1,72 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Environemnt/ENV-Prop-Front/ENV-Shade" itemID="579a34b8-0000276c" lastModified="1469723832">
+  <timeline>
+    <DOMTimeline name="ENV-Shade">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2306 -2686|8123 -2732!8123 -2732|7792 2827!7792 2827|942 2827!942 2827|2306 -2686"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <BitmapFill bitmapPath="Levels/Level-D02/LVL-D02-BgShade">
+                            <matrix>
+                              <Matrix a="21.6476440429688" c="-9.6466064453125" d="20" tx="-674.45" ty="-134.3"/>
+                            </matrix>
+                          </BitmapFill>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle0="1" edges="!1673 2687|4265 -2686!4265 -2686|-13404 -2686!-13404 -2686|-15996 2687!-15996 2687|1673 2687"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <RadialGradient>
+                            <matrix>
+                              <Matrix a="0.173065185546875" b="-0.394012451171875" c="0.192626953125" d="0.565170288085938" tx="597.25" ty="9.2"/>
+                            </matrix>
+                            <GradientEntry alpha="0" ratio="0.603921568627451"/>
+                            <GradientEntry ratio="0.819607843137255"/>
+                          </RadialGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!7725 -2730|10242 -2745!10242 -2745|9964 2814!9964 2814|7447 2829!7447 2829|7725 -2730"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

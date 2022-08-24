@@ -1,0 +1,165 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MainMenu/MenuWheel/assets/UI-MenuWheel" itemID="54cc96f4-00000dfe" lastModified="1434120630" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-MenuWheel">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var menuWheel:MovieClip;
+var btnArray:Array;
+
+var currentSelIndex:Number = 0;
+var rSpeed:Number = 0;
+var currentSelMc:MovieClip = menuWheel.b0;
+var keyFilter1:Boolean = true;
+var keyFilter2:Boolean = true;
+var keyFilter3:Boolean = true;
+var wheelRotation:Number;
+var confirmed:Boolean = false;
+
+var menuRoot:MovieClip = MovieClip(parent);
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+var sndCtrl:MovieClip = MovieClip(root);
+var _root:MovieClip = MovieClip(root);
+
+btnArray = [menuWheel.b0, menuWheel.b1, menuWheel.b2, menuWheel.b3, menuWheel.b4, menuWheel.b5, menuWheel.b6];
+selectButton(0);
+
+function update ():void {
+	if (!_root.settingsOpen) 
+	{
+	if (ctrl.ctrl_left) {
+		if (!keyFilter1) {
+			if (currentSelIndex < 0) {
+				sndCtrl.playSound(sndCtrl.sndButton1);
+				currentSelIndex ++;
+				selectButton(currentSelIndex);
+			}
+			keyFilter1 = true;
+		}
+	} else {
+		keyFilter1 = false;
+	}
+	
+	if (ctrl.ctrl_right) {
+		if (!keyFilter2) {
+			if (currentSelIndex > -4) {
+				sndCtrl.playSound(sndCtrl.sndButton1);
+				currentSelIndex --;
+				selectButton(currentSelIndex);
+			}
+			keyFilter2 = true;
+		}
+	} else {
+		keyFilter2 = false;
+	}
+	
+	if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+		if (!keyFilter3) {
+			
+			input();
+			keyFilter3 = true;
+		}
+	} else {
+		keyFilter3 = false;
+	}
+	}
+	
+	var rot:Number = currentSelIndex * 36;
+	menuWheel.rotation += (rot - menuWheel.rotation)/6;
+	wheelRotation = menuWheel.rotation;
+}
+
+function updateUnfocused ():void {
+	if (menuRoot.levelSelectMenu) {
+		rSpeed = rSpeed/1.5;
+		
+		//var rot:Number = wheelRotation + (menuRoot.levelSelectMenu.currentSelIndex * -10);
+		//menuWheel.rotation += (rot - menuWheel.rotation)/6;
+		menuWheel.rotation += rSpeed*4;
+		
+		for (var i:Number = 0; i < 10; i ++) {
+			var btn = menuWheel["b"+i];
+			if (btn.visible == false) btn.visible = true;
+		}
+	}
+}
+
+function selectButton(id:Number):void {
+	currentSelMc.gotoAndPlay("OUT");
+	var btn:MovieClip = btnArray[Math.abs(id)];
+	currentSelMc = btn;
+	btn.gotoAndPlay("OVER");
+	
+	for (var i:Number = 0; i < 10; i ++) {
+		btn = menuWheel["b"+i];
+		if (i < Math.abs(id)-1 || i > Math.abs(id)+2) btn.visible = false;
+		else btn.visible = true;
+		
+		if (Math.abs(id) == 0) menuWheel.b9.visible = true;
+	}
+}
+
+function input() {
+	
+		var i:Number = Math.abs(currentSelIndex);
+		currentSelMc.gotoAndPlay("SELECT");
+		
+		switch (i) {
+			case 0:
+				sndCtrl.playSound(sndCtrl.sndButton3);
+				//menuRoot.gotoAndPlay("GOTOSTART");
+				menuRoot.gotoAndPlay("GOTOSTORY");
+				break;
+			case 1:
+				sndCtrl.playSound(sndCtrl.sndButton3);
+				menuRoot.gotoAndPlay("GOTOLEVELSEL");
+				break;
+			case 2:
+				//survival
+				sndCtrl.playSound(sndCtrl.sndButton3);
+				menuRoot.gotoAndPlay("GOTOSURVIVAL");
+				break;
+			case 3:
+				//settings
+				sndCtrl.playSound(sndCtrl.sndButton3);
+				_root.displaySettings();
+				break;
+			case 4:
+				sndCtrl.playSound(sndCtrl.sndButton3);
+				menuRoot.gotoAndPlay("GOTOBONUS");
+				break;
+			
+		}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mc" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MainMenu/MenuWheel/assets/UI-MenuWheel-Container" name="menuWheel" centerPoint3DX="-70.45" centerPoint3DY="-3.8">
+                  <matrix>
+                    <Matrix tx="-70.4" ty="-0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.3" y="-0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

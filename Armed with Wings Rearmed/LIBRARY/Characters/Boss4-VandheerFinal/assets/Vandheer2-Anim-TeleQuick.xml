@@ -1,0 +1,102 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick" itemID="572de999-00001860" lastModified="1462626713">
+  <timeline>
+    <DOMTimeline name="Vandheer2-Anim-TeleQuick">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Teleporting" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.936767578125" d="0.936767578125" tx="-1.25" ty="37.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Teleporting" symbolType="graphic" firstFrame="4" centerPoint3DX="1.5" centerPoint3DY="6.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.936767578125" d="0.936767578125" tx="-1.25" ty="37.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Teleporting" selected="true" symbolType="graphic" firstFrame="11" centerPoint3DX="1.5" centerPoint3DY="6.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.936767578125" d="0.936767578125" tx="-1.25" ty="37.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Teleporting" selected="true" symbolType="graphic" firstFrame="21" centerPoint3DX="1.5" centerPoint3DY="6.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.936767578125" d="0.936767578125" tx="-1.25" ty="37.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-Teleporting" symbolType="graphic" firstFrame="30" centerPoint3DX="1.5" centerPoint3DY="6.55" loop="loop">
+                  <matrix>
+                    <Matrix a="0.936767578125" d="0.936767578125" tx="-1.25" ty="37.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-TeportStill" selected="true" centerPoint3DX="0.55" centerPoint3DY="-3.45">
+                  <matrix>
+                    <Matrix tx="0.55" ty="-3.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="19"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/animations/VDL-Animation-TeportStill" centerPoint3DX="0.55" centerPoint3DY="-75.45">
+                  <matrix>
+                    <Matrix a="0.144790649414063" tx="0.55" ty="-75.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <BlurFilter blurX="0" blurY="255"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

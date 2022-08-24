@@ -1,0 +1,37 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_CampFire/HUD-SwapWeapon2" itemID="593e7bbe-00000d53" lastModified="1497267134">
+  <timeline>
+    <DOMTimeline name="HUD-SwapWeapon2">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText width="173.1" height="16.15" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-86.55" ty="-8.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>CHANGE EQUIPMENT</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="16.15" size="18" bitmapSize="360" face="Font 7*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/CtrlDisplay-SwapLoot" selected="true">
+                  <matrix>
+                    <Matrix tx="-6.6" ty="27.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.55" y="0.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

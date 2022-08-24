@@ -1,0 +1,52 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-S04/LVL204-SpawnFix" itemID="57e7e98c-000012a1" lastModified="1485440794">
+  <timeline>
+    <DOMTimeline name="LVL204-SpawnFix">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip;
+var spawnPoint:MovieClip;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	spawnPoint = MovieClip(parent).spawnPoint;
+}
+
+function update ():void {
+	if (hero.bound.hitTestObject(this)) {
+		hero.x = spawnPoint.x;
+		hero.y = spawnPoint.y;
+		trace("FIXING SPAWN POSITIONG BUG");
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="147.940734863281" d="8.993408203125" tx="3.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,1694 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss4-VandheerFinal/Boss4-Vandheer" itemID="56b2f3bc-00001684" lastModified="1496184137" lastUniqueIdentifier="6">
+  <timeline>
+    <DOMTimeline name="Boss4-Vandheer" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-251&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="FinalVandheer-Actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax
+
+var life:Number;
+var lifeOrig:Number;
+var xSpeed:Number;
+var ySpeed:Number;
+var maxMoveSpeed:Number;
+var maxMoveSpeedDefault:Number;
+var damage:Number;
+var powerStrike:Number;
+var attackSpeed:Number;
+var attkIndex_norm:Number;
+var attkIndex_hard:Number;
+var attkDir:Number;
+var dodgeDelay:Number;
+var dodgeDelayOrig:Number;
+var jumpIndex:Number;
+var smokeCounter:Number;
+var enemyLevel:Number;
+
+var superIndex:Number;
+var superIndexOrig:Number;
+var super2Index:Number;
+var super2IndexOrig:Number;
+
+var comboBreak:Number;
+var comboBreakOrig:Number;
+
+var enemyType:String = "BOSS4";
+
+var onGround:Boolean;
+var onLeftWall:Boolean;
+var onRightWall:Boolean;
+var nearTopWall:Boolean;
+var dead:Boolean;
+var antiFlinchOn:Boolean;
+var antiFlinching:Boolean;
+var phase0:Boolean;
+var phase1:Boolean;
+var phase2:Boolean;
+var canThunderJump:Boolean;
+var takeDamageOn:Boolean;
+
+var cinemaMode:Boolean;
+var cinema0:Boolean;
+var cinema1:Boolean;
+var cinema2:Boolean;
+var cinema3:Boolean;
+
+var iceSpikeSpawn:Number;
+var iceSpikeSpawnOrig:Number;
+var iceSpikeSpawn2:Number;
+var iceSpikeSpawn2Orig:Number;
+var iceSpikeCount:Number;
+var iceSpikeArr:Array;
+var iceSpikeMax:Number;
+
+var iceShotSpawn:Number;
+var iceShotSpawnOrig:Number;
+
+var gameData:MovieClip;
+var game:MovieClip;
+var sndCtrl:MovieClip;
+var vcam:MovieClip;
+var hero:MovieClip;
+var particleLayer:MovieClip;
+var particles:MovieClip;
+var ground:MovieClip;
+var bossBar:MovieClip;
+
+init();
+
+function init(setLevel:Number = 0):void {
+	scaleX = -1;
+	
+	life = 170;// 400
+	lifeOrig = 300;
+	
+	comboBreak = 8;
+	comboBreakOrig = 8;
+	
+	xSpeed = 0;
+	ySpeed = 0;
+	damage = .5;
+	maxMoveSpeed = 7;
+	maxMoveSpeedDefault = maxMoveSpeed;
+	powerStrike = 2;
+	attackSpeed = 5;
+	attkIndex_norm = 0;
+	attkIndex_hard = 0;
+	attkDir = 0;
+	dodgeDelay = 12;// was 12		//These get redefined in handleDifficulty()
+	dodgeDelayOrig = dodgeDelay;	//
+	jumpIndex = 1;
+	smokeCounter = 0;
+	
+	superIndex = 1200;
+	superIndexOrig = 1200;
+	super2Index = 500;
+	super2IndexOrig = 500;
+	
+	onGround = false;
+	onLeftWall = false;
+	onRightWall = false;
+	dead = false;
+	antiFlinchOn = false;
+	antiFlinching = false;
+	phase0 = true;
+	canThunderJump = false;
+	takeDamageOn = true;
+	
+	cinemaMode = true;
+	cinema0 = true;
+	cinema1 = false;
+	cinema2 = false;
+	
+	iceSpikeSpawn = 0;
+	iceSpikeSpawnOrig = 6;
+	iceSpikeSpawn2 = 0;
+	iceSpikeSpawn2Orig = 2;
+	iceSpikeCount = 0;
+	iceSpikeArr = new Array();
+	iceSpikeMax = 14;
+	
+	iceShotSpawn = 200;
+	iceShotSpawnOrig = 200;
+	
+	gameData = MovieClip(root);
+	game = MovieClip(parent);
+	sndCtrl = MovieClip(root);
+	vcam = MovieClip(parent).vcam;
+	hero = MovieClip(parent).hero;
+	particleLayer = MovieClip(parent).particleLayer;
+	particles = particleLayer;
+	ground = MovieClip(parent).ground;
+	bossBar = MovieClip(root).hud.bossBar;
+	
+	powerBar.visible = false;
+	gotoAndStop("idle");
+	
+	if (gameData.gameMode == gameData.SURVIVAL) {
+		cinemaMode = false;
+		cinema0 = false;
+		
+	}
+	
+	difficultyCurve(setLevel);
+	
+	if (DebugControl.lowHealthBosses) life = 10;
+}
+
+function difficultyCurve(setLevel:Number = 0):void {
+	if (setLevel == 0) {
+		if (gameData.gameMode != gameData.SURVIVAL) {
+			enemyLevel = game.enemyBaseLevel;
+		} else {
+			//enemyLevel = Math.ceil(gameData.sessionWave *.75);
+		}
+		if (gameData.gameDifficulty == gameData.gameDifficultyfutile) {
+			var i:Number = Math.round(game.enemyBaseLevel * 1.5);
+			enemyLevel = 5+i;
+		} else if (gameData.gameDifficulty == gameData.gameDifficultySuperFutile) {
+			i = Math.round(game.enemyBaseLevel * 1.7);
+			enemyLevel = 6+i;
+		}
+	} else {
+		enemyLevel = setLevel;
+	}
+	
+	if (DebugControl.forceEnemyLevel) {
+		enemyLevel = DebugControl.enemyLevel;
+	}
+	
+	life = 170 +(enemyLevel*5);
+	lifeOrig = life;
+	maxMoveSpeedDefault = maxMoveSpeed = 7 + (enemyLevel*.10);
+	
+	var dmg:Number = (enemyLevel*.04);
+	dmg -= 1; if (dmg < 0) dmg = 0;
+	
+	damage = .5 + dmg;
+	
+	//breakDamageIndex = 4 + (enemyLevel*.3);
+	//breakDamageIndexOrig = 5+ (enemyLevel*.3);
+}
+
+function update ():void {
+	if (hero.heroName == "VANDHEER") {
+		if (!antiFlinching) {
+			colorer.changeColor(gameData.VFXInvert);
+		}
+	}
+	physics();
+	if (cinemaMode) {
+		bossBar._clear();
+		if (cinema0) {
+			
+		}
+		if (cinema1) {
+			
+		}
+		if (cinema2) {
+			
+		}
+		emmitSmoke();
+		
+	} else {
+		if (life > 0) {
+			bossBar.add(this);
+			if (hero.life > 0 && !hero.dead) {
+				handleDifficulty();
+				emmitSmoke();
+				blockHero();
+				if (super1Timer() || super2Timer()) {
+					if (superReady(0)) {
+						doSuper1();
+					} else if (superReady(2)) {
+						doSuper2();
+						damageEnemies();
+					}
+				} else {
+					if (distanceBetween(this, hero) < 300) {
+						thunderStrike();
+					}
+					if (findHero()) {
+						if (life < lifeOrig * .66) dodgeHeroAttacks()
+						startAttack();
+					} else {
+						if (throwProjectile()) {
+						} else {
+							moveTowardsHero();
+						}
+					}
+
+					attacks();
+					damageEnemies();
+					
+					recovery();
+				}
+			}
+		} else {
+			gotoDeath();
+		}
+		
+		
+	}
+}
+
+function gotoDeath ():void {
+	if (currentFrameLabel != "death") {
+		gotoAndStop("death");
+	}
+}
+
+function emmitSmoke():void {
+	if (phase2) {
+
+		if (smokeCounter > 0) {
+			smokeCounter --;
+		} else {
+			var _X:Number = x + (Math.random()*(bound.width*.5)) - (Math.random()*(bound.width*.5));
+			var _Y:Number = (y - 10) - (Math.random()*(bound.height*.9));
+			particleLayer.addSmoke(_X, _Y, .2 + Math.random(), .5 + (Math.random()*.5));
+			
+			smokeCounter = 2;
+		}
+	}
+	if (smokeCounter == Infinity) smokeCounter = 0;
+}
+
+function superReady(id:Number):Boolean {
+	if (id == 0) {
+		if (superIndex <= 0) {
+			return true;
+		}
+	} else {
+		if (this["super"+id+"Index"] <= 0) {
+			return true;
+		}
+	}
+	return false;
+}
+function super1Timer():Boolean {
+	if (superIndex > 0) {
+		superIndex --;
+		return false;
+	} else {
+		//superIndex = superIndexOrig;
+		return true;
+	}
+}
+function doSuper1():void {
+	if (this.onGround && (currentFrameLabel == "walk" || currentFrameLabel == "idle")) {
+		trace("Vandheer do SUPER1");
+		gotoAndStop("attack");
+		this.attack.gotoAndPlay("a5Delay");
+		antiFlinchOn = true;
+	}
+	
+	if (currentFrameLabel == "attack") {
+		if (attack.charging) {
+
+			handleIceSpikes();
+			
+		}
+	}
+}
+function super2Timer ():Boolean {
+	if (phase1 || phase2) {
+		if (super2Index > 0) {
+			super2Index --;
+			return false;
+		} else {
+			return true;
+		}
+	}
+	return false;
+}
+function doSuper2(force:Boolean = false):void {
+	if (this.onGround && (currentFrameLabel == "walk" || currentFrameLabel == "idle") || force) {
+		gotoAndStop("attack");
+		this.attack.gotoAndPlay("a29Delay");
+		antiFlinchOn = true;
+	}
+	if (currentFrameLabel == "attack") {
+		if (attack.currentFrameLabel == "teleportAttack") {
+
+			//x = hero.x - (50*hero.scaleX);
+			goTeleportAttack(50);
+			scaleX = hero.scaleX;
+			
+		}
+		if (attack.currentFrameLabel == "teleportAttackEnd") {
+			super2Index = super2IndexOrig;
+			antiFlinchOn = false;
+		}
+	}
+}
+
+function goTeleportAttack(dist:Number = 200):void {
+	var X:Number;
+	var Xbackup:Number;
+	X = hero.x + (dist *-hero.scaleX);
+	Xbackup = hero.x + (dist *hero.scaleX);
+	
+	if (!ground.hitTestPoint(hero.getGlobalX(dist*-hero.scaleX), getGlobalY(), true)) {
+		x = hero.x + (dist*-hero.scaleX);
+	} else {
+		x = hero.x + (dist*hero.scaleX);
+	}
+	
+	if (x < hero.x) scaleX = 1;
+	else scaleX = -1;
+}
+
+function throwProjectile():Boolean {
+	if (iceShotSpawn > 0) {
+		iceShotSpawn --;
+		return false;
+	} else {
+		if (onGround && (currentFrameLabel == "idle" || currentFrameLabel == "walk")) {
+			gotoAndStop("attack");
+			attack.gotoAndPlay("a26");
+			iceShotSpawn = iceShotSpawnOrig;
+		}
+		return true;
+	}
+}
+function thunderStrike():Boolean {
+	if (phase2) {
+		if (canThunderJump) {
+			if (currentFrameLabel != "attack") {
+				if (Math.random() <= .15) {
+		
+					gotoAndStop("attack");
+					attack.gotoAndPlay("a27");	
+					
+					return true;
+				} else {
+					canThunderJump = false;
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	} else {
+		return false;
+	}
+}
+
+function handleDifficulty():void {
+	if (life > lifeOrig * .66) {
+		dodgeDelayOrig = 8;
+		attackSpeed = 7;
+		maxMoveSpeed = 5;
+		maxMoveSpeedDefault = maxMoveSpeed;
+		if (!phase0) {
+			trace("IN PHASE 0");
+			phase0 = true;
+		}
+	} else {
+		if (life > lifeOrig * .33) {
+			dodgeDelayOrig = 5;
+			attackSpeed = 9;
+			maxMoveSpeed = 7;
+			maxMoveSpeedDefault = maxMoveSpeed;
+			if (!phase1) {
+			trace("IN PHASE 1");
+				phase1 = true;
+			}
+		} else {
+			dodgeDelayOrig = 2;
+			attackSpeed = 11;
+			maxMoveSpeed = 10;
+			maxMoveSpeedDefault = maxMoveSpeed;
+			super2IndexOrig = 150;
+			antiFlinchOn = true;
+			if (super2Index > super2IndexOrig) super2Index = super2IndexOrig;
+			if (!phase2) {
+				trace("IN PHASE 2");
+				phase2 = true;
+			}
+		}
+	}
+}
+
+function physics():void {
+	if (currentFrameLabel == "death" && death.impaled) {
+		
+	} else {
+		if (currentFrameLabel != "edge") 
+		{
+			var fallSpeed:Number
+			if (currentFrameLabel == "attack" && attack.airAttack) {
+				fallSpeed = .5;
+			} else {
+				fallSpeed = 1;
+			}
+			
+			ySpeed -= fallSpeed;
+			y -= ySpeed;
+				
+			var w:Number = 57;
+			var h:Number = 83;
+			
+			while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true)) {
+				y-= .5;
+				ySpeed = 0;
+			}
+			while (ground.hitTestPoint(getGlobalX(), getGlobalY(-h), true)) {
+				if (onGround) {
+					x += 1 * scaleX;
+				} else {
+					y++;
+					ySpeed = 0;
+				}
+			}
+			while (ground.hitTestPoint(getGlobalX(-w*.5), getGlobalY(-h*.5), true)) {
+				if (this.currentFrameLabel == "hurt" && hurt.spinning){
+					if (xSpeed <0) xSpeed *= -.7;
+					scaleX = -1;
+				} else {
+					if (this.currentFrameLabel != "dodge") xSpeed = 0;
+				}
+				x ++;
+			}
+			while (ground.hitTestPoint(getGlobalX(w*.5), getGlobalY(-h*.5), true)) {
+				if (this.currentFrameLabel == "hurt" && hurt.spinning){
+					if (xSpeed > 0) xSpeed *= -.7;
+					scaleX = 1;
+				} else {
+					if (this.currentFrameLabel != "dodge") xSpeed = 0;
+				}
+				x --;
+			}
+			
+			if (ground.hitTestPoint(getGlobalX(), getGlobalY(6), true)) {
+				onGround = true;
+			} else {
+				onGround = false;
+			}
+			if (ground.hitTestPoint(getGlobalX(-w*.5-2), getGlobalY(-h*.5), true)) {
+				onLeftWall = true
+			} else {
+				onLeftWall = false;
+			}
+			if (ground.hitTestPoint(getGlobalX(w*.5+2), getGlobalY(-h*.5), true)) {
+				onRightWall = true
+			} else {
+				onRightWall = false;
+			}
+			if (ground.hitTestPoint(getGlobalX(), getGlobalY(-h-15), true)) {
+				nearTopWall = true;
+			} else {
+				nearTopWall = false;
+			}
+		}
+		
+		if (xSpeed != 0) {
+			x += xSpeed;
+			
+			var decell:Number = 1;
+			if (!onGround) decell = .5;
+			
+			if (xSpeed > 0) {
+				xSpeed -= .5*decell;
+				if (xSpeed < 0) xSpeed = 0;
+			}
+			if (xSpeed < 0) {
+				xSpeed += .5*decell;
+				if (xSpeed > 0) xSpeed = 0;
+			}
+		}
+		
+	}
+}
+
+function findHero ():Boolean {
+	//in attack range
+	if (distanceBetween(hero, this) < 160) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function moveTowardsHero():void {
+	if (currentFrameLabel != "hurt") {
+		if (currentFrameLabel == "idle" || currentFrameLabel == "walk") {
+			if (hero.life > 0) {
+				var dir:int;
+				if (hero.x < x) dir = -1;
+				else dir = 1;
+				
+				//move towards hero
+				if (currentFrameLabel == "walk") {
+					xSpeed += 1*dir;
+					if (Math.abs(xSpeed) > maxMoveSpeed) xSpeed = maxMoveSpeed * dir;
+				} else {
+					updateAnimation("walk");
+					scaleX = dir;
+				}
+				
+				//skid to turn
+				if (dir != scaleX) {
+					if (currentFrameLabel == "walk" && walk.walking) {
+						walk.gotoAndPlay("skid");
+					}
+				}
+			}
+		}
+	}
+}
+
+function dodgeHeroAttacks():void {
+	var doDodge:Boolean;
+	
+	//First Dodge////////////////////////////
+	if (hero.currentFrameLabel == "attack" && hero.attack.attackStart) {
+		if (currentFrameLabel != "dodge" && currentFrameLabel != "hurt") {
+			doDodge = true;
+			//dont dodge if attack is no threat
+			if (hero.scaleX == 1 && hero.x > x+30) {
+				doDodge = false;
+			} else
+			if (hero.scaleX == -1 && hero.x < x-30) {
+				doDodge = false;
+			}
+		}
+		if (currentFrameLabel == "attack" && attack.attackStart) {
+			doDodge = false;
+		}
+	}
+	
+	if (doDodge) {
+		if (dodgeDelay > 0) {
+			dodgeDelay --;
+		} else {
+			updateAnimation("dodge");
+			if (distanceBetween(this, hero) > 90) {
+				if (dodge) {
+					dodge.gotoAndPlay("dodgeForward");
+				} else {
+					trace("Somethings wrong, the above should run");
+				}
+				xSpeed = 13 * scaleX;
+				jumpIndex ++;
+			} else {
+				if (dodge) {
+					dodge.gotoAndPlay("dodgeBack");
+				} else {
+					trace("Somethings wrong, the above should run");
+				}
+				xSpeed = 13 * -scaleX;
+				jumpIndex ++;
+			}
+			
+			dodgeDelay = dodgeDelayOrig + ((Math.random()*dodgeDelayOrig)*2);
+		}
+	}
+	
+	//2nd Dodge/////////////////////////////////////
+	if (currentFrameLabel == "dodge") {
+		var dir:Number;
+		if (hero.x > x) dir = 1;
+		else dir = -1;
+		
+		//during roll back
+		if (dodge.currentFrame >= 7 && dodge.currentFrame <= 18) {
+			if (scaleX == dir) {
+				if (distanceBetween(hero, this) > 100)
+					dodge.gotoAndPlay("dodgeForward2");
+			} else {
+				if (distanceBetween(hero, this) > 100) {
+					dodge.gotoAndPlay("dodgeBack2"); 
+					this.scaleX = -dir;
+				}
+			}
+		}
+		
+		//during roll forward
+		if (dodge.currentFrame >= 44 && dodge.currentFrame <= 55) {
+			if (scaleX == dir) {
+				if (distanceBetween(hero, this) > 100)
+					dodge.gotoAndPlay("dodgeForward2");
+			} else {
+				if (distanceBetween(hero, this) > 100) {
+					dodge.gotoAndPlay("dodgeBack2"); 
+					this.scaleX = -dir;
+				}
+			}
+		}
+	}
+	
+	//3rd Dodge
+	if (currentFrameLabel == "dodge") {
+		//during back2
+		if (dodge.currentFrame >= 93 && dodge.currentFrame <= 110) {
+			if (dir == scaleX) {
+				if (distanceBetween(hero, this) > 100)
+					dodge.gotoAndPlay("dodgeForward3");
+			} else {
+				if (distanceBetween(hero, this) > 100) {
+					dodge.gotoAndPlay("dodgeBack3"); 
+					this.scaleX = -dir;
+				}
+			}
+		}
+		
+		//during forward2
+		if (dodge.currentFrame >= 123 && dodge.currentFrame <= 136) {
+			if (dir == scaleX) {
+				dodge.gotoAndPlay("dodgeForward3");
+			} else {
+				dodge.gotoAndPlay("dodgeBack3"); 
+				this.scaleX = -dir;
+			}
+		}
+	}
+}
+
+function startAttack ():void {
+	if (currentFrameLabel == "idle" || (currentFrameLabel == "walk" && walk.walking)) {
+		if (hero.life > 0) {
+			attkIndex_hard = 1;
+			attkIndex_norm = 1;
+			updateAnimation("attack");
+			
+			//randomly pick attk dir (up, down or mid attk)
+			var r:Number = Math.random();
+			if (r < .2) {
+				attkDir = -1;
+			} else {
+				if (r < .5) {
+					attkDir = 1;
+				} else {
+					attkDir = 0;
+				}
+			}
+			
+			var firstAttack:String;
+			//uppercut
+			if (attkDir == -1) {
+				firstAttack = "a4";
+			} else {
+				//powerstrike
+				if (attkDir == 1) {
+					firstAttack = "a9";
+				} else {
+					//normal
+					firstAttack = "a1";
+				}
+			}
+			
+			//face correct direction
+			if (hero.x > x) scaleX = 1;
+			else scaleX = -1;
+			
+			attack.gotoAndPlay(firstAttack+"Delay");
+			canThunderJump = true;
+		}
+	}	
+	
+	//dodge attacks
+	if (Math.random() < .5) {
+		if (currentFrameLabel == "dodge" && this.dodge) {
+			if (dodge.attkRoll1) {
+				gotoAndStop("attack");
+				this.attack.gotoAndPlay("a14");
+			} else 
+			if (dodge.attkRoll2) {
+				gotoAndStop("attack");
+				this.attack.gotoAndPlay("a16");
+			} else 
+			if (dodge.attkRoll3) {
+				gotoAndStop("attack");
+				this.attack.gotoAndPlay("a14");
+			} else
+			if (dodge.attkRoll4) {
+				gotoAndStop("attack");
+				this.attack.gotoAndPlay("a17");
+			} else 
+			if (dodge.attkRoll5) {
+				
+			} else 
+			if (dodge.attkRoll6) {
+				gotoAndStop("attack");
+				this.attack.gotoAndPlay("a19");
+			} else 
+			if (dodge.attkRoll7) {
+				gotoAndStop("attack");
+				this.attack.gotoAndPlay("a19");
+			}
+		}
+	}
+}
+function attacks ():void {
+	if (currentFrameLabel == "attack" && distanceBetween(this, hero) < 200) {
+		var attackString:String;
+		var go:Boolean;
+		var powerGo:Boolean;
+		
+		//Define attack frames
+		//standard combo
+		if (attack.currentFrame > 22-attackSpeed && attack.currentFrame < 24) go = true;
+		if (attack.currentFrame > 46-attackSpeed && attack.currentFrame < 48) go = true;
+		if (attack.currentFrame >206-attackSpeed && attack.currentFrame <207) go = true;
+		
+		//turn around attack
+		if (attack.currentFrame >1089-attackSpeed && attack.currentFrame <1090) go = true;
+		
+		//extended combo perk
+		if (attack.currentFrame > 264-attackSpeed && attack.currentFrame < 271) go = true;
+		if (attack.currentFrame > 310-attackSpeed && attack.currentFrame < 317) go = true;
+		
+		//down attacks//////////////////////////////////////////////
+		if (attack.currentFrame > 380-attackSpeed && attack.currentFrame < 382) go = true;
+		if (attack.currentFrame > 116-attackSpeed && attack.currentFrame < 117) go = true;
+		if (attack.currentFrame > 415-attackSpeed && attack.currentFrame < 418) go = true;
+		if (attack.currentFrame > 862-attackSpeed && attack.currentFrame < 865) go = true;
+		/////////////////////////////////////////////////////////////////////////
+		
+		//Power attacks
+		if (attack.currentFrame > 79-attackSpeed && attack.currentFrame < 83) powerGo = true; 
+		if (attack.currentFrame > 408-attackSpeed && attack.currentFrame < 409) powerGo = true;
+		if (attack.currentFrame > 440-attackSpeed && attack.currentFrame < 450) powerGo = true;
+		
+		//air attacks////////////
+		if (attack.currentFrame >= 694-attackSpeed*.6 && attack.currentFrame <= 696) {
+			go = false;
+			attack.gotoAndPlay("a21");
+		}
+		if (attack.currentFrame >= 714-attackSpeed*.7 && attack.currentFrame <= 714) {
+			go = false;
+			attack.gotoAndPlay("a21");
+		}
+		
+		//from dodge attacks
+		if (attack.currentFrame >= 620-attackSpeed*.7 && attack.currentFrame <= 620) {
+			//go = false;
+			//attack.gotoAndPlay("a20");
+		}
+		if (attack.currentFrame >= 551-attackSpeed*.7 && attack.currentFrame <= 560) {
+			go = false;
+			attack.gotoAndPlay("a21");
+		}
+		if (attack.currentFrame >= 655-attackSpeed*.7 && attack.currentFrame <= 661) {
+			go = false;
+			attack.gotoAndPlay("a21");
+		}
+		////////////////////////////////////////////////////////////////////////////////
+		
+		//stop if player is killed
+		if (hero.life <= 0) go = false;
+		
+		///Peform Attack (Core)
+		var turnAttack:Boolean;
+		if (hero.x < x && scaleX == 1 || hero.x > x && scaleX == -1) {
+			turnAttack = true;
+		}
+		
+		if (go) {
+			if (!turnAttack) {
+				
+				//randomly pick attk dir (up, down or mid attk)
+				var r:Number = Math.random();
+				if (r < .2) {
+					attkDir = -1;
+				} else {
+					if (r < .5) {
+						attkDir = 1;
+					} else {
+						attkDir = 0;
+					}
+				}
+				
+				//Noraml Attacks
+				if (attkDir == 0) {
+					attkIndex_norm ++;
+					attkIndex_hard ++;
+					
+					switch (attkIndex_norm) {
+						case 2: attackString = "a2"; 
+							break;
+						case 3: 
+							attackString = "a6";
+							break;
+						case 4:
+							attackString = "a3"; break;
+						default: attackString = "a3"; break;
+					}
+				}
+				//Down Attack
+				if (attkDir == 1) {
+					attkIndex_hard ++;
+					attkIndex_norm ++;
+					switch (attkIndex_hard) {
+						case 1: attackString = "a9Delay"; break;
+						case 2: attackString = "a10"; break;
+						case 3: attackString = "a24"; break;
+						//case 4: attackString = "a25"; break;
+						default: attackString = "a25"; break;
+					}
+				}
+				if (attkDir == -1) {
+					attkIndex_hard ++;
+					attkIndex_norm ++;
+					switch (attkIndex_hard) {
+						case 1: attackString = "a4Delay"; break;
+						case 2: attackString = "a7"; break;
+						case 3: attackString = "a11"; break;
+						default: attackString = "a11"; break;
+					}
+				}
+			} else {
+				//Turn attack
+				attackString = "a28";
+				scaleX *= -1;
+				attkIndex_norm ++;
+			}
+			
+			//Update animation
+			attack.gotoAndPlay(attackString);
+		}
+		
+		//half speed when near edge
+		if (!checkStep() && onGround) {
+			xSpeed *= .5;
+		}
+	}
+}
+
+function shootProjectile():void {
+	
+}
+
+function damageEnemies():void {
+	if (!antiFlinching) {
+		var enemiesArr:Array = new Array();
+		enemiesArr = [game.hero];
+		var hitStandard:MovieClip = this[currentFrameLabel].hit;
+		var hitUp:MovieClip = this[currentFrameLabel].hit2;
+		var hitPower:MovieClip = this[currentFrameLabel].hit3;
+		var hitUpPower:MovieClip = this[currentFrameLabel].hit4;
+		var hitUpPower2:MovieClip = this[currentFrameLabel].hit5;
+		var hitUp2:MovieClip = this[currentFrameLabel].hit6;
+		var hitDown:MovieClip = this[currentFrameLabel].hit7;
+		
+		for (var i:int = 0; i < enemiesArr.length; i ++) {
+			var enemy:MovieClip = enemiesArr[i];
+			var canHit:Boolean;
+			if (enemy && !enemy.dead && enemy.visible) canHit = true;
+			if (hero.currentFrameLabel == "dodge" && hero.dodge.dodging) canHit = false;
+			
+			if (canHit) {
+				var doDoubleHit:Boolean = false;
+				//if (gameData.dataIsGearEquipt("DoubleHit")) doDoubleHit = true;
+				
+				if (hitStandard && hitStandard.hitTestObject(enemy.bound)) {
+					enemy.takeDamage(this, 7);	//X was 6
+					if (doDoubleHit) TweenMax.delayedCall(14, enemy.takeDamage, [this, 6], true);
+				}
+				
+				if (hitUp && hitUp.hitTestObject(enemy.bound)) {
+					enemy.takeDamage(this, 6, 15); //X was 10
+					if (doDoubleHit) TweenMax.delayedCall(14, enemy.takeDamage, [this, 5, 15], true);
+				}
+				
+				if (hitPower && hitPower.hitTestObject(enemy.bound)) {
+					enemy.takeDamage(this, 11+(powerStrike), 15, 2+(powerStrike*2));//X was 8 +...
+					if (doDoubleHit) TweenMax.delayedCall(14, enemy.takeDamage, [this, 11+(powerStrike), 15, 2+(powerStrike*2)], true);
+					gameData.scorePowerStrike(powerStrike);
+				}
+				if (hitUpPower && hitUpPower.hitTestObject(enemy.bound)) {
+					enemy.takeDamage(this, 6+powerStrike, 15+(gameData.dataGetWeaponPower()), 2+(powerStrike*2)); //X was 10
+					if (doDoubleHit) TweenMax.delayedCall(14, enemy.takeDamage, [this, 5+powerStrike, 10+(gameData.dataGetWeaponPower()), 2+(powerStrike*2)], true);
+				}
+				if (hitUpPower2 && hitUpPower2.hitTestObject(enemy.bound)) {
+					enemy.takeDamage(this, 6+powerStrike, 15+(gameData.dataGetWeaponPower()), .25, false);
+				}
+				
+				if (hitUp2 && hitUp2.hitTestObject(enemy.bound)) {
+					enemy.takeDamage(this, 8, 13); //X was 10
+					if (doDoubleHit) TweenMax.delayedCall(14, enemy.takeDamage, [this, 8, 13], true);
+				}
+				if (hitDown && hitDown.hitTestObject(enemy.bound)) {
+					enemy.takeDamage(this, 4, -15); //X was 10
+					if (doDoubleHit) TweenMax.delayedCall(14, enemy.takeDamage, [this, 4, -15], true);
+				}
+			}
+		}
+	}
+}
+
+function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1, combo:Boolean = true):void {
+	if (takeDamageOn) {
+	if (!cinemaMode) {
+	if (currentFrameLabel == "dodge" && dodge.dodging) {
+		
+	} else {
+		
+		if (from.hasOwnProperty("heroName") && life > 0) {
+		if (gameData.dataIsGearEquipt("Leech", from.playerID)) {
+				if (Math.random() <= gameData.data_leechAmount) {
+					from.life += 1;
+					if (from.life > from.lifeOrig) from.life = from.lifeOrig;
+				}
+			}
+		}
+		
+		if (currentFrameLabel != "death") {		
+			damage = damage + (gameData.dataGetWeaponPower()*.15);
+			
+			if (phase2) {
+				life -= damage *.7;
+			} else {
+				life -= damage;
+			}
+			comboBreak --;
+			
+			if (hero.heroName == "LONEWARRIOR" && gameData.gameMode != gameData.SURVIVAL) {
+				if (!cinema1 && life < lifeOrig *.66) {
+					
+					cinemaMode = true;
+					cinema1 = true;
+				}
+				if (!cinema2 && life < lifeOrig * .33) {
+					cinemaMode = true;
+					cinema2 = true;
+				}
+			}
+			
+			if (antiFlinchOn) { 
+				xSpeed = (X * from.scaleX) * .4;
+			} else {
+				xSpeed = (X * from.scaleX);
+				scaleX = from.scaleX *-1;
+			}
+			
+			if (life <= 0) {
+				sndCtrl.playHitHardSound();
+				//gotoDeath();
+				vcam.cameraShake = 15;
+			} else {
+				sndCtrl.playHitSound();
+				if (antiFlinchOn) {
+					antiFlinch();
+				} else {
+					updateAnimation("hurt");
+					if (this.hurt)
+						this.hurt.gotoAndPlay("hurt");
+				}
+				vcam.cameraShake = Math.random()*damage*12;
+			}
+			
+			if (combo)
+				gameData.scoreAttack();
+			vcam.battleCool = 60;
+			if (from.overdrive) 
+				particleLayer.addHitSplash(from, this, 1.5);
+			else particleLayer.addHitSplash(from, this);
+			if (gameData.sessionCombo > 1) particleLayer.addCombo(x, y, 1);
+		}
+		
+		if (this.currentFrameLabel == "death") {
+			var goDie:Boolean;
+			
+			if (this.death.currentFrameLabel == "finalhit") {
+				if (hero.currentFrameLabel == "attack" && hero.attack.powerStrike) {
+					goDie = true;
+				}
+			}
+			if (from.enemyType == "ICESPIKE") {
+				goDie = true;
+			}
+			
+			if (goDie) {
+				doDeath();
+			}
+		}
+		
+		if (comboBreak <= 0) {
+			gotoAndStop("attack");
+			attack.gotoAndPlay("a29Fast");
+			
+			antiFlinchOn = true;
+			
+		}
+	}
+}
+}
+}
+
+function doDeath():void {
+	if (gameData.gameMode == gameData.SURVIVAL) {
+		//die
+		gameData.sessionSurvivalBosses ++;
+		gameData.scoreAttack();
+		vcam.battleCool = 60;
+		//particleLayer.addHitSplash(from, this);
+		this.gotoAndStop("death");
+		this.death.gotoAndPlay("death");
+		dead = true;
+		
+	} else {
+		//goto ending cinematic
+		gameData.gotoCinematic(5);
+	}
+}
+
+function recovery():void {
+	if (this.currentFrameLabel == "walk") {
+		if (this.walk.currentFrame == 80 && onGround) {
+			this.gotoAndStop("idle");
+		}
+		
+		if (this.walk.currentFrame == 201 && onGround) {
+			this.gotoAndStop("idle");
+		}
+	}
+	
+	
+	
+	
+	//slope readjust
+	if (Math.abs(xSpeed) <= .5 && currentFrameLabel == "idle") {
+		idle.gotoAndStop("idle");
+	}
+	//recovery
+	if (onGround) {
+		//canUpAttackAir = true;
+		jumpIndex = 1;
+		
+		
+		if (currentFrameLabel == "hurt" && hurt.spinning) {
+			hurt.gotoAndPlay("recover");
+			
+			if (xSpeed > -15 && xSpeed < 15) 
+				xSpeed = 8 * scaleX * -1;
+			else xSpeed *= .6;
+		}
+	}
+	
+	//force idle to death
+	if (onGround && life <= 0) {
+		if (currentFrameLabel == "idle" || currentFrameLabel == "walk") {
+			//gotoDeath();
+		}
+	}
+	
+	//falling to idle
+	if (onGround && currentFrameLabel == "walk" && walk.falling) {
+		gotoAndStop("idle");
+	}
+	
+	//dodge
+	if (onGround && currentFrameLabel == "dodge") {
+		if (dodge.airborn) {
+			xSpeed *= .5;
+			//gotoAndStop("idle");
+			gotoAndStop("land");
+		}
+	}
+	
+	//landing airattack on ground
+	if (onGround && this.currentFrameLabel == "attack") {
+		if (attack && attack.airborn && !attack.forwardPower) {
+			xSpeed *= .5;
+			gotoAndStop("idle");
+		}
+	}
+}
+
+function blockHero():void {
+	var dist:Number = distanceBetween(this, hero);
+	if (hero.currentFrameLabel != "dodge" && hero.currentFrameLabel != "hurt" && onGround) {
+		if (dist < 45) {
+			if (hero.x < x) {
+				hero.x --;
+				hero.xSpeed = -3;
+				xSpeed = 3;
+				
+			} else 
+			if (hero.x > x) {
+				hero.x ++;
+				hero.xSpeed = 3;
+				xSpeed = -3;
+			}
+		}
+	}
+}
+
+function antiFlinch():void {
+	colorer.changeColor(MovieClip(root).VFXInvert);
+	this[currentFrameLabel].stop();
+	antiFlinching = true;
+	TweenMax.delayedCall(8, antiFlinchOver, null, true);
+}
+function antiFlinchOver():void {
+	colorer.changeColor(MovieClip(root).VFXStyle);
+	this[currentFrameLabel].play();
+	antiFlinching = false;
+}
+
+function handleIceSpikes ():void {
+	if (currentFrameLabel != "attack" ) {
+		
+	} else {
+		if (attack.charging) {
+			if (iceSpikeSpawn > 0) {
+				iceSpikeSpawn --;
+				vcam.zoom = 1.5;
+			} else {
+				if (iceSpikeCount < iceSpikeMax) {
+					iceSpikeCount ++;
+					var X:Number = hero.x + ((Math.random()-Math.random())*(10+hero.xSpeed));
+					var Y:Number = y - (80 + ((iceSpikeCount*25)));
+					if (gameData.gameMode == gameData.SURVIVAL) {
+						X = hero.x;
+					}
+					var iceSpike:MovieClip = particles.addIceSpike(X, Y, 0, 10, 1, this);
+					//iceSpike.rotation += (Math.random()*15) - (Math.random()*15);
+					iceSpikeArr.push(iceSpike);
+					vcam.shakeCamera(iceSpikeCount*10);
+					
+					iceSpike.clip.scaleX = .2 + ((Math.random()*.8)	*(iceSpikeCount*.2));
+					iceSpike.clip.scaleY = .8 + (Math.random()		*(iceSpikeCount*.2));
+					iceSpike.bound.width = iceSpike.clip.width;
+					iceSpike.bound.height = iceSpike.clip.height;
+					
+					iceSpikeSpawn = iceSpikeSpawnOrig;
+				} else {
+					attack.play();
+					vcam.zoom = 1;
+				}
+			}
+		}
+		
+		if (iceSpikeSpawn2 > 0) {
+			iceSpikeSpawn2 --;
+			//vcam.zoom = 1.5;
+		} else {
+			if (attack.charging2) {
+				if (iceSpikeCount < iceSpikeMax) {
+					iceSpikeCount ++;
+					X = x + (40*scaleX);
+					Y = y - (80 + ((iceSpikeCount*5)));
+					iceSpike = particles.addIceSpike(X, Y, 0, 10, 1);
+					iceSpike.rotation = Math.abs(xSpeed*2.2)*-scaleX;
+					iceSpikeArr.push(iceSpike);
+					vcam.shakeCamera(iceSpikeCount*10);
+					
+					iceSpike.clip.scaleX = .2 + ((Math.random()*.8)	*(iceSpikeCount*.2));
+					iceSpike.clip.scaleY = .8 + (Math.random()		*(iceSpikeCount*.2));
+					iceSpike.bound.width = iceSpike.clip.width;
+					iceSpike.bound.height = iceSpike.clip.height;
+					
+					iceSpikeSpawn2 = iceSpikeSpawn2Orig;
+				} 
+			}
+		}
+	}
+}
+function endIceSpikeAttack():void {
+	//called from attack movieclip timeline
+	for (var i:int = 0; i < iceSpikeArr.length; i ++) {
+		var iceSpike:MovieClip = iceSpikeArr[i];
+		
+		if (iceSpike) {
+			iceSpike.drop(i);
+		}
+	}
+	iceSpikeArr = [];
+	iceSpikeCount = 0;
+	vcam.zoom = 1;
+	superIndex = superIndexOrig;
+	antiFlinchOn = false;
+}
+
+function updateAnimation(animName:String):void {
+	if (currentFrameLabel != animName) {
+		this[currentFrameLabel].stop();
+		gotoAndStop(animName);
+	}
+}
+
+function addAttackDust():MovieClip {
+	var r:int = 6 + Math.floor(Math.random()*2);
+	var dust:MovieClip;
+	if (particles) dust = particles.addDust(r, x+(40*scaleX), y, -scaleX);
+	return dust;
+}
+function lightningStrike ():void {
+	var clip:MovieClip = new VandheerLightingStrike();
+	game.addChild(clip);
+	clip.x = x;
+	clip.y = y;
+	clip.init(true);
+}
+
+function checkStep():Boolean {
+	var b:Boolean = false;
+	
+	if (ground.hitTestPoint(getGlobalX()+(50 * this.scaleX), getGlobalY()+20, true)) {
+		b = true;
+	} else {
+		if (ground.hitTestPoint(getGlobalX()+(50 * this.scaleX), getGlobalY()+60, true)) {
+			b = true;
+		}
+	}
+	
+	return b;
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="23" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="colorer" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Colorer-GameObject" name="colorer">
+                  <matrix>
+                    <Matrix tx="1.2" ty="-86.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="strikeCounter" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-PowerBar/UI-PowerBar" name="powerBar" centerPoint3DX="-35.75" centerPoint3DY="-43.6">
+                  <matrix>
+                    <Matrix tx="-35.7" ty="-4.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-39"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="labels" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="walk" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" name="block" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" name="attack" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" name="throw" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" name="hurt" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" name="climb" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="8" name="death" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" name="edge" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="10" name="dodge" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="11" name="rise" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="12" name="spinJump" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="13" name="kneel" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="14" name="land" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="15" name="convo0" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="16" name="convo1" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" name="taunt0" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" name="taunt1" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" name="death2" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" name="convo2" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="21" name="convo3" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" name="convo4" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" name="convo5" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Anim-Idle" name="idle">
+                  <matrix>
+                    <Matrix tx="6.2" ty="1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-46"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vanheer2-Walk" name="walk" centerPoint3DX="-74.45" centerPoint3DY="-5.35">
+                  <matrix>
+                    <Matrix tx="-1.4" ty="1.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.5" y="-46"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Block" name="block">
+                  <matrix>
+                    <Matrix tx="-4.95" ty="1.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="6.45" y="-43.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Attack" name="attack" selected="true" centerPoint3DX="-66.95" centerPoint3DY="-36.2">
+                  <matrix>
+                    <Matrix a="0.998580932617188" d="0.998580932617188" tx="-2.7" ty="-35.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Hurt" name="hurt">
+                  <matrix>
+                    <Matrix tx="1.8" ty="1.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-42.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-Anim-Climb2" name="climb" centerPoint3DX="-9.45" centerPoint3DY="-46.85">
+                  <matrix>
+                    <Matrix a="1.11328125" d="1.11328125" tx="-2.05" ty="-0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6.7" y="-41.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/anims/Boss/VDL-BossAnim-Dead" name="death" centerPoint3DX="4.3" centerPoint3DY="-41.3">
+                  <matrix>
+                    <Matrix a="-1" tx="4.3" ty="1.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-42.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="9" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Climb" name="edge">
+                  <matrix>
+                    <Matrix tx="-0.75" ty="0.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="10" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Dodge" name="dodge">
+                  <matrix>
+                    <Matrix tx="73" ty="2.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-5" y="-50"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="11" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Rise" name="rise">
+                  <matrix>
+                    <Matrix tx="0.05" ty="0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-10.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="12" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Objects/_BoomProjectile/OBJ-Boom-bitmap2"/>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-SpinJump" name="spinJump">
+                  <matrix>
+                    <Matrix a="0.855072021484375" d="0.855072021484375" tx="-0.2" ty="0.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-9.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="13" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Rise" name="kneel">
+                  <matrix>
+                    <Matrix tx="0.05" ty="0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-10.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-Skid2" name="land">
+                  <matrix>
+                    <Matrix tx="-15.7" ty="-34.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="15" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-Convo0" name="convo0">
+                  <matrix>
+                    <Matrix tx="-26" ty="3.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-PoseIdle" name="convo1">
+                  <matrix>
+                    <Matrix a="1.0338134765625" d="1.0338134765625" tx="19.55" ty="0.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-37.8"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-Anim-ChargeAttack" name="taunt0">
+                  <matrix>
+                    <Matrix tx="1.9" ty="-2.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/anims/Vandheer2-anim-walk2" name="taunt1">
+                  <matrix>
+                    <Matrix tx="-0.65" ty="2.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-46.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss2-Vandheer/assets/anims/Boss/VDL-BossAnim-Dead" name="death2" centerPoint3DX="4.3" centerPoint3DY="-41.3">
+                  <matrix>
+                    <Matrix a="-1" tx="4.3" ty="1.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-42.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-anim-cinema" name="convo2" selected="true">
+                  <matrix>
+                    <Matrix tx="-6.75" ty="-35.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer-anim-cinema3" name="convo3">
+                  <matrix>
+                    <Matrix tx="-1.35" ty="1.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick2" name="convo4">
+                  <matrix>
+                    <Matrix tx="-6.7" ty="-41.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Boss4-VandheerFinal/assets/Vandheer2-Anim-TeleQuick3" name="convo5">
+                  <matrix>
+                    <Matrix ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix tx="0.05" ty="-45.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,408 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Results/UI-Results" itemID="54fa52f5-00000463" lastModified="1501760155" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="UI-Results" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-228&lt;/guideline&gt;&lt;guideline direction="v"&gt;-267&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+stop();
+visible = false;
+
+var time_tf:TextField;
+var score_tf:TextField;
+var finalScore_tf:TextField;
+
+var return_btn:MovieClip;
+var transition:MovieClip;
+var buttonSelected:Boolean;
+var keyFilter:Boolean;
+var active:Boolean;
+
+var _root:MovieClip;
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+
+function init():void {
+	_root = MovieClip(root);
+	ctrl = _root.player1Control;
+	sndCtrl = _root;
+	
+	buttonSelected = false;
+	keyFilter = false;
+	active = false;
+	
+	_root.saveStoryData();
+
+	updateTextDisplay();
+	
+	transition.gotoAndPlay(1);
+	
+	return_btn.gotoAndPlay("over");
+	buttonSelected = true;
+	//openReturnButton();
+}
+
+function updateTextDisplay():void {
+	//_root.sessionTimeString = MovieClip(parent).timer.getTimeString();
+	time_tf.text = _root.sessionTimeString;
+	//score_tf.text = _root.sessionScore;
+	finalScore_tf.text = _root.sessionScore;
+	//sendToLeaderboard();
+}
+
+
+function sendToLeaderboard():void {
+	//_root.uploadScore("Single Player", _root.sessionScore);
+}
+
+function update ():void {
+	if (active) {
+		
+		if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+			if (!keyFilter) {
+				
+				if (buttonSelected) {
+					openReturnButton();
+					sndCtrl.playSound(sndCtrl.sndButton3);
+				} else {
+					return_btn.gotoAndPlay("over");
+					buttonSelected = true;
+					sndCtrl.playSound(sndCtrl.sndButton1);
+				}
+				
+				keyFilter = true;
+			}
+		} else {
+			keyFilter = false;
+		}
+	}
+}
+
+function openReturnButton():void {
+	active = false;
+	play();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="75" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="76" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+MovieClip(parent).closeResultsUI();
+_root.returnToMenu();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="border" color="#4F80FF" locked="true" autoNamed="false" visible="false" layerType="guide">
+          <frames>
+            <DOMFrame index="0" duration="77" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                    <StrokeStyle index="2">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000" alpha="0.309803921568627"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!16000 9000|8000 9000!8000 9000|0 9000!0 9000|0 0!0 0|8000 0!8000 0|16000 0!16000 0|16000 9000"/>
+                    <Edge strokeStyle="2" edges="!7999.5 4500|8000 4500.5!8000 4499.5|7999.5 4500!8000 4499.5|8000 0!8000 4500.5|8000 9000!7999.5 4500|0 9000!0 0|7999.5 4500!16000 0|8000 4499.5!8000 4500.5|16000 9000"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="fade" color="#FF4F4F" autoNamed="false" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Results/assets/UI-Results-Transition" name="transition">
+                  <matrix>
+                    <Matrix tx="402.45" ty="237.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="8" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="9" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Results/assets/UI-Results-fade-shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="400" ty="224.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Results/assets/UI-Results-fade-shape" symbolType="graphic" centerPoint3DX="400" centerPoint3DY="224.95" loop="loop">
+                  <matrix>
+                    <Matrix tx="400" ty="224.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="77" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="stats" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <LinearGradient>
+                        <matrix>
+                          <Matrix a="0.165878295898438" d="0.027496337890625" tx="400.55" ty="201.3"/>
+                        </matrix>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="0"/>
+                        <GradientEntry color="#FFFFFF" alpha="0.749019607843137" ratio="0.513725490196078"/>
+                        <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                      </LinearGradient>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!8217 4785|10757 4785!10757 4785|10757 5484!10757 5484|8217 5484!8217 5484|8217 4785"/>
+                    <Edge fillStyle1="2" edges="!5293 3576|10729 3576!10729 3576|10729 4476!10729 4476|5293 4476!5293 4476|5293 3576"/>
+                  </edges>
+                </DOMShape>
+                <DOMDynamicText name="finalScore_tf" fontRenderingMode="standard" top="-2.8" left="-153.5" width="272.55" height="45" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="419" ty="181.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>20112015</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="45" size="30" bitmapSize="600" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="2" strength="0.49"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0.106857299804688" d="0.0127105712890625" tx="398.45" ty="165.1"/>
+                            </matrix>
+                            <GradientEntry alpha="0" ratio="0"/>
+                            <GradientEntry alpha="0.749019607843137" ratio="0.513725490196078"/>
+                            <GradientEntry alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!6218 3094|9720 3094!9720 3094|9720 3510!9720 3510|6218 3510!6218 3510|6218 3094"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMStaticText fontRenderingMode="standard" top="-2.8" left="-153.5" width="272.55" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="419" ty="149.55"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Final Score</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#FFFFFF" distance="2" strength="0.49"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" top="-2.8" left="-89.25" width="144.75" height="27" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="335.2" ty="247.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>time</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="27" size="18" bitmapSize="360" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#FFFFFF" distance="2" strength="0.49"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMDynamicText name="time_tf" fontRenderingMode="standard" top="-2.8" left="-2" width="57.5" height="36" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="424.2" ty="247.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>10:00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineSpacing="0" lineHeight="27" size="18" bitmapSize="360" face="Thinman"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#FFFFFF" distance="2" strength="0.49"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin" name="return_btn" uniqueID="3">
+                  <matrix>
+                    <Matrix tx="400" ty="365.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.25"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="RETURN" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="title" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-GameOver-Title">
+                  <matrix>
+                    <Matrix tx="400" ty="67.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clouds" color="#808080" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Clouds-Animated">
+                  <matrix>
+                    <Matrix tx="1584.4" ty="242"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#9933CC" locked="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="40" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!16280 9157S2|-280 9157!-280 9157|-280 -158!-280 -158|16280 -158!16280 -158|16280 9157"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="37" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!16280 9157|-280 9157!-280 9157|-280 -158!-280 -158|16280 -158!16280 -158|16280 9157"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

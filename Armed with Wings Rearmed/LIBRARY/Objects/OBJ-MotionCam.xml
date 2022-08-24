@@ -1,0 +1,558 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-MotionCam" itemID="56c5e0f3-00000a3a" lastModified="1492585883" lastUniqueIdentifier="7">
+  <timeline>
+    <DOMTimeline name="OBJ-MotionCam" currentFrame="424">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+
+stop();
+
+var targetCache:MovieClip;
+var vcam:MovieClip;
+var currentID:Number;
+
+init();
+
+function init ():void {
+	visible = false;
+	vcam = MovieClip(parent).vcam;
+}
+
+function start(id:int):void {
+	targetCache = vcam.target;
+	vcam.target = clip;
+	vcam.motionOverride = true;
+	
+	gotoAndPlay("start"+id);
+	currentID = id;
+}
+
+function update ():void {
+
+}
+
+function end(_target:MovieClip) {	
+	vcam.target = _target;
+	vcam.zoom = clip.scaleX;
+	vcam.motionOverride = false;
+	gotoAndStop(1);
+	
+	this.dispatchEvent(new Event("COMPLETE"+currentID));
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="153" name="start0" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="154" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="155" duration="230" name="start1" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="385" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+end(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="386" duration="129" name="start2" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="515" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+end(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="94" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3174"/>
+                  <Point x="0.4837" y="0.1199"/>
+                  <Point x="0.5752" y="0.4"/>
+                  <Point x="0.668" y="0.6841"/>
+                  <Point x="0.5528" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DY="-620">
+                  <matrix>
+                    <Matrix ty="-620"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="95" duration="59" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0691"/>
+                  <Point x="0.0386" y="0.5205"/>
+                  <Point x="0.1016" y="0.7"/>
+                  <Point x="0.1873" y="0.944"/>
+                  <Point x="0.187" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DY="2.65">
+                  <matrix>
+                    <Matrix a="0.2252197265625" d="0.2252197265625" ty="2.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="154" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DY="-12.45">
+                  <matrix>
+                    <Matrix ty="-12.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="155" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="93">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.8421"/>
+                  <Point x="0.5671" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DY="-12.5">
+                  <matrix>
+                    <Matrix a="0.255355834960938" d="0.255355834960938" ty="-12.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="162" duration="21" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2561"/>
+                  <Point x="0.8333"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DY="-84.45">
+                  <matrix>
+                    <Matrix a="1.45233154296875" d="1.45233154296875" ty="-84.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="183" duration="49" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.1992" y="1"/>
+                  <Point x="0.3516" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DX="-458.95" centerPoint3DY="-71.2">
+                  <matrix>
+                    <Matrix a="0.839813232421875" b="-4.57763671875e-05" c="4.57763671875e-05" d="0.839813232421875" tx="-459" ty="-70.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="232" duration="48" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4797"/>
+                  <Point x="0.5041" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DX="-1163.5" centerPoint3DY="-66.3">
+                  <matrix>
+                    <Matrix a="0.622451782226563" b="0.0191802978515625" c="-0.0191802978515625" d="0.622451782226563" tx="-1163.4" ty="-66.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="280" duration="58" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.689"/>
+                  <Point x="0.9553" y="0.5719"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DX="-1156.5" centerPoint3DY="-61.25">
+                  <matrix>
+                    <Matrix a="0.43896484375" b="0.0153350830078125" c="-0.0153350830078125" d="0.43896484375" tx="-1156.8" ty="-61.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="338" duration="29" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.17825343212771" y="0.760061014480145"/>
+                  <Point x="0.60423003893715" y="0.951687270674832"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DX="-228.6" centerPoint3DY="-62.65">
+                  <matrix>
+                    <Matrix a="0.758407592773438" b="-0.003662109375" c="0.003662109375" d="0.758407592773438" tx="-229.4" ty="-62.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="367" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.351740624035531" y="1"/>
+                  <Point x="0.694431081079968" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DX="-10.4" centerPoint3DY="-62.4">
+                  <matrix>
+                    <Matrix a="0.4627685546875" b="0.010406494140625" c="-0.010406494140625" d="0.4627685546875" tx="-10.9" ty="-62.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="385" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip" centerPoint3DX="-5.65" centerPoint3DY="-62.25">
+                  <matrix>
+                    <Matrix a="0.487442016601563" d="0.487442016601563" tx="-7.4" ty="-62.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="386" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="11.6" ty="-54.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="393" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="14" ty="-55.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="398" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="15.7" ty="-59.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="402" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="19" ty="-61.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="413" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="2.15" ty="-78.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="422" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="12.45" ty="-81"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="434" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="55.2" ty="-64.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="443" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="52.7" ty="-58.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="449" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="38.35" ty="-55.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="456" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="39.95" ty="-56.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="461" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="39.55" ty="-60.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="467" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="14.45" ty="-71.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="477" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="2.15" ty="-62.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="485" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="5.8" ty="-67.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="492" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="8.65" ty="-67.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.2" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="501" duration="14" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="5.85" ty="-69.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="515" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-MotionCam-Shape" name="clip">
+                  <matrix>
+                    <Matrix a="0.571212768554688" d="0.571212768554688" tx="9.5" ty="-73.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

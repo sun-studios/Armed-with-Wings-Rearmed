@@ -1,0 +1,86 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-logo/animation/UI-Logo-Animation-Sword" itemID="54cc9a26-00000ece" lastModified="1422694950">
+  <timeline>
+    <DOMTimeline name="UI-Logo-Animation-Sword" currentFrame="33">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true" layerType="mask">
+          <frames>
+            <DOMFrame index="0" duration="69" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.1789" y="0.9726"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/Tween 11" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="389.2" ty="0.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-logo/animation/Tween 11" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="22.5083618164063" tx="-0.25" ty="0.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F" parentLayerIndex="0">
+          <frames>
+            <DOMFrame index="0" duration="70" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <transformationPoint>
+                    <Point y="-0.7"/>
+                  </transformationPoint>
+                  <members>
+                    <DOMShape>
+                      <transformationPoint>
+                        <Point y="-0.7"/>
+                      </transformationPoint>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FFFFFF"/>
+                        </FillStyle>
+                        <FillStyle index="2">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="0.0123748779296875" c="-0.35137939453125" d="0" tx="-82.3" ty="2.5"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0.0313725490196078" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-7378 -13[-6826 -161 -6274 -178!-6274 -178|4136 -178!4136 -178|4136 -234!4136 -234|4346 -234!4346 -234|4348 -355!4348 -355|4503 -355!4503 -355|4521 -125!4521 -125|4636 -125!4636 -125|4636 -88!4636 -88|7047 -88!7047 -88|7047 -125!7047
+ -125|7377 -125!7377 -125|7377 97!7377 97|7047 97!7047 97|7047 60!7047 60|4636 60!4636 60|4636 97!4636 97|4521 97!4521 97|4500 356!4500 356|4349 356!4349 356|4346 209!4346 209|4136 209!4136 209|4136 153"/>
+                        <Edge fillStyle0="2" fillStyle1="1" edges="
+!4136 153|4136 -13!4136 -13|-7378 -13"/>
+                        <Edge fillStyle1="2" edges="
+!4136 153|-6274 153!-6274 153[-6844 150 -7378 -13"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

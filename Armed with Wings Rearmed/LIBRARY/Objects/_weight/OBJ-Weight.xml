@@ -1,0 +1,182 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_weight/OBJ-Weight" itemID="54d59780-00000862" lastModified="1488639289" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="OBJ-Weight">
+      <layers>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="carry" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ySpeed:Number = 0;
+var pickup = false;
+
+var ground:MovieClip = MovieClip(parent).ground;
+var eagle:MovieClip = MovieClip(parent).eagle;
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+var keyFilter:Boolean = false;
+
+init();
+
+function init ():void {
+	
+	
+}
+
+function update ():void {
+	
+	if (!pickup) {
+		ySpeed --;
+		y -= ySpeed;
+		while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true))
+		{
+			ySpeed = 0;
+			y -= 1;
+		} // end while
+	}
+	
+	
+	if (ctrl.ctrl_char_pickup) {
+		if (!keyFilter) {
+			if (pickup) {
+				drop_f();
+			} else {
+				pickup_f();
+			}
+			keyFilter = true;
+		}
+    } else {
+		keyFilter = false;
+	}
+    
+	
+	
+    if (pickup == true)
+    {
+        ySpeed = 0;
+        x = eagle.x;
+        y = eagle.y + 10;
+		
+		if (!eagle.unlimitedFlight) {
+			if (eagle.xSpeed > 1) eagle.xSpeed = 1;
+			if (eagle.xSpeed < -1) eagle.xSpeed = -1;
+			if (eagle.ySpeed > 1) eagle.ySpeed = 1;
+			if (eagle.ySpeed < -1) eagle.ySpeed = -1;
+			eagle.flightTime -= 2;
+			
+			if (!eagle.moveable) {
+				pickup = false;
+			}
+		} else {
+			if (eagle.xSpeed > 3) eagle.xSpeed = 3;
+			if (eagle.xSpeed < -3) eagle.xSpeed = -3;
+			if (eagle.ySpeed > 3) eagle.ySpeed = 3;
+			if (eagle.ySpeed < -3) eagle.ySpeed = -3;
+		}
+			
+		if (currentFrameLabel != "carry")
+			gotoAndStop("carry");
+    } else {
+		if (currentFrameLabel != "idle")
+			gotoAndStop("idle");
+	}
+}
+
+function pickup_f() {
+	if (bound.hitTestObject(eagle.bound) && eagle.moveable)
+	{
+		eagle.pickup();
+		pickup = true;
+	}
+}
+function drop_f() {
+	if (eagle.moveable) {
+		eagle.drop();
+		pickup = false;
+	}
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).pickupsArr.push(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_weight/OBJ-Weight-Graphic">
+                  <matrix>
+                    <Matrix tx="-0.35" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-17.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_weight/OBJ-Weight-Carry" centerPoint3DX="-0.35" centerPoint3DY="-9.45">
+                  <matrix>
+                    <Matrix tx="-0.35" ty="7.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-17.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="1.43084716796875" d="0.457733154296875" tx="0.05" ty="-17.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

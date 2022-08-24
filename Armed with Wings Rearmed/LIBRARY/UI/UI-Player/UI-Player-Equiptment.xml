@@ -1,0 +1,312 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-Player-Equiptment" itemID="54ded603-00000576" lastModified="1497720367" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-Player-Equiptment">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+stop();
+
+var gearIcon:MovieClip;
+var name_tf:TextField;
+var gameData:MovieClip = MovieClip(root);
+var gearSlotID:Number = MovieClip(parent).gearSlotID;
+var setType:String;
+var unchangable:Boolean;
+
+/*what happens if I kill this?
+if ((gameData.gameMode == gameData.STORY) && gameData.storySessionData.length > 0) {
+	gameData["data_equiptedGear"+gearSlotID] = gameData.storySessionData[3+gearSlotID];
+}
+*/
+
+displayGear(gameData["data_equiptedGear"+gearSlotID]);
+
+function multiplayerInit():void {
+	if (gameData.gameMode == gameData.MULTIPLAYER) {
+		if (MovieClip(parent.parent).playerID == 2) {
+			displayGear(gameData["data_equiptedGear"+gearSlotID+"_p2"]);
+		}
+	}
+	
+	
+}
+
+function displayGear(id:Number):void {
+	gearIcon.gotoAndStop(id+1);
+	updateName(id);
+	if (id == 0) {
+		gearIcon.gotoAndStop("free");
+	}
+	
+}
+function updateName(id:Number):void {
+	if (MovieClip(root)) {
+		name_tf.text = MovieClip(root)["data_gear"+(id)+"_name"];
+		if (name_tf.text.length > 8) {
+			name_tf.text = name_tf.text.slice(0, 8)+"...";
+		}
+		
+		if (name_tf.text == "None") {
+			name_tf.text = "";
+		}
+	}
+	
+}
+
+
+
+function displayNewEquippedListing(_type:String):void {
+	gameData = MovieClip(root);
+	if (gameData.gameMode == gameData.MULTIPLAYER) {
+		MovieClip(parent).clipNew.visible = false;
+	} else {
+		switch (_type){
+			case "ABILITY":
+				MovieClip(parent).clipNew.visible = unequippedAbility();
+				break
+			case "PASSIVE":
+				MovieClip(parent).clipNew.visible = unequippedPassive();
+				break;
+			case "NONE":
+				MovieClip(parent).clipNew.visible = false;
+			break;
+			
+		}
+		setType = _type;
+	}
+}
+
+function unequippedPassive():Boolean {
+	gameData = MovieClip(root);
+	var go:Boolean;
+	for (var i:int = 0; i < gameData.passiveListingNew.length; i ++) {
+		if (gameData.passiveListingNew[i]) {
+			if (gameData.isGearUnlocked(gameData.sortBoosterPassive[i]-1)) {
+				go = true;
+				break;
+			}
+		}
+	}
+	
+	return go;
+}
+function unequippedAbility():Boolean {
+	gameData = MovieClip(root);
+	var go:Boolean;
+	for (var i:int = 0; i < gameData.abilityListingNew.length; i ++) {
+		if (gameData.abilityListingNew[i]) {
+			if (gameData.isGearUnlocked(gameData.sortBoosterAbility[i]-1)) {
+				go = true;
+				break;
+			}
+		}
+	}
+	
+	return go;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-BoosterLabelContainer" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.55" ty="65.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-BoosterLabelContainer" symbolType="graphic" centerPoint3DX="0.55" centerPoint3DY="65.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.55" ty="65.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redMultiplier="0.8984375" greenMultiplier="0.8984375" blueOffset="100"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-BoosterLabelContainer" symbolType="graphic" centerPoint3DX="0.55" centerPoint3DY="65.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.55" ty="65.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color blueMultiplier="0.80078125" greenMultiplier="0.80078125" redOffset="171" greenOffset="85"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-BoosterLabelContainer" symbolType="graphic" centerPoint3DX="0.55" centerPoint3DY="65.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.55" ty="65.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon" selected="true">
+                  <matrix>
+                    <Matrix a="0.628677368164063" d="0.628677368164063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon" selected="true">
+                  <matrix>
+                    <Matrix a="0.628677368164063" d="0.628677368164063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color redMultiplier="0.8984375" greenMultiplier="0.8984375" blueOffset="100"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon">
+                  <matrix>
+                    <Matrix a="0.628677368164063" d="0.628677368164063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color blueMultiplier="0.80078125" greenMultiplier="0.80078125" redOffset="171" greenOffset="85"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon">
+                  <matrix>
+                    <Matrix a="0.628677368164063" d="0.628677368164063"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-SquarePanel2-Animated">
+                  <matrix>
+                    <Matrix a="0.93853759765625" d="0.93853759765625"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipment-Base">
+                  <matrix>
+                    <Matrix ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color redMultiplier="0.8984375" greenMultiplier="0.8984375" blueOffset="100"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipment-Base" centerPoint3DY="0.05">
+                  <matrix>
+                    <Matrix ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color blueMultiplier="0.80078125" greenMultiplier="0.80078125" redOffset="171" greenOffset="85"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Equipment-Base" centerPoint3DY="0.05">
+                  <matrix>
+                    <Matrix ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

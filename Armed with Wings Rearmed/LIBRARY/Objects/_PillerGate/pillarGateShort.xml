@@ -1,0 +1,161 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_PillerGate/pillarGateShort" itemID="54cb3a12-00002252" lastModified="1481119371" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="pillarGateShort" currentFrame="38">
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="37" name="open" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var sndCtrl:MovieClip = MovieClip(root);
+
+sndCtrl.playSound(sndCtrl.sndGateOpen);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" name="openDone" labelType="name" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" duration="21" name="close" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="61" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!496 -5477|-495 -5477!-495 -5477|-565 -5787!-565 -5787|566 -5787!566 -5787|496 -5477"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" duration="27" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.5591"/>
+                  <Point x="0.3984" y="0.9384"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/pillerShort" centerPoint3DX="-0.5" centerPoint3DY="-296.2">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-150.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-88">
+              <tweens>
+                <Ease target="all" intensity="-88"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/pillerShort" centerPoint3DX="-0.5" centerPoint3DY="-405.15">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-259.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="38" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-402.15">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-256.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="42" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-395.85">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-249.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-250.35">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-104.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.305205136908729" y="0.484416692552015"/>
+                  <Point x="0.637200807327535" y="0.825448048362361"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-270.65">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-124.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

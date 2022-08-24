@@ -1,0 +1,123 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-SurvivalMenu/Symbol 9" itemID="56a4d036-00000b3a" lastModified="1501750625" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="Symbol 9">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+var id:Number;
+var _parent:MovieClip;
+var icon_clip:MovieClip;
+var label_tf:TextField;
+
+init();
+
+function init ():void {
+	_parent = MovieClip(parent);
+
+	id = _parent.id;
+	switch (id) {
+		case 0:
+			label_tf.text = "GODS  DAGGER";
+			break;
+		case 1:
+			label_tf.text = "THE  SLOPE";
+			break;
+		case 2:
+			label_tf.text = "BOSS SURVIVAL";
+		break;
+		case 3:
+			label_tf.text = "HOLY GROUNDS";
+		break;
+		case 4:
+			label_tf.text = "REARMED  TRIALS";
+		break;
+	}
+	
+	icon_clip.gotoAndStop(1+id);
+	scoreDisplay.init(id);
+}
+
+function update():void {
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-SurvivalMenu/SurvivalScoreContainer" name="scoreDisplay">
+                  <matrix>
+                    <Matrix tx="-247.8" ty="-86.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="93.65" y="108.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="label_tf" fontRenderingMode="standard" left="-1.2" width="215.4" height="45" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-106.5" ty="-139.5"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>AReNA NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="45" size="30" bitmapSize="600" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMSymbolInstance libraryItemName="UI/UI-SurvivalMenu/Symbol 11" name="icon_clip">
+                  <matrix>
+                    <Matrix tx="0.8" ty="22.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-SurvivalMenu/Symbol 7">
+                  <matrix>
+                    <Matrix a="1.11624145507813" tx="-291.8" ty="-131.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="261.25" y="131.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

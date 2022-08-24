@@ -1,0 +1,70 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HighScores/assets/UI-HighScore-Title" itemID="552e53de-00000bcf" lastModified="1429099486">
+  <timeline>
+    <DOMTimeline name="UI-HighScore-Title">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var index:int;
+var gap:int;
+
+init();
+
+function init ():void {
+	index = 0;
+	gap = 580;
+}
+
+function update ():void {
+	x += ((-index * gap) - x)/10;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="10.7" width="428.55" height="54" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-224.95" ty="-27"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>survival high score</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="54" size="36" bitmapSize="720" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#FFFFFF" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="10.7" width="428.55" height="54" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="355.05" ty="-27"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Story  high score</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="54" size="36" bitmapSize="720" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#FFFFFF" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

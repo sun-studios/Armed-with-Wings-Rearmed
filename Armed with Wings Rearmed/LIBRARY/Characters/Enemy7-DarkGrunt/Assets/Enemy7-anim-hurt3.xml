@@ -1,0 +1,36 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy7-DarkGrunt/Assets/Enemy7-anim-hurt3" itemID="57aa0863-0001060c" symbolType="graphic" lastModified="1470761059">
+  <timeline>
+    <DOMTimeline name="Enemy7-anim-hurt3">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="22" tweenType="motion" motionTweenRotate="clockwise" motionTweenRotateTimes="1" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy7-DarkGrunt/Assets/Enemy7-hurtspin" selected="true" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix ty="-29.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Enemy7-DarkGrunt/Assets/Enemy7-hurtspin" symbolType="graphic" centerPoint3DY="-29.5" loop="loop">
+                  <matrix>
+                    <Matrix ty="-29.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

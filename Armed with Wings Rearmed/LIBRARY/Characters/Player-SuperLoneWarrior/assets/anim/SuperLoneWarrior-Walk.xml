@@ -1,0 +1,296 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-SuperLoneWarrior/assets/anim/SuperLoneWarrior-Walk" itemID="585a8edb-00001b93" lastModified="1484915954">
+  <timeline>
+    <DOMTimeline name="SuperLoneWarrior-Walk" currentFrame="36">
+      <layers>
+        <DOMLayer name="sound-actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="13" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSkid);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="37" duration="18" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playStepSound();
+sndCtrl.playSound(sndCtrl.sndJump, 0);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var particleLayer:MovieClip = MovieClip(parent.parent).particleLayer;
+var hero:MovieClip = MovieClip(parent);
+var _parent:MovieClip = hero;
+
+var walking:Boolean = true;
+var skidding:Boolean = false;
+var jumping:Boolean = false;
+var falling:Boolean = false;
+
+var sliding:Boolean = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[walking = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="7" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(1, hero.x, 
+						 hero.y, 
+						 hero.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="13" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(1, hero.x, 
+						 hero.y, 
+						 hero.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(1, hero.x, 
+						 hero.y, 
+						 hero.scaleX);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndPlay("walk");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[walking = false;
+skidding = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[particleLayer.addDust(5, hero.x + (40 * hero.scaleX), 
+						 hero.y, 
+						 hero.scaleX);
+						 
+_parent.xSpeed *= .6;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="35" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[skidding = false;
+stop();
+_parent.gotoAndStop("idle");]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="36" duration="11" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[walking = false;
+jumping = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="7" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[walking = false;
+jumping = true;
+falling = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="54" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+walking = false;
+jumping = true;
+falling = true;
+sliding = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+sliding = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="5" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+sliding = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="5" name="ease" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="5" duration="18" name="walk" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="13" name="skid" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="36" duration="11" name="jump" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="8" name="fall" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" duration="5" name="slideF" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="60" duration="5" name="slideB" labelType="name" motionTweenScale="false" keyMode="8192">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Idle">
+                  <matrix>
+                    <Matrix tx="-13.45" ty="37.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-4.85" y="-59.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="4" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-WalkEase" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="132.85" ty="-63.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-146.85" y="32.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="18" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Walk" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-11.75" ty="-9.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.7" y="-14.25"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" duration="13" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Skid" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-121.3" ty="-64.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="121.35" y="49.85"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="36" duration="18" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Jump" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-6.15" ty="3.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-6.65" y="-10.4"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-Falling">
+                  <matrix>
+                    <Matrix tx="-24.45" ty="-2.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-4.5" y="-31.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-SlideForward" name="slideF">
+                  <matrix>
+                    <Matrix a="0.7833251953125" d="0.82989501953125" tx="-6.55" ty="36.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" duration="5" motionTweenScale="false" keyMode="8192">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Characters/Player-SuperLoneWarrior/assets/anim/SLW-Anim-SlideBack" name="slideB">
+                  <matrix>
+                    <Matrix a="0.838287353515625" d="0.838180541992188" tx="-11.3" ty="36.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

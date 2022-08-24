@@ -1,0 +1,921 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-M02/LVLM02-Stompers" itemID="57adf01c-000047d1" lastModified="1471105816" lastUniqueIdentifier="38">
+  <timeline>
+    <DOMTimeline name="LVLM02-Stompers">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="109" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="32" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="27" centerPoint3DX="-436.6" centerPoint3DY="181.4" loop="loop">
+                  <matrix>
+                    <Matrix a="-2.12431335449219" d="2.12431335449219" tx="-355.7" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="27" centerPoint3DX="-280.7" centerPoint3DY="181.4" loop="loop">
+                  <matrix>
+                    <Matrix a="2.12431335449219" d="2.12431335449219" tx="-361.55" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.65" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="27" centerPoint3DX="-78.2" centerPoint3DY="181.4" loop="loop">
+                  <matrix>
+                    <Matrix a="-2.12431335449219" d="2.12431335449219" tx="2.7" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="27" centerPoint3DX="77.7" centerPoint3DY="181.4" loop="loop">
+                  <matrix>
+                    <Matrix a="2.12431335449219" d="2.12431335449219" tx="-3.15" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="27" centerPoint3DX="283.4" centerPoint3DY="181.4" loop="loop">
+                  <matrix>
+                    <Matrix a="-2.12431335449219" d="2.12431335449219" tx="364.3" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="27" centerPoint3DX="439.3" centerPoint3DY="181.4" loop="loop">
+                  <matrix>
+                    <Matrix a="2.12431335449219" d="2.12431335449219" tx="358.45" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.65" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="32" duration="54" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="86" duration="23" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="-2.12431335449219" d="2.12431335449219" tx="-355.7" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="2.12431335449219" d="2.12431335449219" tx="-361.55" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.65" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="-2.12431335449219" d="2.12431335449219" tx="2.7" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="2.12431335449219" d="2.12431335449219" tx="-3.15" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="-2.12431335449219" d="2.12431335449219" tx="364.3" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="2.12431335449219" d="2.12431335449219" tx="358.45" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.65" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="31" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="31" duration="55" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="-2.12431335449219" d="2.12431335449219" tx="-175.7" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="2.12431335449219" d="2.12431335449219" tx="-181.55" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.65" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="-2.12431335449219" d="2.12431335449219" tx="182.7" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Particles/PRT-Dust/PRT-Dust-005" symbolType="graphic" firstFrame="4" loop="loop">
+                  <matrix>
+                    <Matrix a="2.12431335449219" d="2.12431335449219" tx="176.85" ty="189.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="12.7" y="5.65"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="stomp4" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4">
+                  <matrix>
+                    <Matrix tx="360" ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4" centerPoint3DX="360" centerPoint3DY="-367.55">
+                  <matrix>
+                    <Matrix tx="360" ty="-150.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4" centerPoint3DX="360" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="360" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4" centerPoint3DX="360" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="360" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4" centerPoint3DX="360" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="360" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" duration="23" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4" centerPoint3DX="360" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="360" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4" centerPoint3DX="360" centerPoint3DY="9.45">
+                  <matrix>
+                    <Matrix tx="360" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4">
+                  <matrix>
+                    <Matrix tx="360" ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="108" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp4" centerPoint3DX="360">
+                  <matrix>
+                    <Matrix tx="360" ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="stomp3" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3191475001185"/>
+                  <Point x="0.653860181865851" y="0.155589509375579"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="23" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="9.45">
+                  <matrix>
+                    <Matrix tx="180" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.337097327163057" y="0.21241424361467"/>
+                  <Point x="0.674973145909811" y="0.528857843681627"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="-5.05">
+                  <matrix>
+                    <Matrix tx="180" ty="211.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="25" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="-5.05">
+                  <matrix>
+                    <Matrix tx="180" ty="211.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.354003450775118" y="0.300567770004728"/>
+                  <Point x="0.688639796476082" y="0.632791110162648"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.371248986176896" y="0.295927042725301"/>
+                  <Point x="0.707108541533554" y="0.627805879890652"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="9" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.320237986958185"/>
+                  <Point x="0.654723002903596" y="0.163231902763501"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="108" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.33234373994439" y="0.30882472095825"/>
+                  <Point x="0.665687343796492" y="0.641576413812315"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp3" centerPoint3DX="180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="stomp2" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2">
+                  <matrix>
+                    <Matrix ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2" centerPoint3DY="-367.55">
+                  <matrix>
+                    <Matrix ty="-150.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" duration="23" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2" centerPoint3DY="9.45">
+                  <matrix>
+                    <Matrix ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2">
+                  <matrix>
+                    <Matrix ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="108" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp2">
+                  <matrix>
+                    <Matrix ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="stomp1" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="8" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.308700556856234"/>
+                  <Point x="0.647293262188446" y="0.101994599064424"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="8" duration="23" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="31" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="9.45">
+                  <matrix>
+                    <Matrix tx="-180" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" duration="10" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.344423545465915" y="0.255756878239147"/>
+                  <Point x="0.68068871578608" y="0.582535044912397"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="-5.05">
+                  <matrix>
+                    <Matrix tx="-180" ty="211.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="25" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="-5.05">
+                  <matrix>
+                    <Matrix tx="-180" ty="211.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" duration="7" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.353895961100213" y="0.307916224647112"/>
+                  <Point x="0.688178106964166" y="0.640586879454995"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.368711426413092" y="0.303848238750336"/>
+                  <Point x="0.703838819268908" y="0.636285707977163"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="9" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.310291914496185"/>
+                  <Point x="0.64803940363044" y="0.108486421880972"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="108" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.332104948393869" y="0.307185175853601"/>
+                  <Point x="0.66547536615336" y="0.639828711360533"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp1" centerPoint3DX="-180" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-180" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="stomp0" color="#808080" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="24" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0">
+                  <matrix>
+                    <Matrix tx="-360" ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0" centerPoint3DX="-360" centerPoint3DY="-367.55">
+                  <matrix>
+                    <Matrix tx="-360" ty="-150.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="37" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0" centerPoint3DX="-360" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-360" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0" centerPoint3DX="-360" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-360" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="54" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0" centerPoint3DX="-360" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-360" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="63" duration="23" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0" centerPoint3DX="-360" centerPoint3DY="-353.05">
+                  <matrix>
+                    <Matrix tx="-360" ty="-136.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="86" duration="13" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0" centerPoint3DX="-360" centerPoint3DY="9.45">
+                  <matrix>
+                    <Matrix tx="-360" ty="226.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="99" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0">
+                  <matrix>
+                    <Matrix tx="-360" ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="108" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_SpikeStomper/OBJ-SpikeStomper" name="stomp0" centerPoint3DX="-360">
+                  <matrix>
+                    <Matrix tx="-360" ty="216.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

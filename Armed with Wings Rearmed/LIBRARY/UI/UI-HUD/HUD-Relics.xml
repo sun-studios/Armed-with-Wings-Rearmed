@@ -1,0 +1,182 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-Relics" itemID="587a5802-00000e05" lastModified="1493034926" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="HUD-Relics">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+
+//only show this panel if key have been collected in level
+//dont show if all keys are collected
+var gameData:MovieClip;
+
+init ();
+
+function init ():void {
+	gameData = MovieClip(root);
+	
+	if (gameData.allKeysCollected()) {
+		visible = false;
+	} else {
+		if (gameData.isKeyCollected(gameData.sessionLevel)) {
+			val_tf.text = ""+gameData.numofKeysCollected();
+			visible = true;
+		} else {
+			visible = false;
+		}
+	}
+	
+}
+
+function keyCollected ():void {
+	val_tf.text = ""+gameData.numofKeysCollected();
+	alpha = 0;
+	visible = true;
+	
+}
+
+function update ():void {
+	if (alpha < 1) {
+		alpha += .05;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" top="-2.8" left="4.8" width="54.2" height="14.35" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-76.2" ty="-5.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>relics</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineSpacing="0" lineHeight="14.35" size="16" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="4" strength="0.3"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_KeySpecial/assets/Key-Shape" centerPoint3DX="-38.85" centerPoint3DY="-0.6">
+                  <matrix>
+                    <Matrix a="0.723403930664063" d="0.723403930664063" tx="-39.15" ty="-0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15"/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="1"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.8"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#424242" alpha="0.8" colorReferenceID="1"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-139 175|-1191 175!-1191 175|-1385 -19!-1385 -19|-1186 -218!-1186 -218|-139 -218"/>
+                    <Edge fillStyle1="2" edges="!-139 -218|1185 -218!1185 -218|1384 -19!1384 -19|1190 175!1190 175|-139 175"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!-139 175|-139 -218"/>
+                    <Edge cubics="!-139 175(-139,175;-139,175 -139,-218 -139,-218q-139 175 -139 -218)-139,-218;"/>
+                    <Edge cubics="!-1385 -218(;-1385,-218 -1186,-218 -1186,-218q-1385 -218 -1186 -218);"/>
+                    <Edge cubics="!-1186 -218(;-1186,-218 -991,-218 -991,-218q-1186 -218 -991 -218);"/>
+                    <Edge cubics="!-991 -218(;-991,-218 -139,-218 -139,-218q-991 -218 -139 -218);"/>
+                    <Edge cubics="!1384 -19(;1384,-19 1185,-218 1185,-218q1384 -19 1185 -218);"/>
+                    <Edge cubics="!-139 -218(;-139,-218 1185,-218 1185,-218q-139 -218 1185 -218);"/>
+                    <Edge cubics="!1190 175(;1190,175 -139,175 -139,175q1190 175 -139 175);"/>
+                    <Edge cubics="!1384 -19(;1384,-19 1190,175 1190,175q1384 -19 1190 175);"/>
+                    <Edge cubics="!-991 -218(;-991,-218 -108,-1102 -108,-1102q-991 -218 -108 -1102);"/>
+                    <Edge cubics="!-1384 175(;-1384,175 -1385,175 -1385,175q-1384 175 -1385 175);"/>
+                    <Edge cubics="!-139 175(;-139,175 -993,175 -993,175q-139 175 -993 175);"/>
+                    <Edge cubics="!-993 175(;-993,175 -1191,175 -1191,175q-993 175 -1191 175);"/>
+                    <Edge cubics="!-1191 175(;-1191,175 -1384,175 -1384,175q-1191 175 -1384 175);"/>
+                    <Edge cubics="!-1188 -20(;-1188,-20 -991,-218 -991,-218q-1188 -20 -991 -218);"/>
+                    <Edge cubics="!-1385 -217(;-1385,-217 -1286,-118 -1286,-118q-1385 -217 -1286 -118);"/>
+                    <Edge cubics="!-1286 -118(;-1286,-118 -1188,-20 -1188,-20q-1286 -118 -1188 -20);"/>
+                    <Edge cubics="!-1385 -217(;-1385,-217 -1385,-218 -1385,-218q-1385 -217 -1385 -218);"/>
+                    <Edge cubics="!-993 175(;-993,175 117,1285 117,1285q-993 175 117 1285);"/>
+                    <Edge cubics="!-1385 175(;-1385,175 -1385,-19 -1385,-19q-1385 175 -1385 -19);"/>
+                    <Edge cubics="!-1385 -19(;-1385,-19 -1385,-217 -1385,-217q-1385 -19 -1385 -217);"/>
+                    <Edge cubics="!-1188 -20(;-1188,-20 -993,175 -993,175q-1188 -20 -993 175);"/>
+                    <Edge cubics="!-1190 -19(;-1190,-19 -1188,-20 -1188,-20q-1190 -19 -1188 -20);"/>
+                    <Edge cubics="!-1190 -19(;-1190,-19 -1385,-19 -1385,-19q-1190 -19 -1385 -19);"/>
+                    <Edge cubics="!-1385 -19(;-1385,-19 -2975,-19 -2975,-19q-1385 -19 -2975 -19);"/>
+                    <Edge cubics="!-1384 175(;-1384,175 -1287,79 -1287,79q-1384 175 -1287 79);"/>
+                    <Edge cubics="!-1287 79(;-1287,79 -1190,-19 -1190,-19q-1287 79 -1190 -19);"/>
+                    <Edge cubics="!-1385 -19(;-1385,-19 -1286,-118 -1286,-118q-1385 -19 -1286 -118);"/>
+                    <Edge cubics="!-1286 -118(;-1286,-118 -1186,-218 -1186,-218q-1286 -118 -1186 -218);"/>
+                    <Edge cubics="!-1186 -218(;-1186,-218 -324,-1079 -324,-1079q-1186 -218 -324 -1079);"/>
+                  </edges>
+                </DOMShape>
+                <DOMDynamicText name="val_tf" fontRenderingMode="standard" top="-2.8" left="47.1" width="16.9" height="21" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-40.5" ty="-7.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>40</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" letterSpacing="1" lineSpacing="0" lineHeight="19.55" size="13" bitmapSize="260" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="2" blurY="2" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" top="-2.8" left="47.1" width="24.35" height="19.55" includeOutlines="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-20" ty="-6.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>/40</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" letterSpacing="1" lineSpacing="0" lineHeight="19.55" size="13" bitmapSize="260" face="Thinman" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="2" blurY="2" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

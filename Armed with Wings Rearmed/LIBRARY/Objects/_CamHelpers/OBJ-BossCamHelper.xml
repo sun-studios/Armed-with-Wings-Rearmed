@@ -1,0 +1,198 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_CamHelpers/OBJ-BossCamHelper" itemID="54ba7c5c-000005ee" lastModified="1490636208">
+  <timeline>
+    <DOMTimeline name="OBJ-BossCamHelper">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+
+var activated:Boolean;
+var disable:Boolean;
+var dontHandleZoom:Boolean;
+
+var sur_checkIndex:Number;
+var sur_checkIndexOrig:Number;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var vcam:MovieClip;
+var eagle:MovieClip;
+var target:MovieClip;
+
+var game:MovieClip;
+var gameData:MovieClip;
+
+init();
+
+function init ():void {
+	activated = false;
+	dontHandleZoom = false;
+	
+	sur_checkIndexOrig = 20;
+	sur_checkIndex = sur_checkIndexOrig;
+	
+	hero =  MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	vcam = MovieClip(parent).vcam;
+	eagle = MovieClip(parent).eagle;
+	game = MovieClip(parent);
+	gameData = MovieClip(root);
+	target = boss;
+}
+
+function update ():void {
+	if (activated) {
+		if (hero.life > 0) {
+			if (vcam.target == this) {
+				var distX:Number = target.x - hero.x;
+				var distY:Number = target.y - hero.y;
+				
+				x = hero.x + (distX*.5);
+				y = hero.y + (distY*.5);
+				
+				if (!dontHandleZoom) {
+					vcam.zoom = Math.abs(distX * .25/100);
+					if (vcam.zoom < .9) vcam.zoom = .9;
+					if (vcam.zoom > 1.8) vcam.zoom = 1.8;
+				}
+			}
+			
+			//using eagle to change target - making it all work
+			if (vcam.target == eagle) {
+				vcam.zoom = 1;
+			}
+			if (vcam.target == hero) {
+				vcam.target = this;
+			}
+		} else {
+			vcam.target = hero;
+		}
+	} else {
+		x = hero.x;
+		y = hero.y;
+	}
+	
+	if (gameData.gameMode == gameData.SURVIVAL) {
+		var goFind:Boolean;
+		if (sur_checkIndex > 0) {
+			sur_checkIndex --;
+		} else {
+			goFind = true;
+			sur_checkIndex = sur_checkIndexOrig;
+		}
+		
+		var bossArr:Array;
+		if (goFind) {
+			bossArr = new Array();
+			
+			for (var i:int = 0; i < game.enemiesArr.length; i ++) {
+				var en:MovieClip = game.enemiesArr[i];
+				if (en) {
+					if (String(en.enemyType).substring(0, 4) == "BOSS") {
+						bossArr.push(en);
+					}
+				}
+			}
+			
+			if (bossArr) {
+				if (MovieClip(bossArr[0])) {
+					if (MovieClip(bossArr[0]).life > 0) {
+						target = bossArr[0];
+						cameraFocus();
+					}
+				}
+			}
+		}
+		
+		if (target) {
+			if (target.life <= 0) {
+				target = null;
+				activated = false;
+			}
+		}
+		if (hero) {
+			if (hero.life <= 0) {
+				target = null;
+				activated = false;
+				vcam.target = hero;
+			}
+		}
+	}
+}
+
+function cameraFocus ():void {
+	vcam.target = this;
+	activated = true;
+}
+
+function end ():void {
+	activated = false;
+	vcam.target = hero;
+	vcam.zoom = 1;
+}
+
+function doBossKill():void {
+	dontHandleZoom = true;
+}
+function endBossKill():void {
+	dontHandleZoom = false;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000" alpha="0.525490196078431"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!110 -110|110 110!110 110|-110 110!-110 110|-110 -110!-110 -110|110 -110"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal">
+                            <fill>
+                              <SolidColor color="#FF0000"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge strokeStyle="1" edges="!0 0|0 3027!3027 0|0 0!0 -3027|0 0!0 0|-3027 0"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

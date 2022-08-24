@@ -1,0 +1,65 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-M02/LVL-M02-SwitchFunction2" itemID="58281aad-00000c95" lastModified="1479023277">
+  <timeline>
+    <DOMTimeline name="LVL-M02-SwitchFunction2">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _parent:MovieClip;
+
+init();
+
+function init ():void {
+	visible = false;
+	
+	_parent = MovieClip(parent);
+}
+
+function update ():void {
+	_parent.ground.plat0.applyForce();
+	_parent.ground.plat1.applyForce();
+	_parent.ground.plat2.applyForce();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -368|873 -368!873 -368|873 367!873 367|-872 367!-872 367|-872 -368"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="4.5" width="101.8" height="52" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-27.7" ty="-12.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Switch&#xD;Function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

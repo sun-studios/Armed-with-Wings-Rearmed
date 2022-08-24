@@ -1,0 +1,63 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_lightning/lightning" itemID="54ef9ad0-000002f0" linkageExportForAS="true" linkageClassName="Lightning" lastModified="1474811976" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="lightning" currentFrame="14" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;189&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var sndCtrl:MovieClip;
+
+init();
+
+function init():void {
+	sndCtrl = MovieClip(root);
+}
+
+function update():void {
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="58" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndThunder9);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="59" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).removeFromLightningArr(this);
+MovieClip(parent).removeChild(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="59" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_lightning/Symbol 1" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.731094360351563" d="0.731094360351563" tx="-0.35" ty="-0.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="10.2" y="-323.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="59" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

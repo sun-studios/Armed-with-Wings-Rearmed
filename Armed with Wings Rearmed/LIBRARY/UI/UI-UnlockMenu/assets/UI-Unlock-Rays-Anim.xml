@@ -1,0 +1,138 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-UnlockMenu/assets/UI-Unlock-Rays-Anim" itemID="54ef7a4e-00000422" lastModified="1429110772" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="UI-Unlock-Rays-Anim" currentFrame="57">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="114" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="115" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Rays" centerPoint3DX="-3.15" centerPoint3DY="-62.9">
+                  <matrix>
+                    <Matrix a="-0.703842163085938" d="0.730880737304688" tx="-3.2" ty="-66.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.5" y="93.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="170" blurY="31" color="#FFFFFF" quality="3" strength="2.09"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="32" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="33" duration="24" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2317" y="0.8288"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Rays" centerPoint3DX="-3.15" centerPoint3DY="-62.7">
+                  <matrix>
+                    <Matrix a="-1.35198974609375" d="1.4039306640625" tx="-5.45" ty="-129.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.5" y="93.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="170" blurY="31" color="#FFFFFF" quality="3" strength="2.09"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="57" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Rays" selected="true" centerPoint3DX="-3.15" centerPoint3DY="-62.9">
+                  <matrix>
+                    <Matrix a="-0.631118774414063" d="0.655349731445313" tx="-2.95" ty="-59.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.5" y="93.15"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="170" blurY="31" color="#FFFFFF" quality="3" strength="2.09"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="65" duration="49" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Rays" centerPoint3DX="-3.2" centerPoint3DY="-63.85">
+                  <matrix>
+                    <Matrix a="-0.640731811523438" d="0.66534423828125" tx="-3" ty="-60.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.5" y="93.1"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="170" blurY="31" color="#FFFFFF" quality="3" strength="2.09"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="114" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Rays" centerPoint3DX="-3.15" centerPoint3DY="-62.8">
+                  <matrix>
+                    <Matrix a="-0.755569458007813" d="0.78460693359375" tx="-3.4" ty="-71.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-3.5" y="93.15"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="170" blurY="31" color="#FFFFFF" quality="3" strength="2.09"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="115" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

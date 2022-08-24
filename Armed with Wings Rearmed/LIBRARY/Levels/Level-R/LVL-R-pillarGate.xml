@@ -1,0 +1,214 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-R/LVL-R-pillarGate" itemID="54d6d905-00000afa" lastModified="1430488262" lastUniqueIdentifier="5">
+  <timeline>
+    <DOMTimeline name="LVL-R-pillarGate">
+      <layers>
+        <DOMLayer name="label" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" name="isClosed" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="21" name="open" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" name="isOpen" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="30" name="close" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var eagle:MovieClip = MovieClip(parent).eagle;
+var push:Boolean = false;
+
+function update ():void {
+	if (eagle.moveable) {
+		var w:Number = 25;
+		
+		while (hitTestPoint(eagle.getGlobalX(-w*.5), eagle.getGlobalY(), true)) {
+			eagle.xSpeed = 0;
+			eagle.x += .5;
+		}
+		while (hitTestPoint(eagle.getGlobalX(w*.5), eagle.getGlobalY(), true)) {
+			eagle.xSpeed = 0;
+			eagle.x -= .5;
+		}
+		
+		if (push) {
+			while (eagle.x < (x +50) && eagle.x > (x-50)) {
+				eagle.x -= 5;
+			}
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="21" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var sndCtrl:MovieClip = MovieClip(root);
+
+sndCtrl.playSound(sndCtrl.sndGateOpen);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="11" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="34" duration="8" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[push = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="42" duration="10" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[push = false;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[gotoAndStop(1);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="53" keyMode="9728">
+              <elements>
+                <DOMShape selected="true">
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!496 -5477|-495 -5477!-495 -5477|-565 -5787!-565 -5787|566 -5787!566 -5787|496 -5477"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" duration="7" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-270.65">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-124.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="7" duration="15" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-88">
+              <tweens>
+                <Ease target="all" intensity="-88"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-412.15">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-266.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" selected="true" centerPoint3DX="-0.5" centerPoint3DY="-402.15">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-256.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-395.85">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-249.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="42" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-250.35">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-104.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.305205136908729" y="0.484416692552015"/>
+                  <Point x="0.637200807327535" y="0.825448048362361"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_PillerGate/assets/piller" centerPoint3DX="-0.5" centerPoint3DY="-270.65">
+                  <matrix>
+                    <Matrix tx="-0.5" ty="-124.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-146.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="53" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,83 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-Rope2" itemID="569e03f6-000011b4" lastModified="1490689213" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-Rope2">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ground:MovieClip;
+var elevator:MovieClip;
+var lineHeight:Number;
+var cWidth:Number;
+
+init();
+
+function init():void {
+	ground = MovieClip(parent).ground;
+	elevator = ground.elevator;
+	lineHeight = 0;
+	
+	if (!cWidth) cWidth = 286;
+}
+
+function update():void {
+	lineHeight = Math.abs(y-(ground.y+elevator.y));
+	this.graphics.clear();
+	this.graphics.lineStyle(2, 0x000000);
+	
+	this.graphics.moveTo(0, 0);
+	this.graphics.lineTo(0, lineHeight);
+	
+	this.graphics.moveTo(cWidth, 0);
+	this.graphics.lineTo(cWidth, lineHeight);
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor color="#FF0000"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-68 -922|68 -922!68 -922|68 -609!68 -609|-68 -609!-68 -609|-68 -922!-68 -412|68 -412!68 -412|68 -99!68 -99|-68 -99!-68 -99|-68 -412!-68 98|68 98!68 98|68 411!68 411|-68 411!-68 411|-68 98!-68 608|68 608!68 608|68 921!68 921|-68 921!-68
+ 921|-68 608"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="cWidth">
+      <Inspectable name="width" variable="cWidth" category="" verbose="0" defaultValue="286" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

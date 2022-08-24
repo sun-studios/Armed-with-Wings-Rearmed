@@ -1,0 +1,127 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-J02/LVL-J02-Ground" itemID="54bf9707-0000040c" lastModified="1484914986" lastUniqueIdentifier="10">
+  <timeline>
+    <DOMTimeline name="LVL-J02-Ground">
+      <layers>
+        <DOMLayer name="maze" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-J02/LVL-J02-Maze" name="maze">
+                  <matrix>
+                    <Matrix tx="277.55" ty="749.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="plats" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat1" uniqueID="6">
+                  <matrix>
+                    <Matrix tx="-803.85" ty="-108.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat2" uniqueID="7">
+                  <matrix>
+                    <Matrix tx="-356.15" ty="-108.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="5" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat3" uniqueID="8">
+                  <matrix>
+                    <Matrix tx="91.55" ty="-108.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat4" uniqueID="9">
+                  <matrix>
+                    <Matrix tx="539.3" ty="-108.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="9" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat5" uniqueID="10">
+                  <matrix>
+                    <Matrix tx="988.6" ty="-108.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="6" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ground" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!43564 -18381|43564 25430!43564 25430|-34800 25430!-34800 25430|-34800 19675!-34800 19675|-71187 19675!-71187 19675|-71187 -19676!-71187 -19676|-21258 -19676!-21258 -19676|-21258 -4784!-21258 -4784|-43032 -4784!-43032 -4784|-43032 -8485
+!-43032 -8485|-59402 -8485!-59402 -8485|-59402 -3718!-59402 -3718|-49818 -3718!-49818 -3718|-49818 -611!-49818 -611|-21052 -611!-21052 -611|-21052 10491!-21052 10491|23497 10491!23497 10491|23497 13304!23497 13304|-21052 13304!-21052
+ 13304|-21052 16706!-21052 16706|30339 16707!30339 16707|30339 -18381!30339 -18381|43564 -18381"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

@@ -1,0 +1,138 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/UI-HUD-InfoPanel" itemID="5828187a-00000c80" lastModified="1501750442" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-HUD-InfoPanel">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+var _parent:MovieClip;
+var gameData:MovieClip;
+
+var fadein:Boolean;
+
+var timer:MovieClip;
+var scorePanel:MovieClip;
+var levelPanel:MovieClip;
+var diffPanel:MovieClip;
+var wavePanel:MovieClip;
+var keysPanel:MovieClip;
+var lvlnum_tf:TextField;
+
+init();
+
+function init ():void {
+	_parent = MovieClip(parent);
+	gameData = MovieClip(root);
+	
+	fadein = true;
+	
+	switch (gameData.gameMode) {
+		case gameData.SURVIVAL:
+				levelPanel.visible = false;
+				diffPanel.visible = false;
+			break;
+		case gameData.MULTIPLAYER:
+				visible = false;
+			break;
+		default:
+				wavePanel.visible = false;
+				diffPanel.y = wavePanel.y;
+	}
+}
+
+function update ():void {
+	
+	if (levelPanel.visible) levelPanel.update();
+	if (scorePanel.visible) scorePanel.update();
+	if (wavePanel.visible) wavePanel.update();
+	if (diffPanel.visible) diffPanel.update();
+	if (keysPanel.visible) keysPanel.update();
+	
+	if (fadein) {
+		if (alpha < 1) alpha += .1;
+	} else {
+		if (alpha > 0) alpha -= .1;
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Pause/UI-Timer" name="timer">
+                  <matrix>
+                    <Matrix tx="-48.2" ty="-8.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-HUD/assets/UI-HUD-InfoPanel-Item" name="scorePanel" uniqueID="1">
+                  <matrix>
+                    <Matrix ty="6.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-72.7" y="15.5"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_type">
+      <Inspectable name="type" variable="_type" category="" verbose="0" defaultValue="score" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-HUD/assets/UI-HUD-InfoPanel-Item" name="wavePanel" uniqueID="2">
+                  <matrix>
+                    <Matrix ty="27.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-72.7" y="15.5"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_type">
+      <Inspectable name="type" variable="_type" category="" verbose="0" defaultValue="wave" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/UI-HUD-InfoPanel-Level" name="levelPanel">
+                  <matrix>
+                    <Matrix tx="-112.3" ty="-8.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-HUD/assets/UI-HUD-InfoPanel-Item" name="diffPanel" uniqueID="3">
+                  <matrix>
+                    <Matrix ty="49"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-72.7" y="15.5"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="_type">
+      <Inspectable name="type" variable="_type" category="" verbose="0" defaultValue="mode" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-HUD/HUD-Relics" name="keysPanel" blendMode="layer">
+                  <matrix>
+                    <Matrix tx="-74.4" ty="86.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

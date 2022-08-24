@@ -1,0 +1,182 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Orb/OrbPhysics" itemID="5602d8f2-0000091f" linkageExportForAS="true" linkageClassName="OrbPhysics" lastModified="1491745357" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="OrbPhysics">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var eagle:MovieClip = MovieClip(parent).eagle;
+var sndCtrl:MovieClip = MovieClip(root);
+var gameData:MovieClip = sndCtrl;
+var ground:MovieClip = MovieClip(parent).ground;
+
+var ySpeed:Number;
+var xSpeed:Number;
+var onGround:Boolean = false;
+
+var physicsEnabled:Boolean;
+var bounceOnce:Boolean;
+
+function init ():void {
+	
+}
+
+function update () {
+	if (CameraDistCheck.inRange(this, true)) {
+		if (physicsEnabled) {
+			physics();
+		}
+		
+		if (hero.bound.hitTestObject(bound) || eagle.bound.hitTestObject(bound)) {
+			if (this.clip.currentFrame < 30) {
+				if (physicsEnabled && !bounceOnce) {
+					
+				} else {
+					if (hero.life < hero.lifeOrig) {
+						hero.life += .25;
+						if (hero.life > hero.lifeOrig) hero.life = hero.lifeOrig;
+					}
+					sndCtrl.playSound(sndCtrl.sndItem1, 0);
+					clip.gotoAndPlay("unlock");
+					gameData.scoreOrb();
+					MovieClip(parent).particleLayer.removeOrbFromArr(this);
+				}
+			}
+		}
+	}
+}
+
+function spawn (_xSpeed:Number = 0, _ySpeed:Number = 0):void {
+	xSpeed = _xSpeed;
+	ySpeed = _ySpeed + 8;
+	physicsEnabled = true;
+	
+	
+
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+
+function physics():void {
+	ySpeed --;
+	if (ySpeed > 20) ySpeed = 20;
+	y -= ySpeed;
+	
+	if (xSpeed > 0) {
+		xSpeed -= .25;
+		if (xSpeed < 0) xSpeed = 0;
+	}
+	if (xSpeed < 0) {
+		xSpeed += .25;
+		if (xSpeed > 0) xSpeed = 0;
+	}
+	
+	x += xSpeed;
+	
+	if (clip) {
+		clip.rotation += xSpeed;
+	}
+	
+	var w:Number = 12;
+	var h:Number = 12;
+	
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true))
+	{
+		if (bounceOnce) {
+			ySpeed = 0;
+		} else {
+			if (ySpeed <0) {
+				ySpeed *= -.8;
+				bounceOnce = true;
+			}
+		}
+		y -= 1;
+	}
+	while (ground.hitTestPoint(getGlobalX(), getGlobalY()-h-ySpeed, true)) {
+		y++;
+		if (ySpeed > 0)
+			ySpeed = -ySpeed*.5;
+	}
+	while (ground.hitTestPoint(getGlobalX()-(w*.5), getGlobalY()-(h*.75), true)) {
+		if (xSpeed <0) xSpeed *= -.7;
+		x ++;
+	}
+	while (ground.hitTestPoint(getGlobalX()+(w*.5), getGlobalY()-(h*.75), true)) {
+		if (xSpeed >0) xSpeed *= -.7;
+		x --;
+	}
+	
+	if (ground.hitTestPoint(getGlobalX(), getGlobalY()+4, true)) {
+	
+		onGround = true;
+	} else {
+		onGround = false;
+	}
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}
+
+function kill ():void {
+	MovieClip(parent).removeChild(this);
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Orb/Orb-Anim" name="clip">
+                  <matrix>
+                    <Matrix a="0.307998657226563" d="0.307998657226563"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0.494644165039063" d="0.212249755859375"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

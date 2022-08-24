@@ -1,0 +1,76 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-WrapLine" itemID="57e7ea45-000012b1" lastModified="1474816581" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="OBJ-WrapLine">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var objects:Array;
+
+var _parent:MovieClip;
+var partner:MovieClip;
+//comp defs
+var partnerString:String;
+var onLeft:Boolean;
+var onRight:Boolean;
+
+init();
+
+function init ():void {
+	_parent = MovieClip(parent);
+	partner = _parent[partnerString];
+	
+	objects = new Array();
+	objects = [_parent.hero, _parent.en0];
+}
+
+function update ():void {
+	for (var i:int = 0; i < objects.length; i ++) {
+		var obj:MovieClip = objects[i];
+		
+		if (obj.x > x-10 && onRight) {
+			obj.x = partner.x + 20;
+		}
+		if (obj.x < x+10 && onLeft) {
+			obj.x = partner.x - 20;
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-JuggleMode/LVL-JuggleMode-TeleWall">
+                  <matrix>
+                    <Matrix d="1.31047058105469" ty="-163.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="partnerString">
+      <Inspectable name="partner" variable="partnerString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+   <property id="onLeft">
+      <Inspectable name="left" variable="onLeft" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+   <property id="onRight">
+      <Inspectable name="right" variable="onRight" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

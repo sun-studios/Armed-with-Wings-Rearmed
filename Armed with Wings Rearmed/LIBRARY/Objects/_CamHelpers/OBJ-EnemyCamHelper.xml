@@ -1,0 +1,313 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_CamHelpers/OBJ-EnemyCamHelper" itemID="57c5be4b-00001bbf" lastModified="1485441638">
+  <timeline>
+    <DOMTimeline name="OBJ-EnemyCamHelper">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+
+var activated:Boolean;
+var disable:Boolean;
+
+var sur_checkIndex:Number;
+var sur_checkIndexOrig:Number;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var vcam:MovieClip;
+var eagle:MovieClip;
+var target:MovieClip;
+
+var game:MovieClip;
+var gameData:MovieClip;
+var _parent:MovieClip;
+
+init();
+
+function init ():void {
+	activated = true;
+	
+	hero =  MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	vcam = MovieClip(parent).vcam;
+	eagle = MovieClip(parent).eagle;
+	game = MovieClip(parent);
+	gameData = MovieClip(root);
+	_parent = MovieClip(parent);
+	
+	sur_checkIndex = 3;
+	sur_checkIndexOrig = 3;
+	
+	vcam.target = this;
+}
+
+function update ():void {
+	if (activated) {
+		if (target) {
+			if (sur_checkIndex > 0) {
+				sur_checkIndex --;
+			} else {
+				var distVal:Number = 0;
+				var closestEn:MovieClip;
+				var allEnemiesDead:Boolean = true;
+				for (var i:int = 0; i < _parent.enemiesArr.length; i ++) {
+					var en:MovieClip = _parent.enemiesArr[i];
+					//if (en.enemyType) {
+						//if ((en.enemyType.substring(0,5) == "ENEMY" || en.enemyType.substring(0,4) == "BOSS")) {
+						//if (en.name.slice(0,2) == "en") {
+							if (i == 0) {
+								distVal = distanceBetween(hero, en);	
+								closestEn = en;
+							} else {
+								if (distanceBetween(hero, en) < distVal) {
+									distVal = distanceBetween(hero, en);
+									closestEn = en;
+								}
+							}
+							
+							if (en.life > 0) allEnemiesDead = false;	
+						//}
+					//}
+									
+				}
+				if (closestEn) {
+					
+					if (closestEn.enemyType) {
+						if (closestEn.enemyType.slice(0,5) == "ENEMY" || closestEn.enemyType.slice(0,4) == "BOSS") {
+							target = closestEn;
+						} else {
+							target = hero;
+						}
+					} else {
+						target = hero;
+					}
+				}
+				if (allEnemiesDead) {
+					target = hero;
+				}
+				sur_checkIndex = sur_checkIndexOrig;
+			}
+			
+			if (hero.life > 0) {
+				if (vcam.target == this) {
+					var distX:Number = target.x - hero.x;
+					var distY:Number = target.y - hero.y;
+					
+					x += (hero.x + (distX*.5) -x)/6;
+					y += (hero.y + (distY*.5) -y)/6;
+					
+					vcam.zoom = Math.abs(distX * .25/100);
+					if (vcam.zoom < .9) vcam.zoom = .9;
+					if (vcam.zoom > 1.8) vcam.zoom = 1.8;
+				}
+				
+				//using eagle to change target - making it all work
+				if (vcam.target == eagle) {
+					vcam.zoom = 1;
+				}
+				if (vcam.target == hero) {
+					vcam.target = this;
+				}
+			} else {
+				vcam.target = hero;
+			}
+		} else {
+			if (!target) target = hero;
+		}
+	}
+}
+
+function cameraFocus ():void {
+	vcam.target = this;
+	activated = true;
+}
+
+function end ():void {
+	activated = false;
+	vcam.target = hero;
+	vcam.zoom = 1;
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+
+/*
+import flash.display.MovieClip;
+
+visible = false;
+
+var activated:Boolean;
+var disable:Boolean;
+
+var sur_checkIndex:Number;
+var sur_checkIndexOrig:Number;
+
+var hero:MovieClip;
+var boss:MovieClip;
+var vcam:MovieClip;
+var eagle:MovieClip;
+var target:MovieClip;
+
+var game:MovieClip;
+var gameData:MovieClip;
+var _parent:MovieClip;
+
+init();
+
+function init ():void {
+	activated = true;
+	
+	hero =  MovieClip(parent).hero;
+	boss = MovieClip(parent).boss;
+	vcam = MovieClip(parent).vcam;
+	eagle = MovieClip(parent).eagle;
+	game = MovieClip(parent);
+	gameData = MovieClip(root);
+	_parent = MovieClip(parent);
+	
+	sur_checkIndex = 3;
+	sur_checkIndexOrig = 3;
+	
+	vcam.target = this;
+}
+
+function update ():void {
+	if (activated) {
+		if (target) {
+			if (sur_checkIndex > 0) {
+				sur_checkIndex --;
+			} else {
+				var distVal:Number = 0;
+				var closestEn:MovieClip;
+				var allEnemiesDead:Boolean = true;
+				for (var i:int = 0; i < _parent.enemiesArr.length; i ++) {
+					var en:MovieClip = _parent.enemiesArr[i];
+					
+					if (i == 0) {
+						distVal = distanceBetween(hero, en);	
+						closestEn = en;
+					} else {
+						if (distanceBetween(hero, en) < distVal) {
+							distVal = distanceBetween(hero, en);
+							closestEn = en;
+						}
+					}
+					
+					if (en.life > 0) allEnemiesDead = false;					
+				}
+				if (closestEn) target = closestEn;
+				if (allEnemiesDead) {
+					target = hero;
+				}
+				sur_checkIndex = sur_checkIndexOrig;
+			}
+			
+			if (hero.life > 0) {
+				if (vcam.target == this) {
+					var distX:Number = target.x - hero.x;
+					var distY:Number = target.y - hero.y;
+					
+					x += (hero.x + (distX*.5) -x)/6;
+					y += (hero.y + (distY*.5) -y)/6;
+					
+					vcam.zoom = Math.abs(distX * .25/100);
+					if (vcam.zoom < .9) vcam.zoom = .9;
+					if (vcam.zoom > 1.8) vcam.zoom = 1.8;
+				}
+				
+				//using eagle to change target - making it all work
+				if (vcam.target == eagle) {
+					vcam.zoom = 1;
+				}
+				if (vcam.target == hero) {
+					vcam.target = this;
+				}
+			} else {
+				vcam.target = hero;
+			}
+		} else {
+			if (!target) target = hero;
+		}
+	}
+}
+
+function cameraFocus ():void {
+	vcam.target = this;
+	activated = true;
+}
+
+function end ():void {
+	activated = false;
+	vcam.target = hero;
+	vcam.zoom = 1;
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+*/
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000" alpha="0.525490196078431"/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!110 -110|110 110!110 110|-110 110!-110 110|-110 -110!-110 -110|110 -110"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <strokes>
+                        <StrokeStyle index="1">
+                          <SolidStroke scaleMode="normal">
+                            <fill>
+                              <SolidColor color="#FF0000"/>
+                            </fill>
+                          </SolidStroke>
+                        </StrokeStyle>
+                      </strokes>
+                      <edges>
+                        <Edge strokeStyle="1" edges="!0 0|0 3027!3027 0|0 0!0 -3027|0 0!0 0|-3027 0"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

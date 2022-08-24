@@ -1,0 +1,78 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-anim" itemID="556ac1f9-000007a2" symbolType="graphic" lastModified="1433059833">
+  <timeline>
+    <DOMTimeline name="OBJ-Teleporter-particle-anim" currentFrame="14">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="5" tweenType="motion" useSingleEaseCurve="false" motionTweenSnap="true" hasCustomEase="true" keyMode="22017">
+              <tweens>
+                <CustomEase target="position">
+                  <Point/>
+                  <Point y="0.8"/>
+                  <Point x="0.5711" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="scale">
+                  <Point/>
+                  <Point y="0.6404"/>
+                  <Point x="0.5894" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <CustomEase target="color">
+                  <Point/>
+                  <Point y="1"/>
+                  <Point x="0.1809" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="0.433807373046875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-31.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="9" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-shape" symbolType="graphic" centerPoint3DY="-13.6" loop="loop">
+                  <matrix>
+                    <Matrix d="4.36297607421875"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-31.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.8515625"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q04/OBJ-Teleporter/assets/OBJ-Teleporter-particle-shape" symbolType="graphic" centerPoint3DY="-13.55" loop="loop">
+                  <matrix>
+                    <Matrix d="2.16937255859375" ty="-159.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-31.2"/>
+                  </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

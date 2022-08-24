@@ -1,0 +1,1986 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-O/IceArena-00" itemID="56c5d988-00000b4e" lastModified="1490645130" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="IceArena-00">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" visible="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+visible = false;
+
+var vcam:MovieClip = MovieClip(parent).vcam;
+var sndCtrl:MovieClip = MovieClip(root);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" duration="4" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="26" duration="16" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="42" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.shakeCamera(10);
+sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="44" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.shakeCamera(10);
+sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.shakeCamera(10);
+sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" duration="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.shakeCamera(10);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="68" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[vcam.shakeCamera(10);
+sndCtrl.playSound(sndCtrl.sndSoftExplode3, 0, 2.5);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="120" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 28" color="#FF4FFF" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="48" duration="18" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="66" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="70" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="74" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" duration="43" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 25" color="#4F80FF" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="52" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="52" duration="68" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/IceExplosion" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.0509033203125" c="-0.170181274414063" d="1.17132568359375" tx="141" ty="362.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-8" y="0.45"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.66" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="120" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 26" color="#9933CC" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="44" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="44" duration="75" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="119" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 23" color="#669900" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="47" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="49" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.922866821289063" d="1.24346923828125" tx="299.95" ty="302"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="96" duration="25" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 24" color="#FF4F4F" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="36" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="36" duration="6" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="42" duration="78" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/IceExplosion" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-1.25747680664063" d="1.25747680664063" tx="507.8" ty="347.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-54.4"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.35" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="120" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 27" color="#FF800A" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="50" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="50" duration="19" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/IceExplosion" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.41537475585938" d="1.12091064453125" tx="214.4" ty="361.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-54.45"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.66" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="69" duration="52" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 21" color="#000000" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="23" duration="45" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1088.95" ty="299.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.49" tintColor="#CCCCCC"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="68" duration="53" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 22" color="#000000" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="28" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="28" duration="70" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/IceExplosion" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="887.45" ty="370.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-54.4"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="0.6" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="98" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 20" color="#000000" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="19" duration="25" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-Dust/LVL0-Explosion-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="1160.35" ty="362.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-24.55"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="47" duration="9" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="56" duration="6" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="62" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="65" duration="56" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 19" color="#FF800A" visible="false">
+          <frames>
+            <DOMFrame index="0" duration="15" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="15" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.027862548828125" b="-1.30125427246094" c="2.72080993652344" d="0.0582122802734375" tx="1174.75" ty="74.8"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.021392822265625" b="-0.999771118164063" c="0.999771118164063" d="0.021392822265625" tx="1173.95" ty="353.05"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.0160369873046875" b="-1.27151489257813" c="1.91738891601563" d="-0.0274658203125" tx="1118.4" ty="182.6"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.0088348388671875" b="-1.24671936035156" c="1.29267883300781" d="-0.00921630859375" tx="1115.8" ty="468.15"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="20" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.028472900390625" b="-1.33149719238281" c="1.52442932128906" d="-0.0326080322265625" tx="1072.95" ty="149.25"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.0237884521484375" b="-1.74896240234375" c="2.72119140625" d="-0.0369873046875" tx="1063.45" ty="488.25"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="22" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.668991088867188" b="-1.27197265625" c="1.81716918945313" d="-0.95574951171875" tx="874.1" ty="200.4"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.788482666015625" b="-1.49929809570313" c="-2.40864562988281" d="1.26666259765625" tx="1080.2" ty="528.9"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="24" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.5313720703125" b="-1.56556701660156" c="1.051513671875" d="-0.356887817382813" tx="895.5" ty="240.3"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="26" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.601470947265625" b="1.96884155273438" c="2.20494079589844" d="-0.673660278320313" tx="645.85" ty="-447.35"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.416091918945313" b="1.36199951171875" c="2.20494079589844" d="-0.673660278320313" tx="767.9" ty="-47.75"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="28" duration="7" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="35" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.010589599609375" b="-2.05863952636719" c="-2.30552673339844" d="0.01190185546875" tx="504.65" ty="399.85"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.0089263916015625" b="-1.73393249511719" c="-2.30552673339844" d="0.01190185546875" tx="505.8" ty="620.55"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.705413818359375" b="1.72224426269531" c="-2.13351440429688" d="0.873886108398438" tx="180.75" ty="-394.85"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="41" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.356063842773438" b="0.869308471679688" c="-2.13351440429688" d="0.873886108398438" tx="373.1" ty="74.7"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="42" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.809616088867188" b="1.57069396972656" c="-2.04931640625" d="1.05635070800781" tx="28.55" ty="-420.4"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="43" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.599395751953125" b="-1.162841796875" c="-2.04931640625" d="1.05635070800781" tx="502.65" ty="499.35"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="44" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.316314697265625" b="-1.79356384277344" c="-2.27052307128906" d="0.400421142578125" tx="361.9" ty="375.5"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.258895874023438" b="1.46800231933594" c="-2.27052307128906" d="0.400421142578125" tx="290.75" ty="-18.55"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="46" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.0070648193359375" b="-1.49179077148438" c="-2.30551147460938" d="-0.01092529296875" tx="276.5" ty="160"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="0.006439208984375" b="-1.35922241210938" c="-2.30551147460938" d="-0.01092529296875" tx="275.6" ty="345.35"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="48" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.00555419921875" b="-1.81269836425781" c="-2.30552673339844" d="0.007049560546875" tx="220.45" ty="285.65"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.0052642822265625" b="-1.71797180175781" c="-2.30552673339844" d="0.007049560546875" tx="221.3" ty="562.9"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.639877319335938" b="-1.5943603515625" c="-2.1396484375" d="0.85870361328125" tx="107.95" ty="215.1"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/PRT-Wind/wind-bitmap-00">
+                  <matrix>
+                    <Matrix a="-0.639877319335938" b="-1.5943603515625" c="-2.1396484375" d="0.85870361328125" tx="257.95" ty="560.3"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="52" duration="69" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 14" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-13" symbolType="graphic" centerPoint3DX="125.8" centerPoint3DY="264.85" loop="loop">
+                  <matrix>
+                    <Matrix a="0.9239501953125" b="-0.38250732421875" c="0.38250732421875" d="0.9239501953125" tx="125.8" ty="264.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="49" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="50" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-13" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.0975494384765625" b="-0.0403900146484375" c="0.522430419921875" d="1.26194763183594" tx="-9.2" ty="-36.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" duration="38" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-13" symbolType="graphic" centerPoint3DX="131.2" centerPoint3DY="275.65" loop="loop">
+                  <matrix>
+                    <Matrix a="0.9239501953125" b="-0.38250732421875" c="0.38250732421875" d="0.9239501953125" tx="131.2" ty="275.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-13" symbolType="graphic" centerPoint3DX="125.8" centerPoint3DY="264.85" loop="loop">
+                  <matrix>
+                    <Matrix a="0.9239501953125" b="-0.38250732421875" c="0.38250732421875" d="0.9239501953125" tx="125.8" ty="264.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 13" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-12" symbolType="graphic" centerPoint3DX="202.75" centerPoint3DY="300.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="202.75" ty="300.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="47" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="48" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-12" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.134078979492188" d="1.25360107421875" tx="202.75" ty="-18.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" duration="38" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-12" symbolType="graphic" centerPoint3DX="202.75" centerPoint3DY="311.55" loop="loop">
+                  <matrix>
+                    <Matrix tx="202.75" ty="311.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="89" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-12" symbolType="graphic" centerPoint3DX="202.75" centerPoint3DY="300.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="202.75" ty="300.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-12" symbolType="graphic" centerPoint3DX="202.75" centerPoint3DY="300.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="202.75" ty="300.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 12" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-11" symbolType="graphic" centerPoint3DX="259.2" centerPoint3DY="290.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="259.2" ty="290.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="45" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="46" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-11" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.102279663085938" d="1.56852722167969" tx="259.2" ty="-64.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="38" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-11" symbolType="graphic" centerPoint3DX="259.2" centerPoint3DY="301.4" loop="loop">
+                  <matrix>
+                    <Matrix tx="259.2" ty="301.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="87" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-11" symbolType="graphic" centerPoint3DX="259.2" centerPoint3DY="290.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="259.2" ty="290.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-11" symbolType="graphic" centerPoint3DX="259.2" centerPoint3DY="290.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="259.2" ty="290.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 11" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-10" symbolType="graphic" centerPoint3DX="320.7" centerPoint3DY="267.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.983428955078125" b="-0.181289672851563" c="0.181289672851563" d="0.983428955078125" tx="320.7" ty="267.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="43" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="44" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-10" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.107131958007813" b="0.019744873046875" c="0.24163818359375" d="1.31077575683594" tx="274.8" ty="-25.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" duration="38" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-10" symbolType="graphic" centerPoint3DX="325.2" centerPoint3DY="278" loop="loop">
+                  <matrix>
+                    <Matrix a="0.983428955078125" b="-0.181289672851563" c="0.181289672851563" d="0.983428955078125" tx="325.2" ty="278"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="85" duration="6" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-10" symbolType="graphic" centerPoint3DX="320.7" centerPoint3DY="267.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.983428955078125" b="-0.181289672851563" c="0.181289672851563" d="0.983428955078125" tx="320.7" ty="267.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-10" symbolType="graphic" centerPoint3DX="320.7" centerPoint3DY="267.2" loop="loop">
+                  <matrix>
+                    <Matrix a="0.983428955078125" b="-0.181289672851563" c="0.181289672851563" d="0.983428955078125" tx="320.7" ty="267.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 10" color="#FF4F4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-09" symbolType="graphic" centerPoint3DX="393.5" centerPoint3DY="308.45" loop="loop">
+                  <matrix>
+                    <Matrix a="0.889114379882813" b="-0.457672119140625" c="0.457672119140625" d="0.889114379882813" tx="393.45" ty="308.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="41" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="42" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-09" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="-0.0859375" b="0.0442352294921875" c="0.699371337890625" d="1.358642578125" tx="276.45" ty="96.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="38" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-09" symbolType="graphic" centerPoint3DX="401.6" centerPoint3DY="319.25" loop="loop">
+                  <matrix>
+                    <Matrix a="0.889114379882813" b="-0.457672119140625" c="0.457672119140625" d="0.889114379882813" tx="401.55" ty="319.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="83" duration="8" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-09" symbolType="graphic" centerPoint3DX="393.5" centerPoint3DY="308.45" loop="loop">
+                  <matrix>
+                    <Matrix a="0.889114379882813" b="-0.457672119140625" c="0.457672119140625" d="0.889114379882813" tx="393.45" ty="308.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-09" symbolType="graphic" centerPoint3DX="393.5" centerPoint3DY="308.45" loop="loop">
+                  <matrix>
+                    <Matrix a="0.889114379882813" b="-0.457672119140625" c="0.457672119140625" d="0.889114379882813" tx="393.45" ty="308.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 9" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-08" symbolType="graphic" centerPoint3DX="435.9" centerPoint3DY="303.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.91900634765625" b="-0.394241333007813" c="0.394241333007813" d="0.91900634765625" tx="435.9" ty="303.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="39" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="40" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-08" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.194046020507813" b="-0.083251953125" c="0.47796630859375" d="1.11416625976563" tx="363.9" ty="91.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="43" duration="38" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-08" symbolType="graphic" centerPoint3DX="440.4" centerPoint3DY="314.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.91900634765625" b="-0.394241333007813" c="0.394241333007813" d="0.91900634765625" tx="440.4" ty="314.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="81" duration="10" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-08" symbolType="graphic" centerPoint3DX="435.9" centerPoint3DY="303.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.91900634765625" b="-0.394241333007813" c="0.394241333007813" d="0.91900634765625" tx="435.9" ty="303.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-08" symbolType="graphic" centerPoint3DX="435.9" centerPoint3DY="303.35" loop="loop">
+                  <matrix>
+                    <Matrix a="0.91900634765625" b="-0.394241333007813" c="0.394241333007813" d="0.91900634765625" tx="435.9" ty="303.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 8" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-07" symbolType="graphic" centerPoint3DX="488.45" centerPoint3DY="304.3" loop="loop">
+                  <matrix>
+                    <Matrix tx="488.45" ty="304.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="37" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="38" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-07" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.189422607421875" d="1.78448486328125" tx="488.45" ty="-6.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="41" duration="38" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-07" symbolType="graphic" centerPoint3DX="486.65" centerPoint3DY="315.1" loop="loop">
+                  <matrix>
+                    <Matrix tx="486.65" ty="315.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="79" duration="12" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-07" symbolType="graphic" centerPoint3DX="488.45" centerPoint3DY="304.3" loop="loop">
+                  <matrix>
+                    <Matrix tx="488.45" ty="304.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-07" symbolType="graphic" centerPoint3DX="488.45" centerPoint3DY="304.3" loop="loop">
+                  <matrix>
+                    <Matrix tx="488.45" ty="304.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 7" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-06" symbolType="graphic" centerPoint3DX="880.15" centerPoint3DY="335.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.956436157226563" b="-0.29193115234375" c="0.29193115234375" d="0.956436157226563" tx="880.15" ty="335.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="25" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="26" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-06" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.23187255859375" b="-0.070770263671875" c="0.510330200195313" d="1.67193603515625" tx="835.15" ty="123.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="29" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-06" symbolType="graphic" centerPoint3DX="880.15" centerPoint3DY="344.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.956436157226563" b="-0.29193115234375" c="0.29193115234375" d="0.956436157226563" tx="880.15" ty="344.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="55" duration="36" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-06" symbolType="graphic" centerPoint3DX="878.35" centerPoint3DY="335.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.956436157226563" b="-0.29193115234375" c="0.29193115234375" d="0.956436157226563" tx="878.35" ty="335.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-06" symbolType="graphic" centerPoint3DX="878.35" centerPoint3DY="335.05" loop="loop">
+                  <matrix>
+                    <Matrix a="0.956436157226563" b="-0.29193115234375" c="0.29193115234375" d="0.956436157226563" tx="878.35" ty="335.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 6" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-05" symbolType="graphic" centerPoint3DX="905.3" centerPoint3DY="321.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.944381713867188" b="-0.328842163085938" c="0.328842163085938" d="0.944381713867188" tx="905.3" ty="321.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-05" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.236740112304688" b="-0.0824432373046875" c="0.456512451171875" d="1.31101989746094" tx="860.3" ty="109.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="27" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-05" symbolType="graphic" centerPoint3DX="905.3" centerPoint3DY="330.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.944381713867188" b="-0.328842163085938" c="0.328842163085938" d="0.944381713867188" tx="905.3" ty="330.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" duration="38" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-05" symbolType="graphic" centerPoint3DX="904.4" centerPoint3DY="321.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.944381713867188" b="-0.328842163085938" c="0.328842163085938" d="0.944381713867188" tx="904.4" ty="321.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-05" symbolType="graphic" centerPoint3DX="904.4" centerPoint3DY="321.15" loop="loop">
+                  <matrix>
+                    <Matrix a="0.944381713867188" b="-0.328842163085938" c="0.328842163085938" d="0.944381713867188" tx="904.4" ty="321.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 5" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-04" symbolType="graphic" centerPoint3DX="967.7" centerPoint3DY="357.1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.887222290039063" b="-0.461334228515625" c="0.461334228515625" d="0.887222290039063" tx="967.7" ty="357.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="21" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="22" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-04" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.135116577148438" b="-0.0702667236328125" c="0.839553833007813" d="1.61460876464844" tx="797.7" ty="23.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-04" symbolType="graphic" centerPoint3DX="967.7" centerPoint3DY="366.1" loop="loop">
+                  <matrix>
+                    <Matrix a="0.887222290039063" b="-0.461334228515625" c="0.461334228515625" d="0.887222290039063" tx="967.7" ty="366.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="51" duration="40" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-04" symbolType="graphic" centerPoint3DX="963.2" centerPoint3DY="350.8" loop="loop">
+                  <matrix>
+                    <Matrix a="0.887222290039063" b="-0.461334228515625" c="0.461334228515625" d="0.887222290039063" tx="963.2" ty="350.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-04" symbolType="graphic" centerPoint3DX="963.2" centerPoint3DY="350.8" loop="loop">
+                  <matrix>
+                    <Matrix a="0.887222290039063" b="-0.461334228515625" c="0.461334228515625" d="0.887222290039063" tx="963.2" ty="350.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 4" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-03" symbolType="graphic" centerPoint3DX="1004.05" centerPoint3DY="340.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="1004.05" ty="340.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="19" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-03" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.436859130859375" d="1.27841186523438" tx="1004.05" ty="21.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-03" symbolType="graphic" centerPoint3DX="1004.05" centerPoint3DY="349.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="1004.05" ty="349.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="42" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-03" symbolType="graphic" centerPoint3DX="1004.05" centerPoint3DY="340.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="1004.05" ty="340.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-03" symbolType="graphic" centerPoint3DX="1004.05" centerPoint3DY="340.75" loop="loop">
+                  <matrix>
+                    <Matrix tx="1004.05" ty="340.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 3" color="#669900" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-02" symbolType="graphic" centerPoint3DX="1079.2" centerPoint3DY="333.95" loop="loop">
+                  <matrix>
+                    <Matrix tx="1079.2" ty="333.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="19" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="20" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.23956298828125" d="1.30569458007813" tx="1079.2" ty="14.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="23" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-02" symbolType="graphic" centerPoint3DX="1077.4" centerPoint3DY="342.95" loop="loop">
+                  <matrix>
+                    <Matrix tx="1077.4" ty="342.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="49" duration="42" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-02" symbolType="graphic" centerPoint3DX="1079.2" centerPoint3DY="333.95" loop="loop">
+                  <matrix>
+                    <Matrix tx="1079.2" ty="333.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-02" symbolType="graphic" centerPoint3DX="1079.2" centerPoint3DY="333.95" loop="loop">
+                  <matrix>
+                    <Matrix tx="1079.2" ty="333.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 2" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-01" symbolType="graphic" centerPoint3DX="1125.75" centerPoint3DY="344.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="1125.75" ty="344.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="17" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.384063720703125" d="2.18051147460938" tx="1125.75" ty="33.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="21" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-01" symbolType="graphic" centerPoint3DX="1125.75" centerPoint3DY="353.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="1125.75" ty="353.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="47" duration="44" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-01" symbolType="graphic" centerPoint3DX="1125.75" centerPoint3DY="344.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="1125.75" ty="344.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-01" symbolType="graphic" centerPoint3DX="1125.75" centerPoint3DY="344.05" loop="loop">
+                  <matrix>
+                    <Matrix tx="1125.75" ty="344.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Symbol 1" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-00" symbolType="graphic" centerPoint3DX="1164.8" centerPoint3DY="362.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="1164.8" ty="362.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="15" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="16" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-00" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.393447875976563" d="2.2811279296875" tx="1191.8" ty="-43.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="26" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-00" symbolType="graphic" centerPoint3DX="1162.1" centerPoint3DY="371.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="1162.1" ty="371.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="45" duration="46" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-00" symbolType="graphic" centerPoint3DX="1164.8" centerPoint3DY="362.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="1164.8" ty="362.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/IceShard-Graphics/IceShard-Shape-00" symbolType="graphic" centerPoint3DX="1164.8" centerPoint3DY="362.6" loop="loop">
+                  <matrix>
+                    <Matrix tx="1164.8" ty="362.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 18" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="48" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="48" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="49" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-StageIceBG-02" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix d="0.598464965820313" tx="368.6" ty="330.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="50" duration="41" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-StageIceBG-02" symbolType="graphic" centerPoint3DX="368.6" centerPoint3DY="286.2" loop="loop">
+                  <matrix>
+                    <Matrix d="1.04144287109375" tx="368.6" ty="281.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="91" duration="30" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-StageIceBG-02" symbolType="graphic" centerPoint3DX="368.6" centerPoint3DY="286.1" loop="loop">
+                  <matrix>
+                    <Matrix tx="368.6" ty="286.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#4B4B4B"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!4948.5 6581.5[5242 6438 5566 6438!5566 6438[5679 6424 5777 6373!5777 6373[5957 6284 6134 6194!6134 6194[6183 6170 6189 6111!6189 6111[6212 5907 6160 5715!6160 5715[6257 5406 6311 5083!6311 5083[6326 4993 6376 4917!6376 4917[#18F5.71
+ #1320.C3 6403 4877!6403 4877[#194D.37 #129F.4E 6555 4665!6555 4665[6701 4688 6853 4707!6853 4707[6896 4710 6927 4745!6927 4745[7019 4851 7103 4965!7103 4965[7187 5077 7330 5096!7330 5096|8093 6163!8093 6163[8314 6173 8531 6213!8531 6213
+[8567 6221 8603 6230!8603 6230[8926 6293 9263 6297!9263 6297[9303 6309 9341 6312!9341 6312[9463 6323 9484 6205!9484 6205[9511 6051 9518 5894!9518 5894[9607 6126 9720 6338!9720 6338[9727 6351 9745 6357!9745 6357[9798 6376 9855 6359!9855
+ 6359|9985 6742!9985 6742[10044 6785 10118 6787!10118 6787[10179 6791 10237 6773!10237 6773[10256 6767 10274 6759!10274 6759[10420 6498 10485 6204!10485 6204[10493 6444 10475 6684!10475 6684[10461 6874 10636 6898!10636 6898[10692 6900
+ 10751 6904!10751 6904|10941 6605!10941 6605|10897 6972!10897 6972|11228 6993!11228 6993|11478 6701!11478 6701|11483 6932!11483 6932[11620 7035 11796 7000!11796 7000[11860 6985 11879 6917!11879 6917[11887 6888 11901 6861!11901 6861[11915
+ 6834 11926 6806!11926 6806[12099 6963 12306 7067!12306 7067[12363 7097 12418 7132!12418 7132[12615 7264 12781 7428!12781 7428[12734 7570 12629 7681!12629 7681[12594 7717 12546 7736!12546 7736[12219 7855 11871 7872!11871 7872[11171 7928
+ 10467 7938!10467 7938[9134 7956 7802 7866!7802 7866[7502 7842 7201 7836!7201 7836[#1A91.EB #1E94.09 6403 7816.5!6403 7816.5[#16A8.51 #1E77.46 5198 7774!5198 7774[4921 7750 4645 7726!4645 7726[4054 7686 3483 7807!3483 7807[#CC2.39 #1EAD.0B
+ 3043 7880.5!3043 7880.5[#BD9.82 #1EC9.DC 3024 7883!3024 7883[2857 7898 2687 7851!2687 7851[2485 7795 2288 7735!2288 7735[2263 7726 2250 7700!2250 7700[2100 7403 2116 7061!2116 7061[2167 6909 2127 6747!2127 6747[2082 6560 2055 6368!2055
+ 6368[2018 6112 1977 5857!1977 5857[1957 5730 1968 5601!1968 5601[1978 5476 2036 5363!2036 5363[2153 5130 2244 4887!2244 4887[2282 4786 2324 4688!2324 4688[2414 4480 2561 4309!2561 4309[2577 4292 2603 4283!2603 4283[2611 4281 2619 4280
+!2619 4280[2678 4189 2690 4073!2690 4073[2704 3936 2723 3795!2723 3795[2737 3686 2749 3576!2749 3576|2804 4343!2804 4343|2913 3503!2913 3503|3004 4726!3004 4726|3114 4160!3114 4160[3102 4696 3117 5236!3117 5236[3118 5261 3137 5281!3137
+ 5281[3229 5373 3322 5454!3322 5454[3351 5435 3357 5398!3357 5398[3358 5390 3357 5382!3357 5382[3353 5352 3341 5324!3341 5324[3329 5297 3306 5279!3306 5279[3302 5275 3299 5271!3299 5271|3307 5054!3307 5054[3410 5042 3518 5058!3518 5058
+[3555 5058 3587 5076!3587 5076[3657 5116 3729 5100!3729 5100|3843 4995!3843 4995|3882 5033!3882 5033|4008 4927!4008 4927[4082 5304 4213 5661!4213 5661[4223 5688 4243 5709!4243 5709[4352 5824 4495.5 5892!4495.5 5892[4607 5644 4643 5367
+!4643 5367[4658 5246 4683 5127!4683 5127[4686 5111 4692 5096!4692 5096|4560 6173!4560 6173[4602 6024 4656 5868!4656 5868[4809 5432 5022 5015!5022 5015[5031 4998 5041 4982!5041 4982|4719 6605!4719 6605|5028 5824!5028 5824|4948.5 6581.5"/>
+                    <Edge fillStyle0="1" edges="
+!4948.5 6581.5[4933 6617 4944 6589!4944 6589[4945 6585 4948.5 6581.5"/>
+                    <Edge cubics="!22138 6500(;22101,6632 22063,6767 22055,6808q22138 6500Q22063 6769q22055 6808);"/>
+                    <Edge cubics="!22053 6934(;22066,6905 22138,6897 22156,6883q22053 6934Q22061 6917q22103 6903Q22152 6886q22156 6883);"/>
+                    <Edge cubics="!22156 6883(22156,6883;22176,6867 22191,6839 22233,6825q22156 6883Q22166 6875q22186 6853Q22207 6834q22233 6825)22233,6825;"/>
+                    <Edge cubics="!22233 6825(;22231,6839 22224,6898 22217,7043q22233 6825Q22225 6883q22217 7043);"/>
+                    <Edge cubics="!22217 7043(22217,7043;22325,7059 22389,6751 22429,6751q22217 7043Q22280 7052q22349 6903Q22418 6751q22429 6751);"/>
+                    <Edge cubics="!22429 6751(22429,6751;22432,6751 22570,6771 22609,6836q22429 6751Q22431 6751q22506 6769Q22585 6795q22609 6836);"/>
+                    <Edge cubics="!22609 6836(22609,6836;22615,6846 22611,6896 22628,6954q22609 6836Q22611 6839q22614 6877Q22618 6921q22628 6954);"/>
+                    <Edge cubics="!22628 6954(;22646,7014 22601,6979 22714,6995q22628 6954Q22637 6984q22635 6991Q22641 6992q22714 6995);"/>
+                    <Edge cubics="!22714 6995(22714,6995;22826,7011 22912,7048 22929,7061q22714 6995Q22789 7006q22857 7029Q22912 7048q22929 7061)22929,7061;"/>
+                    <Edge cubics="!22929 7061(22929,7061;22929,7061 22918,6862 22910,6660q22929 7061Q22918 6862q22910 6660);"/>
+                    <Edge cubics="!22910 6660(22910,6660;22952,6698 22984,6831 23021,6879q22910 6660Q22933 6681q22967 6766Q23005 6858q23021 6879);"/>
+                    <Edge cubics="!23021 6879(23021,6879;23037,6900 23046,6963 23077,6986q23021 6879Q23025 6885q23043 6932Q23059 6973q23077 6986)23077,6986;"/>
+                    <Edge cubics="!23077 6986(23077,6986;23090,6996 23118,7026 23129,7043q23077 6986Q23107 7009q23129 7043)23129,7043;"/>
+                    <Edge cubics="!23129 7043(;23132,7040 23151,7021 23155,6998q23129 7043Q23151 7021q23155 6998);"/>
+                    <Edge cubics="!23155 6998(23155,6998;23161,6962 23210,6862 23142,6862q23155 6998Q23172 6946q23176 6917Q23185 6862q23142 6862);"/>
+                    <Edge cubics="!23142 6862(23142,6862;23142,6862 23175,6850 23175,6850q23142 6862 23175 6850);"/>
+                    <Edge cubics="!23175 6850(23175,6850;23179,6856 23204,6915 23225,6925q23175 6850Q23177 6853q23194 6886Q23212 6919q23225 6925)23225,6925;"/>
+                    <Edge cubics="!23225 6925(;23225,6925 23227,6926 23227,6926q23225 6925 23227 6926)23227,6926;"/>
+                    <Edge cubics="!23227 6926(23227,6926;23225,6921 23218,6901 23217,6883q23227 6926Q23218 6904q23217 6883)23217,6883;"/>
+                    <Edge cubics="!23217 6883(23217,6883;23217,6883 23218,6879 23218,6879q23217 6883 23218 6879)23218,6879;"/>
+                    <Edge cubics="!23218 6879(23218,6879;23224,6885 23239,6921 23271,6932q23218 6879Q23221 6882q23235 6904Q23251 6925q23271 6932);"/>
+                    <Edge cubics="!23271 6932(23271,6932;23288,6938 23332,6938 23387,6946q23271 6932Q23280 6935q23315 6938Q23362 6942q23387 6946);"/>
+                    <Edge cubics="!23387 6946(23387,6946;23396,6947 23481,7003 23509,7024q23387 6946Q23393 6947q23441 6978Q23486 7006q23509 7024)23509,7024;"/>
+                    <Edge cubics="!23668 7133(;23668,7245 23590,7442 23580,7462q23668 7133Q23668 7204q23628 7332Q23598 7426q23580 7462);"/>
+                    <Edge cubics="!23580 7462(23580,7462;23565,7492 23531,7522 23491,7542q23580 7462Q23556 7509q23491 7542);"/>
+                    <Edge cubics="!23491 7542(;23299,7641 23274,7671 22910,7745q23491 7542Q23308 7636q23265 7653Q23155 7695q22910 7745);"/>
+                    <Edge cubics="!22910 7745(22910,7745;22910,7745 22910,7536 22910,7536q22910 7745 22910 7536);"/>
+                    <Edge cubics="!17361 7517(;17181,7516 17157,7515 17134,7511q17361 7517Q17162 7516q17134 7511);"/>
+                    <Edge cubics="!17134 7511(17134,7511;17114,7508 17095,7497 17080,7490q17134 7511Q17121 7509q17080 7490)17080,7490;"/>
+                    <Edge cubics="!17080 7490(17080,7490;17049,7474 16980,7387 16980,7276q17080 7490Q17050 7474q17018 7419Q16980 7350q16980 7276);"/>
+                    <Edge cubics="!16980 7276(16980,7276;16980,7256 16993,7232 17028,7215q16980 7276Q16980 7238q17028 7215)17028,7215;"/>
+                    <Edge cubics="!17028 7215(;17028,7215 17015,7224 17035,7224q17028 7215Q17028 7215q17024 7220Q17023 7224q17035 7224);"/>
+                    <Edge cubics="!17035 7224(;17055,7224 17039,7210 17047,7204q17035 7224Q17046 7224q17046 7216Q17044 7206q17047 7204);"/>
+                    <Edge cubics="!17047 7204(;17069,7188 17063,7197 17083,7197q17047 7204Q17061 7194q17066 7195Q17070 7195q17083 7197);"/>
+                    <Edge cubics="!17083 7197(;17103,7197 17104,7186 17108,7189q17083 7197Q17095 7197q17102 7192Q17107 7188q17108 7189)17108,7189;"/>
+                    <Edge cubics="!17108 7189(;17107,7181 17101,7186 17101,7166q17108 7189Q17108 7187q17104 7182Q17101 7178q17101 7166);"/>
+                    <Edge cubics="!17101 7166(17101,7166;17101,7154 17181,7086 17190,7007q17101 7166Q17101 7160q17142 7112Q17185 7055q17190 7007)17190,7007;"/>
+                    <Edge cubics="!17190 7007(;17193,6979 17178,6951 17184,6927q17190 7007Q17191 6994q17186 6966Q17181 6940q17184 6927);"/>
+                    <Edge cubics="!17184 6927(17184,6927;17200,6870 17264,6878 17264,6775q17184 6927Q17189 6909q17230 6868Q17264 6834q17264 6775);"/>
+                    <Edge cubics="!17264 6775(;17264,6755 17249,6605 17249,6585q17264 6775Q17249 6605q17249 6585);"/>
+                    <Edge cubics="!17249 6585(;17249,6565 17253,6476 17260,6412q17249 6585Q17249 6513q17260 6412);"/>
+                    <Edge cubics="!17260 6412(;17264,6376 17266,6375 17419,6339q17260 6412Q17263 6385q17284 6376Q17304 6366q17419 6339);"/>
+                    <Edge cubics="!17419 6339(17419,6339;17480,6325 17630,6227 17650,6192q17419 6339Q17464 6329q17550 6273Q17635 6219q17650 6192)17650,6192;"/>
+                    <Edge cubics="!17650 6192(;17652,6188 17687,6042 17687,6039q17650 6192Q17652 6188q17687 6039);"/>
+                    <Edge cubics="!17687 6039(;17687,6036 17633,5809 17633,5795q17687 6039Q17687 6039q17660 5921Q17633 5803q17633 5795)17633,5795;"/>
+                    <Edge cubics="!17633 5795(17633,5795;17633,5731 17679,5623 17692,5602q17633 5795Q17633 5753q17658 5682Q17678 5625q17692 5602);"/>
+                    <Edge cubics="!17692 5602(17692,5602;17735,5621 17747,5652 17759,5711q17692 5602Q17722 5615q17737 5642Q17749 5663q17759 5711)17759,5711;"/>
+                    <Edge cubics="!18141 6212(;18190,6260 18185,6258 18195,6258q18141 6212Q18166 6236q18183 6253Q18188 6258q18195 6258);"/>
+                    <Edge cubics="!18195 6258(;18215,6258 18231,6253 18252,6239q18195 6258Q18224 6258q18252 6239);"/>
+                    <Edge cubics="!18252 6239(;18257,6236 18274,6198 18288,6171q18252 6239Q18255 6237q18267 6214Q18273 6201q18288 6171)18288,6171;"/>
+                    <Edge cubics="!18288 6171(18288,6171;18312,6166 18303,6169 18347,6169q18288 6171Q18303 6168q18310 6168Q18316 6168q18347 6169);"/>
+                    <Edge cubics="!18347 6169(;18363,6169 18377,6140 18478,6120q18347 6169Q18349 6169q18381 6152Q18418 6132q18478 6120);"/>
+                    <Edge cubics="!18478 6120(;18553,6105 18570,5974 18591,5916q18478 6120Q18525 6111q18555 6034Q18581 5945q18591 5916)18591,5916;"/>
+                    <Edge cubics="!18591 5916(18591,5916;18630,5806 18638,5644 18680,5604q18591 5916Q18605 5875q18634 5734Q18656 5627q18680 5604);"/>
+                    <Edge cubics="!18680 5604(;18694,5605 18692,5661 18694,5714q18680 5604Q18689 5605q18692 5640Q18693 5660q18694 5714);"/>
+                    <Edge cubics="!18694 5714(18694,5714;18694,5714 18700,5767 18708,5817q18694 5714Q18694 5714q18708 5817)18708,5817;"/>
+                    <Edge cubics="!18708 5817(18708,5817;18709,5828 18774,5997 18781,6006q18708 5817Q18709 5825q18742 5912Q18776 5999q18781 6006)18781,6006;"/>
+                    <Edge cubics="!18781 6006(18781,6006;18807,6037 18918,6074 19000,6139q18781 6006Q18793 6020q18870 6060Q18957 6105q19000 6139);"/>
+                    <Edge cubics="!19000 6139(;19206,6303 19072,6500 19383,6500q19000 6139Q19065 6191q19103 6265Q19124 6306q19152 6381Q19179 6441q19221 6467Q19275 6500q19383 6500);"/>
+                    <Edge cubics="!19383 6500(19383,6500;19562,6500 19490,6410 19608,6313q19383 6500Q19487 6500q19518 6443Q19528 6426q19548 6383Q19571 6343q19608 6313)19608,6313;"/>
+                    <Edge cubics="!19608 6313(19608,6313;19651,6370 19777,6435 19828,6435q19608 6313Q19639 6354q19715 6395Q19788 6435q19828 6435)19828,6435;"/>
+                    <Edge cubics="!19828 6435(19828,6435;19918,6435 19933,6397 19955,6313q19828 6435Q19891 6435q19917 6406Q19937 6384q19955 6313);"/>
+                    <Edge cubics="!19955 6313(;20001,6325 20009,6349 20009,6362q19955 6313Q20009 6327q20009 6362);"/>
+                    <Edge cubics="!20009 6362(20009,6362;20009,6368 19973,6408 19973,6481q20009 6362Q20009 6365q19991 6396Q19973 6436q19973 6481);"/>
+                    <Edge cubics="!19973 6481(19973,6481;19973,6684 20222,6671 20312,6760q19973 6481Q19973 6602q20109 6663Q20146 6680q20221 6707Q20285 6733q20312 6760);"/>
+                    <Edge cubics="!20312 6760(20312,6760;20346,6793 20315,6929 20387,6979q20312 6760Q20324 6772q20335 6863Q20346 6951q20387 6979);"/>
+                    <Edge cubics="!20387 6979(20387,6979;20456,7026 20463,7055 20550,7055q20387 6979Q20422 7003q20462 7035Q20495 7055q20550 7055);"/>
+                    <Edge cubics="!20848 7017(;20863,7013 20876,7001 20887,6990q20848 7017Q20864 7013q20887 6990);"/>
+                    <Edge cubics="!20887 6990(20887,6990;20964,6911 21073,6740 21083,6725q20887 6990Q20964 6911q21083 6725)21083,6725;"/>
+                    <Edge cubics="!21083 6725(;21136,6646 21166,6630 21250,6630q21083 6725Q21123 6666q21155 6648Q21187 6630q21250 6630);"/>
+                    <Edge cubics="!21250 6630(21250,6630;21294,6630 21272,6606 21323,6606q21250 6630Q21271 6630q21284 6618Q21297 6606q21323 6606)21323,6606;"/>
+                    <Edge cubics="!21323 6606(21323,6606;21507,6606 21533,6726 21694,6726q21323 6606Q21418 6606q21517 6666Q21616 6726q21694 6726)21694,6726;"/>
+                    <Edge cubics="!21694 6726(;21704,6726 21779,6654 21935,6364q21694 6726Q21707 6726q21760 6654Q21834 6552q21935 6364);"/>
+                    <Edge cubics="!21956 6371(21956,6371;21956,6371 21935,6364 21935,6364q21956 6371 21935 6364)21935,6364;"/>
+                    <Edge cubics="!22138 6500(22138,6500;22138,6500 22101,6490 22101,6490q22138 6500 22101 6490);"/>
+                    <Edge cubics="!22101 6490(;22101,6490 22111,6477 22111,6477q22101 6490p22111 6477);"/>
+                    <Edge cubics="!22111 6477(;22111,6477 22139,6495 22138,6500q22111 6477Q22139 6495q22138 6500);"/>
+                    <Edge cubics="!21956 6371(21956,6371;21956,6371 21885,6605 21816,6842q21956 6371Q21956 6371q21816 6842);"/>
+                    <Edge cubics="!21816 6842(;21881,6664 22089,6505 22101,6490q21816 6842Q21856 6731q21978 6605Q22040 6541q22101 6490);"/>
+                    <Edge cubics="!20550 7055(20550,7055;20550,7055 20848,7017 20848,7017q20550 7055 20848 7017)20848,7017;"/>
+                    <Edge cubics="!22055 6808(22055,6808;22055,6808 22053,6934 22053,6934q22055 6808 22053 6934);"/>
+                    <Edge cubics="!23552 7046(23552,7046;23574,7056 23591,7061 23603,7061q23552 7046Q23585 7061q23603 7061)23603,7061;"/>
+                    <Edge cubics="!23603 7061(;23597,7061 23597,7058 23604,7052q23603 7061Q23594 7061q23604 7052)23604,7052;"/>
+                    <Edge cubics="!23605 7043(;23631,7043 23649,7056 23659,7082q23605 7043Q23644 7043q23659 7082);"/>
+                    <Edge cubics="!23604 7052(;23611,7046 23611,7043 23605,7043q23604 7052Q23614 7043q23605 7043);"/>
+                    <Edge cubics="!23509 7024(23509,7024;23518,7031 23533,7038 23552,7046q23509 7024Q23523 7034q23552 7046)23552,7046;"/>
+                    <Edge cubics="!23659 7082(;23665,7097 23668,7114 23668,7133q23659 7082Q23668 7104q23668 7133);"/>
+                    <Edge cubics="!18025 6069(18025,6069;18086,6150 18125,6197 18141,6212q18025 6069Q18117 6190q18141 6212);"/>
+                    <Edge cubics="!17759 5711(;17759,5711 18025,6069 18025,6069q17759 5711 18025 6069);"/>
+                    <Edge cubics="!22910 7536(22910,7536;22910,7536 17361,7517 17361,7517q22910 7536 17361 7517)17361,7517;"/>
+                  </edges>
+                </DOMShape>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="-0.212158203125" c="0.2041015625" d="0" tx="1015.25" ty="297"/>
+                            </matrix>
+                            <GradientEntry ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                        <FillStyle index="2">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0.2041015625" d="0.065399169921875" tx="1016.15" ty="333.65"/>
+                            </matrix>
+                            <GradientEntry ratio="0"/>
+                            <GradientEntry color="#FFFFFF" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!22137.5 6500[22063 6769 22055 6808!22055 6808|22053 6934!22053 6934[22061 6917 22103 6903!22103 6903[22152 6886 22156 6883!22156 6883[22166 6875 22186 6853!22186 6853[22207 6834 22233 6825!22233 6825[22225 6883 22217 7043!22217 7043
+[22280 7052 22349 6903!22349 6903[22418 6751 22429 6751!22429 6751[22431 6751 22506 6769!22506 6769[22585 6795 22609 6836!22609 6836[22611 6839 22614 6877!22614 6877[22618 6921 22628 6954!22628 6954[22637 6984 22635 6991!22635 6991[22641
+ 6992 22714 6995!22714 6995[22789 7006 22857 7029!22857 7029[22912 7048 22929 7061!22929 7061[22918 6862 22910 6660!22910 6660[22933 6681 22967 6766!22967 6766[23005 6858 23021 6879!23021 6879[23025 6885 23043 6932!23043 6932[23059 6973
+ 23077 6986!23077 6986[23107 7009 23129 7043!23129 7043[23151 7021 23155 6998!23155 6998[23172 6946 23176 6917!23176 6917[23185 6862 23142 6862!23142 6862|23175 6850!23175 6850[23177 6853 23194 6886!23194 6886[23212 6919 23225 6925!23225
+ 6925|23227 6926!23227 6926[23218 6904 23217 6883!23217 6883|23218 6879!23218 6879[23221 6882 23235 6904!23235 6904[23251 6925 23271 6932!23271 6932[23280 6935 23315 6938!23315 6938[23362 6942 23387 6946!23387 6946[23393 6947 23441 6978
+!23441 6978[23486 7006 23509 7024!23509 7024[23523 7034 23552 7046!23552 7046[#5C21.2B #1B94.A2 23603 7061!23603 7061[#5C2A.78 #1B94.94 23604 7052!23604 7052[#5C3D.B #1B83.48 23604.5 7043!23604.5 7043[#5C5C.1D #1B83.4C 23659 7082!23659
+ 7082[23668 7104 23668 7133!23668 7133[23668 7204 23628 7332!23628 7332[23598 7426 23580 7462!23580 7462[23556 7509 23491 7542!23491 7542[23308 7636 23265 7653!23265 7653[23155 7695 22910 7745!22910 7745|22910 7536!22910 7536|17361 7517
+!17361 7517[17162 7516 17134 7511!17134 7511[17121 7509 17080 7490!17080 7490[17050 7474 17018 7419!17018 7419[16980 7350 16980 7276!16980 7276[16980 7238 17028 7215!17028 7215|17024 7220!17024 7220[17023 7224 17035 7224!17035 7224[17046
+ 7224 17046 7216!17046 7216[17044 7206 17047 7204!17047 7204[17061 7194 17066 7195!17066 7195[17070 7195 17083 7197!17083 7197[17095 7197 17102 7192!17102 7192[17107 7188 17108 7189!17108 7189[17108 7187 17104 7182!17104 7182[17101 7178
+ 17101 7166!17101 7166[17101 7160 17142 7112!17142 7112[17185 7055 17190 7007!17190 7007[17191 6994 17186 6966!17186 6966[17181 6940 17184 6927!17184 6927[17189 6909 17230 6868!17230 6868[17264 6834 17264 6775!17264 6775[17249 6605 17249
+ 6585!17249 6585[17249 6513 17260 6412!17260 6412[17263 6385 17284 6376!17284 6376[17304 6366 17419 6339!17419 6339[17464 6329 17550 6273!17550 6273[17635 6219 17650 6192!17650 6192[17652 6188 17687 6039!17687 6039|17660 5921!17660 5921
+[17633 5803 17633 5795!17633 5795[17633 5753 17658 5682!17658 5682[17678 5625 17692 5602!17692 5602[17722 5615 17737 5642!17737 5642[17749 5663 17759 5711!17759 5711|18025 6069!18025 6069[18117 6190 18141 6212!18141 6212[18166 6236 18183
+ 6253!18183 6253[18188 6258 18195 6258!18195 6258[18224 6258 18252 6239!18252 6239[18255 6237 18267 6214!18267 6214[18273 6201 18288 6171!18288 6171[18303 6168 18310 6168!18310 6168[18316 6168 18347 6169!18347 6169[18349 6169 18381 6152
+!18381 6152[18418 6132 18478 6120!18478 6120[18525 6111 18555 6034!18555 6034[18581 5945 18591 5916!18591 5916[18605 5875 18634 5734!18634 5734[18656 5627 18680 5604!18680 5604[18689 5605 18692 5640!18692 5640[18693 5660 18694 5714!18694
+ 5714|18708 5817!18708 5817[18709 5825 18742 5912!18742 5912[18776 5999 18781 6006!18781 6006[18793 6020 18870 6060!18870 6060[18957 6105 19000 6139!19000 6139[19065 6191 19103 6265!19103 6265[19124 6306 19152 6381!19152 6381[19179 6441
+ 19221 6467!19221 6467[19275 6500 19383 6500!19383 6500[19487 6500 19518 6443!19518 6443[19528 6426 19548 6383!19548 6383[19571 6343 19608 6313!19608 6313[19639 6354 19715 6395!19715 6395[19788 6435 19828 6435!19828 6435[19891 6435 19917
+ 6406!19917 6406[19937 6384 19955 6313!19955 6313[20009 6327 20009 6362!20009 6362[20009 6365 19991 6396!19991 6396[19973 6436 19973 6481!19973 6481[19973 6602 20109 6663!20109 6663[20146 6680 20221 6707!20221 6707[20285 6733 20312 6760
+!20312 6760[20324 6772 20335 6863!20335 6863[20346 6951 20387 6979!20387 6979[20422 7003 20462 7035!20462 7035[20495 7055 20550 7055!20550 7055|20848 7017!20848 7017[20864 7013 20887 6990!20887 6990[20964 6911 21083 6725!21083 6725[21123
+ 6666 21155 6648!21155 6648[21187 6630 21250 6630!21250 6630[21271 6630 21284 6618!21284 6618[21297 6606 21323 6606!21323 6606[21418 6606 21517 6666!21517 6666[21616 6726 21694 6726!21694 6726[21707 6726 21760 6654!21760 6654[21834 6552
+ 21935 6364!21935 6364|21956 6370.5!21956 6370.5|21816 6842!21816 6842[21856 6731 21978 6605!21978 6605[22040 6541 22101 6490"/>
+                        <Edge fillStyle1="2" edges="
+!22101 6490|22111 6477!22111 6477[22139 6495 22137.5 6500"/>
+                        <Edge fillStyle0="1" fillStyle1="2" edges="
+!22137.5 6500|22101 6490"/>
+                        <Edge cubics="!22138 6500(;22101,6632 22063,6767 22055,6808q22138 6500Q22063 6769q22055 6808);"/>
+                        <Edge cubics="!22053 6934(;22066,6905 22138,6897 22156,6883q22053 6934Q22061 6917q22103 6903Q22152 6886q22156 6883);"/>
+                        <Edge cubics="!22156 6883(22156,6883;22176,6867 22191,6839 22233,6825q22156 6883Q22166 6875q22186 6853Q22207 6834q22233 6825)22233,6825;"/>
+                        <Edge cubics="!22233 6825(;22231,6839 22224,6898 22217,7043q22233 6825Q22225 6883q22217 7043);"/>
+                        <Edge cubics="!22217 7043(22217,7043;22325,7059 22389,6751 22429,6751q22217 7043Q22280 7052q22349 6903Q22418 6751q22429 6751);"/>
+                        <Edge cubics="!22429 6751(22429,6751;22432,6751 22570,6771 22609,6836q22429 6751Q22431 6751q22506 6769Q22585 6795q22609 6836);"/>
+                        <Edge cubics="!22609 6836(22609,6836;22615,6846 22611,6896 22628,6954q22609 6836Q22611 6839q22614 6877Q22618 6921q22628 6954);"/>
+                        <Edge cubics="!22628 6954(;22646,7014 22601,6979 22714,6995q22628 6954Q22637 6984q22635 6991Q22641 6992q22714 6995);"/>
+                        <Edge cubics="!22714 6995(22714,6995;22826,7011 22912,7048 22929,7061q22714 6995Q22789 7006q22857 7029Q22912 7048q22929 7061)22929,7061;"/>
+                        <Edge cubics="!22929 7061(22929,7061;22929,7061 22918,6862 22910,6660q22929 7061Q22918 6862q22910 6660);"/>
+                        <Edge cubics="!22910 6660(22910,6660;22952,6698 22984,6831 23021,6879q22910 6660Q22933 6681q22967 6766Q23005 6858q23021 6879);"/>
+                        <Edge cubics="!23021 6879(23021,6879;23037,6900 23046,6963 23077,6986q23021 6879Q23025 6885q23043 6932Q23059 6973q23077 6986)23077,6986;"/>
+                        <Edge cubics="!23077 6986(23077,6986;23090,6996 23118,7026 23129,7043q23077 6986Q23107 7009q23129 7043)23129,7043;"/>
+                        <Edge cubics="!23129 7043(;23132,7040 23151,7021 23155,6998q23129 7043Q23151 7021q23155 6998);"/>
+                        <Edge cubics="!23155 6998(23155,6998;23161,6962 23210,6862 23142,6862q23155 6998Q23172 6946q23176 6917Q23185 6862q23142 6862);"/>
+                        <Edge cubics="!23142 6862(23142,6862;23142,6862 23175,6850 23175,6850q23142 6862 23175 6850);"/>
+                        <Edge cubics="!23175 6850(23175,6850;23179,6856 23204,6915 23225,6925q23175 6850Q23177 6853q23194 6886Q23212 6919q23225 6925)23225,6925;"/>
+                        <Edge cubics="!23225 6925(;23225,6925 23227,6926 23227,6926q23225 6925 23227 6926)23227,6926;"/>
+                        <Edge cubics="!23227 6926(23227,6926;23225,6921 23218,6901 23217,6883q23227 6926Q23218 6904q23217 6883)23217,6883;"/>
+                        <Edge cubics="!23217 6883(23217,6883;23217,6883 23218,6879 23218,6879q23217 6883 23218 6879)23218,6879;"/>
+                        <Edge cubics="!23218 6879(23218,6879;23224,6885 23239,6921 23271,6932q23218 6879Q23221 6882q23235 6904Q23251 6925q23271 6932);"/>
+                        <Edge cubics="!23271 6932(23271,6932;23288,6938 23332,6938 23387,6946q23271 6932Q23280 6935q23315 6938Q23362 6942q23387 6946);"/>
+                        <Edge cubics="!23387 6946(23387,6946;23396,6947 23481,7003 23509,7024q23387 6946Q23393 6947q23441 6978Q23486 7006q23509 7024)23509,7024;"/>
+                        <Edge cubics="!23668 7133(;23668,7245 23590,7442 23580,7462q23668 7133Q23668 7204q23628 7332Q23598 7426q23580 7462);"/>
+                        <Edge cubics="!23580 7462(23580,7462;23565,7492 23531,7522 23491,7542q23580 7462Q23556 7509q23491 7542);"/>
+                        <Edge cubics="!23491 7542(;23299,7641 23274,7671 22910,7745q23491 7542Q23308 7636q23265 7653Q23155 7695q22910 7745);"/>
+                        <Edge cubics="!22910 7745(22910,7745;22910,7745 22910,7536 22910,7536q22910 7745 22910 7536);"/>
+                        <Edge cubics="!17361 7517(;17181,7516 17157,7515 17134,7511q17361 7517Q17162 7516q17134 7511);"/>
+                        <Edge cubics="!17134 7511(17134,7511;17114,7508 17095,7497 17080,7490q17134 7511Q17121 7509q17080 7490)17080,7490;"/>
+                        <Edge cubics="!17080 7490(17080,7490;17049,7474 16980,7387 16980,7276q17080 7490Q17050 7474q17018 7419Q16980 7350q16980 7276);"/>
+                        <Edge cubics="!16980 7276(16980,7276;16980,7256 16993,7232 17028,7215q16980 7276Q16980 7238q17028 7215)17028,7215;"/>
+                        <Edge cubics="!17028 7215(;17028,7215 17015,7224 17035,7224q17028 7215Q17028 7215q17024 7220Q17023 7224q17035 7224);"/>
+                        <Edge cubics="!17035 7224(;17055,7224 17039,7210 17047,7204q17035 7224Q17046 7224q17046 7216Q17044 7206q17047 7204);"/>
+                        <Edge cubics="!17047 7204(;17069,7188 17063,7197 17083,7197q17047 7204Q17061 7194q17066 7195Q17070 7195q17083 7197);"/>
+                        <Edge cubics="!17083 7197(;17103,7197 17104,7186 17108,7189q17083 7197Q17095 7197q17102 7192Q17107 7188q17108 7189)17108,7189;"/>
+                        <Edge cubics="!17108 7189(;17107,7181 17101,7186 17101,7166q17108 7189Q17108 7187q17104 7182Q17101 7178q17101 7166);"/>
+                        <Edge cubics="!17101 7166(17101,7166;17101,7154 17181,7086 17190,7007q17101 7166Q17101 7160q17142 7112Q17185 7055q17190 7007)17190,7007;"/>
+                        <Edge cubics="!17190 7007(;17193,6979 17178,6951 17184,6927q17190 7007Q17191 6994q17186 6966Q17181 6940q17184 6927);"/>
+                        <Edge cubics="!17184 6927(17184,6927;17200,6870 17264,6878 17264,6775q17184 6927Q17189 6909q17230 6868Q17264 6834q17264 6775);"/>
+                        <Edge cubics="!17264 6775(;17264,6755 17249,6605 17249,6585q17264 6775Q17249 6605q17249 6585);"/>
+                        <Edge cubics="!17249 6585(;17249,6565 17253,6476 17260,6412q17249 6585Q17249 6513q17260 6412);"/>
+                        <Edge cubics="!17260 6412(;17264,6376 17266,6375 17419,6339q17260 6412Q17263 6385q17284 6376Q17304 6366q17419 6339);"/>
+                        <Edge cubics="!17419 6339(17419,6339;17480,6325 17630,6227 17650,6192q17419 6339Q17464 6329q17550 6273Q17635 6219q17650 6192)17650,6192;"/>
+                        <Edge cubics="!17650 6192(;17652,6188 17687,6042 17687,6039q17650 6192Q17652 6188q17687 6039);"/>
+                        <Edge cubics="!17687 6039(;17687,6036 17633,5809 17633,5795q17687 6039Q17687 6039q17660 5921Q17633 5803q17633 5795)17633,5795;"/>
+                        <Edge cubics="!17633 5795(17633,5795;17633,5731 17679,5623 17692,5602q17633 5795Q17633 5753q17658 5682Q17678 5625q17692 5602);"/>
+                        <Edge cubics="!17692 5602(17692,5602;17735,5621 17747,5652 17759,5711q17692 5602Q17722 5615q17737 5642Q17749 5663q17759 5711)17759,5711;"/>
+                        <Edge cubics="!18141 6212(;18190,6260 18185,6258 18195,6258q18141 6212Q18166 6236q18183 6253Q18188 6258q18195 6258);"/>
+                        <Edge cubics="!18195 6258(;18215,6258 18231,6253 18252,6239q18195 6258Q18224 6258q18252 6239);"/>
+                        <Edge cubics="!18252 6239(;18257,6236 18274,6198 18288,6171q18252 6239Q18255 6237q18267 6214Q18273 6201q18288 6171)18288,6171;"/>
+                        <Edge cubics="!18288 6171(18288,6171;18312,6166 18303,6169 18347,6169q18288 6171Q18303 6168q18310 6168Q18316 6168q18347 6169);"/>
+                        <Edge cubics="!18347 6169(;18363,6169 18377,6140 18478,6120q18347 6169Q18349 6169q18381 6152Q18418 6132q18478 6120);"/>
+                        <Edge cubics="!18478 6120(;18553,6105 18570,5974 18591,5916q18478 6120Q18525 6111q18555 6034Q18581 5945q18591 5916)18591,5916;"/>
+                        <Edge cubics="!18591 5916(18591,5916;18630,5806 18638,5644 18680,5604q18591 5916Q18605 5875q18634 5734Q18656 5627q18680 5604);"/>
+                        <Edge cubics="!18680 5604(;18694,5605 18692,5661 18694,5714q18680 5604Q18689 5605q18692 5640Q18693 5660q18694 5714);"/>
+                        <Edge cubics="!18694 5714(18694,5714;18694,5714 18700,5767 18708,5817q18694 5714Q18694 5714q18708 5817)18708,5817;"/>
+                        <Edge cubics="!18708 5817(18708,5817;18709,5828 18774,5997 18781,6006q18708 5817Q18709 5825q18742 5912Q18776 5999q18781 6006)18781,6006;"/>
+                        <Edge cubics="!18781 6006(18781,6006;18807,6037 18918,6074 19000,6139q18781 6006Q18793 6020q18870 6060Q18957 6105q19000 6139);"/>
+                        <Edge cubics="!19000 6139(;19206,6303 19072,6500 19383,6500q19000 6139Q19065 6191q19103 6265Q19124 6306q19152 6381Q19179 6441q19221 6467Q19275 6500q19383 6500);"/>
+                        <Edge cubics="!19383 6500(19383,6500;19562,6500 19490,6410 19608,6313q19383 6500Q19487 6500q19518 6443Q19528 6426q19548 6383Q19571 6343q19608 6313)19608,6313;"/>
+                        <Edge cubics="!19608 6313(19608,6313;19651,6370 19777,6435 19828,6435q19608 6313Q19639 6354q19715 6395Q19788 6435q19828 6435)19828,6435;"/>
+                        <Edge cubics="!19828 6435(19828,6435;19918,6435 19933,6397 19955,6313q19828 6435Q19891 6435q19917 6406Q19937 6384q19955 6313);"/>
+                        <Edge cubics="!19955 6313(;20001,6325 20009,6349 20009,6362q19955 6313Q20009 6327q20009 6362);"/>
+                        <Edge cubics="!20009 6362(20009,6362;20009,6368 19973,6408 19973,6481q20009 6362Q20009 6365q19991 6396Q19973 6436q19973 6481);"/>
+                        <Edge cubics="!19973 6481(19973,6481;19973,6684 20222,6671 20312,6760q19973 6481Q19973 6602q20109 6663Q20146 6680q20221 6707Q20285 6733q20312 6760);"/>
+                        <Edge cubics="!20312 6760(20312,6760;20346,6793 20315,6929 20387,6979q20312 6760Q20324 6772q20335 6863Q20346 6951q20387 6979);"/>
+                        <Edge cubics="!20387 6979(20387,6979;20456,7026 20463,7055 20550,7055q20387 6979Q20422 7003q20462 7035Q20495 7055q20550 7055);"/>
+                        <Edge cubics="!20848 7017(;20863,7013 20876,7001 20887,6990q20848 7017Q20864 7013q20887 6990);"/>
+                        <Edge cubics="!20887 6990(20887,6990;20964,6911 21073,6740 21083,6725q20887 6990Q20964 6911q21083 6725)21083,6725;"/>
+                        <Edge cubics="!21083 6725(;21136,6646 21166,6630 21250,6630q21083 6725Q21123 6666q21155 6648Q21187 6630q21250 6630);"/>
+                        <Edge cubics="!21250 6630(21250,6630;21294,6630 21272,6606 21323,6606q21250 6630Q21271 6630q21284 6618Q21297 6606q21323 6606)21323,6606;"/>
+                        <Edge cubics="!21323 6606(21323,6606;21507,6606 21533,6726 21694,6726q21323 6606Q21418 6606q21517 6666Q21616 6726q21694 6726)21694,6726;"/>
+                        <Edge cubics="!21694 6726(;21704,6726 21779,6654 21935,6364q21694 6726Q21707 6726q21760 6654Q21834 6552q21935 6364);"/>
+                        <Edge cubics="!21956 6371(21956,6371;21956,6371 21935,6364 21935,6364q21956 6371 21935 6364)21935,6364;"/>
+                        <Edge cubics="!22138 6500(22138,6500;22138,6500 22101,6490 22101,6490q22138 6500 22101 6490);"/>
+                        <Edge cubics="!22101 6490(;22101,6490 22111,6477 22111,6477q22101 6490p22111 6477);"/>
+                        <Edge cubics="!22111 6477(;22111,6477 22139,6495 22138,6500q22111 6477Q22139 6495q22138 6500);"/>
+                        <Edge cubics="!21956 6371(21956,6371;21956,6371 21885,6605 21816,6842q21956 6371Q21956 6371q21816 6842);"/>
+                        <Edge cubics="!21816 6842(;21881,6664 22089,6505 22101,6490q21816 6842Q21856 6731q21978 6605Q22040 6541q22101 6490);"/>
+                        <Edge cubics="!20550 7055(20550,7055;20550,7055 20848,7017 20848,7017q20550 7055 20848 7017)20848,7017;"/>
+                        <Edge cubics="!22055 6808(22055,6808;22055,6808 22053,6934 22053,6934q22055 6808 22053 6934);"/>
+                        <Edge cubics="!23552 7046(23552,7046;23574,7056 23591,7061 23603,7061q23552 7046Q23585 7061q23603 7061)23603,7061;"/>
+                        <Edge cubics="!23603 7061(;23597,7061 23597,7058 23604,7052q23603 7061Q23594 7061q23604 7052)23604,7052;"/>
+                        <Edge cubics="!23605 7043(;23631,7043 23649,7056 23659,7082q23605 7043Q23644 7043q23659 7082);"/>
+                        <Edge cubics="!23604 7052(;23611,7046 23611,7043 23605,7043q23604 7052Q23614 7043q23605 7043);"/>
+                        <Edge cubics="!23509 7024(23509,7024;23518,7031 23533,7038 23552,7046q23509 7024Q23523 7034q23552 7046)23552,7046;"/>
+                        <Edge cubics="!23659 7082(;23665,7097 23668,7114 23668,7133q23659 7082Q23668 7104q23668 7133);"/>
+                        <Edge cubics="!18025 6069(18025,6069;18086,6150 18125,6197 18141,6212q18025 6069Q18117 6190q18141 6212);"/>
+                        <Edge cubics="!17759 5711(;17759,5711 18025,6069 18025,6069q17759 5711 18025 6069);"/>
+                        <Edge cubics="!22910 7536(22910,7536;22910,7536 17361,7517 17361,7517q22910 7536 17361 7517)17361,7517;"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="23" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="24" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-StageIceBG-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="1.11212158203125" d="0.709747314453125" tx="1029.3" ty="342.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="25" duration="28" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-StageIceBG-01" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.927932739257813" d="1.13859558105469" tx="1016.2" ty="326.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="53" duration="68" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-O/LVL0-StageIceBG-01" selected="true" symbolType="graphic" centerPoint3DX="1016.2" centerPoint3DY="333.65" loop="loop">
+                  <matrix>
+                    <Matrix tx="1016.2" ty="333.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

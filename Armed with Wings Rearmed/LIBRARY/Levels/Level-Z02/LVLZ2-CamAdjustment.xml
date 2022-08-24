@@ -1,0 +1,89 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Z02/LVLZ2-CamAdjustment" itemID="56dd45c6-00000a38" lastModified="1464794802">
+  <timeline>
+    <DOMTimeline name="LVLZ2-CamAdjustment">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var vcam:MovieClip;
+var hero:MovieClip;
+var posXArr:Array;
+var posYArr:Array;
+
+init();
+
+function init ():void {
+	visible = false;
+	
+	vcam = MovieClip(parent).vcam;
+	hero = MovieClip(parent).hero;
+	
+	posXArr = new Array();
+	posYArr = new Array();
+	
+	posXArr = [0,0];
+	posYArr = [0,0];
+}
+
+function update ():void {
+	posXArr.unshift(hero.x);
+	posXArr.splice(2,posXArr.length);
+	posYArr.unshift(hero.y);
+	posYArr.splice(2,posYArr.length);
+	
+	var xDist:Number = posXArr[0] - posXArr[1];
+	var yDist:Number = posYArr[0] - posYArr[1];
+	
+	x += (hero.x + (xDist*10) - x)/2;
+	y += (hero.y + (yDist*18) - y)/2;
+	
+	vcam.target = this;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!669 0|806 0!968 0|968 1681!806 0|968 0!806 0|806 1400!669 0|669 1161!968 0|3114 0!-3114 0|669 0!968 -1681|968 0!806 -1400|806 0!669 -1161|669 0"/>
+                    <Edge cubics="!806 0(;806,0 806,1400 806,1400q806 0 806 1400);"/>
+                    <Edge cubics="!806 0(;806,0 968,0 968,0q806 0 968 0);"/>
+                    <Edge cubics="!806 -1400(;806,-1400 806,0 806,0q806 -1400 806 0);"/>
+                    <Edge cubics="!968 0(968,0;968,0 968,1681 968,1681q968 0 968 1681)968,1681;"/>
+                    <Edge cubics="!968 -1681(;968,-1681 968,0 968,0q968 -1681 968 0);"/>
+                    <Edge cubics="!669 0(;669,0 669,1161 669,1161q669 0 669 1161);"/>
+                    <Edge cubics="!669 0(;669,0 806,0 806,0q669 0 806 0);"/>
+                    <Edge cubics="!968 0(;968,0 2151,0 2151,0q968 0 2151 0);"/>
+                    <Edge cubics="!669 -1161(;669,-1161 669,0 669,0q669 -1161 669 0);"/>
+                    <Edge cubics="!-2151 0(-2151,0;-2151,0 669,0 669,0q-2151 0 669 0)669,0;"/>
+                    <Edge cubics="!968 0(968,0;968,0 2151,0 2151,0q968 0 2151 0);"/>
+                    <Edge cubics="!2151 0(2151,0;2151,0 3114,0 3114,0q2151 0 3114 0)3114,0;"/>
+                    <Edge cubics="!-3114 0(;-3114,0 -2151,0 -2151,0q-3114 0 -2150 0);"/>
+                    <Edge cubics="!-2151 0(;-2151,0 669,0 669,0q-2151 0 669 0);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

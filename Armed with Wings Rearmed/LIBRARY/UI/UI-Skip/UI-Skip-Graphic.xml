@@ -1,0 +1,128 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Skip/UI-Skip-Graphic" itemID="54e7663d-00000528" symbolType="graphic" lastModified="1492874238" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="UI-Skip-Graphic">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+if (MovieClip(root).numOfDevices() > 0) {
+	gotoAndStop(2);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Enter-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0" b="0.472061157226563" c="-0.472061157226563" d="0" tx="30.95" ty="-6.35"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="9.65" y="16.95"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="26" width="92" height="56.15" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.24615478515625" d="0.24615478515625" tx="6.2" ty="-6.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>ENT</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" alpha="0.4" lineHeight="56.15" size="50" bitmapSize="1000" face="Font 6*"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText left="55.65" width="32.7" height="21" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-89.75" ty="-9.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>SKIP</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" letterSpacing="2" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Pad/UII/Ctrl-Pad-Start-Shape" centerPoint3DX="23.85" centerPoint3DY="-0.3">
+                  <matrix>
+                    <Matrix a="0.730026245117188" d="0.730026245117188" tx="23.85" ty="-0.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter color="#FFFFFF" quality="3"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMStaticText left="55.65" width="32.7" height="21" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-87.3" ty="-9.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>SKIP</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" letterSpacing="2" lineHeight="21" size="14" bitmapSize="280" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMGroup selected="true">
+                  <members>
+                    <DOMShape selected="true">
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor alpha="0.898039215686275"/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-1071 -272S2|1070 -272!1070 -272|1343 1!1343 1|1070 272!1070 272|-1071 272!-1071 272|-1343 0!-1343 0|-1071 -272"/>
+                      </edges>
+                    </DOMShape>
+                    <DOMSymbolInstance libraryItemName="UI/UI-HUD/assets/HUD-LineEdge2">
+                      <matrix>
+                        <Matrix tx="-67.15"/>
+                      </matrix>
+                      <transformationPoint>
+                        <Point x="67.15" y="6.8"/>
+                      </transformationPoint>
+                      <filters>
+                        <GlowFilter blurX="6" blurY="6" color="#FFFFFF"/>
+                      </filters>
+                      <color>
+                        <Color alphaMultiplier="0.5"/>
+                      </color>
+                    </DOMSymbolInstance>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

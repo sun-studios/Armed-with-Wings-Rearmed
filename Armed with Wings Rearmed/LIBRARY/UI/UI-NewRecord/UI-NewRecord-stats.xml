@@ -1,0 +1,109 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-NewRecord/UI-NewRecord-stats" itemID="58186d4b-00001680" lastModified="1492841413">
+  <timeline>
+    <DOMTimeline name="UI-NewRecord-stats" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-149&lt;/guideline&gt;&lt;guideline direction="v"&gt;145&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+var gameData:MovieClip;
+var tf_best:TextField;
+var tf_lastBest:TextField;
+
+function init (_gameData:MovieClip):void {
+	gameData = _gameData;
+	
+	var scoreString:String;
+	var lastBestString:String;
+	
+	if (gameData.gameMode == "STORY") {
+		label_tf.text = "TIME:";
+		scoreString = gameData.sessionTimeString;
+		if (gameData.lastBestTimeString) 
+			lastBestString = ""+gameData.lastBestTimeString;
+		else 
+			lastBestString = "None";
+		
+	} else if (gameData.gameMode == "SURVIVAL") {
+		label_tf.text = "SCORE:";
+		scoreString = ""+gameData.sessionScore;
+		lastBestString = ""+gameData.lastBestScoreString;
+	}
+	
+	
+	tf_best.text = scoreString;
+	tf_lastBest.text = lastBestString;
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="tf_best" fontRenderingMode="standard" left="7.4" width="209.15" height="90" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="6.1" ty="-56.55"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00:00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="90" size="60" bitmapSize="1200" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="label_tf" fontRenderingMode="standard" left="11.45" width="205.1" height="90" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="-230.05" ty="-56.55"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>TIME:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="90" size="60" bitmapSize="1200" face="Font 1*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="tf_lastBest" fontRenderingMode="standard" left="7.4" width="209.15" height="40.55" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="6.1" ty="34.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>00:00</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="40.55" size="27" bitmapSize="540" face="Font 1*" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMStaticText fontRenderingMode="standard" left="7.4" width="209.15" height="40.55" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-230.05" ty="34.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>PREVIOUSly:</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" autoKern="false" lineHeight="40.55" size="27" bitmapSize="540" face="Font 1*" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

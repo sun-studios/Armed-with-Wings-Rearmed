@@ -1,0 +1,139 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Acheive/UI-Acheive-Item" itemID="582819aa-00000c89" lastModified="1485610903" lastUniqueIdentifier="2">
+  <timeline>
+    <DOMTimeline name="UI-Acheive-Item">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import achievements.AchievementData;
+
+var achieveID:int;
+
+var unlocked:Boolean;
+
+var lockClip:MovieClip;
+var achieveData:AchievementData;
+
+function init (_id:int):void  {
+	achieveData = MovieClip(root).achievementData;
+	achieveID = _id;
+	icon.gotoAndStop(_id+1);
+	
+	//Fill Text Fields
+	name_tf.text = AchievementData["acheivement"+achieveID+"_name"];
+	desc_tf.text = AchievementData["acheivement"+achieveID+"_desc"];
+	
+	//Check if Unlocked
+	if (achieveData.isAchievementUnlocked(achieveID)) unlocked = true;
+	//Display Lock State
+	if (unlocked) {
+		lockClip.visible = false;
+		glowClip.visible = true;
+		glowClip.gotoAndPlay(Math.ceil(Math.random()*(glowClip.totalFrames-1)));
+		bgClip.gotoAndStop(2);
+	} else {
+		glowClip.visible = false;
+	}
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-LockIcon/lock2 copy" name="lockClip">
+                  <matrix>
+                    <Matrix a="0.998748779296875" tx="-135.45" ty="-0.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Acheive/UI-Acheive-Item-Glow" name="glowClip">
+                  <matrix>
+                    <Matrix a="0.9840087890625" d="0.9840087890625" tx="-135.45" ty="-40.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05" y="40.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-AchievementIcons/UI-AchievementIcons" name="icon">
+                  <matrix>
+                    <Matrix tx="-135.45" ty="-0.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 2" name="bgClip">
+                  <matrix>
+                    <Matrix tx="40.05" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMDynamicText name="name_tf" fontRenderingMode="standard" left="20.9" width="737" height="53.75" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="0.338043212890625" d="0.338043212890625" tx="-94.9" ty="-34.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>ACHEIVMENT NAME</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="49.25" size="55" bitmapSize="1100" face="Font 7*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+                <DOMDynamicText name="desc_tf" fontRenderingMode="standard" left="20.9" width="734.9" height="143.35" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix a="0.338043212890625" d="0.338043212890625" tx="-94.9" ty="-14.85"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>ACHEIVMENT DISCRIPTION</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" autoKern="false" lineHeight="40.35" size="45" bitmapSize="900" face="Font 7*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

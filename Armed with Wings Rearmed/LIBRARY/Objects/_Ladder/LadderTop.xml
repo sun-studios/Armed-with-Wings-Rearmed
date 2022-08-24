@@ -1,0 +1,75 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Ladder/LadderTop" itemID="54b21497-00001175" lastModified="1435662427" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="LadderTop">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+
+var ladderName:String;
+var ladder:MovieClip;
+var dir:Number;
+var hero:MovieClip = MovieClip(parent).hero;
+
+if (!dir) {
+	dir = 1;
+}
+
+if (MovieClip(parent)[ladderName]) {
+	ladder = MovieClip(parent)[ladderName];
+}
+
+function update ():void {
+	//stop climbing at top
+	if (ladder.climbing && hero.bound.hitTestObject(this)) {
+		ladder.climbing = false;
+		hero.gotoAndStop("edge");
+		hero.x = x;
+		hero.y = y;
+		hero.xSpeed = 0;
+		hero.ySpeed = 0;
+		hero.scaleX = dir;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FFFFFF" alpha="0.749019607843137"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#FF9900" alpha="0.749019607843137"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="2" edges="!-316 -316|316 -316!316 -316|316 316!316 316|-316 316!-316 316|-316 -316"/>
+                    <Edge fillStyle0="1" fillStyle1="2" edges="!-204 -199|195 200!195 200|195 -198!195 -198|-204 -199"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="ladderName">
+      <Inspectable name="ladderName" variable="ladderName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+   </property>
+   <property id="dir">
+      <Inspectable name="direction" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

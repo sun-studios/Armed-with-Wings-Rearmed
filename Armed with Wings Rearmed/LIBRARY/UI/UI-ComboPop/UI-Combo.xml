@@ -1,0 +1,213 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-ComboPop/UI-Combo" itemID="54e792bc-000008ea" linkageExportForAS="true" linkageClassName="ComboPop" lastModified="1492843424">
+  <timeline>
+    <DOMTimeline name="UI-Combo" currentFrame="35" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-7&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.text.TextField;
+import flash.display.MovieClip;
+
+var gameData:MovieClip = MovieClip(root);
+
+var num_tf:TextField;
+var num_tf2:TextField;
+
+init();
+
+function init():void {
+	gameData = MovieClip(root);
+	
+	if (num_tf && gameData) {
+		num_tf.text = String(gameData.sessionCombo);
+		if (num_tf.text.length <= 1) {
+			num_tf.text = "0"+ num_tf.text;
+		}
+	
+		scaleX = scaleY = .5 + (gameData.sessionCombo*.03)
+		if (scaleX > 1.5) {
+			scaleX = scaleY = 1.5;
+		}
+	}
+	
+	gotoAndPlay(2);
+}
+
+function update():void {
+	//visible = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="40" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="41" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).removeFromComboArr(this);
+MovieClip(parent).removeChild(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="39" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="39" keyMode="9728">
+              <elements>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="-0.03875732421875" c="0.0174102783203125" d="0" tx="-3.7" ty="-166.7"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0.0588235294117647" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.372549019607843" ratio="0.815686274509804"/>
+                            <GradientEntry color="#FFFFFF" ratio="0.933333333333333"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-359 -3969|211 -3969!211 -3969|211 -2699!211 -2699|-359 -2699!-359 -2699|-359 -3969"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" keyMode="9728">
+              <elements>
+                <DOMGroup selected="true">
+                  <members>
+                    <DOMShape selected="true">
+                      <fills>
+                        <FillStyle index="1">
+                          <LinearGradient>
+                            <matrix>
+                              <Matrix a="0" b="-0.210601806640625" c="0.00274658203125" d="0" tx="-6.45" ty="-286.35"/>
+                            </matrix>
+                            <GradientEntry color="#FFFFFF" alpha="0.0588235294117647" ratio="0"/>
+                            <GradientEntry color="#FFFFFF" alpha="0.372549019607843" ratio="0.815686274509804"/>
+                            <GradientEntry color="#FFFFFF" ratio="0.933333333333333"/>
+                            <GradientEntry color="#FFFFFF" alpha="0" ratio="1"/>
+                          </LinearGradient>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="!-174 -9179S2|-84 -9179!-84 -9179|-84 -2280!-84 -2280|-174 -2280!-174 -2280|-174 -9179"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="41" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-ComboPop/assets/UI-Combo-Graphic" symbolType="graphic" centerPoint3DX="33.4" centerPoint3DY="-81.4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.20989990234375" d="2.78584289550781" tx="-10.5" ty="-92.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="13.8" y="6.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.0752" y="1"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-ComboPop/assets/UI-Combo-Graphic" symbolType="graphic" centerPoint3DX="185.4" centerPoint3DY="-124.35" loop="loop">
+                  <matrix>
+                    <Matrix a="1.58119201660156" d="0.35821533203125" tx="-31.65" ty="-124.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="13.75" y="6.7"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="19" duration="16" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.3333"/>
+                  <Point x="0.8435" y="0.2"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-ComboPop/assets/UI-Combo-Graphic" selected="true" symbolType="graphic" centerPoint3DX="33.65" centerPoint3DY="-156.4" loop="loop">
+                  <matrix>
+                    <Matrix a="0.866729736328125" d="1.31291198730469" tx="-19.55" ty="-157.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="13.9" y="6.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="35" duration="4" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <Ease target="all" intensity="100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-ComboPop/assets/UI-Combo-Graphic" selected="true" symbolType="graphic" centerPoint3DX="40" centerPoint3DY="-143.35" loop="loop">
+                  <matrix>
+                    <Matrix tx="-21.35" ty="-144.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="13.9" y="6.75"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="39" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-ComboPop/assets/UI-Combo-Graphic" symbolType="graphic" centerPoint3DX="39.95" centerPoint3DY="-164.65" loop="loop">
+                  <matrix>
+                    <Matrix a="0.562225341796875" d="1.96353149414063" tx="-15.2" ty="-172"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="13.8" y="6.75"/>
+                  </transformationPoint>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#FFFFFF"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="40" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

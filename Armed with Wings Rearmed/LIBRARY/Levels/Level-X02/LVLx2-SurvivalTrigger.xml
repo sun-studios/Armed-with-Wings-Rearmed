@@ -1,0 +1,156 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-X02/LVLx2-SurvivalTrigger" itemID="57adee76-00003e5a" lastModified="1492353867" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="LVLx2-SurvivalTrigger">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.events.Event;
+import com.greensock.TweenMax;
+
+var hero:MovieClip;
+var vcam:MovieClip;
+var sndCtrl:MovieClip;
+var darkLightning:MovieClip;
+var _parent:MovieClip;
+var survivalObj:MovieClip;
+var flag0:Boolean;
+var flag1:Boolean;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	vcam = MovieClip(parent).vcam;
+	sndCtrl = MovieClip(root);
+	_parent = MovieClip(parent);
+	survivalObj = MovieClip(parent).spawner;
+	darkLightning = MovieClip(parent).darkLightning;
+	
+	survivalObj.addEventListener("STORYEND", battleCompleted);
+	
+	_parent.slope5.y = -10000;
+}
+
+function update():void {
+	if (!flag0) {
+		if (hero.bound.hitTestObject(this)) {
+			sequence();
+			flag0 = true;
+		}
+	}
+	
+	if (!flag1) {
+		if (hero.life <= 0 && hero.currentFrameLabel == "death") {
+			sndCtrl.fadeOutMusic();
+			flag1 = true;
+		}
+	}
+}
+
+function sequence():void {
+	sndCtrl.fadeOutMusic();
+	vcam.slowZoom = true;
+	vcam.zoom = .8;
+	hero.lock();
+	hero.xSpeed *= .2;
+	
+	TweenMax.delayedCall(40, function () {
+		darkLightning.gotoAndPlay(2);
+		hero.gotoAndStop("convo0");
+	}, null, true);
+	
+	TweenMax.delayedCall(70, function () {
+		vcam.zoom = 1;
+	}, null, true);
+	TweenMax.delayedCall(100, function () {
+		vcam.slowZoom = false;
+		vcam.zoom = 1.5;
+	}, null, true);
+	
+	TweenMax.delayedCall(120, function () {
+		_parent.wall0.gotoAndPlay(2);
+		_parent.wall1.gotoAndPlay(2);
+		_parent.ground.gotoAndStop(2);
+		vcam.shakeCamera(60);
+	}, null, true);
+	
+	TweenMax.delayedCall(200, function () {
+		vcam.zoom = 1;
+		hero.unlock();
+		hero.gotoAndStop("idle");
+		startSurvival();
+	}, null, true);
+	
+	
+}
+
+function startSurvival ():void {
+	survivalObj.init();	
+	MovieClip(parent).objectsArr.push(survivalObj);
+	
+	sndCtrl.musicChannel.stop();
+	sndCtrl.playMusic(sndCtrl.track9_0);
+}
+
+function battleCompleted(e:Event):void {
+	survivalObj.removeEventListener("STORYEND", battleCompleted);
+	TweenMax.delayedCall(40, doThing, null, true);
+}
+
+function doThing():void {
+	hero.lock();
+	vcam.target = _parent.camHelper;
+	vcam.zoom = 1.8;
+	
+	sndCtrl.musicChannel.stop();
+	sndCtrl.playMusic(sndCtrl.track9_2, false, 0);
+	
+	TweenMax.delayedCall(40, function () {
+		_parent.wall0.gotoAndPlay("close");
+		_parent.wall1.gotoAndPlay("close");
+	}, null, true);
+	
+	TweenMax.delayedCall(120, function () {
+		vcam.target = _parent.camHelper0;
+	}, null, true);
+	
+	TweenMax.delayedCall(160, function () {
+		_parent.stairs.gotoAndPlay(2);
+		_parent.ground.gotoAndStop(3);
+		_parent.slope5.y = 252;
+		vcam.zoom = 1.3;
+		vcam.slowZoom = true;
+	}, null, true);
+	
+	TweenMax.delayedCall(280, function () {
+		vcam.zoom = 1;
+		vcam.slowZoom = false;
+		hero.unlock();
+		sndCtrl.stopMusic();
+	}, null, true);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

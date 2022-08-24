@@ -1,0 +1,378 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-StoryMenu/assets/StoryMenu-ScorePanel-Data2" itemID="56682fd7-0000278a" lastModified="1492839390" lastUniqueIdentifier="7">
+  <timeline>
+    <DOMTimeline name="StoryMenu-ScorePanel-Data2">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+import flash.text.TextField;
+import flash.display.MovieClip;
+
+var levelThumb:MovieClip;
+var characterClip:MovieClip;
+var weaponIcon:MovieClip;
+var gearIcon0:MovieClip;
+var gearIcon1:MovieClip;
+var gearIcon2:MovieClip;
+var gearIcon3:MovieClip;
+
+var gameData:MovieClip;
+var storySessionData:Array;
+
+init();
+
+function init():void {
+	gameData = MovieClip(root);
+	if (gameData && gameData.bestRun)
+		storySessionData = gameData.storySessionData;
+	
+	if (storySessionData && storySessionData.length > 0) {
+		
+		weaponIcon.gotoAndStop(gameData["data_weap"+storySessionData[2]+"_graphic"]);
+		gearIcon0.gotoAndStop(1+(storySessionData[3]));
+		gearIcon1.gotoAndStop(1+(storySessionData[4]));
+		gearIcon2.gotoAndStop(1+(storySessionData[5]));
+		gearIcon3.gotoAndStop(1+(storySessionData[6]));
+		
+		switch (storySessionData[7]) {
+			case "LONEWARRIOR":
+				characterClip.gotoAndStop(1);
+				break;
+			case "VANDHEER":
+				characterClip.gotoAndStop(2);
+				break;
+			case "SUPERLONEWARRIOR":
+				characterClip.gotoAndStop(3);
+				break;
+		}
+		
+		tf_info.tf_level.text = ""+storySessionData[0];
+		tf_info.tf_time.text = ""+storySessionData[1];
+		tf_info.tf_date.text = ""+storySessionData[10];
+		
+		if (storySessionData[8]) {
+			tf_info.tf_difficulty.text = ""+storySessionData[8];
+		} else {
+			tf_info.tf_difficulty.text = "????";
+		}
+		
+		levelThumb.gotoAndStop(storySessionData[0]);
+	} else {
+		gotoAndStop(2);
+	}
+	
+	if (!gameData.storySessionData[9]) {
+		gotoAndStop(2);
+	}
+}
+
+function update():void {
+	
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="stats" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="1.01118469238281" d="0.700653076171875" tx="10.2" ty="62.4"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!1949 -1378|3738 -1378!3738 -1378|3738 -770!3738 -770|1949 -770!1949 -770|1949 -1378"/>
+                    <Edge cubics="!1949 -770(;1949,-770 1949,-1378 1949,-1378q1949 -770 1949 -1378);"/>
+                    <Edge cubics="!3738 -1378(;3738,-1378 3738,-770 3738,-770q3738 -1378 3738 -770);"/>
+                    <Edge cubics="!3738 -770(;3738,-770 1949,-770 1949,-770q3738 -770 1949 -770);"/>
+                    <Edge cubics="!1949 -1378(1949,-1378;1949,-1378 3738,-1378 3738,-1378q1949 -1378 3738 -1378)3738,-1378;"/>
+                  </edges>
+                </DOMShape>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="1.01118469238281" d="0.700653076171875" tx="10.2" ty="35.85"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!1949 -1378|3738 -1378!3738 -1378|3738 -770!3738 -770|1949 -770!1949 -770|1949 -1378"/>
+                    <Edge cubics="!1949 -770(1949,-770;1949,-770 1949,-1378 1949,-1378q1949 -770 1949 -1378);"/>
+                    <Edge cubics="!3738 -1378(;3738,-1378 3738,-770 3738,-770q3738 -1378 3738 -770);"/>
+                    <Edge cubics="!3738 -770(3738,-770;3738,-770 1949,-770 1949,-770q3738 -770 1949 -770)1949,-770;"/>
+                    <Edge cubics="!1949 -1378(1949,-1378;1949,-1378 3738,-1378 3738,-1378q1949 -1378 3738 -1378)3738,-1378;"/>
+                  </edges>
+                </DOMShape>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="1.01118469238281" d="0.700653076171875" tx="10.2" ty="9.3"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!1949 -1378|3738 -1378!3738 -1378|3738 -770!3738 -770|1949 -770!1949 -770|1949 -1378"/>
+                    <Edge cubics="!1949 -770(;1949,-770 1949,-1378 1949,-1378q1949 -770 1949 -1378);"/>
+                    <Edge cubics="!3738 -1378(;3738,-1378 3738,-770 3738,-770q3738 -1378 3738 -770);"/>
+                    <Edge cubics="!3738 -770(;3738,-770 1949,-770 1949,-770q3738 -770 1949 -770);"/>
+                    <Edge cubics="!1949 -1378(1949,-1378;1949,-1378 3738,-1378 3738,-1378q1949 -1378 3738 -1378);"/>
+                  </edges>
+                </DOMShape>
+                <DOMShape isDrawingObject="true">
+                  <matrix>
+                    <Matrix a="1.15812683105469" tx="-17.2"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#999999" alpha="0.901960784313726"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2176 -1310|3738 -1310!3738 -1310|3738 -885!3738 -885|2176 -885!2176 -885|2176 -1310"/>
+                    <Edge cubics="!2176 -885(2176,-885;2176,-885 2176,-1310 2176,-1310q2176 -885 2176 -1310);"/>
+                    <Edge cubics="!3738 -1310(3738,-1310;3738,-1310 3738,-885 3738,-885q3738 -1310 3738 -885)3738,-885;"/>
+                    <Edge cubics="!3738 -885(;3738,-885 2176,-885 2176,-885q3738 -885 2176 -885);"/>
+                    <Edge cubics="!2176 -1310(;2176,-1310 3738,-1310 3738,-1310q2176 -1310 3738 -1310);"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_StoryWidget/Menu2-StoryWidget-Stats" name="tf_info">
+                  <matrix>
+                    <Matrix tx="156.95" ty="-30.4"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.3"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#009999" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle0="1" edges="!5706 -1533S1|2176 -1533!2176 -1533|2176 1528!2176 1528|5706 1528!5706 1528|5706 -1533"/>
+                    <Edge cubics="!2176 -1533(;2176,-1533 2176,1528 2176,1528q2176 -1533 2176 1528);"/>
+                    <Edge cubics="!5706 1528(5706,1528;5706,1528 5706,-1533 5706,-1533q5706 1528 5706 -1533);"/>
+                    <Edge cubics="!5706 -1533(;5706,-1533 2176,-1533 2176,-1533q5706 -1533 2176 -1533);"/>
+                    <Edge cubics="!2176 1528(2176,1528;2176,1528 5706,1528 5706,1528q2176 1528 5706 1528)5706,1528;"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080" parentLayerIndex="2">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_StoryWidget/Menu2-StoryWidget-Shade">
+                  <matrix>
+                    <Matrix a="0.35107421875" d="0.665679931640625" tx="197.05" ty="3.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="lvlIcon" color="#FF800A" parentLayerIndex="2" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/icons/UI-Level-Icons" name="levelThumb">
+                  <matrix>
+                    <Matrix a="1.19273376464844" d="1.19253540039063" tx="197.05" ty="3.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#666666"/>
+                    </FillStyle>
+                    <FillStyle index="2">
+                      <SolidColor color="#999999"/>
+                    </FillStyle>
+                    <FillStyle index="3">
+                      <SolidColor color="#333333"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!602 -1532|2106 -1532!2106 -1532|2106 -42!2106 -42|602 -42!602 -42|602 -1532"/>
+                    <Edge fillStyle0="3" edges="!5706 -1533|2176 -1533!2176 -1533|2176 1528!2176 1528|5706 1528!5706 1528|5706 -1533"/>
+                    <Edge fillStyle1="2" edges="!1385 25|2110 25!2110 25|2110 751!2110 751|1385 751!1385 751|1385 25!1385 802|2110 802!2110 802|2110 1527!2110 1527|1385 1527!1385 1527|1385 802!602 22|1328 22!1328 22|1328 748!1328 748|602 748!602 748|602 22!602 798|1328 798!1328 798
+|1328 1524!1328 1524|602 1524!602 1524|602 798"/>
+                    <Edge fillStyle1="1" edges="
+!-889 -1533|532 -1533!532 -1533|532 1528!532 1528|-889 1528!-889 1528|-889 -1533"/>
+                    <Edge cubics="!602 -42(;602,-42 602,-1338 602,-1338q602 -42 602 -1338);"/>
+                    <Edge cubics="!602 -1338(602,-1338;602,-1338 602,-1532 602,-1532q602 -1338 602 -1532)602,-1532;"/>
+                    <Edge cubics="!2106 -42(;2106,-42 602,-42 602,-42q2106 -42 602 -42);"/>
+                    <Edge cubics="!2106 -1532(2106,-1532;2106,-1532 2106,-42 2106,-42q2106 -1532 2106 -42)2106,-42;"/>
+                    <Edge cubics="!602 -1532(602,-1532;602,-1532 2106,-1532 2106,-1532q602 -1532 2106 -1532)2106,-1532;"/>
+                    <Edge cubics="!2176 -1533(;2176,-1533 2176,1528 2176,1528q2176 -1533 2176 1528);"/>
+                    <Edge cubics="!5706 1528(5706,1528;5706,1528 5706,-1533 5706,-1533q5706 1528 5706 -1533);"/>
+                    <Edge cubics="!5706 -1533(;5706,-1533 2176,-1533 2176,-1533q5706 -1533 2176 -1533);"/>
+                    <Edge cubics="!2176 1528(2176,1528;2176,1528 5706,1528 5706,1528q2176 1528 5706 1528)5706,1528;"/>
+                    <Edge cubics="!602 748(602,748;602,748 602,22 602,22q602 748 602 22);"/>
+                    <Edge cubics="!1328 748(;1328,748 602,748 602,748q1328 748 602 748);"/>
+                    <Edge cubics="!1328 22(1328,22;1328,22 1328,748 1328,748q1328 22 1328 748)1328,748;"/>
+                    <Edge cubics="!602 22(602,22;602,22 1328,22 1328,22q602 22 1328 22)1328,22;"/>
+                    <Edge cubics="!602 1524(602,1524;602,1524 602,798 602,798q602 1524 602 798);"/>
+                    <Edge cubics="!1328 1524(;1328,1524 602,1524 602,1524q1328 1524 602 1524);"/>
+                    <Edge cubics="!1328 798(1328,798;1328,798 1328,1524 1328,1524q1328 798 1328 1524)1328,1524;"/>
+                    <Edge cubics="!602 798(602,798;602,798 1328,798 1328,798q602 798 1328 798)1328,798;"/>
+                    <Edge cubics="!1385 751(1385,751;1385,751 1385,25 1385,25q1385 751 1385 25);"/>
+                    <Edge cubics="!2110 751(;2110,751 1385,751 1385,751q2110 751 1385 751);"/>
+                    <Edge cubics="!2110 25(2110,25;2110,25 2110,751 2110,751q2110 25 2110 751)2110,751;"/>
+                    <Edge cubics="!1385 25(1385,25;1385,25 2110,25 2110,25q1385 25 2110 25)2110,25;"/>
+                    <Edge cubics="!1385 1527(1385,1527;1385,1527 1385,802 1385,802q1385 1527 1385 802);"/>
+                    <Edge cubics="!2110 1527(;2110,1527 1385,1527 1385,1527q2110 1527 1385 1527);"/>
+                    <Edge cubics="!2110 802(2110,802;2110,802 2110,1527 2110,1527q2110 802 2110 1527)2110,1527;"/>
+                    <Edge cubics="!1385 802(1385,802;1385,802 2110,802 2110,802q1385 802 2110 802)2110,802;"/>
+                    <Edge cubics="!-889 1528(;-889,1528 -889,-1338 -889,-1338q-889 1528 -889 -1338);"/>
+                    <Edge cubics="!-889 -1338(;-889,-1338 -889,-1533 -889,-1533q-889 -1338 -889 -1533);"/>
+                    <Edge cubics="!532 -1533(;532,-1533 532,-1338 532,-1338q532 -1533 532 -1338);"/>
+                    <Edge cubics="!532 -1338(532,-1338;532,-1338 532,1528 532,1528q532 -1338 532 1528)532,1528;"/>
+                    <Edge cubics="!-889 -1533(;-889,-1533 532,-1533 532,-1533q-889 -1533 532 -1533);"/>
+                    <Edge cubics="!532 1528(;532,1528 -889,1528 -889,1528q532 1528 -889 1528);"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon0">
+                  <matrix>
+                    <Matrix a="0.233428955078125" d="0.233428955078125" tx="48.25" ty="19"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon1">
+                  <matrix>
+                    <Matrix a="0.233428955078125" d="0.233428955078125" tx="87.25" ty="19"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon2">
+                  <matrix>
+                    <Matrix a="0.233428955078125" d="0.233428955078125" tx="48.25" ty="58.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-GearIcon" name="gearIcon3">
+                  <matrix>
+                    <Matrix a="0.233428955078125" d="0.233428955078125" tx="87.25" ty="58.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="0.4" tintColor="#666666"/>
+                  </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Weapons/UI-Player-WeaponIcon" name="weaponIcon">
+                  <matrix>
+                    <Matrix a="0.529876708984375" d="0.529876708984375" tx="67.6" ty="-39.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="37.9999988616352" blurX="0" blurY="0" distance="4" strength="0.22"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/UI-Player-HeroContainer" name="characterClip">
+                  <matrix>
+                    <Matrix tx="-8.75" ty="4.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

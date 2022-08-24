@@ -1,0 +1,254 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/Menu2-DifficultySelect" itemID="569e0277-000009e4" lastModified="1496348673" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="Menu2-DifficultySelect" currentFrame="1" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-362&lt;/guideline&gt;&lt;guideline direction="h"&gt;-362&lt;/guideline&gt;&lt;guideline direction="h"&gt;-110&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop();
+
+var ctrl:PlayerControl;
+var sndCtrl:MovieClip;
+var gameData:MovieClip;
+var currentSelectClip:MovieClip;
+var tempButton:MovieClip;
+
+var selectIndex:int;
+var confirmIndex:int;
+var tempIndex:int;
+
+var difficulty:String;
+
+var keyFilter0:Boolean;
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+
+var go:Boolean;
+
+function init ():void {
+	ctrl = MovieClip(root).player1Control;
+	sndCtrl = MovieClip(root);
+	gameData = MovieClip(root);
+	selectIndex = 0;
+	confirmIndex = 0;
+	
+	difficulty = gameData.gameDifficultyNormal;
+	
+	keyFilter0 = true;
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	
+	go = true;
+	
+	b2.gotoAndPlay("start");
+	b2.visible = false;
+	
+	selectButton(false);
+}
+
+
+function update ():void {
+	if (go) {
+		//UP
+		if (ctrl.ctrl_up) {
+			if (!keyFilter0) {
+				if (selectIndex > 0 && confirmIndex == 0) {
+					selectIndex --;
+					selectButton();
+				}
+				keyFilter0 = true;
+			}
+		} else {
+			keyFilter0 = false;
+		}
+		
+		//DOWN
+		if (ctrl.ctrl_down) {
+			if (!keyFilter1) {
+				if (selectIndex < 1 && confirmIndex == 0) {
+					selectIndex ++;
+					selectButton();
+				}
+				keyFilter1 = true;
+			}
+		} else {
+			keyFilter1 = false;
+		}
+		
+		//CONFIRM
+		if (ctrl.ctrl_confirmStart) {
+			if (!keyFilter2) {
+				confirm(confirmIndex);
+				keyFilter2 = true;
+			}
+		} else {
+			keyFilter2 = false;
+		}
+		
+		//CANCEL
+		if (ctrl.ctrl_cancel) {
+			if (!keyFilter3) {
+				cancel(confirmIndex);
+				keyFilter3 = true;
+			}
+		} else {
+			keyFilter3 = false;
+		}
+	}
+	
+	//cursor
+	cursor.x += ((currentSelectClip.x-150) - cursor.x)/6;
+	cursor.y += ((currentSelectClip.y+40) - cursor.y)/6;
+}
+
+function selectButton(playSound:Boolean = true) :void {
+	if (currentSelectClip) currentSelectClip.gotoAndPlay("out");
+	currentSelectClip = this["b"+selectIndex];
+	currentSelectClip.gotoAndPlay("over");
+	if (playSound) sndCtrl.playUISound(sndCtrl.sndButton1);
+}
+
+function confirm(i:int):void {
+	switch (i) {
+		case 0:
+			b2.visible = true;
+			tempButton = currentSelectClip;
+			tempIndex = selectIndex;
+		
+			if (selectIndex == 0) difficulty = gameData.gameDifficultyNormal;
+			else difficulty = gameData.gameDifficultyfutile;
+		
+			selectIndex = 2;
+			selectButton(false);
+			tempButton.gotoAndStop(13);
+			confirmIndex = 1;
+			sndCtrl.playUISound(sndCtrl.sndButton3);
+			
+			break;
+			
+		case 1:
+			if (difficulty == gameData.gameDifficultyNormal) gameData.gameDifficulty = gameData.gameDifficultyNormal;
+			if (difficulty == gameData.gameDifficultyfutile) gameData.gameDifficulty = gameData.gameDifficultyfutile;
+			sndCtrl.playUISound(sndCtrl.sndButton3);
+			MovieClip(parent).input();
+			go = false;
+			break;
+	}
+}
+function cancel(i:int):void {
+	switch (i) {
+		case 0:
+			//sndCtrl.playUISound(sndCtrl.sndButton2);
+			closeDifficultyMenu();
+			break;
+		case 1:
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			b2.visible = false;
+			currentSelectClip = tempButton;
+			selectIndex = tempIndex;
+			confirmIndex = 0;
+			selectButton(false);
+			break;
+	}
+}
+function closeDifficultyMenu():void {
+	MovieClip(parent).closeDifficulty();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="b0" centerPoint3DX="-0.05" centerPoint3DY="-25.3" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="0.35" ty="-25.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="NORMAL" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="b1" selected="true" centerPoint3DX="-0.05" centerPoint3DY="42.2" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="0.35" ty="42.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="HARD" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMStaticText fontRenderingMode="standard" left="-22.7" width="166.7" height="42" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-60.65" ty="-105.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>DIFFICULTY</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="42" size="28" bitmapSize="560" face="Thinman" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon" name="b2" centerPoint3DX="-0.05" centerPoint3DY="124.75" uniqueID="3">
+                  <matrix>
+                    <Matrix tx="0.35" ty="124.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="label">
+      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="GO" type="String"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Player-Cursor" name="cursor">
+                  <matrix>
+                    <Matrix tx="-142.75" ty="0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.45" y="2.45"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" quality="2" strength="0.83"/>
+                    <GlowFilter color="#FFFFFF" quality="3" strength="0.44"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

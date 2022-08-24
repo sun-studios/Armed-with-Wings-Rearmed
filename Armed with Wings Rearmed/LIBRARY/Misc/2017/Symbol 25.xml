@@ -1,0 +1,129 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 25" itemID="57fa79de-00003b2d" lastModified="1492870493">
+  <timeline>
+    <DOMTimeline name="Symbol 25">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import com.greensock.TweenMax;
+import flash.display.MovieClip;
+
+var hero:MovieClip = MovieClip(parent).hero;
+var sndCtrl:MovieClip = MovieClip(root);
+var vcam:MovieClip = MovieClip(parent).vcam;
+var hud:MovieClip = MovieClip(root).hud;
+
+var deathFlag:Boolean;
+
+TweenMax.delayedCall(120, startRevive, null, true);
+
+init();
+
+function init ():void {
+	
+}
+
+function update ():void {
+	if (hero.life <= 0) {
+		heroKilled();
+	}
+}
+
+function startRevive():void {
+	visible = false;
+	
+	var gameData:MovieClip = MovieClip(root);
+	var go:Boolean = true;
+	var game:MovieClip = MovieClip(parent);
+		
+	if (go) {
+		hero.visible = false; 
+		var lightning:MovieClip = new ReviveLightning();
+		var lightningBG:MovieClip = new ReviveLightningBG();
+		game.addChildAt(lightning, game.getChildIndex(game.hero) +1);
+		game.addChildAt(lightningBG, game.getChildIndex(game.ground));
+		
+		lightning.x = hero.x; lightning.y = hero.y+6;
+		lightningBG.x = hero.x; lightningBG.y = hero.y;
+		
+		sndCtrl.playSound(sndCtrl.sndThunder3);
+		sndCtrl.playSound(sndCtrl.sndThunder2, 0, .6);
+		vcam.shakeCamera(40);
+		vcam.zoom = 1; 
+		vcam.slowZoom = false;
+
+		TweenMax.delayedCall(35, 
+		function () { 
+			hero.visible = true; 
+			hero.moveable = true; 
+			hero.active = true; 
+			hero.gotoAndStop("revive");  
+			vcam.shakeCamera(40); 
+		}, null, true);
+
+		hero.life = 5;	
+		TweenMax.to(hero, 120, {life:hero.lifeOrig, useFrames:true});
+	} else {
+		
+	}
+}
+
+function heroKilled():void {
+	if (!deathFlag) {
+		hero.forceDontDie = true;
+		if (hero.life <= 0) {
+			hud.topLeft.fadein = false;
+			hud.infoClip.fadein = false;
+			hud.lootBar.visible = false;
+			hero.finalBattleDeath = true;	
+			hero.firstDeath = false;
+			hero.dead = true;
+			hero.takeDamageOn = false;
+			hero.gotoDeath2();
+			deathFlag = true;
+		}
+		
+	}
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-873 -367|872 -367!872 -367|872 368!872 368|-873 368!-873 368|-873 -367"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-1.55" width="99.3" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.15" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Revive &#xD;Lightning</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

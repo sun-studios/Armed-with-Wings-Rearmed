@@ -1,0 +1,70 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-M/LVL-M-GateFunction" itemID="58281d1c-00000c97" lastModified="1479023900">
+  <timeline>
+    <DOMTimeline name="LVL-M-GateFunction">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var en0:MovieClip;
+var en1:MovieClip;
+var ground:MovieClip;
+
+init();
+
+function init ():void {
+	visible = false;
+	 en0 = MovieClip(parent).en4;
+	 en1 = MovieClip(parent).en5;
+	 ground = MovieClip(parent).ground;
+}
+
+function update ():void {
+	if (en0.dead && en1.dead) {
+		if (ground.gate2.currentFrame == 1) {
+			ground.gate2.play();
+		}
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!-387 -159|387 -159!387 -159|387 160!387 160|-387 160!-387 160|-387 -159"/>
+                    <Edge cubics="!-387 160(-387,160;-387,160 -387,-159 -387,-159q-387 160 -387 -159)-387,-159;"/>
+                    <Edge cubics="!387 160(;387,160 -387,160 -387,160q387 160 -387 160);"/>
+                    <Edge cubics="!387 -159(;387,-159 387,160 387,160q387 -159 387 160);"/>
+                    <Edge cubics="!-387 -159(;-387,-159 387,-159 387,-159q-387 -159 387 -159);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

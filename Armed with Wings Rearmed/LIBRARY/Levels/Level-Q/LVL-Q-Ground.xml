@@ -1,0 +1,325 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q/LVL-Q-Ground" itemID="54cc79b2-00001c2b" lastModified="1496670441" lastUniqueIdentifier="24">
+  <timeline>
+    <DOMTimeline name="LVL-Q-Ground">
+      <layers>
+        <DOMLayer name="actions" color="#FF4F4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bridges" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-Bridge1" name="bridge1">
+                  <matrix>
+                    <Matrix tx="753.95" ty="-115.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-Bridge1" name="bridge2">
+                  <matrix>
+                    <Matrix tx="3333.2" ty="-67.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/LVL-Q-Bridge1" name="bridge3">
+                  <matrix>
+                    <Matrix tx="8450.65" ty="427.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="holyPillers" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller" name="holyPiller">
+                  <matrix>
+                    <Matrix tx="4516.75" ty="-342.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller" name="holyPiller2">
+                  <matrix>
+                    <Matrix tx="7867.55" ty="151.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller" name="holyPiller3">
+                  <matrix>
+                    <Matrix tx="7180.05" ty="151.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_holyBarricade/OBJ-holyBarricade" name="holyPiller4">
+                  <matrix>
+                    <Matrix a="-1" tx="9532.5" ty="239.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="19" blurY="19" color="#000000" strength="0.76"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller" name="holyPiller5">
+                  <matrix>
+                    <Matrix a="0" b="1" c="1" d="0" tx="7352.05" ty="-20.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller" name="holyPiller6">
+                  <matrix>
+                    <Matrix a="0" b="1" c="-1" d="0" tx="7697.15" ty="-20.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Ground" color="#4FFF4F" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DY="-101.65">
+                  <matrix>
+                    <Matrix d="0.628997802734375" ty="-138.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="1482.55" centerPoint3DY="-101.6">
+                  <matrix>
+                    <Matrix a="1.66249084472656" d="0.35797119140625" tx="1557.5" ty="-164.6"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="2093.85" centerPoint3DY="-67.2">
+                  <matrix>
+                    <Matrix a="0.678619384765625" d="0.357940673828125" tx="2051.45" ty="-130.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="2379.95" centerPoint3DY="-82.25">
+                  <matrix>
+                    <Matrix a="0.678619384765625" d="0.357940673828125" tx="2337.55" ty="-145.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="2660.55" centerPoint3DY="-33">
+                  <matrix>
+                    <Matrix a="0.678619384765625" d="0.357940673828125" tx="2618.15" ty="-96.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="2923" centerPoint3DY="-53.5">
+                  <matrix>
+                    <Matrix a="1.17501831054688" d="0.357940673828125" tx="2946.5" ty="-116.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="4421.15" centerPoint3DY="-53.8">
+                  <matrix>
+                    <Matrix d="0.628997802734375" tx="4421.15" ty="-90.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="5145.2" centerPoint3DY="141.4">
+                  <matrix>
+                    <Matrix a="1.71646118164063" d="0.357940673828125" tx="5102.9" ty="78.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="5464.8" centerPoint3DY="306.2">
+                  <matrix>
+                    <Matrix a="3.33204650878906" d="0.357940673828125" tx="5712.45" ty="242.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="5629.25" centerPoint3DY="316.6">
+                  <matrix>
+                    <Matrix a="1.41929626464844" d="0.646026611328125" tx="5602.05" ty="272.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="7687.2" centerPoint3DY="440.7">
+                  <matrix>
+                    <Matrix a="1.41641235351563" d="0.774658203125" tx="7488" ty="418.55"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="9550.65" centerPoint3DY="440.9">
+                  <matrix>
+                    <Matrix a="-0.971511840820313" d="0.774658203125" tx="9528.15" ty="418.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.05" y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller-Anim-Idle" name="idle">
+                  <matrix>
+                    <Matrix a="-0.999267578125" b="-0.0382537841796875" c="-0.0382537841796875" d="0.999267578125" tx="9902.2" ty="362.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller-Part00" centerPoint3DX="4901.5" centerPoint3DY="-24.1">
+                  <matrix>
+                    <Matrix tx="4901.7" ty="60.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller-Part00" centerPoint3DX="5302.55" centerPoint3DY="140.9">
+                  <matrix>
+                    <Matrix tx="5302.75" ty="225.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="5798.45" centerPoint3DY="318.3">
+                  <matrix>
+                    <Matrix a="-1.00389099121094" d="0.984786987304688" tx="5771.35" ty="307.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="6138.65" centerPoint3DY="306.2">
+                  <matrix>
+                    <Matrix a="3.33204650878906" d="0.357940673828125" tx="6386.3" ty="242.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-02" centerPoint3DX="6242.95" centerPoint3DY="279.1">
+                  <matrix>
+                    <Matrix a="-1.41836547851563" d="0.551544189453125" tx="6216" ty="267.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/_HolyPiller/OBJ-HolyPiller-Part00" centerPoint3DX="6797.3" centerPoint3DY="300.85">
+                  <matrix>
+                    <Matrix tx="6797.5" ty="385.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="9145.7" centerPoint3DY="-18.3">
+                  <matrix>
+                    <Matrix a="-0.191329956054688" d="0.326828002929688" tx="9126.7" ty="-40.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="9934.8" centerPoint3DY="41.7">
+                  <matrix>
+                    <Matrix a="-0.191329956054688" d="0.326828002929688" tx="9915.8" ty="19.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="10555.75" centerPoint3DY="45.85">
+                  <matrix>
+                    <Matrix a="-0.191329956054688" d="0.326828002929688" tx="10536.75" ty="23.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="10859.05" centerPoint3DY="45.85">
+                  <matrix>
+                    <Matrix a="-0.12115478515625" d="0.326828002929688" tx="10847.65" ty="23.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Levels/Level-Q/assets/LVL-Q-Plat-01" centerPoint3DX="11173.75" centerPoint3DY="45.85">
+                  <matrix>
+                    <Matrix a="-0.06585693359375" d="0.326828002929688" tx="11134.9" ty="23.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.15"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="8.99467468261719" d="35.4730072021484" tx="11841.05" ty="-798.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="8.99467468261719" d="35.4730072021484" tx="-2930.15" ty="-798.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.15" y="0.45"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

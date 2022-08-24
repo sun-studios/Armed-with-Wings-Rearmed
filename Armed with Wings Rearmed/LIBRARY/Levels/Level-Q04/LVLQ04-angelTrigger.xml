@@ -1,0 +1,105 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-Q04/LVLQ04-angelTrigger" itemID="58b3bb09-00000dfc" lastModified="1490642381" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="LVLQ04-angelTrigger">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+var hero:MovieClip;
+var hud:MovieClip;
+var angel:MovieClip;
+var convo:MovieClip;
+var goal:MovieClip;
+var angelConvoTrigger2:MovieClip;
+var gameCore:MovieClip;
+
+var go:Boolean;
+var flag:Boolean;
+var flag2:Boolean;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	hud = MovieClip(root).hud;
+	angel = MovieClip(parent).angel6;
+	goal = MovieClip(parent).goal;
+	angelConvoTrigger2 = MovieClip(parent).angelConvoTrigger2;
+	convo = MovieClip(parent).convo2;
+	gameCore = MovieClip(root);
+	go = true;
+}
+
+function update ():void {
+	if (go) {
+		
+		if (this.hitTestObject(hero.bound)) {
+			if (gameCore.heroName == "VANDHEER") {
+				if (!flag2) {
+					//positionGoal();
+					goal.x = hero.x + 900;
+					goal.y = hero.y + 200;
+					goal.enablePhysics = true;
+					flag2 = true;
+				}
+			} else {
+				hud.fadeoutUI();
+				hero.control.disableInput();
+				hero.control.ctrl_right = true;
+				angel.init();	
+				MovieClip(parent).objectsArr.push(angel);
+				TweenMax.delayedCall(40, convo.startConvo, null, true);
+				
+				go = false;
+			}
+		} 
+		
+	}
+	
+	if (!flag) {
+		if (convo.complete && !angelConvoTrigger2.flag) {
+			if (hero.x < angelConvoTrigger2.x-1000) {
+				positionGoal();
+				flag = true;
+			}
+		}
+	}
+}
+
+function positionGoal():void {
+	angelConvoTrigger2.x = hero.x;
+	goal.x = hero.x + 900;
+	goal.y = hero.y + 200;
+	if (goal.x > 13948) goal.x = 13948;
+	goal.enablePhysics = true;
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound">
+                  <matrix>
+                    <Matrix a="3.35552978515625" d="14.8139343261719" tx="0.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.2" y="0.35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

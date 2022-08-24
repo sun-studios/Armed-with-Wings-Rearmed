@@ -1,0 +1,66 @@
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/_IconButton/IconButton" itemID="5649d937-000008e7" lastModified="1447680311" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+  <timeline>
+    <DOMTimeline name="IconButton" currentFrame="1">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[var id:Number;
+if (!id) id = 0;
+
+function init ():void {
+	
+}
+
+function update ():void {
+	
+}
+
+function select ():void {
+	if (textClip) {
+		//gotoAndPlay("over");
+		textClip.gotoAndPlay("over");
+	}
+}
+function unselect ():void {
+	if (textClip) {
+		//gotoAndPlay("out");
+		textClip.gotoAndPlay("out");
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="hit" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_RingButton/assets/Ring-Body" name="textClip" selected="true">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="15" blurY="15" color="#FFFFFF" quality="2" strength="0.53"/>
+                  </filters>
+                  <color>
+                    <Color tintMultiplier="1" tintColor="#202020"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+  <parametersAsXML><![CDATA[   <property id="id">
+      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="-100" type="Number"/>
+   </property>
+]]></parametersAsXML>
+</DOMComponentItem>

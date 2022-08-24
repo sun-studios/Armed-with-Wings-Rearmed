@@ -1,0 +1,520 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Player/UI-EquiptGear" itemID="54df2089-00000f8f" lastModified="1496296353" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="UI-EquiptGear" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-411&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="icon actions" color="#669900" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var _root:MovieClip = MovieClip(root);
+var slotArr:Array = new Array();
+
+var passiveSort:Array = new Array();
+passiveSort = _root.sortBoosterPassive;
+var abilitySort:Array = new Array();
+abilitySort = _root.sortBoosterAbility;
+var targetSort:Array = passiveSort;
+var equippedSort:Array = _root.passiveListingNew;
+
+var slotSword:MovieClip;
+var i:int;
+
+container.init();
+slotArr = container.slotArr;
+refreshSlots();
+
+function refreshSlots():void {
+	
+	for (i = 0; i < slotArr.length; i ++) {
+		slotSword = slotArr[i];
+		slotSword.clip.gotoAndStop(""+_root.dataGetGearName(targetSort[i]));
+	}
+
+	for (i = 0; i < slotArr.length; i ++) {	
+		slotSword = slotArr[i];
+		
+		//is unlocked
+		if (_root.isGearUnlocked(targetSort[i]-1)) {
+			slotSword.lockClip.visible = false;
+			
+			if (equippedSort[i-1]) slotSword.newClip.visible = true;
+			else slotSword.newClip.visible = false;
+			
+			
+		} else {
+			slotSword.clip.visible = true;
+			slotSword.lockClip.visible = true;
+			slotSword.lockClip.gotoAndStop(1);
+			slotSword.newClip.visible = false;
+		}
+		
+		//is already equipt
+		if (localIsGearEquipt(_root.dataGetGearName(targetSort[i]))) {
+			slotSword.lockClip.visible = true;
+			slotSword.lockClip.gotoAndStop(2);
+		}
+		
+		//end
+		if (i >= targetSort.length) {
+			slotSword.lockClip.visible = false;
+			slotSword.clip.gotoAndStop("none");
+			slotSword.newClip.visible = false;
+		}
+		
+		//first one always unlocked - casue its 'none'.
+		if (i == 0) slotSword.lockClip.visible = false;
+	}
+}
+
+function localIsGearEquipt(gearName:String, playerID:int = 0):Boolean {
+	var _root_:MovieClip = MovieClip(root);
+	var _parent_:MovieClip = MovieClip(parent);
+	if (playerID == 2) {
+		for (var i:int = 0; i < 4; i ++) {
+			if (gearName == _root_["data_gear"+_parent_["local_equiptedGear"+i]+"_name"]) {
+				return true;
+			}
+		}
+	} else {
+		for (i = 0; i < 4; i ++) {
+			if (gearName == _root_["data_gear"+_parent_["local_equiptedGear"+i]+"_name"]) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#808080" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var currentIcon:MovieClip;
+var currentIconID:Number;
+var verticalIndex:Number;
+var horizontalIndex:Number;
+var gearSlotID:int;
+
+var infoPanel:MovieClip;
+
+//reference
+var ctrl:PlayerControl;
+var _parent:MovieClip;
+var panelGear:MovieClip;
+var gameData:MovieClip;
+var sndCtrl:MovieClip;
+
+//key filters
+var keyFilter1:Boolean;
+var keyFilter2:Boolean;
+var keyFilter3:Boolean;
+var keyFilter4:Boolean;
+var keyFilter5:Boolean;
+var keyFilter6:Boolean;
+var keyFilter7:Boolean;
+
+var sortingType:String;
+
+function init (_gearSlotID:Number, _abilitySort:Boolean = false):void {
+	targetSort = passiveSort;
+	equippedSort = _root.passiveListingNew;
+	sortingType = "PASSIVE";
+	if (_abilitySort) {
+		targetSort = abilitySort;	
+		equippedSort = _root.abilityListingNew;
+		sortingType = "ABILITY";
+	}
+	
+	
+	gearSlotID = _gearSlotID;
+	ctrl = MovieClip(root).player1Control;
+	_root = MovieClip(root);
+	_parent = MovieClip(parent);
+	panelGear = MovieClip(parent)["panelEquiptment"+gearSlotID].clip;
+	gameData = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	
+	verticalIndex = 0;
+	horizontalIndex = 0;
+
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	keyFilter5 = true;
+	keyFilter6 = true;
+	keyFilter7 = true;
+	
+	selectIconByID(_parent["local_equiptedGear"+gearSlotID]);
+	infoPanel.update(_parent["local_equiptedGear"+gearSlotID]);
+	
+	refreshSlots();
+	
+	if (_abilitySort) {
+		inputClip.visible = true;
+		if (gearSlotID == 1) {
+			inputClip.update("Y");
+		} else {
+			inputClip.update("X");
+		}
+	} else {
+		inputClip.visible = false;
+	}
+}
+
+function update ():void {
+	var input:Boolean = false;
+	//UP control//-----------------------------------------//
+	if (ctrl.ctrl_up) {
+		if (!keyFilter1) {
+			if (verticalIndex > 0) {
+				verticalIndex--;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			input = true;
+			keyFilter1 = true;
+		}
+	} else { keyFilter1 = false; }
+	//DOWN control//-----------------------------------------//
+	if (ctrl.ctrl_down) {
+		if (!keyFilter2) {
+			if (verticalIndex < 5) {
+				verticalIndex ++;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			input = true;
+			keyFilter2 = true;
+		}
+	} else { keyFilter2 = false; };
+	//LEFT control//-----------------------------------------//
+	if (ctrl.ctrl_left) {
+		if (!keyFilter3) {
+			if (horizontalIndex > 0) {
+				horizontalIndex --;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			input = true;
+			keyFilter3 = true;
+		}
+	} else { keyFilter3 = false; };
+	//RIGHT control//-----------------------------------------//
+	if (ctrl.ctrl_right) {
+		if (!keyFilter4) {
+			if (horizontalIndex < 2) {
+				horizontalIndex ++;
+				sndCtrl.playUISound(sndCtrl.sndButton1);
+			}
+			input = true;
+			keyFilter4 = true;
+		}
+	} else { keyFilter4 = false; };
+
+	//execute input
+	if (input) {
+		selectIcon();
+	}
+	
+	//Equipt weapon
+	if (ctrl.ctrl_confirmStart) {
+		if (!keyFilter5) {
+			if ((gameData.isGearUnlocked(targetSort[currentIconID]-1) || currentIconID == 0)) {
+				if (localIsGearEquipt(_root.dataGetGearName(targetSort[currentIconID])) && currentIconID != 0) {
+					sndCtrl.playUISound(sndCtrl.sndButton2);
+				} else {
+					sndCtrl.playUISound(sndCtrl.sndButton3);
+					currentIcon.gotoAndStop(1);
+					currentIcon = null;
+					_parent["local_equiptedGear"+gearSlotID] = targetSort[currentIconID];
+					panelGear.displayGear(_parent["local_equiptedGear"+gearSlotID]);
+					//gameData["data_weap"+_parent.local_equiptedWeapon+"_assignedBoosters"][0][gearSlotID] = targetSort[currentIconID];
+					trace("OK :"+targetSort[currentIconID]);
+					_parent.closeGearPanel();
+				}
+			} else {
+				sndCtrl.playUISound(sndCtrl.sndButton2);
+			}
+			keyFilter5 = true;
+		}
+	} else {
+		keyFilter5 = false;
+	}
+	
+	//cancel
+	if (ctrl.ctrl_cancel) {
+		if (!keyFilter6) {
+			sndCtrl.playUISound(sndCtrl.sndButton2);
+			currentIcon.gotoAndStop(1);
+			currentIcon = null;
+			panelGear.displayGear(_parent["local_equiptedGear"+gearSlotID]);
+			_parent.closeGearPanel();
+			keyFilter6 = true;
+		}
+	} else {
+		keyFilter6 = false;
+	}
+	
+	scroll();
+	
+	if (currentIcon) {
+		_parent.cursor.X = this.x + currentIcon.x + container.x - 40;
+		_parent.cursor.Y = this.y + currentIcon.y + container.y + 40;
+	}
+}
+
+function scroll():void {
+	var i:int = verticalIndex-1;
+	if (i < 0) i = 0;
+	if (i > 3) i = 3;
+	
+	var Y:Number = 130 - (90*i);
+	container.y += (Y - container.y)/4;
+	
+	//scroll visibility
+	for (i = 0; i < container.slotArr.length; i ++) {
+		var slotSword = container.slotArr[i];
+		if ((slotSword.y + container.y) < 45) {
+			slotSword.visible = false;
+		} else {
+			if ((slotSword.y + container.y) > 560) {
+				slotSword.visible = false;
+			} else {
+				slotSword.visible = true;
+			}
+		}
+	}
+}
+
+function selectIcon ():void {
+	if (currentIcon) currentIcon.gotoAndPlay("out");
+	
+	if (verticalIndex == 0) {
+		if (horizontalIndex == 0) currentIconID = 0;
+		if (horizontalIndex == 1) currentIconID = 1;
+		if (horizontalIndex == 2) currentIconID = 2;
+	}
+	if (verticalIndex == 1) {
+		if (horizontalIndex == 0) currentIconID = 3;
+		if (horizontalIndex == 1) currentIconID = 4;
+		if (horizontalIndex == 2) currentIconID = 5;
+	}
+	if (verticalIndex == 2) {
+		if (horizontalIndex == 0) currentIconID = 6;
+		if (horizontalIndex == 1) currentIconID = 7;
+		if (horizontalIndex == 2) currentIconID = 8;
+	}
+	if (verticalIndex == 3) {
+		if (horizontalIndex == 0) currentIconID = 9;
+		if (horizontalIndex == 1) currentIconID = 10;
+		if (horizontalIndex == 2) currentIconID = 11;
+	}
+	if (verticalIndex == 4) {
+		if (horizontalIndex == 0) currentIconID = 12;
+		if (horizontalIndex == 1) currentIconID = 13;
+		if (horizontalIndex == 2) currentIconID = 14;
+	}
+	if (verticalIndex == 5) {
+		if (horizontalIndex == 0) currentIconID = 15;
+		if (horizontalIndex == 1) currentIconID = 16;
+		if (horizontalIndex == 2) currentIconID = 17;
+	}
+	
+	currentIcon = container["slotSword"+currentIconID];
+	currentIcon.gotoAndPlay("over");
+	if (currentIconID < targetSort.length) 
+	panelGear.displayGear(targetSort[currentIconID]);
+	
+	if (gameData.isGearUnlocked(targetSort[currentIconID]-1)) equippedSort[currentIconID-1] = false;
+	
+	currentIcon.newClip.visible = false;
+	
+	MovieClip(parent).updateNewGearDisplay();
+	
+	if (currentIconID > targetSort.length-1) { //change this when developming new perks
+		infoPanel.update(targetSort[currentIconID], true);
+	} else {
+		infoPanel.update(targetSort[currentIconID]);
+	}
+}
+
+function selectIconByID (id:Number):void {
+	
+	for (var i:int = 0; i < targetSort.length; i ++) {
+		if (targetSort[i] == id) {
+			break;
+		}
+	}
+	if (currentIcon) currentIcon.gotoAndPlay("out");	
+	currentIconID = i;
+	
+	switch (i) {
+		
+		case 0:verticalIndex = 0;horizontalIndex = 0;break;
+		case 1:verticalIndex = 0;horizontalIndex = 1;break;
+		case 2:verticalIndex = 0;horizontalIndex = 2;break;
+		
+		case 3:verticalIndex = 1;horizontalIndex = 0;break;
+		case 4:verticalIndex = 1;horizontalIndex = 1;break;
+		case 5:verticalIndex = 1;horizontalIndex = 2;break;
+		
+		case 6:verticalIndex = 2;horizontalIndex = 0;break;
+		case 7:verticalIndex = 2;horizontalIndex = 1;break;
+		case 8:verticalIndex = 2;horizontalIndex = 2;break;
+		
+		case 9:verticalIndex = 3;horizontalIndex = 0;break;
+		case 10:verticalIndex = 3;horizontalIndex = 1;break;
+		case 11:verticalIndex = 3;horizontalIndex = 2;break;
+		
+		case 12:verticalIndex = 4;horizontalIndex = 0;break;
+		case 13:verticalIndex = 4;horizontalIndex = 1;break;
+		case 14:verticalIndex = 4;horizontalIndex = 2;break;
+		
+		case 15:verticalIndex = 5;horizontalIndex = 0;break;
+		case 16:verticalIndex = 5;horizontalIndex = 1;break;
+		case 17:verticalIndex = 5;horizontalIndex = 2;break;
+		
+	}
+	
+	currentIcon = container["slotSword"+i];
+	currentIcon.gotoAndPlay("over");
+	panelGear.displayGear(id);
+	
+	if (gameData.isGearUnlocked(targetSort[id]-1)) equippedSort[id] = false;
+	
+	currentIcon.newClip.visible = false;
+}
+
+function listingType():String {
+	return sortingType;
+}
+
+
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="infoPanel" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Gear-InfoPanel" name="infoPanel">
+                  <matrix>
+                    <Matrix tx="250.95" ty="448.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.22"/>
+                  </filters>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/Symbol 7" name="inputClip">
+                  <matrix>
+                    <Matrix a="0.868072509765625" d="0.868072509765625" tx="243.15" ty="105.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-2.5"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="2" blurY="2" distance="2" strength="0.4"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="text" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="-26" width="261.05" height="42" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="146.65" ty="48.8"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>select     BOOSTER</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="42" size="28" bitmapSize="560" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#FF4FFF" locked="true" autoNamed="false" visible="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape isFloating="true">
+                  <matrix>
+                    <Matrix d="1.02479553222656" ty="2"/>
+                  </matrix>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0099CC"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!2277 2420S2|7777 2420!7777 2420|7777 7662!7777 7662|2277 7662!2277 7662|2277 2420"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="icons" color="#FF800A" parentLayerIndex="4" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/assets/GearIcons-Container" name="container">
+                  <matrix>
+                    <Matrix tx="121.5" ty="130.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="130.05" y="130"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="panel" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-Btn-LevelSelect/assets/UI-Btn-LevelSelect-Animate">
+                  <matrix>
+                    <Matrix tx="250.95" ty="269"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                  <color>
+                    <Color brightness="0.41"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

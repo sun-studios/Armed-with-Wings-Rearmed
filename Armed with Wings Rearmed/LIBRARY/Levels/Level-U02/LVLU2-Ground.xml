@@ -1,0 +1,103 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-U02/LVLU2-Ground" itemID="5523c813-00000576" lastModified="1429604282" lastUniqueIdentifier="3">
+  <timeline>
+    <DOMTimeline name="LVLU2-Ground">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat1" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="-1305.15" ty="322.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="6" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat2" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="-1003.55" ty="322.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat3" uniqueID="3">
+                  <matrix>
+                    <Matrix tx="-113.75" ty="82.7"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="Objects/_Plats/OBJ-Plat-VertMove" name="plat4" selected="true" uniqueID="4">
+                  <matrix>
+                    <Matrix tx="2128.7" ty="118"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.35" y="31.05"/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="i">
+      <Inspectable name="offset" variable="i" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+   <property id="range">
+      <Inspectable name="range" variable="range" category="" verbose="0" defaultValue="0" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-64079 7913|-51074 7913!-51074 7913|-51074 17324!-51074 17324|-14800 17324!-14800 17324|-14800 7913!-14800 7913|-7615 7913!-7615 7913|-7615 17324!-7615 17324|4887.5 17324!4887.5 17324|4888 17346!4888 17346|4888 14174!4888 14174|23557
+ 14174!23557 14174|23557 17106!23557 17106|25239 17106!25239 17106|25239 14174!25239 14174|31344 14174!31344 14174|31344 17106!31344 17106|33062 17106!33062 17106|33062 14174!33062 14174|48421 14174!48421 14174|48421 17324!48421 17324
+|51074 17324!51074 17324|51074 7913!51074 7913|64079 7913!64079 7913|64079 -4664!64079 -4664|51074 -4664!51074 -4664|51074 -18608!51074 -18608|5561.5 -18608!5561.5 -18608|5601 -10064!5601 -10064|6001 -8863!6001 -8863|6001 -5227!6001 -5227
+|5950 -5181!5950 -5181|3401 -5181!3401 -5181|3401 -8863!3401 -8863|3801 -9944!3801 -9944|3921 -18608!3921 -18608|-7615 -18608!-7615 -18608|-7615 -4664!-7615 -4664|-14800 -4664!-14800 -4664|-14800 -18608!-14800 -18608|-51074 -18608!-51074
+ -18608|-51074 -4664!-51074 -4664|-64079 -4664!-64079 -4664|-64079 7913"/>
+                    <Edge fillStyle0="1" edges="
+!-14800 -23400|-15088 -23402!-15088 -23402|-14800 -23407!-14800 -23407|-14800 -23400"/>
+                    <Edge fillStyle1="1" edges="
+!-75372 -29302|-68871 -29302!-68871 -29302|-68869 -29215!-68869 -29215|-68869 -29302!-68869 -29302|68869 -29302!68869 -29302|68870 -29215!68870 -29215|68871 -29302!68871 -29302|75371 -29302!75371 -29302|75371 29301!75371 29301|-75372
+ 29301!-75372 29301|-75372 -29302!5561 -8107[#15B7.B2 #FFE057.C7 5558.5 -8101.5!5558.5 -8101.5|5561 -8103!5561 -8103|5561 -8107"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

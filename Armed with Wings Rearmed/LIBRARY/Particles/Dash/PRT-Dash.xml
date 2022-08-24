@@ -1,0 +1,90 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Particles/Dash/PRT-Dash" itemID="5584ff66-00000a3a" linkageExportForAS="true" linkageClassName="Dash" lastModified="1462648873">
+  <timeline>
+    <DOMTimeline name="PRT-Dash" currentFrame="1">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var X:Number;
+
+var hero:MovieClip;
+var master:MovieClip;
+
+init();
+
+function init():void {	
+	hero = MovieClip(parent.parent).hero;
+	X = this.x;
+}
+
+function update():void {
+	if (master != null) hero = master;
+	
+	x = hero.x;
+	y = hero.y - 35;
+	width = 100 + Math.abs(X-x);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="6" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).removeFromDashArr(this);
+MovieClip(parent).removeChild(this);
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/Dash/Blur-01.png">
+                  <matrix>
+                    <Matrix tx="-295" ty="-30"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/Dash/Blur-00.png">
+                  <matrix>
+                    <Matrix tx="-285" ty="-30"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/Dash/Blur-01.png">
+                  <matrix>
+                    <Matrix d="-1" tx="-295" ty="31"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="Particles/Dash/Blur-00.png">
+                  <matrix>
+                    <Matrix d="-1" tx="-285" ty="32"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

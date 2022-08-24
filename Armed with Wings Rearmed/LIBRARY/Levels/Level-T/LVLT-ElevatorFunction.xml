@@ -1,0 +1,165 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-T/LVLT-ElevatorFunction" itemID="56dd495f-00000a95" lastModified="1490583591">
+  <timeline>
+    <DOMTimeline name="LVLT-ElevatorFunction">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+import com.greensock.easing.Linear;
+
+import com.greensock.easing.CustomEase;
+CustomEase.create("ElevatorEase", [{s:0,cp:0.075,e:0.28},{s:0.28,cp:0.485,e:0.82},{s:0.82,cp:1.155,e:1.036},{s:1.036,cp:0.917,e:1}]);
+
+init();
+
+var sndCtrl:MovieClip;
+var ground:MovieClip;
+var elevator:MovieClip;
+var edge4:MovieClip;
+var edge5:MovieClip;
+
+var cog0:MovieClip;
+var cog1:MovieClip;
+var cog2:MovieClip;
+var cog3:MovieClip;
+
+var Y:Number;
+var ySpeed:Number;
+
+var posID:int;
+var posY0:int;
+var posY1:int;
+var posY2:int;
+var posY3:int;
+
+var moveToTarget:Boolean;
+
+function init ():void {
+	visible = false;
+	sndCtrl = MovieClip(root);
+	ground = MovieClip(parent).ground;
+	elevator = ground.elevator;
+	edge4 = MovieClip(parent).edge4;
+	edge5 = MovieClip(parent).edge5;
+	
+	cog0 = MovieClip(parent).cog0;
+	cog1 = MovieClip(parent).cog1;
+	cog2 = MovieClip(parent).cog2;
+	cog3 = MovieClip(parent).cog3;
+	
+	Y = 0;
+	ySpeed = 0;
+	
+	posID = 3;
+	posY0 = ground.p0.y;
+	posY1 = ground.p1.y;
+	posY2 = ground.p2.y;
+	posY3 = ground.p3.y;
+	
+	ground.removeChild(ground.p0);
+	ground.removeChild(ground.p1);
+	ground.removeChild(ground.p2);
+	ground.removeChild(ground.p3);
+	
+	elevator.y = posY3;
+}
+
+function update ():void {
+	edge4.y = ground.y + elevator.y;
+	edge5.y = ground.y + elevator.y;
+	
+	cog0.rotation = elevator.y;
+	cog1.rotation = -elevator.y;
+	cog2.rotation = elevator.y;
+	cog3.rotation = -elevator.y;
+
+}
+
+function setPos(i:int):void {
+	var duration:Number;
+	if (posID == 3) {
+		duration = 7*40;
+	} else {
+		duration = 3*40;
+	}
+	posID = i;
+	Y = this["posY"+posID];
+	moveToTarget = true;
+	sndCtrl.playContinuous("sndStoneDrag");
+	TweenMax.to(elevator, duration, {y:Y, useFrames:true, ease:CustomEase.byName("ElevatorEase")});
+	TweenMax.delayedCall(duration -1, sndCtrl.stopContinuous,["sndStoneDrag"], true);
+}
+
+function movement ():void {
+	if (moveToTarget) {
+		var done:Boolean = false;
+		
+		if (Y < elevator.y) {
+			elevator.y -= 2;
+			if (Y > elevator.y) {
+				done = true;
+			}
+		} else {
+			if (Y > elevator.y) {
+				elevator.y += 2;
+				if (Y < elevator.y) {
+					done = true;
+				}
+			}
+		}
+		
+		if (done) {
+			sndCtrl.stopContinuous("sndStoneDrag");
+			moveToTarget = false;
+		}
+	} else {
+		
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#0066FF" alpha="0.498039215686275"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!-872 -367|873 -367!873 -367|873 368!873 368|-872 368!-872 368|-872 -367"/>
+                    <Edge cubics="!-872 368(;-872,368 -872,-367 -872,-367q-872 368 -872 -367);"/>
+                    <Edge cubics="!873 368(;873,368 -872,368 -872,368q873 368 -872 368);"/>
+                    <Edge cubics="!873 -367(;873,-367 873,368 873,368q873 -367 873 368);"/>
+                    <Edge cubics="!-872 -367(;-872,-367 873,-367 873,-367q-872 -367 873 -367)873,-367;"/>
+                  </edges>
+                </DOMShape>
+                <DOMStaticText left="-6" width="108.2" height="52" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix a="0.5" d="0.5" tx="-24.1" ty="-12.3"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>elevator &#xD;function</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" alpha="0.8" lineHeight="25" size="20" bitmapSize="400" face="Karnivore" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

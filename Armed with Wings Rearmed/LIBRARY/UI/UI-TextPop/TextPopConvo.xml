@@ -1,0 +1,227 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-TextPop/TextPopConvo" itemID="5565f402-00000743" linkageExportForAS="true" linkageClassName="TextPopConvo" lastModified="1492869871">
+  <timeline>
+    <DOMTimeline name="TextPopConvo" currentFrame="79">
+      <layers>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="79" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var s:String;
+var convo:Boolean = true;
+var sndCtrl:MovieClip;
+var followClip:MovieClip;
+
+var flag:Boolean;
+var X:Number;
+var Y:Number;
+
+function init(_string:String = "_"):void {
+	s = _string;
+	gotoAndPlay(2);
+	convo = true;
+	
+	sndCtrl = MovieClip(root);
+	sndCtrl.playSound(sndCtrl.sndHoly1);
+}
+
+function update():void {
+	if (followClip) {
+		if (flag) {
+			x += ((followClip.x+X) - x)/6;
+			y += ((followClip.y+Y) - y)/6;
+		} else {
+			X = (x - followClip.x);
+			Y = (y - followClip.y);
+			flag = true;
+		}
+	}
+}
+
+function closeText():void {
+	gotoAndPlay(67);
+	mainClip.gotoAndPlay(71);
+	subClip1.gotoAndPlay(71);
+	subClip2.gotoAndPlay(71);
+	subClip3.gotoAndPlay(71);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="63" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[mainClip.label_tf.text = s;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="64" duration="14" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="79" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+
+MovieClip(parent).particleLayer.removeTextPopArr(this);
+MovieClip(parent).removeChild(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" duration="80" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="Objects/OBJ-Colorer-EasyInvert" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="0.5" ty="0.45"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <parametersAsXML><![CDATA[   <property id="disable">
+      <Inspectable name="disable" variable="disable" category="" verbose="0" defaultValue="false" type="Boolean"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="main" color="#4F80FF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="75" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-TextPop/assets/TextPop-Text" name="mainClip">
+                  <transformationPoint>
+                    <Point y="-35"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="75" duration="5" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sub" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="74" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-TextPop/assets/TextPop-Blur" name="subClip1">
+                  <matrix>
+                    <Matrix ty="51.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-34.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="76" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sub" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" duration="74" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-TextPop/assets/TextPop-Blur" name="subClip2">
+                  <matrix>
+                    <Matrix ty="51.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-34.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="77" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sub" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" duration="74" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-TextPop/assets/TextPop-Blur" name="subClip3">
+                  <matrix>
+                    <Matrix ty="51.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-34.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="78" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="sub" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[subClip1.label_tf.text = s;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="3" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[subClip2.label_tf.text = s;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="4" duration="74" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[subClip3.label_tf.text = s;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="78" duration="2" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

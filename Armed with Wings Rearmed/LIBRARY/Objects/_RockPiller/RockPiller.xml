@@ -1,0 +1,197 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_RockPiller/RockPiller" itemID="561bcc27-00000d7d" lastModified="1485440795" lastUniqueIdentifier="1">
+  <timeline>
+    <DOMTimeline name="RockPiller" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-776&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+stop ();
+
+
+var life:Number = 4;
+var lifeOrig:Number = 4;
+var shake:Number = 0;
+var fallen:Boolean = false;
+var collisionClip:MovieClip;
+var dead:Boolean;
+var ySpeed:Number;
+
+var enemyType:String = "BOULDER";
+
+var clip:MovieClip;
+var hero:MovieClip = MovieClip(parent).hero;
+var particleLayer:MovieClip = MovieClip(parent).particleLayer;
+var ground:MovieClip = MovieClip(parent).ground;
+
+init();
+
+function init():void {
+	collisionClip = new BolderBound2();
+	collisionClip.x = x - ground.x;
+	collisionClip.y = y - ground.y;
+	
+	//ground.addChild(collisionClip);
+	dead = false;
+	
+}
+	
+function update():void {
+	if (life <= 0) {
+		if (!dead) {
+			//ground.removeChild(collisionClip);
+			//visible = false;
+			dead = true;
+		}
+		life = 0;
+	} else {
+		clip.x += (0 - clip.x)/6;
+		clip.y += (0 - clip.y)/6;
+		if (shake > 0) {
+			shake --;
+			clip.x += (Math.random()*shake) - (Math.random()*shake);
+			clip.y += (Math.random()*shake) - (Math.random()*shake);
+		}
+	}
+}
+
+function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1, combo:Boolean = true):void {
+	if ( life > 0) {
+		life -= damage;
+		shake = damage*5;
+		if (shake > 25) shake = 25;
+		
+		if (from.overdrive) life = 0;
+		
+		if (life > 0) {
+			for (var i:int = 0; i < 3; i ++) {
+				particleLayer.addStone(x + (Math.random()*90) - (Math.random()*90), hero.y-(Math.random()*40), 15, 15);
+			}
+		}
+		
+		particleLayer.addHitSplash(hero, this);
+	}
+	
+	var dir:int;
+	if (from.x < x) dir = 1;
+	else dir = -1;
+	
+	//update sprite
+	var yPos:Number = y-collisionClip.height+30;
+	if (life <= 3)  {
+		if (clip.currentFrame == 1) {
+			clip.gotoAndStop(2);
+			particleLayer.addRock2(x, yPos, X*dir, Y*Math.random()+.5, 1);
+		}
+	}
+	if (life <= 2) {
+		if (clip.currentFrame == 2) {
+			clip.gotoAndStop(3);
+			particleLayer.addRock2(x, yPos, X*dir, Y*Math.random()+.5, 1);
+		}
+	}
+	if (life <= 1)  {
+		if (clip.currentFrame == 3) {
+			clip.gotoAndStop(4);
+			particleLayer.addRock2(x, yPos, X*dir, Y*Math.random()+.5, 1);
+		}
+	}
+	if (life <= 0) {
+		if (clip.currentFrame == 4) {
+			clip.gotoAndStop(5);
+			particleLayer.addRock2(x, yPos, X*dir, Y*Math.random()+.5, 1);
+		}
+	}
+	collisionClip.height = clip.height;
+}
+
+function blockHero():void {
+	if (hero.bound.hitTestObject(this.bound)) {
+		if (hero.x < x) {
+			hero.x --;
+			hero.xSpeed = 0;
+		} else 
+		if (hero.x > x) {
+			hero.x ++;
+			hero.xSpeed = 0;
+		}
+	}
+}
+
+function blockEnemies():void {
+	var enemiesArr:Array = MovieClip(parent).enemiesArr;
+	for (var i:int = 0; i < enemiesArr.length; i ++) {
+		var en:MovieClip = enemiesArr[i];
+		
+		if (en.bound.hitTestObject(this.bound)) {
+		//if (distanceBetweenX(this, en) < 90) {
+			if (en.x < x) {
+				en.x --;
+				en.xSpeed = 0;
+			} else 
+			if (en.x > x) {
+				en.x ++;
+				en.xSpeed = 0;
+			}
+		}
+		
+	}
+}
+
+function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
+    var dx:Number = obj1.x-obj2.x;
+    var dy:Number = obj1.y-obj2.y;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+function distanceBetweenX(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var X:Number = Math.abs(obj1.x - obj2.x);
+    return X;
+}
+function distanceBetweenY(obj1:MovieClip,  obj2:MovieClip):Number {
+  	var Y:Number = Math.abs(obj1.y - obj2.y);
+    return Y;
+}
+]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clip" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_RockPiller/RockPiller-Clips" name="clip">
+                  <matrix>
+                    <Matrix tx="-0.75" ty="-0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="0.598709106445313" d="1.23797607421875" tx="-1" ty="-53.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

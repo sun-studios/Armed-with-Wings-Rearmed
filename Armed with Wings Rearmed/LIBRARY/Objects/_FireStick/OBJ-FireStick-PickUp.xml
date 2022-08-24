@@ -1,0 +1,200 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_FireStick/OBJ-FireStick-PickUp" itemID="54d37777-00001350" lastModified="1492832916" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="OBJ-FireStick-PickUp" currentFrame="2">
+      <layers>
+        <DOMLayer name="label" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" name="idle" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" name="carry" labelType="name" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="actions" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ySpeed:Number = 0;
+var pickup = false;
+var onFire:Boolean = false;
+
+var flameSpawn:Number = 2;
+var flameSpawnOrig:Number = 2;
+
+var ground:MovieClip = MovieClip(parent).ground;
+var particleLayer:MovieClip = MovieClip(parent).particleLayer;
+var eagle:MovieClip = MovieClip(parent).eagle;
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+var keyFilter:Boolean = false;
+
+function update ():void {
+	//grav
+	if (!pickup) {
+		ySpeed --;
+		y -= ySpeed;
+		while (ground.hitTestPoint(getGlobalX(), getGlobalY(), true))
+		{
+			ySpeed = 0;
+			y -= 1;
+		}
+	}
+	
+	//pick up input
+	if (ctrl.ctrl_char_pickup) {
+		if (!keyFilter) {
+			if (pickup) {
+				drop_f();
+			} else {
+				pickup_f();
+			}
+			keyFilter = true;
+		}
+    } else {
+		keyFilter = false;
+	}
+    
+	//carry around
+    if (pickup == true)
+    {
+        ySpeed = 0;
+        x = eagle.x;
+        y = eagle.y + 10;
+		if (currentFrameLabel != "carry")
+			gotoAndStop("carry");
+    } else {
+		if (currentFrameLabel != "idle")
+			gotoAndStop("idle");
+	}
+	
+	//fire animations
+	
+	var fireClip:MovieClip = this[currentFrameLabel].fire;
+	
+	if (onFire) {
+		if (fireClip) {
+			handleFlames();
+			fireClip.visible = true;
+		}
+	} else {
+		if (fireClip) {
+			fireClip.visible = false;
+		}
+	}
+	
+}
+
+function handleFlames ():void {
+	if (CameraDistCheck.inRange(this)) {
+		if (flameSpawn > 0) {
+			flameSpawn --;
+		} else {
+			particleLayer.addFlames((x-58)+((Math.random()-Math.random())*10), 
+										(y-24)+((Math.random()-Math.random())*10), 
+										.5+Math.random(), 
+										.5+Math.random());
+			flameSpawn = flameSpawnOrig;
+		}
+	}
+}
+
+function pickup_f() {
+	if (bound.hitTestObject(eagle.bound) && eagle.moveable)
+	{
+		eagle.pickup();
+		particleLayer.addPulse(x, y);
+		pickup = true;
+	}
+}
+function drop_f() {
+	if (eagle.moveable) {
+		eagle.drop();
+		pickup = false;
+	}
+}
+
+function getGlobalX(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalX(_root, _parent, this, offset);
+}
+
+function getGlobalY(offset:Number = 0):Number {
+	var _root:MovieClip = MovieClip(root);
+	var _parent:MovieClip = MovieClip(parent);
+	return Physics.getGlobalY(_root, _parent, this, offset);
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+MovieClip(parent).pickupsArr.push(this);]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="clips" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-FireStick-Idle" name="idle">
+                  <matrix>
+                    <Matrix tx="-11.2" ty="-27.2"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.05"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_FireStick/OBJ-FireStick-Carry" name="carry">
+                  <matrix>
+                    <Matrix tx="2.95" ty="-7.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bound" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="bound">
+                  <matrix>
+                    <Matrix a="2.64822387695313" d="0.330398559570313" tx="0.8" ty="-14.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Objects/OBJ-Bound" name="boundFire">
+                  <matrix>
+                    <Matrix a="0.583023071289063" d="0.218338012695313" tx="-53.35" ty="-9.95"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

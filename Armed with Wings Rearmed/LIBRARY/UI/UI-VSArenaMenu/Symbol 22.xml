@@ -1,0 +1,112 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-VSArenaMenu/Symbol 22" itemID="58175ed3-00000f1d" lastModified="1493035918">
+  <timeline>
+    <DOMTimeline name="Symbol 22">
+      <layers>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.text.TextField;
+
+var id:Number;
+var _parent:MovieClip;
+var icon_clip:MovieClip;
+var label_tf:TextField;
+
+init();
+
+function init ():void {
+	_parent = MovieClip(parent);
+
+	id = _parent.id;
+	switch (id) {
+		case 0:
+			label_tf.text = "OPEN RUINS";
+			break;
+		case 1:
+			label_tf.text = "TOURNAMENT";
+			break;
+		case 2:
+			label_tf.text = "Throne Room";
+			break;
+		case 3:
+			label_tf.text = "King's Bridge";
+			break;
+	}
+	
+	icon_clip.gotoAndStop(1+id);
+	//scoreDisplay.init(id);
+}
+
+function update():void {
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMDynamicText name="label_tf" fontRenderingMode="standard" left="17.15" width="173.75" height="45" includeOutlines="true" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="-102.9" ty="-146"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>level 1</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" autoKern="false" lineHeight="42" size="28" bitmapSize="560" face="Thinman" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" distance="3" strength="0.2"/>
+                  </filters>
+                </DOMDynamicText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-VSArenaMenu/Symbol 23" name="icon_clip" selected="true">
+                  <matrix>
+                    <Matrix tx="1.05" ty="36.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="0.1" y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-SurvivalMenu/Symbol 7">
+                  <matrix>
+                    <Matrix a="1.11624145507813" tx="-291.8" ty="-131.15"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="261.25" y="131.2"/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter angle="130.999992031446" blurX="4" blurY="4" distance="4" strength="0.24"/>
+                  </filters>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

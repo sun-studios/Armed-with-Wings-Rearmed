@@ -1,0 +1,305 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Pause/UI-Pause-Buttons" itemID="54926fdb-00000ca1" lastModified="1492369340" lastUniqueIdentifier="5">
+  <timeline>
+    <DOMTimeline name="UI-Pause-Buttons">
+      <layers>
+        <DOMLayer name="ations" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var btnArray:Array = new Array();
+var btnXPos:Array = new Array();
+var currentSelIndex:Number;
+var currentSelMc:MovieClip;
+var optionConfirmed:Boolean;
+
+var keyFilter1:Boolean = true;
+var keyFilter2:Boolean = true;
+var keyFilter3:Boolean = true;
+var keyFilter4:Boolean = true;
+
+var transition:MovieClip = MovieClip(parent).transition;
+var confirmPanel:MovieClip = MovieClip(parent).confirmPanel;
+var sndCtrl:MovieClip = MovieClip(root);
+var ctrl:PlayerControl = MovieClip(root).player1Control;
+var hud:MovieClip = MovieClip(parent.parent);
+var _root:MovieClip = MovieClip(root);
+
+btnArray = [b0, b1, b2, b3, b4];
+btnXPos = [b0.x, b1.x, b2.x, b3.x, b4.x];
+
+function init():void {
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	
+	currentSelIndex = 0;
+	currentSelMc = undefined;
+	optionConfirmed = false;
+	keyFilter3 = true;
+	selectButton(0);
+	
+	//no more equipt from pause menu
+	
+	if (CONFIG::EQUIPMENT) {
+	} else {
+		b4.visible = false;
+		btnArray = [b0, b1, b2, b3];
+		b0.x = btnXPos[0] + 80;
+		b1.x = btnXPos[1] + 80;
+		b2.x = btnXPos[2] + 80;
+		b3.x = btnXPos[3] + 80;
+	}
+	
+	if (_root.gameMode == _root.MULTIPLAYER) {
+		b4.visible = false;
+		btnArray = [b0, b1, b2, b3];
+		b0.x = btnXPos[0] + 80;
+		b1.x = btnXPos[1] + 80;
+		b2.x = btnXPos[2] + 80;
+		b3.x = btnXPos[3] + 80;
+	}
+}
+
+function update ():void {
+	if (_root.gameMode == _root.MULTIPLAYER) {
+		b4.visible = false;
+	}
+	//if (!_root.settingsOpen) {
+	if (!optionConfirmed) {
+		//Scroll Right
+		if (ctrl.ctrl_right) {
+			if (!keyFilter1) {
+				if (currentSelIndex < btnArray.length-1) {
+					sndCtrl.playUISound(sndCtrl.sndButton1);
+					currentSelIndex ++;
+					selectButton(currentSelIndex);
+				}
+				keyFilter1 = true;
+			}
+		} else {
+			keyFilter1 = false;
+		}
+		
+		//Scroll Left
+		if (ctrl.ctrl_left) {
+			if (!keyFilter2) {
+				if (currentSelIndex > 0) {
+					sndCtrl.playUISound(sndCtrl.sndButton1);
+					currentSelIndex --;
+					selectButton(currentSelIndex);
+				}
+				keyFilter2 = true;
+			}
+		} else {
+			keyFilter2 = false;
+		}
+		
+		//input
+		if (ctrl.ctrl_confirm || ctrl.ctrl_start) {
+			if (!keyFilter4) {
+				sndCtrl.playUISound(sndCtrl.sndButton3);
+				input(currentSelIndex);
+				keyFilter4 = true;
+			}
+		} else {
+			keyFilter4 = false;
+		}
+		//add proper controls for these
+		//if (Key.isDown(Key.ESCAPE) || Key.isDown(Key.BACKSPACE) || ctrl.ctrl_input2) {
+		if (ctrl.ctrl_cancel) {
+			if (!keyFilter3) {
+				sndCtrl.playUISound(sndCtrl.sndButton3);
+				input(0);
+				optionConfirmed = true;
+				keyFilter3 = true;
+			}
+		} else {
+			keyFilter3 = false;
+		}
+	}
+	//}
+}
+
+function selectButton(id:Number):void {
+	if (currentSelMc) currentSelMc.gotoAndPlay("OUT");
+	
+	currentSelMc = btnArray[id];
+	currentSelMc.gotoAndPlay("OVER");
+}
+
+function input(id:Number):void {
+	switch (id) {
+		case 0:
+			hud.closePauseUI();
+			optionConfirmed = true;
+			break;
+		case 1:
+			//transition.gotoAndPlay(2);
+			confirmPanel.open("RETY");
+			transition.doReset = true;
+			transition.doQuit = false;
+			optionConfirmed = true;
+			break;
+		case 2:
+			//transition.gotoAndPlay(2);
+			confirmPanel.open("QUIT");
+			transition.doQuit = true;
+			transition.doReset = false;
+			optionConfirmed = true;
+			break;
+		case 3:
+			_root.displaySettings();
+			keyFilter1 = true;
+			keyFilter2 = true;
+			keyFilter3 = true;
+			keyFilter4 = true;
+			optionConfirmed = true;
+			_root.settingsUI.pauseUI = this;
+			break;
+		case 4:
+			keyFilter1 = true;
+			keyFilter2 = true;
+			keyFilter3 = true;
+			keyFilter4 = true;
+			transition.gotoAndPlay(2);
+			transition.doPlayerOptions = true;
+			optionConfirmed = true;
+			break;
+	}
+	
+	//transition if quit
+	/*
+	if (id == 2 || id == 1) {
+		var btn:MovieClip;
+		for (var i:Number = 0; i < btnArray.length; i ++) {
+			btn = btnArray[i];
+			if (i == currentSelIndex) {
+				btn.gotoAndPlay("SELECTED");
+			} else {
+				btn.gotoAndPlay("CLOSE");
+			}
+		}
+	}
+	*/
+}
+
+function resetFilters ():void {
+	keyFilter1 = true;
+	keyFilter2 = true;
+	keyFilter3 = true;
+	keyFilter4 = true;
+	
+	transition.doQuit = false;
+	transition.doReset = false;
+	transition.doPlayerOptions = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="buttons" color="#4FFF4F" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Menu/UI-Btn-Menu" name="b0" centerPoint3DX="-397" uniqueID="1">
+                  <matrix>
+                    <Matrix tx="-397"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.25"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="_label">
+      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="RESUME" type="String"/>
+   </property>
+   <property id="_symbol">
+      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="1" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Menu/UI-Btn-Menu" name="b1" centerPoint3DX="-235" uniqueID="2">
+                  <matrix>
+                    <Matrix tx="-235"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.25"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="_label">
+      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="RETRY" type="String"/>
+   </property>
+   <property id="_symbol">
+      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="2" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Menu/UI-Btn-Menu" name="b2" centerPoint3DX="-73" uniqueID="3">
+                  <matrix>
+                    <Matrix tx="-73"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.25"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="_label">
+      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="QUIT" type="String"/>
+   </property>
+   <property id="_symbol">
+      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="3" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Menu/UI-Btn-Menu" name="b3" centerPoint3DX="89" uniqueID="4">
+                  <matrix>
+                    <Matrix tx="89"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.25"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="_label">
+      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="SETTINGS" type="String"/>
+   </property>
+   <property id="_symbol">
+      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="4" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Menu/UI-Btn-Menu" name="b4" centerPoint3DX="249" uniqueID="5">
+                  <matrix>
+                    <Matrix tx="249"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                  <filters>
+                    <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.25"/>
+                  </filters>
+                  <parametersAsXML><![CDATA[   <property id="_label">
+      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="EQUIP" type="String"/>
+   </property>
+   <property id="_symbol">
+      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="8" type="Number"/>
+   </property>
+]]></parametersAsXML>
+                </DOMComponentInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

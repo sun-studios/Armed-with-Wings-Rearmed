@@ -1,0 +1,764 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MultiPlayerKeyView/MultiPlayerKeyView_" itemID="574af339-00000bce" lastModified="1464619990">
+  <timeline>
+    <DOMTimeline name="MultiPlayerKeyView_">
+      <layers>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ctrl:PlayerControl;
+var keyFilter:Boolean;
+var firstRun:Boolean;
+var glll:Boolean;
+var gameData:MovieClip;
+
+firstRun = true;
+
+init();
+
+function init ():void {
+	
+	ctrl = MovieClip(root).player1Control;
+	gameData = MovieClip(root);
+	keyFilter = true;
+}
+
+function update ():void {
+	if (gameData.numOfDevices() == 0) {
+		if (firstRun) {
+			if (ctrl.ctrl_char_swap) {
+				visible = false;
+				firstRun = false;
+				glll = true;
+			}
+		} else {
+			if (ctrl.ctrl_char_swap) {
+				if (!glll) {
+					visible = true;
+					glll = true;
+				}
+			} else {
+				visible = false;
+				glll = false;
+			}
+		}
+	} else {
+		visible = false;
+	}
+}
+
+function turnOff():void {
+	visible = false;
+	glll = false;
+	firstRun = false;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-MultiPlayerKeyView/MultiPlayerKeyView-Toggle-Anim" name="toggle">
+                  <matrix>
+                    <Matrix tx="3.05" ty="208"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" caps="none" weight="2" joints="miter">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!3061 -230|3522 -230!7592 1015|5362 1015!5362 1015|5362 185!5362 185|6074 185!6074 185|6074 -555!6074 -555|6864 -555!6864 -555|6864 185!6864 185|7592 185!7592 185|7592 1015!7592 1015|7592 1912!7592 1912|7248 1912!3552 1031|3552 2071!3552
+ 2071|3334 2071!4267 1021|4267 2661!4267 2661|3960 2665!2827 1026|2827 1332!2827 1332|2609 1332!-6544 -775|-7362 -775!-7362 -775|-7362 1480!-6544 -775|-6544 55!-6544 55|-4314 55!-4314 55|-4314 -775!-4314 -775|-5026 -775!-5026 -775|-5026
+ -1515!-5026 -1515|-5816 -1515!-5816 -1515|-5816 -775!-5816 -775|-6544 -775!-3359 -230|-2898 -230!-4346 1031|-4346 1871!-4346 1871|-4128 1871!-3621 1026|-3621 1332!-3621 1332|-3403 1332!-5061 1021|-5061 2461!-5061 2461|-4754 2465"/>
+                  </edges>
+                </DOMShape>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="323.6" ty="-7.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="323.6" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="287.6" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="359.6" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!6312 510|6632 510!6632 510|6472 670!6472 670|6312 510"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle1="1" edges="
+!5812 390|5812 710!5812 710|5652 550!5652 550|5812 390"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle0="1" edges="
+!7122 390|7122 710!7122 710|7282 550!7282 550|7122 390"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMGroup>
+                  <members>
+                    <DOMShape>
+                      <fills>
+                        <FillStyle index="1">
+                          <SolidColor/>
+                        </FillStyle>
+                      </fills>
+                      <edges>
+                        <Edge fillStyle0="1" edges="
+!6312 -130|6632 -130!6632 -130|6472 -290!6472 -290|6312 -130"/>
+                      </edges>
+                    </DOMShape>
+                  </members>
+                </DOMGroup>
+                <DOMStaticText fontRenderingMode="standard" left="8.9" width="94.95" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-422" ty="71.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Movement</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineSpacing="0" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="28" width="66.35" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-259.65" ty="118.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Attack</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="124.1" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-240" ty="78.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>PowerAttack</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="49.7" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-202.75" ty="51.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Block</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="60.4" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-230" ty="96.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Cancel</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#630000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="28" width="73.85" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-249.65" ty="137.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Confirm</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#003300"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="60.4" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-231.35" ty="95.55"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Cancel</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="28" width="73.85" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-251" ty="135.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Confirm</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#00FF00"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="78.35" height="36.5" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-178.25" ty="-26.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Booster&#xD;Ability</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineSpacing="-3" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="44.65" width="49.7" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="97.55" ty="128.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Block</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="124.1" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-2.4" ty="88.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>PowerAttack</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="22.65" width="66.35" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="34.75" ty="50.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Attack</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="60.4" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="51.3" ty="106.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Cancel</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#630000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="28" width="73.85" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="40.05" ty="68.1"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Confirm</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#003300"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="60.4" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="52.65" ty="105.55"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Cancel</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FF0000"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="28" width="73.85" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="41.4" ty="66.75"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Confirm</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#00FF00"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="8.9" width="94.95" height="19.75" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="257.75" ty="82.95"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Movement</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" letterSpacing="2" lineSpacing="0" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="39.3" width="78.35" height="36.5" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="25.75" ty="-26.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Booster&#xD;Ability</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" letterSpacing="2" lineSpacing="-3" lineHeight="19.75" size="20" bitmapSize="400" face="Font 4*" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-252.45" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="65.75" width="12.5" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-324.35" ty="16.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>X</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-216.45" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="65.7" width="12.6" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-288.35" ty="16.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>C</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-271.45" ty="-55.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="62.5" width="19" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-343.35" ty="-68.9"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>W</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-271.45" ty="-18"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="67.75" width="8.5" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-343.35" ty="-31.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>S</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-307.45" ty="-18"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="64.95" width="14.1" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-379.35" ty="-31.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>A</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-235.45" ty="-18"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="64.8" width="14.4" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-307.35" ty="-31.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>D</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-180.45" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="65.4" width="13.2" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-252.35" ty="16.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>V</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="-188.95" ty="-12"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="66.3" width="11.4" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-260.85" ty="-25.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>F</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="140.55" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="63.7" width="16.6" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="68.65" ty="16.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>M</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="176.55" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="68.9" width="6.2" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="104.65" ty="16.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>,</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="212.55" ty="30"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="68.9" width="6.2" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="140.65" ty="16.6"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>.</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMSymbolInstance libraryItemName="UI/#CONTROLS/assets/Keys/Key-Button-Shape" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix tx="204.05" ty="-12"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+                <DOMStaticText fontRenderingMode="standard" left="66.45" width="11.1" height="22.45" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="132.15" ty="-25.4"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>L</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="22.45" size="20" bitmapSize="400" face="Font 6*" fillColor="#333333"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMStaticText fontRenderingMode="standard" left="-255.25" width="654.5" height="111.35" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-72" ty="-270.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Keyboard controls</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="center" aliasText="false" lineHeight="111.35" size="82" bitmapSize="1640" face="RETURNTOCASTLE" fillColor="#FFFFFF"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                  <filters>
+                    <DropShadowFilter blurX="0" blurY="0" color="#FFFFFF" distance="3" strength="0.4"/>
+                  </filters>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="-8.55" width="134.35" height="54.3" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="-313.05" ty="-160.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Player 1</characters>
+                      <textAttrs>
+                        <DOMTextAttrs aliasText="false" lineHeight="54.3" size="40" bitmapSize="800" face="RETURNTOCASTLE" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+                <DOMStaticText fontRenderingMode="standard" left="15" width="142.35" height="54.3" autoExpand="true" isSelectable="false">
+                  <matrix>
+                    <Matrix tx="169.05" ty="-160.7"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Player 2</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" lineHeight="54.3" size="40" bitmapSize="800" face="RETURNTOCASTLE" fillColor="#999999"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMStaticText>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF" locked="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="
+!-9600 -5400|9600 -5400!9600 -5400|9600 5400!9600 5400|-9600 5400!-9600 5400|-9600 -5400"/>
+                    <Edge cubics="!9600 -5400(;9600,-5400 9600,5400 9600,5400q9600 -5400 9600 5400);"/>
+                    <Edge cubics="!-9600 -5400(;-9600,-5400 9600,-5400 9600,-5400q-9600 -5400 9600 -5400);"/>
+                    <Edge cubics="!9600 5400(9600,5400;9600,5400 -9600,5400 -9600,5400q9600 5400 -9600 5400);"/>
+                    <Edge cubics="!-9600 5400(;-9600,5400 -9600,-5400 -9600,-5400q-9600 5400 -9600 -5400);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

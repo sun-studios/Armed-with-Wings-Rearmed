@@ -1,0 +1,78 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/OBJ-MusicFade" itemID="54b95ba1-00000c0e" lastModified="1491248529">
+  <timeline>
+    <DOMTimeline name="OBJ-MusicFade">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import flash.media.SoundTransform;
+import flash.events.Event;
+
+visible = false;
+	
+var vol:Number = 1;
+var speed:Number = .008;
+var on:Boolean = false;
+var done:Boolean = false;
+
+var sndCtrl:MovieClip = MovieClip(root);
+
+function update() {
+	if (on && !done) 
+	{
+	
+		if (vol > 0) vol -= speed;
+		
+		if (sndCtrl.isMusicMute) {
+			sndCtrl.musicChannel.soundTransform = new SoundTransform(0);
+		} else {
+			sndCtrl.musicChannel.soundTransform = new SoundTransform(vol*sndCtrl.volumeCtrl);
+		}
+			
+		if (vol <= 0) {
+			done = true;
+			sndCtrl.stopMusic();
+			this.dispatchEvent(new Event("COMPLETE"));
+		}
+		
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor color="#FF0000"/>
+                    </FillStyle>
+                  </fills>
+                  <edges>
+                    <Edge fillStyle1="1" edges="!407 -37|407 41!407 41|155 41!155 41|155 -37!155 -37|407 -37!36 455|-187 165!-187 165|-406 165!-406 165|-406 -165!-406 -165|-187 -165!-187 -165|36 -455!36 -455|36 455"/>
+                    <Edge cubics="!-187 165(;-187,165 -406,165 -406,165q-187 165 -406 165);"/>
+                    <Edge cubics="!-406 165(;-406,165 -406,-165 -406,-165q-406 165 -406 -165);"/>
+                    <Edge cubics="!-406 -165(;-406,-165 -187,-165 -187,-165q-406 -165 -187 -165);"/>
+                    <Edge cubics="!36 -455(;36,-455 36,455 36,455q36 -455 36 455);"/>
+                    <Edge cubics="!-187 -165(;-187,-165 36,-455 36,-455q-187 -165 36 -455);"/>
+                    <Edge cubics="!36 455(;36,455 -187,165 -187,165q36 455 -187 165);"/>
+                    <Edge cubics="!407 -37(;407,-37 407,41 407,41q407 -37 407 41);"/>
+                    <Edge cubics="!155 41(;155,41 155,-37 155,-37q155 41 155 -37);"/>
+                    <Edge cubics="!407 41(;407,41 155,41 155,41q407 41 155 41);"/>
+                    <Edge cubics="!155 -37(;155,-37 407,-37 407,-37q155 -37 407 -37);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

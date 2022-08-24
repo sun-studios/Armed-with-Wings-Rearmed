@@ -1,0 +1,555 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-UnlockMenu2/UI-Icon-Unlock2" itemID="552e53b9-00000bcd" linkageExportForAS="true" linkageClassName="UIUnlockIcon" lastModified="1491866569" lastUniqueIdentifier="4">
+  <timeline>
+    <DOMTimeline name="UI-Icon-Unlock2" currentFrame="1" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-385&lt;/guideline&gt;&lt;/guidelines&gt;'>
+      <layers>
+        <DOMLayer name="actions" color="#009999" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+import com.greensock.TweenMax;
+
+bar.visible = false;
+
+var icon_type:String;
+var icon_id:int;
+var i:Number;
+var max:Number;
+var current:Number;
+var doCounting:Boolean;
+var complete:Boolean;
+var scoreCounter:MovieClip;
+var numInList:Number;
+var slot_id:Number;
+var soundFlag:Boolean;
+var soundFlag2:Boolean;
+var skipping:Boolean;
+var doOnce:Boolean;
+
+var ctrl:MovieClip;
+var sndCtrl:MovieClip;
+var menu:MovieClip;
+
+scoreCounter.visible = false;
+unlock_mc.visible = false;
+
+function init():void {
+	ctrl = MovieClip(root);
+	sndCtrl = MovieClip(root);
+	menu = MovieClip(parent.parent);
+	
+	i = ctrl.unlockScore;
+	current = i;
+	max = ctrl.unlockBaseScore + (ctrl.unlockBaseScore * (numInList * ctrl.unlockCostMultiplier));
+	doCounting = false;
+	complete = false;
+	bar.scaleY = 0;
+	
+	
+	scoreCounter.alpha = 0;
+	
+	gotoAndPlay(19);
+}
+
+function update():void {
+	if (!complete && doCounting) {
+		if (!doOnce) {
+			if (MovieClip(parent).skipInput) {
+				sndCtrl.playContinuous("sndRackPoints2");
+				soundFlag = true;
+			} else {
+				soundFlag = false;
+				sndCtrl.playContinuous("sndRackPoints1");
+			}
+			doOnce = true;
+		}
+		if (ctrl.unlockPoints > 0) {
+			ctrl.unlockPoints -= 10;
+			scoreCounter.visible = true;
+			if (ctrl.unlockPoints < 0) ctrl.unlockPoints = 0;
+			i += 10;
+			menu.updatePointsDisplay(ctrl.unlockPoints);
+			
+			if (i > max) {
+				i = max;
+				unlock();
+			}
+		} else {
+			end();
+		}
+	}
+	
+	if (bar.visible) {
+		bar.scaleY += ((i/max) - bar.scaleY)/4;
+	}
+	if (scoreCounter.visible) {
+		if (scoreCounter.alpha <1) scoreCounter.alpha += .05;
+		scoreCounter.y = bar.y - (186*bar.scaleY);
+		scoreCounter.update(i, max);
+	}
+}
+
+function doSkip(_do:Boolean):void {
+	skipping = _do;
+	if (!complete && doCounting) {
+		if (_do) {
+			if (!soundFlag) {
+				sndCtrl.playContinuous("sndRackPoints2");
+				soundFlag = true;
+			}
+		} else {
+			if (soundFlag) {
+				sndCtrl.playContinuous("sndRackPoints1");
+				soundFlag = false;
+			}
+		}
+	}
+}
+
+function skip():void {
+	
+	update();
+	update();
+	update();
+	
+	if (this.currentFrame > 20 && this.currentFrame < 26) gotoAndPlay(26);
+	if (this.currentFrame > 29 && this.currentFrame < 52) gotoAndPlay(52);
+}
+
+function unlock():void {
+	doOnce = false;
+	sndCtrl.stopAllContinuous();
+	sndCtrl.playUISound(sndCtrl.sndRackPoints3, 0, .35);
+	complete = true;
+	ctrl.unlockScore = 0;
+	TweenMax.delayedCall(40, MovieClip(parent).nextItem, null, true);//should be 40
+	lock_mc.visible = false;
+	unlock_mc.visible = true;
+	unlock_mc.gotoAndPlay(2);
+	
+	if (icon_type == "WEAPON") {
+		ctrl.unlockWeapon(slot_id);
+	} else if (icon_type == "GEAR") {
+		ctrl.unlockGear(slot_id);
+	}
+	ctrl.saveData();
+}
+
+function end():void {
+	sndCtrl.stopAllContinuous();
+	sndCtrl.playUISound(sndCtrl.sndRackPoints3, 0, .35);
+	complete = true;
+	ctrl.unlockScore = i;
+	ctrl.saveData();
+	//menu.closeMenu();
+	menu.keyFilter = true;
+	menu.done = true;
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="2" duration="15" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var icon:MovieClip;
+
+var gearIcon:MovieClip;
+var weaponIcon:MovieClip;
+
+displayIcon(icon_type, icon_id);
+
+function displayIcon(_type:String, _id:int):void {
+	
+	if (_type == "WEAPON") {
+		icon = weaponIcon;
+		icon.gotoAndStop(_id+1);
+		gearIcon.visible = false;
+	}
+	
+	if (_type == "GEAR") {
+		icon = gearIcon;
+		icon.gotoAndStop(_id+2);
+		weaponIcon.visible = false;
+	}
+	
+	
+	
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="17" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="18" duration="9" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[bar.visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="27" duration="28" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[scoreCounter.visible = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="55" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+doCounting = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 4" color="#FF4FFF">
+          <frames>
+            <DOMFrame index="0" duration="56" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 5" color="#009999">
+          <frames>
+            <DOMFrame index="0" duration="56" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-Unlock" name="unlock_mc">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="mask" color="#9933CC" autoNamed="false" layerType="mask">
+          <frames>
+            <DOMFrame index="0" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Icon-Shape">
+                  <matrix>
+                    <Matrix a="4.07853698730469" d="0.166702270507813" ty="90.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="15.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="37" color="#FFFFFF" strength="0.31"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Icon-Shape" centerPoint3DY="38.75">
+                  <matrix>
+                    <Matrix a="4.07833862304688" d="3.54341125488281" ty="38.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="15.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="37" color="#FFFFFF" strength="0.31"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Icon-Shape">
+                  <matrix>
+                    <Matrix a="4.07853698730469" d="6.24496459960938" ty="-3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="15.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="37" color="#FFFFFF" strength="0.31"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="42" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Icon-Shape">
+                  <matrix>
+                    <Matrix a="4.07853698730469" d="6.03910827636719"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="15.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="37" color="#FFFFFF" strength="0.31"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 3" color="#FF800A" parentLayerIndex="3">
+          <frames>
+            <DOMFrame index="0" duration="56" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-lock" name="lock_mc">
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="icon-gear" color="#FF800A" parentLayerIndex="3" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-gear" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.184341430664063" d="0.184341430664063" tx="1.55" ty="0.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-gear" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.184341430664063" d="0.184341430664063" tx="1.55" ty="0.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="13" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2273" y="0.8836"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-gear" symbolType="graphic" centerPoint3DX="0.45" centerPoint3DY="0.25" loop="loop">
+                  <matrix>
+                    <Matrix a="1.21820068359375" d="1.21820068359375" tx="0.4" ty="0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" duration="38" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-gear" symbolType="graphic" centerPoint3DX="0.4" centerPoint3DY="0.25" loop="loop">
+                  <matrix>
+                    <Matrix tx="0.4" ty="0.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="icon-weapon" color="#4F80FF" parentLayerIndex="3" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-Sword" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.184341430664063" d="0.184341430664063" tx="1.85" ty="0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-Sword" symbolType="graphic" loop="loop">
+                  <matrix>
+                    <Matrix a="0.184341430664063" d="0.184341430664063" tx="1.85" ty="0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="5" duration="11" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2273" y="0.8836"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-Sword" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="0.95" loop="loop">
+                  <matrix>
+                    <Matrix a="1.2177734375" d="1.2177734375" tx="1.85" ty="0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" duration="40" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-Sword" symbolType="graphic" centerPoint3DX="1.85" centerPoint3DY="0.9" loop="loop">
+                  <matrix>
+                    <Matrix tx="1.85" ty="0.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bar" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="18" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/bar" name="bar">
+                  <matrix>
+                    <Matrix tx="0.4" ty="93.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" duration="38" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/bar" name="bar">
+                  <matrix>
+                    <Matrix tx="0.4" ty="93.25"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 6" color="#808080">
+          <frames>
+            <DOMFrame index="0" duration="56" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu2/UI-UnlockQueItem/UI-UnlockQueItem-Bar" name="scoreCounter">
+                  <matrix>
+                    <Matrix tx="0.4" ty="92.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="-68.6"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Icon-Shape">
+                  <matrix>
+                    <Matrix a="4.07853698730469" d="0.166702270507813" ty="90.3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="15.3"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="37" color="#FFFFFF" strength="0.31"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="3" duration="11" tweenType="motion" motionTweenSnap="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <Ease target="all" intensity="-100"/>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Icon-Shape" selected="true">
+                  <matrix>
+                    <Matrix a="4.07853698730469" d="6.24496459960938" ty="-3"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="15.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="37" color="#FFFFFF" strength="0.31"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="42" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="UI/UI-UnlockMenu/assets/UI-Unlock-Icon-Shape">
+                  <matrix>
+                    <Matrix a="4.07853698730469" d="6.03910827636719"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="15.4"/>
+                  </transformationPoint>
+                  <filters>
+                    <GlowFilter blurX="0" blurY="37" color="#FFFFFF" strength="0.31"/>
+                  </filters>
+                  <color>
+                    <Color alphaMultiplier="0.26171875"/>
+                  </color>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

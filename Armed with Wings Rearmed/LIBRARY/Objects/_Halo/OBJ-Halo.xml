@@ -1,0 +1,348 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Objects/_Halo/OBJ-Halo" itemID="56e56bfe-00000fb1" linkageExportForAS="true" linkageClassName="Halo" lastModified="1458434843" lastUniqueIdentifier="5">
+  <timeline>
+    <DOMTimeline name="OBJ-Halo" currentFrame="62">
+      <layers>
+        <DOMLayer name="actions" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="62" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var animOver:Boolean;
+
+var ring0:MovieClip;
+var ring1:MovieClip;
+var ring2:MovieClip;
+
+var hero:MovieClip;
+
+init();
+
+function init ():void {
+	hero = MovieClip(parent).hero;
+	gotoAndPlay(2);
+}
+
+function update ():void {
+	x += (hero.x - x)/2;
+	y += ((hero.y - hero.bound.height) - y)/2;
+	
+	if (animOver) {
+		var X1:Number;
+		var Y1:Number;
+		var X2:Number;
+		var Y2:Number;
+		var X3:Number;
+		var Y3:Number;
+		
+		X1 = 0 - hero.xSpeed; 
+		Y1 = 0 + hero.ySpeed;
+		
+		X2 = 0 - hero.xSpeed*2; 
+		Y2 = -12 + hero.ySpeed*2;
+		
+		X3 = 0 - hero.xSpeed*4; 
+		Y3 = -24 + hero.ySpeed*4;
+		
+		ring0.x += (X1 - ring0.x)/4;
+		ring0.y += (Y1 - ring0.y)/4;
+		
+		ring1.x += (X2 - ring1.x)/4;
+		ring1.y += (Y2 - ring1.y)/4;
+		
+		ring2.x += (X3 - ring2.x)/4;
+		ring2.y += (Y3 - ring2.y)/4;
+		
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="62" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();
+animOver = true;]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 7" color="#669900">
+          <frames>
+            <DOMFrame index="0" duration="63" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ring1" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2764" y="0.9"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring1" selected="true">
+                  <matrix>
+                    <Matrix a="0.207168579101563" d="6.66719055175781" tx="2" ty="-323.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="-0.3"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="14" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4106"/>
+                  <Point x="0.5" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring1" selected="true" centerPoint3DX="-0.35" centerPoint3DY="12.9">
+                  <matrix>
+                    <Matrix a="0.570663452148438" d="0.454055786132813" tx="-0.45" ty="12.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="32" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4472"/>
+                  <Point x="0.6545" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring1" centerPoint3DX="-0.35" centerPoint3DY="-14.75">
+                  <matrix>
+                    <Matrix a="0.570663452148438" d="0.575851440429688" tx="-0.45" ty="-14.9"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="58" duration="5" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring1" centerPoint3DX="-0.35" centerPoint3DY="-5.45">
+                  <matrix>
+                    <Matrix a="0.570663452148438" d="0.575851440429688" tx="-0.45" ty="-5.5"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ring2" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="2" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.333321183716261" y="0.357147965001029"/>
+                  <Point x="0.666655702460776" y="0.690480980845023"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring2" selected="true">
+                  <matrix>
+                    <Matrix a="0.165634155273438" d="9.37548828125" tx="0.85" ty="-465.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="2" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2764" y="0.9"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring2" selected="true">
+                  <matrix>
+                    <Matrix a="0.165634155273438" d="9.37548828125" tx="0.85" ty="-465.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.1"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="16" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4106"/>
+                  <Point x="0.5" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring2" selected="true" centerPoint3DX="-0.35" centerPoint3DY="0.3">
+                  <matrix>
+                    <Matrix a="0.45623779296875" d="0.257354736328125" tx="-0.45" ty="0.05"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="34" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4472"/>
+                  <Point x="0.6545" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring2" centerPoint3DX="-0.35" centerPoint3DY="-37.65">
+                  <matrix>
+                    <Matrix a="0.45623779296875" d="0.326385498046875" tx="-0.45" ty="-37.85"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="60" duration="3" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring2" centerPoint3DX="-0.35" centerPoint3DY="-21.35">
+                  <matrix>
+                    <Matrix a="0.45623779296875" d="0.326385498046875" tx="-0.45" ty="-21.65"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="ring0" color="#009999" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" duration="4" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.333321183716261" y="0.357147965001029"/>
+                  <Point x="0.666655702460776" y="0.690480980845023"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring0" selected="true">
+                  <matrix>
+                    <Matrix a="0.0939788818359375" d="2.86698913574219" tx="2" ty="-240.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="4" duration="14" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="-100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.2764" y="0.9"/>
+                  <Point x="0.6667" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring0" selected="true">
+                  <matrix>
+                    <Matrix a="0.0939788818359375" d="2.86698913574219" tx="2" ty="-240.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point y="0.2"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="18" duration="18" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4106"/>
+                  <Point x="0.5" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring0" selected="true" centerPoint3DX="-0.35" centerPoint3DY="23.85">
+                  <matrix>
+                    <Matrix a="0.25885009765625" d="0.35009765625" tx="-0.45" ty="23.75"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="36" duration="26" tweenType="motion" motionTweenSnap="true" hasCustomEase="true" keyMode="22017" acceleration="100">
+              <tweens>
+                <CustomEase target="all">
+                  <Point/>
+                  <Point x="0.4472"/>
+                  <Point x="0.6545" y="1"/>
+                  <Point x="1" y="1"/>
+                </CustomEase>
+              </tweens>
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring0" centerPoint3DX="-0.35" centerPoint3DY="4.7">
+                  <matrix>
+                    <Matrix a="0.25885009765625" d="0.444000244140625" tx="-0.45" ty="5.1"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="62" tweenType="motion" motionTweenSnap="true" keyMode="22017">
+              <elements>
+                <DOMSymbolInstance libraryItemName="Objects/_Halo/OBJ-Halo-Anim" name="ring0" centerPoint3DX="-0.35" centerPoint3DY="11.95">
+                  <matrix>
+                    <Matrix a="0.25885009765625" d="0.444000244140625" tx="-0.45" ty="11.8"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

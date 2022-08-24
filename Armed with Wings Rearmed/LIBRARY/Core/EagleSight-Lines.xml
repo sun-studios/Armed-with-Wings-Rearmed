@@ -1,0 +1,170 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Core/EagleSight-Lines" itemID="5935627b-00001937" lastModified="1496670843">
+  <timeline>
+    <DOMTimeline name="EagleSight-Lines">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var enemies:Array;
+var eagle:MovieClip;
+
+var checkCounter:Number;
+
+init();
+
+function init ():void {
+	
+	checkCounter = 0;
+	enemies = new Array();
+}
+
+function update ():void {
+	
+	if (checkCounter > 0) {
+		checkCounter --;
+	} else {
+		
+		if (MovieClip(parent).enemiesArr) {
+			
+			for (var i:int = 0; i < MovieClip(parent).enemiesArr.length; i ++) {
+				var en = MovieClip(parent).enemiesArr[i];
+				if (en.eagleInSight) {
+					addLine(en, en.eagle);
+				}
+			}
+		}
+		checkCounter = 20;
+	}
+	
+	
+	this.graphics.clear();
+	this.graphics.lineStyle(1, 0xffffff, .3+Math.random());
+	
+	for (i = 0; i < enemies.length; i ++) {
+		en = enemies[i];
+		if (en.eagleInSight && !en.life <= 0 && !en.dead) {
+			drawLine(en, eagle);
+		} else {
+			enemies.splice(i,1);
+			break;
+		}
+	}
+}
+
+function addLine(obj:MovieClip, _eagle:MovieClip):void {
+	var go:Boolean = true;
+	for (var i:int = 0; i < enemies.length; i++) {
+		if (obj == enemies[i]) {
+			go = false;
+			break;
+		}
+	}
+	if (go) {
+		if (obj) {
+			eagle = _eagle;
+			enemies.push(obj);
+		}
+	}
+}
+
+function drawLine(obj1:MovieClip, obj2:MovieClip):void {
+	
+	this.graphics.beginFill(0xffffff,.4+(Math.random()*.3));
+	this.graphics.moveTo(obj2.x,obj2.y);
+	var dist:Number = distanceTwoPoints(obj1.x, obj2.x, obj1.y, obj2.y);
+	var gaps:Number = distanceTwoPoints(obj1.x, obj2.x, obj1.y, obj2.y)*.125;
+	//trace(gaps);
+	gaps *= (.5+Math.random());
+	
+	var linelength:Number = 3;
+	
+	for (var i:int = 0; i < gaps; i ++) {
+		var val:Number = i/gaps;
+		if (i % 2 == 0) {
+			this.graphics.lineTo(obj2.x+((obj2.x-obj1.x)*-val), obj2.y+((obj2.y-(obj1.y-50))*-val));
+		} else {
+			this.graphics.moveTo(obj2.x+((obj2.x-obj1.x)*-val), obj2.y+((obj2.y-(obj1.y-50))*-val));
+		}
+	}
+}
+
+function distanceTwoPoints(x1:Number, x2:Number,  y1:Number, y2:Number):
+    Number {
+    var dx:Number = x1-x2;
+    var dy:Number = y1-y2;
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+function _clear():void {
+	enemies = [];
+	this.graphics.clear();
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[stop();]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" caps="none" weight="0.1" joints="miter">
+                        <fill>
+                          <SolidColor color="#FFFFFF"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge strokeStyle="1" edges="!-18112 -9038|-17916 -9234!-18112 -9038|-18112 -9234!-18112 -9234|-17916 -9234!-18112 -8760|-18251 -8899!-18251 -8899|-18112 -9038!-17915 -8563|-18112 -8760!-17915 -8563|-18112 -8563!-18112 -8563|-18112 -8760!-18112 -8760|-18112 -9038
+!-17637 -9234|-17441 -9037!-17916 -9234|-17777 -9374!-17777 -9374|-17637 -9234!-17637 -9234|-17441 -9234!-17441 -9234|-17441 -9037!-17638 -8563|-17777 -8424!-17777 -8424|-17915 -8563!-17441 -8761|-17638 -8563!-17441 -9037|-17303 -8899
+!-17303 -8899|-17441 -8761!-17441 -8761|-17441 -8563!-17441 -8563|-17638 -8563!-17441 -9037|-17441 -8761!-17638 -8563|-17915 -8563!-17916 -9234|-17637 -9234"/>
+                    <Edge cubics="!-18251 -8899(;-18251,-8899 -18112,-9038 -18112,-9038q-18251 -8899 -18112 -9038);"/>
+                    <Edge cubics="!-18112 -9038(;-18112,-9038 -17916,-9234 -17916,-9234q-18112 -9038 -17916 -9234);"/>
+                    <Edge cubics="!-17916 -9234(;-17916,-9234 -17777,-9374 -17777,-9374q-17916 -9234 -17777 -9374);"/>
+                    <Edge cubics="!-17303 -8899(;-17303,-8899 -17441,-8761 -17441,-8761q-17303 -8899 -17441 -8761);"/>
+                    <Edge cubics="!-17441 -8761(;-17441,-8761 -17638,-8563 -17638,-8563q-17441 -8761 -17638 -8563);"/>
+                    <Edge cubics="!-17638 -8563(;-17638,-8563 -17777,-8424 -17777,-8424q-17638 -8563 -17777 -8424);"/>
+                    <Edge cubics="!-17777 -8424(;-17777,-8424 -17915,-8563 -17915,-8563q-17777 -8424 -17915 -8563);"/>
+                    <Edge cubics="!-17915 -8563(-17915,-8563;-17915,-8563 -18112,-8760 -18112,-8760q-17915 -8563 -18112 -8760);"/>
+                    <Edge cubics="!-18112 -8760(;-18112,-8760 -18251,-8899 -18251,-8899q-18112 -8760 -18251 -8899);"/>
+                    <Edge cubics="!-17777 -9374(;-17777,-9374 -17637,-9234 -17637,-9234q-17777 -9374 -17637 -9234);"/>
+                    <Edge cubics="!-17637 -9234(;-17637,-9234 -17441,-9037 -17441,-9037q-17637 -9234 -17441 -9037);"/>
+                    <Edge cubics="!-17441 -9037(;-17441,-9037 -17303,-8899 -17303,-8899q-17441 -9037 -17303 -8899);"/>
+                    <Edge cubics="!-18112 -9038(;-18112,-9038 -18112,-9234 -18112,-9234q-18112 -9038 -18112 -9234);"/>
+                    <Edge cubics="!-18112 -9234(-18112,-9234;-18112,-9234 -17916,-9234 -17916,-9234q-18112 -9234 -17916 -9234);"/>
+                    <Edge cubics="!-17441 -9234(;-17441,-9234 -17441,-9037 -17441,-9037q-17441 -9234 -17441 -9037);"/>
+                    <Edge cubics="!-17637 -9234(;-17637,-9234 -17441,-9234 -17441,-9234q-17637 -9234 -17441 -9234);"/>
+                    <Edge cubics="!-17916 -9234(;-17916,-9234 -17637,-9234 -17637,-9234q-17916 -9234 -17637 -9234);"/>
+                    <Edge cubics="!-17441 -8761(;-17441,-8761 -17441,-8563 -17441,-8563q-17441 -8761 -17441 -8563);"/>
+                    <Edge cubics="!-17441 -8563(;-17441,-8563 -17638,-8563 -17638,-8563q-17441 -8563 -17638 -8563);"/>
+                    <Edge cubics="!-18112 -8563(;-18112,-8563 -18112,-8760 -18112,-8760q-18112 -8563 -18112 -8760);"/>
+                    <Edge cubics="!-17915 -8563(;-17915,-8563 -18112,-8563 -18112,-8563q-17915 -8563 -18112 -8563);"/>
+                    <Edge cubics="!-17638 -8563(;-17638,-8563 -17915,-8563 -17915,-8563q-17638 -8563 -17915 -8563);"/>
+                    <Edge cubics="!-17441 -9037(-17441,-9037;-17441,-9037 -17441,-8761 -17441,-8761q-17441 -9037 -17441 -8761);"/>
+                    <Edge cubics="!-18112 -8760(;-18112,-8760 -18112,-9038 -18112,-9038q-18112 -8760 -18112 -9038);"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+            <DOMFrame index="1" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

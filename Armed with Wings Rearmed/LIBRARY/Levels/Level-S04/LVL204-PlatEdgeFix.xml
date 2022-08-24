@@ -1,0 +1,66 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-S04/LVL204-PlatEdgeFix" itemID="57e7e9b6-000012a2" lastModified="1474816438">
+  <timeline>
+    <DOMTimeline name="LVL204-PlatEdgeFix">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+var ground:MovieClip;
+var edge10:MovieClip;
+
+init();
+
+function init ():void {
+	visible = false;
+	ground = MovieClip(parent).ground;
+	edge10 = MovieClip(parent).edge10;
+}
+
+function update ():void {
+	if (ground.stone9.explode) {
+		edge10.y = -10000;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal">
+                        <fill>
+                          <SolidColor color="#990000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!-407 -540|407 -540!407 -540|407 540!407 540|-407 540!-407 540|-407 -540"/>
+                    <Edge cubics="!-407 -540(;-407,-540 407,-540 407,-540q-407 -540 407 -540);"/>
+                    <Edge cubics="!407 540(;407,540 -407,540 -407,540q407 540 -407 540);"/>
+                    <Edge cubics="!-407 540(-407,540;-407,540 -407,-540 -407,-540q-407 540 -407 -540)-407,-540;"/>
+                    <Edge cubics="!407 -540(407,-540;407,-540 407,540 407,540q407 -540 407 540)407,540;"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

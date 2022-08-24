@@ -1,0 +1,66 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Levels/Level-M/LVL-M-CheckPointFunction" itemID="58281ced-00000c96" lastModified="1479023853">
+  <timeline>
+    <DOMTimeline name="LVL-M-CheckPointFunction">
+      <layers>
+        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <Actionscript>
+                <script><![CDATA[import flash.display.MovieClip;
+
+visible = false;
+
+var checkpointTrigger:MovieClip;
+var hero:MovieClip;
+var portal:MovieClip;
+
+init();
+
+function init ():void {
+	checkpointTrigger = MovieClip(parent).checkpointTrigger;
+	hero = MovieClip(parent).hero;
+	portal = MovieClip(parent).portal0;
+}
+
+function update():void {
+	if (hero.hitTestObject(checkpointTrigger)) {
+		portal.visible = false;
+		portal.y += 3000;
+	}
+}]]></script>
+              </Actionscript>
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4F80FF">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMShape>
+                  <fills>
+                    <FillStyle index="1">
+                      <SolidColor/>
+                    </FillStyle>
+                  </fills>
+                  <strokes>
+                    <StrokeStyle index="1">
+                      <SolidStroke scaleMode="normal" weight="0.1">
+                        <fill>
+                          <SolidColor color="#FF0000"/>
+                        </fill>
+                      </SolidStroke>
+                    </StrokeStyle>
+                  </strokes>
+                  <edges>
+                    <Edge fillStyle1="1" strokeStyle="1" edges="!-301 -301|301 -301!301 -301|301 301!301 301|-301 301!-301 301|-301 -301"/>
+                  </edges>
+                </DOMShape>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
