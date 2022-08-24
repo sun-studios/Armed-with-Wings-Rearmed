@@ -26,3 +26,11 @@ Hopefully the game appears
 4. Create a Certificate and give it a password
 5. Hit publish
 6. the game exe should be outputted into the /bin folder.
+
+**Fonts**
+Berlin Sans FB Demi
+FORCED SQUARE: https://www.dafont.com/forced-square.font
+Furmanite: https://www.dafont.com/furmanite.font
+Mars: https://www.dafont.com/mars.font
+RETURN TO CASTLE: https://www.dafont.com/return-to-castle.font
+Thinman: https://www.dafont.com/thinman.font
