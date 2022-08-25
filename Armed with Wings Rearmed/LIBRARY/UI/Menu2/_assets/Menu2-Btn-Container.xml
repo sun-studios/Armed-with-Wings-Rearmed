@@ -2,7 +2,7 @@
   <timeline>
     <DOMTimeline name="Menu2-Btn-Container">
       <layers>
-        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+        <DOMLayer name="Layer 2" color="#9933CC">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
@@ -198,11 +198,11 @@ function confirm():void {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 1" color="#4F80FF">
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/RingButton" name="b0" uniqueID="1">
+                <DOMComponentInstance libraryItemName="UI/Menu2/_RingButton/RingButton" name="b0" selected="true" uniqueID="1">
                   <matrix>
                     <Matrix a="0.894744873046875" d="0.894744873046875"/>
                   </matrix>

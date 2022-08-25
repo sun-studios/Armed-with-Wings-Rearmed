@@ -1,6 +1,6 @@
 <DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/Menu2/Menu2" itemID="562b91ad-00000d94" lastModified="1572353375" lastUniqueIdentifier="7">
   <timeline>
-    <DOMTimeline name="Menu2" currentFrame="2">
+    <DOMTimeline name="Menu2">
       <layers>
         <DOMLayer name="label" color="#9933CC" autoNamed="false">
           <frames>
@@ -12,7 +12,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="actions" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="actions" color="#4F80FF" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
@@ -489,11 +489,11 @@ playerOptions.init();
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="button container" color="#FF800A" autoNamed="false">
+        <DOMLayer name="button container" color="#FF800A" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Btn-Container" name="container" centerPoint3DX="840" centerPoint3DY="340">
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Btn-Container" name="container" selected="true" centerPoint3DX="840" centerPoint3DY="340">
                   <matrix>
                     <Matrix tx="480" ty="340"/>
                   </matrix>

@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HighScores/UI-HighScoreTable" itemID="5503b4c7-00000465" lastModified="1661341935" lastUniqueIdentifier="4">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HighScores/UI-HighScoreTable" itemID="5503b4c7-00000465" lastModified="1473491746" lastUniqueIdentifier="4">
   <timeline>
     <DOMTimeline name="UI-HighScoreTable">
       <layers>
@@ -6,7 +6,7 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
-                <script><![CDATA[CONFIG::STEAM {
+                <script><![CDATA[CONFIG::AIR {
 import com.amanitadesign.steam.FRESteamWorks;
 import com.amanitadesign.steam.SteamResults;
 import com.amanitadesign.steam.SteamEvent;
@@ -223,7 +223,7 @@ function log(s:String):void {
                   </strokes>
                   <edges>
                     <Edge strokeStyle="1" edges="!-8000 -4099|-8000 -4500!-8000 -4500|8000 -4500!8000 -4500|8000 -4099!8000 4280|8000 4500!8000 4500|-8000 4500!-8000 4500|-8000 4280"/>
-                    <Edge strokeStyle="1" edges="!8000 -4099S4|8000 4280!-8000 4280|-8000 -4099"/>
+                    <Edge strokeStyle="1" edges="!-8000 4280S4|-8000 -4099!8000 -4099|8000 4280"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -265,7 +265,7 @@ function log(s:String):void {
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!3465 -2249|6722 -2249!6722 -2249|6722 -1493!6722 -1493|3465 -1493!3465 -1493|3465 -2249!-4702 -2249|3367 -2249!3367 -2249|3367 -1493!3367 -1493|-4702 -1493!-4702 -1493|-4702 -2249!-6719 -2249|-4806 -2249!-4806 -2249|-4806 -1493!-4806
+                    <Edge fillStyle1="1" edges="!-4702 -2249|3367 -2249!3367 -2249|3367 -1493!3367 -1493|-4702 -1493!-4702 -1493|-4702 -2249!3465 -2249|6722 -2249!6722 -2249|6722 -1493!6722 -1493|3465 -1493!3465 -1493|3465 -2249!-6719 -2249|-4806 -2249!-4806 -2249|-4806 -1493!-4806
  -1493|-6719 -1493!-6719 -1493|-6719 -2249"/>
                     <Edge cubics="!3367 -2249(3367,-2249;3367,-2249 3367,-1493 3367,-1493q3367 -2249 3367 -1493)3367,-1493;"/>
                     <Edge cubics="!3465 -1493(;3465,-1493 3465,-2249 3465,-2249q3465 -1493 3465 -2249);"/>

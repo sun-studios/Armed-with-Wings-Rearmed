@@ -2,7 +2,7 @@
   <timeline>
     <DOMTimeline name="UI-EquiptGear" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-411&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
-        <DOMLayer name="icon actions" color="#669900" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="icon actions" color="#669900" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
@@ -404,11 +404,11 @@ function listingType():String {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="infoPanel" color="#9933CC" autoNamed="false">
+        <DOMLayer name="infoPanel" color="#9933CC" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Gear-InfoPanel" name="infoPanel">
+                <DOMSymbolInstance libraryItemName="UI/UI-Player/UI-Gear-InfoPanel" name="infoPanel" selected="true">
                   <matrix>
                     <Matrix tx="250.95" ty="448.2"/>
                   </matrix>
