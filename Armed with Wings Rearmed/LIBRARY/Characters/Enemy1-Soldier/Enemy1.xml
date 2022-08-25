@@ -1,4 +1,4 @@
-<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy1-Soldier/Enemy1" itemID="54b0ca72-00000077" lastModified="1501753284" lastUniqueIdentifier="13" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
+<DOMComponentItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Enemy1-Soldier/Enemy1" itemID="54b0ca72-00000077" lastModified="1661431234" lastUniqueIdentifier="13" displayAsComponent="false" customIconID="0" persistLivePreview11="true" editFrameIndex="1" requiredMinimumPlayerVersion="0" requiredMinimumASVersion="0" parametersAreLocked="true">
   <timeline>
     <DOMTimeline name="Enemy1">
       <layers>
@@ -778,7 +778,7 @@ function gotoDeath():void {
 		
 	}
 	updateAnimation("death");
-	trace("lagoon");
+	
 }
 
 function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {

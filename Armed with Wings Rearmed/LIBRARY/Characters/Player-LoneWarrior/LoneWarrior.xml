@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-LoneWarrior/LoneWarrior" itemID="54ae67fe-00000e00" lastModified="1501420249" lastUniqueIdentifier="6">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Player-LoneWarrior/LoneWarrior" itemID="54ae67fe-00000e00" lastModified="1661431221" lastUniqueIdentifier="6">
   <timeline>
     <DOMTimeline name="LoneWarrior">
       <layers>
@@ -1083,7 +1083,7 @@ function damageEnemies():void {
 			{
 				var doDoubleHit:Boolean = false;
 				if (canDoubleHit && Math.random() <= doubleHitAmount) doDoubleHit = true;
-				if (hitStandard) trace("SWINGZ");
+				
 				if (hitStandard && hitStandard.hitTestObject(enemy.bound)) {
 					
 					if (overdrive) {
