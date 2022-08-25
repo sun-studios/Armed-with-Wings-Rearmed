@@ -1,6 +1,6 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/UI-EarlyAccess2" itemID="569e02ed-000011a6" lastModified="1494320542" lastUniqueIdentifier="11">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/UI-EarlyAccess2" itemID="569e02ed-000011a6" lastModified="1661404198" lastUniqueIdentifier="11">
   <timeline>
-    <DOMTimeline name="UI-EarlyAccess2">
+    <DOMTimeline name="UI-EarlyAccess2" currentFrame="1">
       <layers>
         <DOMLayer name="actions" color="#9933CC" autoNamed="false">
           <frames>
@@ -232,11 +232,16 @@ function openURL(s:String):void {
 			break;
 	}
 	
-	if (gameData.STEAM && gameData.steamworks.isReady) {
-		gameData.steamworks.activateGameOverlayToWebPage(url);
+	if (CONFIG::STEAM) {
+		if (gameData.STEAM && gameData.steamworks.isReady) {
+			gameData.steamworks.activateGameOverlayToWebPage(url);
+		} else {
+			navigateToURL(new URLRequest(url));
+		}
 	} else {
 		navigateToURL(new URLRequest(url));
 	}
+	
 	
 	sndCtrl.playSound(sndCtrl.sndButton3);
 }
@@ -276,11 +281,11 @@ function close():void {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="changelog" color="#009999" autoNamed="false">
+        <DOMLayer name="changelog" color="#009999" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" duration="2" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/UI-EarlyAccess2-ChaneLog" name="changeLog">
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/UI-EarlyAccess2-ChaneLog" name="changeLog" selected="true">
                   <matrix>
                     <Matrix tx="1097.45" ty="-4.25"/>
                   </matrix>
@@ -312,7 +317,7 @@ function close():void {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="Layer 1" color="#4F80FF" autoNamed="false">
           <frames>
             <DOMFrame index="0" duration="2" keyMode="9728">
               <elements>
@@ -338,7 +343,7 @@ function close():void {
                     <GlowFilter blurX="56" blurY="6" color="#FFFFFF" quality="2" strength="0.65"/>
                   </filters>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 41" name="container" selected="true">
+                <DOMSymbolInstance libraryItemName="UI/UI-EarlyAccess/Symbol 41" name="container">
                   <matrix>
                     <Matrix tx="-4.55" ty="48.25"/>
                   </matrix>

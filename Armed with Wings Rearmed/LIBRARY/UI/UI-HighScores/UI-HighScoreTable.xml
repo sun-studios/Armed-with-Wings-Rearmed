@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HighScores/UI-HighScoreTable" itemID="5503b4c7-00000465" lastModified="1473491746" lastUniqueIdentifier="4">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HighScores/UI-HighScoreTable" itemID="5503b4c7-00000465" lastModified="1661403886" lastUniqueIdentifier="4">
   <timeline>
     <DOMTimeline name="UI-HighScoreTable">
       <layers>
@@ -6,16 +6,16 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
-                <script><![CDATA[CONFIG::AIR {
-import com.amanitadesign.steam.FRESteamWorks;
-import com.amanitadesign.steam.SteamResults;
-import com.amanitadesign.steam.SteamEvent;
-import com.amanitadesign.steam.SteamConstants;
-import com.amanitadesign.steam.UserStatsConstants;
-import com.amanitadesign.steam.LeaderboardEntry;
-import flash.display.MovieClip;
-import flash.text.TextField;
-
+                <script><![CDATA[CONFIG::STEAM {
+	import com.amanitadesign.steam.FRESteamWorks;
+	import com.amanitadesign.steam.SteamResults;
+	import com.amanitadesign.steam.SteamEvent;
+	import com.amanitadesign.steam.SteamConstants;
+	import com.amanitadesign.steam.UserStatsConstants;
+	import com.amanitadesign.steam.LeaderboardEntry;
+	import flash.display.MovieClip;
+	import flash.text.TextField;
+}
 var handle:String;
 var leaderBoardName:String;
 var leaderBoardIndex:int = 0;
@@ -34,7 +34,9 @@ var keyFilter4:Boolean = true;
 //refs
 var _root:MovieClip;
 var ctrl:PlayerControl;
-var steamworks:FRESteamWorks;
+CONFIG::STEAM {
+	var steamworks:FRESteamWorks;
+}
 
 //temp debug
 var log_tf:TextField;
@@ -43,20 +45,23 @@ var log_tf:TextField;
 init();
 
 function init():void {
-	_root = MovieClip(root);
-	ctrl = MovieClip(root).player1Control;
-	
-	if (_root.STEAM) {
-		steamworks = _root.steamworks;
-		steamworks.addEventListener(SteamEvent.STEAM_RESPONSE, onSteamResponse);
+	CONFIG::STEAM {
+		_root = MovieClip(root);
+		ctrl = MovieClip(root).player1Control;
 		
-		leaderBoardName = "Survival";
-		changeFilter("Global");
-		//steamFindBoard("Survival");
+		if (_root.STEAM) {
+			steamworks = _root.steamworks;
+			steamworks.addEventListener(SteamEvent.STEAM_RESPONSE, onSteamResponse);
+			
+			leaderBoardName = "Survival";
+			changeFilter("Global");
+			//steamFindBoard("Survival");
+		}
 	}
 }
 
 function changeFilter(displayfilter:String):void {
+	CONFIG::STEAM {
 	if (btnCurrent) btnCurrent.gotoAndPlay("out");
 	switch (displayfilter) {
 		case "Global":
@@ -72,8 +77,10 @@ function changeFilter(displayfilter:String):void {
 	btnCurrent.gotoAndPlay("over");
 	steamFindBoard(leaderBoardName);
 }
+}
 
 function steamFindBoard(_leaderBoardName:String):void {
+	CONFIG::STEAM {
 	clearSlots();
 	leaderBoardName = _leaderBoardName;
 	switch (leaderBoardName) {
@@ -85,7 +92,8 @@ function steamFindBoard(_leaderBoardName:String):void {
 			break;
 	}
 }
-
+}
+CONFIG::STEAM {
 function onSteamResponse (e:SteamEvent):void {
 	
 	switch (e.req_type) {
@@ -119,7 +127,7 @@ function onSteamResponse (e:SteamEvent):void {
 			break;
 	}
 }
-
+}
 function clearSlots():void {
 	for (var i:int = 0; i < 7; i ++) {
 		this["slot"+i].update("", "#", "#");
@@ -127,6 +135,7 @@ function clearSlots():void {
 }
 
 function update():void {
+	CONFIG::STEAM {
 	title.update();
 	
 	var input:Boolean = false;
@@ -193,13 +202,14 @@ function update():void {
 				break;
 		}
 	}
+}
 	
 }
 
 function log(s:String):void {
 	log_tf.text = s;
 }
-}
+
 
 ]]></script>
               </Actionscript>
@@ -223,7 +233,7 @@ function log(s:String):void {
                   </strokes>
                   <edges>
                     <Edge strokeStyle="1" edges="!-8000 -4099|-8000 -4500!-8000 -4500|8000 -4500!8000 -4500|8000 -4099!8000 4280|8000 4500!8000 4500|-8000 4500!-8000 4500|-8000 4280"/>
-                    <Edge strokeStyle="1" edges="!-8000 4280S4|-8000 -4099!8000 -4099|8000 4280"/>
+                    <Edge strokeStyle="1" edges="!8000 -4099S4|8000 4280!-8000 4280|-8000 -4099"/>
                   </edges>
                 </DOMShape>
               </elements>
@@ -265,7 +275,7 @@ function log(s:String):void {
                     </FillStyle>
                   </fills>
                   <edges>
-                    <Edge fillStyle1="1" edges="!-4702 -2249|3367 -2249!3367 -2249|3367 -1493!3367 -1493|-4702 -1493!-4702 -1493|-4702 -2249!3465 -2249|6722 -2249!6722 -2249|6722 -1493!6722 -1493|3465 -1493!3465 -1493|3465 -2249!-6719 -2249|-4806 -2249!-4806 -2249|-4806 -1493!-4806
+                    <Edge fillStyle1="1" edges="!3465 -2249|6722 -2249!6722 -2249|6722 -1493!6722 -1493|3465 -1493!3465 -1493|3465 -2249!-4702 -2249|3367 -2249!3367 -2249|3367 -1493!3367 -1493|-4702 -1493!-4702 -1493|-4702 -2249!-6719 -2249|-4806 -2249!-4806 -2249|-4806 -1493!-4806
  -1493|-6719 -1493!-6719 -1493|-6719 -2249"/>
                     <Edge cubics="!3367 -2249(3367,-2249;3367,-2249 3367,-1493 3367,-1493q3367 -2249 3367 -1493)3367,-1493;"/>
                     <Edge cubics="!3465 -1493(;3465,-1493 3465,-2249 3465,-2249q3465 -1493 3465 -2249);"/>

@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/EarlyAccessMenu-base" itemID="5557ab43-000042d8" lastModified="1491752313" lastUniqueIdentifier="1">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-EarlyAccess/EarlyAccessMenu-base" itemID="5557ab43-000042d8" lastModified="1661404309" lastUniqueIdentifier="1">
   <timeline>
     <DOMTimeline name="EarlyAccessMenu-base">
       <layers>
@@ -6,7 +6,8 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
-                <script><![CDATA[import flash.text.TextField;
+                <script><![CDATA[
+import flash.text.TextField;
 import flash.net.URLLoader;
 import flash.net.URLRequest;
 import flash.text.TextFormat;
