@@ -17,9 +17,9 @@ For any questions, hit me up on discord: https://discord.gg/FxyFT7QRJE
 **Publish Settings**
 1. Hit Ctrl+Shift+f12 to open publish settings
 2. Click the folder icon next to *output* name
-3. Create a new folder somewhere called 'bin' - this is where the swf will be exported to
+3. Create a new folder somewhere called 'export' - this is where the swf will be exported to
 4. Click the spanner icon next to *Target: AIR XX.XX for Desktop*
-5. Click the folder next to *Output File* - select the same bin folder. This is where the exe will be exported to.
+5. Click the folder next to *Output File* - select the same export folder. This is where the exe will be exported to.
 6. Close these panels
 
 **Test**
