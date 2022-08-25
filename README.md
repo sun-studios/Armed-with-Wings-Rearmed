@@ -13,8 +13,19 @@ For any questions, hit me up on discord: https://discord.gg/FxyFT7QRJE
 4. Get 32bit (x86) JRE SDK 1.7: https://www.oracle.com/java/technologies/javase/javase7-archive-downloads.html 
 5. Open Armed with Wings Rearmed/Armed with Wings Rearmed.xfl in Animate CC
 6. Open project.as3proj in Flash Develop
-7. Hit CTRL+ENTER in Animate CC to Test Movie
-8. If Animate says 'Not enough memory', it will prompt you to edit a file called jvm.ini.
+
+**Publish Settings**
+1. Hit Ctrl+Shift+f12 to open publish settings
+2. Click the folder icon next to *output* name
+3. Create a new folder somewhere called 'bin' - this is where the swf will be exported to
+4. Click the spanner icon next to *Target: AIR XX.XX for Desktop*
+5. Click the folder next to *Output File* - select the same bin folder. This is where the exe will be exported to.
+6. Close these panels
+
+**Test**
+
+1. Hit CTRL+ENTER in Animate CC to Test Movie
+2. If Animate says 'Not enough memory', it will prompt you to edit a file called jvm.ini.
     - Change -Xmx256m to -Xmx1024m in the jvm.ini
 
 Hopefully the game appears
