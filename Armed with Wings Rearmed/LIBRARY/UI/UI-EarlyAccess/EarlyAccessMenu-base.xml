@@ -74,13 +74,13 @@ textLoader.load(textURL);]]></script>
                     <Point x="7.5" y="49.95"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="direction">
-      <Inspectable name="direction" variable="direction" category="" verbose="0" defaultValue="vertical" enumeration="vertical,horizontal" type="List"/>
+      <Inspectable name="direction" unlocalizedName="direction" variable="direction" category="" verbose="0" defaultValue="vertical" enumeration="vertical,horizontal" type="List"/>
    </property>
    <property id="scrollTargetName">
-      <Inspectable name="scrollTargetName" variable="scrollTargetName" category="" verbose="0" defaultValue="info_tf" type="String"/>
+      <Inspectable name="scrollTargetName" unlocalizedName="scrollTargetName" variable="scrollTargetName" category="" verbose="0" defaultValue="info_tf" type="String"/>
    </property>
    <property id="visible">
-      <Inspectable name="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
+      <Inspectable name="visible" unlocalizedName="visible" variable="visible" category="" verbose="1" defaultValue="true" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>

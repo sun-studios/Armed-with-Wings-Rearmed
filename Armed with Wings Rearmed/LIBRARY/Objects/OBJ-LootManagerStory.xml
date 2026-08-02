@@ -183,8 +183,6 @@ function turnEnemyIntoLoot (enemy:MovieClip = null):void {
 			var finalValue = _base + Math.ceil(Math.random()*gameData.sessionLevel)+randomLuck;
 			if (finalValue > 59) finalValue = 59;
 			lootCount = Math.ceil(finalValue);
-			
-			lootCount = 15; // force to rock sword  -
 			//gameData.sessionStoryLootCount = lootCount;
 		}
 		

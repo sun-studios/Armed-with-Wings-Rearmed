@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-Relics2" itemID="587a58a2-00000e0c" lastModified="1519576359" lastUniqueIdentifier="9">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-HUD/HUD-Relics2" itemID="587a58a2-00000e0c" lastModified="1785627371" lastUniqueIdentifier="9">
   <timeline>
     <DOMTimeline name="HUD-Relics2">
       <layers>
@@ -360,7 +360,7 @@ function kill():void {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Pause" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="Pause" color="#4F80FF" current="true" isSelected="true" autoNamed="false" visible="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>

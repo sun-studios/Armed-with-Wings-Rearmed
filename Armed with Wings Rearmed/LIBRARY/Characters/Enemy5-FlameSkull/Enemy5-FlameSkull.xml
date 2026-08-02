@@ -711,16 +711,16 @@ function checkStep():Boolean {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="cDir">
-      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="direction" unlocalizedName="direction" variable="cDir" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="superEnemy">
-      <Inspectable name="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="superEnemy" unlocalizedName="superEnemy" variable="superEnemy" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="cEyeSight">
-      <Inspectable name="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="eyeSight" unlocalizedName="eyeSight" variable="cEyeSight" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="forceFocusLoss">
-      <Inspectable name="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="forceFocusLoss" unlocalizedName="forceFocusLoss" variable="forceFocusLoss" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

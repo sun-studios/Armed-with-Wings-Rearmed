@@ -110,22 +110,22 @@ function update():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="X">
-      <Inspectable name="X" variable="X" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="X" unlocalizedName="X" variable="X" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="Y">
-      <Inspectable name="Y" variable="Y" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="Y" unlocalizedName="Y" variable="Y" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="dir">
-      <Inspectable name="dir" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="dir" unlocalizedName="dir" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="max">
-      <Inspectable name="max" variable="max" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="max" unlocalizedName="max" variable="max" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="forceActive">
-      <Inspectable name="forceActive" variable="forceActive" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="forceActive" unlocalizedName="forceActive" variable="forceActive" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="cSpeed">
-      <Inspectable name="speed" variable="cSpeed" category="" verbose="0" defaultValue="0.8" type="Number"/>
+      <Inspectable name="speed" unlocalizedName="speed" variable="cSpeed" category="" verbose="0" defaultValue="0.8" type="Number"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

@@ -36,10 +36,10 @@ function update ():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="speed">
-      <Inspectable name="speed" variable="speed" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="speed" unlocalizedName="speed" variable="speed" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="id">
-      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="id" unlocalizedName="id" variable="id" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

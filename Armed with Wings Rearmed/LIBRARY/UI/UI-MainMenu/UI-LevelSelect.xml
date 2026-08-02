@@ -1,8 +1,8 @@
 <DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-MainMenu/UI-LevelSelect" itemID="54cc98e2-00000e3e" lastModified="1492881220" lastUniqueIdentifier="27">
   <timeline>
-    <DOMTimeline name="UI-LevelSelect" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-274&lt;/guideline&gt;&lt;guideline direction="h"&gt;-279&lt;/guideline&gt;&lt;guideline direction="h"&gt;-289&lt;/guideline&gt;&lt;guideline direction="h"&gt;-289&lt;/guideline&gt;&lt;/guidelines&gt;'>
+    <DOMTimeline name="UI-LevelSelect" currentFrame="1" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-274&lt;/guideline&gt;&lt;guideline direction="h"&gt;-279&lt;/guideline&gt;&lt;guideline direction="h"&gt;-289&lt;/guideline&gt;&lt;guideline direction="h"&gt;-289&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
-        <DOMLayer name="actions" color="#4F80FF" autoNamed="false">
+        <DOMLayer name="actions" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
@@ -248,11 +248,11 @@ function input() {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 21" color="#009999" current="true" isSelected="true">
+        <DOMLayer name="Layer 21" color="#009999">
           <frames>
             <DOMFrame index="0" duration="35" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="UI/Menu2/Menu2-DifficultySelect" name="menu1" selected="true">
+                <DOMSymbolInstance libraryItemName="UI/Menu2/Menu2-DifficultySelect" name="menu1">
                   <matrix>
                     <Matrix tx="-261.8" ty="-33.1"/>
                   </matrix>

@@ -939,10 +939,10 @@ function checkStep(invertDir:Boolean = false, multiplyer:Number = 1):Boolean {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="cDir">
-      <Inspectable name="direction" variable="cDir" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="direction" unlocalizedName="direction" variable="cDir" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="scouting">
-      <Inspectable name="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="scouting" unlocalizedName="scouting" variable="scouting" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

@@ -185,16 +185,16 @@ function applyForce ():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="minPos">
-      <Inspectable name="minPos" variable="minPos" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="minPos" unlocalizedName="minPos" variable="minPos" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="maxPos">
-      <Inspectable name="maxPos" variable="maxPos" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="maxPos" unlocalizedName="maxPos" variable="maxPos" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="X">
-      <Inspectable name="X" variable="X" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="X" unlocalizedName="X" variable="X" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="Y">
-      <Inspectable name="Y" variable="Y" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="Y" unlocalizedName="Y" variable="Y" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

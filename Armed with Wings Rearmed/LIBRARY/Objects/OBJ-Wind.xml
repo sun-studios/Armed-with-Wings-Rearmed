@@ -269,22 +269,22 @@ function flatten(arrays:Array):Array {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="cForce">
-      <Inspectable name="force" variable="cForce" category="" verbose="0" defaultValue="0.8" type="Number"/>
+      <Inspectable name="force" unlocalizedName="force" variable="cForce" category="" verbose="0" defaultValue="0.8" type="Number"/>
    </property>
    <property id="cForceMax">
-      <Inspectable name="forceMax" variable="cForceMax" category="" verbose="0" defaultValue="8" type="Number"/>
+      <Inspectable name="forceMax" unlocalizedName="forceMax" variable="cForceMax" category="" verbose="0" defaultValue="8" type="Number"/>
    </property>
    <property id="cPrtDelay">
-      <Inspectable name="prtDelay" variable="cPrtDelay" category="" verbose="0" defaultValue="4" type="Number"/>
+      <Inspectable name="prtDelay" unlocalizedName="prtDelay" variable="cPrtDelay" category="" verbose="0" defaultValue="4" type="Number"/>
    </property>
    <property id="cDir">
-      <Inspectable name="cDir" variable="cDir" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="cDir" unlocalizedName="cDir" variable="cDir" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="cOn">
-      <Inspectable name="on" variable="cOn" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="on" unlocalizedName="on" variable="cOn" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="cBarrier">
-      <Inspectable name="barrier" variable="cBarrier" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="barrier" unlocalizedName="barrier" variable="cBarrier" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

@@ -126,10 +126,10 @@ function updateKillList():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="enemiesStrings">
-      <Inspectable name="enemies" variable="enemiesStrings" category="" verbose="0" defaultValue="" type="Array"/>
+      <Inspectable name="enemies" unlocalizedName="enemies" variable="enemiesStrings" category="" verbose="0" defaultValue="" type="Array"/>
    </property>
    <property id="enemiesKillStrings">
-      <Inspectable name="kill list for trigger" variable="enemiesKillStrings" category="" verbose="0" defaultValue="" type="Array"/>
+      <Inspectable name="kill list for trigger" unlocalizedName="kill list for trigger" variable="enemiesKillStrings" category="" verbose="0" defaultValue="" type="Array"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

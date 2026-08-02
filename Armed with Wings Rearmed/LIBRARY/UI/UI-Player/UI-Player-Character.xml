@@ -279,7 +279,7 @@ function control():void {
                     <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.35"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CONFIRM" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="CONFIRM" type="String"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -294,7 +294,7 @@ function control():void {
                     <DropShadowFilter blurX="4" blurY="4" distance="3" strength="0.35"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CHANGE CHARACTER" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="CHANGE CHARACTER" type="String"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>

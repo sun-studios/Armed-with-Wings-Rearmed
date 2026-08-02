@@ -116,19 +116,19 @@ function isHeroTouching():Boolean {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="zoomIn">
-      <Inspectable name="zoomIn" variable="zoomIn" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="zoomIn" unlocalizedName="zoomIn" variable="zoomIn" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="zoomOut">
-      <Inspectable name="zoomOut" variable="zoomOut" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="zoomOut" unlocalizedName="zoomOut" variable="zoomOut" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="stay">
-      <Inspectable name="stay" variable="stay" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="stay" unlocalizedName="stay" variable="stay" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="noHero">
-      <Inspectable name="noHero" variable="noHero" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="noHero" unlocalizedName="noHero" variable="noHero" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="doEagle">
-      <Inspectable name="eagle" variable="doEagle" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="eagle" unlocalizedName="eagle" variable="doEagle" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

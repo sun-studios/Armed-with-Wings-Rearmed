@@ -1,8 +1,8 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Settings/SettingsUI2" itemID="58cbd60b-000011b5" linkageExportForAS="true" linkageClassName="SettingsUI" lastModified="1496300704" lastUniqueIdentifier="6">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="UI/UI-Settings/SettingsUI2" itemID="58cbd60b-000011b5" linkageExportForAS="true" linkageClassName="SettingsUI" lastModified="1785569320" lastUniqueIdentifier="6">
   <timeline>
     <DOMTimeline name="SettingsUI2" guides='&lt;guidelines&gt;&lt;guideline direction="v"&gt;-107&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
-        <DOMLayer name="actions" color="#009999" autoNamed="false">
+        <DOMLayer name="actions" color="#009999" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
@@ -46,6 +46,8 @@ function init ():void {
 	selectIndexMax = 9;
 	if (gameData.STEAM) selectIndexMax = 10;
 	yOffset = container.y;
+	
+	steamstatus_tf.text = MovieClip(root).steamStatus;
 	
 	resetPanel.visible = false;
 	whiteScreen.visible = false;
@@ -276,10 +278,23 @@ function applyFilters():void {
                     <Point x="119.15" y="-16.6"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="_frame">
-      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="frame" unlocalizedName="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
+                <DOMDynamicText name="steamstatus_tf" width="239" height="11.15" isSelectable="false" lineType="multiline">
+                  <matrix>
+                    <Matrix tx="715" ty="523.15"/>
+                  </matrix>
+                  <textRuns>
+                    <DOMTextRun>
+                      <characters>Steam Status</characters>
+                      <textAttrs>
+                        <DOMTextAttrs alignment="right" aliasText="false" lineHeight="11.15" size="10" bitmapSize="200" face="_sans"/>
+                      </textAttrs>
+                    </DOMTextRun>
+                  </textRuns>
+                </DOMDynamicText>
               </elements>
             </DOMFrame>
           </frames>
@@ -355,7 +370,7 @@ function applyFilters():void {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="title" color="#FF4FFF" autoNamed="false">
+        <DOMLayer name="title" color="#FF4FFF" autoNamed="false" visible="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
@@ -371,11 +386,11 @@ function applyFilters():void {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="menu" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="menu" color="#FF800A" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 16" name="container" selected="true" centerPoint3DX="425.5" centerPoint3DY="360.45">
+                <DOMSymbolInstance libraryItemName="Misc/2017/Symbol 16" name="container" centerPoint3DX="425.5" centerPoint3DY="360.45">
                   <matrix>
                     <Matrix tx="500" ty="161.75"/>
                   </matrix>

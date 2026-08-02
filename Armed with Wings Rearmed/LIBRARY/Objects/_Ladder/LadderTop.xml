@@ -66,10 +66,10 @@ function update ():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="ladderName">
-      <Inspectable name="ladderName" variable="ladderName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+      <Inspectable name="ladderName" unlocalizedName="ladderName" variable="ladderName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
    </property>
    <property id="dir">
-      <Inspectable name="direction" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="direction" unlocalizedName="direction" variable="dir" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

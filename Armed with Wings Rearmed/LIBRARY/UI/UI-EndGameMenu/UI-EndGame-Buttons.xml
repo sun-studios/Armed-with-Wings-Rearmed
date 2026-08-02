@@ -168,10 +168,10 @@ function input(id:Number):void {
                     <DropShadowFilter blurX="16" blurY="16" distance="7" quality="2" strength="0.52"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="_label">
-      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="RETRY" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="_label" category="" verbose="0" defaultValue="RETRY" type="String"/>
    </property>
    <property id="_symbol">
-      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="1" type="Number"/>
+      <Inspectable name="symbol" unlocalizedName="symbol" variable="_symbol" category="" verbose="0" defaultValue="1" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -186,10 +186,10 @@ function input(id:Number):void {
                     <DropShadowFilter blurX="16" blurY="16" distance="7" quality="2" strength="0.52"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="_label">
-      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="LOADOUT" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="_label" category="" verbose="0" defaultValue="LOADOUT" type="String"/>
    </property>
    <property id="_symbol">
-      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="2" type="Number"/>
+      <Inspectable name="symbol" unlocalizedName="symbol" variable="_symbol" category="" verbose="0" defaultValue="2" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -204,10 +204,10 @@ function input(id:Number):void {
                     <DropShadowFilter blurX="16" blurY="16" distance="7" quality="2" strength="0.52"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="_label">
-      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="QUIT" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="_label" category="" verbose="0" defaultValue="QUIT" type="String"/>
    </property>
    <property id="_symbol">
-      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="3" type="Number"/>
+      <Inspectable name="symbol" unlocalizedName="symbol" variable="_symbol" category="" verbose="0" defaultValue="3" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>

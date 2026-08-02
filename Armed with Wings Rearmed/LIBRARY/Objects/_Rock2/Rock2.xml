@@ -583,16 +583,16 @@ function getGlobalY(offset:Number = 0):Number {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="cXSpeed">
-      <Inspectable name="speed" variable="cXSpeed" category="" verbose="0" defaultValue="10" type="Number"/>
+      <Inspectable name="speed" unlocalizedName="speed" variable="cXSpeed" category="" verbose="0" defaultValue="10" type="Number"/>
    </property>
    <property id="cJumpHeight">
-      <Inspectable name="jump height" variable="cJumpHeight" category="" verbose="0" defaultValue="20" type="Number"/>
+      <Inspectable name="jump height" unlocalizedName="jump height" variable="cJumpHeight" category="" verbose="0" defaultValue="20" type="Number"/>
    </property>
    <property id="cBounceCount">
-      <Inspectable name="bounceCount" variable="cBounceCount" category="" verbose="0" defaultValue="2" type="Number"/>
+      <Inspectable name="bounceCount" unlocalizedName="bounceCount" variable="cBounceCount" category="" verbose="0" defaultValue="2" type="Number"/>
    </property>
    <property id="cDir">
-      <Inspectable name="dir" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
+      <Inspectable name="dir" unlocalizedName="dir" variable="cDir" category="" verbose="0" defaultValue="1" type="Number"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

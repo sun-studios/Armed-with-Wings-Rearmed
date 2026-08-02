@@ -202,16 +202,16 @@ function endConvo(_skipped:Boolean = false):void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="party1_s">
-      <Inspectable name="party1" variable="party1_s" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+      <Inspectable name="party1" unlocalizedName="party1" variable="party1_s" category="" verbose="0" defaultValue="defaultValue" type="String"/>
    </property>
    <property id="party2_s">
-      <Inspectable name="party2" variable="party2_s" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+      <Inspectable name="party2" unlocalizedName="party2" variable="party2_s" category="" verbose="0" defaultValue="defaultValue" type="String"/>
    </property>
    <property id="cID">
-      <Inspectable name="convo ID" variable="cID" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="convo ID" unlocalizedName="convo ID" variable="cID" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="textFollow">
-      <Inspectable name="textFollow" variable="textFollow" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="textFollow" unlocalizedName="textFollow" variable="textFollow" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

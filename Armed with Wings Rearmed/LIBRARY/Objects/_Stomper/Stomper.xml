@@ -659,13 +659,13 @@ doFX();]]></script>
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="halfWayOffset">
-      <Inspectable name="halfWayOffset" variable="halfWayOffset" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="halfWayOffset" unlocalizedName="halfWayOffset" variable="halfWayOffset" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="hitDir">
-      <Inspectable name="hitDir" variable="hitDir" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="hitDir" unlocalizedName="hitDir" variable="hitDir" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="delay">
-      <Inspectable name="delay" variable="delay" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="delay" unlocalizedName="delay" variable="delay" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

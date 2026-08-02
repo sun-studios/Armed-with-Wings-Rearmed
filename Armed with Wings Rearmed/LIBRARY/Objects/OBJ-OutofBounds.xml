@@ -74,10 +74,10 @@ function update ():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="maxHeight">
-      <Inspectable name="maxHeight" variable="maxHeight" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="maxHeight" unlocalizedName="maxHeight" variable="maxHeight" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="spawnPoints">
-      <Inspectable name="spawnPoints" variable="spawnPoints" category="" verbose="0" defaultValue="" type="Array"/>
+      <Inspectable name="spawnPoints" unlocalizedName="spawnPoints" variable="spawnPoints" category="" verbose="0" defaultValue="" type="Array"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

@@ -37,6 +37,7 @@ package achievements
 			_gameData.addEventListener("LEVELCOMPLETED", updateOnLevelCompleted);
 			_gameData.addEventListener("GOALREACHED", updateOnGoalReached);
 			go = true;
+			trace("Am I ever called?!?!?!?!?!? AM I EVER CALLED?!?!");
 		}
 		
 		public function update ():void {
@@ -71,6 +72,8 @@ package achievements
 			}
 		}
 		function updateOnStoryCompleted (e:Event):void {
+			trace("STORY MODE COMPLETE");
+			
 			achieve7_conditionUpdate();
 			achieve8_conditionUpdate();
 			achieve9_conditionUpdate();
@@ -204,10 +207,10 @@ package achievements
 		}
 		
 		//PEERLESS WARRIOR
-		//KATANA - Complete the Story with the Katana < triggers by event dispatch
+		//KATANA - Complete the Story on Hard < triggers by event dispatch
 		private function achieve10_conditionUpdate():void {
 			if (!achievementData.isAchievementUnlocked(9)) {
-				if (gameData.gameDifficulty == gameData.gameDifficultyFutile) {
+				if (gameData.gameDifficulty == gameData.gameDifficultyfutile) {
 					achievementData.unlockAchiement(9);
 					addToDisplayQue(9);
 				}

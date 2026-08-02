@@ -167,10 +167,10 @@ function updateDial():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="doSound">
-      <Inspectable name="doSound" variable="doSound" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="doSound" unlocalizedName="doSound" variable="doSound" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="doMusic">
-      <Inspectable name="doMusic" variable="doMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="doMusic" unlocalizedName="doMusic" variable="doMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

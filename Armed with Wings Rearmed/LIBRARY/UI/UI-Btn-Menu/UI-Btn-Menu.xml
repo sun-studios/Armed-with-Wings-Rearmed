@@ -906,10 +906,10 @@ label_tf.text = _label;]]></script>
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="_label">
-      <Inspectable name="label" variable="_label" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="_label" category="" verbose="0" defaultValue="defaultValue" type="String"/>
    </property>
    <property id="_symbol">
-      <Inspectable name="symbol" variable="_symbol" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="symbol" unlocalizedName="symbol" variable="_symbol" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

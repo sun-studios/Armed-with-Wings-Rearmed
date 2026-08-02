@@ -112,13 +112,13 @@ function resume ():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="enArr">
-      <Inspectable name="enemies" variable="enArr" category="" verbose="0" defaultValue="" type="Array"/>
+      <Inspectable name="enemies" unlocalizedName="enemies" variable="enArr" category="" verbose="0" defaultValue="" type="Array"/>
    </property>
    <property id="cGate">
-      <Inspectable name="gate" variable="cGate" category="" verbose="0" defaultValue="-1" type="Number"/>
+      <Inspectable name="gate" unlocalizedName="gate" variable="cGate" category="" verbose="0" defaultValue="-1" type="Number"/>
    </property>
    <property id="cCamHelp">
-      <Inspectable name="camHelp" variable="cCamHelp" category="" verbose="0" defaultValue="-1" type="Number"/>
+      <Inspectable name="camHelp" unlocalizedName="camHelp" variable="cCamHelp" category="" verbose="0" defaultValue="-1" type="Number"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

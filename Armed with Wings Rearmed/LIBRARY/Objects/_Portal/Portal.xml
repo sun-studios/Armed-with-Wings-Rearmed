@@ -337,13 +337,13 @@ function teleport():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="teleportEagle">
-      <Inspectable name="teleportEagle" variable="teleportEagle" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="teleportEagle" unlocalizedName="teleportEagle" variable="teleportEagle" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="teleportHero">
-      <Inspectable name="teleportHero" variable="teleportHero" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="teleportHero" unlocalizedName="teleportHero" variable="teleportHero" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="telePointString">
-      <Inspectable name="telePoint" variable="telePointString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+      <Inspectable name="telePoint" unlocalizedName="telePoint" variable="telePointString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

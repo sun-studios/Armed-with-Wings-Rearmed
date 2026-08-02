@@ -51,7 +51,7 @@ function update ():void {
                     <Point x="-0.05"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="disableGrab">
-      <Inspectable name="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="true" type="Boolean"/>
+      <Inspectable name="disableGrab" unlocalizedName="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="true" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -63,7 +63,7 @@ function update ():void {
                     <Point x="-0.05"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="disableGrab">
-      <Inspectable name="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="true" type="Boolean"/>
+      <Inspectable name="disableGrab" unlocalizedName="disableGrab" variable="disableGrab" category="" verbose="0" defaultValue="true" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -75,7 +75,7 @@ function update ():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="masterName">
-      <Inspectable name="master" variable="masterName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+      <Inspectable name="master" unlocalizedName="master" variable="masterName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

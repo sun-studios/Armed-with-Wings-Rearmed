@@ -99,7 +99,6 @@ package achievements
 				trace("ACHIEVMENT "+id+" already unlocked");
 			}
 			gameData.unlockSteamAchievement();
-			gameData.unlockSteamAchievement();
 			gameData.acheivementsUnlocked = acheivementsUnlocked;
 		}
 		

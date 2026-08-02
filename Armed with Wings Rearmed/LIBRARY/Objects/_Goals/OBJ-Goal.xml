@@ -122,10 +122,10 @@ function getGlobalY(offset:Number = 0):Number {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="spawnID">
-      <Inspectable name="spawnID" variable="spawnID" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="spawnID" unlocalizedName="spawnID" variable="spawnID" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="stopMusic">
-      <Inspectable name="stopMusic" variable="stopMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="stopMusic" unlocalizedName="stopMusic" variable="stopMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

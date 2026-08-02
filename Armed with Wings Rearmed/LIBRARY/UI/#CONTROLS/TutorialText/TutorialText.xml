@@ -385,19 +385,19 @@ function appear():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="cLabelID">
-      <Inspectable name="labelID" variable="cLabelID" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="labelID" unlocalizedName="labelID" variable="cLabelID" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="cDelay">
-      <Inspectable name="delay" variable="cDelay" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="delay" unlocalizedName="delay" variable="cDelay" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="startInactive">
-      <Inspectable name="startInactive" variable="startInactive" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="startInactive" unlocalizedName="startInactive" variable="startInactive" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="eagleActivate">
-      <Inspectable name="eagleActivate" variable="eagleActivate" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="eagleActivate" unlocalizedName="eagleActivate" variable="eagleActivate" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="invert">
-      <Inspectable name="invert" variable="invert" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="invert" unlocalizedName="invert" variable="invert" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

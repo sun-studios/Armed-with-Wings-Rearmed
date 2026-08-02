@@ -101,10 +101,10 @@ function allEnemiesDead():Boolean {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="enemiesString">
-      <Inspectable name="enemies" variable="enemiesString" category="" verbose="0" defaultValue="" type="Array"/>
+      <Inspectable name="enemies" unlocalizedName="enemies" variable="enemiesString" category="" verbose="0" defaultValue="" type="Array"/>
    </property>
    <property id="gateName">
-      <Inspectable name="gate" variable="gateName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+      <Inspectable name="gate" unlocalizedName="gate" variable="gateName" category="" verbose="0" defaultValue="defaultValue" type="String"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

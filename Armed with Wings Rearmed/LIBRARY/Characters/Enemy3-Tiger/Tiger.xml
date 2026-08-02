@@ -703,10 +703,10 @@ function updateAnimation(animName:String):void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="maxX">
-      <Inspectable name="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="maxX" unlocalizedName="maxX" variable="maxX" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
    <property id="minX">
-      <Inspectable name="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="minX" unlocalizedName="minX" variable="minX" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>

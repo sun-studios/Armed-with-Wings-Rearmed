@@ -12,7 +12,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="actions" color="#4F80FF" autoNamed="false">
+        <DOMLayer name="actions" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
@@ -379,7 +379,7 @@ playerOptions.init();
                     <Point x="119.15" y="-16.6"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="_frame">
-      <Inspectable name="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
+      <Inspectable name="frame" unlocalizedName="frame" variable="_frame" category="" verbose="0" defaultValue="0" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -489,11 +489,11 @@ playerOptions.init();
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="button container" color="#FF800A" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="button container" color="#FF800A" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Btn-Container" name="container" selected="true" centerPoint3DX="840" centerPoint3DY="340">
+                <DOMSymbolInstance libraryItemName="UI/Menu2/_assets/Menu2-Btn-Container" name="container" centerPoint3DX="840" centerPoint3DY="340">
                   <matrix>
                     <Matrix tx="480" ty="340"/>
                   </matrix>

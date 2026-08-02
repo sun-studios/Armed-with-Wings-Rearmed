@@ -193,7 +193,7 @@ function cancel ():void {
                     <Color redMultiplier="-1" blueMultiplier="-1" greenMultiplier="-1" redOffset="255" blueOffset="255" greenOffset="255"/>
                   </color>
                   <parametersAsXML><![CDATA[   <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CONFIRM" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="CONFIRM" type="String"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -208,7 +208,7 @@ function cancel ():void {
                     <DropShadowFilter blurX="11" blurY="11" distance="4" strength="0.46"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CANCEL" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="CANCEL" type="String"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>

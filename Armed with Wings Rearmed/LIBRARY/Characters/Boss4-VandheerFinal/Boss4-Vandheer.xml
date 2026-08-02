@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss4-VandheerFinal/Boss4-Vandheer" itemID="56b2f3bc-00001684" lastModified="1496184137" lastUniqueIdentifier="6">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Characters/Boss4-VandheerFinal/Boss4-Vandheer" itemID="56b2f3bc-00001684" lastModified="1785628643" lastUniqueIdentifier="6">
   <timeline>
     <DOMTimeline name="Boss4-Vandheer" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;-251&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
@@ -82,7 +82,7 @@ init();
 function init(setLevel:Number = 0):void {
 	scaleX = -1;
 	
-	life = 170;// 400
+	life = 170;// 170
 	lifeOrig = 300;
 	
 	comboBreak = 8;
@@ -945,6 +945,10 @@ function damageEnemies():void {
 }
 
 function takeDamage(from:MovieClip, X:Number = 5, Y:Number = 0, damage:Number = 1, combo:Boolean = true):void {
+	CONFIG::BOSSONEHITKILL {
+		damage += 1000;
+	}
+	
 	if (takeDamageOn) {
 	if (!cinemaMode) {
 	if (currentFrameLabel == "dodge" && dodge.dodging) {
@@ -1440,7 +1444,7 @@ function distanceBetween(obj1:MovieClip,  obj2:MovieClip):Number {
             </DOMFrame>
             <DOMFrame index="4" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Attack" name="attack" selected="true" centerPoint3DX="-66.95" centerPoint3DY="-36.2">
+                <DOMSymbolInstance libraryItemName="Characters/Player-Vandheer/assets/Vandheer2-Attack" name="attack" centerPoint3DX="-66.95" centerPoint3DY="-36.2">
                   <matrix>
                     <Matrix a="0.998580932617188" d="0.998580932617188" tx="-2.7" ty="-35.65"/>
                   </matrix>

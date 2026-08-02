@@ -1,8 +1,8 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 16" itemID="58ce501d-00000f2b" lastModified="1496309827" lastUniqueIdentifier="18">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Misc/2017/Symbol 16" itemID="58ce501d-00000f2b" lastModified="1785568610" lastUniqueIdentifier="18">
   <timeline>
     <DOMTimeline name="Symbol 16">
       <layers>
-        <DOMLayer name="Layer 2" color="#9933CC" current="true" isSelected="true">
+        <DOMLayer name="Layer 2" color="#9933CC">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <Actionscript>
@@ -161,7 +161,7 @@ function reinit():void {
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Layer 1" color="#4F80FF">
+        <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
@@ -209,7 +209,7 @@ function reinit():void {
                     <Color brightness="0.75"/>
                   </color>
                 </DOMSymbolInstance>
-                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="btn0" uniqueID="1">
+                <DOMComponentInstance libraryItemName="UI/UI-Btn-Thin/UI-Btn-Thin-Icon2" name="btn0" selected="true" uniqueID="1">
                   <matrix>
                     <Matrix a="0.882522583007813" d="0.882522583007813" tx="-1.1" ty="398.2"/>
                   </matrix>
@@ -220,7 +220,7 @@ function reinit():void {
                     <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.46"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="CONTROLS" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="CONTROLS" type="String"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -235,7 +235,7 @@ function reinit():void {
                     <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.46"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="DEFAULT" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="DEFAULT" type="String"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -250,7 +250,7 @@ function reinit():void {
                     <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.46"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="RESET ALL DATA" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="RESET ALL DATA" type="String"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -310,10 +310,10 @@ function reinit():void {
                     <Point x="-0.75"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="doSound">
-      <Inspectable name="doSound" variable="doSound" category="" verbose="0" defaultValue="true" type="Boolean"/>
+      <Inspectable name="doSound" unlocalizedName="doSound" variable="doSound" category="" verbose="0" defaultValue="true" type="Boolean"/>
    </property>
    <property id="doMusic">
-      <Inspectable name="doMusic" variable="doMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="doMusic" unlocalizedName="doMusic" variable="doMusic" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -325,10 +325,10 @@ function reinit():void {
                     <Point x="-0.75"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="doSound">
-      <Inspectable name="doSound" variable="doSound" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="doSound" unlocalizedName="doSound" variable="doSound" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="doMusic">
-      <Inspectable name="doMusic" variable="doMusic" category="" verbose="0" defaultValue="true" type="Boolean"/>
+      <Inspectable name="doMusic" unlocalizedName="doMusic" variable="doMusic" category="" verbose="0" defaultValue="true" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -340,7 +340,7 @@ function reinit():void {
                     <Point x="0.75" y="-0.2"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="id">
-      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
+      <Inspectable name="id" unlocalizedName="id" variable="id" category="" verbose="0" defaultValue="1" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -379,7 +379,7 @@ function reinit():void {
                     <Point x="0.75" y="-0.2"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="id">
-      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
+      <Inspectable name="id" unlocalizedName="id" variable="id" category="" verbose="0" defaultValue="2" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -391,7 +391,7 @@ function reinit():void {
                     <Point x="0.75" y="-0.2"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="id">
-      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
+      <Inspectable name="id" unlocalizedName="id" variable="id" category="" verbose="0" defaultValue="3" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -454,7 +454,7 @@ function reinit():void {
                     <Point x="0.75" y="-0.2"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="id">
-      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="4" type="Number"/>
+      <Inspectable name="id" unlocalizedName="id" variable="id" category="" verbose="0" defaultValue="4" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -466,7 +466,7 @@ function reinit():void {
                     <Point x="0.75" y="-0.2"/>
                   </transformationPoint>
                   <parametersAsXML><![CDATA[   <property id="id">
-      <Inspectable name="id" variable="id" category="" verbose="0" defaultValue="5" type="Number"/>
+      <Inspectable name="id" unlocalizedName="id" variable="id" category="" verbose="0" defaultValue="5" type="Number"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>
@@ -481,7 +481,7 @@ function reinit():void {
                     <DropShadowFilter blurX="11" blurY="11" distance="4" quality="2" strength="0.46"/>
                   </filters>
                   <parametersAsXML><![CDATA[   <property id="label">
-      <Inspectable name="label" variable="label" category="" verbose="0" defaultValue="WIPE STEAM DATA" type="String"/>
+      <Inspectable name="label" unlocalizedName="label" variable="label" category="" verbose="0" defaultValue="WIPE STEAM DATA" type="String"/>
    </property>
 ]]></parametersAsXML>
                 </DOMComponentInstance>

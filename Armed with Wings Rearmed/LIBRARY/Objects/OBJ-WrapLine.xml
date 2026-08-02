@@ -64,13 +64,13 @@ function update ():void {
     </DOMTimeline>
   </timeline>
   <parametersAsXML><![CDATA[   <property id="partnerString">
-      <Inspectable name="partner" variable="partnerString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
+      <Inspectable name="partner" unlocalizedName="partner" variable="partnerString" category="" verbose="0" defaultValue="defaultValue" type="String"/>
    </property>
    <property id="onLeft">
-      <Inspectable name="left" variable="onLeft" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="left" unlocalizedName="left" variable="onLeft" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
    <property id="onRight">
-      <Inspectable name="right" variable="onRight" category="" verbose="0" defaultValue="false" type="Boolean"/>
+      <Inspectable name="right" unlocalizedName="right" variable="onRight" category="" verbose="0" defaultValue="false" type="Boolean"/>
    </property>
 ]]></parametersAsXML>
 </DOMComponentItem>
