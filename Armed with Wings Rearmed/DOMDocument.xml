@@ -3480,7 +3480,7 @@
           <Include href="WarMode/WarMode-Object.xml" loadImmediate="false" itemID="5557dcdb-00006012" lastModified="1489752952"/>
      </symbols>
      <timelines>
-          <DOMTimeline name="Setup" currentFrame="2">
+          <DOMTimeline name="Setup">
                <layers>
                     <DOMLayer name="entrypoint" color="#9933CC" current="true" isSelected="true" autoNamed="false">
                          <frames>
@@ -3500,11 +3500,193 @@ import flash.display.NativeWindow;
 import flash.desktop.NativeApplication;
 }
 
+//=== BOOT DIAGNOSTICS (added to trace the black-screen issue) =================
+// Writes a boot_log.txt next to the save file AND shows an on-screen overlay,
+// so if the game hangs on the black boot screen we can see exactly where.
+import flash.text.TextField;
+import flash.text.TextFormat;
+import flash.events.UncaughtErrorEvent;
+import flash.system.Capabilities;
+CONFIG::AIR {
+import flash.filesystem.File;
+import flash.filesystem.FileMode;
+import flash.filesystem.FileStream;
+}
+
+var _bootStage:String = "start";
+var _bootLogText:String = "";
+var _bootField:TextField;
+var _safeMode:Boolean = false;
+
+function _bootLogPath():String {
+	return "My Games/Armed with Wings Rearmed/boot_log.txt";
+}
+
+// Robust save-directory resolution (added for the Error #2014 black-screen fix).
+// On some Windows machines File.documentsDirectory itself throws Error #2014
+// ("Feature is not available at this time.") - e.g. when the Documents known-folder
+// is redirected or unavailable. That call sat *outside* loadData's try/catch, so the
+// exception went uncaught and left the boot playhead stopped on a black frame forever.
+// We now resolve the save dir ONCE, with a fall-back to the app-private
+// applicationStorageDirectory (which does not depend on Windows known-folders and
+// effectively never fails), and route all save/load/log file access through it.
+// NOTE: these are declared at TOP LEVEL (not inside a CONFIG::AIR block) so they
+// hoist as MainTimeline methods and are callable from every frame/scene. Only the
+// File-using code inside the bodies is gated by CONFIG::AIR. Return type is untyped
+// (:*) so the signatures also compile in non-AIR builds where the File class is absent.
+var _saveDirResolved:Boolean = false;
+var _saveDirBase:Object = null;
+var _saveDirIsAppStorage:Boolean = false;
+
+function gameSaveDir():* {
+	CONFIG::AIR {
+		if (_saveDirResolved) return _saveDirBase;
+		_saveDirResolved = true;
+		// Preferred: Documents\My Games\Armed with Wings Rearmed (existing location for the vast majority of players).
+		try {
+			var d:File = File.documentsDirectory.resolvePath("My Games/Armed with Wings Rearmed");
+			if (!d.exists) d.createDirectory();
+			_saveDirBase = d;
+			_saveDirIsAppStorage = false;
+			return _saveDirBase;
+		} catch (docErr:Error) {
+			bootLog("saveDir: documentsDirectory unavailable (" + docErr.message + ") - using app-storage fallback");
+		}
+		// Fallback: application storage directory (app-private; independent of Windows known-folders).
+		try {
+			var a:File = File.applicationStorageDirectory.resolvePath("Armed with Wings Rearmed");
+			if (!a.exists) a.createDirectory();
+			_saveDirBase = a;
+			_saveDirIsAppStorage = true;
+			return _saveDirBase;
+		} catch (appErr:Error) {
+			bootLog("saveDir: applicationStorageDirectory ALSO failed (" + appErr.message + ")");
+		}
+		_saveDirBase = null;
+	}
+	return null;
+}
+
+function gameSaveFile(fileName:String):* {
+	CONFIG::AIR {
+		var base:* = gameSaveDir();
+		if (base == null) return null;
+		try {
+			return base.resolvePath(fileName);
+		} catch (resErr:Error) {
+			return null;
+		}
+	}
+	return null;
+}
+
+// bootLog is deliberately bullet-proof: it must never throw, or it could itself
+// cause the hang it is meant to diagnose.
+function bootLog(step:String):void {
+	_bootStage = step;
+	// 1) on-screen overlay
+	try {
+		_bootLogText += step + "\n";
+		if (_bootField) {
+			_bootField.text = _bootLogText;
+			_bootField.scrollV = _bootField.maxScrollV;
+		}
+	} catch (uiErr:Error) {}
+	// 2) append to a log file the player can send back to us (AIR desktop only)
+	CONFIG::AIR {
+		try {
+			var f:File = gameSaveFile("boot_log.txt");
+			if (f != null) {
+				var fs:FileStream = new FileStream();
+				fs.open(f, FileMode.APPEND);
+				fs.writeUTFBytes(step + "\r\n");
+				fs.close();
+			}
+		} catch (logErr:Error) {}
+	}
+}
+
+function _bootCreateField():void {
+	try {
+		_bootField = new TextField();
+		_bootField.width = 920;
+		_bootField.height = 520;
+		_bootField.x = 12;
+		_bootField.y = 12;
+		_bootField.multiline = true;
+		_bootField.wordWrap = true;
+		_bootField.selectable = false;
+		_bootField.mouseEnabled = false;
+		_bootField.background = true;
+		_bootField.backgroundColor = 0x101010;
+		_bootField.textColor = 0xFFEE55;
+		var tf:TextFormat = new TextFormat();
+		tf.font = "_sans";
+		tf.size = 15;
+		_bootField.defaultTextFormat = tf;
+		stage.addChild(_bootField);
+	} catch (fieldErr:Error) {}
+}
+
+function _bootHideField():void {
+	try {
+		if (_bootField && _bootField.parent) _bootField.parent.removeChild(_bootField);
+	} catch (hideErr:Error) {}
+}
+
+function _bootOnUncaught(e:UncaughtErrorEvent):void {
+	var msg:String;
+	if (e.error is Error) {
+		msg = "!! UNCAUGHT at [" + _bootStage + "]: " + Error(e.error).message;
+		try { msg += "\n" + Error(e.error).getStackTrace(); } catch (stErr:Error) {}
+	} else {
+		msg = "!! UNCAUGHT at [" + _bootStage + "]: " + String(e.error);
+	}
+	bootLog(msg);
+}
+
+// start a fresh log for this launch (overwrite previous)
+CONFIG::AIR {
+	try {
+		var _lf:File = gameSaveFile("boot_log.txt");
+		if (_lf != null) {
+			var _lfs:FileStream = new FileStream();
+			_lfs.open(_lf, FileMode.WRITE);
+			_lfs.writeUTFBytes("=== BOOT " + new Date().toString() + " ===\r\n");
+			_lfs.close();
+		}
+	} catch (initErr:Error) {}
+}
+
+_bootCreateField();
+try {
+	loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, _bootOnUncaught);
+} catch (regErr:Error) {}
+bootLog("frame0: entrypoint reached");
+// log the hardware/display environment - key for the "black screen on some machines" case
+try {
+	bootLog("env: player=" + Capabilities.version + " os=" + Capabilities.os + " cpu=" + Capabilities.cpuArchitecture + " screen=" + Capabilities.screenResolutionX + "x" + Capabilities.screenResolutionY + " debugger=" + Capabilities.isDebugger);
+	bootLog("env: stage=" + stage.stageWidth + "x" + stage.stageHeight + " displayState=" + stage.displayState);
+} catch (envErr:Error) {}
+// opt-in safe mode: if the player drops an empty "safe_mode.txt" in the save folder,
+// skip fullscreen (the #1 suspect for a machine-specific black screen) and boot windowed.
+CONFIG::AIR {
+	try {
+		var _smf:File = gameSaveFile("safe_mode.txt");
+		if (_smf != null && _smf.exists) {
+			_safeMode = true;
+			bootLog("SAFE MODE ENABLED (safe_mode.txt present) - will force windowed");
+		}
+	} catch (smErr:Error) {}
+}
+//=== END BOOT DIAGNOSTICS =====================================================
+
 var gameWidth:Number;
 var gameHeight:Number;
-var gameVersion:String = "1.0.7";
+var gameVersion:String = "1.0.10";
 var gameVersionArr:Array = new Array();
-	gameVersionArr = [1,0,7];
+	gameVersionArr = [1,0,10];
+bootLog("frame0: version " + gameVersion);
 var startingLevel:Number = 1;
 
 var fullscreen:Boolean = true;
@@ -3567,8 +3749,10 @@ stage.quality = StageQuality.LOW;
 stage.color = 0x000000;
 if (!DebugControl.showMouse) Mouse.hide();
  
+bootLog("frame0: pre CameraDistCheck/TextData");
 addChild(new CameraDistCheck(MovieClip(root)));
 var textData:TextData = new TextData();
+bootLog("frame0: CameraDistCheck + TextData ok");
 
 setResolution(data_scaleFactor);
 
@@ -3668,7 +3852,8 @@ function closeApplication():void {
                               </DOMFrame>
                               <DOMFrame index="11" keyMode="9728">
                                    <Actionscript>
-                                        <script><![CDATA[setQuality(data_gameQuality);
+                                        <script><![CDATA[bootLog("frame11: setQuality/gameMode");
+setQuality(data_gameQuality);
 
 //startingLevel = 40;
 //gameDifficulty = gameDifficultySuperFutile;
@@ -3703,6 +3888,7 @@ import PlayerControl;
 import flash.ui.GameInput;
 import flash.events.GameInputEvent;
 
+bootLog("frame1: controls begin");
 var gameInput:GameInput;
 
 var playerControls:Array;
@@ -3826,6 +4012,7 @@ import flash.media.SoundTransform;
 import flash.events.Event;
 import com.greensock.TweenMax;
 
+bootLog("frame2: audio begin");
 var currentMusic:Sound;
 var cacheMusicPos:Number;
 var musicChannel:SoundChannel = new SoundChannel();
@@ -4295,6 +4482,7 @@ function unMuteSound():void {
 //the standard is 10. more than 10 is enhancment
 //less than 10 is weaker than standard
 
+bootLog("frame3: stats begin");
 var data_equiptedWeapon:int = 0;
 var data_equiptedWeapon_p2:int = 0;
 
@@ -4590,6 +4778,7 @@ function dataIsGearEquipt(gearName:String, playerID:int = 0):Boolean {
                               <DOMFrame index="4" duration="8" keyMode="9728">
                                    <Actionscript>
                                         <script><![CDATA[
+bootLog("frame4: weapon data begin");
 var data_numofWeapons:int = 60;
 var data_numofWeapUNLOCKED:int = 4;
 var data_numofWeapNORMAL:int = 39;
@@ -5275,7 +5464,8 @@ var data_weap59_assignedBoosters:Array = [[0,0,0,0],[0,0,0,0]];
                               </DOMFrame>
                               <DOMFrame index="5" duration="7" keyMode="9728">
                                    <Actionscript>
-                                        <script><![CDATA[var char_loneWarrior_unlocked:Boolean = true;
+                                        <script><![CDATA[bootLog("frame5: unlock data begin");
+var char_loneWarrior_unlocked:Boolean = true;
 var char_vandheer_unlocked:Boolean;
 var char_SuperLoneWarrior_unlocked:Boolean;
 var char_VampireStrike_unlocked:Boolean = true;
@@ -5658,8 +5848,11 @@ var sharedObject:SharedObject;
 
 loadData();
 
+bootLog("frame6: applying display (fullscreen=" + fullscreen + ", safeMode=" + _safeMode + ")");
+if (_safeMode) { fullscreen = false; bootLog("frame6: SAFE MODE -> forcing windowed"); }
 if (fullscreen) displayFullscreen();
 else displayWindow();
+try { bootLog("frame6: display applied, displayState=" + stage.displayState + " stage=" + stage.stageWidth + "x" + stage.stageHeight); } catch (dispErr:Error) {}
 
 function saveData():void {
 	trace("Saving Data");
@@ -5737,42 +5930,59 @@ function saveData():void {
 	saveData["weaponBoosterSets"] = arr as Array;
 	
 	CONFIG::AIR {
-		var savename:String = "SaveData_v2.sav";
-		var savefile:File;
-		savefile=File.documentsDirectory.resolvePath("My Games/Armed with Wings Rearmed/" + savename);
-		var filestream:FileStream=new FileStream();
-		filestream.open(savefile, FileMode.WRITE);
-		filestream.writeObject(saveData);
-		filestream.close();
+		try {
+			var savename:String = "SaveData_v2.sav";
+			var savefile:File = gameSaveFile(savename);
+			if (savefile != null) {
+				var filestream:FileStream=new FileStream();
+				filestream.open(savefile, FileMode.WRITE);
+				filestream.writeObject(saveData);
+				filestream.close();
+			} else {
+				bootLog("saveData: no writable save location - skipped");
+			}
+		} catch (saveErr:Error) {
+			bootLog("saveData: !! FAILED: " + saveErr.message);
+		}
 	}
 }
 
 function clearData():void {
 	CONFIG::AIR {
-		var savename:String = "SaveData_v2.sav";
-		var savefile:File;
-		savefile=File.documentsDirectory.resolvePath("My Games/Armed with Wings Rearmed/" + savename);
-		var filestream:FileStream=new FileStream();
-		savefile.moveTo(File.documentsDirectory.resolvePath("My Games/Armed with Wings Rearmed/SaveData_v2_backup.sav"), true);
-		filestream.close();
-		
+		try {
+			var savename:String = "SaveData_v2.sav";
+			var savefile:File = gameSaveFile(savename);
+			var backupfile:File = gameSaveFile("SaveData_v2_backup.sav");
+			if (savefile != null && backupfile != null && savefile.exists) {
+				savefile.moveTo(backupfile, true);
+			}
+		} catch (clrErr:Error) {
+			bootLog("clearData: !! FAILED: " + clrErr.message);
+		}
 		closeApplication();
 	}
 }
 
 function loadData():void {
 	trace("Loading Data");
-	
+	bootLog("frame6: loadData() begin");
+	bootLog("frame6: resolving save dir [build 1.0.9 - #2014 fallback active]");
+
 	CONFIG::AIR {
+		// Wrap ALL File access so a broken save directory (e.g. Error #2014 from
+		// File.documentsDirectory) can never leave the boot playhead on a black frame.
+		try {
 		var savename:String = "SaveData_v2.sav";
-		var savefile:File;
-		savefile=File.documentsDirectory.resolvePath("My Games/Armed with Wings Rearmed/" + savename);
-		if(savefile.exists)
+		var savefile:File = gameSaveFile(savename);
+		if(savefile != null && savefile.exists)
 		{
-			var filestream:FileStream=new FileStream();	
+			bootLog("frame6: save file found - reading");
+			try {
+			var filestream:FileStream=new FileStream();
 			filestream.open(savefile, FileMode.READ);
 			var $savedata:Object = filestream.readObject();
 			filestream.close();
+			bootLog("frame6: readObject OK - applying fields");
 	 
 			isSoundMute = $savedata.isSoundMute;
 			isMusicMute = $savedata.isMusicMute;
@@ -5878,10 +6088,26 @@ function loadData():void {
 				}
 			}
 			
+			} catch (loadErr:Error) {
+				bootLog("frame6: !! LOAD FAILED at [" + _bootStage + "]: " + loadErr.message);
+				try { bootLog(loadErr.getStackTrace()); } catch (stErr:Error) {}
+				try {
+					var corruptFile:File = gameSaveFile("SaveData_v2.corrupt.sav");
+					if (corruptFile != null) savefile.copyTo(corruptFile, true);
+					bootLog("frame6: backed up bad save to SaveData_v2.corrupt.sav");
+				} catch (bkErr:Error) { bootLog("frame6: backup failed: " + bkErr.message); }
+			}
 		}
 		else
 		{
+			bootLog("frame6: no save file (first run or save dir unavailable)");
 			trace("***[Error]*** Save file does not exist!");
+		}
+		} catch (dirErr:Error) {
+			// e.g. Error #2014 (File.documentsDirectory unavailable). Boot with defaults
+			// instead of hanging on a black frame; saves fall back to app storage.
+			bootLog("frame6: !! SAVE DIR/IO FAILED at [" + _bootStage + "]: " + dirErr.message + " - booting with defaults");
+			try { bootLog(dirErr.getStackTrace()); } catch (stErr2:Error) {}
 		}
 		savingComplete(null);
 	}
@@ -5890,6 +6116,7 @@ function loadData():void {
 function savingComplete(e:Event):void {
 	fixStoryData();
 	trace("Load complete");
+	bootLog("frame6: loadData done -> play()");
 	play();
 }
 
@@ -6293,6 +6520,7 @@ import flash.display.MovieClip;
 import achievements.AchievementConditions;
 import flash.events.Event;
 
+bootLog("frame7: achievements begin");
 var achievementData:AchievementData = new AchievementData(this);
 
 var uiAchievePopup:MovieClip = new UIAchievePopup();
@@ -6336,6 +6564,7 @@ import com.amanitadesign.steam.UserStatsConstants;
 var steamworks:FRESteamWorks;
 //enable or disable
 }
+bootLog("frame8: steam frame begin");
 var STEAM:Boolean = true;
 var PAX:Boolean = false;
 var ONLYSURVIVAL:Boolean = false;
@@ -6482,7 +6711,8 @@ function uploadTime(boardName:String, time:Number):void {
                               </DOMFrame>
                               <DOMFrame index="9" duration="3" keyMode="9728">
                                    <Actionscript>
-                                        <script><![CDATA[if (PAX) {
+                                        <script><![CDATA[bootLog("frame9: pax frame");
+if (PAX) {
 	unlockAll();
 	
 	//equipt abbott
@@ -6520,7 +6750,9 @@ function uploadTime(boardName:String, time:Number):void {
                                    <Actionscript>
                                         <script><![CDATA[controlUpdate();
 stop();
-forceDisplayAchievePopup();]]></script>
+forceDisplayAchievePopup();
+bootLog("BOOT COMPLETE - menu shown; " + steamStatus);
+_bootHideField();]]></script>
                                    </Actionscript>
                                    <elements/>
                               </DOMFrame>
@@ -8540,6 +8772,7 @@ forceDisplayAchievePopup();]]></script>
      </persistentData>
      <PrinterSettings/>
      <publishHistory>
+          <PublishItem publishSize="77199303" publishTime="1785736276"/>
           <PublishItem publishSize="77200823" publishTime="1785635298"/>
           <PublishItem publishSize="78205123" publishTime="1785634992"/>
           <PublishItem publishSize="77196750" publishTime="1785631951"/>
@@ -8559,7 +8792,6 @@ forceDisplayAchievePopup();]]></script>
           <PublishItem publishSize="15467029" publishTime="1785568850"/>
           <PublishItem publishSize="78200594" publishTime="1785566322"/>
           <PublishItem publishSize="78200594" publishTime="1785566297"/>
-          <PublishItem publishSize="78205504" publishTime="1785566256"/>
      </publishHistory>
      <swcCache>
           <Swc hashKey="lBSX9Y5jU7802yucctAf9/" href="enhrqcgzlq.swc">
